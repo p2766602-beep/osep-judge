@@ -198,6 +198,26 @@
     position: relative;
 }
 
+.judge-panel-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding-left: $space;
+    padding-right: $space;
+    padding-top: $space;
+    width: 400px;
+    flex-shrink: 0;
+    overflow-y: auto;
+}
+
+.hidden-stage {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+
 .stage-and-target-wrapper {
     /*
         Makes rows for children:
