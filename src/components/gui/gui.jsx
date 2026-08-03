@@ -20,6 +20,7 @@ import MenuBar from '../menu-bar/menu-bar.jsx';
 import CostumeLibrary from '../../containers/costume-library.jsx';
 import BackdropLibrary from '../../containers/backdrop-library.jsx';
 import Watermark from '../../containers/watermark.jsx';
+import JudgePanel from '../judge-panel/judge-panel.jsx';
 
 import Backpack from '../../containers/backpack.jsx';
 import BrowserModal from '../browser-modal/browser-modal.jsx';
@@ -400,7 +401,7 @@ const GUIComponent = props => {
                             />
                         </Box>
                         <Box className={styles.judgePanelWrapper}>
-                            <p>題目面板（開發中，MVP-33-3）</p>
+                            <JudgePanel vm={vm} />
                         </Box>
                     </Box>
                 </Box>

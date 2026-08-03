@@ -1,0 +1,143 @@
+@import "../../css/units.css";
+@import "../../css/colors.css";
+
+.judge-panel {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: $ui-white;
+    border: 1px solid $ui-black-transparent;
+    border-radius: $form-radius;
+    overflow: hidden;
+}
+
+.header {
+    padding: $space;
+    background-color: $looks-secondary;
+    color: $ui-white;
+    font-weight: bold;
+}
+
+.task-title {
+    font-size: 1rem;
+}
+
+.tab-bar {
+    display: flex;
+    border-bottom: 1px solid $ui-black-transparent;
+}
+
+.tab-button {
+    flex: 1;
+    padding: $space;
+    border: none;
+    background: $ui-tertiary;
+    color: $text-primary-transparent;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.tab-button:hover {
+    background: $ui-primary;
+}
+
+.tab-button-active {
+    composes: tab-button;
+    background: $ui-white;
+    color: $looks-secondary;
+    font-weight: bold;
+}
+
+.tab-content {
+    padding: $space;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+.section-heading {
+    font-size: 0.9rem;
+    margin: $space 0;
+}
+
+.description {
+    white-space: pre-wrap;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.example-box {
+    background: $ui-tertiary;
+    border-radius: $form-radius;
+    padding: $space;
+    margin-bottom: $space;
+    font-size: 0.8rem;
+}
+
+.example-label {
+    font-weight: bold;
+    margin-bottom: calc($space / 2);
+}
+
+.example-explanation {
+    white-space: pre-wrap;
+    color: $text-primary-transparent;
+    margin-top: calc($space / 2);
+}
+
+.placeholder {
+    color: $text-primary-transparent;
+    font-size: 0.85rem;
+}
+
+.run-button {
+    background: $looks-secondary;
+    color: $ui-white;
+    border: none;
+    border-radius: $form-radius;
+    padding: $space calc($space * 2);
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.run-button:disabled {
+    opacity: 0.6;
+    cursor: default;
+}
+
+.results-box {
+    margin-top: $space;
+}
+
+.score-line {
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: $space;
+}
+
+.result-row {
+    display: flex;
+    gap: $space;
+    padding: calc($space / 2) 0;
+    font-size: 0.8rem;
+    border-bottom: 1px solid $ui-black-transparent;
+}
+
+.pass {
+    color: #2e7d32;
+    font-weight: bold;
+}
+
+.fail {
+    color: #c62828;
+    font-weight: bold;
+}
+
+.result-input {
+    color: $text-primary-transparent;
+}
+
+.error-box {
+    margin-top: $space;
+    color: #c62828;
+    font-size: 0.85rem;
+}
