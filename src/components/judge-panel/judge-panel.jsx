@@ -1,39 +1,16 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import VM from 'scratch-vm';
-import {gradeSubmission, prepareVmForGrading} from '../../lib/tw-judge-engine.js';
+import {gradeSubmission, prepareVmForGrading, runTestCase} from '../../lib/tw-judge-engine.js';
+import {courses, findTaskByCode} from '../../lib/judge-content.js';
+import TaskList from './task-list.jsx';
 import styles from './judge-panel.css';
 
 /**
- * MVP-33-3：題目面板，仿官方平台(demo.csie.ntnu.edu.tw/ps)的
- * 說明/自行測試/評分/評分紀錄四分頁版面。
- *
- * 注意：本檔案完成時Chrome瀏覽器擴充功能無法連線，只用npm run build驗證過語法/打包
- * 不報錯，尚未在瀏覽器裡實際點過分頁、按過評分按鈕。下次有瀏覽器務必實際操作驗證。
- *
- * 目前題目內容先寫死M0-01第一小題（A-01-0），courseCode載入機制留給之後的MVP再做。
+ * MVP-33後續：題目面板，仿官方平台(demo.csie.ntnu.edu.tw/ps)的
+ * 說明/自行測試/評分/評分紀錄四分頁版面，加上方案C的課程/題目瀏覽清單
+ * （取代BlocklyYdws的courseCode輸入代碼方式）。
  */
-
-const TASK = {
-    code: 'M0-01-A-01-0',
-    title: 'Hello world',
-    description: [
-        '在程式設計的第一步，最重要的是能夠讀取使用者輸入，並將結果正確輸出。',
-        '請你寫一個小程式，讓使用者輸入自己的名字，然後程式要輸出一行「Hello, 名字」。',
-        'Hello後面會接小寫逗號，還有一個空白輸入',
-        '這樣的練習可以幫助你理解輸入與輸出，是學習程式設計的基礎。'
-    ].join('\n'),
-    examples: [
-        {input: 'Amy', output: 'Hello, Amy', explanation: '第一個輸入 Amy，代表名字為 Amy\n程式輸出 Hello, Amy'},
-        {input: 'Tom', output: 'Hello, Tom', explanation: ''}
-    ],
-    testCases: [
-        {input: 'John', expectedOutput: 'Hello, John', score: 10},
-        {input: 'Marry', expectedOutput: 'Hello, Marry', score: 10},
-        {input: 'Sam', expectedOutput: 'Hello, Sam', score: 10},
-        {input: 'Tom', expectedOutput: 'Hello, Tom', score: 10}
-    ]
-};
 
 const TABS = [
     {id: 'description', label: '說明'},
@@ -42,12 +19,49 @@ const TABS = [
     {id: 'history', label: '評分紀錄'}
 ];
 
-const DescriptionTab = () => (
+const HISTORY_STORAGE_KEY_PREFIX = 'osepJudgeHistory:';
+
+const loadHistory = taskCode => {
+    try {
+        const raw = window.localStorage.getItem(HISTORY_STORAGE_KEY_PREFIX + taskCode);
+        return raw ? JSON.parse(raw) : [];
+    } catch (e) {
+        return [];
+    }
+};
+
+const saveHistoryEntry = (taskCode, entry) => {
+    const history = [entry, ...loadHistory(taskCode)].slice(0, 50);
+    try {
+        window.localStorage.setItem(HISTORY_STORAGE_KEY_PREFIX + taskCode, JSON.stringify(history));
+    } catch (e) {
+        // localStorage不可用或已滿，忽略，不影響評分本身
+    }
+    return history;
+};
+
+/**
+ * 評分/自行測試前後保存並還原每個角色的visible狀態（見tw-judge-engine.js的visible陷阱說明），
+ * 避免影響學生原本編輯畫面。
+ */
+const withVisibilityRestore = async (vm, fn) => {
+    const previousVisibility = vm.runtime.targets.map(target => ({target, visible: target.visible}));
+    try {
+        prepareVmForGrading(vm);
+        return await fn();
+    } finally {
+        previousVisibility.forEach(({target, visible}) => {
+            target.visible = visible;
+        });
+    }
+};
+
+const DescriptionTab = ({task, onLoadDemo, demoStatus}) => (
     <div className={styles.tabContent}>
         <h3 className={styles.sectionHeading}>題目敘述</h3>
-        <p className={styles.description}>{TASK.description}</p>
+        <p className={styles.description}>{task.description}</p>
         <h3 className={styles.sectionHeading}>範例測資</h3>
-        {TASK.examples.map((example, index) => (
+        {task.examples.map((example, index) => (
             <div className={styles.exampleBox} key={index}>
                 <div className={styles.exampleLabel}>範例 {index + 1}</div>
                 <div><strong>輸入：</strong>{example.input}</div>
@@ -57,16 +71,80 @@ const DescriptionTab = () => (
                 ) : null}
             </div>
         ))}
+        {task.loadable ? (
+            <React.Fragment>
+                <button
+                    className={styles.demoButton}
+                    onClick={onLoadDemo}
+                >
+                    載入範例
+                </button>
+                {demoStatus ? (
+                    <div className={styles.demoStatus}>{demoStatus}</div>
+                ) : null}
+            </React.Fragment>
+        ) : null}
     </div>
 );
+DescriptionTab.propTypes = {
+    demoStatus: PropTypes.string,
+    onLoadDemo: PropTypes.func.isRequired,
+    task: PropTypes.shape({
+        description: PropTypes.string,
+        examples: PropTypes.array,
+        loadable: PropTypes.bool
+    }).isRequired
+};
 
-const SelfTestTab = () => (
-    <div className={styles.tabContent}>
-        <p className={styles.placeholder}>自行測試（待補：MVP-33後續，先讓學生手動輸入自訂測資試跑）</p>
-    </div>
-);
+const SelfTestTab = ({vm}) => {
+    const [input, setInput] = useState('');
+    const [output, setOutput] = useState(null);
+    const [running, setRunning] = useState(false);
 
-const GradingTab = ({vm, grading, onRunGrading}) => (
+    const handleRun = async () => {
+        setRunning(true);
+        setOutput(null);
+        try {
+            const result = await withVisibilityRestore(
+                vm, () => runTestCase(vm, {input, expectedOutput: null})
+            );
+            setOutput(result.actualOutput);
+        } catch (err) {
+            setOutput(`執行時發生錯誤：${err && err.message ? err.message : String(err)}`);
+        } finally {
+            setRunning(false);
+        }
+    };
+
+    return (
+        <div className={styles.tabContent}>
+            <p className={styles.placeholder}>輸入自訂測資，執行目前的程式看看實際「說出」內容（不計分、不比對答案）。</p>
+            <input
+                className={styles.selfTestInput}
+                placeholder="輸入測試資料，例如：Amy"
+                value={input}
+                onChange={e => setInput(e.target.value)}
+            />
+            <button
+                className={styles.runButton}
+                disabled={running}
+                onClick={handleRun}
+            >
+                {running ? '執行中…' : '執行測試'}
+            </button>
+            {output !== null ? (
+                <div className={styles.selfTestOutput}>
+                    {output || '（沒有任何「說出」內容）'}
+                </div>
+            ) : null}
+        </div>
+    );
+};
+SelfTestTab.propTypes = {
+    vm: PropTypes.instanceOf(VM).isRequired
+};
+
+const GradingTab = ({grading, onRunGrading}) => (
     <div className={styles.tabContent}>
         <button
             className={styles.runButton}
@@ -106,17 +184,36 @@ GradingTab.propTypes = {
         results: PropTypes.array,
         error: PropTypes.string
     }).isRequired,
-    onRunGrading: PropTypes.func.isRequired,
-    vm: PropTypes.instanceOf(VM).isRequired
+    onRunGrading: PropTypes.func.isRequired
 };
 
-const HistoryTab = () => (
+const HistoryTab = ({history}) => (
     <div className={styles.tabContent}>
-        <p className={styles.placeholder}>評分紀錄（待補：MVP-33後續，先做本機儲存每次評分結果）</p>
+        {history.length === 0 ? (
+            <p className={styles.placeholder}>還沒有評分紀錄，去「評分」分頁執行評分後會出現在這裡（存在這台電腦的瀏覽器裡）。</p>
+        ) : (
+            history.map((entry, index) => (
+                <div
+                    className={styles.historyItem}
+                    key={index}
+                >
+                    <span>{entry.totalScore} / {entry.maxScore}</span>
+                    <span className={styles.historyTime}>{new Date(entry.timestamp).toLocaleString()}</span>
+                </div>
+            ))
+        )}
     </div>
 );
+HistoryTab.propTypes = {
+    history: PropTypes.arrayOf(PropTypes.shape({
+        totalScore: PropTypes.number,
+        maxScore: PropTypes.number,
+        timestamp: PropTypes.number
+    })).isRequired
+};
 
 const JudgePanel = ({vm}) => {
+    const [selectedTaskCode, setSelectedTaskCode] = useState(null);
     const [activeTab, setActiveTab] = useState('description');
     const [grading, setGrading] = useState({
         isRunning: false,
@@ -125,19 +222,45 @@ const JudgePanel = ({vm}) => {
         results: null,
         error: null
     });
+    const [demoStatus, setDemoStatus] = useState(null);
+    const [history, setHistory] = useState([]);
+
+    const found = selectedTaskCode ? findTaskByCode(selectedTaskCode) : null;
+    const task = found ? found.task : null;
+
+    useEffect(() => {
+        if (task) {
+            setHistory(loadHistory(task.code));
+            setActiveTab('description');
+            setGrading({isRunning: false, totalScore: null, maxScore: null, results: null, error: null});
+            setDemoStatus(null);
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [selectedTaskCode]);
+
+    const handleLoadDemo = async () => {
+        setDemoStatus('載入中…');
+        try {
+            const response = await fetch(task.answerProjectUrl);
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}`);
+            }
+            const buffer = await response.arrayBuffer();
+            await vm.loadProject(buffer);
+            setDemoStatus('已載入範例答案，可以在左邊積木畫布查看。');
+        } catch (err) {
+            setDemoStatus(`載入失敗：${err && err.message ? err.message : String(err)}`);
+        }
+    };
 
     const handleRunGrading = async () => {
         setGrading({isRunning: true, totalScore: null, maxScore: null, results: null, error: null});
-        // 記住評分前每個角色原本的visible狀態，評分結束後要還原，
-        // 避免影響學生自己編輯畫面的狀態（見tw-judge-engine.js的visible=false陷阱說明）。
-        const previousVisibility = vm.runtime.targets.map(target => ({
-            target,
-            visible: target.visible
-        }));
         try {
-            prepareVmForGrading(vm);
-            const {totalScore, maxScore, results} = await gradeSubmission(vm, TASK.testCases);
+            const {totalScore, maxScore, results} = await withVisibilityRestore(
+                vm, () => gradeSubmission(vm, task.testCases)
+            );
             setGrading({isRunning: false, totalScore, maxScore, results, error: null});
+            setHistory(saveHistoryEntry(task.code, {totalScore, maxScore, timestamp: Date.now()}));
         } catch (err) {
             setGrading({
                 isRunning: false,
@@ -146,17 +269,40 @@ const JudgePanel = ({vm}) => {
                 results: null,
                 error: err && err.message ? err.message : String(err)
             });
-        } finally {
-            previousVisibility.forEach(({target, visible}) => {
-                target.visible = visible;
-            });
         }
     };
+
+    if (!task) {
+        return (
+            <div className={styles.judgePanel}>
+                <div className={styles.header}>
+                    <div className={styles.headerLeft}>
+                        <span className={styles.taskTitle}>osep-judge</span>
+                    </div>
+                </div>
+                <TaskList
+                    courses={courses}
+                    onSelectTask={setSelectedTaskCode}
+                />
+            </div>
+        );
+    }
+
+    const scoreLabel = grading.totalScore === null ? '尚未評分' : `${grading.totalScore} / ${grading.maxScore}`;
 
     return (
         <div className={styles.judgePanel}>
             <div className={styles.header}>
-                <span className={styles.taskTitle}>{TASK.title}</span>
+                <div className={styles.headerLeft}>
+                    <button
+                        className={styles.backButton}
+                        onClick={() => setSelectedTaskCode(null)}
+                    >
+                        ← 題目列表
+                    </button>
+                    <span className={styles.taskTitle}>{task.title}</span>
+                </div>
+                <span className={styles.scoreBadge}>{scoreLabel}</span>
             </div>
             <div className={styles.tabBar}>
                 {TABS.map(tab => (
@@ -169,16 +315,21 @@ const JudgePanel = ({vm}) => {
                     </button>
                 ))}
             </div>
-            {activeTab === 'description' && <DescriptionTab />}
-            {activeTab === 'selftest' && <SelfTestTab />}
+            {activeTab === 'description' && (
+                <DescriptionTab
+                    demoStatus={demoStatus}
+                    task={task}
+                    onLoadDemo={handleLoadDemo}
+                />
+            )}
+            {activeTab === 'selftest' && <SelfTestTab vm={vm} />}
             {activeTab === 'grading' && (
                 <GradingTab
                     grading={grading}
-                    vm={vm}
                     onRunGrading={handleRunGrading}
                 />
             )}
-            {activeTab === 'history' && <HistoryTab />}
+            {activeTab === 'history' && <HistoryTab history={history} />}
         </div>
     );
 };

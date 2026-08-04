@@ -12,7 +12,7 @@ const testCases = [
 ];
 
 (async () => {
-    const buffer = fs.readFileSync(path.join(__dirname, '../../content/m0/M0-01-BasicOutput/A-01-0.sb3'));
+    const buffer = fs.readFileSync(path.join(__dirname, '../../static/judge-content/m0/M0-01-BasicOutput/A-01-0.sb3'));
     const vm = new VM();
     await vm.loadProject(buffer);
     vm.start();

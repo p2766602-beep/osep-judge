@@ -129,7 +129,7 @@ const projectJson = {
     zip.file('cd21514d0531fdffb22204e0ec5ed84a.svg', backdropSvg);
     zip.file('927d672925e7b99f7813735c484c6922.svg', costumeSvg);
 
-    const outPath = path.join(__dirname, '../../content/m0/M0-01-BasicOutput/A-01-0.sb3');
+    const outPath = path.join(__dirname, '../../static/judge-content/m0/M0-01-BasicOutput/A-01-0.sb3');
     const buffer = await zip.generateAsync({type: 'nodebuffer'});
     fs.writeFileSync(outPath, buffer);
     console.log('已寫出：', outPath, `(${buffer.length} bytes)`);
