@@ -89,14 +89,41 @@
 比照BlocklyYdws只認說出的規則」——已經完整驗證成立，且用的是真正寫到硬碟的.sb3 zip檔、
 走完整zip載入路徑（比記憶體JSON物件更接近瀏覽器實際載入方式）。**
 
+## MVP-33-3：題目面板UI（2026-08-04瀏覽器實測通過）
+
+`src/components/judge-panel/judge-panel.jsx`+`.css`：仿官方平台（demo.csie.ntnu.edu.tw/ps）
+的說明/自行測試/評分/評分紀錄四分頁版面，接進`gui.jsx`的`judgePanelWrapper`佔位區。
+說明分頁內容先寫死M0-01第一小題（courseCode載入機制留給後續MVP）。評分分頁「執行評分」
+按鈕直接對live vm呼叫`tw-judge-engine.js`，評分前後正確保存/還原每個角色的visible狀態。
+
+**2026-08-04實際在瀏覽器裡點過確認**：分頁切換互動正常（點「自行測試」正確顯示對應
+placeholder文字）；空白畫布狀態點「執行評分」正確顯示「分數：0 / 40」、四筆測資皆標
+「未通過」並列出各自輸入，UI渲染跟評分引擎串接沒有任何crash。評分引擎本身（跑真正
+`.sb3`答案得40/40分）已在Node環境驗證過，兩段合起來就是完整的端對端證據鏈。
+
+**這次沒測到的**：透過瀏覽器「檔案→從你的電腦挑選」載入`content/m0/M0-01-BasicOutput/A-01-0.sb3`
+去看真正滿分（40/40）畫面——這條路徑需要跳出原生檔案選取視窗，Claude的瀏覽器自動化工具
+點不到那個視窗；之後若要驗證，可以改用手動拖積木組出Hello world程式，或使用者自己手動
+測一次即可，非必要。
+
+## 除錯side quest：Chrome Remote Desktop會讓瀏覽器自動化不穩定
+
+過程中卡了很久的插曲，已存成私有記憶
+（`feedback_chrome_remote_desktop_conflicts_with_browser_automation.md`）：使用者同時
+開著Chrome Remote Desktop時，Claude的瀏覽器自動化工具連得到外部網站但連不到本機
+localhost，且經常逾時；確認跟Claude Code的`/remote-control`無關（單獨開`/rc`測過兩次
+都正常）、也不是localhost被刻意封鎖（查證官方文件無此記載）。**結論：視覺驗證前先確認
+使用者有沒有開著CRD，開著的話請先斷開再進行。**
+
 ## 待補（下一輪）
 
-1. **瀏覽器實際驗證**：本次工作階段Chrome擴充功能沒連線，MVP-33-0.5的UI瘦身只做到
-   build/dev-server層級驗證，沒有真的在瀏覽器打開看畫面、點過積木。**這是下一輪第一
-   優先事項**，確認純解題模式UI骨架實際可用。
-2. **MVP-33-3**：最小題目面板（先只顯示敘述/範例，不含評分）+ courseCode載入單一課程，
-   仿官方平台（demo.csie.ntnu.edu.tw/ps）的說明/自行測試/評分/評分紀錄四分頁版面。
-3. **MVP-33-4**：面板加上「送出評分」按鈕，串接`tw-judge-engine.js`的`gradeSubmission()`，
-   把評分引擎從Node腳本驗證，接進真正的React UI（在瀏覽器裡對學生當下的VM執行狀態評分）。
-4. folder改名（`osep-scratch-judge`→`osep-judge`）本次工作階段被Windows Defender鎖住
-   node_modules卡住沒完成，不影響任何已完成的工作，之後有空自己手動改或再重試即可。
+1. **MVP-33-4**：`自行測試`分頁補上讓學生手動輸入自訂測資試跑；`評分紀錄`分頁補上本機
+   儲存每次評分結果的功能。
+2. **courseCode載入機制**：目前題目內容整個寫死在`judge-panel.jsx`裡，只有M0-01第一小題。
+   要比照BlocklyYdws的courseCode查表模式，做成可以載入不同課程/題目的機制。
+3. **擴大題目範圍**：M0-01其餘5小題、以及M0其餘5課，用`scripts/judge-dev-tools/build-m0-01-sb3.js`
+   當範本，寫成可以批次轉換的版本（或先手動照樣造句幾題，視題目積木種類複雜度決定要不要
+   先投資自動化轉換script）。
+4. folder改名（`osep-scratch-judge`→`osep-judge`）之前被Windows Defender鎖住node_modules
+   卡住沒完成，不影響任何已完成的工作，之後有空自己手動改或再重試即可。
+5. **GitHub Pages部署**：目前只有本機dev server驗證過，還沒決定/執行正式部署上線。
