@@ -1230,7 +1230,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "/* make sure to keep these in sync with other constants,\ne.g. STAGE_DIMENSION_DEFAULTS in lib/screen-utils.js */\n\n/* layout contants from `layout-constants.js` */\n\n/* overridden by src/lib/themes/guiHelpers.js */\n\n/*\n    Contains constants for the z-index values of elements that are part of the global stack context.\n    In other words, z-index values that are \"inside\" a component are not added here.\n    This prevents conflicts between identical z-index values in different components.\n*/\n\n/* Toolbox z-index: 40; set in scratch-blocks */\n\n/* tooltips should go over add buttons if they overlap */\n\n/* monitors go over add buttons */\n\n/* \"ask\" block text input goes above monitors */\n\n/* menu-bar should go over monitors, alerts and tutorials */\n\n/* behind menu-bar */\n\n/* Block drag z-index: 1000; default 50 is overriden in blocks.css */\n\n/* so it is draggable into other panes */\n\n/* behind modals */\n\n/* behind modals */\n\n/* in most interfaces, the context menu is always on top */\n\n.gui_page-wrapper_r7IhT {\n    height: 100%;\n    display: flex;\n    flex-direction: column;\n}\n\n.gui_body-wrapper_1T2l7 {\n    flex-grow: 1;\n    background-color: var(--ui-primary);\n}\n\n.gui_body-wrapper_1T2l7 * {\n    box-sizing: border-box;\n}\n\n.gui_flex-wrapper_2AgdD {\n    display: flex;\n\n    /*\n        Make 2 columns:\n        a) for the blocks + workspace panes, and\n        b) for combined stage menu + stage + sprite/stage selectors\n    */\n    flex-direction: row;\n    height: 100%;\n\n    /*\n        Stop scrollbar popping in and out from scratch-blocks border issue\n        https://github.com/LLK/scratch-gui/issues/318\n        TW: and also fix double horizontal scrollbar at some screen sizes in paint editor\n    */\n    overflow: hidden;\n}\n\n.gui_editor-wrapper_WspaC {\n    /*\n        This is carefully balanced--  the minimum width at which the GUI will be displayed is 1024px.\n        At that size, the stage pane is 408px wide, with $space of padding to each side.\n        However, we must also add the border width to the stage pane. All-in-all, the stage pane's final width is\n        408px + ($space + $stage-standard-border-width * 2) (one border & padding per left/right side).\n\n        @todo This is in place to prevent \"doubling up\" of horizontal scrollbars in narrow windows, but there are likely\n        much better ways to solve that (e.g. undo #2124, remove this flex-basis entirely). However, they run their own\n        risks of breaking things, so let's just leave this as-is for the time being.\n    */\n    flex-basis: calc(1024px - 408px - ((0.5rem + 0.0625rem) * 2));\n    flex-grow: 1;\n    flex-shrink: 0;\n    position: relative;\n\n    display: flex;\n    flex-direction: column;\n}\n\n.gui_tab-list_3r8RB {\n    height: 2.75rem;\n    width: 250px; /* Match width of the toolbox */\n    display: flex;\n    align-items: flex-end;\n    flex-shrink: 0;\n\n    font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif;\n    font-weight: 500;\n    font-size: 0.80rem;\n\n    /* Overrides for react-tabs styling */\n    margin: 0 !important;\n    border-bottom: 0 !important;\n\n    color: var(--text-primary);\n}\n\n.gui_tab_3k_DV {\n    flex-grow: 1;\n    height: 80%;\n    margin-bottom: 0;\n\n    border-radius: 1rem 1rem 0 0;\n    border: 1px solid var(--ui-black-transparent);\n\n    padding: 0.125rem 1.25rem 0;\n    font-size: 0.75rem;\n\n    background-color: var(--ui-tertiary);\n    color: var(--ui-text-primary-transparent);\n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n\n    -webkit-user-select: none;\n\n       -moz-user-select: none;\n\n        -ms-user-select: none;\n\n            user-select: none;\n    white-space: nowrap;\n}\n\n[dir=\"ltr\"] .gui_tab_3k_DV {\n    margin-left: -0.5rem;\n}\n\n[dir=\"rtl\"] .gui_tab_3k_DV {\n    margin-right: -0.5rem;\n}\n\n[dir=\"ltr\"] .gui_tab_3k_DV:nth-of-type(1) {\n    margin-left: 0;\n}\n\n[dir=\"rtl\"] .gui_tab_3k_DV:nth-of-type(1) {\n    margin-right: 0;\n}\n\n/* Use z-indices to force left-on-top for tabs */\n\n.gui_tab_3k_DV:nth-of-type(1) {\n    z-index: 3;\n}\n\n.gui_tab_3k_DV:nth-of-type(2) {\n    z-index: 2;\n}\n\n.gui_tab_3k_DV:nth-of-type(3) {\n    z-index: 1;\n}\n\n.gui_tab_3k_DV:hover {\n  background-color: var(--ui-primary);\n}\n\n.gui_tab_3k_DV.gui_is-selected_3nXL3 {\n    height: 90%;\n    color: var(--looks-secondary);\n    background-color: var(--ui-white);\n    z-index: 4; /* Make sure selected is always above */\n}\n\n.gui_tab_3k_DV img {\n    width: 1.375rem;\n    filter: grayscale(100%);\n}\n\n[dir=\"ltr\"] .gui_tab_3k_DV img {\n    margin-right: 0.125rem;\n}\n\n[dir=\"rtl\"] .gui_tab_3k_DV img {\n    margin-left: 0.125rem;\n}\n\n/* mirror blocks and sound tab icons */\n\n[dir=\"rtl\"] .gui_tab_3k_DV:nth-of-type(1) img {\n    transform: scaleX(-1);\n}\n\n[dir=\"rtl\"] .gui_tab_3k_DV:nth-of-type(3) img {\n    transform: scaleX(-1);\n}\n\n.gui_tab_3k_DV.gui_is-selected_3nXL3 img {\n    filter: none;\n}\n\n/* Tab style overrides from react-tabs */\n\n.gui_tab_3k_DV.gui_is-selected_3nXL3:after {\n    display: none;\n}\n\n.gui_tab_3k_DV.gui_is-selected_3nXL3:focus {\n    outline: none;\n    box-shadow: none;\n    border-color: var(--ui-black-transparent);\n}\n\n.gui_tab_3k_DV.gui_is-selected_3nXL3:focus:after {\n    display: none;\n}\n\n/* Body of the tabs */\n\n.gui_tabs_3Cns4 {\n    position: relative;\n    flex-grow: 1;\n    display: flex;\n    flex-direction: column;\n}\n\n.gui_tab-panel_12yVw {\n    position: relative;\n    flex-grow: 1;\n    display: none;\n}\n\n.gui_tab-panel_12yVw.gui_is-selected_3nXL3 {\n    display: flex;\n}\n\n.gui_blocks-wrapper_oRY_r {\n    flex-grow: 1;\n    position: relative;\n}\n\n.gui_judge-panel-wrapper_18DTt {\n    display: flex;\n    flex-direction: column;\n    padding-left: 0.5rem;\n    padding-right: 0.5rem;\n    padding-top: 0.5rem;\n    width: 400px;\n    flex-shrink: 0;\n    overflow-y: auto;\n}\n\n.gui_hidden-stage_2K9oP {\n    position: absolute;\n    width: 1px;\n    height: 1px;\n    overflow: hidden;\n    opacity: 0;\n    pointer-events: none;\n}\n\n.gui_stage-and-target-wrapper_2TUbW {\n    /*\n        Makes rows for children:\n          1) stage menu\n          2) stage\n          3) sprite/stage selectors\n        Only reason we need this, is so .targetWrapper, which holds the selectors,\n        goes to full vertical height of the window\n    */\n    display: flex;\n    flex-direction: column;\n    /* pad entire wrapper to the left and right; allow children to fill width */\n    padding-left: 0.5rem;\n    padding-right: 0.5rem;\n\n    /* this will only ever be as wide as the stage */\n    flex-basis: 0;\n}\n\n.gui_target-wrapper_2YpM2 {\n    display: flex;\n    flex-grow: 1;\n    flex-basis: 0;\n\n    padding-top: 0.5rem;\n    min-height: 0; /* this makes it work in Firefox */\n\n    /*\n        For making the sprite-selector a scrollable pane\n        @todo: Not working in Safari\n    */\n    /* TODO this also breaks the thermometer menu */\n    /* overflow: hidden; */\n}\n\n.gui_extension-button-container_sM98M {\n    width: 3.75rem;\n    height: 3.25rem;\n    position: absolute;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    z-index: 42;\n    background: var(--looks-secondary);\n\n    border: 1px solid var(--looks-secondary);\n    box-sizing: content-box; /* To match scratch-block vertical toolbox borders */\n}\n\n.gui_extension-button-container_sM98M:before {\n    content: \"\";\n    position: absolute;\n    top: calc(calc(-1 * 15px) - 1px);\n    left: -1px;\n    background: linear-gradient(rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.15));\n    height: 15px;\n    width: calc(100% + 0.5px);\n}\n\n.gui_extension-button_3Z58M {\n    background: none;\n    border: none;\n    outline: none;\n    width: 100%;\n    height: 100%;\n    cursor: pointer;\n    -webkit-user-select: none;\n       -moz-user-select: none;\n        -ms-user-select: none;\n            user-select: none;\n}\n\n.gui_extension-button-icon_3lDFf {\n    width: 1.75rem;\n    height: 1.75rem;\n}\n\n[dir=\"rtl\"] .gui_extension-button-icon_3lDFf {\n    transform: scaleX(-1);\n}\n\n.gui_extension-button_3Z58M > div {\n    margin-top: 0;\n}\n\n/* Sprite Selection Watermark */\n\n.gui_watermark_3oGgV {\n    position: absolute;\n    top: 1.25rem;\n    pointer-events: none;\n}\n\n[dir=\"ltr\"] .gui_watermark_3oGgV {\n    right: 1.25rem;\n}\n\n[dir=\"rtl\"] .gui_watermark_3oGgV {\n    left: 1.25rem;\n}\n\n/* Menu */\n\n.gui_menu-bar-position_6ejza {\n    position: relative;\n    z-index: 491;\n}\n\n/* Alerts */\n\n.gui_alerts-container_2cnr7 {\n    display: flex;\n    justify-content: center;\n    width: 100%;\n    z-index: 490;\n    position: absolute;\n    margin-top: 53px;\n    pointer-events: none;\n}\n\n/*\n    Make the (background) page not scrollable when modals are open\n    This CSS class is automatically added to the body when react-modal is open\n*/\n\n.ReactModal__Body--open {\n    overflow: hidden;\n}\n\n/* when in the browser's fullscreen mode, we need to put our own background to avoid just having black */\n\n.gui_fullscreen-background_2RW_a {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    /* overridden by JS; this will be used if the browser can't understand that color */\n    background-color: white;\n}\n", ""]);
+exports.push([module.i, "/* make sure to keep these in sync with other constants,\ne.g. STAGE_DIMENSION_DEFAULTS in lib/screen-utils.js */\n\n/* layout contants from `layout-constants.js` */\n\n/* overridden by src/lib/themes/guiHelpers.js */\n\n/*\n    Contains constants for the z-index values of elements that are part of the global stack context.\n    In other words, z-index values that are \"inside\" a component are not added here.\n    This prevents conflicts between identical z-index values in different components.\n*/\n\n/* Toolbox z-index: 40; set in scratch-blocks */\n\n/* tooltips should go over add buttons if they overlap */\n\n/* monitors go over add buttons */\n\n/* \"ask\" block text input goes above monitors */\n\n/* menu-bar should go over monitors, alerts and tutorials */\n\n/* behind menu-bar */\n\n/* Block drag z-index: 1000; default 50 is overriden in blocks.css */\n\n/* so it is draggable into other panes */\n\n/* behind modals */\n\n/* behind modals */\n\n/* in most interfaces, the context menu is always on top */\n\n.gui_page-wrapper_r7IhT {\n    height: 100%;\n    display: flex;\n    flex-direction: column;\n}\n\n.gui_body-wrapper_1T2l7 {\n    flex-grow: 1;\n    background-color: var(--ui-primary);\n}\n\n.gui_body-wrapper_1T2l7 * {\n    box-sizing: border-box;\n}\n\n.gui_flex-wrapper_2AgdD {\n    display: flex;\n\n    /*\n        Make 2 columns:\n        a) for the blocks + workspace panes, and\n        b) for combined stage menu + stage + sprite/stage selectors\n    */\n    flex-direction: row;\n    height: 100%;\n\n    /*\n        Stop scrollbar popping in and out from scratch-blocks border issue\n        https://github.com/LLK/scratch-gui/issues/318\n        TW: and also fix double horizontal scrollbar at some screen sizes in paint editor\n    */\n    overflow: hidden;\n}\n\n.gui_editor-wrapper_WspaC {\n    /*\n        This is carefully balanced--  the minimum width at which the GUI will be displayed is 1024px.\n        At that size, the stage pane is 408px wide, with $space of padding to each side.\n        However, we must also add the border width to the stage pane. All-in-all, the stage pane's final width is\n        408px + ($space + $stage-standard-border-width * 2) (one border & padding per left/right side).\n\n        @todo This is in place to prevent \"doubling up\" of horizontal scrollbars in narrow windows, but there are likely\n        much better ways to solve that (e.g. undo #2124, remove this flex-basis entirely). However, they run their own\n        risks of breaking things, so let's just leave this as-is for the time being.\n    */\n    flex-basis: calc(1024px - 408px - ((0.5rem + 0.0625rem) * 2));\n    flex-grow: 1;\n    flex-shrink: 0;\n    position: relative;\n\n    display: flex;\n    flex-direction: column;\n}\n\n.gui_tab-list_3r8RB {\n    height: 2.75rem;\n    width: 250px; /* Match width of the toolbox */\n    display: flex;\n    align-items: flex-end;\n    flex-shrink: 0;\n\n    font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif;\n    font-weight: 500;\n    font-size: 0.80rem;\n\n    /* Overrides for react-tabs styling */\n    margin: 0 !important;\n    border-bottom: 0 !important;\n\n    color: var(--text-primary);\n}\n\n.gui_tab_3k_DV {\n    flex-grow: 1;\n    height: 80%;\n    margin-bottom: 0;\n\n    border-radius: 1rem 1rem 0 0;\n    border: 1px solid var(--ui-black-transparent);\n\n    padding: 0.125rem 1.25rem 0;\n    font-size: 0.75rem;\n\n    background-color: var(--ui-tertiary);\n    color: var(--ui-text-primary-transparent);\n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n\n    -webkit-user-select: none;\n\n       -moz-user-select: none;\n\n        -ms-user-select: none;\n\n            user-select: none;\n    white-space: nowrap;\n}\n\n[dir=\"ltr\"] .gui_tab_3k_DV {\n    margin-left: -0.5rem;\n}\n\n[dir=\"rtl\"] .gui_tab_3k_DV {\n    margin-right: -0.5rem;\n}\n\n[dir=\"ltr\"] .gui_tab_3k_DV:nth-of-type(1) {\n    margin-left: 0;\n}\n\n[dir=\"rtl\"] .gui_tab_3k_DV:nth-of-type(1) {\n    margin-right: 0;\n}\n\n/* Use z-indices to force left-on-top for tabs */\n\n.gui_tab_3k_DV:nth-of-type(1) {\n    z-index: 3;\n}\n\n.gui_tab_3k_DV:nth-of-type(2) {\n    z-index: 2;\n}\n\n.gui_tab_3k_DV:nth-of-type(3) {\n    z-index: 1;\n}\n\n.gui_tab_3k_DV:hover {\n  background-color: var(--ui-primary);\n}\n\n.gui_tab_3k_DV.gui_is-selected_3nXL3 {\n    height: 90%;\n    color: var(--looks-secondary);\n    background-color: var(--ui-white);\n    z-index: 4; /* Make sure selected is always above */\n}\n\n.gui_tab_3k_DV img {\n    width: 1.375rem;\n    filter: grayscale(100%);\n}\n\n[dir=\"ltr\"] .gui_tab_3k_DV img {\n    margin-right: 0.125rem;\n}\n\n[dir=\"rtl\"] .gui_tab_3k_DV img {\n    margin-left: 0.125rem;\n}\n\n/* mirror blocks and sound tab icons */\n\n[dir=\"rtl\"] .gui_tab_3k_DV:nth-of-type(1) img {\n    transform: scaleX(-1);\n}\n\n[dir=\"rtl\"] .gui_tab_3k_DV:nth-of-type(3) img {\n    transform: scaleX(-1);\n}\n\n.gui_tab_3k_DV.gui_is-selected_3nXL3 img {\n    filter: none;\n}\n\n/* Tab style overrides from react-tabs */\n\n.gui_tab_3k_DV.gui_is-selected_3nXL3:after {\n    display: none;\n}\n\n.gui_tab_3k_DV.gui_is-selected_3nXL3:focus {\n    outline: none;\n    box-shadow: none;\n    border-color: var(--ui-black-transparent);\n}\n\n.gui_tab_3k_DV.gui_is-selected_3nXL3:focus:after {\n    display: none;\n}\n\n/* Body of the tabs */\n\n.gui_tabs_3Cns4 {\n    position: relative;\n    flex-grow: 1;\n    display: flex;\n    flex-direction: column;\n}\n\n.gui_tab-panel_12yVw {\n    position: relative;\n    flex-grow: 1;\n    display: none;\n}\n\n.gui_tab-panel_12yVw.gui_is-selected_3nXL3 {\n    display: flex;\n}\n\n.gui_blocks-wrapper_oRY_r {\n    flex-grow: 1;\n    position: relative;\n}\n\n.gui_judge-panel-wrapper_18DTt {\n    display: flex;\n    flex-direction: column;\n    padding-left: 0.5rem;\n    padding-right: 0.5rem;\n    padding-top: 0.5rem;\n    width: 400px;\n    flex-shrink: 0;\n    overflow-y: auto;\n}\n\n.gui_hidden-stage_2K9oP {\n    position: absolute;\n    width: 1px;\n    height: 1px;\n    overflow: hidden;\n    opacity: 0;\n    pointer-events: none;\n}\n\n/*\n * 2026-08-04：「自行測試」分頁手動測試時的浮動舞台——真正的Scratch舞台暫時顯示成浮在畫面\n * 右下角的小視窗，跑完/學生按停止之後改回`.hiddenStage`藏起來。用position:fixed蓋在最上層，\n * 不影響底下積木工作區/題目面板的版面。\n *\n * 只呈現「詢問並等待」的輸入框，角色/背景畫面跟開始/停止按鈕都藏起來或不渲染（見\n * stage.jsx的minimal prop）。stage.jsx內部`stageOverlays`（放輸入框的容器）是absolute\n * 定位疊在舞台上面、依賴舞台完整版面尺寸（stageDimensions，large=480×360）對齊，角色/\n * 背景畫面又不能用display:none／縮小尺寸（會讓canvas 0寬度crash或版面對不準，見\n * stage.css的`.stageMinimalHidden`），所以舞台本身還是佔滿完整的360px高度，只是\n * opacity:0看不到——這樣會在輸入框上面留一大塊空白。\n *\n * 用`.manual-run-stage-viewport`（見下方）當作「觀景窗」：外層容器高度只留輸入框需要的\n * 高度、overflow:hidden裁掉多餘空白，裡面的內容用負margin-top整個往上推，讓輸入框剛好\n * 落在觀景窗裡。324px是實測量出來的「舞台頂端到輸入框頂端」距離（large模式底下固定值，\n * 之後如果改stageSize要重新量一次）。\n */\n\n.gui_manual-run-stage_3G6ZA {\n    position: fixed;\n    right: 0.5rem;\n    bottom: 0.5rem;\n    width: 520px;\n    height: 110px;\n    z-index: 600;\n    background: var(--ui-white);\n    border: 2px solid var(--looks-secondary);\n    border-radius: calc(0.5rem / 2);\n    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);\n    overflow: hidden;\n}\n\n.gui_manual-run-stage-viewport_bZt1- {\n    margin-top: -324px;\n}\n\n.gui_stage-and-target-wrapper_2TUbW {\n    /*\n        Makes rows for children:\n          1) stage menu\n          2) stage\n          3) sprite/stage selectors\n        Only reason we need this, is so .targetWrapper, which holds the selectors,\n        goes to full vertical height of the window\n    */\n    display: flex;\n    flex-direction: column;\n    /* pad entire wrapper to the left and right; allow children to fill width */\n    padding-left: 0.5rem;\n    padding-right: 0.5rem;\n\n    /* this will only ever be as wide as the stage */\n    flex-basis: 0;\n}\n\n.gui_target-wrapper_2YpM2 {\n    display: flex;\n    flex-grow: 1;\n    flex-basis: 0;\n\n    padding-top: 0.5rem;\n    min-height: 0; /* this makes it work in Firefox */\n\n    /*\n        For making the sprite-selector a scrollable pane\n        @todo: Not working in Safari\n    */\n    /* TODO this also breaks the thermometer menu */\n    /* overflow: hidden; */\n}\n\n.gui_extension-button-container_sM98M {\n    width: 3.75rem;\n    height: 3.25rem;\n    position: absolute;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    z-index: 42;\n    background: var(--looks-secondary);\n\n    border: 1px solid var(--looks-secondary);\n    box-sizing: content-box; /* To match scratch-block vertical toolbox borders */\n}\n\n.gui_extension-button-container_sM98M:before {\n    content: \"\";\n    position: absolute;\n    top: calc(calc(-1 * 15px) - 1px);\n    left: -1px;\n    background: linear-gradient(rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.15));\n    height: 15px;\n    width: calc(100% + 0.5px);\n}\n\n.gui_extension-button_3Z58M {\n    background: none;\n    border: none;\n    outline: none;\n    width: 100%;\n    height: 100%;\n    cursor: pointer;\n    -webkit-user-select: none;\n       -moz-user-select: none;\n        -ms-user-select: none;\n            user-select: none;\n}\n\n.gui_extension-button-icon_3lDFf {\n    width: 1.75rem;\n    height: 1.75rem;\n}\n\n[dir=\"rtl\"] .gui_extension-button-icon_3lDFf {\n    transform: scaleX(-1);\n}\n\n.gui_extension-button_3Z58M > div {\n    margin-top: 0;\n}\n\n/* Sprite Selection Watermark */\n\n.gui_watermark_3oGgV {\n    position: absolute;\n    top: 1.25rem;\n    pointer-events: none;\n}\n\n[dir=\"ltr\"] .gui_watermark_3oGgV {\n    right: 1.25rem;\n}\n\n[dir=\"rtl\"] .gui_watermark_3oGgV {\n    left: 1.25rem;\n}\n\n/* Menu */\n\n.gui_menu-bar-position_6ejza {\n    position: relative;\n    z-index: 491;\n}\n\n/* Alerts */\n\n.gui_alerts-container_2cnr7 {\n    display: flex;\n    justify-content: center;\n    width: 100%;\n    z-index: 490;\n    position: absolute;\n    margin-top: 53px;\n    pointer-events: none;\n}\n\n/*\n    Make the (background) page not scrollable when modals are open\n    This CSS class is automatically added to the body when react-modal is open\n*/\n\n.ReactModal__Body--open {\n    overflow: hidden;\n}\n\n/* when in the browser's fullscreen mode, we need to put our own background to avoid just having black */\n\n.gui_fullscreen-background_2RW_a {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    /* overridden by JS; this will be used if the browser can't understand that color */\n    background-color: white;\n}\n", ""]);
 
 // exports
 exports.locals = {
@@ -1256,6 +1256,10 @@ exports.locals = {
 	"judgePanelWrapper": "gui_judge-panel-wrapper_18DTt",
 	"hidden-stage": "gui_hidden-stage_2K9oP",
 	"hiddenStage": "gui_hidden-stage_2K9oP",
+	"manual-run-stage": "gui_manual-run-stage_3G6ZA",
+	"manualRunStage": "gui_manual-run-stage_3G6ZA",
+	"manual-run-stage-viewport": "gui_manual-run-stage-viewport_bZt1-",
+	"manualRunStageViewport": "gui_manual-run-stage-viewport_bZt1-",
 	"stage-and-target-wrapper": "gui_stage-and-target-wrapper_2TUbW",
 	"stageAndTargetWrapper": "gui_stage-and-target-wrapper_2TUbW",
 	"target-wrapper": "gui_target-wrapper_2YpM2",
@@ -1312,7 +1316,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "/* make sure to keep these in sync with other constants,\ne.g. STAGE_DIMENSION_DEFAULTS in lib/screen-utils.js */\n\n/* layout contants from `layout-constants.js` */\n\n/* overridden by src/lib/themes/guiHelpers.js */\n\n.judge-panel_judge-panel_1xEfp {\n    display: flex;\n    flex-direction: column;\n    height: 100%;\n    background-color: var(--ui-white);\n    border: 1px solid var(--ui-black-transparent);\n    border-radius: calc(0.5rem / 2);\n    overflow: hidden;\n}\n\n.judge-panel_header_6VE3_ {\n    padding: 0.5rem;\n    background-color: var(--looks-secondary);\n    color: var(--ui-white);\n    font-weight: bold;\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n}\n\n.judge-panel_header-left_16zso {\n    display: flex;\n    align-items: center;\n    gap: 0.5rem;\n    min-width: 0;\n}\n\n.judge-panel_task-title_1-Je- {\n    font-size: 1rem;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n}\n\n.judge-panel_score-badge_3VlWA {\n    font-size: 0.85rem;\n    font-weight: normal;\n    white-space: nowrap;\n}\n\n.judge-panel_back-button_1P0g2 {\n    background: none;\n    border: 1px solid var(--ui-white-transparent);\n    color: var(--ui-white);\n    border-radius: calc(0.5rem / 2);\n    padding: calc(0.5rem / 4) calc(0.5rem / 2);\n    cursor: pointer;\n    font-size: 0.75rem;\n    flex-shrink: 0;\n}\n\n.judge-panel_back-button_1P0g2:hover {\n    background: var(--ui-white-transparent);\n}\n\n.judge-panel_tab-bar_2Sq3g {\n    display: flex;\n    border-bottom: 1px solid var(--ui-black-transparent);\n}\n\n.judge-panel_tab-button_1Tyq7 {\n    flex: 1;\n    padding: 0.5rem;\n    border: none;\n    background: var(--ui-tertiary);\n    color: var(--ui-text-primary-transparent);\n    cursor: pointer;\n    font-size: 0.8rem;\n}\n\n.judge-panel_tab-button_1Tyq7:hover {\n    background: var(--ui-primary);\n}\n\n.judge-panel_tab-button-active_3Ss8N {\n    background: var(--ui-white);\n    color: var(--looks-secondary);\n    font-weight: bold;\n}\n\n.judge-panel_tab-content_2zWcA {\n    padding: 0.5rem;\n    overflow-y: auto;\n    flex-grow: 1;\n}\n\n.judge-panel_section-heading_3Svj6 {\n    font-size: 0.9rem;\n    margin: 0.5rem 0;\n}\n\n.judge-panel_description_2CSTt {\n    white-space: pre-wrap;\n    font-size: 0.85rem;\n    line-height: 1.5;\n}\n\n.judge-panel_example-box_21cAO {\n    background: var(--ui-tertiary);\n    border-radius: calc(0.5rem / 2);\n    padding: 0.5rem;\n    margin-bottom: 0.5rem;\n    font-size: 0.8rem;\n}\n\n.judge-panel_example-label_1q1oA {\n    font-weight: bold;\n    margin-bottom: calc(0.5rem / 2);\n}\n\n.judge-panel_example-explanation_8c9CL {\n    white-space: pre-wrap;\n    color: var(--ui-text-primary-transparent);\n    margin-top: calc(0.5rem / 2);\n}\n\n.judge-panel_placeholder_mPB6a {\n    color: var(--ui-text-primary-transparent);\n    font-size: 0.85rem;\n}\n\n.judge-panel_run-button_1KaZR {\n    background: var(--looks-secondary);\n    color: var(--ui-white);\n    border: none;\n    border-radius: calc(0.5rem / 2);\n    padding: 0.5rem calc(0.5rem * 2);\n    cursor: pointer;\n    font-size: 0.9rem;\n}\n\n.judge-panel_run-button_1KaZR:disabled {\n    opacity: 0.6;\n    cursor: default;\n}\n\n.judge-panel_results-box_rf9vO {\n    margin-top: 0.5rem;\n}\n\n.judge-panel_score-line_1zWWt {\n    font-weight: bold;\n    font-size: 1rem;\n    margin-bottom: 0.5rem;\n}\n\n.judge-panel_result-row_1o_p9 {\n    display: flex;\n    gap: 0.5rem;\n    padding: calc(0.5rem / 2) 0;\n    font-size: 0.8rem;\n    border-bottom: 1px solid var(--ui-black-transparent);\n}\n\n.judge-panel_pass_2_bP3 {\n    color: #2e7d32;\n    font-weight: bold;\n}\n\n.judge-panel_fail_16Mxz {\n    color: #c62828;\n    font-weight: bold;\n}\n\n.judge-panel_result-input_CBwnd {\n    color: var(--ui-text-primary-transparent);\n}\n\n.judge-panel_error-box_1fL2S {\n    margin-top: 0.5rem;\n    color: #c62828;\n    font-size: 0.85rem;\n}\n\n.judge-panel_demo-button_2RdmX {\n    background: var(--ui-tertiary);\n    color: var(--text-primary);\n    border: 1px solid var(--ui-black-transparent);\n    border-radius: calc(0.5rem / 2);\n    padding: calc(0.5rem / 2) 0.5rem;\n    cursor: pointer;\n    font-size: 0.8rem;\n    margin-top: 0.5rem;\n}\n\n.judge-panel_demo-button_2RdmX:hover {\n    background: var(--ui-primary);\n}\n\n.judge-panel_demo-status_3OC5X {\n    margin-top: calc(0.5rem / 2);\n    font-size: 0.75rem;\n    color: var(--ui-text-primary-transparent);\n}\n\n.judge-panel_self-test-input_1Krtv {\n    width: 100%;\n    box-sizing: border-box;\n    padding: calc(0.5rem / 2);\n    font-size: 0.85rem;\n    border: 1px solid var(--ui-black-transparent);\n    border-radius: calc(0.5rem / 2);\n    margin-bottom: 0.5rem;\n}\n\n.judge-panel_self-test-output_1UhbB {\n    background: var(--ui-tertiary);\n    border-radius: calc(0.5rem / 2);\n    padding: 0.5rem;\n    font-size: 0.8rem;\n    white-space: pre-wrap;\n    min-height: 2rem;\n}\n\n.judge-panel_history-item_1zDhS {\n    display: flex;\n    justify-content: space-between;\n    padding: calc(0.5rem / 2) 0;\n    font-size: 0.8rem;\n    border-bottom: 1px solid var(--ui-black-transparent);\n}\n\n.judge-panel_history-time_NeohT {\n    color: var(--ui-text-primary-transparent);\n}\n\n.judge-panel_task-list_2LYpe {\n    padding: 0.5rem;\n    overflow-y: auto;\n    flex-grow: 1;\n}\n\n.judge-panel_course-group_WH4ay {\n    margin-bottom: calc(0.5rem * 1.5);\n}\n\n.judge-panel_course-title_3lhaa {\n    font-weight: bold;\n    font-size: 0.9rem;\n    margin-bottom: calc(0.5rem / 2);\n}\n\n.judge-panel_task-items_2EPtw {\n    list-style: none;\n    margin: 0;\n    padding: 0;\n}\n\n.judge-panel_task-item-button_1svTt {\n    width: 100%;\n    box-sizing: border-box;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding: 0.5rem;\n    margin-bottom: calc(0.5rem / 2);\n    background: var(--ui-tertiary);\n    border: 1px solid var(--ui-black-transparent);\n    border-radius: calc(0.5rem / 2);\n    cursor: pointer;\n    font-size: 0.85rem;\n    text-align: left;\n}\n\n.judge-panel_task-item-button_1svTt:hover {\n    background: var(--ui-primary);\n}\n\n.judge-panel_task-difficulty_17brD {\n    font-size: 0.7rem;\n    color: var(--ui-text-primary-transparent);\n}\n", ""]);
+exports.push([module.i, "/* make sure to keep these in sync with other constants,\ne.g. STAGE_DIMENSION_DEFAULTS in lib/screen-utils.js */\n\n/* layout contants from `layout-constants.js` */\n\n/* overridden by src/lib/themes/guiHelpers.js */\n\n.judge-panel_judge-panel_1xEfp {\n    display: flex;\n    flex-direction: column;\n    height: 100%;\n    background-color: var(--ui-white);\n    border: 1px solid var(--ui-black-transparent);\n    border-radius: calc(0.5rem / 2);\n    overflow: hidden;\n}\n\n.judge-panel_header_6VE3_ {\n    padding: 0.5rem;\n    background-color: var(--looks-secondary);\n    color: var(--ui-white);\n    font-weight: bold;\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n}\n\n.judge-panel_header-left_16zso {\n    display: flex;\n    align-items: center;\n    gap: 0.5rem;\n    min-width: 0;\n}\n\n.judge-panel_task-title_1-Je- {\n    font-size: 1rem;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n}\n\n.judge-panel_score-badge_3VlWA {\n    font-size: 0.85rem;\n    font-weight: normal;\n    white-space: nowrap;\n}\n\n.judge-panel_back-button_1P0g2 {\n    background: none;\n    border: 1px solid var(--ui-white-transparent);\n    color: var(--ui-white);\n    border-radius: calc(0.5rem / 2);\n    padding: calc(0.5rem / 4) calc(0.5rem / 2);\n    cursor: pointer;\n    font-size: 0.75rem;\n    flex-shrink: 0;\n}\n\n.judge-panel_back-button_1P0g2:hover {\n    background: var(--ui-white-transparent);\n}\n\n.judge-panel_tab-bar_2Sq3g {\n    display: flex;\n    border-bottom: 1px solid var(--ui-black-transparent);\n}\n\n.judge-panel_tab-button_1Tyq7 {\n    flex: 1;\n    padding: 0.5rem;\n    border: none;\n    background: var(--ui-tertiary);\n    color: var(--ui-text-primary-transparent);\n    cursor: pointer;\n    font-size: 0.8rem;\n}\n\n.judge-panel_tab-button_1Tyq7:hover {\n    background: var(--ui-primary);\n}\n\n.judge-panel_tab-button-active_3Ss8N {\n    background: var(--ui-white);\n    color: var(--looks-secondary);\n    font-weight: bold;\n}\n\n.judge-panel_tab-content_2zWcA {\n    padding: 0.5rem;\n    overflow-y: auto;\n    flex-grow: 1;\n}\n\n.judge-panel_section-heading_3Svj6 {\n    font-size: 0.9rem;\n    margin: 0.5rem 0;\n}\n\n.judge-panel_description_2CSTt {\n    white-space: pre-wrap;\n    font-size: 0.85rem;\n    line-height: 1.5;\n}\n\n.judge-panel_example-box_21cAO {\n    background: var(--ui-tertiary);\n    border-radius: calc(0.5rem / 2);\n    padding: 0.5rem;\n    margin-bottom: 0.5rem;\n    font-size: 0.8rem;\n}\n\n.judge-panel_example-label_1q1oA {\n    font-weight: bold;\n    margin-bottom: calc(0.5rem / 2);\n}\n\n/*\n * 2026-08-04：BlocklyYdws自己的範例呈現用<pre>保留換行（例如M1系列「第一行N，第二行N個\n * 數字」的格式，或單純多次詢問「一次詢問一行」的格式）。osep-judge這裡原本是普通<div>，\n * 瀏覽器預設white-space:normal會把資料裡的\\n吃掉擠成一行，跟BlocklyYdws看到的不一樣。\n * 這裡補上white-space: pre-wrap比照辦理，不用動資料本身（gen-judge-content.js已經是\n * 逐字複製BlocklyYdws的examples欄位，資料格式本來就是對的）。\n */\n\n.judge-panel_example-value_KM-KA {\n    white-space: pre-wrap;\n}\n\n.judge-panel_example-explanation_8c9CL {\n    white-space: pre-wrap;\n    color: var(--ui-text-primary-transparent);\n    margin-top: calc(0.5rem / 2);\n}\n\n.judge-panel_placeholder_mPB6a {\n    color: var(--ui-text-primary-transparent);\n    font-size: 0.85rem;\n}\n\n.judge-panel_run-button_1KaZR {\n    background: var(--looks-secondary);\n    color: var(--ui-white);\n    border: none;\n    border-radius: calc(0.5rem / 2);\n    padding: 0.5rem calc(0.5rem * 2);\n    cursor: pointer;\n    font-size: 0.9rem;\n}\n\n.judge-panel_run-button_1KaZR:disabled {\n    opacity: 0.6;\n    cursor: default;\n}\n\n.judge-panel_results-box_rf9vO {\n    margin-top: 0.5rem;\n}\n\n.judge-panel_score-line_1zWWt {\n    font-weight: bold;\n    font-size: 1rem;\n    margin-bottom: 0.5rem;\n}\n\n.judge-panel_result-row_1o_p9 {\n    display: flex;\n    gap: 0.5rem;\n    padding: calc(0.5rem / 2) 0;\n    font-size: 0.8rem;\n    border-bottom: 1px solid var(--ui-black-transparent);\n}\n\n.judge-panel_pass_2_bP3 {\n    color: #2e7d32;\n    font-weight: bold;\n}\n\n.judge-panel_fail_16Mxz {\n    color: #c62828;\n    font-weight: bold;\n}\n\n.judge-panel_result-input_CBwnd {\n    color: var(--ui-text-primary-transparent);\n}\n\n.judge-panel_error-box_1fL2S {\n    margin-top: 0.5rem;\n    color: #c62828;\n    font-size: 0.85rem;\n}\n\n.judge-panel_demo-button_2RdmX {\n    background: var(--ui-tertiary);\n    color: var(--text-primary);\n    border: 1px solid var(--ui-black-transparent);\n    border-radius: calc(0.5rem / 2);\n    padding: calc(0.5rem / 2) 0.5rem;\n    cursor: pointer;\n    font-size: 0.8rem;\n    margin-top: 0.5rem;\n    font-weight: normal;\n}\n\n.judge-panel_demo-button_2RdmX:hover {\n    background: var(--ui-primary);\n}\n\n/*\n * 2026-08-04：比照BlocklyYdws的規則——載入範例答案後可以評分但不代表是學生自己的作答，\n * 老師從旁檢查時要能一眼看出目前畫布上的程式是不是「載入範例」載進來的，不能只看\n * 底下小字狀態訊息（太不顯眼），按鈕本身顏色要明顯不一樣。\n */\n\n.judge-panel_demo-button-loaded_1mC20 {\n    background: #fff3cd;\n    border-color: #e0a800;\n    color: #7a5c00;\n    font-weight: bold;\n}\n\n.judge-panel_demo-button-loaded_1mC20:hover {\n    background: #ffe8a1;\n}\n\n.judge-panel_self-test-output_1UhbB {\n    background: var(--ui-tertiary);\n    border-radius: calc(0.5rem / 2);\n    padding: 0.5rem;\n    font-size: 0.8rem;\n    white-space: pre-wrap;\n    min-height: 2rem;\n    margin-bottom: 0.5rem;\n}\n\n/* 2026-08-04：評分分頁/歷史紀錄要能一眼看出這次評分是不是用「載入範例」的程式跑的。 */\n\n.judge-panel_demo-warning-banner_2Q5_q {\n    background: #fff3cd;\n    border: 1px solid #e0a800;\n    color: #7a5c00;\n    border-radius: calc(0.5rem / 2);\n    padding: 0.5rem;\n    margin-bottom: 0.5rem;\n    font-size: 0.8rem;\n    font-weight: bold;\n}\n\n.judge-panel_header-demo-tag_3AMoS {\n    background: #fff3cd;\n    color: #7a5c00;\n    border-radius: calc(0.5rem / 2);\n    padding: calc(0.5rem / 4) calc(0.5rem / 2);\n    font-size: 0.7rem;\n    font-weight: bold;\n    white-space: nowrap;\n    flex-shrink: 0;\n}\n\n.judge-panel_history-demo-tag_3gGT3 {\n    background: #fff3cd;\n    color: #7a5c00;\n    border-radius: calc(0.5rem / 2);\n    padding: calc(0.5rem / 4) calc(0.5rem / 2);\n    font-size: 0.7rem;\n    font-weight: bold;\n    margin-left: calc(0.5rem / 2);\n}\n\n.judge-panel_demo-status_3OC5X {\n    margin-top: calc(0.5rem / 2);\n    font-size: 0.75rem;\n    color: var(--ui-text-primary-transparent);\n}\n\n.judge-panel_history-item_1zDhS {\n    display: flex;\n    justify-content: space-between;\n    padding: calc(0.5rem / 2) 0;\n    font-size: 0.8rem;\n    border-bottom: 1px solid var(--ui-black-transparent);\n}\n\n.judge-panel_history-time_NeohT {\n    color: var(--ui-text-primary-transparent);\n}\n\n.judge-panel_task-list_2LYpe {\n    padding: 0.5rem;\n    overflow-y: auto;\n    flex-grow: 1;\n}\n\n.judge-panel_course-group_WH4ay {\n    margin-bottom: calc(0.5rem * 1.5);\n}\n\n/* 2026-08-04：課程組代碼解鎖（版權保護，見task-list.jsx）。 */\n\n.judge-panel_course-title-locked_2rJDw {\n    font-weight: bold;\n    font-size: 0.9rem;\n    margin-bottom: calc(0.5rem / 2);\n    color: var(--ui-text-primary-transparent);\n}\n\n.judge-panel_unlock-row_2-80g {\n    display: flex;\n    gap: calc(0.5rem / 2);\n}\n\n.judge-panel_unlock-input_2cpxt {\n    flex-grow: 1;\n    box-sizing: border-box;\n    padding: calc(0.5rem / 2);\n    font-size: 0.85rem;\n    border: 1px solid var(--ui-black-transparent);\n    border-radius: calc(0.5rem / 2);\n}\n\n.judge-panel_unlock-button_208TP {\n    background: var(--looks-secondary);\n    color: var(--ui-white);\n    border: none;\n    border-radius: calc(0.5rem / 2);\n    padding: 0 0.5rem;\n    cursor: pointer;\n    font-size: 0.85rem;\n    flex-shrink: 0;\n}\n\n.judge-panel_unlock-error_3u7qT {\n    color: #c62828;\n    font-size: 0.75rem;\n    margin-top: calc(0.5rem / 4);\n}\n\n.judge-panel_course-title-button_O2_-0 {\n    display: flex;\n    align-items: center;\n    gap: calc(0.5rem / 2);\n    width: 100%;\n    box-sizing: border-box;\n    background: none;\n    border: none;\n    padding: 0;\n    margin-bottom: calc(0.5rem / 2);\n    font-weight: bold;\n    font-size: 0.9rem;\n    text-align: left;\n    cursor: pointer;\n    color: var(--text-primary);\n}\n\n.judge-panel_course-title-button_O2_-0:hover {\n    color: var(--looks-secondary);\n}\n\n.judge-panel_course-collapse-icon_YEzFX {\n    display: inline-block;\n    font-size: 0.7rem;\n    transform: rotate(90deg);\n    transition: transform 0.1s ease-out;\n    flex-shrink: 0;\n}\n\n.judge-panel_course-collapse-icon-collapsed_1u3ln {\n    transform: rotate(0deg);\n}\n\n.judge-panel_task-items_2EPtw {\n    list-style: none;\n    margin: 0;\n    padding: 0;\n}\n\n.judge-panel_task-item-button_1svTt {\n    width: 100%;\n    box-sizing: border-box;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding: 0.5rem;\n    margin-bottom: calc(0.5rem / 2);\n    background: var(--ui-tertiary);\n    border: 1px solid var(--ui-black-transparent);\n    border-radius: calc(0.5rem / 2);\n    cursor: pointer;\n    font-size: 0.85rem;\n    text-align: left;\n}\n\n.judge-panel_task-item-button_1svTt:hover {\n    background: var(--ui-primary);\n}\n\n.judge-panel_task-difficulty_17brD {\n    font-size: 0.7rem;\n    color: var(--ui-text-primary-transparent);\n}\n", ""]);
 
 // exports
 exports.locals = {
@@ -1342,6 +1346,8 @@ exports.locals = {
 	"exampleBox": "judge-panel_example-box_21cAO",
 	"example-label": "judge-panel_example-label_1q1oA",
 	"exampleLabel": "judge-panel_example-label_1q1oA",
+	"example-value": "judge-panel_example-value_KM-KA",
+	"exampleValue": "judge-panel_example-value_KM-KA",
 	"example-explanation": "judge-panel_example-explanation_8c9CL",
 	"exampleExplanation": "judge-panel_example-explanation_8c9CL",
 	"placeholder": "judge-panel_placeholder_mPB6a",
@@ -1361,12 +1367,18 @@ exports.locals = {
 	"errorBox": "judge-panel_error-box_1fL2S",
 	"demo-button": "judge-panel_demo-button_2RdmX",
 	"demoButton": "judge-panel_demo-button_2RdmX",
-	"demo-status": "judge-panel_demo-status_3OC5X",
-	"demoStatus": "judge-panel_demo-status_3OC5X",
-	"self-test-input": "judge-panel_self-test-input_1Krtv",
-	"selfTestInput": "judge-panel_self-test-input_1Krtv",
+	"demo-button-loaded": "judge-panel_demo-button-loaded_1mC20 judge-panel_demo-button_2RdmX",
+	"demoButtonLoaded": "judge-panel_demo-button-loaded_1mC20 judge-panel_demo-button_2RdmX",
 	"self-test-output": "judge-panel_self-test-output_1UhbB",
 	"selfTestOutput": "judge-panel_self-test-output_1UhbB",
+	"demo-warning-banner": "judge-panel_demo-warning-banner_2Q5_q",
+	"demoWarningBanner": "judge-panel_demo-warning-banner_2Q5_q",
+	"header-demo-tag": "judge-panel_header-demo-tag_3AMoS",
+	"headerDemoTag": "judge-panel_header-demo-tag_3AMoS",
+	"history-demo-tag": "judge-panel_history-demo-tag_3gGT3",
+	"historyDemoTag": "judge-panel_history-demo-tag_3gGT3",
+	"demo-status": "judge-panel_demo-status_3OC5X",
+	"demoStatus": "judge-panel_demo-status_3OC5X",
 	"history-item": "judge-panel_history-item_1zDhS",
 	"historyItem": "judge-panel_history-item_1zDhS",
 	"history-time": "judge-panel_history-time_NeohT",
@@ -1375,8 +1387,22 @@ exports.locals = {
 	"taskList": "judge-panel_task-list_2LYpe",
 	"course-group": "judge-panel_course-group_WH4ay",
 	"courseGroup": "judge-panel_course-group_WH4ay",
-	"course-title": "judge-panel_course-title_3lhaa",
-	"courseTitle": "judge-panel_course-title_3lhaa",
+	"course-title-locked": "judge-panel_course-title-locked_2rJDw",
+	"courseTitleLocked": "judge-panel_course-title-locked_2rJDw",
+	"unlock-row": "judge-panel_unlock-row_2-80g",
+	"unlockRow": "judge-panel_unlock-row_2-80g",
+	"unlock-input": "judge-panel_unlock-input_2cpxt",
+	"unlockInput": "judge-panel_unlock-input_2cpxt",
+	"unlock-button": "judge-panel_unlock-button_208TP",
+	"unlockButton": "judge-panel_unlock-button_208TP",
+	"unlock-error": "judge-panel_unlock-error_3u7qT",
+	"unlockError": "judge-panel_unlock-error_3u7qT",
+	"course-title-button": "judge-panel_course-title-button_O2_-0",
+	"courseTitleButton": "judge-panel_course-title-button_O2_-0",
+	"course-collapse-icon": "judge-panel_course-collapse-icon_YEzFX",
+	"courseCollapseIcon": "judge-panel_course-collapse-icon_YEzFX",
+	"course-collapse-icon-collapsed": "judge-panel_course-collapse-icon-collapsed_1u3ln judge-panel_course-collapse-icon_YEzFX",
+	"courseCollapseIconCollapsed": "judge-panel_course-collapse-icon-collapsed_1u3ln judge-panel_course-collapse-icon_YEzFX",
 	"task-items": "judge-panel_task-items_2EPtw",
 	"taskItems": "judge-panel_task-items_2EPtw",
 	"task-item-button": "judge-panel_task-item-button_1svTt",
@@ -2604,13 +2630,15 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "/* overridden by src/lib/themes/guiHelpers.js */\n\n/* make sure to keep these in sync with other constants,\ne.g. STAGE_DIMENSION_DEFAULTS in lib/screen-utils.js */\n\n/* layout contants from `layout-constants.js` */\n\n/*\n    Contains constants for the z-index values of elements that are part of the global stack context.\n    In other words, z-index values that are \"inside\" a component are not added here.\n    This prevents conflicts between identical z-index values in different components.\n*/\n\n/* Toolbox z-index: 40; set in scratch-blocks */\n\n/* tooltips should go over add buttons if they overlap */\n\n/* monitors go over add buttons */\n\n/* \"ask\" block text input goes above monitors */\n\n/* menu-bar should go over monitors, alerts and tutorials */\n\n/* behind menu-bar */\n\n/* Block drag z-index: 1000; default 50 is overriden in blocks.css */\n\n/* so it is draggable into other panes */\n\n/* behind modals */\n\n/* behind modals */\n\n/* in most interfaces, the context menu is always on top */\n\n.stage_stage_DTWo5 {\n    /*\n        Fixes a few extra pixels of margin/padding, that adds on to the bottom\n        of the element, which messes up the chrome padding consistency\n    */\n    display: block;\n\n    border-radius: 0.5rem;\n    border: 0.0625rem solid var(--ui-black-transparent);\n    overflow: hidden;\n\n    /* @todo: This is for overriding the value being set somewhere. Where is it being set? */\n    background-color: transparent;\n\n    /* Allow custom touch handling to prevent scrolling on Edge */\n    touch-action: none;\n\n    /* Make sure border is not included in size calculation */\n    box-sizing: content-box !important;\n\n    /* enforce overflow + reset position of absolutely-positioned children */\n    position: relative;\n\n    /* reset dark styles inherited from dark mode */\n    color-scheme: light;\n    color: var(--text-primary-default);\n}\n\n.stage_stage_DTWo5.stage_full-screen_aqa2I {\n    border: 0.0625rem solid var(--ui-black-transparent);\n}\n\n.stage_with-color-picker_27XHm {\n    cursor: none;\n    z-index: 2010;\n}\n\n.stage_color-picker-background_2HBlI {\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    background-color: rgba(0, 0, 0, 0.55);\n    display: block;\n    z-index: 2000;\n    top: 0;\n    left: 0;\n}\n\n.stage_stage-wrapper_35Uar {\n    position: relative;\n}\n\n/* we want stage overlays to all be positioned in the same spot as the stage, but can't put them inside the border\nbecause we want their overflow to be visible, and the bordered element must have overflow: hidden set so that the\nstage doesn't \"spill\" out from under its rounded corners. instead, shift these over by the border width. */\n\n.stage_stage-overlays_295lE {\n    position: absolute;\n    top: 0.0625rem;\n    left: 0.0625rem;\n\n    /* the overlay itself should not capture pointer events; only its child elements can do that */\n    pointer-events: none;\n}\n\n.stage_stage-overlays_295lE.stage_full-screen_aqa2I {\n    top: 0.0625rem;\n    left: 0.0625rem;\n}\n\n.stage_monitor-wrapper_2hZ-i,\n.stage_frame-wrapper_iYJos,\n.stage_green-flag-overlay-wrapper_3bCO- {\n    position: absolute;\n    top: 0;\n    left: 0;\n    pointer-events: none;\n}\n\n.stage_dragging-sprite_2rRMx {\n    position: absolute;\n    top: 0;\n    left: 0;\n    z-index: 1020;\n    filter: drop-shadow(5px 5px 5px var(--ui-black-transparent-default));\n}\n\n.stage_stage-bottom-wrapper_fnczd {\n    position: absolute;\n    display: flex;\n    flex-direction: column;\n    justify-content: flex-end;\n    top: 0;\n    left: 0;\n    overflow: hidden;\n    pointer-events: none;\n}\n\n.stage_mic-indicator_2hH2H {\n    transform-origin: bottom right;\n    z-index: 45;\n    pointer-events: none;\n    align-self: flex-end;\n}\n\n.stage_question-wrapper_3Sii9 {\n    z-index: 49;\n    pointer-events: auto;\n}\n\n.stage_frame_1-hsB {\n    background: var(--looks-transparent);\n    border: 2px solid var(--looks-secondary);\n    border-radius: 0.5rem;\n    animation-name: stage_flash_3LJh5;\n    animation-duration: 0.75s;\n    animation-fill-mode: forwards; /* Leave at 0 opacity after animation */\n}\n\n.stage_green-flag-overlay-wrapper_3bCO- {\n    width: 100%;\n    height: 100%;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    background: rgba(0,0,0,0.25);\n    border-radius: 0.5rem;\n    pointer-events: all;\n    cursor: pointer;\n}\n\n.stage_green-flag-overlay_219KT {\n    padding: 1rem;\n    border-radius: 100%;\n    background: rgba(255,255,255,0.75);\n    border: 3px solid var(--ui-white-default);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    box-sizing: border-box;\n    width: 5rem;\n    height: 5rem;\n}\n\n.stage_green-flag-overlay_219KT > img {\n    width: 100%;\n    object-fit: contain;\n}\n\n@keyframes stage_flash_3LJh5 {\n    0% { opacity: 1; }\n    100% { opacity: 0; }\n}\n", ""]);
+exports.push([module.i, "/* overridden by src/lib/themes/guiHelpers.js */\n\n/* make sure to keep these in sync with other constants,\ne.g. STAGE_DIMENSION_DEFAULTS in lib/screen-utils.js */\n\n/* layout contants from `layout-constants.js` */\n\n/*\n    Contains constants for the z-index values of elements that are part of the global stack context.\n    In other words, z-index values that are \"inside\" a component are not added here.\n    This prevents conflicts between identical z-index values in different components.\n*/\n\n/* Toolbox z-index: 40; set in scratch-blocks */\n\n/* tooltips should go over add buttons if they overlap */\n\n/* monitors go over add buttons */\n\n/* \"ask\" block text input goes above monitors */\n\n/* menu-bar should go over monitors, alerts and tutorials */\n\n/* behind menu-bar */\n\n/* Block drag z-index: 1000; default 50 is overriden in blocks.css */\n\n/* so it is draggable into other panes */\n\n/* behind modals */\n\n/* behind modals */\n\n/* in most interfaces, the context menu is always on top */\n\n.stage_stage_DTWo5 {\n    /*\n        Fixes a few extra pixels of margin/padding, that adds on to the bottom\n        of the element, which messes up the chrome padding consistency\n    */\n    display: block;\n\n    border-radius: 0.5rem;\n    border: 0.0625rem solid var(--ui-black-transparent);\n    overflow: hidden;\n\n    /* @todo: This is for overriding the value being set somewhere. Where is it being set? */\n    background-color: transparent;\n\n    /* Allow custom touch handling to prevent scrolling on Edge */\n    touch-action: none;\n\n    /* Make sure border is not included in size calculation */\n    box-sizing: content-box !important;\n\n    /* enforce overflow + reset position of absolutely-positioned children */\n    position: relative;\n\n    /* reset dark styles inherited from dark mode */\n    color-scheme: light;\n    color: var(--text-primary-default);\n}\n\n.stage_stage_DTWo5.stage_full-screen_aqa2I {\n    border: 0.0625rem solid var(--ui-black-transparent);\n}\n\n/*\n * 2026-08-04：手動測試（minimal模式）時只想看到「詢問並等待」的輸入框，不要角色/背景畫面。\n *\n * 不能用display:none——那會把整個子樹從渲染樹拿掉，canvas的getBoundingClientRect()量到\n * 0寬度，scratch-render內部某些滑鼠/顏色偵測邏輯呼叫getImageData(0寬度)會直接丟\n * IndexSizeError噴出白畫面（已實測撞過）。\n *\n * 也不能像上層gui.jsx的`.hiddenStage`一樣用position:absolute+1px縮小——那招是用在「整個\n * StageWrapper都不需要visible」的情境；這裡`.stage`的手足`.stageOverlays`（放「詢問並等待」\n * 輸入框的容器）是absolute定位、依賴`.stage`原本的版面尺寸(stageDimensions)來對齊，把\n * `.stage`縮小會讓`.stageOverlays`的定位跟著跑掉、輸入框位置對不準（已實測撞過：問題\n * label被裁掉、輸入框位置偏移）。\n *\n * 只用opacity:0+pointer-events:none，尺寸完全不動，維持`.stageOverlays`原本依賴的版面\n * 空間，只是視覺上看不到、滑鼠點不到。\n */\n\n.stage_stage-minimal-hidden_31DsE {\n    opacity: 0;\n    pointer-events: none;\n}\n\n.stage_with-color-picker_27XHm {\n    cursor: none;\n    z-index: 2010;\n}\n\n.stage_color-picker-background_2HBlI {\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    background-color: rgba(0, 0, 0, 0.55);\n    display: block;\n    z-index: 2000;\n    top: 0;\n    left: 0;\n}\n\n.stage_stage-wrapper_35Uar {\n    position: relative;\n}\n\n/* we want stage overlays to all be positioned in the same spot as the stage, but can't put them inside the border\nbecause we want their overflow to be visible, and the bordered element must have overflow: hidden set so that the\nstage doesn't \"spill\" out from under its rounded corners. instead, shift these over by the border width. */\n\n.stage_stage-overlays_295lE {\n    position: absolute;\n    top: 0.0625rem;\n    left: 0.0625rem;\n\n    /* the overlay itself should not capture pointer events; only its child elements can do that */\n    pointer-events: none;\n}\n\n.stage_stage-overlays_295lE.stage_full-screen_aqa2I {\n    top: 0.0625rem;\n    left: 0.0625rem;\n}\n\n.stage_monitor-wrapper_2hZ-i,\n.stage_frame-wrapper_iYJos,\n.stage_green-flag-overlay-wrapper_3bCO- {\n    position: absolute;\n    top: 0;\n    left: 0;\n    pointer-events: none;\n}\n\n.stage_dragging-sprite_2rRMx {\n    position: absolute;\n    top: 0;\n    left: 0;\n    z-index: 1020;\n    filter: drop-shadow(5px 5px 5px var(--ui-black-transparent-default));\n}\n\n.stage_stage-bottom-wrapper_fnczd {\n    position: absolute;\n    display: flex;\n    flex-direction: column;\n    justify-content: flex-end;\n    top: 0;\n    left: 0;\n    overflow: hidden;\n    pointer-events: none;\n}\n\n.stage_mic-indicator_2hH2H {\n    transform-origin: bottom right;\n    z-index: 45;\n    pointer-events: none;\n    align-self: flex-end;\n}\n\n.stage_question-wrapper_3Sii9 {\n    z-index: 49;\n    pointer-events: auto;\n}\n\n.stage_frame_1-hsB {\n    background: var(--looks-transparent);\n    border: 2px solid var(--looks-secondary);\n    border-radius: 0.5rem;\n    animation-name: stage_flash_3LJh5;\n    animation-duration: 0.75s;\n    animation-fill-mode: forwards; /* Leave at 0 opacity after animation */\n}\n\n.stage_green-flag-overlay-wrapper_3bCO- {\n    width: 100%;\n    height: 100%;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    background: rgba(0,0,0,0.25);\n    border-radius: 0.5rem;\n    pointer-events: all;\n    cursor: pointer;\n}\n\n.stage_green-flag-overlay_219KT {\n    padding: 1rem;\n    border-radius: 100%;\n    background: rgba(255,255,255,0.75);\n    border: 3px solid var(--ui-white-default);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    box-sizing: border-box;\n    width: 5rem;\n    height: 5rem;\n}\n\n.stage_green-flag-overlay_219KT > img {\n    width: 100%;\n    object-fit: contain;\n}\n\n@keyframes stage_flash_3LJh5 {\n    0% { opacity: 1; }\n    100% { opacity: 0; }\n}\n", ""]);
 
 // exports
 exports.locals = {
 	"stage": "stage_stage_DTWo5",
 	"full-screen": "stage_full-screen_aqa2I",
 	"fullScreen": "stage_full-screen_aqa2I",
+	"stage-minimal-hidden": "stage_stage-minimal-hidden_31DsE",
+	"stageMinimalHidden": "stage_stage-minimal-hidden_31DsE",
 	"with-color-picker": "stage_with-color-picker_27XHm",
 	"withColorPicker": "stage_with-color-picker_27XHm",
 	"color-picker-background": "stage_color-picker-background_2HBlI",
@@ -9080,37 +9108,39 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _containers_backdrop_library_jsx__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../../containers/backdrop-library.jsx */ "./src/containers/backdrop-library.jsx");
 /* harmony import */ var _containers_watermark_jsx__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../../containers/watermark.jsx */ "./src/containers/watermark.jsx");
 /* harmony import */ var _judge_panel_judge_panel_jsx__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../judge-panel/judge-panel.jsx */ "./src/components/judge-panel/judge-panel.jsx");
-/* harmony import */ var _containers_backpack_jsx__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../../containers/backpack.jsx */ "./src/containers/backpack.jsx");
-/* harmony import */ var _browser_modal_browser_modal_jsx__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../browser-modal/browser-modal.jsx */ "./src/components/browser-modal/browser-modal.jsx");
-/* harmony import */ var _containers_tips_library_jsx__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ../../containers/tips-library.jsx */ "./src/containers/tips-library.jsx");
-/* harmony import */ var _containers_cards_jsx__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ../../containers/cards.jsx */ "./src/containers/cards.jsx");
-/* harmony import */ var _containers_alerts_jsx__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ../../containers/alerts.jsx */ "./src/containers/alerts.jsx");
-/* harmony import */ var _containers_drag_layer_jsx__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ../../containers/drag-layer.jsx */ "./src/containers/drag-layer.jsx");
-/* harmony import */ var _containers_connection_modal_jsx__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ../../containers/connection-modal.jsx */ "./src/containers/connection-modal.jsx");
-/* harmony import */ var _telemetry_modal_telemetry_modal_jsx__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ../telemetry-modal/telemetry-modal.jsx */ "./src/components/telemetry-modal/telemetry-modal.jsx");
-/* harmony import */ var _containers_tw_username_modal_jsx__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ../../containers/tw-username-modal.jsx */ "./src/containers/tw-username-modal.jsx");
-/* harmony import */ var _containers_tw_settings_modal_jsx__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ../../containers/tw-settings-modal.jsx */ "./src/containers/tw-settings-modal.jsx");
-/* harmony import */ var _containers_tw_security_manager_jsx__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ../../containers/tw-security-manager.jsx */ "./src/containers/tw-security-manager.jsx");
-/* harmony import */ var _containers_tw_custom_extension_modal_jsx__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ../../containers/tw-custom-extension-modal.jsx */ "./src/containers/tw-custom-extension-modal.jsx");
-/* harmony import */ var _containers_tw_restore_point_manager_jsx__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ../../containers/tw-restore-point-manager.jsx */ "./src/containers/tw-restore-point-manager.jsx");
-/* harmony import */ var _containers_tw_fonts_modal_jsx__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ../../containers/tw-fonts-modal.jsx */ "./src/containers/tw-fonts-modal.jsx");
-/* harmony import */ var _containers_tw_unknown_platform_modal_jsx__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ../../containers/tw-unknown-platform-modal.jsx */ "./src/containers/tw-unknown-platform-modal.jsx");
-/* harmony import */ var _containers_tw_invalid_project_modal_jsx__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ../../containers/tw-invalid-project-modal.jsx */ "./src/containers/tw-invalid-project-modal.jsx");
-/* harmony import */ var _lib_layout_constants__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ../../lib/layout-constants */ "./src/lib/layout-constants.js");
-/* harmony import */ var _lib_screen_utils__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ../../lib/screen-utils */ "./src/lib/screen-utils.js");
-/* harmony import */ var _lib_themes__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ../../lib/themes */ "./src/lib/themes/index.js");
-/* harmony import */ var _lib_tw_environment_support_prober__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ../../lib/tw-environment-support-prober */ "./src/lib/tw-environment-support-prober.js");
-/* harmony import */ var _gui_css__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./gui.css */ "./src/components/gui/gui.css");
-/* harmony import */ var _gui_css__WEBPACK_IMPORTED_MODULE_42___default = /*#__PURE__*/__webpack_require__.n(_gui_css__WEBPACK_IMPORTED_MODULE_42__);
-/* harmony import */ var _icon_extensions_svg__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./icon--extensions.svg */ "./src/components/gui/icon--extensions.svg");
-/* harmony import */ var _icon_extensions_svg__WEBPACK_IMPORTED_MODULE_43___default = /*#__PURE__*/__webpack_require__.n(_icon_extensions_svg__WEBPACK_IMPORTED_MODULE_43__);
-/* harmony import */ var _lib_tw_recolor_build_icon_code_svg__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ../../lib/tw-recolor/build!./icon--code.svg */ "./src/lib/tw-recolor/build.js!./src/components/gui/icon--code.svg");
-/* harmony import */ var _lib_tw_recolor_build_icon_costumes_svg__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ../../lib/tw-recolor/build!./icon--costumes.svg */ "./src/lib/tw-recolor/build.js!./src/components/gui/icon--costumes.svg");
-/* harmony import */ var _lib_tw_recolor_build_icon_sounds_svg__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ../../lib/tw-recolor/build!./icon--sounds.svg */ "./src/lib/tw-recolor/build.js!./src/components/gui/icon--sounds.svg");
+/* harmony import */ var _lib_judge_manual_run_js__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../../lib/judge-manual-run.js */ "./src/lib/judge-manual-run.js");
+/* harmony import */ var _containers_backpack_jsx__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../../containers/backpack.jsx */ "./src/containers/backpack.jsx");
+/* harmony import */ var _browser_modal_browser_modal_jsx__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ../browser-modal/browser-modal.jsx */ "./src/components/browser-modal/browser-modal.jsx");
+/* harmony import */ var _containers_tips_library_jsx__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ../../containers/tips-library.jsx */ "./src/containers/tips-library.jsx");
+/* harmony import */ var _containers_cards_jsx__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ../../containers/cards.jsx */ "./src/containers/cards.jsx");
+/* harmony import */ var _containers_alerts_jsx__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ../../containers/alerts.jsx */ "./src/containers/alerts.jsx");
+/* harmony import */ var _containers_drag_layer_jsx__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ../../containers/drag-layer.jsx */ "./src/containers/drag-layer.jsx");
+/* harmony import */ var _containers_connection_modal_jsx__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ../../containers/connection-modal.jsx */ "./src/containers/connection-modal.jsx");
+/* harmony import */ var _telemetry_modal_telemetry_modal_jsx__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ../telemetry-modal/telemetry-modal.jsx */ "./src/components/telemetry-modal/telemetry-modal.jsx");
+/* harmony import */ var _containers_tw_username_modal_jsx__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ../../containers/tw-username-modal.jsx */ "./src/containers/tw-username-modal.jsx");
+/* harmony import */ var _containers_tw_settings_modal_jsx__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ../../containers/tw-settings-modal.jsx */ "./src/containers/tw-settings-modal.jsx");
+/* harmony import */ var _containers_tw_security_manager_jsx__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ../../containers/tw-security-manager.jsx */ "./src/containers/tw-security-manager.jsx");
+/* harmony import */ var _containers_tw_custom_extension_modal_jsx__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ../../containers/tw-custom-extension-modal.jsx */ "./src/containers/tw-custom-extension-modal.jsx");
+/* harmony import */ var _containers_tw_restore_point_manager_jsx__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ../../containers/tw-restore-point-manager.jsx */ "./src/containers/tw-restore-point-manager.jsx");
+/* harmony import */ var _containers_tw_fonts_modal_jsx__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ../../containers/tw-fonts-modal.jsx */ "./src/containers/tw-fonts-modal.jsx");
+/* harmony import */ var _containers_tw_unknown_platform_modal_jsx__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ../../containers/tw-unknown-platform-modal.jsx */ "./src/containers/tw-unknown-platform-modal.jsx");
+/* harmony import */ var _containers_tw_invalid_project_modal_jsx__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ../../containers/tw-invalid-project-modal.jsx */ "./src/containers/tw-invalid-project-modal.jsx");
+/* harmony import */ var _lib_layout_constants__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ../../lib/layout-constants */ "./src/lib/layout-constants.js");
+/* harmony import */ var _lib_screen_utils__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ../../lib/screen-utils */ "./src/lib/screen-utils.js");
+/* harmony import */ var _lib_themes__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ../../lib/themes */ "./src/lib/themes/index.js");
+/* harmony import */ var _lib_tw_environment_support_prober__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ../../lib/tw-environment-support-prober */ "./src/lib/tw-environment-support-prober.js");
+/* harmony import */ var _gui_css__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./gui.css */ "./src/components/gui/gui.css");
+/* harmony import */ var _gui_css__WEBPACK_IMPORTED_MODULE_43___default = /*#__PURE__*/__webpack_require__.n(_gui_css__WEBPACK_IMPORTED_MODULE_43__);
+/* harmony import */ var _icon_extensions_svg__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./icon--extensions.svg */ "./src/components/gui/icon--extensions.svg");
+/* harmony import */ var _icon_extensions_svg__WEBPACK_IMPORTED_MODULE_44___default = /*#__PURE__*/__webpack_require__.n(_icon_extensions_svg__WEBPACK_IMPORTED_MODULE_44__);
+/* harmony import */ var _lib_tw_recolor_build_icon_code_svg__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ../../lib/tw-recolor/build!./icon--code.svg */ "./src/lib/tw-recolor/build.js!./src/components/gui/icon--code.svg");
+/* harmony import */ var _lib_tw_recolor_build_icon_costumes_svg__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ../../lib/tw-recolor/build!./icon--costumes.svg */ "./src/lib/tw-recolor/build.js!./src/components/gui/icon--costumes.svg");
+/* harmony import */ var _lib_tw_recolor_build_icon_sounds_svg__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ../../lib/tw-recolor/build!./icon--sounds.svg */ "./src/lib/tw-recolor/build.js!./src/components/gui/icon--sounds.svg");
 const _excluded = ["accountNavOpen", "activeTabIndex", "alertsVisible", "authorId", "authorThumbnailUrl", "authorUsername", "basePath", "backdropLibraryVisible", "backpackHost", "backpackVisible", "blocksId", "blocksTabVisible", "cardsVisible", "canChangeLanguage", "canChangeTheme", "canCreateNew", "canEditTitle", "canManageFiles", "canRemix", "canSave", "canCreateCopy", "canShare", "canUseCloud", "children", "connectionModalVisible", "costumeLibraryVisible", "costumesTabVisible", "customStageSize", "enableCommunity", "intl", "isCreating", "isEmbedded", "isFullScreen", "isPlayerOnly", "isRtl", "isShared", "isWindowFullScreen", "isTelemetryEnabled", "isTotallyNormal", "loading", "logo", "renderLogin", "onClickAbout", "onClickAccountNav", "onCloseAccountNav", "onClickAddonSettings", "onClickDesktopSettings", "onClickNewWindow", "onClickPackager", "onLogOut", "onOpenRegistration", "onToggleLoginOpen", "onActivateCostumesTab", "onActivateSoundsTab", "onActivateTab", "onClickLogo", "onExtensionButtonClick", "onOpenCustomExtensionModal", "onProjectTelemetryEvent", "onRequestCloseBackdropLibrary", "onRequestCloseCostumeLibrary", "onRequestCloseTelemetryModal", "onSeeCommunity", "onShare", "onShowPrivacyPolicy", "onStartSelectingFileUpload", "onTelemetryModalCancel", "onTelemetryModalOptIn", "onTelemetryModalOptOut", "securityManager", "showComingSoon", "showOpenFilePicker", "showSaveFilePicker", "soundsTabVisible", "stageSizeMode", "targetIsStage", "telemetryModalVisible", "theme", "tipsLibraryVisible", "usernameModalVisible", "settingsModalVisible", "customExtensionModalVisible", "fontsModalVisible", "unknownPlatformModalVisible", "invalidProjectModalVisible", "vm"];
 function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 function _objectWithoutProperties(e, t) { if (null == e) return {}; var o, r, i = _objectWithoutPropertiesLoose(e, t); if (Object.getOwnPropertySymbols) { var n = Object.getOwnPropertySymbols(e); for (r = 0; r < n.length; r++) o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]); } return i; }
 function _objectWithoutPropertiesLoose(r, e) { if (null == r) return {}; var t = {}; for (var n in r) if ({}.hasOwnProperty.call(r, n)) { if (-1 !== e.indexOf(n)) continue; t[n] = r[n]; } return t; }
+
 
 
 
@@ -9266,48 +9296,52 @@ const GUIComponent = props => {
       vm
     } = _omit,
     componentProps = _objectWithoutProperties(_omit, _excluded);
+
+  // MVP-33手動測試模式：見src/lib/judge-manual-run.js的說明。
+  const [manualRunStageVisible, setManualRunStageVisible] = react__WEBPACK_IMPORTED_MODULE_3___default.a.useState(_lib_judge_manual_run_js__WEBPACK_IMPORTED_MODULE_22__["default"].isVisible());
+  react__WEBPACK_IMPORTED_MODULE_3___default.a.useEffect(() => _lib_judge_manual_run_js__WEBPACK_IMPORTED_MODULE_22__["default"].subscribe(setManualRunStageVisible), []);
   if (children) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_box_box_jsx__WEBPACK_IMPORTED_MODULE_16__["default"], componentProps, children);
   }
   const tabClassNames = {
-    tabs: _gui_css__WEBPACK_IMPORTED_MODULE_42___default.a.tabs,
-    tab: classnames__WEBPACK_IMPORTED_MODULE_0___default()(react_tabs_style_react_tabs_css__WEBPACK_IMPORTED_MODULE_8___default.a.reactTabsTab, _gui_css__WEBPACK_IMPORTED_MODULE_42___default.a.tab),
-    tabList: classnames__WEBPACK_IMPORTED_MODULE_0___default()(react_tabs_style_react_tabs_css__WEBPACK_IMPORTED_MODULE_8___default.a.reactTabsTabList, _gui_css__WEBPACK_IMPORTED_MODULE_42___default.a.tabList),
-    tabPanel: classnames__WEBPACK_IMPORTED_MODULE_0___default()(react_tabs_style_react_tabs_css__WEBPACK_IMPORTED_MODULE_8___default.a.reactTabsTabPanel, _gui_css__WEBPACK_IMPORTED_MODULE_42___default.a.tabPanel),
-    tabPanelSelected: classnames__WEBPACK_IMPORTED_MODULE_0___default()(react_tabs_style_react_tabs_css__WEBPACK_IMPORTED_MODULE_8___default.a.reactTabsTabPanelSelected, _gui_css__WEBPACK_IMPORTED_MODULE_42___default.a.isSelected),
-    tabSelected: classnames__WEBPACK_IMPORTED_MODULE_0___default()(react_tabs_style_react_tabs_css__WEBPACK_IMPORTED_MODULE_8___default.a.reactTabsTabSelected, _gui_css__WEBPACK_IMPORTED_MODULE_42___default.a.isSelected)
+    tabs: _gui_css__WEBPACK_IMPORTED_MODULE_43___default.a.tabs,
+    tab: classnames__WEBPACK_IMPORTED_MODULE_0___default()(react_tabs_style_react_tabs_css__WEBPACK_IMPORTED_MODULE_8___default.a.reactTabsTab, _gui_css__WEBPACK_IMPORTED_MODULE_43___default.a.tab),
+    tabList: classnames__WEBPACK_IMPORTED_MODULE_0___default()(react_tabs_style_react_tabs_css__WEBPACK_IMPORTED_MODULE_8___default.a.reactTabsTabList, _gui_css__WEBPACK_IMPORTED_MODULE_43___default.a.tabList),
+    tabPanel: classnames__WEBPACK_IMPORTED_MODULE_0___default()(react_tabs_style_react_tabs_css__WEBPACK_IMPORTED_MODULE_8___default.a.reactTabsTabPanel, _gui_css__WEBPACK_IMPORTED_MODULE_43___default.a.tabPanel),
+    tabPanelSelected: classnames__WEBPACK_IMPORTED_MODULE_0___default()(react_tabs_style_react_tabs_css__WEBPACK_IMPORTED_MODULE_8___default.a.reactTabsTabPanelSelected, _gui_css__WEBPACK_IMPORTED_MODULE_43___default.a.isSelected),
+    tabSelected: classnames__WEBPACK_IMPORTED_MODULE_0___default()(react_tabs_style_react_tabs_css__WEBPACK_IMPORTED_MODULE_8___default.a.reactTabsTabSelected, _gui_css__WEBPACK_IMPORTED_MODULE_43___default.a.isSelected)
   };
-  const unconstrainedWidth = _lib_layout_constants__WEBPACK_IMPORTED_MODULE_38__["UNCONSTRAINED_NON_STAGE_WIDTH"] + _lib_layout_constants__WEBPACK_IMPORTED_MODULE_38__["FIXED_WIDTH"] + Math.max(0, customStageSize.width - _lib_layout_constants__WEBPACK_IMPORTED_MODULE_38__["FIXED_WIDTH"]);
+  const unconstrainedWidth = _lib_layout_constants__WEBPACK_IMPORTED_MODULE_39__["UNCONSTRAINED_NON_STAGE_WIDTH"] + _lib_layout_constants__WEBPACK_IMPORTED_MODULE_39__["FIXED_WIDTH"] + Math.max(0, customStageSize.width - _lib_layout_constants__WEBPACK_IMPORTED_MODULE_39__["FIXED_WIDTH"]);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(react_responsive__WEBPACK_IMPORTED_MODULE_6___default.a, {
     minWidth: unconstrainedWidth
   }, isUnconstrained => {
-    const stageSize = Object(_lib_screen_utils__WEBPACK_IMPORTED_MODULE_39__["resolveStageSize"])(stageSizeMode, isUnconstrained);
-    const alwaysEnabledModals = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_3___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_containers_tw_security_manager_jsx__WEBPACK_IMPORTED_MODULE_32__["default"], {
+    const stageSize = Object(_lib_screen_utils__WEBPACK_IMPORTED_MODULE_40__["resolveStageSize"])(stageSizeMode, isUnconstrained);
+    const alwaysEnabledModals = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_3___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_containers_tw_security_manager_jsx__WEBPACK_IMPORTED_MODULE_33__["default"], {
       securityManager: securityManager
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_containers_tw_restore_point_manager_jsx__WEBPACK_IMPORTED_MODULE_34__["default"], null), usernameModalVisible && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_containers_tw_username_modal_jsx__WEBPACK_IMPORTED_MODULE_30__["default"], null), settingsModalVisible && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_containers_tw_settings_modal_jsx__WEBPACK_IMPORTED_MODULE_31__["default"], null), customExtensionModalVisible && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_containers_tw_custom_extension_modal_jsx__WEBPACK_IMPORTED_MODULE_33__["default"], null), fontsModalVisible && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_containers_tw_fonts_modal_jsx__WEBPACK_IMPORTED_MODULE_35__["default"], null), unknownPlatformModalVisible && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_containers_tw_unknown_platform_modal_jsx__WEBPACK_IMPORTED_MODULE_36__["default"], null), invalidProjectModalVisible && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_containers_tw_invalid_project_modal_jsx__WEBPACK_IMPORTED_MODULE_37__["default"], null));
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_containers_tw_restore_point_manager_jsx__WEBPACK_IMPORTED_MODULE_35__["default"], null), usernameModalVisible && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_containers_tw_username_modal_jsx__WEBPACK_IMPORTED_MODULE_31__["default"], null), settingsModalVisible && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_containers_tw_settings_modal_jsx__WEBPACK_IMPORTED_MODULE_32__["default"], null), customExtensionModalVisible && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_containers_tw_custom_extension_modal_jsx__WEBPACK_IMPORTED_MODULE_34__["default"], null), fontsModalVisible && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_containers_tw_fonts_modal_jsx__WEBPACK_IMPORTED_MODULE_36__["default"], null), unknownPlatformModalVisible && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_containers_tw_unknown_platform_modal_jsx__WEBPACK_IMPORTED_MODULE_37__["default"], null), invalidProjectModalVisible && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_containers_tw_invalid_project_modal_jsx__WEBPACK_IMPORTED_MODULE_38__["default"], null));
     return isPlayerOnly ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_3___default.a.Fragment, null, isWindowFullScreen ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
-      className: _gui_css__WEBPACK_IMPORTED_MODULE_42___default.a.fullscreenBackground,
+      className: _gui_css__WEBPACK_IMPORTED_MODULE_43___default.a.fullscreenBackground,
       style: {
         backgroundColor: fullscreenBackgroundColor
       }
     }) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_containers_stage_wrapper_jsx__WEBPACK_IMPORTED_MODULE_14__["default"], {
       isFullScreen: isFullScreen,
       isEmbedded: isEmbedded,
-      isRendererSupported: Object(_lib_tw_environment_support_prober__WEBPACK_IMPORTED_MODULE_41__["isRendererSupported"])(),
+      isRendererSupported: Object(_lib_tw_environment_support_prober__WEBPACK_IMPORTED_MODULE_42__["isRendererSupported"])(),
       isRtl: isRtl,
       loading: loading,
-      stageSize: _lib_layout_constants__WEBPACK_IMPORTED_MODULE_38__["STAGE_SIZE_MODES"].full,
+      stageSize: _lib_layout_constants__WEBPACK_IMPORTED_MODULE_39__["STAGE_SIZE_MODES"].full,
       vm: vm
-    }, alertsVisible ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_containers_alerts_jsx__WEBPACK_IMPORTED_MODULE_26__["default"], {
-      className: _gui_css__WEBPACK_IMPORTED_MODULE_42___default.a.alertsContainer
+    }, alertsVisible ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_containers_alerts_jsx__WEBPACK_IMPORTED_MODULE_27__["default"], {
+      className: _gui_css__WEBPACK_IMPORTED_MODULE_43___default.a.alertsContainer
     }) : null), alwaysEnabledModals) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_box_box_jsx__WEBPACK_IMPORTED_MODULE_16__["default"], _extends({
-      className: _gui_css__WEBPACK_IMPORTED_MODULE_42___default.a.pageWrapper,
+      className: _gui_css__WEBPACK_IMPORTED_MODULE_43___default.a.pageWrapper,
       dir: isRtl ? 'rtl' : 'ltr',
       style: {
         minWidth: 1024 + Math.max(0, customStageSize.width - 480),
         minHeight: 640 + Math.max(0, customStageSize.height - 360)
       }
-    }, componentProps), alwaysEnabledModals, telemetryModalVisible ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_telemetry_modal_telemetry_modal_jsx__WEBPACK_IMPORTED_MODULE_29__["default"], {
+    }, componentProps), alwaysEnabledModals, telemetryModalVisible ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_telemetry_modal_telemetry_modal_jsx__WEBPACK_IMPORTED_MODULE_30__["default"], {
       isRtl: isRtl,
       isTelemetryEnabled: isTelemetryEnabled,
       onCancel: onTelemetryModalCancel,
@@ -9320,12 +9354,12 @@ const GUIComponent = props => {
     }) : null, isCreating ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_loader_loader_jsx__WEBPACK_IMPORTED_MODULE_15__["default"], {
       isFullScreen: true,
       messageId: "gui.loader.creating"
-    }) : null, Object(_lib_tw_environment_support_prober__WEBPACK_IMPORTED_MODULE_41__["isBrowserSupported"])() ? null : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_browser_modal_browser_modal_jsx__WEBPACK_IMPORTED_MODULE_23__["default"], {
+    }) : null, Object(_lib_tw_environment_support_prober__WEBPACK_IMPORTED_MODULE_42__["isBrowserSupported"])() ? null : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_browser_modal_browser_modal_jsx__WEBPACK_IMPORTED_MODULE_24__["default"], {
       isRtl: isRtl,
       onClickDesktopSettings: onClickDesktopSettings
-    }), tipsLibraryVisible ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_containers_tips_library_jsx__WEBPACK_IMPORTED_MODULE_24__["default"], null) : null, cardsVisible ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_containers_cards_jsx__WEBPACK_IMPORTED_MODULE_25__["default"], null) : null, alertsVisible ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_containers_alerts_jsx__WEBPACK_IMPORTED_MODULE_26__["default"], {
-      className: _gui_css__WEBPACK_IMPORTED_MODULE_42___default.a.alertsContainer
-    }) : null, connectionModalVisible ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_containers_connection_modal_jsx__WEBPACK_IMPORTED_MODULE_28__["default"], {
+    }), tipsLibraryVisible ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_containers_tips_library_jsx__WEBPACK_IMPORTED_MODULE_25__["default"], null) : null, cardsVisible ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_containers_cards_jsx__WEBPACK_IMPORTED_MODULE_26__["default"], null) : null, alertsVisible ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_containers_alerts_jsx__WEBPACK_IMPORTED_MODULE_27__["default"], {
+      className: _gui_css__WEBPACK_IMPORTED_MODULE_43___default.a.alertsContainer
+    }) : null, connectionModalVisible ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_containers_connection_modal_jsx__WEBPACK_IMPORTED_MODULE_29__["default"], {
       vm: vm
     }) : null, costumeLibraryVisible ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_containers_costume_library_jsx__WEBPACK_IMPORTED_MODULE_18__["default"], {
       vm: vm,
@@ -9347,7 +9381,7 @@ const GUIComponent = props => {
       canRemix: canRemix,
       canSave: canSave,
       canShare: canShare,
-      className: _gui_css__WEBPACK_IMPORTED_MODULE_42___default.a.menuBarPosition,
+      className: _gui_css__WEBPACK_IMPORTED_MODULE_43___default.a.menuBarPosition,
       enableCommunity: enableCommunity,
       isShared: isShared,
       isTotallyNormal: isTotallyNormal,
@@ -9372,11 +9406,11 @@ const GUIComponent = props => {
       onStartSelectingFileUpload: onStartSelectingFileUpload,
       onToggleLoginOpen: onToggleLoginOpen
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_box_box_jsx__WEBPACK_IMPORTED_MODULE_16__["default"], {
-      className: _gui_css__WEBPACK_IMPORTED_MODULE_42___default.a.bodyWrapper
+      className: _gui_css__WEBPACK_IMPORTED_MODULE_43___default.a.bodyWrapper
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_box_box_jsx__WEBPACK_IMPORTED_MODULE_16__["default"], {
-      className: _gui_css__WEBPACK_IMPORTED_MODULE_42___default.a.flexWrapper
+      className: _gui_css__WEBPACK_IMPORTED_MODULE_43___default.a.flexWrapper
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_box_box_jsx__WEBPACK_IMPORTED_MODULE_16__["default"], {
-      className: _gui_css__WEBPACK_IMPORTED_MODULE_42___default.a.editorWrapper
+      className: _gui_css__WEBPACK_IMPORTED_MODULE_43___default.a.editorWrapper
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(react_tabs__WEBPACK_IMPORTED_MODULE_7__["Tabs"], {
       forceRenderTabPanel: true,
       className: tabClassNames.tabs,
@@ -9390,14 +9424,14 @@ const GUIComponent = props => {
       className: tabClassNames.tab
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("img", {
       draggable: false,
-      src: Object(_lib_tw_recolor_build_icon_code_svg__WEBPACK_IMPORTED_MODULE_44__["default"])()
+      src: Object(_lib_tw_recolor_build_icon_code_svg__WEBPACK_IMPORTED_MODULE_45__["default"])()
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(react_intl__WEBPACK_IMPORTED_MODULE_4__["FormattedMessage"], {
       defaultMessage: "Code",
       id: "gui.gui.codeTab"
     }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(react_tabs__WEBPACK_IMPORTED_MODULE_7__["TabPanel"], {
       className: tabClassNames.tabPanel
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_box_box_jsx__WEBPACK_IMPORTED_MODULE_16__["default"], {
-      className: _gui_css__WEBPACK_IMPORTED_MODULE_42___default.a.blocksWrapper
+      className: _gui_css__WEBPACK_IMPORTED_MODULE_43___default.a.blocksWrapper
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_containers_blocks_jsx__WEBPACK_IMPORTED_MODULE_10__["default"], {
       key: "".concat(blocksId, "/").concat(theme.id),
       canUseCloud: canUseCloud,
@@ -9411,32 +9445,39 @@ const GUIComponent = props => {
       theme: theme,
       vm: vm
     })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_box_box_jsx__WEBPACK_IMPORTED_MODULE_16__["default"], {
-      className: _gui_css__WEBPACK_IMPORTED_MODULE_42___default.a.extensionButtonContainer
+      className: _gui_css__WEBPACK_IMPORTED_MODULE_43___default.a.extensionButtonContainer
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("button", {
-      className: _gui_css__WEBPACK_IMPORTED_MODULE_42___default.a.extensionButton,
+      className: _gui_css__WEBPACK_IMPORTED_MODULE_43___default.a.extensionButton,
       title: intl.formatMessage(messages.addExtension),
       onClick: onExtensionButtonClick
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("img", {
-      className: _gui_css__WEBPACK_IMPORTED_MODULE_42___default.a.extensionButtonIcon,
+      className: _gui_css__WEBPACK_IMPORTED_MODULE_43___default.a.extensionButtonIcon,
       draggable: false,
-      src: _icon_extensions_svg__WEBPACK_IMPORTED_MODULE_43___default.a
+      src: _icon_extensions_svg__WEBPACK_IMPORTED_MODULE_44___default.a
     }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_box_box_jsx__WEBPACK_IMPORTED_MODULE_16__["default"], {
-      className: _gui_css__WEBPACK_IMPORTED_MODULE_42___default.a.watermark
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_containers_watermark_jsx__WEBPACK_IMPORTED_MODULE_20__["default"], null)))), backpackVisible ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_containers_backpack_jsx__WEBPACK_IMPORTED_MODULE_22__["default"], {
+      className: _gui_css__WEBPACK_IMPORTED_MODULE_43___default.a.watermark
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_containers_watermark_jsx__WEBPACK_IMPORTED_MODULE_20__["default"], null)))), backpackVisible ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_containers_backpack_jsx__WEBPACK_IMPORTED_MODULE_23__["default"], {
       host: backpackHost
     }) : null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_box_box_jsx__WEBPACK_IMPORTED_MODULE_16__["default"], {
-      className: _gui_css__WEBPACK_IMPORTED_MODULE_42___default.a.hiddenStage
+      className: manualRunStageVisible ? _gui_css__WEBPACK_IMPORTED_MODULE_43___default.a.manualRunStage : _gui_css__WEBPACK_IMPORTED_MODULE_43___default.a.hiddenStage
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_box_box_jsx__WEBPACK_IMPORTED_MODULE_16__["default"], {
+      className: manualRunStageVisible ? _gui_css__WEBPACK_IMPORTED_MODULE_43___default.a.manualRunStageViewport : undefined
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_containers_stage_wrapper_jsx__WEBPACK_IMPORTED_MODULE_14__["default"], {
       isFullScreen: isFullScreen,
-      isRendererSupported: Object(_lib_tw_environment_support_prober__WEBPACK_IMPORTED_MODULE_41__["isRendererSupported"])(),
+      isRendererSupported: Object(_lib_tw_environment_support_prober__WEBPACK_IMPORTED_MODULE_42__["isRendererSupported"])(),
       isRtl: isRtl,
-      stageSize: _lib_layout_constants__WEBPACK_IMPORTED_MODULE_38__["STAGE_SIZE_MODES"].small,
+      minimal: manualRunStageVisible
+      // large：舞台本身平常都被hiddenStage/minimal藏起來看不到，這個值
+      // 只影響手動測試時「詢問並等待」輸入框的寬度（見stage.jsx的
+      // questionWrapper用stageDimensions.width撐寬），大一點比較清楚。
+      ,
+      stageSize: _lib_layout_constants__WEBPACK_IMPORTED_MODULE_39__["STAGE_SIZE_MODES"].large,
       vm: vm
-    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_box_box_jsx__WEBPACK_IMPORTED_MODULE_16__["default"], {
-      className: _gui_css__WEBPACK_IMPORTED_MODULE_42___default.a.judgePanelWrapper
+    }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_box_box_jsx__WEBPACK_IMPORTED_MODULE_16__["default"], {
+      className: _gui_css__WEBPACK_IMPORTED_MODULE_43___default.a.judgePanelWrapper
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_judge_panel_judge_panel_jsx__WEBPACK_IMPORTED_MODULE_21__["default"], {
       vm: vm
-    })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_containers_drag_layer_jsx__WEBPACK_IMPORTED_MODULE_27__["default"], null));
+    })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_containers_drag_layer_jsx__WEBPACK_IMPORTED_MODULE_28__["default"], null));
   });
 };
 GUIComponent.propTypes = {
@@ -9515,10 +9556,10 @@ GUIComponent.propTypes = {
   showOpenFilePicker: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.func,
   showSaveFilePicker: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.func,
   soundsTabVisible: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.bool,
-  stageSizeMode: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.oneOf(Object.keys(_lib_layout_constants__WEBPACK_IMPORTED_MODULE_38__["STAGE_SIZE_MODES"])),
+  stageSizeMode: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.oneOf(Object.keys(_lib_layout_constants__WEBPACK_IMPORTED_MODULE_39__["STAGE_SIZE_MODES"])),
   targetIsStage: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.bool,
   telemetryModalVisible: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.bool,
-  theme: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.instanceOf(_lib_themes__WEBPACK_IMPORTED_MODULE_40__["Theme"]),
+  theme: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.instanceOf(_lib_themes__WEBPACK_IMPORTED_MODULE_41__["Theme"]),
   tipsLibraryVisible: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.bool,
   usernameModalVisible: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.bool,
   settingsModalVisible: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.bool,
@@ -9549,7 +9590,7 @@ GUIComponent.defaultProps = {
   isTotallyNormal: false,
   loading: false,
   showComingSoon: false,
-  stageSizeMode: _lib_layout_constants__WEBPACK_IMPORTED_MODULE_38__["STAGE_SIZE_MODES"].large
+  stageSizeMode: _lib_layout_constants__WEBPACK_IMPORTED_MODULE_39__["STAGE_SIZE_MODES"].large
 };
 const mapStateToProps = state => ({
   customStageSize: state.scratchGui.customStageSize,
@@ -9706,9 +9747,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _lib_tw_judge_engine_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../lib/tw-judge-engine.js */ "./src/lib/tw-judge-engine.js");
 /* harmony import */ var _lib_tw_judge_engine_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_lib_tw_judge_engine_js__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _lib_judge_content_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../lib/judge-content.js */ "./src/lib/judge-content.js");
-/* harmony import */ var _task_list_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./task-list.jsx */ "./src/components/judge-panel/task-list.jsx");
-/* harmony import */ var _judge_panel_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./judge-panel.css */ "./src/components/judge-panel/judge-panel.css");
-/* harmony import */ var _judge_panel_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_judge_panel_css__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _lib_judge_manual_run_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../lib/judge-manual-run.js */ "./src/lib/judge-manual-run.js");
+/* harmony import */ var _task_list_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./task-list.jsx */ "./src/components/judge-panel/task-list.jsx");
+/* harmony import */ var _judge_panel_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./judge-panel.css */ "./src/components/judge-panel/judge-panel.css");
+/* harmony import */ var _judge_panel_css__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_judge_panel_css__WEBPACK_IMPORTED_MODULE_7__);
+
 
 
 
@@ -9781,31 +9824,37 @@ const DescriptionTab = _ref2 => {
   let {
     task,
     onLoadDemo,
-    demoStatus
+    demoStatus,
+    demoLoaded
   } = _ref2;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_6___default.a.tabContent
+    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_7___default.a.tabContent
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
-    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_6___default.a.sectionHeading
+    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_7___default.a.sectionHeading
   }, "\u984C\u76EE\u6558\u8FF0"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_6___default.a.description
+    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_7___default.a.description
   }, task.description), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
-    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_6___default.a.sectionHeading
+    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_7___default.a.sectionHeading
   }, "\u7BC4\u4F8B\u6E2C\u8CC7"), task.examples.map((example, index) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_6___default.a.exampleBox,
+    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_7___default.a.exampleBox,
     key: index
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_6___default.a.exampleLabel
-  }, "\u7BC4\u4F8B ", index + 1), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "\u8F38\u5165\uFF1A"), example.input), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "\u8F38\u51FA\uFF1A"), example.output), example.explanation ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_6___default.a.exampleExplanation
+    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_7___default.a.exampleLabel
+  }, "\u7BC4\u4F8B ", index + 1), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "\u8F38\u5165\uFF1A"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_7___default.a.exampleValue
+  }, example.input)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "\u8F38\u51FA\uFF1A"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_7___default.a.exampleValue
+  }, example.output)), example.explanation ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_7___default.a.exampleExplanation
   }, example.explanation) : null)), task.loadable ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_6___default.a.demoButton,
+    className: demoLoaded ? _judge_panel_css__WEBPACK_IMPORTED_MODULE_7___default.a.demoButtonLoaded : _judge_panel_css__WEBPACK_IMPORTED_MODULE_7___default.a.demoButton,
     onClick: onLoadDemo
-  }, "\u8F09\u5165\u7BC4\u4F8B"), demoStatus ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_6___default.a.demoStatus
+  }, demoLoaded ? '✓ 已載入範例答案' : '載入範例'), demoStatus ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_7___default.a.demoStatus
   }, demoStatus) : null) : null);
 };
 DescriptionTab.propTypes = {
+  demoLoaded: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool,
   demoStatus: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,
   onLoadDemo: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func.isRequired,
   task: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.shape({
@@ -9814,75 +9863,160 @@ DescriptionTab.propTypes = {
     loadable: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool
   }).isRequired
 };
+
+/**
+ * 2026-08-04：改成跟正式Scratch/官方競賽平台一樣的「手動測試」操作方式——按下開始後
+ * 畫面右下角跳出真正的Scratch舞台，「詢問並等待」會跳出原生輸入框，一筆一筆手動輸入，
+ * 不是像「評分」那樣一次把全部測資塞進一個字串自動跑完。這是刻意跟「評分」分開的兩種
+ * 輸入模式（手動測試給學生用、評分給系統自動讀取），對齊國小學生已經熟悉的Scratch
+ * 操作習慣（見judge-manual-run.js的說明——舞台平常用CSS隱藏，這裡暫時顯示出來）。
+ */
 const SelfTestTab = _ref3 => {
   let {
     vm
   } = _ref3;
-  const [input, setInput] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('');
-  const [output, setOutput] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
   const [running, setRunning] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
-  const handleRun = async () => {
+  const [output, setOutput] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
+  const [debugOutput, setDebugOutput] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
+  // 用ref存這次執行的攔截狀態（onSay handler／目前累積的說出／輸出訊息／輪詢計時器），
+  // 讓poll的setInterval跟handleStop都能拿到同一份、不受React重新render影響。
+  const runStateRef = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])(null);
+  const restoreVisibility = state => {
+    if (!state || !state.previousVisibility) return;
+    state.previousVisibility.forEach(_ref4 => {
+      let {
+        target,
+        visible
+      } = _ref4;
+      target.visible = visible;
+    });
+  };
+  const finishRun = () => {
+    const state = runStateRef.current;
+    if (!state) return;
+    clearInterval(state.poll);
+    vm.runtime.off('SAY', state.onSay);
+    restoreVisibility(state);
+    runStateRef.current = null;
+    setOutput(state.capturedSay.join('\n'));
+    setDebugOutput(state.capturedThink.join('\n'));
+    setRunning(false);
+    _lib_judge_manual_run_js__WEBPACK_IMPORTED_MODULE_5__["default"].hide();
+  };
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => () => {
+    // 離開這個分頁/切換題目時，如果手動測試還在跑，把舞台藏回去、程式停掉、
+    // 解除監聽、還原visible狀態，不要留著浮動視窗跟背景執行的程式。
+    _lib_judge_manual_run_js__WEBPACK_IMPORTED_MODULE_5__["default"].hide();
+    vm.stopAll();
+    if (runStateRef.current) {
+      vm.runtime.off('SAY', runStateRef.current.onSay);
+      clearInterval(runStateRef.current.poll);
+      restoreVisibility(runStateRef.current);
+      runStateRef.current = null;
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  const handleStart = () => {
     setRunning(true);
     setOutput(null);
-    try {
-      const result = await withVisibilityRestore(vm, () => Object(_lib_tw_judge_engine_js__WEBPACK_IMPORTED_MODULE_3__["runTestCase"])(vm, {
-        input,
-        expectedOutput: null
-      }));
-      setOutput(result.actualOutput);
-    } catch (err) {
-      setOutput("\u57F7\u884C\u6642\u767C\u751F\u932F\u8AA4\uFF1A".concat(err && err.message ? err.message : String(err)));
-    } finally {
-      setRunning(false);
-    }
+    setDebugOutput(null);
+    const capturedSay = [];
+    const capturedThink = [];
+    const onSay = (target, type, text) => {
+      if (type === 'say') capturedSay.push(text);else if (type === 'think') capturedThink.push(text);
+    };
+    vm.runtime.on('SAY', onSay);
+
+    // 角色visible要維持false（跟評分用的prepareVmForGrading()一樣），不是true！
+    // 這是scratch-vm本身故意設計的行為（node_modules/scratch-vm/src/blocks/
+    // scratch3_sensing.js的_askNextQuestion()）：target.visible===true時，
+    // 「詢問並等待」會emit空字串給QUESTION事件、改用SAY事件把問題文字echo成角色
+    // 頭上的說話泡泡（畫在舞台canvas上）；但我們的舞台canvas本來就故意用minimal
+    // 模式藏起來（只留輸入框），如果visible=true，問題文字會echo到「看不見的地方」，
+    // 學生會看到一個沒有題目文字的空白輸入框。維持visible=false，問題文字才會直接
+    // 放進輸入框上方的label（Question元件自己畫的，不依賴舞台canvas），這正是minimal
+    // 模式下唯一看得到問題文字的地方。已實測驗證過這個因果關係。
+    // 跑完/停止後會還原回原本的visible狀態（見restoreVisibility），不留副作用。
+    const previousVisibility = vm.runtime.targets.map(target => ({
+      target,
+      visible: target.visible
+    }));
+    vm.runtime.targets.forEach(target => {
+      if (!target.isStage) target.visible = false;
+    });
+    _lib_judge_manual_run_js__WEBPACK_IMPORTED_MODULE_5__["default"].show();
+    vm.greenFlag();
+    const poll = setInterval(() => {
+      if (vm.runtime.threads.length === 0) {
+        finishRun();
+      }
+    }, 200);
+    runStateRef.current = {
+      onSay,
+      capturedSay,
+      capturedThink,
+      poll,
+      previousVisibility
+    };
+  };
+  const handleStop = () => {
+    vm.stopAll();
+    finishRun();
   };
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_6___default.a.tabContent
+    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_7___default.a.tabContent
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_6___default.a.placeholder
-  }, "\u8F38\u5165\u81EA\u8A02\u6E2C\u8CC7\uFF0C\u57F7\u884C\u76EE\u524D\u7684\u7A0B\u5F0F\u770B\u770B\u5BE6\u969B\u300C\u8AAA\u51FA\u300D\u5167\u5BB9\uFF08\u4E0D\u8A08\u5206\u3001\u4E0D\u6BD4\u5C0D\u7B54\u6848\uFF09\u3002"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_6___default.a.selfTestInput,
-    placeholder: "\u8F38\u5165\u6E2C\u8A66\u8CC7\u6599\uFF0C\u4F8B\u5982\uFF1AAmy",
-    value: input,
-    onChange: e => setInput(e.target.value)
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_6___default.a.runButton,
-    disabled: running,
-    onClick: handleRun
-  }, running ? '執行中…' : '執行測試'), output !== null ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_6___default.a.selfTestOutput
-  }, output || '（沒有任何「說出」內容）') : null);
+    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_7___default.a.placeholder
+  }, "\u6309\u4E0B\u300C\u958B\u59CB\u624B\u52D5\u6E2C\u8A66\u300D\uFF0C\u756B\u9762\u53F3\u4E0B\u89D2\u6703\u8DF3\u51FA\u8DDF\u6B63\u5F0FScratch\u4E00\u6A23\u7684\u821E\u53F0\u2014\u2014\u300C\u8A62\u554F\u4E26\u7B49\u5F85\u300D \u6703\u8DF3\u51FA\u8F38\u5165\u6846\u8B93\u4F60\u4E00\u7B46\u4E00\u7B46\u624B\u52D5\u8F38\u5165\u4F5C\u7B54\uFF08\u4E0D\u662F\u81EA\u52D5\u5E36\u5165\uFF09\u3002\u4E0D\u8A08\u5206\u3001\u4E0D\u6BD4\u5C0D\u7B54\u6848\uFF0C \u7D14\u7CB9\u8B93\u4F60\u770B\u770B\u7A0B\u5F0F\u5BE6\u969B\u57F7\u884C\u7684\u6A23\u5B50\u3002"), running ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_7___default.a.runButton,
+    onClick: handleStop
+  }, "\u505C\u6B62\uFF08\u96B1\u85CF\u821E\u53F0\uFF09") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_7___default.a.runButton,
+    onClick: handleStart
+  }, "\u958B\u59CB\u624B\u52D5\u6E2C\u8A66"), output !== null ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_7___default.a.sectionHeading
+  }, "\u6B63\u5F0F\u8A55\u5206\u8F38\u51FA\uFF08\u300C\u8AAA\u51FA\u300D\u7684\u5167\u5BB9\uFF09"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_7___default.a.selfTestOutput
+  }, output || '（沒有任何「說出」內容）')) : null, debugOutput ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_7___default.a.sectionHeading
+  }, "\u9664\u932F\u8F38\u51FA\uFF08\u300C\u8F38\u51FA\u8A0A\u606F\u300D\u7A4D\u6728\uFF0C\u4E0D\u8A08\u5206\uFF09"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_7___default.a.selfTestOutput
+  }, debugOutput)) : null);
 };
 SelfTestTab.propTypes = {
   vm: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.instanceOf(scratch_vm__WEBPACK_IMPORTED_MODULE_2___default.a).isRequired
 };
-const GradingTab = _ref4 => {
+const GradingTab = _ref5 => {
   let {
     grading,
-    onRunGrading
-  } = _ref4;
+    onRunGrading,
+    demoLoaded
+  } = _ref5;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_6___default.a.tabContent
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_6___default.a.runButton,
+    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_7___default.a.tabContent
+  }, demoLoaded ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_7___default.a.demoWarningBanner
+  }, "\u26A0 \u76EE\u524D\u756B\u5E03\u4E0A\u7684\u7A0B\u5F0F\u662F\u300C\u8F09\u5165\u7BC4\u4F8B\u7B54\u6848\u300D\u8F09\u5165\u7684\uFF0C\u4E0D\u662F\u5B78\u751F\u81EA\u5DF1\u5BEB\u7684\u2014\u2014\u9019\u6B21\u8A55\u5206 \uFF08\u5305\u542B\u4E4B\u5F8C\u5B58\u9032\u8A55\u5206\u7D00\u9304\u7684\u7D50\u679C\uFF09\u50C5\u4F9B\u529F\u80FD\u6E2C\u8A66\u53C3\u8003\uFF0C\u4E0D\u80FD\u7576\u4F5C\u5B78\u751F\u4F5C\u7B54\u6210\u7E3E\u3002") : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_7___default.a.runButton,
     disabled: grading.isRunning,
     onClick: onRunGrading
   }, grading.isRunning ? '評分中…' : '執行評分'), grading.results ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_6___default.a.resultsBox
+    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_7___default.a.resultsBox
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_6___default.a.scoreLine
+    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_7___default.a.scoreLine
   }, "\u5206\u6578\uFF1A", grading.totalScore, " / ", grading.maxScore), grading.results.map((result, index) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_6___default.a.resultRow,
+    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_7___default.a.resultRow,
     key: index
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: result.pass ? _judge_panel_css__WEBPACK_IMPORTED_MODULE_6___default.a.pass : _judge_panel_css__WEBPACK_IMPORTED_MODULE_6___default.a.fail
+    className: result.pass ? _judge_panel_css__WEBPACK_IMPORTED_MODULE_7___default.a.pass : _judge_panel_css__WEBPACK_IMPORTED_MODULE_7___default.a.fail
   }, result.pass ? '通過' : '未通過'), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_6___default.a.resultInput
+    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_7___default.a.resultInput
   }, "\u8F38\u5165\uFF1A", result.input)))) : null, grading.error ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_6___default.a.errorBox
+    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_7___default.a.errorBox
   }, "\u8A55\u5206\u6642\u767C\u751F\u932F\u8AA4\uFF1A", grading.error) : null);
 };
 GradingTab.propTypes = {
+  demoLoaded: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool,
   grading: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.shape({
     isRunning: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool,
     totalScore: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.number,
@@ -9892,32 +10026,35 @@ GradingTab.propTypes = {
   }).isRequired,
   onRunGrading: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func.isRequired
 };
-const HistoryTab = _ref5 => {
+const HistoryTab = _ref6 => {
   let {
     history
-  } = _ref5;
+  } = _ref6;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_6___default.a.tabContent
+    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_7___default.a.tabContent
   }, history.length === 0 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_6___default.a.placeholder
+    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_7___default.a.placeholder
   }, "\u9084\u6C92\u6709\u8A55\u5206\u7D00\u9304\uFF0C\u53BB\u300C\u8A55\u5206\u300D\u5206\u9801\u57F7\u884C\u8A55\u5206\u5F8C\u6703\u51FA\u73FE\u5728\u9019\u88E1\uFF08\u5B58\u5728\u9019\u53F0\u96FB\u8166\u7684\u700F\u89BD\u5668\u88E1\uFF09\u3002") : history.map((entry, index) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_6___default.a.historyItem,
+    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_7___default.a.historyItem,
     key: index
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, entry.totalScore, " / ", entry.maxScore), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_6___default.a.historyTime
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, entry.totalScore, " / ", entry.maxScore, entry.demoLoaded ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_7___default.a.historyDemoTag
+  }, "\u8F09\u5165\u7BC4\u4F8B") : null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_7___default.a.historyTime
   }, new Date(entry.timestamp).toLocaleString()))));
 };
 HistoryTab.propTypes = {
   history: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.shape({
     totalScore: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.number,
     maxScore: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.number,
-    timestamp: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.number
+    timestamp: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.number,
+    demoLoaded: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool
   })).isRequired
 };
-const JudgePanel = _ref6 => {
+const JudgePanel = _ref7 => {
   let {
     vm
-  } = _ref6;
+  } = _ref7;
   const [selectedTaskCode, setSelectedTaskCode] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
   const [activeTab, setActiveTab] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('description');
   const [grading, setGrading] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
@@ -9928,6 +10065,7 @@ const JudgePanel = _ref6 => {
     error: null
   });
   const [demoStatus, setDemoStatus] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
+  const [demoLoaded, setDemoLoaded] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
   const [history, setHistory] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
   const found = selectedTaskCode ? Object(_lib_judge_content_js__WEBPACK_IMPORTED_MODULE_4__["findTaskByCode"])(selectedTaskCode) : null;
   const task = found ? found.task : null;
@@ -9943,6 +10081,7 @@ const JudgePanel = _ref6 => {
         error: null
       });
       setDemoStatus(null);
+      setDemoLoaded(false);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedTaskCode]);
@@ -9956,6 +10095,7 @@ const JudgePanel = _ref6 => {
       const buffer = await response.arrayBuffer();
       await vm.loadProject(buffer);
       setDemoStatus('已載入範例答案，可以在左邊積木畫布查看。');
+      setDemoLoaded(true);
     } catch (err) {
       setDemoStatus("\u8F09\u5165\u5931\u6557\uFF1A".concat(err && err.message ? err.message : String(err)));
     }
@@ -9984,7 +10124,8 @@ const JudgePanel = _ref6 => {
       setHistory(saveHistoryEntry(task.code, {
         totalScore,
         maxScore,
-        timestamp: Date.now()
+        timestamp: Date.now(),
+        demoLoaded
       }));
     } catch (err) {
       setGrading({
@@ -9998,45 +10139,49 @@ const JudgePanel = _ref6 => {
   };
   if (!task) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_6___default.a.judgePanel
+      className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_7___default.a.judgePanel
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_6___default.a.header
+      className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_7___default.a.header
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_6___default.a.headerLeft
+      className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_7___default.a.headerLeft
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-      className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_6___default.a.taskTitle
-    }, "osep-judge"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_task_list_jsx__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_7___default.a.taskTitle
+    }, "osep-judge"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_task_list_jsx__WEBPACK_IMPORTED_MODULE_6__["default"], {
       courses: _lib_judge_content_js__WEBPACK_IMPORTED_MODULE_4__["courses"],
       onSelectTask: setSelectedTaskCode
     }));
   }
   const scoreLabel = grading.totalScore === null ? '尚未評分' : "".concat(grading.totalScore, " / ").concat(grading.maxScore);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_6___default.a.judgePanel
+    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_7___default.a.judgePanel
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_6___default.a.header
+    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_7___default.a.header
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_6___default.a.headerLeft
+    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_7___default.a.headerLeft
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_6___default.a.backButton,
+    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_7___default.a.backButton,
     onClick: () => setSelectedTaskCode(null)
   }, "\u2190 \u984C\u76EE\u5217\u8868"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_6___default.a.taskTitle
-  }, task.title)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_6___default.a.scoreBadge
+    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_7___default.a.taskTitle
+  }, task.title), demoLoaded ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_7___default.a.headerDemoTag
+  }, "\u8F09\u5165\u7BC4\u4F8B\u4E2D") : null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_7___default.a.scoreBadge
   }, scoreLabel)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_6___default.a.tabBar
+    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_7___default.a.tabBar
   }, TABS.map(tab => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    className: activeTab === tab.id ? _judge_panel_css__WEBPACK_IMPORTED_MODULE_6___default.a.tabButtonActive : _judge_panel_css__WEBPACK_IMPORTED_MODULE_6___default.a.tabButton,
+    className: activeTab === tab.id ? _judge_panel_css__WEBPACK_IMPORTED_MODULE_7___default.a.tabButtonActive : _judge_panel_css__WEBPACK_IMPORTED_MODULE_7___default.a.tabButton,
     key: tab.id,
     onClick: () => setActiveTab(tab.id)
   }, tab.label))), activeTab === 'description' && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(DescriptionTab, {
+    demoLoaded: demoLoaded,
     demoStatus: demoStatus,
     task: task,
     onLoadDemo: handleLoadDemo
   }), activeTab === 'selftest' && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(SelfTestTab, {
     vm: vm
   }), activeTab === 'grading' && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(GradingTab, {
+    demoLoaded: demoLoaded,
     grading: grading,
     onRunGrading: handleRunGrading
   }), activeTab === 'history' && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(HistoryTab, {
@@ -10065,6 +10210,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _judge_panel_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./judge-panel.css */ "./src/components/judge-panel/judge-panel.css");
 /* harmony import */ var _judge_panel_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_judge_panel_css__WEBPACK_IMPORTED_MODULE_2__);
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == typeof i ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != typeof i) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
 
 
 
@@ -10073,36 +10223,133 @@ __webpack_require__.r(__webpack_exports__);
  * MVP-33後續（方案C）：課程/題目瀏覽清單，取代BlocklyYdws的courseCode輸入代碼方式。
  * 對這個年齡層的學生（M0~M2難度標籤是基礎程度）用點選清單比打代碼直覺，
  * 且完全活在現有React SPA架構裡，不用另外維護靜態頁面。
+ *
+ * 2026-08-04：課程組標題可點選折疊/展開（題目多了以後清單會越來越長）。
+ * 預設全部展開，折疊狀態只存在這個元件的state，不記憶跨session。
+ *
+ * 2026-08-04（版權保護）：每個課程組改回需要輸入代碼才能解鎖（course.unlockCode，
+ * 見scripts/judge-dev-tools/course-unlock-codes.js），解鎖狀態存在localStorage，
+ * 同一台電腦同一個瀏覽器下次開不用重打。**這只是降低隨手瀏覽到的機率，不是真正的
+ * 存取控制**——純靜態網站，代碼本身還是打包在公開JS檔案裡，用開發者工具找得到，
+ * 詳見course-unlock-codes.js的說明。
  */
-const TaskList = _ref => {
+
+const UNLOCK_STORAGE_KEY = 'osepJudgeUnlockedCourses';
+const loadUnlockedCodes = () => {
+  try {
+    const raw = window.localStorage.getItem(UNLOCK_STORAGE_KEY);
+    return raw ? JSON.parse(raw) : [];
+  } catch (e) {
+    return [];
+  }
+};
+const saveUnlockedCodes = codes => {
+  try {
+    window.localStorage.setItem(UNLOCK_STORAGE_KEY, JSON.stringify(codes));
+  } catch (e) {
+    // localStorage不可用，忽略——這次session還是解鎖著，只是下次要重打代碼
+  }
+};
+const LockedCourseGroup = _ref => {
+  let {
+    course,
+    onUnlock
+  } = _ref;
+  const [input, setInput] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('');
+  const [error, setError] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
+  const handleSubmit = () => {
+    if (input.trim().toLowerCase() === course.unlockCode.toLowerCase()) {
+      setError(false);
+      onUnlock(course.code);
+    } else {
+      setError(true);
+    }
+  };
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_2___default.a.courseGroup
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_2___default.a.courseTitleLocked
+  }, "\uD83D\uDD12 ", course.code, "\uFF5C", course.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_2___default.a.unlockRow
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_2___default.a.unlockInput,
+    placeholder: "\u8F38\u5165\u8AB2\u7A0B\u4EE3\u78BC",
+    value: input,
+    onChange: e => {
+      setInput(e.target.value);
+      setError(false);
+    },
+    onKeyPress: e => {
+      if (e.key === 'Enter') handleSubmit();
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_2___default.a.unlockButton,
+    onClick: handleSubmit
+  }, "\u89E3\u9396")), error ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_2___default.a.unlockError
+  }, "\u4EE3\u78BC\u4E0D\u6B63\u78BA\uFF0C\u8ACB\u8DDF\u8001\u5E2B\u78BA\u8A8D\u3002") : null);
+};
+LockedCourseGroup.propTypes = {
+  course: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.shape({
+    code: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired,
+    title: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired,
+    unlockCode: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired
+  }).isRequired,
+  onUnlock: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func.isRequired
+};
+const TaskList = _ref2 => {
   let {
     courses,
     onSelectTask
-  } = _ref;
+  } = _ref2;
+  const [collapsed, setCollapsed] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({});
+  const [unlockedCodes, setUnlockedCodes] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(() => loadUnlockedCodes());
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    saveUnlockedCodes(unlockedCodes);
+  }, [unlockedCodes]);
+  const toggleCourse = code => setCollapsed(prev => _objectSpread(_objectSpread({}, prev), {}, {
+    [code]: !prev[code]
+  }));
+  const handleUnlock = code => setUnlockedCodes(prev => prev.includes(code) ? prev : [...prev, code]);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_2___default.a.taskList
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
     className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_2___default.a.sectionHeading
-  }, "\u9078\u64C7\u984C\u76EE"), courses.map(course => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_2___default.a.courseGroup,
-    key: course.code
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_2___default.a.courseTitle
-  }, course.code, "\uFF5C", course.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_2___default.a.taskItems
-  }, course.tasks.map(task => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-    key: task.code
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_2___default.a.taskItemButton,
-    onClick: () => onSelectTask(task.code)
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, task.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_2___default.a.taskDifficulty
-  }, task.difficultyLabel))))))));
+  }, "\u9078\u64C7\u984C\u76EE"), courses.map(course => {
+    const isUnlocked = unlockedCodes.includes(course.code);
+    if (!isUnlocked) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(LockedCourseGroup, {
+        course: course,
+        key: course.code,
+        onUnlock: handleUnlock
+      });
+    }
+    const isCollapsed = !!collapsed[course.code];
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_2___default.a.courseGroup,
+      key: course.code
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_2___default.a.courseTitleButton,
+      onClick: () => toggleCourse(course.code)
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      className: isCollapsed ? _judge_panel_css__WEBPACK_IMPORTED_MODULE_2___default.a.courseCollapseIconCollapsed : _judge_panel_css__WEBPACK_IMPORTED_MODULE_2___default.a.courseCollapseIcon
+    }, "\u25B6"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, course.code, "\uFF5C", course.title)), !isCollapsed && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+      className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_2___default.a.taskItems
+    }, course.tasks.map(task => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+      key: task.code
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_2___default.a.taskItemButton,
+      onClick: () => onSelectTask(task.code)
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, task.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      className: _judge_panel_css__WEBPACK_IMPORTED_MODULE_2___default.a.taskDifficulty
+    }, task.difficultyLabel))))));
+  }));
 };
 TaskList.propTypes = {
   courses: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.shape({
     code: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired,
     title: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired,
+    unlockCode: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired,
     tasks: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.array.isRequired
   })).isRequired,
   onSelectTask: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func.isRequired
@@ -18478,6 +18725,7 @@ const StageWrapperComponent = function StageWrapperComponent(props) {
     isRtl,
     isRendererSupported,
     loading,
+    minimal,
     stageSize,
     vm
   } = props;
@@ -18489,7 +18737,7 @@ const StageWrapperComponent = function StageWrapperComponent(props) {
       [_stage_wrapper_css__WEBPACK_IMPORTED_MODULE_9___default.a.offsetControls]: !(isEmbedded || isFullScreen)
     }),
     dir: isRtl ? 'rtl' : 'ltr'
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_box_box_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }, minimal ? null : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_box_box_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {
     className: _stage_wrapper_css__WEBPACK_IMPORTED_MODULE_9___default.a.stageMenuWrapper
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_containers_stage_header_jsx__WEBPACK_IMPORTED_MODULE_6__["default"], {
     stageSize: stageSize,
@@ -18497,6 +18745,7 @@ const StageWrapperComponent = function StageWrapperComponent(props) {
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_box_box_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {
     className: _stage_wrapper_css__WEBPACK_IMPORTED_MODULE_9___default.a.stageCanvasWrapper
   }, isRendererSupported ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_containers_stage_jsx__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    minimal: minimal,
     stageSize: stageSize,
     vm: vm
   }) : null), loading ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_loader_loader_jsx__WEBPACK_IMPORTED_MODULE_8__["default"], {
@@ -18509,6 +18758,7 @@ StageWrapperComponent.propTypes = {
   isRendererSupported: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.bool.isRequired,
   isRtl: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.bool.isRequired,
   loading: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.bool,
+  minimal: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.bool,
   stageSize: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.oneOf(Object.keys(_lib_layout_constants_js__WEBPACK_IMPORTED_MODULE_5__["STAGE_DISPLAY_SIZES"])).isRequired,
   vm: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.instanceOf(scratch_vm__WEBPACK_IMPORTED_MODULE_3___default.a).isRequired
 };
@@ -18573,7 +18823,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _lib_screen_utils_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../lib/screen-utils.js */ "./src/lib/screen-utils.js");
 /* harmony import */ var _stage_css__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./stage.css */ "./src/components/stage/stage.css");
 /* harmony import */ var _stage_css__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_stage_css__WEBPACK_IMPORTED_MODULE_13__);
-const _excluded = ["canvas", "customStageSize", "dragRef", "isColorPicking", "isFullScreen", "isPlayerOnly", "isStarted", "isRtl", "colorInfo", "micIndicator", "question", "stageSize", "useEditorDragStyle", "onDeactivateColorPicker", "onDoubleClick", "onQuestionAnswered"];
+const _excluded = ["canvas", "customStageSize", "dragRef", "isColorPicking", "isFullScreen", "isPlayerOnly", "isStarted", "isRtl", "colorInfo", "micIndicator", "minimal", "question", "stageSize", "useEditorDragStyle", "onDeactivateColorPicker", "onDoubleClick", "onQuestionAnswered"];
 function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
 function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
@@ -18608,6 +18858,7 @@ const StageComponent = props => {
       isRtl,
       colorInfo,
       micIndicator,
+      minimal,
       question,
       stageSize,
       useEditorDragStyle,
@@ -18632,7 +18883,8 @@ const StageComponent = props => {
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_box_box_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
     className: classnames__WEBPACK_IMPORTED_MODULE_2___default()(_stage_css__WEBPACK_IMPORTED_MODULE_13___default.a.stage, {
-      [_stage_css__WEBPACK_IMPORTED_MODULE_13___default.a.fullScreen]: isFullScreen
+      [_stage_css__WEBPACK_IMPORTED_MODULE_13___default.a.fullScreen]: isFullScreen,
+      [_stage_css__WEBPACK_IMPORTED_MODULE_13___default.a.stageMinimalHidden]: minimal
     }),
     style: _objectSpread({
       height: stageDimensions.height,
@@ -18688,7 +18940,7 @@ const StageComponent = props => {
     height: 0,
     ref: dragRef,
     width: 0
-  })), isStarted ? null : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_containers_green_flag_overlay_jsx__WEBPACK_IMPORTED_MODULE_8__["default"], {
+  })), minimal || isStarted ? null : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_containers_green_flag_overlay_jsx__WEBPACK_IMPORTED_MODULE_8__["default"], {
     className: _stage_css__WEBPACK_IMPORTED_MODULE_13___default.a.greenFlagOverlay,
     wrapperClass: _stage_css__WEBPACK_IMPORTED_MODULE_13___default.a.greenFlagOverlayWrapper
   })), isColorPicking ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_box_box_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -18711,6 +18963,7 @@ StageComponent.propTypes = {
   isRtl: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.bool,
   isStarted: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.bool,
   micIndicator: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.bool,
+  minimal: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.bool,
   onDeactivateColorPicker: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.func,
   onDoubleClick: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.func,
   onQuestionAnswered: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.func,
@@ -38916,60 +39169,491 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "courses", function() { return courses; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "findTaskByCode", function() { return findTaskByCode; });
 /**
- * MVP-33後續：課程/題目內容資料模組。
+ * MVP-33後續：課程/題目內容資料模組（2026-08-04擴充：從BlocklyYdws M0-01/M0-02課程檔
+ * 自動轉換，見scripts/judge-dev-tools/gen-judge-content.js，不要手動編輯本檔——
+ * 要改題目內容請去改BlocklyYdws src/courses/下對應課程檔，重跑那份腳本重新產生）。
  *
- * 結構比照BlocklyYdws（courses -> tasks陣列），先只有M0-01-A-01-0這一題有完整內容
- * （敘述/範例/測資/demo答案.sb3皆備），其餘題目之後擴充時只需要在這裡加資料，
- * 不用改judge-panel.jsx或task-list.jsx的邏輯。
- *
+ * 結構比照BlocklyYdws（courses -> tasks陣列）。
  * answerProjectUrl用window.location.origin動態產生（比照舊OSEP擴充功能的慣例），
  * 部署到GitHub Pages子路徑時可能需要調整。
+ *
+ * course.unlockCode：版權保護用的課程解鎖代碼（見task-list.jsx），值直接沿用
+ * BlocklyYdws自己的courseCode（來源課程檔的完整檔名，不含.js），不用另外維護一套。
  */
 
 const judgeContentBase = () => "".concat(window.location.origin, "/judge-content");
 const courses = [{
-  code: 'M0-01',
-  title: '程式起步：輸出與基本運算',
-  tier: 't0',
-  tasks: [{
-    id: 'A-01-0',
-    code: 'M0-01-A-01-0',
-    title: 'Hello world',
-    description: ['在程式設計的第一步，最重要的是能夠讀取使用者輸入，並將結果正確輸出。', '請你寫一個小程式，讓使用者輸入自己的名字，然後程式要輸出一行「Hello, 名字」。', 'Hello後面會接小寫逗號，還有一個空白輸入', '這樣的練習可以幫助你理解輸入與輸出，是學習程式設計的基礎。'].join('\n'),
-    examples: [{
-      input: 'Amy',
-      output: 'Hello, Amy',
-      explanation: '第一個輸入 Amy，代表名字為 Amy\n程式輸出 Hello, Amy'
+  "code": "M0-01",
+  "title": "程式起步：輸出與基本運算",
+  "tier": "t0",
+  "unlockCode": "M0-01-BasicOutput",
+  "tasks": [{
+    "id": "A-01-0",
+    "code": "M0-01-A-01-0",
+    "title": "Hello world",
+    "description": "在程式設計的第一步，最重要的是能夠讀取使用者輸入，並將結果正確輸出。\n請你寫一個小程式，讓使用者輸入自己的名字，然後程式要輸出一行「Hello, 名字」。\nHello後面會接小寫逗號，還有一個空白輸入\n這樣的練習可以幫助你理解輸入與輸出，是學習程式設計的基礎。",
+    "examples": [{
+      "input": "Amy",
+      "output": "Hello, Amy",
+      "explanation": "第一個輸入 Amy，代表名字為 Amy\n程式輸出 Hello, Amy"
     }, {
-      input: 'Tom',
-      output: 'Hello, Tom',
-      explanation: ''
+      "input": "Tom",
+      "output": "Hello, Tom",
+      "explanation": ""
     }],
-    testCases: [{
-      input: 'John',
-      expectedOutput: 'Hello, John',
-      score: 10
+    "testCases": [{
+      "input": "John",
+      "expectedOutput": "Hello, John",
+      "score": 10
     }, {
-      input: 'Marry',
-      expectedOutput: 'Hello, Marry',
-      score: 10
+      "input": "Marry",
+      "expectedOutput": "Hello, Marry",
+      "score": 10
     }, {
-      input: 'Sam',
-      expectedOutput: 'Hello, Sam',
-      score: 10
+      "input": "Sam",
+      "expectedOutput": "Hello, Sam",
+      "score": 10
     }, {
-      input: 'Tom',
-      expectedOutput: 'Hello, Tom',
-      score: 10
+      "input": "Tom",
+      "expectedOutput": "Hello, Tom",
+      "score": 10
     }],
-    difficulty: 'L1',
-    difficultyLabel: 'L1｜基礎',
-    get answerProjectUrl() {
-      return "".concat(judgeContentBase(), "/m0/M0-01-BasicOutput/A-01-0.sb3");
-    },
-    loadable: true
+    "difficulty": "L1",
+    "difficultyLabel": "L1｜基礎",
+    "sb3Path": "m0/M0-01-BasicOutput/A-01-0.sb3"
+  }, {
+    "id": "A-01-1",
+    "code": "M0-01-A-01-1",
+    "title": "一起學習吧",
+    "description": "在程式設計的第一步，最重要的是能夠讀取使用者輸入，並將結果正確輸出。\n請你寫一個小程式，讓使用者輸入好朋友一的名字、接著輸入好朋友二的名字，然後程式要輸出一行「朋友一名字,朋友二名字, 一起學習吧！」。\n朋友一名字後面、朋友二名字後面都會接小寫逗號，還有一個空白輸入\n這樣的練習可以幫助你理解輸入與輸出，是學習程式設計的基礎。",
+    "examples": [{
+      "input": "Amy\nJohn",
+      "output": "Amy, John, 一起學習吧！",
+      "explanation": "第一個輸入 Amy，代表朋友一名字為 Amy\n第二個輸入 John，代表朋友二名字為 John\n程式輸出 Amy, John, 一起學習吧！"
+    }, {
+      "input": "Tom\nSusan",
+      "output": "Tom, Susan, 一起學習吧！",
+      "explanation": ""
+    }],
+    "testCases": [{
+      "input": "John\nAmy",
+      "expectedOutput": "John, Amy, 一起學習吧！",
+      "score": 10
+    }, {
+      "input": "Tom\nSusan",
+      "expectedOutput": "Tom, Susan, 一起學習吧！",
+      "score": 10
+    }, {
+      "input": "Sam\nBrown",
+      "expectedOutput": "Sam, Brown, 一起學習吧！",
+      "score": 10
+    }, {
+      "input": "Justin\nLouise",
+      "expectedOutput": "Justin, Louise, 一起學習吧！",
+      "score": 10
+    }],
+    "difficulty": "L1",
+    "difficultyLabel": "L1｜基礎",
+    "sb3Path": "m0/M0-01-BasicOutput/A-01-1.sb3"
+  }, {
+    "id": "A-02-0",
+    "code": "M0-01-A-02-0",
+    "title": "數字加總",
+    "description": "當我們要處理數字時，常常需要加總。\n請設計一個程式，讓使用者輸入兩個數字，程式要輸出這兩個數字的總和。\n這樣的題目能幫助你熟悉數字資料處理。",
+    "examples": [{
+      "input": "9\n4",
+      "output": "13",
+      "explanation": "第一個輸入9\n第二個輸入4\n程式輸出9+4總和13"
+    }, {
+      "input": "6\n5",
+      "output": "11",
+      "explanation": ""
+    }],
+    "testCases": [{
+      "input": "3\n7",
+      "expectedOutput": "10",
+      "score": 10
+    }, {
+      "input": "99\n100",
+      "expectedOutput": "199",
+      "score": 10
+    }, {
+      "input": "78\n22",
+      "expectedOutput": "100",
+      "score": 10
+    }, {
+      "input": "21\n35",
+      "expectedOutput": "56",
+      "score": 10
+    }],
+    "difficulty": "L1",
+    "difficultyLabel": "L1｜基礎",
+    "sb3Path": "m0/M0-01-BasicOutput/A-02-0.sb3"
+  }, {
+    "id": "A-02-1",
+    "code": "M0-01-A-02-1",
+    "title": "數字平均",
+    "description": "當我們要處理數字時，常常需計算平均。\n請設計一個程式，讓使用者輸入兩個數字，程式要輸出這兩個數字的平均(四捨五入取整數)。\n這樣的題目能幫助你熟悉數字資料處理。",
+    "examples": [{
+      "input": "9\n4",
+      "output": "7",
+      "explanation": "第一個輸入9\n第二個輸入4\n程式輸出9、4的平均四捨五入取整數7"
+    }, {
+      "input": "6\n5",
+      "output": "6",
+      "explanation": ""
+    }],
+    "testCases": [{
+      "input": "3\n7",
+      "expectedOutput": "5",
+      "score": 10
+    }, {
+      "input": "99\n100",
+      "expectedOutput": "100",
+      "score": 10
+    }, {
+      "input": "78\n22",
+      "expectedOutput": "50",
+      "score": 10
+    }, {
+      "input": "21\n35",
+      "expectedOutput": "28",
+      "score": 10
+    }],
+    "difficulty": "L1",
+    "difficultyLabel": "L1｜基礎",
+    "sb3Path": "m0/M0-01-BasicOutput/A-02-1.sb3"
+  }, {
+    "id": "A-03-0",
+    "code": "M0-01-A-03-0",
+    "title": "比較大小",
+    "description": "在生活中常常會需要比較兩個數字誰比較大。\n\n請寫一個程式，輸入兩個整數，輸出較大的數字。\n\n如果兩個數字相同，就輸出「一樣大」。\n\n這樣的練習可以訓練你使用條件判斷。",
+    "examples": [{
+      "input": "8\n5",
+      "output": "8",
+      "explanation": "第一個輸入8\n第二個輸入5\n較大的是數字8，程式輸出8"
+    }, {
+      "input": "7\n7",
+      "output": "一樣大",
+      "explanation": ""
+    }],
+    "testCases": [{
+      "input": "3\n7",
+      "expectedOutput": "7",
+      "score": 10
+    }, {
+      "input": "99\n100",
+      "expectedOutput": "100",
+      "score": 10
+    }, {
+      "input": "78\n22",
+      "expectedOutput": "78",
+      "score": 10
+    }, {
+      "input": "21\n21",
+      "expectedOutput": "一樣大",
+      "score": 10
+    }],
+    "difficulty": "L1",
+    "difficultyLabel": "L1｜基礎",
+    "sb3Path": "m0/M0-01-BasicOutput/A-03-0.sb3"
+  }, {
+    "id": "A-03-1",
+    "code": "M0-01-A-03-1",
+    "title": "臺斤公斤大PK",
+    "description": "在生活中常常會需要比較重量，台灣常見的單位有台斤、公斤，一台斤等於0.6公斤\n\n請寫一個程式，輸入兩個不同單位重量\n\n第一個數字輸入M，表示重量M台斤\n\n第二個數字輸入N，表示重量N公斤\n\n請比較兩筆重量輸入，輸出較大重量的數字及單位。\n如果兩個數字相同，就輸出「一樣重」。\n\n這樣的練習可以訓練你使用條件判斷。",
+    "examples": [{
+      "input": "10\n5",
+      "output": "10台斤",
+      "explanation": "第一個輸入10，表示10台斤\n第二個輸入5，表示5公斤\n較大的重量是10台斤，輸出10台斤"
+    }, {
+      "input": "5\n5",
+      "output": "5公斤",
+      "explanation": "第一個輸入5，表示5台斤\n第二個輸入5，表示5公斤\n較大的重量是5公斤，輸出5公斤"
+    }, {
+      "input": "10\n6",
+      "output": "一樣重",
+      "explanation": ""
+    }],
+    "testCases": [{
+      "input": "10\n6",
+      "expectedOutput": "一樣重",
+      "score": 10
+    }, {
+      "input": "100\n70",
+      "expectedOutput": "70公斤",
+      "score": 10
+    }, {
+      "input": "78\n22",
+      "expectedOutput": "78台斤",
+      "score": 10
+    }, {
+      "input": "21\n21",
+      "expectedOutput": "21公斤",
+      "score": 10
+    }],
+    "difficulty": "L2",
+    "difficultyLabel": "L2｜進階",
+    "sb3Path": "m0/M0-01-BasicOutput/A-03-1.sb3"
+  }]
+}, {
+  "code": "M0-02",
+  "title": "變數與四則運算",
+  "tier": "t0",
+  "unlockCode": "M0-02-Variables",
+  "tasks": [{
+    "id": "BSA01-001",
+    "code": "M0-02-BSA01-001",
+    "title": "購買文具",
+    "description": "小明到文具店購買鉛筆與橡皮擦。請根據單價與數量，計算總金額。",
+    "examples": [{
+      "input": "10 3 5 2",
+      "output": "40",
+      "explanation": "10×3 + 5×2 = 40。"
+    }],
+    "testCases": [{
+      "input": "10 3 5 2",
+      "expectedOutput": "40",
+      "score": 10
+    }, {
+      "input": "12 4 8 3",
+      "expectedOutput": "72",
+      "score": 10
+    }, {
+      "input": "7 6 9 2",
+      "expectedOutput": "60",
+      "score": 10
+    }, {
+      "input": "15 1 20 4",
+      "expectedOutput": "95",
+      "score": 10
+    }],
+    "difficulty": "L1",
+    "difficultyLabel": "L1｜基礎",
+    "sb3Path": "m0/M0-02-Variables/BSA01-001.sb3"
+  }, {
+    "id": "BSA01-002",
+    "code": "M0-02-BSA01-002",
+    "title": "飲料店結帳",
+    "description": "飲料店販售紅茶與奶茶。請根據兩種飲料的單價與杯數，計算顧客應付金額。",
+    "examples": [{
+      "input": "25 2 40 3",
+      "output": "170",
+      "explanation": "25×2 + 40×3 = 170。"
+    }],
+    "testCases": [{
+      "input": "25 2 40 3",
+      "expectedOutput": "170",
+      "score": 10
+    }, {
+      "input": "30 4 45 2",
+      "expectedOutput": "210",
+      "score": 10
+    }, {
+      "input": "20 5 35 1",
+      "expectedOutput": "135",
+      "score": 10
+    }, {
+      "input": "18 10 30 6",
+      "expectedOutput": "360",
+      "score": 10
+    }],
+    "difficulty": "L1",
+    "difficultyLabel": "L1｜基礎",
+    "sb3Path": "m0/M0-02-Variables/BSA01-002.sb3"
+  }, {
+    "id": "BSA01-003",
+    "code": "M0-02-BSA01-003",
+    "title": "長方形周長與面積",
+    "description": "給定長方形的長與寬，請計算長方形的周長與面積。",
+    "examples": [{
+      "input": "8 5",
+      "output": "26 40",
+      "explanation": "周長為 (8+5)×2=26，面積為 8×5=40。"
+    }],
+    "testCases": [{
+      "input": "8 5",
+      "expectedOutput": "26 40",
+      "score": 10
+    }, {
+      "input": "10 3",
+      "expectedOutput": "26 30",
+      "score": 10
+    }, {
+      "input": "7 7",
+      "expectedOutput": "28 49",
+      "score": 10
+    }, {
+      "input": "15 4",
+      "expectedOutput": "38 60",
+      "score": 10
+    }],
+    "difficulty": "L1",
+    "difficultyLabel": "L1｜基礎",
+    "sb3Path": "m0/M0-02-Variables/BSA01-003.sb3"
+  }, {
+    "id": "BSA01-004",
+    "code": "M0-02-BSA01-004",
+    "title": "秒數換算",
+    "description": "給定一段時間的總秒數，請換算成幾分鐘又幾秒。",
+    "examples": [{
+      "input": "125",
+      "output": "2 5",
+      "explanation": "125 秒等於 2 分鐘又 5 秒。"
+    }],
+    "testCases": [{
+      "input": "125",
+      "expectedOutput": "2 5",
+      "score": 10
+    }, {
+      "input": "59",
+      "expectedOutput": "0 59",
+      "score": 10
+    }, {
+      "input": "360",
+      "expectedOutput": "6 0",
+      "score": 10
+    }, {
+      "input": "754",
+      "expectedOutput": "12 34",
+      "score": 10
+    }],
+    "difficulty": "L1",
+    "difficultyLabel": "L1｜基礎",
+    "sb3Path": "m0/M0-02-Variables/BSA01-004.sb3"
+  }, {
+    "id": "BSA01-005",
+    "code": "M0-02-BSA01-005",
+    "title": "找零錢",
+    "description": "商店只使用 50 元、10 元與 1 元硬幣找零。給定找零金額，請計算最少需要多少枚硬幣。",
+    "examples": [{
+      "input": "187",
+      "output": "3 3 7",
+      "explanation": "187 元可找 3 枚 50 元、3 枚 10 元、7 枚 1 元。"
+    }],
+    "testCases": [{
+      "input": "187",
+      "expectedOutput": "3 3 7",
+      "score": 10
+    }, {
+      "input": "49",
+      "expectedOutput": "0 4 9",
+      "score": 10
+    }, {
+      "input": "250",
+      "expectedOutput": "5 0 0",
+      "score": 10
+    }, {
+      "input": "96",
+      "expectedOutput": "1 4 6",
+      "score": 10
+    }],
+    "difficulty": "L1",
+    "difficultyLabel": "L1｜基礎",
+    "sb3Path": "m0/M0-02-Variables/BSA01-005.sb3"
+  }, {
+    "id": "BSA01-006",
+    "code": "M0-02-BSA01-006",
+    "title": "班級分組",
+    "description": "老師要將學生平均分組。給定學生人數與每組人數，請計算可以分成幾組，以及剩下幾人。",
+    "examples": [{
+      "input": "32 5",
+      "output": "6 2",
+      "explanation": "32 人每 5 人一組，可以分成 6 組，剩下 2 人。"
+    }],
+    "testCases": [{
+      "input": "32 5",
+      "expectedOutput": "6 2",
+      "score": 10
+    }, {
+      "input": "40 8",
+      "expectedOutput": "5 0",
+      "score": 10
+    }, {
+      "input": "27 4",
+      "expectedOutput": "6 3",
+      "score": 10
+    }, {
+      "input": "18 7",
+      "expectedOutput": "2 4",
+      "score": 10
+    }],
+    "difficulty": "L1",
+    "difficultyLabel": "L1｜基礎",
+    "sb3Path": "m0/M0-02-Variables/BSA01-006.sb3"
+  }, {
+    "id": "BSA01-007",
+    "code": "M0-02-BSA01-007",
+    "title": "平均分數整數版",
+    "description": "給定三科成績，請計算總分與整數平均。整數平均只取商，不處理小數。",
+    "examples": [{
+      "input": "80 75 91",
+      "output": "246 82",
+      "explanation": "總分 246，246 除以 3 的整數商為 82。"
+    }],
+    "testCases": [{
+      "input": "80 75 91",
+      "expectedOutput": "246 82",
+      "score": 10
+    }, {
+      "input": "100 90 80",
+      "expectedOutput": "270 90",
+      "score": 10
+    }, {
+      "input": "66 67 68",
+      "expectedOutput": "201 67",
+      "score": 10
+    }, {
+      "input": "59 72 83",
+      "expectedOutput": "214 71",
+      "score": 10
+    }],
+    "difficulty": "L1",
+    "difficultyLabel": "L1｜基礎",
+    "sb3Path": "m0/M0-02-Variables/BSA01-007.sb3"
+  }, {
+    "id": "BSA01-008",
+    "code": "M0-02-BSA01-008",
+    "title": "簡易旅行費用",
+    "description": "一次旅行包含車票、餐費與門票。請根據人數與各項費用，計算全班總費用。",
+    "examples": [{
+      "input": "30 120 80 50",
+      "output": "7500",
+      "explanation": "每人費用為 120+80+50=250，30 人共 7500。"
+    }],
+    "testCases": [{
+      "input": "30 120 80 50",
+      "expectedOutput": "7500",
+      "score": 10
+    }, {
+      "input": "25 100 70 40",
+      "expectedOutput": "5250",
+      "score": 10
+    }, {
+      "input": "18 150 60 90",
+      "expectedOutput": "5400",
+      "score": 10
+    }, {
+      "input": "40 80 85 35",
+      "expectedOutput": "8000",
+      "score": 10
+    }],
+    "difficulty": "L1",
+    "difficultyLabel": "L1｜基礎",
+    "sb3Path": "m0/M0-02-Variables/BSA01-008.sb3"
   }]
 }];
+courses.forEach(course => {
+  course.tasks.forEach(task => {
+    Object.defineProperty(task, 'answerProjectUrl', {
+      enumerable: true,
+      get() {
+        return "".concat(judgeContentBase(), "/").concat(task.sb3Path);
+      }
+    });
+    task.loadable = true;
+  });
+});
 const findTaskByCode = taskCode => {
   for (const course of courses) {
     const task = course.tasks.find(t => t.code === taskCode);
@@ -38980,6 +39664,53 @@ const findTaskByCode = taskCode => {
   }
   return null;
 };
+
+/***/ }),
+
+/***/ "./src/lib/judge-manual-run.js":
+/*!*************************************!*\
+  !*** ./src/lib/judge-manual-run.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/**
+ * 2026-08-04：手動測試模式共用的小型pub/sub——「自行測試」分頁需要讓學生用跟真正Scratch
+ * 一樣的操作方式（按下綠旗、跳出「詢問並等待」浮動輸入框、一筆一筆手動輸入）試跑程式，
+ * 但整個MVP-33平台把舞台（StageWrapper）用CSS藏起來（見gui.jsx的`.hiddenStage`），
+ * 「詢問並等待」的浮動輸入框（`src/components/question/question.jsx`）是舞台底下的子元件，
+ * 舞台被藏起來的時候這個輸入框也連帶完全不會出現，學生按下真正的綠旗會卡住、看不到
+ * 任何輸入介面（已實測確認過）。
+ *
+ * 這個模組讓judge-panel.jsx（在SelfTestTab手動測試時）可以告訴gui.jsx「現在暫時要把舞台
+ * 顯示出來」，跑完/學生按停止之後再藏回去，不用把兩個元件用Redux接在一起。
+ */
+
+const listeners = new Set();
+let visible = false;
+const show = () => {
+  if (visible) return;
+  visible = true;
+  listeners.forEach(fn => fn(visible));
+};
+const hide = () => {
+  if (!visible) return;
+  visible = false;
+  listeners.forEach(fn => fn(visible));
+};
+const isVisible = () => visible;
+const subscribe = fn => {
+  listeners.add(fn);
+  return () => listeners.delete(fn);
+};
+/* harmony default export */ __webpack_exports__["default"] = ({
+  show,
+  hide,
+  isVisible,
+  subscribe
+});
 
 /***/ }),
 
@@ -40439,11 +41170,12 @@ _turbowarp_nanolog__WEBPACK_IMPORTED_MODULE_0___default.a.enable();
 /*!*************************************!*\
   !*** ./src/lib/make-toolbox-xml.js ***!
   \*************************************/
-/*! exports provided: default */
+/*! exports provided: patchThinkBlockLabel, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "patchThinkBlockLabel", function() { return patchThinkBlockLabel; });
 /* harmony import */ var _tw_lazy_scratch_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./tw-lazy-scratch-blocks */ "./src/lib/tw-lazy-scratch-blocks.js");
 /* harmony import */ var _themes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./themes */ "./src/lib/themes/index.js");
 
@@ -40456,6 +41188,26 @@ const translate = (id, english) => {
     return _tw_lazy_scratch_blocks__WEBPACK_IMPORTED_MODULE_0__["default"].get().ScratchMsgs.translate(id, english);
   }
   return english;
+};
+
+// 2026-08-04：把「思考」（looks_think）積木的顯示文字改成「輸出訊息」，讓它在這個平台上
+// 明確就是debug print的角色，不是Scratch原本敘事用的「角色在想什麼」。積木本身還是原生
+// looks_think opcode（tw-judge-engine.js只採計type==='say'，'think'不會算進最終答案），
+// 只是改顯示字串，行為完全沒變。
+//
+// 這個字串來自Blockly.ScratchMsgs.locales[locale].LOOKS_THINK，每次workspace init時
+// scratch-blocks的core/scratch_msgs.js都會用`Blockly.Msg = Object.assign({}, Blockly.Msg,
+// Blockly.ScratchMsgs.locales[locale])`重建一次Blockly.Msg，所以兩個地方都要patch——
+// 只改Msg會被下一次setLocale()蓋掉，只改locales表在Msg已經建好之後才patch又不會立刻生效，
+// 兩個都改才保證不管執行順序都拿到「輸出訊息」。冪等（可重複呼叫），每次組toolbox XML時
+// 都呼叫一次確保生效。
+const patchThinkBlockLabel = () => {
+  if (!_tw_lazy_scratch_blocks__WEBPACK_IMPORTED_MODULE_0__["default"].isLoaded()) return;
+  const ScratchBlocks = _tw_lazy_scratch_blocks__WEBPACK_IMPORTED_MODULE_0__["default"].get();
+  const label = '輸出訊息 %1';
+  if (ScratchBlocks.Msg) ScratchBlocks.Msg.LOOKS_THINK = label;
+  const zhTw = ScratchBlocks.ScratchMsgs && ScratchBlocks.ScratchMsgs.locales && ScratchBlocks.ScratchMsgs.locales['zh-tw'];
+  if (zhTw) zhTw.LOOKS_THINK = label;
 };
 
 /* eslint-disable no-unused-vars */
@@ -40489,6 +41241,25 @@ const looks = function looks(isInitialSetup, isStage, targetId, costumeName, bac
 const sound = function sound(isInitialSetup, isStage, targetId, soundName, colors) {
   // Note: the category's secondaryColour matches up with the blocks' tertiary color, both used for border color.
   return "\n    <category name=\"%{BKY_CATEGORY_SOUND}\" id=\"sound\" colour=\"".concat(colors.primary, "\" secondaryColour=\"").concat(colors.tertiary, "\">\n        <block id=\"").concat(targetId, "_sound_playuntildone\" type=\"sound_playuntildone\">\n            <value name=\"SOUND_MENU\">\n                <shadow type=\"sound_sounds_menu\">\n                    <field name=\"SOUND_MENU\">").concat(soundName, "</field>\n                </shadow>\n            </value>\n        </block>\n        <block id=\"").concat(targetId, "_sound_play\" type=\"sound_play\">\n            <value name=\"SOUND_MENU\">\n                <shadow type=\"sound_sounds_menu\">\n                    <field name=\"SOUND_MENU\">").concat(soundName, "</field>\n                </shadow>\n            </value>\n        </block>\n        <block type=\"sound_stopallsounds\"/>\n        ").concat(blockSeparator, "\n        <block type=\"sound_changeeffectby\">\n            <value name=\"VALUE\">\n                <shadow type=\"math_number\">\n                    <field name=\"NUM\">10</field>\n                </shadow>\n            </value>\n        </block>\n        <block type=\"sound_seteffectto\">\n            <value name=\"VALUE\">\n                <shadow type=\"math_number\">\n                    <field name=\"NUM\">100</field>\n                </shadow>\n            </value>\n        </block>\n        <block type=\"sound_cleareffects\"/>\n        ").concat(blockSeparator, "\n        <block type=\"sound_changevolumeby\">\n            <value name=\"VOLUME\">\n                <shadow type=\"math_number\">\n                    <field name=\"NUM\">-10</field>\n                </shadow>\n            </value>\n        </block>\n        <block type=\"sound_setvolumeto\">\n            <value name=\"VOLUME\">\n                <shadow type=\"math_number\">\n                    <field name=\"NUM\">100</field>\n                </shadow>\n            </value>\n        </block>\n        <block id=\"").concat(targetId, "_volume\" type=\"sound_volume\"/>\n        ").concat(categorySeparator, "\n    </category>\n    ");
+};
+
+// 2026-08-04：對齊官方競賽平台（demo.csie.ntnu.edu.tw/ps）的解題積木群組——把「當綠旗被點擊／
+// 說出／詢問並等待／詢問的答案」這幾個解題題目幾乎每題都會用到的積木集中放在最前面，
+// 不用讓學生自己去事件/外觀/偵測三個分類裡分別找。積木本身還是原生Scratch積木（保留各自
+// 原本的顏色），只是額外多列一份在這個自訂分類裡，Blockly本來就允許同一種積木出現在
+// 多個toolbox分類。
+//
+// 這裡放一顆「輸出訊息」積木當作除錯用：opcode還是原生looks_think，只是透過
+// patchThinkBlockLabel()（見上方）把顯示字串從「思考」全域改成「輸出訊息」，
+// 對學生來說是一顆語意明確的debug print積木，不是Scratch原本敘事用的「角色在想什麼」。
+// tw-judge-engine.js的評分只採計looks_say（說出）事件，looks_think不會被算進最終答案，
+// 可以放心拿來印變數目前的值除錯，不會影響評分結果。畫面上看不到（工作區旁的舞台是
+// 隱藏的），但debug輸出會顯示在「自行測試」分頁（見judge-panel.jsx的SelfTestTab）。
+const judgeHelpers = function judgeHelpers(isInitialSetup, isStage, targetId) {
+  const askDefault = translate('SENSING_ASK_TEXT', 'What\'s your name?');
+  const sayDefault = translate('LOOKS_HELLO', 'Hello!');
+  const thinkDefault = translate('LOOKS_HMM', 'Hmm...');
+  return "\n    <category name=\"\u89E3\u984C\u5E38\u7528\" id=\"judgeHelpers\" colour=\"#FF6680\" secondaryColour=\"#FF3D5E\">\n        <block type=\"event_whenflagclicked\"/>\n        ".concat(blockSeparator, "\n        <block type=\"looks_say\">\n            <value name=\"MESSAGE\">\n                <shadow type=\"text\">\n                    <field name=\"TEXT\">").concat(sayDefault, "</field>\n                </shadow>\n            </value>\n        </block>\n        ").concat(isInitialSetup ? '' : "\n            <block id=\"judgeHelpers_askandwait\" type=\"sensing_askandwait\">\n                <value name=\"QUESTION\">\n                    <shadow type=\"text\">\n                        <field name=\"TEXT\">".concat(askDefault, "</field>\n                    </shadow>\n                </value>\n            </block>\n        "), "\n        <block type=\"sensing_answer\"/>\n        ").concat(blockSeparator, "\n        <label text=\"\u4EE5\u4E0B\u7528\u4F86\u9664\u932F\uFF1A\u4E0D\u6703\u7B97\u9032\u8A55\u5206\u7D50\u679C\"></label>\n        <block type=\"looks_think\">\n            <value name=\"MESSAGE\">\n                <shadow type=\"text\">\n                    <field name=\"TEXT\">").concat(thinkDefault, "</field>\n                </shadow>\n            </value>\n        </block>\n        ").concat(categorySeparator, "\n    </category>\n    ");
 };
 const events = function events(isInitialSetup, isStage, targetId, colors) {
   // Note: the category's secondaryColour matches up with the blocks' tertiary color, both used for border color.
@@ -40552,6 +41323,7 @@ const makeToolboxXML = function makeToolboxXML(isInitialSetup) {
   let colors = arguments.length > 7 && arguments[7] !== undefined ? arguments[7] : _themes__WEBPACK_IMPORTED_MODULE_1__["defaultBlockColors"];
   isStage = isInitialSetup || isStage;
   const gap = [categorySeparator];
+  patchThinkBlockLabel();
   costumeName = xmlEscape(costumeName);
   backdropName = xmlEscape(backdropName);
   soundName = xmlEscape(soundName);
@@ -40581,7 +41353,8 @@ const makeToolboxXML = function makeToolboxXML(isInitialSetup) {
   if (turbowarpXML && !turbowarpXML.includes(extraTurboWarpBlocks)) {
     turbowarpXML = turbowarpXML.replace('<block', "".concat(extraTurboWarpBlocks, "<block"));
   }
-  const everything = [xmlOpen, motionXML, gap, looksXML, gap, soundXML, gap, eventsXML, gap, controlXML, gap, sensingXML, gap, operatorsXML, gap, variablesXML, gap, myBlocksXML];
+  const judgeHelpersXML = judgeHelpers(isInitialSetup, isStage, targetId);
+  const everything = [xmlOpen, judgeHelpersXML, gap, motionXML, gap, looksXML, gap, soundXML, gap, eventsXML, gap, controlXML, gap, sensingXML, gap, operatorsXML, gap, variablesXML, gap, myBlocksXML];
   if (turbowarpXML) {
     everything.push(gap, turbowarpXML);
   }
@@ -43447,6 +44220,15 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
  *
  * clone數上限交給scratch-vm自己的runtimeOptions.maxClones機制把關（不用另外實作）；
  * 逾時保護用固定執行步數上限（MAX_STEPS，一步對應runtime一次_step()，預設30fps）。
+ *
+ * 2026-08-04擴充題庫時修正：input要比照BlocklyYdws src/main.js的createTokenReader()，
+ * 用「空白（含換行）」逐一斷詞、依序回答每一次「詢問並等待」，不能只答第一次問題就不理
+ * 後續問題（題目常有2~4次連續詢問，例如M0-02系列）。舊版只答第一題會讓後續問題永遠卡住、
+ * 逾時判FAIL。
+ *
+ * 2026-08-04新增：額外攔截looks_think（「思考」）當作debug輸出擷取進debugOutput——
+ * 只用來給SelfTestTab顯示，gradeSubmission/actualOutput比對完全不看這欄，「思考」
+ * 積木放心讓學生拿來印偵錯訊息，不會污染評分。
  */
 
 const DEFAULT_MAX_STEPS = 200;
@@ -43460,18 +44242,22 @@ const STEP_INTERVAL_MS = 20;
  * @returns {Promise<{actualOutput: string, pass: boolean, timedOut: boolean}>}
  */
 const runTestCase = function runTestCase(vm, testCase) {
+  var _testCase$input, _testCase$input2;
   let options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
   const maxSteps = options.maxSteps || DEFAULT_MAX_STEPS;
+  const tokens = String((_testCase$input = testCase.input) !== null && _testCase$input !== void 0 ? _testCase$input : '').trim().length > 0 ? String((_testCase$input2 = testCase.input) !== null && _testCase$input2 !== void 0 ? _testCase$input2 : '').trim().split(/\s+/) : [];
+  let tokenIndex = 0;
   return new Promise(resolve => {
     const capturedSay = [];
-    let answered = false;
+    const capturedThink = [];
     const onQuestion = question => {
-      if (question === null || answered) return;
-      answered = true;
-      vm.runtime.emit('ANSWER', String(testCase.input));
+      if (question === null) return;
+      const value = tokenIndex < tokens.length ? tokens[tokenIndex] : '';
+      tokenIndex += 1;
+      vm.runtime.emit('ANSWER', value);
     };
     const onSay = (target, type, text) => {
-      if (type === 'say') capturedSay.push(text);
+      if (type === 'say') capturedSay.push(text);else if (type === 'think') capturedThink.push(text);
     };
     vm.runtime.on('QUESTION', onQuestion);
     vm.runtime.on('SAY', onSay);
@@ -43487,6 +44273,7 @@ const runTestCase = function runTestCase(vm, testCase) {
         cleanup();
         resolve({
           actualOutput: capturedSay.join('\n'),
+          debugOutput: capturedThink.join('\n'),
           pass: false,
           timedOut: true
         });
@@ -43497,6 +44284,7 @@ const runTestCase = function runTestCase(vm, testCase) {
         const actualOutput = capturedSay.join('\n');
         resolve({
           actualOutput,
+          debugOutput: capturedThink.join('\n'),
           pass: actualOutput === testCase.expectedOutput,
           timedOut: false
         });
@@ -43597,8 +44385,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _log__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./log */ "./src/lib/log.js");
 /* harmony import */ var _tw_lazy_scratch_blocks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./tw-lazy-scratch-blocks */ "./src/lib/tw-lazy-scratch-blocks.js");
-/* harmony import */ var _components_tw_loading_spinner_spinner_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/tw-loading-spinner/spinner.jsx */ "./src/components/tw-loading-spinner/spinner.jsx");
-/* harmony import */ var _components_crash_message_crash_message_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/crash-message/crash-message.jsx */ "./src/components/crash-message/crash-message.jsx");
+/* harmony import */ var _make_toolbox_xml__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./make-toolbox-xml */ "./src/lib/make-toolbox-xml.js");
+/* harmony import */ var _components_tw_loading_spinner_spinner_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/tw-loading-spinner/spinner.jsx */ "./src/components/tw-loading-spinner/spinner.jsx");
+/* harmony import */ var _components_crash_message_crash_message_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/crash-message/crash-message.jsx */ "./src/components/crash-message/crash-message.jsx");
+
 
 
 
@@ -43614,6 +44404,10 @@ const LoadScratchBlocksHOC = function LoadScratchBlocksHOC(WrappedComponent) {
       };
       if (!this.state.loaded) {
         _tw_lazy_scratch_blocks__WEBPACK_IMPORTED_MODULE_2__["default"].load().then(() => {
+          // 2026-08-04：在任何toolbox/flyout第一次建置之前先patch好「思考」→
+          // 「輸出訊息」的積木顯示文字（見make-toolbox-xml.js），避免第一次
+          // 畫面出現時還是舊的「想著」字樣、要切一次分類才會更新的閃爍問題。
+          Object(_make_toolbox_xml__WEBPACK_IMPORTED_MODULE_3__["patchThinkBlockLabel"])();
           this.setState({
             loaded: true
           });
@@ -43630,13 +44424,13 @@ const LoadScratchBlocksHOC = function LoadScratchBlocksHOC(WrappedComponent) {
     }
     render() {
       if (this.state.error !== null) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_crash_message_crash_message_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_crash_message_crash_message_jsx__WEBPACK_IMPORTED_MODULE_5__["default"], {
           errorMessage: "lazy scratch-blocks: ".concat(this.state.error),
           onReload: this.handleReload
         });
       }
       if (!this.state.loaded) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_tw_loading_spinner_spinner_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], null);
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_tw_loading_spinner_spinner_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], null);
       }
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(WrappedComponent, this.props);
     }
