@@ -26,6 +26,7 @@ const StageComponent = props => {
         isRtl,
         colorInfo,
         micIndicator,
+        minimal,
         question,
         stageSize,
         useEditorDragStyle,
@@ -53,10 +54,18 @@ const StageComponent = props => {
                     minWidth: `${minWidth + 2}px`
                 }}
             >
+                {/* 2026-08-04：手動測試（judge-manual-run.js）時只想呈現下面的「詢問並等待」
+                    輸入框，不需要看到角色/背景畫面——用`.stageMinimalHidden`（見stage.css，
+                    跟上層gui.jsx的`.hiddenStage`同一招：position:absolute+極小尺寸+opacity:0）
+                    而不是display:none，維持canvas實際渲染尺寸不變，避免scratch-render內部
+                    getImageData在0寬度canvas上丟IndexSizeError（已實測撞過這個crash）。 */}
                 <Box
                     className={classNames(
                         styles.stage,
-                        {[styles.fullScreen]: isFullScreen}
+                        {
+                            [styles.fullScreen]: isFullScreen,
+                            [styles.stageMinimalHidden]: minimal
+                        }
                     )}
                     style={{
                         height: stageDimensions.height,
@@ -133,7 +142,7 @@ const StageComponent = props => {
                         width={0}
                     />
                 </Box>
-                {isStarted ? null : (
+                {minimal || isStarted ? null : (
                     <GreenFlagOverlay
                         className={styles.greenFlagOverlay}
                         wrapperClass={styles.greenFlagOverlayWrapper}
@@ -164,6 +173,7 @@ StageComponent.propTypes = {
     isRtl: PropTypes.bool,
     isStarted: PropTypes.bool,
     micIndicator: PropTypes.bool,
+    minimal: PropTypes.bool,
     onDeactivateColorPicker: PropTypes.func,
     onDoubleClick: PropTypes.func,
     onQuestionAnswered: PropTypes.func,

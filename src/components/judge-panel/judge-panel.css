@@ -112,6 +112,17 @@
     margin-bottom: calc($space / 2);
 }
 
+/*
+ * 2026-08-04：BlocklyYdws自己的範例呈現用<pre>保留換行（例如M1系列「第一行N，第二行N個
+ * 數字」的格式，或單純多次詢問「一次詢問一行」的格式）。osep-judge這裡原本是普通<div>，
+ * 瀏覽器預設white-space:normal會把資料裡的\n吃掉擠成一行，跟BlocklyYdws看到的不一樣。
+ * 這裡補上white-space: pre-wrap比照辦理，不用動資料本身（gen-judge-content.js已經是
+ * 逐字複製BlocklyYdws的examples欄位，資料格式本來就是對的）。
+ */
+.example-value {
+    white-space: pre-wrap;
+}
+
 .example-explanation {
     white-space: pre-wrap;
     color: $text-primary-transparent;
@@ -185,26 +196,28 @@
     cursor: pointer;
     font-size: 0.8rem;
     margin-top: $space;
+    font-weight: normal;
 }
 
 .demo-button:hover {
     background: $ui-primary;
 }
 
-.demo-status {
-    margin-top: calc($space / 2);
-    font-size: 0.75rem;
-    color: $text-primary-transparent;
+/*
+ * 2026-08-04：比照BlocklyYdws的規則——載入範例答案後可以評分但不代表是學生自己的作答，
+ * 老師從旁檢查時要能一眼看出目前畫布上的程式是不是「載入範例」載進來的，不能只看
+ * 底下小字狀態訊息（太不顯眼），按鈕本身顏色要明顯不一樣。
+ */
+.demo-button-loaded {
+    composes: demo-button;
+    background: #fff3cd;
+    border-color: #e0a800;
+    color: #7a5c00;
+    font-weight: bold;
 }
 
-.self-test-input {
-    width: 100%;
-    box-sizing: border-box;
-    padding: calc($space / 2);
-    font-size: 0.85rem;
-    border: 1px solid $ui-black-transparent;
-    border-radius: $form-radius;
-    margin-bottom: $space;
+.demo-button-loaded:hover {
+    background: #ffe8a1;
 }
 
 .self-test-output {
@@ -214,6 +227,46 @@
     font-size: 0.8rem;
     white-space: pre-wrap;
     min-height: 2rem;
+    margin-bottom: $space;
+}
+
+/* 2026-08-04：評分分頁/歷史紀錄要能一眼看出這次評分是不是用「載入範例」的程式跑的。 */
+.demo-warning-banner {
+    background: #fff3cd;
+    border: 1px solid #e0a800;
+    color: #7a5c00;
+    border-radius: $form-radius;
+    padding: $space;
+    margin-bottom: $space;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.header-demo-tag {
+    background: #fff3cd;
+    color: #7a5c00;
+    border-radius: $form-radius;
+    padding: calc($space / 4) calc($space / 2);
+    font-size: 0.7rem;
+    font-weight: bold;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.history-demo-tag {
+    background: #fff3cd;
+    color: #7a5c00;
+    border-radius: $form-radius;
+    padding: calc($space / 4) calc($space / 2);
+    font-size: 0.7rem;
+    font-weight: bold;
+    margin-left: calc($space / 2);
+}
+
+.demo-status {
+    margin-top: calc($space / 2);
+    font-size: 0.75rem;
+    color: $text-primary-transparent;
 }
 
 .history-item {
@@ -238,10 +291,77 @@
     margin-bottom: calc($space * 1.5);
 }
 
-.course-title {
+/* 2026-08-04：課程組代碼解鎖（版權保護，見task-list.jsx）。 */
+.course-title-locked {
     font-weight: bold;
     font-size: 0.9rem;
     margin-bottom: calc($space / 2);
+    color: $text-primary-transparent;
+}
+
+.unlock-row {
+    display: flex;
+    gap: calc($space / 2);
+}
+
+.unlock-input {
+    flex-grow: 1;
+    box-sizing: border-box;
+    padding: calc($space / 2);
+    font-size: 0.85rem;
+    border: 1px solid $ui-black-transparent;
+    border-radius: $form-radius;
+}
+
+.unlock-button {
+    background: $looks-secondary;
+    color: $ui-white;
+    border: none;
+    border-radius: $form-radius;
+    padding: 0 $space;
+    cursor: pointer;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+}
+
+.unlock-error {
+    color: #c62828;
+    font-size: 0.75rem;
+    margin-top: calc($space / 4);
+}
+
+.course-title-button {
+    display: flex;
+    align-items: center;
+    gap: calc($space / 2);
+    width: 100%;
+    box-sizing: border-box;
+    background: none;
+    border: none;
+    padding: 0;
+    margin-bottom: calc($space / 2);
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-align: left;
+    cursor: pointer;
+    color: $text-primary;
+}
+
+.course-title-button:hover {
+    color: $looks-secondary;
+}
+
+.course-collapse-icon {
+    display: inline-block;
+    font-size: 0.7rem;
+    transform: rotate(90deg);
+    transition: transform 0.1s ease-out;
+    flex-shrink: 0;
+}
+
+.course-collapse-icon-collapsed {
+    composes: course-collapse-icon;
+    transform: rotate(0deg);
 }
 
 .task-items {

@@ -218,6 +218,41 @@
     pointer-events: none;
 }
 
+/*
+ * 2026-08-04：「自行測試」分頁手動測試時的浮動舞台——真正的Scratch舞台暫時顯示成浮在畫面
+ * 右下角的小視窗，跑完/學生按停止之後改回`.hiddenStage`藏起來。用position:fixed蓋在最上層，
+ * 不影響底下積木工作區/題目面板的版面。
+ *
+ * 只呈現「詢問並等待」的輸入框，角色/背景畫面跟開始/停止按鈕都藏起來或不渲染（見
+ * stage.jsx的minimal prop）。stage.jsx內部`stageOverlays`（放輸入框的容器）是absolute
+ * 定位疊在舞台上面、依賴舞台完整版面尺寸（stageDimensions，large=480×360）對齊，角色/
+ * 背景畫面又不能用display:none／縮小尺寸（會讓canvas 0寬度crash或版面對不準，見
+ * stage.css的`.stageMinimalHidden`），所以舞台本身還是佔滿完整的360px高度，只是
+ * opacity:0看不到——這樣會在輸入框上面留一大塊空白。
+ *
+ * 用`.manual-run-stage-viewport`（見下方）當作「觀景窗」：外層容器高度只留輸入框需要的
+ * 高度、overflow:hidden裁掉多餘空白，裡面的內容用負margin-top整個往上推，讓輸入框剛好
+ * 落在觀景窗裡。324px是實測量出來的「舞台頂端到輸入框頂端」距離（large模式底下固定值，
+ * 之後如果改stageSize要重新量一次）。
+ */
+.manual-run-stage {
+    position: fixed;
+    right: $space;
+    bottom: $space;
+    width: 520px;
+    height: 110px;
+    z-index: 600;
+    background: $ui-white;
+    border: 2px solid $looks-secondary;
+    border-radius: $form-radius;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.manual-run-stage-viewport {
+    margin-top: -324px;
+}
+
 .stage-and-target-wrapper {
     /*
         Makes rows for children:

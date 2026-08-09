@@ -12,6 +12,15 @@
  *
  * clone數上限交給scratch-vm自己的runtimeOptions.maxClones機制把關（不用另外實作）；
  * 逾時保護用固定執行步數上限（MAX_STEPS，一步對應runtime一次_step()，預設30fps）。
+ *
+ * 2026-08-04擴充題庫時修正：input要比照BlocklyYdws src/main.js的createTokenReader()，
+ * 用「空白（含換行）」逐一斷詞、依序回答每一次「詢問並等待」，不能只答第一次問題就不理
+ * 後續問題（題目常有2~4次連續詢問，例如M0-02系列）。舊版只答第一題會讓後續問題永遠卡住、
+ * 逾時判FAIL。
+ *
+ * 2026-08-04新增：額外攔截looks_think（「思考」）當作debug輸出擷取進debugOutput——
+ * 只用來給SelfTestTab顯示，gradeSubmission/actualOutput比對完全不看這欄，「思考」
+ * 積木放心讓學生拿來印偵錯訊息，不會污染評分。
  */
 
 const DEFAULT_MAX_STEPS = 200;
@@ -27,17 +36,24 @@ const STEP_INTERVAL_MS = 20;
 const runTestCase = (vm, testCase, options = {}) => {
     const maxSteps = options.maxSteps || DEFAULT_MAX_STEPS;
 
+    const tokens = String(testCase.input ?? '').trim().length > 0
+        ? String(testCase.input ?? '').trim().split(/\s+/)
+        : [];
+    let tokenIndex = 0;
+
     return new Promise(resolve => {
         const capturedSay = [];
-        let answered = false;
+        const capturedThink = [];
 
         const onQuestion = question => {
-            if (question === null || answered) return;
-            answered = true;
-            vm.runtime.emit('ANSWER', String(testCase.input));
+            if (question === null) return;
+            const value = tokenIndex < tokens.length ? tokens[tokenIndex] : '';
+            tokenIndex += 1;
+            vm.runtime.emit('ANSWER', value);
         };
         const onSay = (target, type, text) => {
             if (type === 'say') capturedSay.push(text);
+            else if (type === 'think') capturedThink.push(text);
         };
 
         vm.runtime.on('QUESTION', onQuestion);
@@ -56,6 +72,7 @@ const runTestCase = (vm, testCase, options = {}) => {
                 cleanup();
                 resolve({
                     actualOutput: capturedSay.join('\n'),
+                    debugOutput: capturedThink.join('\n'),
                     pass: false,
                     timedOut: true
                 });
@@ -66,6 +83,7 @@ const runTestCase = (vm, testCase, options = {}) => {
                 const actualOutput = capturedSay.join('\n');
                 resolve({
                     actualOutput,
+                    debugOutput: capturedThink.join('\n'),
                     pass: actualOutput === testCase.expectedOutput,
                     timedOut: false
                 });

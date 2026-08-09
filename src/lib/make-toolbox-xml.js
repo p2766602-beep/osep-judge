@@ -12,6 +12,26 @@ const translate = (id, english) => {
     return english;
 };
 
+// 2026-08-04：把「思考」（looks_think）積木的顯示文字改成「輸出訊息」，讓它在這個平台上
+// 明確就是debug print的角色，不是Scratch原本敘事用的「角色在想什麼」。積木本身還是原生
+// looks_think opcode（tw-judge-engine.js只採計type==='say'，'think'不會算進最終答案），
+// 只是改顯示字串，行為完全沒變。
+//
+// 這個字串來自Blockly.ScratchMsgs.locales[locale].LOOKS_THINK，每次workspace init時
+// scratch-blocks的core/scratch_msgs.js都會用`Blockly.Msg = Object.assign({}, Blockly.Msg,
+// Blockly.ScratchMsgs.locales[locale])`重建一次Blockly.Msg，所以兩個地方都要patch——
+// 只改Msg會被下一次setLocale()蓋掉，只改locales表在Msg已經建好之後才patch又不會立刻生效，
+// 兩個都改才保證不管執行順序都拿到「輸出訊息」。冪等（可重複呼叫），每次組toolbox XML時
+// 都呼叫一次確保生效。
+export const patchThinkBlockLabel = () => {
+    if (!LazyScratchBlocks.isLoaded()) return;
+    const ScratchBlocks = LazyScratchBlocks.get();
+    const label = '輸出訊息 %1';
+    if (ScratchBlocks.Msg) ScratchBlocks.Msg.LOOKS_THINK = label;
+    const zhTw = ScratchBlocks.ScratchMsgs && ScratchBlocks.ScratchMsgs.locales && ScratchBlocks.ScratchMsgs.locales['zh-tw'];
+    if (zhTw) zhTw.LOOKS_THINK = label;
+};
+
 /* eslint-disable no-unused-vars */
 const motion = function (isInitialSetup, isStage, targetId, colors) {
     const stageSelected = translate(
@@ -349,6 +369,57 @@ const sound = function (isInitialSetup, isStage, targetId, soundName, colors) {
             </value>
         </block>
         <block id="${targetId}_volume" type="sound_volume"/>
+        ${categorySeparator}
+    </category>
+    `;
+};
+
+// 2026-08-04：對齊官方競賽平台（demo.csie.ntnu.edu.tw/ps）的解題積木群組——把「當綠旗被點擊／
+// 說出／詢問並等待／詢問的答案」這幾個解題題目幾乎每題都會用到的積木集中放在最前面，
+// 不用讓學生自己去事件/外觀/偵測三個分類裡分別找。積木本身還是原生Scratch積木（保留各自
+// 原本的顏色），只是額外多列一份在這個自訂分類裡，Blockly本來就允許同一種積木出現在
+// 多個toolbox分類。
+//
+// 這裡放一顆「輸出訊息」積木當作除錯用：opcode還是原生looks_think，只是透過
+// patchThinkBlockLabel()（見上方）把顯示字串從「思考」全域改成「輸出訊息」，
+// 對學生來說是一顆語意明確的debug print積木，不是Scratch原本敘事用的「角色在想什麼」。
+// tw-judge-engine.js的評分只採計looks_say（說出）事件，looks_think不會被算進最終答案，
+// 可以放心拿來印變數目前的值除錯，不會影響評分結果。畫面上看不到（工作區旁的舞台是
+// 隱藏的），但debug輸出會顯示在「自行測試」分頁（見judge-panel.jsx的SelfTestTab）。
+const judgeHelpers = function (isInitialSetup, isStage, targetId) {
+    const askDefault = translate('SENSING_ASK_TEXT', 'What\'s your name?');
+    const sayDefault = translate('LOOKS_HELLO', 'Hello!');
+    const thinkDefault = translate('LOOKS_HMM', 'Hmm...');
+    return `
+    <category name="解題常用" id="judgeHelpers" colour="#FF6680" secondaryColour="#FF3D5E">
+        <block type="event_whenflagclicked"/>
+        ${blockSeparator}
+        <block type="looks_say">
+            <value name="MESSAGE">
+                <shadow type="text">
+                    <field name="TEXT">${sayDefault}</field>
+                </shadow>
+            </value>
+        </block>
+        ${isInitialSetup ? '' : `
+            <block id="judgeHelpers_askandwait" type="sensing_askandwait">
+                <value name="QUESTION">
+                    <shadow type="text">
+                        <field name="TEXT">${askDefault}</field>
+                    </shadow>
+                </value>
+            </block>
+        `}
+        <block type="sensing_answer"/>
+        ${blockSeparator}
+        <label text="以下用來除錯：不會算進評分結果"></label>
+        <block type="looks_think">
+            <value name="MESSAGE">
+                <shadow type="text">
+                    <field name="TEXT">${thinkDefault}</field>
+                </shadow>
+            </value>
+        </block>
         ${categorySeparator}
     </category>
     `;
@@ -777,6 +848,8 @@ const makeToolboxXML = function (isInitialSetup, isStage = true, targetId, categ
     isStage = isInitialSetup || isStage;
     const gap = [categorySeparator];
 
+    patchThinkBlockLabel();
+
     costumeName = xmlEscape(costumeName);
     backdropName = xmlEscape(backdropName);
     soundName = xmlEscape(soundName);
@@ -809,8 +882,11 @@ const makeToolboxXML = function (isInitialSetup, isStage = true, targetId, categ
         turbowarpXML = turbowarpXML.replace('<block', `${extraTurboWarpBlocks}<block`);
     }
 
+    const judgeHelpersXML = judgeHelpers(isInitialSetup, isStage, targetId);
+
     const everything = [
         xmlOpen,
+        judgeHelpersXML, gap,
         motionXML, gap,
         looksXML, gap,
         soundXML, gap,

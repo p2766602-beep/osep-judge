@@ -18,6 +18,7 @@ const StageWrapperComponent = function (props) {
         isRtl,
         isRendererSupported,
         loading,
+        minimal,
         stageSize,
         vm
     } = props;
@@ -35,16 +36,22 @@ const StageWrapperComponent = function (props) {
             )}
             dir={isRtl ? 'rtl' : 'ltr'}
         >
-            <Box className={styles.stageMenuWrapper}>
-                <StageHeader
-                    stageSize={stageSize}
-                    vm={vm}
-                />
-            </Box>
+            {/* 2026-08-04：手動測試（judge-manual-run.js）時只要顯示「詢問並等待」的輸入框，
+                不需要開始/停止按鈕（學生應該從judge-panel的「開始手動測試」/「停止」操作，
+                不是這排原生控制項），藏起來讓浮動視窗更清楚、不會太擁擠。 */}
+            {minimal ? null : (
+                <Box className={styles.stageMenuWrapper}>
+                    <StageHeader
+                        stageSize={stageSize}
+                        vm={vm}
+                    />
+                </Box>
+            )}
             <Box className={styles.stageCanvasWrapper}>
                 {
                     isRendererSupported ?
                         <Stage
+                            minimal={minimal}
                             stageSize={stageSize}
                             vm={vm}
                         /> :
@@ -64,6 +71,7 @@ StageWrapperComponent.propTypes = {
     isRendererSupported: PropTypes.bool.isRequired,
     isRtl: PropTypes.bool.isRequired,
     loading: PropTypes.bool,
+    minimal: PropTypes.bool,
     stageSize: PropTypes.oneOf(Object.keys(STAGE_DISPLAY_SIZES)).isRequired,
     vm: PropTypes.instanceOf(VM).isRequired
 };
