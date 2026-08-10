@@ -9,20 +9,31 @@ const path = require('path');
 const JSZip = require('@turbowarp/jszip');
 const {convertStarterXml} = require('./xml-to-scratch.js');
 
-const BLOCKLYYDWS_COURSES_DIR = path.join(__dirname, '../../../BlocklyYdws/src/courses');
+// 2026-08-09改讀YDWS-CodingBank/courses（課程JS正本資料夾），不再直接讀BlocklyYdws/src/courses——
+// 三個平台（BlocklyYdws/blockly-lab/osep-judge）現在統一從這裡取得題目內容。
+const COURSES_DIR = path.join(__dirname, '../../../YDWS-CodingBank/courses');
+const HAND_AUTHORED_DIR = path.join(__dirname, 'hand-authored-answers');
 const OUT_BASE = path.join(__dirname, '../../static/judge-content/m0');
 const BACKDROP_SVG = fs.readFileSync(path.join(__dirname, '../../src/lib/default-project/cd21514d0531fdffb22204e0ec5ed84a.svg'));
 const COSTUME_SVG = fs.readFileSync(path.join(__dirname, '../../src/lib/default-project/dango-cat.svg'));
 
-const COURSE_FILES = ['M0-01-BasicOutput.js', 'M0-02-Variables.js'];
+const COURSE_FILES = ['M0-01-BasicOutput.js', 'M0-02-Variables.js', 'JSB00.js', 'JSA00.js'];
 
 function loadCourse(filename) {
-    const filePath = path.join(BLOCKLYYDWS_COURSES_DIR, filename);
+    const filePath = path.join(COURSES_DIR, filename);
     const src = fs.readFileSync(filePath, 'utf8');
     const bodySrc = src.replace(/^export default/m, 'return');
     // eslint-disable-next-line no-new-func
     const factory = new Function(bodySrc);
     return factory();
+}
+
+// 手寫的原生Scratch示範解答（給轉換器不支援的積木類型用，例如迴圈）優先於自動轉換，
+// 見 hand-authored-answers/README.md。
+function loadHandAuthored(courseFolder, taskId) {
+    const filePath = path.join(HAND_AUTHORED_DIR, courseFolder, `${taskId}.json`);
+    if (!fs.existsSync(filePath)) return null;
+    return JSON.parse(fs.readFileSync(filePath, 'utf8'));
 }
 
 async function buildTaskSb3(courseFolder, taskId, variables, blocks) {
@@ -70,15 +81,22 @@ async function buildTaskSb3(courseFolder, taskId, variables, blocks) {
 (async () => {
     let ok = 0;
     let failed = 0;
+    let skipped = 0;
     for (const filename of COURSE_FILES) {
         const course = loadCourse(filename);
         const courseFolder = filename.replace(/\.js$/, '');
         console.log(`=== ${course.code}（${course.title}）：${course.tasks.length}題 ===`);
         for (const task of course.tasks) {
+            const handAuthored = loadHandAuthored(courseFolder, task.id);
+            if (!handAuthored && !task.starterXml) {
+                console.log(`  [SKIP] ${task.id}（${task.title}）：沒有starterXml也沒有手寫示範解答，不產生sb3`);
+                skipped += 1;
+                continue;
+            }
             try {
-                const {variables, blocks} = convertStarterXml(task.starterXml);
+                const {variables, blocks} = handAuthored || convertStarterXml(task.starterXml);
                 const {outPath, size} = await buildTaskSb3(courseFolder, task.id, variables, blocks);
-                console.log(`  [OK] ${task.id}（${task.title}） -> ${path.relative(process.cwd(), outPath)}（${size} bytes）`);
+                console.log(`  [OK]${handAuthored ? '(手寫)' : ''} ${task.id}（${task.title}） -> ${path.relative(process.cwd(), outPath)}（${size} bytes）`);
                 ok += 1;
             } catch (err) {
                 console.error(`  [FAIL] ${task.id}（${task.title}）：${err.message}`);
@@ -86,6 +104,7 @@ async function buildTaskSb3(courseFolder, taskId, variables, blocks) {
             }
         }
     }
+    console.log(`（略過無示範解答：${skipped} 題）`);
     console.log(`\n完成：成功 ${ok} 題，失敗 ${failed} 題`);
     process.exit(failed > 0 ? 1 : 0);
 })();

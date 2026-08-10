@@ -126,7 +126,30 @@
 .example-explanation {
     white-space: pre-wrap;
     color: $text-primary-transparent;
+}
+
+/*
+ * 2026-08-10：範例測資改用表格呈現（輸入/輸出/說明各一列），比原本三個各自獨立的
+ * <div>更清楚，一眼就能對齊看出每個欄位對應的內容。
+ */
+.example-table {
+    width: 100%;
+    border-collapse: collapse;
     margin-top: calc($space / 2);
+}
+
+.example-table th,
+.example-table td {
+    border: 1px solid $ui-black-transparent;
+    padding: calc($space / 2);
+    text-align: left;
+    vertical-align: top;
+}
+
+.example-table th {
+    width: 3.5em;
+    white-space: nowrap;
+    background: $ui-secondary;
 }
 
 .placeholder {

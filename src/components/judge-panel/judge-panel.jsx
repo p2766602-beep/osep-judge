@@ -65,17 +65,24 @@ const DescriptionTab = ({task, onLoadDemo, demoStatus, demoLoaded}) => (
         {task.examples.map((example, index) => (
             <div className={styles.exampleBox} key={index}>
                 <div className={styles.exampleLabel}>範例 {index + 1}</div>
-                <div>
-                    <strong>輸入：</strong>
-                    <div className={styles.exampleValue}>{example.input}</div>
-                </div>
-                <div>
-                    <strong>輸出：</strong>
-                    <div className={styles.exampleValue}>{example.output}</div>
-                </div>
-                {example.explanation ? (
-                    <div className={styles.exampleExplanation}>{example.explanation}</div>
-                ) : null}
+                <table className={styles.exampleTable}>
+                    <tbody>
+                        <tr>
+                            <th>輸入</th>
+                            <td className={styles.exampleValue}>{example.input}</td>
+                        </tr>
+                        <tr>
+                            <th>輸出</th>
+                            <td className={styles.exampleValue}>{example.output}</td>
+                        </tr>
+                        {example.explanation ? (
+                            <tr>
+                                <th>說明</th>
+                                <td className={styles.exampleExplanation}>{example.explanation}</td>
+                            </tr>
+                        ) : null}
+                    </tbody>
+                </table>
             </div>
         ))}
         {task.loadable ? (

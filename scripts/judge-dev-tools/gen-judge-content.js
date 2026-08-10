@@ -7,12 +7,17 @@
 const fs = require('fs');
 const path = require('path');
 
-const BLOCKLYYDWS_COURSES_DIR = path.join(__dirname, '../../../BlocklyYdws/src/courses');
+// 2026-08-09改讀YDWS-CodingBank/courses（課程JS正本資料夾），不再直接讀BlocklyYdws/src/courses。
+const COURSES_DIR = path.join(__dirname, '../../../YDWS-CodingBank/courses');
+const SB3_BASE = path.join(__dirname, '../../static/judge-content/m0');
 const OUT_FILE = path.join(__dirname, '../../src/lib/judge-content.js');
-const COURSE_FILES = ['M0-01-BasicOutput.js', 'M0-02-Variables.js'];
+const COURSE_FILES = ['M0-01-BasicOutput.js', 'M0-02-Variables.js', 'JSB00.js', 'JSA00.js'];
+
+// 比照BlocklyYdws/blockly-lab現況：JSA00/JSB00是公開課程（不用代碼），其餘一律需要代碼。
+const PUBLIC_COURSE_CODES = new Set(['JSA00', 'JSB00']);
 
 function loadCourse(filename) {
-    const filePath = path.join(BLOCKLYYDWS_COURSES_DIR, filename);
+    const filePath = path.join(COURSES_DIR, filename);
     const src = fs.readFileSync(filePath, 'utf8');
     const bodySrc = src.replace(/^export default/m, 'return');
     // eslint-disable-next-line no-new-func
@@ -31,18 +36,26 @@ const courses = COURSE_FILES.map(filename => {
         // 課程解鎖代碼＝BlocklyYdws自己的courseCode（完整檔名，不含.js，比對邏輯見
         // BlocklyYdws src/courses/index.js的normalizeCourseCode()——就是trim+轉大寫，
         // 沒有另外截短）。跟BlocklyYdws共用同一套代碼，老師/學生不用記兩套。
-        unlockCode: source.code,
-        tasks: source.tasks.map(task => ({
-            id: task.id,
-            code: `${shortCode}-${task.id}`,
-            title: task.title,
-            description: task.description,
-            examples: task.examples,
-            testCases: task.testCases.map(tc => ({input: tc.input, expectedOutput: tc.expectedOutput, score: tc.score})),
-            difficulty: task.difficulty,
-            difficultyLabel: task.difficultyLabel,
-            sb3Path: `m0/${courseFolder}/${task.id}.sb3`
-        }))
+        // PUBLIC_COURSE_CODES裡的課程不用代碼（null），task-list.jsx會直接展開。
+        unlockCode: PUBLIC_COURSE_CODES.has(shortCode) ? null : source.code,
+        tasks: source.tasks.map(task => {
+            const sb3Path = `m0/${courseFolder}/${task.id}.sb3`;
+            // 不是每題都有示範解答（BlocklyYdws來源本來就只有部分題目有starterXml，
+            // 或是JSB00這種用到迴圈積木、改用手寫Scratch解答的情況）——用實際檔案存不存在
+            // 判斷，不要無條件假設每題都有sb3，否則沒有demo的題目「載入範例」會直接404。
+            const hasDemo = fs.existsSync(path.join(SB3_BASE, courseFolder, `${task.id}.sb3`));
+            return {
+                id: task.id,
+                code: `${shortCode}-${task.id}`,
+                title: task.title,
+                description: task.description,
+                examples: task.examples,
+                testCases: task.testCases.map(tc => ({input: tc.input, expectedOutput: tc.expectedOutput, score: tc.score})),
+                difficulty: task.difficulty,
+                difficultyLabel: task.difficultyLabel,
+                sb3Path: hasDemo ? sb3Path : null
+            };
+        })
     };
 });
 
@@ -65,6 +78,10 @@ export const courses = ${JSON.stringify(courses, null, 4)};
 
 courses.forEach(course => {
     course.tasks.forEach(task => {
+        if (!task.sb3Path) {
+            task.loadable = false;
+            return;
+        }
         Object.defineProperty(task, 'answerProjectUrl', {
             enumerable: true,
             get() { return \`\${judgeContentBase()}/\${task.sb3Path}\`; }

@@ -6,12 +6,12 @@ const path = require('path');
 const VM = require('scratch-vm');
 const {gradeSubmission, prepareVmForGrading} = require('../../src/lib/tw-judge-engine.js');
 
-const BLOCKLYYDWS_COURSES_DIR = path.join(__dirname, '../../../BlocklyYdws/src/courses');
+const COURSES_DIR = path.join(__dirname, '../../../YDWS-CodingBank/courses');
 const OUT_BASE = path.join(__dirname, '../../static/judge-content/m0');
-const COURSE_FILES = ['M0-01-BasicOutput.js', 'M0-02-Variables.js'];
+const COURSE_FILES = ['M0-01-BasicOutput.js', 'M0-02-Variables.js', 'JSB00.js', 'JSA00.js'];
 
 function loadCourse(filename) {
-    const filePath = path.join(BLOCKLYYDWS_COURSES_DIR, filename);
+    const filePath = path.join(COURSES_DIR, filename);
     const src = fs.readFileSync(filePath, 'utf8');
     const bodySrc = src.replace(/^export default/m, 'return');
     // eslint-disable-next-line no-new-func

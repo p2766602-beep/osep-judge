@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import styles from './judge-panel.css';
 
@@ -10,137 +10,158 @@ import styles from './judge-panel.css';
  * 2026-08-04：課程組標題可點選折疊/展開（題目多了以後清單會越來越長）。
  * 預設全部展開，折疊狀態只存在這個元件的state，不記憶跨session。
  *
- * 2026-08-04（版權保護）：每個課程組改回需要輸入代碼才能解鎖（course.unlockCode，
- * 見scripts/judge-dev-tools/course-unlock-codes.js），解鎖狀態存在localStorage，
+ * 2026-08-04（版權保護）：每個課程組改回需要輸入代碼才能解鎖，解鎖狀態存在localStorage，
  * 同一台電腦同一個瀏覽器下次開不用重打。**這只是降低隨手瀏覽到的機率，不是真正的
- * 存取控制**——純靜態網站，代碼本身還是打包在公開JS檔案裡，用開發者工具找得到，
- * 詳見course-unlock-codes.js的說明。
+ * 存取控制**——純靜態網站，代碼本身還是打包在公開JS檔案裡，用開發者工具找得到。
+ *
+ * 2026-08-09：比照BlocklyYdws/blockly-lab現況（JSA00/JSB00公開、其餘課程需代碼），
+ * course.unlockCode改成可選——沒有unlockCode（null/undefined）的課程視為公開課程，
+ * 一律直接列出。
+ *
+ * 2026-08-10：需代碼的課程改成「只留一個輸入框」的模式，取代原本每個課程組各自一個
+ * 鎖頭+輸入框的畫面——公開課程（JSA00/JSB00）直接列在上面，下面統一一個輸入框，
+ * 代碼對了就顯示該課程的題目清單；要換課程，直接把輸入框內容換成新代碼即可
+ * （不會同時疊加顯示多個代碼解鎖過的課程，一次只顯示目前代碼對應的那一個）。
  */
 
-const UNLOCK_STORAGE_KEY = 'osepJudgeUnlockedCourses';
+const ACTIVE_CODE_STORAGE_KEY = 'osepJudgeActiveCourseCode';
 
-const loadUnlockedCodes = () => {
+const loadSavedCode = () => {
     try {
-        const raw = window.localStorage.getItem(UNLOCK_STORAGE_KEY);
-        return raw ? JSON.parse(raw) : [];
+        return window.localStorage.getItem(ACTIVE_CODE_STORAGE_KEY) || '';
     } catch (e) {
-        return [];
+        return '';
     }
 };
 
-const saveUnlockedCodes = codes => {
+const saveActiveCode = code => {
     try {
-        window.localStorage.setItem(UNLOCK_STORAGE_KEY, JSON.stringify(codes));
+        window.localStorage.setItem(ACTIVE_CODE_STORAGE_KEY, code);
     } catch (e) {
-        // localStorage不可用，忽略——這次session還是解鎖著，只是下次要重打代碼
+        // localStorage不可用，忽略——這次session還是看得到，只是下次要重打代碼
     }
 };
 
-const LockedCourseGroup = ({course, onUnlock}) => {
-    const [input, setInput] = useState('');
+const CourseGroup = ({course, isCollapsed, onToggle, onSelectTask}) => (
+    <div className={styles.courseGroup}>
+        <button
+            className={styles.courseTitleButton}
+            onClick={onToggle}
+        >
+            <span className={isCollapsed ? styles.courseCollapseIconCollapsed : styles.courseCollapseIcon}>▶</span>
+            <span>{course.code}｜{course.title}</span>
+        </button>
+        {!isCollapsed && (
+            <ul className={styles.taskItems}>
+                {course.tasks.map(task => (
+                    <li key={task.code}>
+                        <button
+                            className={styles.taskItemButton}
+                            onClick={() => onSelectTask(task.code)}
+                        >
+                            <span>{task.title}</span>
+                            <span className={styles.taskDifficulty}>{task.difficultyLabel}</span>
+                        </button>
+                    </li>
+                ))}
+            </ul>
+        )}
+    </div>
+);
+CourseGroup.propTypes = {
+    course: PropTypes.shape({
+        code: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+        tasks: PropTypes.array.isRequired
+    }).isRequired,
+    isCollapsed: PropTypes.bool,
+    onSelectTask: PropTypes.func.isRequired,
+    onToggle: PropTypes.func.isRequired
+};
+
+const TaskList = ({courses, onSelectTask}) => {
+    // 2026-08-10：公開課程（JSA00/JSB00）進入平台時預設收合，避免一進來就被一長串題目
+    // 清單洗版——只有需要代碼的課程（輸入代碼後才出現）維持預設展開。
+    const [collapsed, setCollapsed] = useState(() => {
+        const initial = {};
+        courses.filter(course => !course.unlockCode).forEach(course => {
+            initial[course.code] = true;
+        });
+        return initial;
+    });
+    const [codeInput, setCodeInput] = useState(() => loadSavedCode());
+    const [activeCode, setActiveCode] = useState(() => loadSavedCode());
     const [error, setError] = useState(false);
 
+    const publicCourses = courses.filter(course => !course.unlockCode);
+    const privateCourses = courses.filter(course => course.unlockCode);
+
+    const toggleCourse = code => setCollapsed(prev => ({...prev, [code]: !prev[code]}));
+
     const handleSubmit = () => {
-        if (input.trim().toLowerCase() === course.unlockCode.toLowerCase()) {
+        const trimmed = codeInput.trim();
+        if (!trimmed) return;
+        const matched = privateCourses.find(course => trimmed.toLowerCase() === course.unlockCode.toLowerCase());
+        if (matched) {
+            setActiveCode(trimmed);
+            saveActiveCode(trimmed);
             setError(false);
-            onUnlock(course.code);
         } else {
             setError(true);
         }
     };
 
-    return (
-        <div className={styles.courseGroup}>
-            <div className={styles.courseTitleLocked}>
-                🔒 {course.code}｜{course.title}
-            </div>
-            <div className={styles.unlockRow}>
-                <input
-                    className={styles.unlockInput}
-                    placeholder="輸入課程代碼"
-                    value={input}
-                    onChange={e => {
-                        setInput(e.target.value);
-                        setError(false);
-                    }}
-                    onKeyPress={e => {
-                        if (e.key === 'Enter') handleSubmit();
-                    }}
-                />
-                <button
-                    className={styles.unlockButton}
-                    onClick={handleSubmit}
-                >
-                    解鎖
-                </button>
-            </div>
-            {error ? <div className={styles.unlockError}>代碼不正確，請跟老師確認。</div> : null}
-        </div>
+    const activeCourse = privateCourses.find(
+        course => activeCode && activeCode.toLowerCase() === course.unlockCode.toLowerCase()
     );
-};
-LockedCourseGroup.propTypes = {
-    course: PropTypes.shape({
-        code: PropTypes.string.isRequired,
-        title: PropTypes.string.isRequired,
-        unlockCode: PropTypes.string.isRequired
-    }).isRequired,
-    onUnlock: PropTypes.func.isRequired
-};
-
-const TaskList = ({courses, onSelectTask}) => {
-    const [collapsed, setCollapsed] = useState({});
-    const [unlockedCodes, setUnlockedCodes] = useState(() => loadUnlockedCodes());
-
-    useEffect(() => {
-        saveUnlockedCodes(unlockedCodes);
-    }, [unlockedCodes]);
-
-    const toggleCourse = code => setCollapsed(prev => ({...prev, [code]: !prev[code]}));
-    const handleUnlock = code => setUnlockedCodes(prev => (prev.includes(code) ? prev : [...prev, code]));
 
     return (
         <div className={styles.taskList}>
             <h3 className={styles.sectionHeading}>選擇題目</h3>
-            {courses.map(course => {
-                const isUnlocked = unlockedCodes.includes(course.code);
-                if (!isUnlocked) {
-                    return (
-                        <LockedCourseGroup
-                            course={course}
-                            key={course.code}
-                            onUnlock={handleUnlock}
-                        />
-                    );
-                }
 
-                const isCollapsed = !!collapsed[course.code];
-                return (
-                    <div className={styles.courseGroup} key={course.code}>
-                        <button
-                            className={styles.courseTitleButton}
-                            onClick={() => toggleCourse(course.code)}
-                        >
-                            <span className={isCollapsed ? styles.courseCollapseIconCollapsed : styles.courseCollapseIcon}>▶</span>
-                            <span>{course.code}｜{course.title}</span>
-                        </button>
-                        {!isCollapsed && (
-                            <ul className={styles.taskItems}>
-                                {course.tasks.map(task => (
-                                    <li key={task.code}>
-                                        <button
-                                            className={styles.taskItemButton}
-                                            onClick={() => onSelectTask(task.code)}
-                                        >
-                                            <span>{task.title}</span>
-                                            <span className={styles.taskDifficulty}>{task.difficultyLabel}</span>
-                                        </button>
-                                    </li>
-                                ))}
-                            </ul>
-                        )}
-                    </div>
-                );
-            })}
+            {publicCourses.map(course => (
+                <CourseGroup
+                    course={course}
+                    isCollapsed={!!collapsed[course.code]}
+                    key={course.code}
+                    onSelectTask={onSelectTask}
+                    onToggle={() => toggleCourse(course.code)}
+                />
+            ))}
+
+            <div className={styles.courseGroup}>
+                <div className={styles.unlockRow}>
+                    <input
+                        className={styles.unlockInput}
+                        placeholder="輸入課程代碼載入課程"
+                        value={codeInput}
+                        onChange={e => {
+                            setCodeInput(e.target.value);
+                            setError(false);
+                        }}
+                        onKeyPress={e => {
+                            if (e.key === 'Enter') handleSubmit();
+                        }}
+                    />
+                    <button
+                        className={styles.unlockButton}
+                        onClick={handleSubmit}
+                    >
+                        載入
+                    </button>
+                </div>
+                {error ? <div className={styles.unlockError}>代碼不正確，請跟老師確認。</div> : null}
+            </div>
+
+            {activeCourse ? (
+                <CourseGroup
+                    course={activeCourse}
+                    isCollapsed={!!collapsed[activeCourse.code]}
+                    key={activeCourse.code}
+                    onSelectTask={onSelectTask}
+                    onToggle={() => toggleCourse(activeCourse.code)}
+                />
+            ) : null}
         </div>
     );
 };
@@ -149,7 +170,7 @@ TaskList.propTypes = {
     courses: PropTypes.arrayOf(PropTypes.shape({
         code: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
-        unlockCode: PropTypes.string.isRequired,
+        unlockCode: PropTypes.string,
         tasks: PropTypes.array.isRequired
     })).isRequired,
     onSelectTask: PropTypes.func.isRequired
