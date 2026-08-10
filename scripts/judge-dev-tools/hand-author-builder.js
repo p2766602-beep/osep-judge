@@ -194,6 +194,24 @@ function deleteAllOfList(b, parent, listId, listName) {
     return id;
 }
 
+function lengthOfList(b, parent, listId, listName) {
+    const id = b.nextId();
+    b.blocks[id] = {
+        opcode: 'data_lengthoflist', next: null, parent,
+        inputs: {}, fields: {LIST: [listName, listId]}, shadow: false, topLevel: false
+    };
+    return blockRef(id);
+}
+
+function deleteItemOfList(b, parent, listId, listName, indexInput) {
+    const id = b.nextId();
+    b.blocks[id] = {
+        opcode: 'data_deleteoflist', next: null, parent,
+        inputs: {INDEX: indexInput}, fields: {LIST: [listName, listId]}, shadow: false, topLevel: false
+    };
+    return id;
+}
+
 function itemOfList(b, parent, listId, listName, indexInput) {
     const id = b.nextId();
     b.blocks[id] = {
@@ -201,6 +219,15 @@ function itemOfList(b, parent, listId, listName, indexInput) {
         inputs: {INDEX: indexInput}, fields: {LIST: [listName, listId]}, shadow: false, topLevel: false
     };
     return blockRef(id);
+}
+
+function replaceItemOfList(b, parent, listId, listName, indexInput, itemInput) {
+    const id = b.nextId();
+    b.blocks[id] = {
+        opcode: 'data_replaceitemoflist', next: null, parent,
+        inputs: {INDEX: indexInput, ITEM: itemInput}, fields: {LIST: [listName, listId]}, shadow: false, topLevel: false
+    };
+    return id;
 }
 
 function join(b, parent, s1Input, s2Input) {
@@ -302,5 +329,5 @@ module.exports = {
     whenFlagClicked, askAndWait, answer, say, setVar, getVar,
     add, sub, mul, div, round, gt, lt, not_, join, repeat, ifElse,
     mod_, equals, length_, letterOf, repeatUntil, if_, floor_, addToList, itemOfList, deleteAllOfList,
-    and_, or_, abs_
+    and_, or_, abs_, replaceItemOfList, deleteItemOfList, lengthOfList
 };
