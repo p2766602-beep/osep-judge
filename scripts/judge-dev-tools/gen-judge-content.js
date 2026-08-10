@@ -11,7 +11,7 @@ const path = require('path');
 const COURSES_DIR = path.join(__dirname, '../../../YDWS-CodingBank/courses');
 const SB3_BASE = path.join(__dirname, '../../static/judge-content/m0');
 const OUT_FILE = path.join(__dirname, '../../src/lib/judge-content.js');
-const COURSE_FILES = ['M0-01-BasicOutput.js', 'M0-02-Variables.js', 'JSB00.js', 'JSA00.js'];
+const COURSE_FILES = ['M0-01-BasicOutput.js', 'M0-02-Variables.js', 'M0-03-Conditionals.js', 'M0-04-LoopsAndSum.js', 'M0-05-ListBasics.js', 'M0-06-MinMaxExtra.js', 'JSB00.js', 'JSA00.js'];
 
 // 比照BlocklyYdws/blockly-lab現況：JSA00/JSB00是公開課程（不用代碼），其餘一律需要代碼。
 const PUBLIC_COURSE_CODES = new Set(['JSA00', 'JSB00']);

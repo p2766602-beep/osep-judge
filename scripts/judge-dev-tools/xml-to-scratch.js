@@ -159,9 +159,25 @@ function convertValueBlock(blockEl, parentId, ctx) {
         return [2, id];
     }
     if (type === 'logic_compare') {
+        const op = fieldText(blockEl, 'OP');
         const opMap = {EQ: 'operator_equals', GT: 'operator_gt', LT: 'operator_lt'};
-        const opcode = opMap[fieldText(blockEl, 'OP')];
-        if (!opcode) throw new Error(`logic_compare未知OP：${fieldText(blockEl, 'OP')}`);
+        // Scratch沒有原生>=/<=積木，GTE(a,b)=NOT(LT(a,b))、LTE(a,b)=NOT(GT(a,b))，
+        // 用operator_not包一層等價運算子組出來。
+        if (op === 'GTE' || op === 'LTE') {
+            const innerOpcode = op === 'GTE' ? 'operator_lt' : 'operator_gt';
+            const innerId = ctx.nextId();
+            const notId = ctx.nextId();
+            const notNode = {opcode: 'operator_not', next: null, parent: parentId, inputs: {}, fields: {}, shadow: false, topLevel: false};
+            ctx.blocks[notId] = notNode;
+            const innerNode = {opcode: innerOpcode, next: null, parent: notId, inputs: {}, fields: {}, shadow: false, topLevel: false};
+            ctx.blocks[innerId] = innerNode;
+            innerNode.inputs.OPERAND1 = convertValueInput(blockEl, 'A', innerId, ctx);
+            innerNode.inputs.OPERAND2 = convertValueInput(blockEl, 'B', innerId, ctx);
+            notNode.inputs.OPERAND = [2, innerId];
+            return [2, notId];
+        }
+        const opcode = opMap[op];
+        if (!opcode) throw new Error(`logic_compare未知OP：${op}`);
         const id = ctx.nextId();
         const node = {opcode, next: null, parent: parentId, inputs: {}, fields: {}, shadow: false, topLevel: false};
         ctx.blocks[id] = node;

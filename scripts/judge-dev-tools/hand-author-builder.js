@@ -14,12 +14,18 @@ function createBuilder() {
     let counter = 1;
     const blocks = {};
     const variables = {};
+    const lists = {};
     return {
         blocks,
         variables,
+        lists,
         nextId: () => `h${counter++}`,
         addVariable(id, name) {
             variables[id] = [name, ''];
+            return id;
+        },
+        addList(id, name) {
+            lists[id] = [name, []];
             return id;
         }
     };
@@ -108,6 +114,17 @@ const sub = (b, parent, a, bb) => arithmetic(b, parent, 'operator_subtract', a, 
 const mul = (b, parent, a, bb) => arithmetic(b, parent, 'operator_multiply', a, bb);
 const div = (b, parent, a, bb) => arithmetic(b, parent, 'operator_divide', a, bb);
 
+function mathop(b, parent, operatorName, numInput) {
+    const id = b.nextId();
+    b.blocks[id] = {
+        opcode: 'operator_mathop', next: null, parent,
+        inputs: {NUM: numInput}, fields: {OPERATOR: [operatorName, null]}, shadow: false, topLevel: false
+    };
+    return blockRef(id);
+}
+const floor_ = (b, parent, numInput) => mathop(b, parent, 'floor', numInput);
+const abs_ = (b, parent, numInput) => mathop(b, parent, 'abs', numInput);
+
 function round(b, parent, numInput) {
     const id = b.nextId();
     b.blocks[id] = {
@@ -128,11 +145,60 @@ function compare(b, parent, opcode, aInput, bInput) {
 const gt = (b, parent, a, bb) => compare(b, parent, 'operator_gt', a, bb);
 const lt = (b, parent, a, bb) => compare(b, parent, 'operator_lt', a, bb);
 
+function and_(b, parent, aInput, bInput) {
+    const id = b.nextId();
+    b.blocks[id] = {
+        opcode: 'operator_and', next: null, parent,
+        inputs: {OPERAND1: aInput, OPERAND2: bInput}, fields: {}, shadow: false, topLevel: false
+    };
+    return blockRef(id);
+}
+function or_(b, parent, aInput, bInput) {
+    const id = b.nextId();
+    b.blocks[id] = {
+        opcode: 'operator_or', next: null, parent,
+        inputs: {OPERAND1: aInput, OPERAND2: bInput}, fields: {}, shadow: false, topLevel: false
+    };
+    return blockRef(id);
+}
+
 function not_(b, parent, operandInput) {
     const id = b.nextId();
     b.blocks[id] = {
         opcode: 'operator_not', next: null, parent,
         inputs: {OPERAND: operandInput}, fields: {}, shadow: false, topLevel: false
+    };
+    return blockRef(id);
+}
+
+// ---- 清單（原生Scratch list，跟Blockly轉換器完全無關，直接對應官方積木盤「新增清單」）----
+
+function addToList(b, parent, listId, listName, itemInput) {
+    const id = b.nextId();
+    b.blocks[id] = {
+        opcode: 'data_addtolist', next: null, parent,
+        inputs: {ITEM: itemInput}, fields: {LIST: [listName, listId]}, shadow: false, topLevel: false
+    };
+    return id;
+}
+
+// 每次測資都用同一個VM/角色跑（見verify-m0-course.js對同一支.sb3循環跑所有testCases），
+// 清單是角色的持久狀態，不會因為「當綠旗被點擊」重新觸發就自動清空——一定要在腳本開頭
+// 主動清空，不然第二筆以後的測資會讀到前一筆殘留的資料，算出離奇的錯誤答案。
+function deleteAllOfList(b, parent, listId, listName) {
+    const id = b.nextId();
+    b.blocks[id] = {
+        opcode: 'data_deletealloflist', next: null, parent,
+        inputs: {}, fields: {LIST: [listName, listId]}, shadow: false, topLevel: false
+    };
+    return id;
+}
+
+function itemOfList(b, parent, listId, listName, indexInput) {
+    const id = b.nextId();
+    b.blocks[id] = {
+        opcode: 'data_itemoflist', next: null, parent,
+        inputs: {INDEX: indexInput}, fields: {LIST: [listName, listId]}, shadow: false, topLevel: false
     };
     return blockRef(id);
 }
@@ -235,5 +301,6 @@ module.exports = {
     createBuilder, numShadow, textShadow, blockRef, chain,
     whenFlagClicked, askAndWait, answer, say, setVar, getVar,
     add, sub, mul, div, round, gt, lt, not_, join, repeat, ifElse,
-    mod_, equals, length_, letterOf, repeatUntil, if_
+    mod_, equals, length_, letterOf, repeatUntil, if_, floor_, addToList, itemOfList, deleteAllOfList,
+    and_, or_, abs_
 };

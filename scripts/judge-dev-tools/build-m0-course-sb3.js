@@ -17,7 +17,7 @@ const OUT_BASE = path.join(__dirname, '../../static/judge-content/m0');
 const BACKDROP_SVG = fs.readFileSync(path.join(__dirname, '../../src/lib/default-project/cd21514d0531fdffb22204e0ec5ed84a.svg'));
 const COSTUME_SVG = fs.readFileSync(path.join(__dirname, '../../src/lib/default-project/dango-cat.svg'));
 
-const COURSE_FILES = ['M0-01-BasicOutput.js', 'M0-02-Variables.js', 'JSB00.js', 'JSA00.js'];
+const COURSE_FILES = ['M0-01-BasicOutput.js', 'M0-02-Variables.js', 'M0-03-Conditionals.js', 'M0-04-LoopsAndSum.js', 'M0-05-ListBasics.js', 'M0-06-MinMaxExtra.js', 'JSB00.js', 'JSA00.js'];
 
 function loadCourse(filename) {
     const filePath = path.join(COURSES_DIR, filename);
@@ -36,7 +36,7 @@ function loadHandAuthored(courseFolder, taskId) {
     return JSON.parse(fs.readFileSync(filePath, 'utf8'));
 }
 
-async function buildTaskSb3(courseFolder, taskId, variables, blocks) {
+async function buildTaskSb3(courseFolder, taskId, variables, blocks, lists = {}) {
     const projectJson = {
         targets: [
             {
@@ -50,7 +50,7 @@ async function buildTaskSb3(courseFolder, taskId, variables, blocks) {
                 sounds: [], volume: 100
             },
             {
-                isStage: false, name: `${courseFolder}-${taskId}`, variables, lists: {}, broadcasts: {},
+                isStage: false, name: `${courseFolder}-${taskId}`, variables, lists, broadcasts: {},
                 comments: {}, currentCostume: 0,
                 costumes: [{
                     assetId: '927d672925e7b99f7813735c484c6922', name: 'costume1', bitmapResolution: 1,
@@ -94,8 +94,8 @@ async function buildTaskSb3(courseFolder, taskId, variables, blocks) {
                 continue;
             }
             try {
-                const {variables, blocks} = handAuthored || convertStarterXml(task.starterXml);
-                const {outPath, size} = await buildTaskSb3(courseFolder, task.id, variables, blocks);
+                const {variables, blocks, lists} = handAuthored || convertStarterXml(task.starterXml);
+                const {outPath, size} = await buildTaskSb3(courseFolder, task.id, variables, blocks, lists || {});
                 console.log(`  [OK]${handAuthored ? '(手寫)' : ''} ${task.id}（${task.title}） -> ${path.relative(process.cwd(), outPath)}（${size} bytes）`);
                 ok += 1;
             } catch (err) {

@@ -8,7 +8,7 @@ const {gradeSubmission, prepareVmForGrading} = require('../../src/lib/tw-judge-e
 
 const COURSES_DIR = path.join(__dirname, '../../../YDWS-CodingBank/courses');
 const OUT_BASE = path.join(__dirname, '../../static/judge-content/m0');
-const COURSE_FILES = ['M0-01-BasicOutput.js', 'M0-02-Variables.js', 'JSB00.js', 'JSA00.js'];
+const COURSE_FILES = ['M0-01-BasicOutput.js', 'M0-02-Variables.js', 'M0-03-Conditionals.js', 'M0-04-LoopsAndSum.js', 'M0-05-ListBasics.js', 'M0-06-MinMaxExtra.js', 'JSB00.js', 'JSA00.js'];
 
 function loadCourse(filename) {
     const filePath = path.join(COURSES_DIR, filename);
