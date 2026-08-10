@@ -242,15 +242,55 @@ GitHub Pages網站，代碼本身還是打包在公開JS檔案裡，用開發者
    `M0-02-Variables`（不分大小寫），且重新整理頁面後應該記得已解鎖（不用重打代碼）。
 4. 確認`localStorage.getItem('osepJudgeUnlockedCourses')`存的是解鎖過的課程代碼陣列。
 
+## 最近一次工作階段交接（2026-08-10：M0~M1系列全部完成，題目範圍確定收斂）
+
+**osep-judge的課程範圍已經定案：只上M0＋M1系列＋114縣市國小題目，不上M2/M3，也不上
+JSA01/JSB02等一般題庫**（使用者原話：「osep-judge因為對象是國小，只要上傳M0、M1系列
+及縣市國小題目即可」，後續再次確認「osep-judge這邊是國小為主，上架M0~M1即可」）。
+**M2/M3系列雖然已經在BlocklyYdws/blockly-lab/YDWS-CodingBank canonical資料夾裡存在，
+但故意不擴充進osep-judge**，跟M0/M1不是「還沒做到」的關係，是刻意的範圍收斂決定，
+之後不用再主動問要不要做M2。
+
+**本輪完成：M1-01~M1-12全部12個檔案、105題**，跟M0系列一樣「因為是國小，全部都要
+附上參考解答」。累計目前osep-judge共20個課程、186題，全部用`verify-m0-course.js`
+headless腳本對真正評分引擎（`tw-judge-engine.js`）驗證過，分數欄位與實際功能正確性
+雙重通過，0個失敗。
+
+**新增檔案**：`scripts/judge-dev-tools/build-m1-hand-authored.js`（M1系列的手寫Scratch
+示範解答腳本，比照既有`build-m0-hand-authored.js`/`build-jsa00-hand-authored.js`/
+`build-jsb00-hand-authored.js`的模式，內含`copyExisting(fromCourseFolder, fromTaskId,
+toCourseFolder, toTaskId)`跨課程複製helper——M1系列有相當多題目跟JSA00/JSB00/M0系列
+是同ID同算法的重複題目，直接複製既有手寫解答重複使用，不是每題都重新手刻）。
+
+**`hand-author-builder.js`新增3個原生Scratch積木primitive**（M0~M1-10都沒用到，
+M1-07排序系列跟M1-11堆疊佇列系列才第一次需要）：
+- `replaceItemOfList(b, parent, listId, listName, indexInput, itemInput)`
+  （`data_replaceitemoflist`，交換排序需要原地覆寫清單元素）
+- `deleteItemOfList(b, parent, listId, listName, indexInput)`
+  （`data_deleteoflist`，堆疊pop/佇列dequeue需要真正刪除元素）
+- `lengthOfList(b, parent, listId, listName)`
+  （`data_lengthoflist`，堆疊佇列模擬需要動態查詢目前清單長度，不能像其他題目
+  一樣全程依賴固定的N變數）
+
+**已加進`build-m0-course-sb3.js`/`verify-m0-course.js`/`gen-judge-content.js`的
+`COURSE_FILES`**：`M1-01-ListSearch.js`~`M1-12-DebugFormat.js`全部12個檔案（緊接在
+`M0-06-MinMaxExtra.js`之後、`JSB00.js`之前）。**這三份腳本的`COURSE_FILES`陣列務必
+保持逐字一致**——這是既有規則，這次也照做了。
+
+**已commit+push+deploy**：commit `7b73530`「新增M1系列完整課程（12個檔案共105題），
+全部附上驗證過的參考解答」，已push到GitHub、`npm run build`+`npm run deploy`，
+GitHub Pages（`https://p2766602-beep.github.io/osep-judge/`）重新確認回傳HTTP 200。
+**YDWS-CodingBank canonical課程JS本身這次沒有被修改**（M1系列課程內容本來就已經在
+canonical資料夾裡，這次只是幫osep-judge補上示範解答跟上架），所以BlocklyYdws/
+blockly-lab不需要因為這次工作額外commit/deploy。
+
 ## 已知待辦（依優先度）
 
 1. **`gh auth login`**：使用者親自執行。
-2. **繼續擴大題目範圍**：M0其餘課程＋M1＋M2。轉換器已經通用化，之後多半只是把新課程檔
-   加進`build-m0-course-sb3.js`/`gen-judge-content.js`的`COURSE_FILES`，遇到新積木類型
-   再去`xml-to-scratch.js`補對照規則；**擴充前記得先檢查新課程的testCase score欄位有
-   沒有跟M0-02一樣沒填**（見上方「score欄位補齊流程」）。
-3. **這次還沒commit**——使用者說本機測試OK後再一起決定後續（含要不要commit/deploy）。
-4. 本機資料夾改名（`osep-scratch-judge`→`osep-judge`）：**使用者已表示會在下次對話開始前
+2. ~~繼續擴大題目範圍：M0其餘課程＋M1＋M2~~ **已完成M0+M1（見上方2026-08-10交接），
+   M2/M3是刻意不做，不是待辦**。若之後使用者要求114縣市國小題目（114E開頭）上架，
+   才是下一個可能的擴充方向，需要另外確認。
+3. 本機資料夾改名（`osep-scratch-judge`→`osep-judge`）：**使用者已表示會在下次對話開始前
    自己手動改好資料夾名稱**，純本機路徑問題，不影響GitHub上的repo名稱。下一輪如果發現
    路徑變成`D:\yosep\osep-judge`，這是預期中的變化，不是意外，直接照新路徑繼續即可。
 
