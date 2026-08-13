@@ -16,7 +16,11 @@ const COURSE_FILES = ['M0-01-BasicOutput.js', 'M0-02-Variables.js', 'M0-03-Condi
     // （競賽模式不提供參考解答，見BlocklyYdws/blockly-lab那邊的mode:'contest'設計），
     // 每題都會走下面的hasDemo===false分支、loadable設為false——這是osep-judge第一次出現
     // 「整個課程都刻意不給示範解答」的情況，2026-08-13使用者確認這是預期行為，不是資料缺口。
-    '114TCPE01.js', '114TCPE02.js', '114TCPE03.js', '114TCPE04.js', '114TCPE05.js', '114TCPE06.js', '114TCPE07.js', '114TCPE08.js', '114TCPE09.js', '114TCPE10.js', '114TCPE11.js', '114TCPE12.js', '114TCPE13.js'];
+    '114TCPE01.js', '114TCPE02.js', '114TCPE03.js', '114TCPE04.js', '114TCPE05.js', '114TCPE06.js', '114TCPE07.js', '114TCPE08.js', '114TCPE09.js', '114TCPE10.js', '114TCPE11.js', '114TCPE12.js', '114TCPE13.js',
+    // 2026-08-13再新增：基隆/桃園/雲林3縣市國小競賽模式課程（114TCPE14~16）。同批J系列
+    // （114TCPJ14~16，國中）依osep-judge既有國小限定範圍政策不上架，見本專案CLAUDE.md
+    // 「已知待辦」段落。
+    '114TCPE14.js', '114TCPE15.js', '114TCPE16.js'];
 
 // 比照BlocklyYdws/blockly-lab現況：JSA00/JSB00是公開課程（不用代碼），其餘一律需要代碼。
 const PUBLIC_COURSE_CODES = new Set(['JSA00', 'JSB00']);
