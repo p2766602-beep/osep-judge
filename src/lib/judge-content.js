@@ -7912,6 +7912,4752 @@ export const courses = [
                 "sb3Path": "m0/JSA00/A-13-1.sb3"
             }
         ]
+    },
+    {
+        "code": "114TCPE01",
+        "title": "114-嘉義市國小（競賽模式）",
+        "unlockCode": "114TCPE01",
+        "tasks": [
+            {
+                "id": "114TCPE01-1",
+                "code": "114TCPE01-114TCPE01-1",
+                "title": "營養午餐分析-1：豆製品週頻率",
+                "description": "學校記錄了 10 天的午餐主菜。請分別判斷第 1~5 天、第 6~10 天，是否「至少出現過一次」豆製品（C）。各輸出 Y（有）或 N（沒有）。",
+                "examples": [
+                    {
+                        "input": "B A B A B C D E F F",
+                        "output": "N Y",
+                        "explanation": "前5天(B A B A B)沒有C，後5天(C D E F F)有C，故輸出N Y。"
+                    },
+                    {
+                        "input": "C A B C D A B C D E",
+                        "output": "Y Y",
+                        "explanation": "前5天(C A B C D)有C，後5天(A B C D E)有C，故輸出Y Y。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "B A B A B C D E F F",
+                        "expectedOutput": "N Y",
+                        "score": 20
+                    },
+                    {
+                        "input": "C A B C D A B C D E",
+                        "expectedOutput": "Y Y",
+                        "score": 20
+                    },
+                    {
+                        "input": "A A A D C E F B B C",
+                        "expectedOutput": "Y Y",
+                        "score": 20
+                    },
+                    {
+                        "input": "A B D E F A B D E F",
+                        "expectedOutput": "N N",
+                        "score": 20
+                    },
+                    {
+                        "input": "C C C C C C C C C C",
+                        "expectedOutput": "Y Y",
+                        "score": 20
+                    }
+                ],
+                "difficulty": "L2",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE01-2",
+                "code": "114TCPE01-114TCPE01-2",
+                "title": "營養午餐分析-2：紅肉超量警示",
+                "description": "同樣的 10 天午餐紀錄。請分別判斷第 1~5 天、第 6~10 天，紅肉（B）出現的次數是否「超過」白肉（A）加豆製品（C）出現次數的總和。各輸出 Y（超過）或 N（沒有超過）。",
+                "examples": [
+                    {
+                        "input": "B A B A B C D E F F",
+                        "output": "Y N",
+                        "explanation": "前5天B有3次，A+C共2次，3>2故Y；後5天B有0次，A+C共1次，0>1不成立故N。"
+                    },
+                    {
+                        "input": "C A B C D A B C D E",
+                        "output": "N N",
+                        "explanation": "前5天B有1次，A+C共3次，不超過故N；後5天同理N。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "B A B A B C D E F F",
+                        "expectedOutput": "Y N",
+                        "score": 20
+                    },
+                    {
+                        "input": "C A B C D A B C D E",
+                        "expectedOutput": "N N",
+                        "score": 20
+                    },
+                    {
+                        "input": "A A A D C E F B B C",
+                        "expectedOutput": "N Y",
+                        "score": 20
+                    },
+                    {
+                        "input": "B B B B B A A A A A",
+                        "expectedOutput": "Y N",
+                        "score": 20
+                    },
+                    {
+                        "input": "A C A C A C A C A C",
+                        "expectedOutput": "N N",
+                        "score": 20
+                    }
+                ],
+                "difficulty": "L2",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE01-3",
+                "code": "114TCPE01-114TCPE01-3",
+                "title": "營養午餐分析-3：白肉接紅肉次數",
+                "description": "同樣的 10 天午餐紀錄。請分別統計第 1~5 天、第 6~10 天中，「白肉（A）後面緊接著紅肉（B）」這種相鄰組合出現的次數（各區間內部比對，不跨區間）。",
+                "examples": [
+                    {
+                        "input": "B A B A B C D E F F",
+                        "output": "2 0",
+                        "explanation": "前5天(B A B A B)中A後接B出現在第2、4天，共2次；後5天(C D E F F)沒有A，故0次。"
+                    },
+                    {
+                        "input": "C A B C D A B C D E",
+                        "output": "1 1",
+                        "explanation": "前5天(C A B C D)中A後接B出現1次；後5天(A B C D E)中A後接B出現1次。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "B A B A B C D E F F",
+                        "expectedOutput": "2 0",
+                        "score": 20
+                    },
+                    {
+                        "input": "C A B C D A B C D E",
+                        "expectedOutput": "1 1",
+                        "score": 20
+                    },
+                    {
+                        "input": "A A A D C E F B B C",
+                        "expectedOutput": "0 0",
+                        "score": 20
+                    },
+                    {
+                        "input": "A B A B A A B A B A",
+                        "expectedOutput": "2 2",
+                        "score": 20
+                    },
+                    {
+                        "input": "D D D D D A B A B A",
+                        "expectedOutput": "0 2",
+                        "score": 20
+                    }
+                ],
+                "difficulty": "L2",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE01-4",
+                "code": "114TCPE01-114TCPE01-4",
+                "title": "營養午餐分析-4：最常見主菜",
+                "description": "同樣的 10 天午餐紀錄，保證有一個主菜出現次數最多且唯一。請輸出這個出現次數最多的主菜代號。",
+                "examples": [
+                    {
+                        "input": "B A B A B C D E F F",
+                        "output": "B",
+                        "explanation": "B出現3次為最多，輸出B。"
+                    },
+                    {
+                        "input": "C A B C D A B C D E",
+                        "output": "C",
+                        "explanation": "C出現3次為最多，輸出C。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "B A B A B C D E F F",
+                        "expectedOutput": "B",
+                        "score": 20
+                    },
+                    {
+                        "input": "C A B C D A B C D E",
+                        "expectedOutput": "C",
+                        "score": 20
+                    },
+                    {
+                        "input": "A A A D C E F B B C",
+                        "expectedOutput": "A",
+                        "score": 20
+                    },
+                    {
+                        "input": "D D D D D A B C E F",
+                        "expectedOutput": "D",
+                        "score": 20
+                    },
+                    {
+                        "input": "F E F E F E F D D F",
+                        "expectedOutput": "F",
+                        "score": 20
+                    }
+                ],
+                "difficulty": "L1",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE01-5",
+                "code": "114TCPE01-114TCPE01-5",
+                "title": "停車費計算",
+                "description": "停車費依停車分鐘數計算：30分鐘以內收20元；31~60分鐘收40元；超過60分鐘，每滿30分鐘（不足30分鐘也算）加收30元。單日費用上限400元。若停車總時間超過24小時（1440分鐘），超過的部分視為新的一天重新計算（同樣享有優惠與400元上限），分別計算後相加。",
+                "examples": [
+                    {
+                        "input": "100",
+                        "output": "100",
+                        "explanation": "100分鐘：超過60分，(100-60)/30=1.33無條件進位為2，40+30*2=100元。"
+                    },
+                    {
+                        "input": "820",
+                        "output": "400",
+                        "explanation": "820分鐘：計算後超過400元上限，收400元。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "100",
+                        "expectedOutput": "100",
+                        "score": 11
+                    },
+                    {
+                        "input": "820",
+                        "expectedOutput": "400",
+                        "score": 11
+                    },
+                    {
+                        "input": "1443",
+                        "expectedOutput": "420",
+                        "score": 11
+                    },
+                    {
+                        "input": "30",
+                        "expectedOutput": "20",
+                        "score": 11
+                    },
+                    {
+                        "input": "31",
+                        "expectedOutput": "40",
+                        "score": 11
+                    },
+                    {
+                        "input": "60",
+                        "expectedOutput": "40",
+                        "score": 11
+                    },
+                    {
+                        "input": "61",
+                        "expectedOutput": "70",
+                        "score": 11
+                    },
+                    {
+                        "input": "2880",
+                        "expectedOutput": "800",
+                        "score": 11
+                    },
+                    {
+                        "input": "2883",
+                        "expectedOutput": "820",
+                        "score": 11
+                    }
+                ],
+                "difficulty": "L3",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE01-6",
+                "code": "114TCPE01-114TCPE01-6",
+                "title": "班級活動票選",
+                "description": "班級活動地點投票，共有 5 個地點選項（編號1~5），N 位同學投票。請統計最高票數的選項：若最高票只有一個選項，輸出該編號；若有多個選項並列最高票，依編號由小到大全部輸出。",
+                "examples": [
+                    {
+                        "input": "4\n1 5 1 5",
+                        "output": "1 5",
+                        "explanation": "選項1、5各得2票並列最高，輸出「1 5」。"
+                    },
+                    {
+                        "input": "5\n1 2 1 1 4",
+                        "output": "1",
+                        "explanation": "選項1得3票最高，輸出「1」。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "4\n1 5 1 5",
+                        "expectedOutput": "1 5",
+                        "score": 20
+                    },
+                    {
+                        "input": "5\n1 2 1 1 4",
+                        "expectedOutput": "1",
+                        "score": 20
+                    },
+                    {
+                        "input": "8\n3 4 5 1 3 4 5 1",
+                        "expectedOutput": "1 3 4 5",
+                        "score": 20
+                    },
+                    {
+                        "input": "3\n2 2 2",
+                        "expectedOutput": "2",
+                        "score": 20
+                    },
+                    {
+                        "input": "6\n1 2 3 4 5 1",
+                        "expectedOutput": "1",
+                        "score": 20
+                    }
+                ],
+                "difficulty": "L2",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE01-7",
+                "code": "114TCPE01-114TCPE01-7",
+                "title": "班級集星比賽",
+                "description": "班級集星比賽記錄了 N 天每天獲得的星星數。請找出連續 K 天總和最大的區間，輸出其「起始天（第幾天，從1開始）」與「最大總和」；若有多組並列最大，取最早開始的一組。",
+                "examples": [
+                    {
+                        "input": "6\n3\n10 2 3 4 1 5",
+                        "output": "1 15",
+                        "explanation": "第1~3天總和10+2+3=15為最大，起始天1。"
+                    },
+                    {
+                        "input": "7\n3\n1 2 10 12 5 3 1",
+                        "output": "3 27",
+                        "explanation": "第3~5天總和10+12+5=27為最大，起始天3。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "6\n3\n10 2 3 4 1 5",
+                        "expectedOutput": "1 15",
+                        "score": 20
+                    },
+                    {
+                        "input": "7\n3\n1 2 10 12 5 3 1",
+                        "expectedOutput": "3 27",
+                        "score": 20
+                    },
+                    {
+                        "input": "8\n4\n5 1 5 1 5 1 5 1",
+                        "expectedOutput": "1 12",
+                        "score": 20
+                    },
+                    {
+                        "input": "5\n1\n3 9 2 8 1",
+                        "expectedOutput": "2 9",
+                        "score": 20
+                    },
+                    {
+                        "input": "4\n2\n1 1 1 10",
+                        "expectedOutput": "3 11",
+                        "score": 20
+                    }
+                ],
+                "difficulty": "L3",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE01-8",
+                "code": "114TCPE01-114TCPE01-8",
+                "title": "森林小火車的能量大冒險",
+                "description": "森林小火車行駛於環狀的 5 個車站（1~5號，5號的下一站是1號），每個車站都有一個能量糖果增減值。小火車一開始持有 10 顆糖果，從1號站出發。每次骰子擲出步數後，小火車會先消耗等同步數的糖果，再前進到新站點，並依新站點的增減值調整糖果數量。糖果數量上限為30顆（超過就只保留30顆），若糖果數量小於等於0，則獲得國王救援直接補滿為5顆。請輸出經過所有骰子次數後的糖果數量。",
+                "examples": [
+                    {
+                        "input": "0 15 -5 15 -10\n2\n1 2",
+                        "output": "30",
+                        "explanation": "第1步耗1顆剩9顆，移到2號站+15顆=24顆；第2步耗2顆剩22顆，移到4號站+15顆=37顆，超過上限剩30顆。"
+                    },
+                    {
+                        "input": "0 15 -5 15 -10\n2\n4 3",
+                        "output": "5",
+                        "explanation": "第1步耗4顆剩6顆，移到5號站-10顆=-4顆，觸發國王救援設為5顆；第2步耗3顆剩2顆，移到3號站-5顆=-3顆，再次觸發國王救援設為5顆。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "0 15 -5 15 -10\n2\n1 2",
+                        "expectedOutput": "30",
+                        "score": 20
+                    },
+                    {
+                        "input": "0 15 -5 15 -10\n2\n4 3",
+                        "expectedOutput": "5",
+                        "score": 20
+                    },
+                    {
+                        "input": "5 5 5 5 5\n1\n1",
+                        "expectedOutput": "14",
+                        "score": 20
+                    },
+                    {
+                        "input": "-20 -20 -20 -20 -20\n1\n1",
+                        "expectedOutput": "5",
+                        "score": 20
+                    },
+                    {
+                        "input": "0 0 0 0 0\n5\n1 1 1 1 1",
+                        "expectedOutput": "5",
+                        "score": 20
+                    }
+                ],
+                "difficulty": "L4",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE01-9",
+                "code": "114TCPE01-114TCPE01-9",
+                "title": "玩具收納挑戰",
+                "description": "要將 N 件（N≤6）玩具收進容量 20 公斤的標準收納箱。依序處理每件玩具：依開箱順序檢查每個「已經開啟」的箱子，只要有任何一箱裝入後不超過20公斤，就放進第一個符合的箱子；如果所有已開的箱子都裝不下，才開一個新箱子。請輸出總共用了幾個箱子。",
+                "examples": [
+                    {
+                        "input": "4\n10 10 9 1",
+                        "output": "2",
+                        "explanation": "10+10=20裝滿箱1；9放不進箱1(20+9=29>20)故開箱2；1可放進箱1(20+1=21>20不行)或箱2(9+1=10可以)，共2箱。"
+                    },
+                    {
+                        "input": "4\n11 11 11 11",
+                        "output": "4",
+                        "explanation": "每個11都無法與其他11同箱(11+11=22>20)，故4件各自一箱，共4箱。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "4\n10 10 9 1",
+                        "expectedOutput": "2",
+                        "score": 20
+                    },
+                    {
+                        "input": "4\n11 11 11 11",
+                        "expectedOutput": "4",
+                        "score": 20
+                    },
+                    {
+                        "input": "5\n19 19 19 1 1",
+                        "expectedOutput": "3",
+                        "score": 20
+                    },
+                    {
+                        "input": "3\n20 20 20",
+                        "expectedOutput": "3",
+                        "score": 20
+                    },
+                    {
+                        "input": "6\n5 5 5 5 5 5",
+                        "expectedOutput": "2",
+                        "score": 20
+                    }
+                ],
+                "difficulty": "L3",
+                "sb3Path": null
+            }
+        ]
+    },
+    {
+        "code": "114TCPE02",
+        "title": "114-嘉義縣國小（競賽模式）",
+        "unlockCode": "114TCPE02",
+        "tasks": [
+            {
+                "id": "114TCPE02-1",
+                "code": "114TCPE02-114TCPE02-1",
+                "title": "個人綜合所得稅試算",
+                "description": "假設某位民眾一整年的課稅所得為固定金額（以「萬元」為單位），系統將依照下列稅率級距計算應繳的所得稅金額：所得收入1～30萬元之間，稅率為5%；所得超過30萬，前30萬扣稅15000元，31～60萬元之間的稅率為10%；所得超過60萬，前60萬扣稅45000元，61～100萬元之間的稅率為15%；所得超過100萬，前100萬扣稅105000元，101萬元以上稅率為20%。本題為教學用簡化模型，不考慮扣除額、免稅額或其他費用。",
+                "examples": [
+                    {
+                        "input": "20",
+                        "output": "10000",
+                        "explanation": "20萬元屬於1～30萬元區間，稅率5%，20×10000×0.05=10000元。"
+                    },
+                    {
+                        "input": "55",
+                        "output": "40000",
+                        "explanation": "1～30萬元區間扣稅15000元，31～55萬元區間扣稅25000元，合計40000元。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "10",
+                        "expectedOutput": "5000",
+                        "score": 10
+                    },
+                    {
+                        "input": "30",
+                        "expectedOutput": "15000",
+                        "score": 10
+                    },
+                    {
+                        "input": "40",
+                        "expectedOutput": "25000",
+                        "score": 10
+                    },
+                    {
+                        "input": "80",
+                        "expectedOutput": "75000",
+                        "score": 10
+                    },
+                    {
+                        "input": "120",
+                        "expectedOutput": "145000",
+                        "score": 10
+                    },
+                    {
+                        "input": "60",
+                        "expectedOutput": "45000",
+                        "score": 10
+                    },
+                    {
+                        "input": "100",
+                        "expectedOutput": "105000",
+                        "score": 10
+                    },
+                    {
+                        "input": "31",
+                        "expectedOutput": "16000",
+                        "score": 10
+                    },
+                    {
+                        "input": "61",
+                        "expectedOutput": "46500",
+                        "score": 10
+                    },
+                    {
+                        "input": "200",
+                        "expectedOutput": "305000",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L2",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE02-2",
+                "code": "114TCPE02-114TCPE02-2",
+                "title": "跳馬比賽成績計算",
+                "description": "跳馬比賽為求公平性，決議去除評審中較極端的成績。比賽會依賽制等級不同，聘用五至十位不等的評審，各自給予參賽者0至10分的評價。參賽者的最終得分計算方式：讀入五至十位評審的分數（未排序），扣除最高分與最低分各一筆（若有多筆，只刪除其中一筆），將剩餘分數取平均，四捨五入至小數點第三位。",
+                "examples": [
+                    {
+                        "input": "5\n9 8 10 6 7",
+                        "output": "8",
+                        "explanation": "刪除最高分10與最低分6，剩下9、8、7，平均為(9+8+7)/3=8。"
+                    },
+                    {
+                        "input": "5\n5 5 8 9 10",
+                        "output": "7.333",
+                        "explanation": "刪除最高分10與最低分5，剩下5、8、9，平均為(5+8+9)/3=7.333，四捨五入至小數點第三位仍為7.333。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "5\n9 8 10 6 7",
+                        "expectedOutput": "8",
+                        "score": 10
+                    },
+                    {
+                        "input": "5\n10 10 10 10 10",
+                        "expectedOutput": "10",
+                        "score": 10
+                    },
+                    {
+                        "input": "5\n5 5 7 7 10",
+                        "expectedOutput": "6.333",
+                        "score": 10
+                    },
+                    {
+                        "input": "5\n9 9 9 10 10",
+                        "expectedOutput": "9.333",
+                        "score": 10
+                    },
+                    {
+                        "input": "5\n7 7 8 8 6",
+                        "expectedOutput": "7.333",
+                        "score": 10
+                    },
+                    {
+                        "input": "6\n1 2 3 4 5 6",
+                        "expectedOutput": "3.5",
+                        "score": 10
+                    },
+                    {
+                        "input": "6\n0 0 1 1 2 2",
+                        "expectedOutput": "1",
+                        "score": 10
+                    },
+                    {
+                        "input": "7\n10 9 8 7 6 5 4",
+                        "expectedOutput": "7",
+                        "score": 10
+                    },
+                    {
+                        "input": "8\n10 10 0 0 5 5 5 5",
+                        "expectedOutput": "5",
+                        "score": 10
+                    },
+                    {
+                        "input": "10\n10 9 9 9 9 9 9 9 9 0",
+                        "expectedOutput": "9",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L2",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE02-3",
+                "code": "114TCPE02-114TCPE02-3",
+                "title": "動態密碼轉換",
+                "description": "小明設計了一種英文字元密碼環編碼規則：密碼環為abcdefghijklmnopqrstuvwxyz。編碼時，字串中的每一個字元皆依密碼環往後移動N個位置；若位移後超出密碼環尾端，則從密碼環開頭繼續計算（環狀結構）。",
+                "examples": [
+                    {
+                        "input": "2\nbanana",
+                        "output": "dcpcpc",
+                        "explanation": "b→d，a→c，n→p，每個字元皆往後移動2個位置。"
+                    },
+                    {
+                        "input": "0\nabc",
+                        "output": "abc",
+                        "explanation": "位移0，字串不變。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "0\nabc",
+                        "expectedOutput": "abc",
+                        "score": 10
+                    },
+                    {
+                        "input": "1\nxyz",
+                        "expectedOutput": "yza",
+                        "score": 10
+                    },
+                    {
+                        "input": "26\nhello",
+                        "expectedOutput": "hello",
+                        "score": 10
+                    },
+                    {
+                        "input": "28\naz",
+                        "expectedOutput": "cb",
+                        "score": 10
+                    },
+                    {
+                        "input": "100\na",
+                        "expectedOutput": "w",
+                        "score": 10
+                    },
+                    {
+                        "input": "5\npokemon",
+                        "expectedOutput": "utpjrts",
+                        "score": 10
+                    },
+                    {
+                        "input": "25\na",
+                        "expectedOutput": "z",
+                        "score": 10
+                    },
+                    {
+                        "input": "13\nnop",
+                        "expectedOutput": "abc",
+                        "score": 10
+                    },
+                    {
+                        "input": "52\ncat",
+                        "expectedOutput": "cat",
+                        "score": 10
+                    },
+                    {
+                        "input": "10\napple",
+                        "expectedOutput": "kzzvo",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L3",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE02-4",
+                "code": "114TCPE02-114TCPE02-4",
+                "title": "籃球機得分計算",
+                "description": "雙打籃球機在每場遊戲中提供1P、2P兩位玩家5～10次不等的投籃機會。每投進1球得1分，未投進得0分。若某次投籃進球，且前一次投籃也進球，則該次投籃得3分；若進球但前一次未進球（或為第一球），則得1分。請模擬籃球機的得分計算，輸出兩位玩家單場遊戲的總得分，以及獲勝的玩家名稱（若同分則顯示「不分勝負」）。",
+                "examples": [
+                    {
+                        "input": "5\n1 0 1 1 0\n0 1 1 1 1",
+                        "output": "5 10 2P",
+                        "explanation": "1P得分1+0+1+3+0=5；2P得分0+1+3+3+3=10；2P勝出。"
+                    },
+                    {
+                        "input": "7\n1 0 1 1 0 1 0\n0 1 1 0 1 0 1",
+                        "output": "6 6 不分勝負",
+                        "explanation": "兩人同分6分，不分勝負。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "5\n0 1 0 1 0\n0 0 0 0 0",
+                        "expectedOutput": "2 0 1P",
+                        "score": 10
+                    },
+                    {
+                        "input": "6\n1 1 1 0 1 0\n0 1 1 1 1 0",
+                        "expectedOutput": "8 10 2P",
+                        "score": 10
+                    },
+                    {
+                        "input": "9\n0 1 0 1 0 1 0 1 0\n0 0 0 0 0 0 0 0 0",
+                        "expectedOutput": "4 0 1P",
+                        "score": 10
+                    },
+                    {
+                        "input": "8\n1 1 0 1 1 0 1 1\n1 1 1 0 1 1 1 0",
+                        "expectedOutput": "12 14 2P",
+                        "score": 10
+                    },
+                    {
+                        "input": "7\n1 1 0 1 1 0 1\n1 1 0 1 1 0 1",
+                        "expectedOutput": "9 9 不分勝負",
+                        "score": 10
+                    },
+                    {
+                        "input": "5\n1 1 1 1 1\n1 0 1 0 1",
+                        "expectedOutput": "13 3 1P",
+                        "score": 10
+                    },
+                    {
+                        "input": "10\n0 0 0 0 0 0 0 0 0 0\n1 1 1 1 1 1 1 1 1 1",
+                        "expectedOutput": "0 28 2P",
+                        "score": 10
+                    },
+                    {
+                        "input": "6\n1 0 0 0 0 1\n1 0 0 0 0 1",
+                        "expectedOutput": "2 2 不分勝負",
+                        "score": 10
+                    },
+                    {
+                        "input": "7\n0 1 1 0 1 1 0\n1 1 0 0 0 1 1",
+                        "expectedOutput": "8 8 不分勝負",
+                        "score": 10
+                    },
+                    {
+                        "input": "8\n1 0 1 0 1 0 1 0\n0 1 0 1 0 1 0 1",
+                        "expectedOutput": "4 4 不分勝負",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L2",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE02-5",
+                "code": "114TCPE02-114TCPE02-5",
+                "title": "無人搬運車運送計算",
+                "description": "智慧工廠中使用一輛無人搬運車（AGV），每一趟最大可承載重量為200公斤。零件依序排隊裝載，無人搬運車依序將零件放上車並累加重量。若某一件零件放上車後累計重量超過200公斤，則該零件不放入本趟車次，無人搬運車立刻出發，該零件改由下一趟車次運送。請計算無人搬運車最少需要出發幾趟。",
+                "examples": [
+                    {
+                        "input": "6\n50 60 40 70 90 30",
+                        "output": "2",
+                        "explanation": "第一趟50+60+40+70=220>200不行，改成50+60+40=150，第70件開始第二趟70+90+30=190。共2趟。"
+                    },
+                    {
+                        "input": "5\n80 90 60 30 40",
+                        "output": "2",
+                        "explanation": "第一趟80+90=170，加60會超過200，出發；第二趟60+30+40=130，出發。共2趟。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "9\n50 60 40 70 90 30 80 90 60",
+                        "expectedOutput": "4",
+                        "score": 10
+                    },
+                    {
+                        "input": "5\n80 90 60 30 40",
+                        "expectedOutput": "2",
+                        "score": 10
+                    },
+                    {
+                        "input": "5\n100 50 60 70 80",
+                        "expectedOutput": "3",
+                        "score": 10
+                    },
+                    {
+                        "input": "3\n100 100 100",
+                        "expectedOutput": "2",
+                        "score": 10
+                    },
+                    {
+                        "input": "1\n100",
+                        "expectedOutput": "1",
+                        "score": 10
+                    },
+                    {
+                        "input": "5\n200 200 200 200 200",
+                        "expectedOutput": "5",
+                        "score": 10
+                    },
+                    {
+                        "input": "8\n10 20 30 40 50 60 70 80",
+                        "expectedOutput": "3",
+                        "score": 10
+                    },
+                    {
+                        "input": "6\n199 1 199 1 199 1",
+                        "expectedOutput": "3",
+                        "score": 10
+                    },
+                    {
+                        "input": "4\n150 150 150 150",
+                        "expectedOutput": "4",
+                        "score": 10
+                    },
+                    {
+                        "input": "10\n50 50 50 50 50 50 50 50 50 50",
+                        "expectedOutput": "3",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L2",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE02-6",
+                "code": "114TCPE02-114TCPE02-6",
+                "title": "寶可夢訓練師-計算平均等級",
+                "description": "請設計一個程式，輸入多隻寶可夢的等級，計算並輸出牠們的平均等級（無條件捨去至整數）。",
+                "examples": [
+                    {
+                        "input": "4\n10 20 30 40",
+                        "output": "25",
+                        "explanation": "平均值=(10+20+30+40)÷4=25。"
+                    },
+                    {
+                        "input": "3\n7 8 10",
+                        "output": "8",
+                        "explanation": "平均值=25÷3=8.33，無條件捨去後為8。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "1\n50",
+                        "expectedOutput": "50",
+                        "score": 10
+                    },
+                    {
+                        "input": "3\n10 20 30",
+                        "expectedOutput": "20",
+                        "score": 10
+                    },
+                    {
+                        "input": "4\n7 8 9 10",
+                        "expectedOutput": "8",
+                        "score": 10
+                    },
+                    {
+                        "input": "5\n1 100 100 100 100",
+                        "expectedOutput": "80",
+                        "score": 10
+                    },
+                    {
+                        "input": "20\n10 10 10 10 10 10 10 10 10 10 20 20 20 20 20 20 20 20 20 20",
+                        "expectedOutput": "15",
+                        "score": 10
+                    },
+                    {
+                        "input": "2\n1 2",
+                        "expectedOutput": "1",
+                        "score": 10
+                    },
+                    {
+                        "input": "3\n33 33 33",
+                        "expectedOutput": "33",
+                        "score": 10
+                    },
+                    {
+                        "input": "5\n10 11 12 13 14",
+                        "expectedOutput": "12",
+                        "score": 10
+                    },
+                    {
+                        "input": "6\n99 99 99 99 99 99",
+                        "expectedOutput": "99",
+                        "score": 10
+                    },
+                    {
+                        "input": "4\n1 1 1 1",
+                        "expectedOutput": "1",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L1",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE02-7",
+                "code": "114TCPE02-114TCPE02-7",
+                "title": "寶可夢訓練師-找最高等級",
+                "description": "請設計一個程式，輸入多隻寶可夢的名稱與等級，找出等級最高的寶可夢名稱（本題保證不會有等級相同的情況，寶可夢名稱不包含空白字元）。",
+                "examples": [
+                    {
+                        "input": "3\n皮卡丘 25 小火龍 12 妙蛙種子 18",
+                        "output": "皮卡丘",
+                        "explanation": "共有3隻寶可夢，等級最高的是皮卡丘（25）。"
+                    },
+                    {
+                        "input": "4\n傑尼龜 10 伊布 15 卡比獸 35 胖丁 2",
+                        "output": "卡比獸",
+                        "explanation": "共有4隻寶可夢，卡比獸等級最高（35）。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "1\n皮卡丘 10",
+                        "expectedOutput": "皮卡丘",
+                        "score": 10
+                    },
+                    {
+                        "input": "3\n小火龍 12 妙蛙種子 18 傑尼龜 15",
+                        "expectedOutput": "妙蛙種子",
+                        "score": 10
+                    },
+                    {
+                        "input": "4\nA 5 B 20 C 15 D 8",
+                        "expectedOutput": "B",
+                        "score": 10
+                    },
+                    {
+                        "input": "5\n皮卡丘 22 伊布 30 卡比獸 28 超夢 100 胖丁 18",
+                        "expectedOutput": "超夢",
+                        "score": 10
+                    },
+                    {
+                        "input": "6\nP1 3 P2 6 P3 9 P4 12 P5 15 P6 18",
+                        "expectedOutput": "P6",
+                        "score": 10
+                    },
+                    {
+                        "input": "2\nX 50 Y 49",
+                        "expectedOutput": "X",
+                        "score": 10
+                    },
+                    {
+                        "input": "3\nBulbasaur 5 Charmander 10 Squirtle 7",
+                        "expectedOutput": "Charmander",
+                        "score": 10
+                    },
+                    {
+                        "input": "4\nA 1 B 2 C 3 D 4",
+                        "expectedOutput": "D",
+                        "score": 10
+                    },
+                    {
+                        "input": "5\nZ 99 Y 98 X 97 W 96 V 95",
+                        "expectedOutput": "Z",
+                        "score": 10
+                    },
+                    {
+                        "input": "2\nFirst 10 Second 20",
+                        "expectedOutput": "Second",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L1",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE02-8",
+                "code": "114TCPE02-114TCPE02-8",
+                "title": "寶可夢訓練師-列出平均等級以上",
+                "description": "請綜合前面的概念，輸入寶可夢名稱與等級，計算平均等級後，依照輸入出現順序，輸出所有等級高於平均值的寶可夢名稱。",
+                "examples": [
+                    {
+                        "input": "3\n皮卡丘 25 小火龍 12 妙蛙種子 18",
+                        "output": "皮卡丘",
+                        "explanation": "平均等級為18.33，只有皮卡丘(25)高於平均。"
+                    },
+                    {
+                        "input": "4\n傑尼龜 10 伊布 15 卡比獸 20 胖丁 20",
+                        "output": "卡比獸 胖丁",
+                        "explanation": "平均等級為16.25，卡比獸與胖丁高於平均。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "1\n皮卡丘 10",
+                        "expectedOutput": "",
+                        "score": 10
+                    },
+                    {
+                        "input": "5\n伊布 15 胖丁 15 乘龍 10 卡比獸 20 妙蛙種子 15",
+                        "expectedOutput": "卡比獸",
+                        "score": 10
+                    },
+                    {
+                        "input": "4\n妙蛙種子 30 皮卡丘 30 小火龍 30 傑尼龜 30",
+                        "expectedOutput": "",
+                        "score": 10
+                    },
+                    {
+                        "input": "6\n小火龍 100 皮卡丘 0 伊布 50 卡比獸 50 胖丁 50 超夢 100",
+                        "expectedOutput": "小火龍 超夢",
+                        "score": 10
+                    },
+                    {
+                        "input": "8\n皮卡丘 25 皮卡丘 30 妙蛙種子 18 小火龍 12 傑尼龜 40 伊布 35 卡比獸 28 胖丁 28",
+                        "expectedOutput": "皮卡丘 傑尼龜 伊布 卡比獸 胖丁",
+                        "score": 10
+                    },
+                    {
+                        "input": "3\nA 10 B 20 C 30",
+                        "expectedOutput": "C",
+                        "score": 10
+                    },
+                    {
+                        "input": "2\nX 1 Y 100",
+                        "expectedOutput": "Y",
+                        "score": 10
+                    },
+                    {
+                        "input": "4\nP1 10 P2 11 P3 10 P4 10",
+                        "expectedOutput": "P2",
+                        "score": 10
+                    },
+                    {
+                        "input": "5\nA 100 B 10 C 10 D 10 E 10",
+                        "expectedOutput": "A",
+                        "score": 10
+                    },
+                    {
+                        "input": "4\nM1 50 M2 51 M3 50 M4 49",
+                        "expectedOutput": "M2",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L3",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE02-9",
+                "code": "114TCPE02-114TCPE02-9",
+                "title": "寶可夢訓練師-統計屬性數量",
+                "description": "請設計一個程式，輸入多隻寶可夢的屬性，輸出各屬性寶可夢的數量統計結果。程式需依照屬性第一次出現的順序，輸出每個屬性與該屬性寶可夢數量，格式為「屬性數量」（屬性與數量間不留空白）；不同組別之間以一個空白隔開；若屬性重複，只輸出一次。",
+                "examples": [
+                    {
+                        "input": "5\n火 水 火 電 水",
+                        "output": "火2 水2 電1",
+                        "explanation": "依首次出現順序統計後輸出：火2 水2 電1。"
+                    },
+                    {
+                        "input": "4\n草 草 毒 草",
+                        "output": "草3 毒1",
+                        "explanation": "輸出結果為：草3 毒1。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "9\n火 水 火 電 水 草 草 毒 草",
+                        "expectedOutput": "火2 水2 電1 草3 毒1",
+                        "score": 10
+                    },
+                    {
+                        "input": "8\n水 火 電 水 草 水 電 草",
+                        "expectedOutput": "水3 火1 電2 草2",
+                        "score": 10
+                    },
+                    {
+                        "input": "1\n草",
+                        "expectedOutput": "草1",
+                        "score": 10
+                    },
+                    {
+                        "input": "5\n水 水 水 水 水",
+                        "expectedOutput": "水5",
+                        "score": 10
+                    },
+                    {
+                        "input": "6\n電 火 草 電 火 水",
+                        "expectedOutput": "電2 火2 草1 水1",
+                        "score": 10
+                    },
+                    {
+                        "input": "4\n冰 龍 冰 龍",
+                        "expectedOutput": "冰2 龍2",
+                        "score": 10
+                    },
+                    {
+                        "input": "5\n光 暗 光 暗 無",
+                        "expectedOutput": "光2 暗2 無1",
+                        "score": 10
+                    },
+                    {
+                        "input": "3\n超能 格鬥 超能",
+                        "expectedOutput": "超能2 格鬥1",
+                        "score": 10
+                    },
+                    {
+                        "input": "7\nA B C A B C D",
+                        "expectedOutput": "A2 B2 C2 D1",
+                        "score": 10
+                    },
+                    {
+                        "input": "10\nX Y Z X Y Z X Y Z W",
+                        "expectedOutput": "X3 Y3 Z3 W1",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L3",
+                "sb3Path": null
+            }
+        ]
+    },
+    {
+        "code": "114TCPE03",
+        "title": "114-彰化縣國小（競賽模式）",
+        "unlockCode": "114TCPE03",
+        "tasks": [
+            {
+                "id": "114TCPE03-1",
+                "code": "114TCPE03-114TCPE03-1",
+                "title": "綠蔭道路",
+                "description": "政府正在推動某鄉村的「智慧綠蔭道路計畫」，希望在一條筆直道路的一側種植行道樹，讓行人走在路上能有遮蔭。從道路的起點先種第一棵樹，接著每隔固定間距種一棵樹，如果最後剩下的距離不足一個間距，仍然要再補種一棵樹。\n請寫一個程式，根據道路長度與種樹間距，計算需要準備的樹苗數量。",
+                "examples": [
+                    {
+                        "input": "10 5",
+                        "output": "3",
+                        "explanation": "道路長度是10公尺，種樹間距為5公尺。 起點先種1棵，經過5公尺種1棵，再經過5公尺再種1棵，故為3顆。"
+                    },
+                    {
+                        "input": "11 5",
+                        "output": "4",
+                        "explanation": "道路長度是11公尺時，種樹間距為5公尺。 起點先種1棵，經過5公尺種1棵，再經過5公尺再種1棵，剩下距離為1公尺，仍需要補種1顆樹，故為4顆。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "24 8",
+                        "expectedOutput": "4",
+                        "score": 10
+                    },
+                    {
+                        "input": "101 10",
+                        "expectedOutput": "12",
+                        "score": 10
+                    },
+                    {
+                        "input": "149 30",
+                        "expectedOutput": "6",
+                        "score": 10
+                    },
+                    {
+                        "input": "10 5",
+                        "expectedOutput": "3",
+                        "score": 10
+                    },
+                    {
+                        "input": "11 5",
+                        "expectedOutput": "4",
+                        "score": 10
+                    },
+                    {
+                        "input": "100 100",
+                        "expectedOutput": "2",
+                        "score": 10
+                    },
+                    {
+                        "input": "99 100",
+                        "expectedOutput": "2",
+                        "score": 10
+                    },
+                    {
+                        "input": "200 50",
+                        "expectedOutput": "5",
+                        "score": 10
+                    },
+                    {
+                        "input": "201 50",
+                        "expectedOutput": "6",
+                        "score": 10
+                    },
+                    {
+                        "input": "1000 1",
+                        "expectedOutput": "1001",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L1",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE03-2",
+                "code": "114TCPE03-114TCPE03-2",
+                "title": "最萌身高差",
+                "description": "白雪公主和七矮人一起生活在森林裡。七矮人的身高都不一樣，白雪公主想知道七矮人之中，最高的人和最矮的人身高相差多少。請你寫一個程式，根據七矮人的身高資料，計算出「最高者與最矮者的身高差」。小矮人的身高介於30公分到140公分之間。",
+                "examples": [
+                    {
+                        "input": "130 110 115 120 125 118 112",
+                        "output": "20",
+                        "explanation": "最高的是130，最矮的是110，輸出身高差是20。"
+                    },
+                    {
+                        "input": "100 101 102 103 104 105 106",
+                        "output": "6",
+                        "explanation": "最高的是106，最矮的是100，輸出身高差是6。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "105 98 110 102 99 108 101",
+                        "expectedOutput": "12",
+                        "score": 10
+                    },
+                    {
+                        "input": "140 135 138 133 130 137 61",
+                        "expectedOutput": "79",
+                        "score": 10
+                    },
+                    {
+                        "input": "60 76 74 72 70 68 78",
+                        "expectedOutput": "18",
+                        "score": 10
+                    },
+                    {
+                        "input": "130 110 115 120 125 118 112",
+                        "expectedOutput": "20",
+                        "score": 10
+                    },
+                    {
+                        "input": "100 101 102 103 104 105 106",
+                        "expectedOutput": "6",
+                        "score": 10
+                    },
+                    {
+                        "input": "30 40 50 60 70 80 90",
+                        "expectedOutput": "60",
+                        "score": 10
+                    },
+                    {
+                        "input": "140 130 120 110 100 90 80",
+                        "expectedOutput": "60",
+                        "score": 10
+                    },
+                    {
+                        "input": "30 140 50 60 70 80 90",
+                        "expectedOutput": "110",
+                        "score": 10
+                    },
+                    {
+                        "input": "100 100 100 100 100 100 100",
+                        "expectedOutput": "0",
+                        "score": 10
+                    },
+                    {
+                        "input": "55 55 55 55 55 30 140",
+                        "expectedOutput": "110",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L1",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE03-3",
+                "code": "114TCPE03-114TCPE03-3",
+                "title": "秒數轉換",
+                "description": "時間長度除了可以單用「秒」來表示，也可以將其拆解為「時、分、秒」來表達。請你根據輸入的總秒數，將它轉換成「時、分、秒」三個數字。舉例來說 3661秒就等於1小時又1分又1秒。因為1小時+1分+1秒 = 3600秒+60秒+1秒 = 3661秒。",
+                "examples": [
+                    {
+                        "input": "3661",
+                        "output": "1 1 1",
+                        "explanation": "3661秒就是1小時1分又1秒"
+                    },
+                    {
+                        "input": "59",
+                        "output": "0 0 59",
+                        "explanation": "59秒就是0小時0分又59秒"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "7325",
+                        "expectedOutput": "2 2 5",
+                        "score": 10
+                    },
+                    {
+                        "input": "10000",
+                        "expectedOutput": "2 46 40",
+                        "score": 10
+                    },
+                    {
+                        "input": "86399",
+                        "expectedOutput": "23 59 59",
+                        "score": 10
+                    },
+                    {
+                        "input": "3661",
+                        "expectedOutput": "1 1 1",
+                        "score": 10
+                    },
+                    {
+                        "input": "59",
+                        "expectedOutput": "0 0 59",
+                        "score": 10
+                    },
+                    {
+                        "input": "3600",
+                        "expectedOutput": "1 0 0",
+                        "score": 10
+                    },
+                    {
+                        "input": "60",
+                        "expectedOutput": "0 1 0",
+                        "score": 10
+                    },
+                    {
+                        "input": "0",
+                        "expectedOutput": "0 0 0",
+                        "score": 10
+                    },
+                    {
+                        "input": "3599",
+                        "expectedOutput": "0 59 59",
+                        "score": 10
+                    },
+                    {
+                        "input": "7260",
+                        "expectedOutput": "2 1 0",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L1",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE03-4",
+                "code": "114TCPE03-114TCPE03-4",
+                "title": "協力車分配",
+                "description": "班上同學到河濱公園騎協力車，協力車分成兩種：兩人共騎的協力車以及三人共騎的協力車。分配後全班同學剛好都有車可騎，而且每一輛協力車都坐滿。\n請你根據全班人數以及協力車總數的資料，計算出兩人共騎的協力車有幾輛。",
+                "examples": [
+                    {
+                        "input": "5 2",
+                        "output": "1",
+                        "explanation": "全班有5個人，分配到2台協力車恰好可以坐滿。 那麼兩人共騎的協力車與三人共騎的協力車會各1台，輸出1也就是兩人協力車的數量。"
+                    },
+                    {
+                        "input": "8 4",
+                        "output": "4",
+                        "explanation": "全班有8個人，若分配到4台協力車恰好可以坐滿。 那麼就會需要兩人共騎的協力車4台，不需要三人共騎的協力車，輸出4代表兩人協力車的數量。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "51 20",
+                        "expectedOutput": "9",
+                        "score": 10
+                    },
+                    {
+                        "input": "49 20",
+                        "expectedOutput": "11",
+                        "score": 10
+                    },
+                    {
+                        "input": "62 25",
+                        "expectedOutput": "13",
+                        "score": 10
+                    },
+                    {
+                        "input": "5 2",
+                        "expectedOutput": "1",
+                        "score": 10
+                    },
+                    {
+                        "input": "8 4",
+                        "expectedOutput": "4",
+                        "score": 10
+                    },
+                    {
+                        "input": "6 2",
+                        "expectedOutput": "0",
+                        "score": 10
+                    },
+                    {
+                        "input": "30 10",
+                        "expectedOutput": "0",
+                        "score": 10
+                    },
+                    {
+                        "input": "20 10",
+                        "expectedOutput": "10",
+                        "score": 10
+                    },
+                    {
+                        "input": "25 10",
+                        "expectedOutput": "5",
+                        "score": 10
+                    },
+                    {
+                        "input": "100 40",
+                        "expectedOutput": "20",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L2",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE03-5",
+                "code": "114TCPE03-114TCPE03-5",
+                "title": "數橘子",
+                "description": "小龍的媽媽今天到菜市場買了一堆橘子，有10顆以上，但忘記確切數量。回家後，媽媽嘗試用不同大小的袋子來分裝橘子：\n大袋子每袋可裝7顆、中袋子每袋可裝5顆、小袋子每袋可裝3顆。\n媽媽分別只使用其中一種袋子來裝橘子時，有可能恰好裝滿或剩下一些裝不滿一袋的橘子。\n請你根據這三種情況下剩餘的橘子數量，推算出橘子可能的最少總顆數。",
+                "examples": [
+                    {
+                        "input": "1 0 0",
+                        "output": "15",
+                        "explanation": "橘子10顆以上... 只用大袋子分裝，每7顆裝1袋，最後剩下1顆。 只用中袋子分裝，每5顆裝1袋，最後不剩剛好裝滿。 只用小袋子分裝，每3顆裝1袋，最後不剩剛好裝滿。 符合上述情況橘子可能的最少總顆數是15。"
+                    },
+                    {
+                        "input": "4 3 0",
+                        "output": "18",
+                        "explanation": "橘子10顆以上... 只用大袋子分裝，每7顆裝1袋，最後剩下4顆。 只用中袋子分裝，每5顆裝1袋，最後剩下3顆。 只用小袋子分裝，每3顆裝1袋，最後不剩剛好裝滿。 符合上述情況橘子可能的最少總顆數是18。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "3 2 1",
+                        "expectedOutput": "52",
+                        "score": 10
+                    },
+                    {
+                        "input": "2 1 2",
+                        "expectedOutput": "86",
+                        "score": 10
+                    },
+                    {
+                        "input": "2 4 0",
+                        "expectedOutput": "114",
+                        "score": 10
+                    },
+                    {
+                        "input": "1 3 2",
+                        "expectedOutput": "113",
+                        "score": 10
+                    },
+                    {
+                        "input": "1 0 0",
+                        "expectedOutput": "15",
+                        "score": 10
+                    },
+                    {
+                        "input": "4 3 0",
+                        "expectedOutput": "18",
+                        "score": 10
+                    },
+                    {
+                        "input": "0 0 1",
+                        "expectedOutput": "70",
+                        "score": 10
+                    },
+                    {
+                        "input": "1 1 1",
+                        "expectedOutput": "106",
+                        "score": 10
+                    },
+                    {
+                        "input": "6 4 2",
+                        "expectedOutput": "104",
+                        "score": 10
+                    },
+                    {
+                        "input": "0 0 0",
+                        "expectedOutput": "105",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L3",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE03-6",
+                "code": "114TCPE03-114TCPE03-6",
+                "title": "禮物多數決",
+                "description": "教師節快到了，班上同學想從禮品1號到禮品5號中選擇一樣送給老師。決定的方式是從同學的投票中，找出得票數最多的禮品。請根據投票結果，找出要送給老師的禮品編號，以及該禮品所得到的票數。",
+                "examples": [
+                    {
+                        "input": "3\n1 1 1",
+                        "output": "1 3",
+                        "explanation": "第1個數字3代表有3位同學投票，接下來輸入的3個數字表示他們都投了1號禮品。 1號禮品票數最高，輸出1，然後輸出其票數3。"
+                    },
+                    {
+                        "input": "7\n5 5 5 2 2 2 5",
+                        "output": "5 4",
+                        "explanation": "第1個數字7代表有7位同學投票，接下來輸入的7個數字表示有4位投了5號禮品，有3位投了2號禮品。 5號禮品票數最高，輸出5，然後輸出其票數4。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "8\n2 4 4 1 4 1 4 3",
+                        "expectedOutput": "4 4",
+                        "score": 10
+                    },
+                    {
+                        "input": "7\n5 5 2 4 3 2 5",
+                        "expectedOutput": "5 3",
+                        "score": 10
+                    },
+                    {
+                        "input": "9\n1 2 2 4 2 2 2 2 3",
+                        "expectedOutput": "2 6",
+                        "score": 10
+                    },
+                    {
+                        "input": "10\n3 3 3 3 3 1 1 1 2 2",
+                        "expectedOutput": "3 5",
+                        "score": 10
+                    },
+                    {
+                        "input": "3\n1 1 1",
+                        "expectedOutput": "1 3",
+                        "score": 10
+                    },
+                    {
+                        "input": "7\n5 5 5 2 2 2 5",
+                        "expectedOutput": "5 4",
+                        "score": 10
+                    },
+                    {
+                        "input": "5\n1 2 3 4 1",
+                        "expectedOutput": "1 2",
+                        "score": 10
+                    },
+                    {
+                        "input": "5\n1 2 3 2 4",
+                        "expectedOutput": "2 2",
+                        "score": 10
+                    },
+                    {
+                        "input": "11\n1 1 1 2 2 2 3 3 3 4 4",
+                        "expectedOutput": "1 3",
+                        "score": 10
+                    },
+                    {
+                        "input": "1\n5",
+                        "expectedOutput": "5 1",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L2",
+                "sb3Path": null
+            }
+        ]
+    },
+    {
+        "code": "114TCPE04",
+        "title": "114-新竹市國小（競賽模式）",
+        "unlockCode": "114TCPE04",
+        "tasks": [
+            {
+                "id": "114TCPE04-1",
+                "code": "114TCPE04-114TCPE04-1",
+                "title": "考試座位安排",
+                "description": "教室裡有N排座位，每排有M個位子。學生們會依照座號順序（從1開始）進入教室，並按照「由前往後、由左往右」的規則依序就座。給定某個座號K的學生，請計算他會坐在第幾排的第幾個位子。",
+                "examples": [
+                    {
+                        "input": "5 4\n7",
+                        "output": "2 3",
+                        "explanation": "教室有5排、每排4個位子，學生7坐在第2排第3個位子。"
+                    },
+                    {
+                        "input": "3 5\n13",
+                        "output": "3 3",
+                        "explanation": "教室有3排、每排5個位子，學生13坐在第3排第3個位子。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "5 4\n7",
+                        "expectedOutput": "2 3",
+                        "score": 10
+                    },
+                    {
+                        "input": "3 5\n13",
+                        "expectedOutput": "3 3",
+                        "score": 10
+                    },
+                    {
+                        "input": "1 10\n5",
+                        "expectedOutput": "1 5",
+                        "score": 10
+                    },
+                    {
+                        "input": "10 1\n8",
+                        "expectedOutput": "8 1",
+                        "score": 10
+                    },
+                    {
+                        "input": "100 100\n10000",
+                        "expectedOutput": "100 100",
+                        "score": 10
+                    },
+                    {
+                        "input": "10 10\n1",
+                        "expectedOutput": "1 1",
+                        "score": 10
+                    },
+                    {
+                        "input": "10 5\n15",
+                        "expectedOutput": "3 5",
+                        "score": 10
+                    },
+                    {
+                        "input": "6 7\n42",
+                        "expectedOutput": "6 7",
+                        "score": 10
+                    },
+                    {
+                        "input": "20 30\n599",
+                        "expectedOutput": "20 29",
+                        "score": 10
+                    },
+                    {
+                        "input": "5 5\n21",
+                        "expectedOutput": "5 1",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L1",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE04-2",
+                "code": "114TCPE04-114TCPE04-2",
+                "title": "智慧氣候監測系統-氣溫變動分析",
+                "description": "感測器每小時會回傳大量的氣溫數據。請找出當日的最高溫與最低溫，並計算兩者的差值（全距），作為氣候穩定性的參考指標。",
+                "examples": [
+                    {
+                        "input": "5\n10 50 30 20 40",
+                        "output": "40",
+                        "explanation": "最高溫50，最低溫10，全距=40。"
+                    },
+                    {
+                        "input": "6\n5 8 12 3 9 3",
+                        "output": "9",
+                        "explanation": "含重複數值，最高12，最低3，全距9。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "5\n10 50 30 20 40",
+                        "expectedOutput": "40",
+                        "score": 10
+                    },
+                    {
+                        "input": "6\n5 8 12 3 9 3",
+                        "expectedOutput": "9",
+                        "score": 10
+                    },
+                    {
+                        "input": "1\n25",
+                        "expectedOutput": "0",
+                        "score": 10
+                    },
+                    {
+                        "input": "3\n-10 -5 -20",
+                        "expectedOutput": "15",
+                        "score": 10
+                    },
+                    {
+                        "input": "4\n0 0 0 0",
+                        "expectedOutput": "0",
+                        "score": 10
+                    },
+                    {
+                        "input": "5\n-100 100 0 50 -50",
+                        "expectedOutput": "200",
+                        "score": 10
+                    },
+                    {
+                        "input": "10\n1 2 3 4 5 6 7 8 9 10",
+                        "expectedOutput": "9",
+                        "score": 10
+                    },
+                    {
+                        "input": "2\n10 -10",
+                        "expectedOutput": "20",
+                        "score": 10
+                    },
+                    {
+                        "input": "5\n1000 1000 -1000 -1000 0",
+                        "expectedOutput": "2000",
+                        "score": 10
+                    },
+                    {
+                        "input": "3\n1 10000 5000",
+                        "expectedOutput": "9999",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L1",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE04-3",
+                "code": "114TCPE04-114TCPE04-3",
+                "title": "快遞物流中心分類系統",
+                "description": "物流中心會根據包裹的重量決定配送順序：奇數重量的包裹屬於標準配送，偶數重量的包裹屬於重物配送。裝車規則：標準配送的包裹要先裝車，且重量輕的先裝；重物配送的包裹要後裝車，且重量重的先裝。請計算包裹的裝車順序。",
+                "examples": [
+                    {
+                        "input": "6\n5 12 3 8 7 10",
+                        "output": "3 5 7 12 10 8",
+                        "explanation": "標準配送(奇數)由輕到重：3 5 7；重物配送(偶數)由重到輕：12 10 8。"
+                    },
+                    {
+                        "input": "8\n15 20 11 6 9 14 2 13",
+                        "output": "9 11 13 15 20 14 6 2",
+                        "explanation": "標準配送由輕到重：9 11 13 15；重物配送由重到輕：20 14 6 2。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "6\n5 12 3 8 7 10",
+                        "expectedOutput": "3 5 7 12 10 8",
+                        "score": 10
+                    },
+                    {
+                        "input": "8\n15 20 11 6 9 14 2 13",
+                        "expectedOutput": "9 11 13 15 20 14 6 2",
+                        "score": 10
+                    },
+                    {
+                        "input": "3\n1 3 5",
+                        "expectedOutput": "1 3 5",
+                        "score": 10
+                    },
+                    {
+                        "input": "4\n2 4 6 8",
+                        "expectedOutput": "8 6 4 2",
+                        "score": 10
+                    },
+                    {
+                        "input": "1\n10",
+                        "expectedOutput": "10",
+                        "score": 10
+                    },
+                    {
+                        "input": "5\n0 1 2 3 4",
+                        "expectedOutput": "1 3 4 2 0",
+                        "score": 10
+                    },
+                    {
+                        "input": "6\n9 9 9 10 10 10",
+                        "expectedOutput": "9 9 9 10 10 10",
+                        "score": 10
+                    },
+                    {
+                        "input": "10\n10 9 8 7 6 5 4 3 2 1",
+                        "expectedOutput": "1 3 5 7 9 10 8 6 4 2",
+                        "score": 10
+                    },
+                    {
+                        "input": "5\n100 0 100 0 100",
+                        "expectedOutput": "100 100 100 0 0",
+                        "score": 10
+                    },
+                    {
+                        "input": "7\n11 22 33 44 55 66 77",
+                        "expectedOutput": "11 33 55 77 66 44 22",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L3",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE04-4",
+                "code": "114TCPE04-114TCPE04-4",
+                "title": "寶可夢聯盟大挑戰",
+                "description": "小智的隊伍中共有N隻寶可夢，每隻都有名字、攻擊力、防禦力。戰鬥力=(攻擊力+防禦力)×戰技加成，其中攻擊力>防禦力時加成為2，攻擊力=防禦力時加成為3，攻擊力<防禦力時加成為1。小智要把最強的寶可夢保留到最後，因此現在只能派出戰鬥力排名第二高的寶可夢。若有戰鬥力相同並列最高的情況，以「後輸入者視為真正最高、先輸入者視為第二高」的規則處理。",
+                "examples": [
+                    {
+                        "input": "4\n皮卡丘 10 5 小火龍 7 7 傑尼龜 6 9 伊布 8 8",
+                        "output": "小火龍 7 7 42",
+                        "explanation": "伊布戰鬥力48最高，小火龍戰鬥力42第二高。"
+                    },
+                    {
+                        "input": "5\n妙蛙種子 6 6 波波 5 3 可達鴨 4 7 尼多力諾 9 4 喵喵 3 3",
+                        "output": "尼多力諾 9 4 26",
+                        "explanation": "妙蛙種子戰鬥力36最高，尼多力諾戰鬥力26第二高。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "4\n皮卡丘 10 5\n小火龍 7 7\n傑尼龜 6 9\n伊布 8 8",
+                        "expectedOutput": "小火龍 7 7 42",
+                        "score": 10
+                    },
+                    {
+                        "input": "5\n妙蛙種子 6 6\n波波 5 3\n可達鴨 4 7\n尼多力諾 9 4\n喵喵 3 3",
+                        "expectedOutput": "尼多力諾 9 4 26",
+                        "score": 10
+                    },
+                    {
+                        "input": "2\nA 10 5\nB 5 10",
+                        "expectedOutput": "B 5 10 15",
+                        "score": 10
+                    },
+                    {
+                        "input": "3\nP1 1 2\nP2 2 1\nP3 1 1",
+                        "expectedOutput": "P2 2 1 6",
+                        "score": 10
+                    },
+                    {
+                        "input": "3\nX 10 10\nY 20 10\nZ 10 20",
+                        "expectedOutput": "X 10 10 60",
+                        "score": 10
+                    },
+                    {
+                        "input": "4\nA 100 1\nB 1 100\nC 50 50\nD 51 50",
+                        "expectedOutput": "A 100 1 202",
+                        "score": 10
+                    },
+                    {
+                        "input": "5\nA 10 10\nB 20 20\nC 30 30\nD 40 40\nE 50 50",
+                        "expectedOutput": "D 40 40 240",
+                        "score": 10
+                    },
+                    {
+                        "input": "3\nP1 1 100\nP2 2 100\nP3 3 100",
+                        "expectedOutput": "P2 2 100 102",
+                        "score": 10
+                    },
+                    {
+                        "input": "4\nOne 10 5\nTwo 10 6\nThree 10 7\nFour 10 8",
+                        "expectedOutput": "Three 10 7 34",
+                        "score": 10
+                    },
+                    {
+                        "input": "3\nM 10 10\nN 15 10\nO 10 15",
+                        "expectedOutput": "N 15 10 50",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L3",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE04-5",
+                "code": "114TCPE04-114TCPE04-5",
+                "title": "省電大作戰",
+                "description": "冷氣的耗電規則：只要冷氣開著，每小時消耗1度電；每次把冷氣從關機變成開機，需要額外消耗5度電的啟動能源（若本來就開著，保持開機不需要再付這5度電）；把冷氣關掉則不會耗電。給定一天N個小時的行程表（1代表必須開冷氣，0代表可以自由選擇開或關），請計算滿足所有在房間時段都有冷氣吹的情況下，一整天最少總共要消耗多少度電。",
+                "examples": [
+                    {
+                        "input": "5\n1 1 1 1 1",
+                        "output": "10",
+                        "explanation": "第1小時開機(5+1=6度)，第2~5小時保持開機(1×4=4度)，總共10度。"
+                    },
+                    {
+                        "input": "8\n1 0 0 1 0 1 0 0",
+                        "output": "11",
+                        "explanation": "在房間時段為第1、4、6小時，中間空檔都小於5小時故保持開機，最後無行程直接關機，總計11度。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "5\n1 1 1 1 1",
+                        "expectedOutput": "10",
+                        "score": 10
+                    },
+                    {
+                        "input": "8\n1 0 0 1 0 1 0 0",
+                        "expectedOutput": "11",
+                        "score": 10
+                    },
+                    {
+                        "input": "3\n0 0 0",
+                        "expectedOutput": "0",
+                        "score": 10
+                    },
+                    {
+                        "input": "1\n1",
+                        "expectedOutput": "6",
+                        "score": 10
+                    },
+                    {
+                        "input": "7\n1 0 0 0 0 0 1",
+                        "expectedOutput": "12",
+                        "score": 10
+                    },
+                    {
+                        "input": "6\n1 0 0 0 0 1",
+                        "expectedOutput": "12",
+                        "score": 10
+                    },
+                    {
+                        "input": "5\n1 0 0 0 1",
+                        "expectedOutput": "10",
+                        "score": 10
+                    },
+                    {
+                        "input": "10\n1 0 1 0 1 0 1 0 1 0",
+                        "expectedOutput": "14",
+                        "score": 10
+                    },
+                    {
+                        "input": "15\n1 0 0 0 0 0 0 1 0 0 0 0 0 0 1",
+                        "expectedOutput": "18",
+                        "score": 10
+                    },
+                    {
+                        "input": "8\n0 1 0 0 0 0 1 0",
+                        "expectedOutput": "12",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L4",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE04-6",
+                "code": "114TCPE04-114TCPE04-6",
+                "title": "數位顯示器",
+                "description": "七段顯示器是一種常見的數字顯示裝置，由7條LED燈條組成，可用來顯示數字0～9，每個數字所需點亮的燈條數量固定（0→6,1→2,2→5,3→5,4→4,5→5,6→6,7→3,8→7,9→6）。給定N條可用的LED燈條，請組成一個數字（可為雙位數），數字0～9最多只能各使用一次、不可有前導零（除非答案本身就是0）、最多只能有2位，求恰好用完所有N條燈條時可以組成的最大值；若無法恰好用完則輸出-1。",
+                "examples": [
+                    {
+                        "input": "3",
+                        "output": "7",
+                        "explanation": "3條燈管可以組成數字7。"
+                    },
+                    {
+                        "input": "7",
+                        "output": "74",
+                        "explanation": "7(3條)+4(4條)=7條，可組成74或47，最大為74。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "3",
+                        "expectedOutput": "7",
+                        "score": 10
+                    },
+                    {
+                        "input": "7",
+                        "expectedOutput": "74",
+                        "score": 10
+                    },
+                    {
+                        "input": "2",
+                        "expectedOutput": "1",
+                        "score": 10
+                    },
+                    {
+                        "input": "14",
+                        "expectedOutput": "-1",
+                        "score": 10
+                    },
+                    {
+                        "input": "13",
+                        "expectedOutput": "98",
+                        "score": 10
+                    },
+                    {
+                        "input": "6",
+                        "expectedOutput": "41",
+                        "score": 10
+                    },
+                    {
+                        "input": "4",
+                        "expectedOutput": "4",
+                        "score": 10
+                    },
+                    {
+                        "input": "12",
+                        "expectedOutput": "96",
+                        "score": 10
+                    },
+                    {
+                        "input": "5",
+                        "expectedOutput": "71",
+                        "score": 10
+                    },
+                    {
+                        "input": "9",
+                        "expectedOutput": "97",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L3",
+                "sb3Path": null
+            }
+        ]
+    },
+    {
+        "code": "114TCPE05",
+        "title": "114-新竹縣國小（競賽模式）",
+        "unlockCode": "114TCPE05",
+        "tasks": [
+            {
+                "id": "114TCPE05-1",
+                "code": "114TCPE05-114TCPE05-1",
+                "title": "圓柱體積計算",
+                "description": "請輸入圓柱的半徑 r 與高 h，計算圓柱體積（π 取 3.14），輸出到小數點後兩位。體積公式為 π×r×r×h。",
+                "examples": [
+                    {
+                        "input": "3\n7",
+                        "output": "197.82",
+                        "explanation": "3.14×3×3×7=197.82。"
+                    },
+                    {
+                        "input": "9\n9",
+                        "output": "2289.06",
+                        "explanation": "3.14×9×9×9=2289.06。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "3\n7",
+                        "expectedOutput": "197.82",
+                        "score": 20
+                    },
+                    {
+                        "input": "9\n9",
+                        "expectedOutput": "2289.06",
+                        "score": 20
+                    },
+                    {
+                        "input": "1\n1",
+                        "expectedOutput": "3.14",
+                        "score": 20
+                    },
+                    {
+                        "input": "5\n10",
+                        "expectedOutput": "785.00",
+                        "score": 20
+                    },
+                    {
+                        "input": "2\n5",
+                        "expectedOutput": "62.80",
+                        "score": 20
+                    }
+                ],
+                "difficulty": "L1",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE05-2",
+                "code": "114TCPE05-114TCPE05-2",
+                "title": "身體質量指數計算與健康判斷",
+                "description": "請輸入體重（公斤）與身高（公尺），計算 BMI 值（體重除以身高的平方），四捨五入到小數點後兩位。並依下列標準判斷：小於18.5為過輕；18.5以上且小於24為標準；24以上為過重。",
+                "examples": [
+                    {
+                        "input": "60\n1.55",
+                        "output": "24.97 過重",
+                        "explanation": "60÷1.55²=24.97，屬於過重。"
+                    },
+                    {
+                        "input": "38\n1.43",
+                        "output": "18.58 標準",
+                        "explanation": "38÷1.43²=18.58，屬於標準。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "60\n1.55",
+                        "expectedOutput": "24.97 過重",
+                        "score": 20
+                    },
+                    {
+                        "input": "38\n1.43",
+                        "expectedOutput": "18.58 標準",
+                        "score": 20
+                    },
+                    {
+                        "input": "45\n1.7",
+                        "expectedOutput": "15.57 過輕",
+                        "score": 20
+                    },
+                    {
+                        "input": "70\n1.75",
+                        "expectedOutput": "22.86 標準",
+                        "score": 20
+                    },
+                    {
+                        "input": "90\n1.6",
+                        "expectedOutput": "35.16 過重",
+                        "score": 20
+                    }
+                ],
+                "difficulty": "L2",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE05-3",
+                "code": "114TCPE05-114TCPE05-3",
+                "title": "房間磁磚的購買計算",
+                "description": "房間長、寬各若干公尺，要鋪滿60公分×60公分的磁磚，每包12片。請計算至少需要購買幾包磁磚（無條件進位）。",
+                "examples": [
+                    {
+                        "input": "4\n4",
+                        "output": "4",
+                        "explanation": "房間面積16平方公尺，每包可鋪0.6×0.6×12=4.32平方公尺，16÷4.32≈3.7無條件進位為4包。"
+                    },
+                    {
+                        "input": "5\n3.5",
+                        "output": "5",
+                        "explanation": "房間面積17.5平方公尺，17.5÷4.32≈4.05無條件進位為5包。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "4\n4",
+                        "expectedOutput": "4",
+                        "score": 20
+                    },
+                    {
+                        "input": "5\n3.5",
+                        "expectedOutput": "5",
+                        "score": 20
+                    },
+                    {
+                        "input": "2\n2",
+                        "expectedOutput": "1",
+                        "score": 20
+                    },
+                    {
+                        "input": "10\n10",
+                        "expectedOutput": "24",
+                        "score": 20
+                    },
+                    {
+                        "input": "3\n3",
+                        "expectedOutput": "3",
+                        "score": 20
+                    }
+                ],
+                "difficulty": "L2",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE05-4",
+                "code": "114TCPE05-114TCPE05-4",
+                "title": "美味餐車三明治多重折扣與利潤計算",
+                "description": "三明治成本已知，售價為成本的1.5倍（四捨五入取整數）。若販售時段（整數小時）大於等於12，售價打6折（四捨五入取整數）；若時段大於等於11但小於12，打8折；其餘不打折。請判斷是否有利潤，並輸出賺或賠的金額（取絕對值）。",
+                "examples": [
+                    {
+                        "input": "20\n11",
+                        "output": "有利潤 賺4元",
+                        "explanation": "售價=round(20×1.5)=30，時段11打8折=round(30×0.8)=24，利潤24-20=4元，有利潤。"
+                    },
+                    {
+                        "input": "35\n12",
+                        "output": "無利潤 賠3元",
+                        "explanation": "售價=round(35×1.5)=53，時段12打6折=round(53×0.6)=32，利潤32-35=-3元，無利潤賠3元。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "20\n11",
+                        "expectedOutput": "有利潤 賺4元",
+                        "score": 20
+                    },
+                    {
+                        "input": "35\n12",
+                        "expectedOutput": "無利潤 賠3元",
+                        "score": 20
+                    },
+                    {
+                        "input": "10\n5",
+                        "expectedOutput": "有利潤 賺5元",
+                        "score": 20
+                    },
+                    {
+                        "input": "50\n12",
+                        "expectedOutput": "無利潤 賠5元",
+                        "score": 20
+                    },
+                    {
+                        "input": "100\n11",
+                        "expectedOutput": "有利潤 賺20元",
+                        "score": 20
+                    }
+                ],
+                "difficulty": "L3",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE05-5",
+                "code": "114TCPE05-114TCPE05-5",
+                "title": "雲端資料備份硬碟統計",
+                "description": "有一批待備份資料，總量已知，雲端有 N 顆硬碟依序可使用，每顆有各自容量。依序將資料填入硬碟直到備份完成為止，請輸出總共動用了幾顆硬碟；若所有硬碟容量總和仍不足以完整備份，輸出「待備份檔案總容量超過雲端硬碟總空間，無法完整備份，請重新輸入。」",
+                "examples": [
+                    {
+                        "input": "50\n2\n100 50",
+                        "output": "1",
+                        "explanation": "第1顆硬碟容量100已足夠備份50，動用1顆。"
+                    },
+                    {
+                        "input": "800\n3\n500 200 300",
+                        "output": "3",
+                        "explanation": "前2顆硬碟容量500+200=700不足800，加上第3顆300達1000才完成，動用3顆。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "50\n2\n100 50",
+                        "expectedOutput": "1",
+                        "score": 20
+                    },
+                    {
+                        "input": "800\n3\n500 200 300",
+                        "expectedOutput": "3",
+                        "score": 20
+                    },
+                    {
+                        "input": "1000\n2\n300 400",
+                        "expectedOutput": "待備份檔案總容量超過雲端硬碟總空間，無法完整備份，請重新輸入。",
+                        "score": 20
+                    },
+                    {
+                        "input": "250\n3\n100 100 100",
+                        "expectedOutput": "3",
+                        "score": 20
+                    },
+                    {
+                        "input": "100\n1\n100",
+                        "expectedOutput": "1",
+                        "score": 20
+                    }
+                ],
+                "difficulty": "L2",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE05-6",
+                "code": "114TCPE05-114TCPE05-6",
+                "title": "綠色節能競賽：電價分段計費與成本分析",
+                "description": "共有 N 戶家庭，各自有一個月的用電度數。電價採四段累進費率：120度以內每度1.63元；121~330度部分每度2.38元；331~500度部分每度3.52元；501度以上部分每度4.80元。請計算每戶電費（四捨五入取整數元），並找出電費最低的金額，以及電費最高的戶序號與金額。",
+                "examples": [
+                    {
+                        "input": "3\n555 339 80",
+                        "output": "3 130 1 1558",
+                        "explanation": "3戶用電555/339/80度，電費分別為1558/727/130元，最低是家庭3的130元，最高是家庭1的1558元。"
+                    },
+                    {
+                        "input": "4\n222 911 349 119",
+                        "output": "4 194 2 3267",
+                        "explanation": "4戶用電222/911/349/119度，電費分別為438/3267/762/194元，最低是家庭4的194元，最高是家庭2的3267元。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "3\n555 339 80",
+                        "expectedOutput": "3 130 1 1558",
+                        "score": 50
+                    },
+                    {
+                        "input": "4\n222 911 349 119",
+                        "expectedOutput": "4 194 2 3267",
+                        "score": 50
+                    }
+                ],
+                "difficulty": "L3",
+                "sb3Path": null
+            }
+        ]
+    },
+    {
+        "code": "114TCPE06",
+        "title": "114-花蓮縣國小（競賽模式）",
+        "unlockCode": "114TCPE06",
+        "tasks": [
+            {
+                "id": "114TCPE06-1",
+                "code": "114TCPE06-114TCPE06-1",
+                "title": "零用錢是否足夠",
+                "description": "你有一個錢包，裡面裝著固定的零用錢。這幾天你想買一些東西，請幫忙算算看，你的錢夠不夠買這些東西？系統會提供一個整數代表零用錢總額，以及一份固定包含4筆資料的花費清單，依序代表第1天到第4天的花費金額。請從第1天開始，依序扣除每日花費金額：若在某一天扣除花費後，剩餘金額小於0，表示零用錢已不足，請立即輸出「第X天不夠用」（X為發生不足的天數）；若4天的花費皆能成功扣除完成，請輸出「錢剛好或有剩」。",
+                "examples": [
+                    {
+                        "input": "100\n20 30 40 20",
+                        "output": "第4天不夠用",
+                        "explanation": "100-20=80,80-30=50,50-40=10,10-20=-10<0，第4天不夠用。"
+                    },
+                    {
+                        "input": "100\n10 20 30 40",
+                        "output": "錢剛好或有剩",
+                        "explanation": "100-10-20-30-40=0，4天都成功扣除。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "100\n20 30 40 20",
+                        "expectedOutput": "第4天不夠用",
+                        "score": 10
+                    },
+                    {
+                        "input": "100\n10 20 30 40",
+                        "expectedOutput": "錢剛好或有剩",
+                        "score": 10
+                    },
+                    {
+                        "input": "50\n60 10 10 10",
+                        "expectedOutput": "第1天不夠用",
+                        "score": 10
+                    },
+                    {
+                        "input": "50\n30 30 10 10",
+                        "expectedOutput": "第2天不夠用",
+                        "score": 10
+                    },
+                    {
+                        "input": "50\n20 20 20 10",
+                        "expectedOutput": "第3天不夠用",
+                        "score": 10
+                    },
+                    {
+                        "input": "100\n25 25 25 25",
+                        "expectedOutput": "錢剛好或有剩",
+                        "score": 10
+                    },
+                    {
+                        "input": "1000\n100 200 300 500",
+                        "expectedOutput": "第4天不夠用",
+                        "score": 10
+                    },
+                    {
+                        "input": "50\n0 0 0 0",
+                        "expectedOutput": "錢剛好或有剩",
+                        "score": 10
+                    },
+                    {
+                        "input": "60\n20 20 20 10",
+                        "expectedOutput": "第4天不夠用",
+                        "score": 10
+                    },
+                    {
+                        "input": "40\n20 20 10 10",
+                        "expectedOutput": "第3天不夠用",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L2",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE06-2",
+                "code": "114TCPE06-114TCPE06-2",
+                "title": "機器人戰鬥力比對",
+                "description": "場上有N隻機器人參賽，每隻機器人都有一個戰鬥力數值。大會規定採取積分循環賽制：每一隻機器人都要跟場上所有其他機器人進行一對一的較量，戰鬥力比對手高得1分積分，比對手低或平手則得0分。請依照機器人的輸入順序，依序輸出這N隻機器人的總積分。",
+                "examples": [
+                    {
+                        "input": "3\n10 50 30",
+                        "output": "0 2 1",
+                        "explanation": "第1隻(10)比輸50、30得0分；第2隻(50)贏過10、30得2分；第3隻(30)贏過10、比輸50得1分。"
+                    },
+                    {
+                        "input": "3\n10 20 30",
+                        "output": "0 1 2",
+                        "explanation": "依序得0分、1分、2分。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "3\n10 50 30",
+                        "expectedOutput": "0 2 1",
+                        "score": 10
+                    },
+                    {
+                        "input": "3\n10 20 30",
+                        "expectedOutput": "0 1 2",
+                        "score": 10
+                    },
+                    {
+                        "input": "4\n10 10 10 10",
+                        "expectedOutput": "0 0 0 0",
+                        "score": 10
+                    },
+                    {
+                        "input": "5\n50 40 30 20 10",
+                        "expectedOutput": "4 3 2 1 0",
+                        "score": 10
+                    },
+                    {
+                        "input": "5\n10 20 20 30 30",
+                        "expectedOutput": "0 1 1 3 3",
+                        "score": 10
+                    },
+                    {
+                        "input": "1\n100",
+                        "expectedOutput": "0",
+                        "score": 10
+                    },
+                    {
+                        "input": "10\n1 2 3 4 5 6 7 8 9 10",
+                        "expectedOutput": "0 1 2 3 4 5 6 7 8 9",
+                        "score": 10
+                    },
+                    {
+                        "input": "4\n15 15 20 10",
+                        "expectedOutput": "1 1 3 0",
+                        "score": 10
+                    },
+                    {
+                        "input": "6\n100 0 50 50 25 75",
+                        "expectedOutput": "5 0 2 2 1 4",
+                        "score": 10
+                    },
+                    {
+                        "input": "2\n10 10",
+                        "expectedOutput": "0 0",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L3",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE06-3",
+                "code": "114TCPE06-114TCPE06-3",
+                "title": "字串內的秘密數字",
+                "description": "壞人在傳遞的文字訊息中藏了許多數字，只要將訊息中所有的數字加總起來，就能得到解鎖金庫的密碼。請寫一個程式，幫忙計算出這個神祕的總和數字。請檢查字串中的每一個字元，如果是數字(0~9)就加入總和，英文或符號則忽略；每個數字視為個位數相加。",
+                "examples": [
+                    {
+                        "input": "A1B2C3",
+                        "output": "6",
+                        "explanation": "找到 1, 2, 3，總和為 6。"
+                    },
+                    {
+                        "input": "Key5Word2",
+                        "output": "7",
+                        "explanation": "找到 5, 2，總和為 7。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "A1B2C3",
+                        "expectedOutput": "6",
+                        "score": 10
+                    },
+                    {
+                        "input": "Key5Word2",
+                        "expectedOutput": "7",
+                        "score": 10
+                    },
+                    {
+                        "input": "HelloWorld",
+                        "expectedOutput": "0",
+                        "score": 10
+                    },
+                    {
+                        "input": "123456789",
+                        "expectedOutput": "45",
+                        "score": 10
+                    },
+                    {
+                        "input": "a12b34",
+                        "expectedOutput": "10",
+                        "score": 10
+                    },
+                    {
+                        "input": "0a0b0c0",
+                        "expectedOutput": "0",
+                        "score": 10
+                    },
+                    {
+                        "input": "a1b2c3d4e5f6g7h8i9j0",
+                        "expectedOutput": "45",
+                        "score": 10
+                    },
+                    {
+                        "input": "!@1#$2%^3&*",
+                        "expectedOutput": "6",
+                        "score": 10
+                    },
+                    {
+                        "input": "abc9xyz9",
+                        "expectedOutput": "18",
+                        "score": 10
+                    },
+                    {
+                        "input": "5",
+                        "expectedOutput": "5",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L2",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE06-4",
+                "code": "114TCPE06-114TCPE06-4",
+                "title": "最佳派對地點",
+                "description": "有N個好朋友住在同一條筆直的大馬路上，每個人的家都有一個座標數字。他們決定舉辦一場派對，必須選在其中一個人的家裡舉辦，且所有人從自己家走到派對地點的距離總和必須是最小的。請找出最佳的舉辦地點，並算出這個最小的總距離是多少；若有多個地點距離總和一樣小，輸出座標較小的那一個。",
+                "examples": [
+                    {
+                        "input": "3\n2 10 5",
+                        "output": "5 8",
+                        "explanation": "辦在5的距離和最小，為8。"
+                    },
+                    {
+                        "input": "3\n1 9 3",
+                        "output": "3 8",
+                        "explanation": "辦在3的距離和最小，為8。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "3\n2 10 5",
+                        "expectedOutput": "5 8",
+                        "score": 10
+                    },
+                    {
+                        "input": "3\n1 9 3",
+                        "expectedOutput": "3 8",
+                        "score": 10
+                    },
+                    {
+                        "input": "4\n1 2 3 4",
+                        "expectedOutput": "2 4",
+                        "score": 10
+                    },
+                    {
+                        "input": "4\n10 10 20 20",
+                        "expectedOutput": "10 20",
+                        "score": 10
+                    },
+                    {
+                        "input": "1\n100",
+                        "expectedOutput": "100 0",
+                        "score": 10
+                    },
+                    {
+                        "input": "5\n100 0 50 25 75",
+                        "expectedOutput": "50 150",
+                        "score": 10
+                    },
+                    {
+                        "input": "6\n10 20 30 40 50 60",
+                        "expectedOutput": "30 90",
+                        "score": 10
+                    },
+                    {
+                        "input": "5\n1 1 1 1 100",
+                        "expectedOutput": "1 99",
+                        "score": 10
+                    },
+                    {
+                        "input": "2\n10 5",
+                        "expectedOutput": "5 5",
+                        "score": 10
+                    },
+                    {
+                        "input": "7\n7 1 4 2 8 5 9",
+                        "expectedOutput": "5 17",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L3",
+                "sb3Path": null
+            }
+        ]
+    },
+    {
+        "code": "114TCPE07",
+        "title": "114-南投縣國小（競賽模式）",
+        "unlockCode": "114TCPE07",
+        "tasks": [
+            {
+                "id": "114TCPE07-1",
+                "code": "114TCPE07-114TCPE07-1",
+                "title": "遊樂園的自動售票機",
+                "description": "遊樂園自動售票機依下列規則（依序判斷，符合就停止）計算每位遊客的票價：持有縣民卡者免費（0元）；年齡65歲以上者150元；身高低於120公分或年齡低於6歲者180元；其餘300元。請計算 N 位遊客的總票價。",
+                "examples": [
+                    {
+                        "input": "2\n170 25 1 100 8 0",
+                        "output": "180",
+                        "explanation": "第1人持縣民卡免費(0)；第2人身高100<120故180元；總計180元。"
+                    },
+                    {
+                        "input": "3\n180 30 0 160 70 0 110 5 1",
+                        "output": "450",
+                        "explanation": "3人分別300+150+0=450元。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "2\n170 25 1 100 8 0",
+                        "expectedOutput": "180",
+                        "score": 14
+                    },
+                    {
+                        "input": "3\n180 30 0 160 70 0 110 5 1",
+                        "expectedOutput": "450",
+                        "score": 14
+                    },
+                    {
+                        "input": "1\n170 30 0",
+                        "expectedOutput": "300",
+                        "score": 14
+                    },
+                    {
+                        "input": "1\n110 10 0",
+                        "expectedOutput": "180",
+                        "score": 14
+                    },
+                    {
+                        "input": "2\n160 70 0 130 40 0",
+                        "expectedOutput": "450",
+                        "score": 14
+                    },
+                    {
+                        "input": "3\n150 5 0 180 30 1 160 65 0",
+                        "expectedOutput": "330",
+                        "score": 14
+                    },
+                    {
+                        "input": "4\n170 40 0 115 7 0 140 70 1 180 20 0",
+                        "expectedOutput": "780",
+                        "score": 14
+                    }
+                ],
+                "difficulty": "L2",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE07-2",
+                "code": "114TCPE07-114TCPE07-2",
+                "title": "勇者的挑戰",
+                "description": "勇者初始血量為上限值 H。依序經歷 N 個事件（每個事件是血量增減值），血量不可超過上限 H，也不可低於 0。若血量降到 0 或以下，視為陣亡，之後的事件不再發生，直接輸出 0。請輸出所有事件結束後（或陣亡時）的血量。",
+                "examples": [
+                    {
+                        "input": "100\n4\n-30 50 -10 -5",
+                        "output": "85",
+                        "explanation": "100-30=70,+50=100(不超過上限)封頂,-10=90,-5=85，最終85。"
+                    },
+                    {
+                        "input": "50\n3\n-60 20 -10",
+                        "output": "0",
+                        "explanation": "50-60=-10≤0，陣亡，輸出0。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "100\n4\n-30 50 -10 -5",
+                        "expectedOutput": "85",
+                        "score": 14
+                    },
+                    {
+                        "input": "50\n3\n-60 20 -10",
+                        "expectedOutput": "0",
+                        "score": 14
+                    },
+                    {
+                        "input": "100\n1\n-20",
+                        "expectedOutput": "80",
+                        "score": 14
+                    },
+                    {
+                        "input": "100\n2\n-30 80",
+                        "expectedOutput": "100",
+                        "score": 14
+                    },
+                    {
+                        "input": "50\n3\n-60 200 -10",
+                        "expectedOutput": "0",
+                        "score": 14
+                    },
+                    {
+                        "input": "120\n4\n-30 -50 -50 200",
+                        "expectedOutput": "0",
+                        "score": 14
+                    },
+                    {
+                        "input": "77\n6\n-20 10 10 -35 20 15",
+                        "expectedOutput": "77",
+                        "score": 14
+                    }
+                ],
+                "difficulty": "L2",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE07-3",
+                "code": "114TCPE07-114TCPE07-3",
+                "title": "跳水比賽成績計算",
+                "description": "跳水比賽由 N 位評審（5~10人）評分，計分方式為去除一個最高分與一個最低分後，將剩餘分數加總。請輸出最終得分。",
+                "examples": [
+                    {
+                        "input": "5\n9 8 10 6 7",
+                        "output": "24",
+                        "explanation": "去除最高10與最低6，剩9+8+7=24。"
+                    },
+                    {
+                        "input": "6\n8 8 8 8 8 8",
+                        "output": "32",
+                        "explanation": "6個8去除一個最高一個最低(皆為8)，剩4個8=32。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "5\n9 8 10 6 7",
+                        "expectedOutput": "24",
+                        "score": 20
+                    },
+                    {
+                        "input": "6\n8 8 8 8 8 8",
+                        "expectedOutput": "32",
+                        "score": 20
+                    },
+                    {
+                        "input": "7\n10 9 8 7 6 5 4",
+                        "expectedOutput": "35",
+                        "score": 20
+                    },
+                    {
+                        "input": "10\n0 10 5 6 7 8 9 4 3 2",
+                        "expectedOutput": "44",
+                        "score": 20
+                    },
+                    {
+                        "input": "5\n0 0 10 10 5",
+                        "expectedOutput": "15",
+                        "score": 20
+                    }
+                ],
+                "difficulty": "L2",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE07-4",
+                "code": "114TCPE07-114TCPE07-4",
+                "title": "籃球機得分計算",
+                "description": "籃球機分為 1P 與 2P 兩位玩家，各自投籃 N 次（0表示未進，1表示進球）。每次進球得1分，但若「連續兩次都進球」，則該次改記3分。請分別計算兩人總分，並輸出「1P總分 2P總分 勝者」；若總分相同，勝者欄輸出「不分勝負」。",
+                "examples": [
+                    {
+                        "input": "5\n1 0 1 1 0\n0 1 1 1 1",
+                        "output": "5 10 2P",
+                        "explanation": "1P:[1,0,1,1,0]→1+1+3=5分；2P:[0,1,1,1,1]→1+3+3+3=10分，2P勝。"
+                    },
+                    {
+                        "input": "5\n0 1 0 1 0\n0 0 0 0 0",
+                        "output": "2 0 1P",
+                        "explanation": "2P全未進得0分，1P得2分，1P勝。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "5\n1 0 1 1 0\n0 1 1 1 1",
+                        "expectedOutput": "5 10 2P",
+                        "score": 17
+                    },
+                    {
+                        "input": "5\n0 1 0 1 0\n0 0 0 0 0",
+                        "expectedOutput": "2 0 1P",
+                        "score": 17
+                    },
+                    {
+                        "input": "6\n1 1 1 0 1 0\n0 1 1 1 1 0",
+                        "expectedOutput": "8 10 2P",
+                        "score": 17
+                    },
+                    {
+                        "input": "9\n0 1 0 1 0 1 0 1 0\n0 0 0 0 0 0 0 0 0",
+                        "expectedOutput": "4 0 1P",
+                        "score": 17
+                    },
+                    {
+                        "input": "8\n1 1 0 1 1 0 1 1\n1 1 1 0 1 1 1 0",
+                        "expectedOutput": "12 14 2P",
+                        "score": 17
+                    },
+                    {
+                        "input": "7\n1 1 0 1 1 0 1\n1 1 0 1 1 0 1",
+                        "expectedOutput": "9 9 不分勝負",
+                        "score": 17
+                    }
+                ],
+                "difficulty": "L3",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE07-5",
+                "code": "114TCPE07-114TCPE07-5",
+                "title": "玩具收納運送計算",
+                "description": "要將 N 件玩具依序裝進容量 20 公斤的收納箱。依序嘗試把玩具放入「目前正在使用」的箱子，若加入後總重量超過20公斤，則將目前的箱子封箱，改用一個新箱子裝這件玩具。請輸出總共用了幾個箱子。",
+                "examples": [
+                    {
+                        "input": "5\n8 9 6 3 4",
+                        "output": "2",
+                        "explanation": "8+9=17,+6=23>20故換箱；新箱3+4=7。共2箱。"
+                    },
+                    {
+                        "input": "1\n20",
+                        "output": "1",
+                        "explanation": "20剛好裝滿一箱，共1箱。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "5\n8 9 6 3 4",
+                        "expectedOutput": "2",
+                        "score": 17
+                    },
+                    {
+                        "input": "1\n20",
+                        "expectedOutput": "1",
+                        "score": 17
+                    },
+                    {
+                        "input": "4\n5 5 5 5",
+                        "expectedOutput": "1",
+                        "score": 17
+                    },
+                    {
+                        "input": "5\n9 9 9 9 9",
+                        "expectedOutput": "3",
+                        "score": 17
+                    },
+                    {
+                        "input": "6\n12 3 4 6 5 2",
+                        "expectedOutput": "2",
+                        "score": 17
+                    },
+                    {
+                        "input": "8\n2 2 2 2 2 2 2 2",
+                        "expectedOutput": "1",
+                        "score": 17
+                    }
+                ],
+                "difficulty": "L2",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE07-6",
+                "code": "114TCPE07-114TCPE07-6",
+                "title": "碼易丁飲料店：逐筆結帳",
+                "description": "碼易丁飲料店的飲料價目：1號45元、2號25元、3號30元、4號40元、5號60元。依序輸入 N 筆訂單（每筆為一個飲料編號），請計算總金額。",
+                "examples": [
+                    {
+                        "input": "3\n1 3 5",
+                        "output": "135",
+                        "explanation": "1號45+3號30+5號60=135元。"
+                    },
+                    {
+                        "input": "5\n2 2 4 1 3",
+                        "output": "165",
+                        "explanation": "2號25×2+4號40+1號45+3號30=165元。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "3\n1 3 5",
+                        "expectedOutput": "135",
+                        "score": 20
+                    },
+                    {
+                        "input": "5\n2 2 4 1 3",
+                        "expectedOutput": "165",
+                        "score": 20
+                    },
+                    {
+                        "input": "4\n5 5 5 5",
+                        "expectedOutput": "240",
+                        "score": 20
+                    },
+                    {
+                        "input": "1\n1",
+                        "expectedOutput": "45",
+                        "score": 20
+                    },
+                    {
+                        "input": "10\n2 2 2 2 2 1 1 1 1 1",
+                        "expectedOutput": "350",
+                        "score": 20
+                    }
+                ],
+                "difficulty": "L1",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE07-7",
+                "code": "114TCPE07-114TCPE07-7",
+                "title": "碼易丁飲料店：批次結帳與找零",
+                "description": "同樣的飲料價目表（1號45元、2號25元、3號30元、4號40元、5號60元）。這次以 N 筆「編號 數量」批次輸入訂單，並在最後一行輸入實際付款金額。請計算總金額；若付款足夠，輸出「總金額 X 應找錢 Y」；若不足，輸出「總金額 X 付款不足 Y」。",
+                "examples": [
+                    {
+                        "input": "3\n1 5 3 3 2 2\n350",
+                        "output": "總金額 365 付款不足 15",
+                        "explanation": "1號×5=225,3號×3=90,2號×2=50,總金額365,付款350不足15。"
+                    },
+                    {
+                        "input": "2\n5 2 4 3\n500",
+                        "output": "總金額 240 應找錢 260",
+                        "explanation": "5號×2=120,4號×3=120,總金額240,付款500應找260。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "3\n1 5 3 3 2 2\n350",
+                        "expectedOutput": "總金額 365 付款不足 15",
+                        "score": 17
+                    },
+                    {
+                        "input": "2\n5 2 4 3\n500",
+                        "expectedOutput": "總金額 240 應找錢 260",
+                        "score": 17
+                    },
+                    {
+                        "input": "3\n1 3 2 2 4 1\n300",
+                        "expectedOutput": "總金額 225 應找錢 75",
+                        "score": 17
+                    },
+                    {
+                        "input": "1\n1 5\n200",
+                        "expectedOutput": "總金額 225 付款不足 25",
+                        "score": 17
+                    },
+                    {
+                        "input": "2\n1 2 3 1\n100",
+                        "expectedOutput": "總金額 120 付款不足 20",
+                        "score": 17
+                    },
+                    {
+                        "input": "4\n1 5 2 4 3 3 5 2\n600",
+                        "expectedOutput": "總金額 535 應找錢 65",
+                        "score": 17
+                    }
+                ],
+                "difficulty": "L2",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE07-8",
+                "code": "114TCPE07-114TCPE07-8",
+                "title": "碼易丁飲料店：最少硬幣找零",
+                "description": "碼易丁飲料店使用 50 元、10 元、5 元、1 元四種硬幣找零，店員希望用最少的硬幣數量找零。請輸入應找零金額（0~999），輸出各面額所需的硬幣數量（依 50、10、5、1 的順序）。",
+                "examples": [
+                    {
+                        "input": "88",
+                        "output": "1 3 1 3",
+                        "explanation": "88=50×1+10×3+5×1+1×3。"
+                    },
+                    {
+                        "input": "124",
+                        "output": "2 2 0 4",
+                        "explanation": "124=50×2+10×2+5×0+1×4。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "88",
+                        "expectedOutput": "1 3 1 3",
+                        "score": 14
+                    },
+                    {
+                        "input": "124",
+                        "expectedOutput": "2 2 0 4",
+                        "score": 14
+                    },
+                    {
+                        "input": "7",
+                        "expectedOutput": "0 0 1 2",
+                        "score": 14
+                    },
+                    {
+                        "input": "100",
+                        "expectedOutput": "2 0 0 0",
+                        "score": 14
+                    },
+                    {
+                        "input": "388",
+                        "expectedOutput": "7 3 1 3",
+                        "score": 14
+                    },
+                    {
+                        "input": "999",
+                        "expectedOutput": "19 4 1 4",
+                        "score": 14
+                    },
+                    {
+                        "input": "0",
+                        "expectedOutput": "0 0 0 0",
+                        "score": 14
+                    }
+                ],
+                "difficulty": "L2",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE07-9",
+                "code": "114TCPE07-114TCPE07-9",
+                "title": "碼易丁飲料店：每日銷售結算",
+                "description": "碼易丁飲料店共有 K 種飲料，各自有每杯利潤。依序輸入 N 筆訂單（每筆為「編號 杯數」），請統計每種飲料的銷售杯數，以及當日總利潤。",
+                "examples": [
+                    {
+                        "input": "5\n15 10 15 20 25\n3\n5 5 2 2 2 10",
+                        "output": "0 12 0 0 5 245",
+                        "explanation": "5號賣12杯,2號賣2杯,5號另賣10杯共12杯，利潤2×10+12×25=245。"
+                    },
+                    {
+                        "input": "3\n10 20 30\n1\n2 5",
+                        "output": "0 5 0 100",
+                        "explanation": "3號賣5杯，利潤5×20=100。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "5\n15 10 15 20 25\n3\n5 5 2 2 2 10",
+                        "expectedOutput": "0 12 0 0 5 245",
+                        "score": 17
+                    },
+                    {
+                        "input": "3\n10 20 30\n1\n2 5",
+                        "expectedOutput": "0 5 0 100",
+                        "score": 17
+                    },
+                    {
+                        "input": "4\n5 10 15 20\n3\n1 2 2 3 4 1",
+                        "expectedOutput": "2 3 0 1 60",
+                        "score": 17
+                    },
+                    {
+                        "input": "5\n15 10 15 20 25\n4\n1 2 3 3 5 2 1 1",
+                        "expectedOutput": "3 0 3 0 2 140",
+                        "score": 17
+                    },
+                    {
+                        "input": "6\n8 12 20 15 10 25\n6\n6 2 2 5 4 3 6 1 2 2 1 4",
+                        "expectedOutput": "4 7 0 3 0 3 236",
+                        "score": 17
+                    },
+                    {
+                        "input": "10\n5 6 7 8 9 10 11 12 13 14\n10\n1 1 2 2 3 3 4 4 5 5 6 1 7 2 8 1 9 2 10 3",
+                        "expectedOutput": "1 2 3 4 5 1 2 1 2 3 227",
+                        "score": 17
+                    }
+                ],
+                "difficulty": "L3",
+                "sb3Path": null
+            }
+        ]
+    },
+    {
+        "code": "114TCPE08",
+        "title": "114-新北市國小（競賽模式）",
+        "unlockCode": "114TCPE08",
+        "tasks": [
+            {
+                "id": "114TCPE08-1",
+                "code": "114TCPE08-114TCPE08-1",
+                "title": "健康小管家",
+                "description": "身體質量指數(BMI)是一種常用的衡量指標，用於評估一個人的體重是否在健康的範圍內。BMI=體重(kg)/(身高(m)×身高(m))。程式計算出BMI數值（取小數點後一位）後，依分類等級判斷：小於18.5為體重過輕；18.5到24.9為正常範圍；25.0到29.9為體重過重；30.0到34.9為輕度肥胖；35.0到39.9為中度肥胖；40.0以上為重度肥胖。",
+                "examples": [
+                    {
+                        "input": "165\n45",
+                        "output": "16.5 體重過輕",
+                        "explanation": "BMI=45/(1.65×1.65)=16.5，小於18.5，屬於體重過輕。"
+                    },
+                    {
+                        "input": "180\n85",
+                        "output": "26.2 體重過重",
+                        "explanation": "BMI=85/(1.8×1.8)=26.2，在25.0到29.9之間，屬於體重過重。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "165\n45",
+                        "expectedOutput": "16.5 體重過輕",
+                        "score": 10
+                    },
+                    {
+                        "input": "180\n85",
+                        "expectedOutput": "26.2 體重過重",
+                        "score": 10
+                    },
+                    {
+                        "input": "170\n60",
+                        "expectedOutput": "20.8 正常範圍",
+                        "score": 10
+                    },
+                    {
+                        "input": "160\n81",
+                        "expectedOutput": "31.6 輕度肥胖",
+                        "score": 10
+                    },
+                    {
+                        "input": "150\n85",
+                        "expectedOutput": "37.8 中度肥胖",
+                        "score": 10
+                    },
+                    {
+                        "input": "150\n100",
+                        "expectedOutput": "44.4 重度肥胖",
+                        "score": 10
+                    },
+                    {
+                        "input": "170\n50",
+                        "expectedOutput": "17.3 體重過輕",
+                        "score": 10
+                    },
+                    {
+                        "input": "175\n75",
+                        "expectedOutput": "24.5 正常範圍",
+                        "score": 10
+                    },
+                    {
+                        "input": "180\n95",
+                        "expectedOutput": "29.3 體重過重",
+                        "score": 10
+                    },
+                    {
+                        "input": "170\n120",
+                        "expectedOutput": "41.5 重度肥胖",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L2",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE08-2",
+                "code": "114TCPE08-114TCPE08-2",
+                "title": "鋼琴小天才計分挑戰",
+                "description": "比賽聘請了7位專業評審，他們會給每位選手一個1分到10分的分數。為了避免有評審給分太高或太低，影響比賽的公平性，最終計算總成績時，會將這7個分數中最高的1個分數和最低的1個分數都扣除，選手的最終總成績就是剩下那5位評審給的分數總和。",
+                "examples": [
+                    {
+                        "input": "8 9 7 9 8 10 7",
+                        "output": "41",
+                        "explanation": "最高分10最低分7，7個成績總和扣除(最高及最低)：8+9+7+9+8=41。"
+                    },
+                    {
+                        "input": "1.5 2.5 3.5 4.5 5.5 6.5 7.5",
+                        "output": "22.5",
+                        "explanation": "最高分7.5最低分1.5，剩餘總和2.5+3.5+4.5+5.5+6.5=22.5。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "8 9 7 9 8 10 7",
+                        "expectedOutput": "41",
+                        "score": 10
+                    },
+                    {
+                        "input": "1.5 2.5 3.5 4.5 5.5 6.5 7.5",
+                        "expectedOutput": "22.5",
+                        "score": 10
+                    },
+                    {
+                        "input": "10 10 10 10 10 10 10",
+                        "expectedOutput": "50",
+                        "score": 10
+                    },
+                    {
+                        "input": "0 0 0 0 0 0 0",
+                        "expectedOutput": "0",
+                        "score": 10
+                    },
+                    {
+                        "input": "5 5 5 5 5 10 0",
+                        "expectedOutput": "25",
+                        "score": 10
+                    },
+                    {
+                        "input": "9.5 8.5 7.5 9 8 10 6",
+                        "expectedOutput": "42.5",
+                        "score": 10
+                    },
+                    {
+                        "input": "1 2 3 4 5 6 7",
+                        "expectedOutput": "20",
+                        "score": 10
+                    },
+                    {
+                        "input": "10 9 8 7 6 5 4",
+                        "expectedOutput": "35",
+                        "score": 10
+                    },
+                    {
+                        "input": "100 10 10 10 10 10 1",
+                        "expectedOutput": "50",
+                        "score": 10
+                    },
+                    {
+                        "input": "2.2 3.3 4.4 5.5 6.6 7.7 8.8",
+                        "expectedOutput": "27.5",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L1",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE08-3",
+                "code": "114TCPE08-114TCPE08-3",
+                "title": "幸運號碼大樂透",
+                "description": "玩具王國的幸運數字樂透遊戲：每位玩家可以從1到99中，挑選5個不同的號碼作為自己的彩券，每期開獎公布10個幸運號碼。本期的幸運號碼是：7、24、31、42、45、56、63、78、80、99。玩家的中獎金額取決於他選的5個號碼中，有多少個號碼對中了當期的10個幸運號碼：5個對中10萬元，4個1萬元，3個2000元，2個500元，1個200元，0個0元。",
+                "examples": [
+                    {
+                        "input": "7 18 29 31 35",
+                        "output": "猜中2個號碼獎金500元",
+                        "explanation": "7與31對中本期幸運號碼，共2個號碼相同，獎金500元。"
+                    },
+                    {
+                        "input": "1 2 3 4 5",
+                        "output": "猜中0個號碼獎金0元",
+                        "explanation": "沒有號碼相同，獎金0元。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "7 18 29 31 35",
+                        "expectedOutput": "猜中2個號碼獎金500元",
+                        "score": 10
+                    },
+                    {
+                        "input": "1 2 3 4 5",
+                        "expectedOutput": "猜中0個號碼獎金0元",
+                        "score": 10
+                    },
+                    {
+                        "input": "7 24 31 42 45",
+                        "expectedOutput": "猜中5個號碼獎金100000元",
+                        "score": 10
+                    },
+                    {
+                        "input": "7 24 31 42 1",
+                        "expectedOutput": "猜中4個號碼獎金10000元",
+                        "score": 10
+                    },
+                    {
+                        "input": "7 24 31 2 3",
+                        "expectedOutput": "猜中3個號碼獎金2000元",
+                        "score": 10
+                    },
+                    {
+                        "input": "7 2 3 4 5",
+                        "expectedOutput": "猜中1個號碼獎金200元",
+                        "score": 10
+                    },
+                    {
+                        "input": "56 63 78 80 99",
+                        "expectedOutput": "猜中5個號碼獎金100000元",
+                        "score": 10
+                    },
+                    {
+                        "input": "56 63 78 80 1",
+                        "expectedOutput": "猜中4個號碼獎金10000元",
+                        "score": 10
+                    },
+                    {
+                        "input": "56 63 78 2 3",
+                        "expectedOutput": "猜中3個號碼獎金2000元",
+                        "score": 10
+                    },
+                    {
+                        "input": "99 2 3 4 5",
+                        "expectedOutput": "猜中1個號碼獎金200元",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L1",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE08-4",
+                "code": "114TCPE08-114TCPE08-4",
+                "title": "小隊長的奇數號碼",
+                "description": "老師給了小隊長兩個號碼：一個起始號碼和一個結束號碼。小隊長的任務是找出這兩個號碼之間（包含這兩個號碼）所有奇數的號碼牌，並把這些號碼加起來，算出最後的總和。",
+                "examples": [
+                    {
+                        "input": "10\n20",
+                        "output": "75",
+                        "explanation": "11+13+15+17+19=75。"
+                    },
+                    {
+                        "input": "31\n39",
+                        "output": "175",
+                        "explanation": "31+33+35+37+39=175。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "10\n20",
+                        "expectedOutput": "75",
+                        "score": 10
+                    },
+                    {
+                        "input": "31\n39",
+                        "expectedOutput": "175",
+                        "score": 10
+                    },
+                    {
+                        "input": "1\n10",
+                        "expectedOutput": "25",
+                        "score": 10
+                    },
+                    {
+                        "input": "10\n10",
+                        "expectedOutput": "0",
+                        "score": 10
+                    },
+                    {
+                        "input": "11\n11",
+                        "expectedOutput": "11",
+                        "score": 10
+                    },
+                    {
+                        "input": "1\n5",
+                        "expectedOutput": "9",
+                        "score": 10
+                    },
+                    {
+                        "input": "2\n8",
+                        "expectedOutput": "15",
+                        "score": 10
+                    },
+                    {
+                        "input": "100\n200",
+                        "expectedOutput": "7500",
+                        "score": 10
+                    },
+                    {
+                        "input": "21\n25",
+                        "expectedOutput": "69",
+                        "score": 10
+                    },
+                    {
+                        "input": "0\n9",
+                        "expectedOutput": "25",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L1",
+                "sb3Path": null
+            }
+        ]
+    },
+    {
+        "code": "114TCPE09",
+        "title": "114-澎湖縣國小（競賽模式）",
+        "unlockCode": "114TCPE09",
+        "tasks": [
+            {
+                "id": "114TCPE09-1",
+                "code": "114TCPE09-114TCPE09-1",
+                "title": "神秘的運算符號",
+                "description": "小明自己發明了一個特別的運算符號「#」。當你看到 A # B 的時候，代表要用 A 和 B 這兩個數字來進行一個新的計算。\n計算時，先找出這兩個數字中較大的數和較小的數（不管輸入順序）。\n接著，用「較大的數」除以「較小的數」，算出商與餘數。\n最後，把「商」放在前面、「餘數」放在後面，直接接在一起，變成一個新的數字，這就是「#」運算的答案。如果剛好整除，餘數是 0，也要照樣寫出來，不能省略。",
+                "examples": [
+                    {
+                        "input": "5\n10",
+                        "output": "20",
+                        "explanation": "較大的數是10，較小的數是5。10÷5＝2餘0，商2接餘數0，得到20。"
+                    },
+                    {
+                        "input": "10\n5",
+                        "output": "20",
+                        "explanation": "不管輸入順序，較大的數還是10，較小的數還是5，結果一樣是20。"
+                    },
+                    {
+                        "input": "3\n4",
+                        "output": "11",
+                        "explanation": "較大的數是4，較小的數是3。4÷3＝1餘1，商1接餘數1，得到11。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "5\n10",
+                        "expectedOutput": "20",
+                        "score": 10
+                    },
+                    {
+                        "input": "3\n3",
+                        "expectedOutput": "10",
+                        "score": 10
+                    },
+                    {
+                        "input": "8\n100",
+                        "expectedOutput": "124",
+                        "score": 10
+                    },
+                    {
+                        "input": "45\n7",
+                        "expectedOutput": "63",
+                        "score": 10
+                    },
+                    {
+                        "input": "1\n13",
+                        "expectedOutput": "130",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L2",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE09-2",
+                "code": "114TCPE09-114TCPE09-2",
+                "title": "甜心餅乾工廠的品管任務",
+                "description": "品管機器人「阿波」站在包裝輸送帶前面，確保每一塊「甜心餅乾」都是正面朝上。\n1 代表正面（不用翻），0 代表反面（需要翻面）。每翻一塊餅乾，計數器就會 +1。\n請計算阿波總共翻了幾次餅乾。",
+                "examples": [
+                    {
+                        "input": "8\n1 0 1 1 0 0 1 1",
+                        "output": "3",
+                        "explanation": "8 塊餅乾中有 3 塊是反面（0），所以翻了 3 次。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "8\n1 0 1 1 0 0 1 1",
+                        "expectedOutput": "3",
+                        "score": 10
+                    },
+                    {
+                        "input": "5\n1 1 1 1 1",
+                        "expectedOutput": "0",
+                        "score": 10
+                    },
+                    {
+                        "input": "7\n0 0 0 0 0 0 0",
+                        "expectedOutput": "7",
+                        "score": 10
+                    },
+                    {
+                        "input": "1\n1",
+                        "expectedOutput": "0",
+                        "score": 10
+                    },
+                    {
+                        "input": "1\n0",
+                        "expectedOutput": "1",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L2",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE09-3",
+                "code": "114TCPE09-114TCPE09-3",
+                "title": "麵包店打折趣",
+                "description": "小明到幸福麵包店買麵包，每個麵包的價格都一樣。店員說：「如果總金額滿 100 元可以打 9 折，滿 200 元打 85 折，滿 300 元打 8 折喔！」\n請算出小明這次要付多少錢（四捨五入到整數）。",
+                "examples": [
+                    {
+                        "input": "5\n25",
+                        "output": "113",
+                        "explanation": "總金額 5×25=125 元，滿 100 打 9 折，125×0.9=112.5，四捨五入為 113。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "5\n25",
+                        "expectedOutput": "113",
+                        "score": 10
+                    },
+                    {
+                        "input": "3\n30",
+                        "expectedOutput": "90",
+                        "score": 10
+                    },
+                    {
+                        "input": "4\n25",
+                        "expectedOutput": "90",
+                        "score": 10
+                    },
+                    {
+                        "input": "6\n27",
+                        "expectedOutput": "146",
+                        "score": 10
+                    },
+                    {
+                        "input": "5\n40",
+                        "expectedOutput": "170",
+                        "score": 10
+                    },
+                    {
+                        "input": "9\n25",
+                        "expectedOutput": "191",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L2",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE09-4",
+                "code": "114TCPE09-114TCPE09-4",
+                "title": "魔法學院的神秘藥水調配挑戰",
+                "description": "你桌上有三瓶貼著不同數字標籤的神奇藥材，要調配傳說藥水，必須遵照「三步驟黃金法則」：\n第一步：把三瓶藥材按數字排出「最小瓶」、「中間瓶」、「最大瓶」。\n第二步：把三個數字加起來得到「總和」，若總和是偶數啟動「太陽魔法陣」，若是奇數啟動「月亮魔法陣」。\n第三步：依魔法陣念出咒語：\n太陽魔法陣：(最小瓶數字 + 中間瓶數字) × 最大瓶數字\n月亮魔法陣：(最大瓶數字 - 中間瓶數字) + 最小瓶數字\n請輸出最終的「魔力指數」。",
+                "examples": [
+                    {
+                        "input": "2\n3\n5",
+                        "output": "25",
+                        "explanation": "排序後最小2、中間3、最大5，總和10是偶數，啟動太陽魔法陣：(2+3)×5=25。"
+                    },
+                    {
+                        "input": "10\n1\n4",
+                        "output": "7",
+                        "explanation": "排序後最小1、中間4、最大10，總和15是奇數，啟動月亮魔法陣：(10-4)+1=7。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "2\n3\n5",
+                        "expectedOutput": "25",
+                        "score": 10
+                    },
+                    {
+                        "input": "10\n1\n4",
+                        "expectedOutput": "7",
+                        "score": 10
+                    },
+                    {
+                        "input": "1\n2\n3",
+                        "expectedOutput": "9",
+                        "score": 10
+                    },
+                    {
+                        "input": "2\n3\n4",
+                        "expectedOutput": "3",
+                        "score": 10
+                    },
+                    {
+                        "input": "10\n5\n3",
+                        "expectedOutput": "80",
+                        "score": 10
+                    },
+                    {
+                        "input": "9\n4\n6",
+                        "expectedOutput": "7",
+                        "score": 10
+                    },
+                    {
+                        "input": "7\n1\n7",
+                        "expectedOutput": "1",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L3",
+                "sb3Path": null
+            }
+        ]
+    },
+    {
+        "code": "114TCPE10",
+        "title": "114-臺中市國小（競賽模式）",
+        "unlockCode": "114TCPE10",
+        "tasks": [
+            {
+                "id": "114TCPE10-1",
+                "code": "114TCPE10-114TCPE10-1",
+                "title": "以禮相待",
+                "description": "蘇洵為避免兩個兒子蘇軾、蘇轍彼此對中發票吵架，於是訂定了他們家的規則：\n(1) 對中發票後，假如中獎金額先補貼中獎發票的花費金額。\n(2) 若還有盈餘（剩下），獎金由對中獎的人收下。\n(3) 盈餘的金額假如大於 200，要對手足以禮相待，分享 100 元。\n請輸出對中獎項的人可以拿到多少錢作為答案。",
+                "examples": [
+                    {
+                        "input": "10\n500",
+                        "output": "390 元",
+                        "explanation": "先扣除花費金額 500-10=490。因為盈餘 490 大於 200，所以以禮相待，490-100=390，故輸出 390 元。"
+                    },
+                    {
+                        "input": "400\n200",
+                        "output": "無盈餘",
+                        "explanation": "200-400=-200，沒有盈餘，故輸出無盈餘。"
+                    },
+                    {
+                        "input": "100\n200",
+                        "output": "100 元",
+                        "explanation": "先扣除花費金額 200-100=100。因為盈餘 100 小於 200，所以直接收下獎金 100 元。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "10\n500",
+                        "expectedOutput": "390 元",
+                        "score": 10
+                    },
+                    {
+                        "input": "400\n200",
+                        "expectedOutput": "無盈餘",
+                        "score": 10
+                    },
+                    {
+                        "input": "100\n200",
+                        "expectedOutput": "100 元",
+                        "score": 10
+                    },
+                    {
+                        "input": "50\n250",
+                        "expectedOutput": "200 元",
+                        "score": 10
+                    },
+                    {
+                        "input": "300\n300",
+                        "expectedOutput": "無盈餘",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L2",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE10-2",
+                "code": "114TCPE10-114TCPE10-2",
+                "title": "統一發票",
+                "description": "蘇家父子三人拿著統一發票滿懷期待的兌獎，兌獎的規則如下：\n(1) 若發票號碼末 X 碼與頭獎號碼末 X 碼相同，即得對應獎項（末 8 碼＝頭獎、末 7 碼＝二獎、末 6 碼＝三獎、末 5 碼＝四獎、末 4 碼＝五獎、末 3 碼＝六獎）。若同時符合多個碼數，以碼數最長者為準。\n(2) 若發票 8 碼與特獎或特別獎號碼完全相同，即得該獎項。\n特別獎號碼：25834483。特獎號碼：46587380。頭獎號碼（三組）：41016094、98081574、07309261。\n請輸出中獎情形。",
+                "examples": [
+                    {
+                        "input": "47887495",
+                        "output": "無中獎",
+                        "explanation": "號碼末幾碼都沒有跟任何頭獎號碼相同。"
+                    },
+                    {
+                        "input": "451232",
+                        "output": "非統一編號",
+                        "explanation": "輸入只有 6 碼，不符合 8 碼發票的規範。"
+                    },
+                    {
+                        "input": "25834483",
+                        "output": "特別獎",
+                        "explanation": "與特別獎號碼完全相同。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "47887495",
+                        "expectedOutput": "無中獎",
+                        "score": 10
+                    },
+                    {
+                        "input": "451232",
+                        "expectedOutput": "非統一編號",
+                        "score": 10
+                    },
+                    {
+                        "input": "25834483",
+                        "expectedOutput": "特別獎",
+                        "score": 10
+                    },
+                    {
+                        "input": "46587380",
+                        "expectedOutput": "特獎",
+                        "score": 10
+                    },
+                    {
+                        "input": "41016094",
+                        "expectedOutput": "頭獎",
+                        "score": 10
+                    },
+                    {
+                        "input": "00007261",
+                        "expectedOutput": "六獎",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L3",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE10-3",
+                "code": "114TCPE10-114TCPE10-3",
+                "title": "閃電十一人",
+                "description": "小明承辦了校際足球賽，需要一套自動計分與判定系統。每一場比賽只有兩隊，且只會發生兩種事情：進球 Goal、犯規 Foul。\n規則：\n進 1 球即得 1 分。\n每犯規 3 次，該隊扣 1 分。\n扣分不會讓分數低於 0 分。\n事件代碼：GA＝A隊進球、GB＝B隊進球、FA＝A隊犯規、FB＝B隊犯規。\n請依序輸出 A 隊最後得分、B 隊最後得分、比賽結果（A Win / B Win / Draw）。",
+                "examples": [
+                    {
+                        "input": "7\nGA\nFA\nGA\nFB\nFB\nFB\nGB",
+                        "output": "2\n0\nA Win",
+                        "explanation": "A 隊：2 球、1 次犯規 → 得 2 分。B 隊：1 球、3 次犯規 → 得 1-1=0 分。"
+                    },
+                    {
+                        "input": "6\nGA\nGB\nFA\nFA\nFA\nGB",
+                        "output": "0\n2\nB Win",
+                        "explanation": "A 隊：1 球、3 次犯規 → 得 1-1=0 分。B 隊：2 球、0 次犯規 → 得 2 分。"
+                    },
+                    {
+                        "input": "4\nGA\nGB\nFA\nFB",
+                        "output": "1\n1\nDraw",
+                        "explanation": "A 隊：1 球、1 次犯規 → 得 1 分。B 隊：1 球、1 次犯規 → 得 1 分。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "7\nGA\nFA\nGA\nFB\nFB\nFB\nGB",
+                        "expectedOutput": "2\n0\nA Win",
+                        "score": 10
+                    },
+                    {
+                        "input": "6\nGA\nGB\nFA\nFA\nFA\nGB",
+                        "expectedOutput": "0\n2\nB Win",
+                        "score": 10
+                    },
+                    {
+                        "input": "4\nGA\nGB\nFA\nFB",
+                        "expectedOutput": "1\n1\nDraw",
+                        "score": 10
+                    },
+                    {
+                        "input": "9\nFA\nFA\nFA\nFA\nFA\nFA\nFA\nFA\nFA",
+                        "expectedOutput": "0\n0\nDraw",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L3",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE10-4",
+                "code": "114TCPE10-114TCPE10-4",
+                "title": "紅牌與黃牌",
+                "description": "延續閃電十一人的基本規則（進球得分、每犯規 3 次扣 1 分、分數不低於 0），新增以下規則：\n每犯規 2 次，該隊得 1 張黃牌。\n同一隊累積 2 張黃牌，自動轉為 1 張紅牌。\n一旦出現紅牌，該隊立刻再扣 1 分（紅牌只會影響一次，不會重複扣分）。\n請依序輸出 A 隊最後得分、B 隊最後得分、比賽結果（A Win / B Win / Draw）。",
+                "examples": [
+                    {
+                        "input": "6\nGA\nFA\nFA\nFA\nFA\nGB",
+                        "output": "0\n1\nB Win",
+                        "explanation": "A 隊：1 球 →+1；4 次犯規 → 扣 1 分；2 黃牌 → 1 紅牌 → 再扣 1 分；總分 1-1-1，扣到 0 為止。B 隊：1 球 → 1 分。"
+                    },
+                    {
+                        "input": "5\nGA\nFA\nFA\nGB\nFB",
+                        "output": "1\n1\nDraw",
+                        "explanation": "A 隊：1 球 →+1；2 次犯規 → 1 張黃牌（不扣分）；總分 1。B 隊：1 球 →+1；1 次犯規 → 無事發生；總分 1。"
+                    },
+                    {
+                        "input": "8\nGA\nGA\nFA\nFA\nFA\nFA\nGB\nGB",
+                        "output": "0\n2\nB Win",
+                        "explanation": "A 隊：2 球 →+2；4 次犯規 → 扣 1 分；2 黃牌 → 1 紅牌 → 再扣 1 分；總分扣到 0 為止。B 隊：2 球 → 2 分、0 犯規。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "6\nGA\nFA\nFA\nFA\nFA\nGB",
+                        "expectedOutput": "0\n1\nB Win",
+                        "score": 10
+                    },
+                    {
+                        "input": "5\nGA\nFA\nFA\nGB\nFB",
+                        "expectedOutput": "1\n1\nDraw",
+                        "score": 10
+                    },
+                    {
+                        "input": "8\nGA\nGA\nFA\nFA\nFA\nFA\nGB\nGB",
+                        "expectedOutput": "0\n2\nB Win",
+                        "score": 10
+                    },
+                    {
+                        "input": "9\nFA\nFA\nFA\nFA\nFA\nFA\nFA\nFA\nFA",
+                        "expectedOutput": "0\n0\nDraw",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L4",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE10-5",
+                "code": "114TCPE10-114TCPE10-5",
+                "title": "提前結束",
+                "description": "延續紅牌與黃牌的規則，新增以下規則：\n任一隊出現 1 張紅牌，比賽立刻結束，後續事件全部忽略，輸出結果以「結束當下」為準。\n請依序輸出 A 隊最後得分、B 隊最後得分、比賽結果（A Win / B Win / Draw）。",
+                "examples": [
+                    {
+                        "input": "7\nGA\nFA\nFA\nFA\nGB\nFA\nGB",
+                        "output": "0\n1\nB Win",
+                        "explanation": "第 6 個事件（FA）讓 A 隊出現紅牌，比賽立刻結束，最後一個 GB 不計。"
+                    },
+                    {
+                        "input": "6\nGB\nFB\nFB\nFB\nFB\nGA",
+                        "output": "0\n0\nDraw",
+                        "explanation": "第 5 個事件（FB）讓 B 隊出現紅牌，比賽立刻結束，最後的 GA 不計。"
+                    },
+                    {
+                        "input": "8\nGA\nGA\nFA\nFA\nFA\nFA\nGB\nGB",
+                        "output": "0\n0\nDraw",
+                        "explanation": "第 6 個事件（FA）讓 A 隊出現紅牌，比賽立刻結束，兩個 GB 都不計。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "7\nGA\nFA\nFA\nFA\nGB\nFA\nGB",
+                        "expectedOutput": "0\n1\nB Win",
+                        "score": 10
+                    },
+                    {
+                        "input": "6\nGB\nFB\nFB\nFB\nFB\nGA",
+                        "expectedOutput": "0\n0\nDraw",
+                        "score": 10
+                    },
+                    {
+                        "input": "8\nGA\nGA\nFA\nFA\nFA\nFA\nGB\nGB",
+                        "expectedOutput": "0\n0\nDraw",
+                        "score": 10
+                    },
+                    {
+                        "input": "5\nGA\nGB\nFA\nGB\nGA",
+                        "expectedOutput": "2\n2\nDraw",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L4",
+                "sb3Path": null
+            }
+        ]
+    },
+    {
+        "code": "114TCPE11",
+        "title": "114-臺南市國小（競賽模式）",
+        "unlockCode": "114TCPE11",
+        "tasks": [
+            {
+                "id": "114TCPE11-1",
+                "code": "114TCPE11-114TCPE11-1",
+                "title": "偶數和",
+                "description": "請設計一個程式，輸入二個正整數（由小到大），計算出二個正整數之間，所有偶數的和。",
+                "examples": [
+                    {
+                        "input": "10\n20",
+                        "output": "90",
+                        "explanation": "10 至 20 間的偶數有 10、12、14、16、18、20，和為 90。"
+                    },
+                    {
+                        "input": "31\n39",
+                        "output": "140",
+                        "explanation": "31 至 39 間的偶數有 32、34、36、38，和為 140。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "10\n20",
+                        "expectedOutput": "90",
+                        "score": 10
+                    },
+                    {
+                        "input": "31\n39",
+                        "expectedOutput": "140",
+                        "score": 10
+                    },
+                    {
+                        "input": "1\n20",
+                        "expectedOutput": "110",
+                        "score": 10
+                    },
+                    {
+                        "input": "20\n41",
+                        "expectedOutput": "330",
+                        "score": 10
+                    },
+                    {
+                        "input": "99\n111",
+                        "expectedOutput": "630",
+                        "score": 10
+                    },
+                    {
+                        "input": "2\n2",
+                        "expectedOutput": "2",
+                        "score": 10
+                    },
+                    {
+                        "input": "3\n3",
+                        "expectedOutput": "0",
+                        "score": 10
+                    },
+                    {
+                        "input": "100\n100",
+                        "expectedOutput": "100",
+                        "score": 10
+                    },
+                    {
+                        "input": "1\n5",
+                        "expectedOutput": "6",
+                        "score": 10
+                    },
+                    {
+                        "input": "1000\n1010",
+                        "expectedOutput": "6030",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L1",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE11-2",
+                "code": "114TCPE11-114TCPE11-2",
+                "title": "三角形",
+                "description": "已知一個三角形的任意兩邊和必定大於第三邊，請寫一個程式，一次輸入三個正整數，判斷能否組成一個三角形。",
+                "examples": [
+                    {
+                        "input": "9 6 8",
+                        "output": "yes",
+                        "explanation": "符合「任意兩邊和必定大於第三邊」，可以組成一個三角形。"
+                    },
+                    {
+                        "input": "1 2 3",
+                        "output": "no",
+                        "explanation": "不符合「任意兩邊和必定大於第三邊」，不可以組成一個三角形。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "9 6 8",
+                        "expectedOutput": "yes",
+                        "score": 10
+                    },
+                    {
+                        "input": "1 2 3",
+                        "expectedOutput": "no",
+                        "score": 10
+                    },
+                    {
+                        "input": "10 10 8",
+                        "expectedOutput": "yes",
+                        "score": 10
+                    },
+                    {
+                        "input": "30 60 100",
+                        "expectedOutput": "no",
+                        "score": 10
+                    },
+                    {
+                        "input": "8 8 8",
+                        "expectedOutput": "yes",
+                        "score": 10
+                    },
+                    {
+                        "input": "5 5 10",
+                        "expectedOutput": "no",
+                        "score": 10
+                    },
+                    {
+                        "input": "100 2 3",
+                        "expectedOutput": "no",
+                        "score": 10
+                    },
+                    {
+                        "input": "3 4 5",
+                        "expectedOutput": "yes",
+                        "score": 10
+                    },
+                    {
+                        "input": "12 5 13",
+                        "expectedOutput": "yes",
+                        "score": 10
+                    },
+                    {
+                        "input": "5 10 5",
+                        "expectedOutput": "no",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L1",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE11-3",
+                "code": "114TCPE11-114TCPE11-3",
+                "title": "刮刮樂",
+                "description": "小哲彩券公司推出一種六六大順的刮刮樂，每張刮刮樂上面有三個 0~9 的數字。如果出現一個數字 6，可以得到 100 元；出現二個數字 6，可以得到 200 元；出現三個數字 6，可以得到 500 元。以上三種得獎方式，只能選擇獎金最高的一種來領取。現在給你一張刮刮樂上的三個數字，請問你可以得到多少獎金。",
+                "examples": [
+                    {
+                        "input": "666",
+                        "output": "500",
+                        "explanation": "出現三個數字 6，可以得到 500 元。"
+                    },
+                    {
+                        "input": "600",
+                        "output": "100",
+                        "explanation": "出現一個數字 6，可以得到 100 元。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "666",
+                        "expectedOutput": "500",
+                        "score": 10
+                    },
+                    {
+                        "input": "600",
+                        "expectedOutput": "100",
+                        "score": 10
+                    },
+                    {
+                        "input": "266",
+                        "expectedOutput": "200",
+                        "score": 10
+                    },
+                    {
+                        "input": "123",
+                        "expectedOutput": "0",
+                        "score": 10
+                    },
+                    {
+                        "input": "616",
+                        "expectedOutput": "200",
+                        "score": 10
+                    },
+                    {
+                        "input": "911",
+                        "expectedOutput": "0",
+                        "score": 10
+                    },
+                    {
+                        "input": "336",
+                        "expectedOutput": "100",
+                        "score": 10
+                    },
+                    {
+                        "input": "060",
+                        "expectedOutput": "100",
+                        "score": 10
+                    },
+                    {
+                        "input": "661",
+                        "expectedOutput": "200",
+                        "score": 10
+                    },
+                    {
+                        "input": "000",
+                        "expectedOutput": "0",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L1",
+                "sb3Path": null
+            }
+        ]
+    },
+    {
+        "code": "114TCPE12",
+        "title": "114-臺北市國小（競賽模式）",
+        "unlockCode": "114TCPE12",
+        "tasks": [
+            {
+                "id": "114TCPE12-1",
+                "code": "114TCPE12-114TCPE12-1",
+                "title": "崔老師的出缺席紀錄表",
+                "description": "崔老師用二維清單記錄一週的出席狀況：\n小明到到缺到到\n小美到缺缺到到\n說明：\n每一列是一位學生\n第一個元素是姓名\n後面五個元素代表星期一到星期五的出席狀況\n【任務】\n輸入學生姓名與出席紀錄，顯示該名學生缺席幾天\n輸出格式：小明缺席1天",
+                "examples": [
+                    {
+                        "input": "小明到到缺到到",
+                        "output": "小明缺席1天",
+                        "explanation": "小明有 1 個缺"
+                    },
+                    {
+                        "input": "小美到缺缺到到",
+                        "output": "小美缺席2天",
+                        "explanation": "小美有 2 個缺"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "小明到到缺到到",
+                        "expectedOutput": "小明缺席1天",
+                        "score": 10
+                    },
+                    {
+                        "input": "小美到缺缺到到",
+                        "expectedOutput": "小美缺席2天",
+                        "score": 10
+                    },
+                    {
+                        "input": "阿宏到到到到到",
+                        "expectedOutput": "阿宏缺席0天",
+                        "score": 10
+                    },
+                    {
+                        "input": "小安缺缺缺到缺",
+                        "expectedOutput": "小安缺席4天",
+                        "score": 10
+                    },
+                    {
+                        "input": "小明缺缺缺到到",
+                        "expectedOutput": "小明缺席3天",
+                        "score": 10
+                    },
+                    {
+                        "input": "大雄缺缺缺缺缺",
+                        "expectedOutput": "大雄缺席5天",
+                        "score": 10
+                    },
+                    {
+                        "input": "靜香到到到到到",
+                        "expectedOutput": "靜香缺席0天",
+                        "score": 10
+                    },
+                    {
+                        "input": "胖虎缺到缺到缺",
+                        "expectedOutput": "胖虎缺席3天",
+                        "score": 10
+                    },
+                    {
+                        "input": "小夫到缺到缺到",
+                        "expectedOutput": "小夫缺席2天",
+                        "score": 10
+                    },
+                    {
+                        "input": "王同學到到到到缺",
+                        "expectedOutput": "王同學缺席1天",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L2",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE12-2",
+                "code": "114TCPE12-114TCPE12-2",
+                "title": "校車安全：有沒有超載？",
+                "description": "每列是一台校車，第一格是車號，後面是每站上車人數，總共只會有五站。\n例如：\nA\n2 3 4 5 6\nB\n1 1 2 2 3\nC\n7 1 1 2 2\n【規則】\n每台校車總人數 > 20：要警告超載\n【任務】\n計算每一台總人數，輸出「車號+總人數」，如：A車20人\n若超過20，額外輸出：B車超載",
+                "examples": [
+                    {
+                        "input": "A\n5 3 4 4 4\nB\n4 5 4 3 4\nC\n3 3 4 3 3",
+                        "output": "A車20人\nB車20人\nC車16人",
+                        "explanation": "A車總共 5+3+4+4+4 = 20人 B車總共 4+5+4+3+4 = 20人 C車總共 3+3+4+3+3 = 16人"
+                    },
+                    {
+                        "input": "A\n5 3 2 4 6\nB\n6 6 5 5 4\nC\n4 3 2 3 4",
+                        "output": "A車20人\nB車超載\nC車16人",
+                        "explanation": "A車總共 20人 B車總共 26人，大於20，輸出 B車超載 C車總共 16人"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "A\n5 3 2 4 6\nB\n6 6 5 5 4\nC\n4 3 2 3 4",
+                        "expectedOutput": "A車20人\nB車超載\nC車16人",
+                        "score": 10
+                    },
+                    {
+                        "input": "A\n4 4 4 4 3\nB\n5 5 4 3 3\nC\n5 4 4 4 4",
+                        "expectedOutput": "A車19人\nB車20人\nC車超載",
+                        "score": 10
+                    },
+                    {
+                        "input": "A\n3 4 4 4 4\nB\n4 4 4 4 4\nC\n5 3 4 4 3",
+                        "expectedOutput": "A車19人\nB車20人\nC車19人",
+                        "score": 10
+                    },
+                    {
+                        "input": "A\n5 5 4 4 4\nB\n6 5 5 3 3\nC\n4 4 4 4 5",
+                        "expectedOutput": "A車超載\nB車超載\nC車超載",
+                        "score": 10
+                    },
+                    {
+                        "input": "A\n3 4 3 4 6\nB\n4 4 4 4 3\nC\n2 6 6 4 3",
+                        "expectedOutput": "A車20人\nB車19人\nC車超載",
+                        "score": 10
+                    },
+                    {
+                        "input": "A\n0 0 0 0 0\nB\n1 1 1 1 1\nC\n2 2 2 2 2",
+                        "expectedOutput": "A車0人\nB車5人\nC車10人",
+                        "score": 10
+                    },
+                    {
+                        "input": "A\n4 4 4 4 4\nB\n5 5 5 5 5\nC\n6 6 6 6 6",
+                        "expectedOutput": "A車20人\nB車超載\nC車超載",
+                        "score": 10
+                    },
+                    {
+                        "input": "X\n1 2 3 4 5\nY\n5 5 5 5 5\nZ\n5 5 5 5 1",
+                        "expectedOutput": "X車15人\nY車超載\nZ車超載",
+                        "score": 10
+                    },
+                    {
+                        "input": "P\n10 10 1 0 0\nQ\n0 0 0 0 21\nR\n10 10 0 0 0",
+                        "expectedOutput": "P車超載\nQ車超載\nR車20人",
+                        "score": 10
+                    },
+                    {
+                        "input": "M\n3 3 3 3 3\nN\n2 2 2 2 2\nO\n1 1 1 1 1",
+                        "expectedOutput": "M車15人\nN車10人\nO車5人",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L2",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE12-3",
+                "code": "114TCPE12-114TCPE12-3",
+                "title": "成績補考機制",
+                "description": "學校規定所有低於60分的成績都以60分計算。請幫老師修正所有學生的成績表。\n【任務規則】\n1. 使用者輸入一個數字，代表有N位學生\n2. 接著輸入 N行成績資料，每行代表一位學生的各科分數(以空白分隔)\n3. 請檢查每一個分數，若小於60則改成60，否則保持不變\n4. 輸出修正後的分數表",
+                "examples": [
+                    {
+                        "input": "2\n50 80 90\n40 55 100",
+                        "output": "60 80 90\n60 60 100",
+                        "explanation": "50 及 40, 55 小於 60，皆修正為 60。"
+                    },
+                    {
+                        "input": "1\n10 20 30",
+                        "output": "60 60 60",
+                        "explanation": "皆小於 60，修正為 60。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "1\n10 20 30",
+                        "expectedOutput": "60 60 60",
+                        "score": 10
+                    },
+                    {
+                        "input": "2\n100 100\n59 60",
+                        "expectedOutput": "100 100\n60 60",
+                        "score": 10
+                    },
+                    {
+                        "input": "3\n10 10\n80 80\n5 95",
+                        "expectedOutput": "60 60\n80 80\n60 95",
+                        "score": 10
+                    },
+                    {
+                        "input": "1\n60 60 60",
+                        "expectedOutput": "60 60 60",
+                        "score": 10
+                    },
+                    {
+                        "input": "2\n59 58 57\n61 62 63",
+                        "expectedOutput": "60 60 60\n61 62 63",
+                        "score": 10
+                    },
+                    {
+                        "input": "1\n0 0 0 0 0",
+                        "expectedOutput": "60 60 60 60 60",
+                        "score": 10
+                    },
+                    {
+                        "input": "4\n99\n100\n0\n60",
+                        "expectedOutput": "99\n100\n60\n60",
+                        "score": 10
+                    },
+                    {
+                        "input": "1\n59 99",
+                        "expectedOutput": "60 99",
+                        "score": 10
+                    },
+                    {
+                        "input": "2\n80 80\n40 40",
+                        "expectedOutput": "80 80\n60 60",
+                        "score": 10
+                    },
+                    {
+                        "input": "3\n30\n40\n50",
+                        "expectedOutput": "60\n60\n60",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L2",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE12-4",
+                "code": "114TCPE12-114TCPE12-4",
+                "title": "滑動平均值",
+                "description": "請計算清單中連續K個數字的平均值(Moving Average)。\n【任務規則】\n1. 第一次輸入：一串數字，以空白分隔\n2. 第二次輸入：區間大小 K\n3. 請依序計算每K 個相鄰數字的平均值\n4. 例如數列 10 20 30，K=2。第一組(10+20)/2=15，第二組(20+30)/2=25。",
+                "examples": [
+                    {
+                        "input": "10 20 30 40 50\n2",
+                        "output": "15 25 35 45",
+                        "explanation": "依序計算每2個相鄰數字的平均值： (10+20)/2=15 (20+30)/2=25 (30+40)/2=35 (40+50)/2=45"
+                    },
+                    {
+                        "input": "2 4 6 8\n2",
+                        "output": "3 5 7",
+                        "explanation": "依序計算每2個相鄰數字的平均值。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "2 4 6 8\n2",
+                        "expectedOutput": "3 5 7",
+                        "score": 10
+                    },
+                    {
+                        "input": "10 20 30\n3",
+                        "expectedOutput": "20",
+                        "score": 10
+                    },
+                    {
+                        "input": "5 5 5 5\n1",
+                        "expectedOutput": "5 5 5 5",
+                        "score": 10
+                    },
+                    {
+                        "input": "10 20 30 40 50\n2",
+                        "expectedOutput": "15 25 35 45",
+                        "score": 10
+                    },
+                    {
+                        "input": "1 2 3 4 5 6\n3",
+                        "expectedOutput": "2 3 4 5",
+                        "score": 10
+                    },
+                    {
+                        "input": "10 10 10 10 10\n4",
+                        "expectedOutput": "10 10",
+                        "score": 10
+                    },
+                    {
+                        "input": "0 10 20 30 40\n5",
+                        "expectedOutput": "20",
+                        "score": 10
+                    },
+                    {
+                        "input": "100 200 300\n2",
+                        "expectedOutput": "150 250",
+                        "score": 10
+                    },
+                    {
+                        "input": "5 15 25 35\n2",
+                        "expectedOutput": "10 20 30",
+                        "score": 10
+                    },
+                    {
+                        "input": "2 2 2 2 2 2 2\n7",
+                        "expectedOutput": "2",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L2",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE12-5",
+                "code": "114TCPE12-114TCPE12-5",
+                "title": "連續字元分段顯示",
+                "description": "給一個字串s，請將連續相同的字元視為一組，並依序顯示「字元+出現次數」。",
+                "examples": [
+                    {
+                        "input": "aaabbcddd",
+                        "output": "a3\nb2\nc1\nd3",
+                        "explanation": "連續相同的字元分組顯示。"
+                    },
+                    {
+                        "input": "aabcccddd",
+                        "output": "a2\nb1\nc3\nd3",
+                        "explanation": "連續相同的字元分組顯示。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "aaabbcddd",
+                        "expectedOutput": "a3\nb2\nc1\nd3",
+                        "score": 10
+                    },
+                    {
+                        "input": "aabcccddd",
+                        "expectedOutput": "a2\nb1\nc3\nd3",
+                        "score": 10
+                    },
+                    {
+                        "input": "abc",
+                        "expectedOutput": "a1\nb1\nc1",
+                        "score": 10
+                    },
+                    {
+                        "input": "aaaaa",
+                        "expectedOutput": "a5",
+                        "score": 10
+                    },
+                    {
+                        "input": "aabbcc",
+                        "expectedOutput": "a2\nb2\nc2",
+                        "score": 10
+                    },
+                    {
+                        "input": "xxyyzz",
+                        "expectedOutput": "x2\ny2\nz2",
+                        "score": 10
+                    },
+                    {
+                        "input": "mississippi",
+                        "expectedOutput": "m1\ni1\ns2\ni1\ns2\ni1\np2\ni1",
+                        "score": 10
+                    },
+                    {
+                        "input": "hello",
+                        "expectedOutput": "h1\ne1\nl2\no1",
+                        "score": 10
+                    },
+                    {
+                        "input": "wwwwwxxxxxyyyyyzzzzz",
+                        "expectedOutput": "w5\nx5\ny5\nz5",
+                        "score": 10
+                    },
+                    {
+                        "input": "z",
+                        "expectedOutput": "z1",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L2",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE12-6",
+                "code": "114TCPE12-114TCPE12-6",
+                "title": "移除指定字元後輸出新字串",
+                "description": "給一個字串s與一個字元 target，請用迴圈移除所有 target，並輸出新字串。",
+                "examples": [
+                    {
+                        "input": "banana\na",
+                        "output": "bnn",
+                        "explanation": "移除字串中的 a。"
+                    },
+                    {
+                        "input": "roblox\no",
+                        "output": "rblx",
+                        "explanation": "移除字串中的 o。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "banana\na",
+                        "expectedOutput": "bnn",
+                        "score": 10
+                    },
+                    {
+                        "input": "roblox\no",
+                        "expectedOutput": "rblx",
+                        "score": 10
+                    },
+                    {
+                        "input": "apple\np",
+                        "expectedOutput": "ale",
+                        "score": 10
+                    },
+                    {
+                        "input": "hello\nl",
+                        "expectedOutput": "heo",
+                        "score": 10
+                    },
+                    {
+                        "input": "mississippi\ns",
+                        "expectedOutput": "miiippi",
+                        "score": 10
+                    },
+                    {
+                        "input": "programming\ng",
+                        "expectedOutput": "prorammin",
+                        "score": 10
+                    },
+                    {
+                        "input": "abc\nd",
+                        "expectedOutput": "abc",
+                        "score": 10
+                    },
+                    {
+                        "input": "abcdef\nc",
+                        "expectedOutput": "abdef",
+                        "score": 10
+                    },
+                    {
+                        "input": "xyzxyz\ny",
+                        "expectedOutput": "xzxz",
+                        "score": 10
+                    },
+                    {
+                        "input": "google\no",
+                        "expectedOutput": "ggle",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L1",
+                "sb3Path": null
+            }
+        ]
+    },
+    {
+        "code": "114TCPE13",
+        "title": "114-臺東縣國小（競賽模式）",
+        "unlockCode": "114TCPE13",
+        "tasks": [
+            {
+                "id": "114TCPE13-1",
+                "code": "114TCPE13-114TCPE13-1",
+                "title": "奇緣蛋糕特賣",
+                "description": "所有蛋糕原價皆為300元，每筆訂單運費為80元。請根據顧客購買的蛋糕數量，計算出最終應支付的總金額。\n促銷活動規則：\n1. 蛋糕折扣(根據購買個數N)\n• 1~5 個：9折優惠\n• 6~10 個：8折優惠\n• 11~15 個：7折優惠\n• 16以上：6折優惠\n2. 運費規則，若折扣後滿1200元，再享受免運優惠。\n請設計一個程式讀入購買蛋糕數量，然後根據促銷活動規則，計算出最終應支付的總金額。",
+                "examples": [
+                    {
+                        "input": "4",
+                        "output": "1160",
+                        "explanation": "4*300*0.9=1080 1080+80=1160"
+                    },
+                    {
+                        "input": "17",
+                        "output": "3060",
+                        "explanation": "17*300*0.6=3060 3060+0=3060"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "3",
+                        "expectedOutput": "890",
+                        "score": 10
+                    },
+                    {
+                        "input": "8",
+                        "expectedOutput": "1920",
+                        "score": 10
+                    },
+                    {
+                        "input": "12",
+                        "expectedOutput": "2520",
+                        "score": 10
+                    },
+                    {
+                        "input": "17",
+                        "expectedOutput": "3060",
+                        "score": 10
+                    },
+                    {
+                        "input": "2",
+                        "expectedOutput": "620",
+                        "score": 10
+                    },
+                    {
+                        "input": "1",
+                        "expectedOutput": "350",
+                        "score": 10
+                    },
+                    {
+                        "input": "5",
+                        "expectedOutput": "1350",
+                        "score": 10
+                    },
+                    {
+                        "input": "6",
+                        "expectedOutput": "1440",
+                        "score": 10
+                    },
+                    {
+                        "input": "10",
+                        "expectedOutput": "2400",
+                        "score": 10
+                    },
+                    {
+                        "input": "11",
+                        "expectedOutput": "2310",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L2",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE13-2",
+                "code": "114TCPE13-114TCPE13-2",
+                "title": "健康小管家",
+                "description": "身體質量指數(BMI)是一種常用的衡量指標，用於評估一個人的體重是否在健康的範圍內。它根據身高和體重計算得出，是國際上衡量肥胖程度的標準之一。\nBMI估算公式如下：\nBMI=體重(kg)/身高(m*m)\n計算範例\n身高(165cm)體重(45kg)\nBMI=45/(1.65*1.65)=16.52 (取小數點後一位)為16.5\n程式計算出 BMI 數值(取小數點後一位)後，會用這個標準來分類：\n• 小於18.5：體重過輕(Underweight)\n• 18.5到24.9：正常範圍(Normal range)\n• 25.0到29.9：體重過重(Overweight)\n• 30.0到34.9：輕度肥胖(Obesity Class I)\n• 35.0到39.9：中度肥胖(Obesity Class II)\n• 40.0以上：重度肥胖(Obesity Class III)\n請設計一個程式讀入身高與體重，然後根據BMI分類等級，計算出BMI值及BMI 分類等級。",
+                "examples": [
+                    {
+                        "input": "165\n45",
+                        "output": "16.5 體重過輕(Underweight)",
+                        "explanation": "BMI=45/(1.65*1.65)=16.5 (取小數點後一位) 16.5 小於18.5 輸出體重過輕"
+                    },
+                    {
+                        "input": "180\n85",
+                        "output": "26.2 體重過重(Overweight)",
+                        "explanation": "BMI=85/(1.8*1.8)=26.2 (取小數點後一位) 26.2在25.0到29.9輸出體重過重"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "165\n45",
+                        "expectedOutput": "16.5 體重過輕(Underweight)",
+                        "score": 10
+                    },
+                    {
+                        "input": "170\n60",
+                        "expectedOutput": "20.8 正常範圍(Normal range)",
+                        "score": 10
+                    },
+                    {
+                        "input": "180\n85",
+                        "expectedOutput": "26.2 體重過重(Overweight)",
+                        "score": 10
+                    },
+                    {
+                        "input": "168\n90",
+                        "expectedOutput": "31.9 輕度肥胖(Obesity Class I)",
+                        "score": 10
+                    },
+                    {
+                        "input": "160\n120",
+                        "expectedOutput": "46.9 重度肥胖(Obesity Class III)",
+                        "score": 10
+                    },
+                    {
+                        "input": "150\n80",
+                        "expectedOutput": "35.6 中度肥胖(Obesity Class II)",
+                        "score": 10
+                    },
+                    {
+                        "input": "175\n75",
+                        "expectedOutput": "24.5 正常範圍(Normal range)",
+                        "score": 10
+                    },
+                    {
+                        "input": "180\n95",
+                        "expectedOutput": "29.3 體重過重(Overweight)",
+                        "score": 10
+                    },
+                    {
+                        "input": "170\n50",
+                        "expectedOutput": "17.3 體重過輕(Underweight)",
+                        "score": 10
+                    },
+                    {
+                        "input": "170\n120",
+                        "expectedOutput": "41.5 重度肥胖(Obesity Class III)",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L2",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE13-3",
+                "code": "114TCPE13-114TCPE13-3",
+                "title": "鋼琴小天才計分挑戰",
+                "description": "在一年一度的「鋼琴小天才大賽」中，選手們都準備好了精彩的演奏。為了讓比賽結果公平公正，評審團決定採用一套特別的計分方式！\n比賽規則：\n• 比賽聘請了7位專業評審，他們會給每位選手一個1分到10分的分數。\n• 為了避免有評審給分太高或太低，影響比賽的公平性，最終計算總成績時，會將這7個分數中最高的1個分數和最低的1個分數都扣除(不計算)。\n• 選手的最終總成績就是剩下那5位評審給的分數總和。\n請你設計一個電腦程式，來幫助裁判計算每一位選手的最終總成績。你需要輸入7位評審給的7個分數(順序可以很亂)，然後輸出選手的最終總成績。",
+                "examples": [
+                    {
+                        "input": "8\n9\n7\n9\n8\n10\n7",
+                        "output": "41",
+                        "explanation": "最高分10最低分7 7個成績總和扣除(最高及最低) 8+9+7+9+8=41"
+                    },
+                    {
+                        "input": "1.5\n2.5\n3.5\n4.5\n5.5\n6.5\n7.5",
+                        "output": "22.5",
+                        "explanation": "最高分7.5 最低分1.5 7個成績總和扣除(最高及最低) 2.5+3.5+4.5+5.5+6.5=22.5"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "6\n6\n6\n6\n6\n6 6",
+                        "expectedOutput": "30",
+                        "score": 10
+                    },
+                    {
+                        "input": "7\n8\n9\n8\n7\n8\n9",
+                        "expectedOutput": "40",
+                        "score": 10
+                    },
+                    {
+                        "input": "9\n9.1\n9.2\n9.3\n9.4\n9.5 9.6",
+                        "expectedOutput": "46.5",
+                        "score": 10
+                    },
+                    {
+                        "input": "10\n5\n7\n8\n10\n9 6",
+                        "expectedOutput": "40",
+                        "score": 10
+                    },
+                    {
+                        "input": "4\n8\n4\n8\n6\n6 7",
+                        "expectedOutput": "31",
+                        "score": 10
+                    },
+                    {
+                        "input": "1\n2\n3\n4\n5\n6 7",
+                        "expectedOutput": "20",
+                        "score": 10
+                    },
+                    {
+                        "input": "10\n10\n10\n10\n10\n10 10",
+                        "expectedOutput": "50",
+                        "score": 10
+                    },
+                    {
+                        "input": "0\n0\n0\n0\n0\n0 0",
+                        "expectedOutput": "0",
+                        "score": 10
+                    },
+                    {
+                        "input": "9.5\n8.5\n7.5\n9\n8\n10 6",
+                        "expectedOutput": "42.5",
+                        "score": 10
+                    },
+                    {
+                        "input": "2.2\n3.3\n4.4\n5.5\n6.6\n7.7 8.8",
+                        "expectedOutput": "27.5",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L1",
+                "sb3Path": null
+            },
+            {
+                "id": "114TCPE13-4",
+                "code": "114TCPE13-114TCPE13-4",
+                "title": "幸運號碼大樂透",
+                "description": "在「玩具王國」裡，大家都在玩一種叫做「幸運數字樂透」的小遊戲！這個遊戲很簡單，數字的範圍是1到99。\n• 每位玩家可以從1到99中，挑選5個不同的號碼作為自己的彩券。\n• 每期開獎，玩具王國會公布10個幸運號碼。\n玩家的中獎金額取決於他選的5個號碼中，有多少個號碼對中了當期的10個幸運號碼。\n本期的幸運號碼是：7、24、31、42、45、56、63、78、80、99。\n中獎獎金規則：\n• 5個：100,000 (頭獎)\n• 4個：10,000 (貳獎)\n• 3個：2,000 (參獎)\n• 2個：500 (肆獎)\n• 1個：200 (伍獎)\n• 0個：0 (沒中獎)\n請你設計一個電腦程式，來幫助玩家快速計算他們中了多少獎金。你需要輸入玩家選擇的5個號碼，然後輸出他能猜中號碼的個數及獲得的中獎金額。",
+                "examples": [
+                    {
+                        "input": "7\n18\n29\n31\n35",
+                        "output": "猜中2個號碼,獎金500元",
+                        "explanation": "2個號碼相同，獎金500元"
+                    },
+                    {
+                        "input": "1\n2\n3\n4\n5",
+                        "output": "猜中0個號碼,獎金0元",
+                        "explanation": "0個號碼相同，獎金0元"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "7 24 31 42 45",
+                        "expectedOutput": "猜中5個號碼,獎金100000元",
+                        "score": 10
+                    },
+                    {
+                        "input": "1 2 3 4 5",
+                        "expectedOutput": "猜中0個號碼,獎金0元",
+                        "score": 10
+                    },
+                    {
+                        "input": "7 24 1 2 3",
+                        "expectedOutput": "猜中2個號碼,獎金500元",
+                        "score": 10
+                    },
+                    {
+                        "input": "42 56 63 78 80",
+                        "expectedOutput": "猜中5個號碼,獎金100000元",
+                        "score": 10
+                    },
+                    {
+                        "input": "7 24 31 42 10",
+                        "expectedOutput": "猜中4個號碼,獎金10000元",
+                        "score": 10
+                    },
+                    {
+                        "input": "7 2 3 4 5",
+                        "expectedOutput": "猜中1個號碼,獎金200元",
+                        "score": 10
+                    },
+                    {
+                        "input": "56 63 78 80 1",
+                        "expectedOutput": "猜中4個號碼,獎金10000元",
+                        "score": 10
+                    },
+                    {
+                        "input": "56 63 78 2 3",
+                        "expectedOutput": "猜中3個號碼,獎金2000元",
+                        "score": 10
+                    },
+                    {
+                        "input": "99 2 3 4 5",
+                        "expectedOutput": "猜中1個號碼,獎金200元",
+                        "score": 10
+                    },
+                    {
+                        "input": "7 24 31 2 3",
+                        "expectedOutput": "猜中3個號碼,獎金2000元",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L1",
+                "sb3Path": null
+            }
+        ]
     }
 ];
 

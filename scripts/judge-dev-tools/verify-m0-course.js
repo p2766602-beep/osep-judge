@@ -8,6 +8,10 @@ const {gradeSubmission, prepareVmForGrading} = require('../../src/lib/tw-judge-e
 
 const COURSES_DIR = path.join(__dirname, '../../../YDWS-CodingBank/courses');
 const OUT_BASE = path.join(__dirname, '../../static/judge-content/m0');
+// 這支腳本專門驗證「示範解答本身能不能拿到滿分」，2026-08-13新增的13縣市國小競賽模式
+// 課程（114TCPE01~13）刻意沒有示範解答（見gen-judge-content.js/build-m0-course-sb3.js
+// 同一段註解），沒有東西可驗證，所以這裡故意不跟其他兩支腳本的COURSE_FILES保持一致——
+// 加進來只會讓每題都判SKIP、把allPass拖成false，變成誤報而已，不要加。
 const COURSE_FILES = ['M0-01-BasicOutput.js', 'M0-02-Variables.js', 'M0-03-Conditionals.js', 'M0-04-LoopsAndSum.js', 'M0-05-ListBasics.js', 'M0-06-MinMaxExtra.js', 'M1-01-ListSearch.js', 'M1-02-ListAnalysis.js', 'M1-03-ListStats.js', 'M1-04-ListIndex.js', 'M1-05-StringBasics.js', 'M1-06-StringFormat.js', 'M1-07-SortBasics.js', 'M1-08-SortApplied.js', 'M1-09-MathBasics.js', 'M1-10-MathGCD.js', 'M1-11-StackQueue.js', 'M1-12-DebugFormat.js', 'JSB00.js', 'JSA00.js'];
 
 function loadCourse(filename) {

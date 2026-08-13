@@ -11,7 +11,12 @@ const path = require('path');
 const COURSES_DIR = path.join(__dirname, '../../../YDWS-CodingBank/courses');
 const SB3_BASE = path.join(__dirname, '../../static/judge-content/m0');
 const OUT_FILE = path.join(__dirname, '../../src/lib/judge-content.js');
-const COURSE_FILES = ['M0-01-BasicOutput.js', 'M0-02-Variables.js', 'M0-03-Conditionals.js', 'M0-04-LoopsAndSum.js', 'M0-05-ListBasics.js', 'M0-06-MinMaxExtra.js', 'M1-01-ListSearch.js', 'M1-02-ListAnalysis.js', 'M1-03-ListStats.js', 'M1-04-ListIndex.js', 'M1-05-StringBasics.js', 'M1-06-StringFormat.js', 'M1-07-SortBasics.js', 'M1-08-SortApplied.js', 'M1-09-MathBasics.js', 'M1-10-MathGCD.js', 'M1-11-StackQueue.js', 'M1-12-DebugFormat.js', 'JSB00.js', 'JSA00.js'];
+const COURSE_FILES = ['M0-01-BasicOutput.js', 'M0-02-Variables.js', 'M0-03-Conditionals.js', 'M0-04-LoopsAndSum.js', 'M0-05-ListBasics.js', 'M0-06-MinMaxExtra.js', 'M1-01-ListSearch.js', 'M1-02-ListAnalysis.js', 'M1-03-ListStats.js', 'M1-04-ListIndex.js', 'M1-05-StringBasics.js', 'M1-06-StringFormat.js', 'M1-07-SortBasics.js', 'M1-08-SortApplied.js', 'M1-09-MathBasics.js', 'M1-10-MathGCD.js', 'M1-11-StackQueue.js', 'M1-12-DebugFormat.js', 'JSB00.js', 'JSA00.js',
+    // 2026-08-13新增：13縣市國小競賽模式課程（114TCPE01~13）。這批課程starterXml故意清空
+    // （競賽模式不提供參考解答，見BlocklyYdws/blockly-lab那邊的mode:'contest'設計），
+    // 每題都會走下面的hasDemo===false分支、loadable設為false——這是osep-judge第一次出現
+    // 「整個課程都刻意不給示範解答」的情況，2026-08-13使用者確認這是預期行為，不是資料缺口。
+    '114TCPE01.js', '114TCPE02.js', '114TCPE03.js', '114TCPE04.js', '114TCPE05.js', '114TCPE06.js', '114TCPE07.js', '114TCPE08.js', '114TCPE09.js', '114TCPE10.js', '114TCPE11.js', '114TCPE12.js', '114TCPE13.js'];
 
 // 比照BlocklyYdws/blockly-lab現況：JSA00/JSB00是公開課程（不用代碼），其餘一律需要代碼。
 const PUBLIC_COURSE_CODES = new Set(['JSA00', 'JSB00']);
