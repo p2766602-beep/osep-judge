@@ -6872,14 +6872,24 @@ export const courses = [
                 ],
                 "testCases": [
                     {
-                        "input": "Amy",
-                        "expectedOutput": "Hello, Amy",
-                        "score": 50
+                        "input": "John",
+                        "expectedOutput": "Hello, John",
+                        "score": 10
+                    },
+                    {
+                        "input": "Marry",
+                        "expectedOutput": "Hello, Marry",
+                        "score": 10
+                    },
+                    {
+                        "input": "Sam",
+                        "expectedOutput": "Hello, Sam",
+                        "score": 10
                     },
                     {
                         "input": "Tom",
                         "expectedOutput": "Hello, Tom",
-                        "score": 50
+                        "score": 10
                     }
                 ],
                 "sb3Path": "m0/JSB00/A-01-0.sb3"
@@ -6903,14 +6913,24 @@ export const courses = [
                 ],
                 "testCases": [
                     {
-                        "input": "Amy\nJohn",
-                        "expectedOutput": "Amy, John, 一起學習吧！",
-                        "score": 50
+                        "input": "John\nAmy",
+                        "expectedOutput": "John, Amy, 一起學習吧！",
+                        "score": 10
                     },
                     {
                         "input": "Tom\nSusan",
                         "expectedOutput": "Tom, Susan, 一起學習吧！",
-                        "score": 50
+                        "score": 10
+                    },
+                    {
+                        "input": "Sam\nBrown",
+                        "expectedOutput": "Sam, Brown, 一起學習吧！",
+                        "score": 10
+                    },
+                    {
+                        "input": "Justin\nLouise",
+                        "expectedOutput": "Justin, Louise, 一起學習吧！",
+                        "score": 10
                     }
                 ],
                 "sb3Path": "m0/JSB00/A-01-1.sb3"
@@ -6934,14 +6954,24 @@ export const courses = [
                 ],
                 "testCases": [
                     {
-                        "input": "9\n4",
-                        "expectedOutput": "13",
-                        "score": 50
+                        "input": "3\n7",
+                        "expectedOutput": "10",
+                        "score": 10
                     },
                     {
-                        "input": "6\n5",
-                        "expectedOutput": "11",
-                        "score": 50
+                        "input": "99\n100",
+                        "expectedOutput": "199",
+                        "score": 10
+                    },
+                    {
+                        "input": "78\n22",
+                        "expectedOutput": "100",
+                        "score": 10
+                    },
+                    {
+                        "input": "21\n35",
+                        "expectedOutput": "56",
+                        "score": 10
                     }
                 ],
                 "sb3Path": "m0/JSB00/A-02-0.sb3"
@@ -6965,14 +6995,24 @@ export const courses = [
                 ],
                 "testCases": [
                     {
-                        "input": "9\n4",
-                        "expectedOutput": "7",
-                        "score": 50
+                        "input": "3\n7",
+                        "expectedOutput": "5",
+                        "score": 10
                     },
                     {
-                        "input": "6\n5",
-                        "expectedOutput": "6",
-                        "score": 50
+                        "input": "99\n100",
+                        "expectedOutput": "100",
+                        "score": 10
+                    },
+                    {
+                        "input": "78\n22",
+                        "expectedOutput": "50",
+                        "score": 10
+                    },
+                    {
+                        "input": "21\n35",
+                        "expectedOutput": "28",
+                        "score": 10
                     }
                 ],
                 "sb3Path": "m0/JSB00/A-02-1.sb3"
