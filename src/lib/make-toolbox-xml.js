@@ -33,352 +33,11 @@ export const patchThinkBlockLabel = () => {
 };
 
 /* eslint-disable no-unused-vars */
-const motion = function (isInitialSetup, isStage, targetId, colors) {
-    const stageSelected = translate(
-        'MOTION_STAGE_SELECTED',
-        'Stage selected: no motion blocks'
-    );
-    // Note: the category's secondaryColour matches up with the blocks' tertiary color, both used for border color.
-    return `
-    <category name="%{BKY_CATEGORY_MOTION}" id="motion" colour="${colors.primary}" secondaryColour="${colors.tertiary}">
-        ${isStage ? `
-        <label text="${stageSelected}"></label>
-        ` : `
-        <block type="motion_movesteps">
-            <value name="STEPS">
-                <shadow type="math_number">
-                    <field name="NUM">10</field>
-                </shadow>
-            </value>
-        </block>
-        <block type="motion_turnright">
-            <value name="DEGREES">
-                <shadow type="math_number">
-                    <field name="NUM">15</field>
-                </shadow>
-            </value>
-        </block>
-        <block type="motion_turnleft">
-            <value name="DEGREES">
-                <shadow type="math_number">
-                    <field name="NUM">15</field>
-                </shadow>
-            </value>
-        </block>
-        ${blockSeparator}
-        <block type="motion_goto">
-            <value name="TO">
-                <shadow type="motion_goto_menu">
-                </shadow>
-            </value>
-        </block>
-        <block type="motion_gotoxy">
-            <value name="X">
-                <shadow id="movex" type="math_number">
-                    <field name="NUM">0</field>
-                </shadow>
-            </value>
-            <value name="Y">
-                <shadow id="movey" type="math_number">
-                    <field name="NUM">0</field>
-                </shadow>
-            </value>
-        </block>
-        <block type="motion_glideto" id="motion_glideto">
-            <value name="SECS">
-                <shadow type="math_number">
-                    <field name="NUM">1</field>
-                </shadow>
-            </value>
-            <value name="TO">
-                <shadow type="motion_glideto_menu">
-                </shadow>
-            </value>
-        </block>
-        <block type="motion_glidesecstoxy">
-            <value name="SECS">
-                <shadow type="math_number">
-                    <field name="NUM">1</field>
-                </shadow>
-            </value>
-            <value name="X">
-                <shadow id="glidex" type="math_number">
-                    <field name="NUM">0</field>
-                </shadow>
-            </value>
-            <value name="Y">
-                <shadow id="glidey" type="math_number">
-                    <field name="NUM">0</field>
-                </shadow>
-            </value>
-        </block>
-        ${blockSeparator}
-        <block type="motion_pointindirection">
-            <value name="DIRECTION">
-                <shadow type="math_angle">
-                    <field name="NUM">90</field>
-                </shadow>
-            </value>
-        </block>
-        <block type="motion_pointtowards">
-            <value name="TOWARDS">
-                <shadow type="motion_pointtowards_menu">
-                </shadow>
-            </value>
-        </block>
-        ${blockSeparator}
-        <block type="motion_changexby">
-            <value name="DX">
-                <shadow type="math_number">
-                    <field name="NUM">10</field>
-                </shadow>
-            </value>
-        </block>
-        <block type="motion_setx">
-            <value name="X">
-                <shadow id="setx" type="math_number">
-                    <field name="NUM">0</field>
-                </shadow>
-            </value>
-        </block>
-        <block type="motion_changeyby">
-            <value name="DY">
-                <shadow type="math_number">
-                    <field name="NUM">10</field>
-                </shadow>
-            </value>
-        </block>
-        <block type="motion_sety">
-            <value name="Y">
-                <shadow id="sety" type="math_number">
-                    <field name="NUM">0</field>
-                </shadow>
-            </value>
-        </block>
-        ${blockSeparator}
-        <block type="motion_ifonedgebounce"/>
-        ${blockSeparator}
-        <block type="motion_setrotationstyle"/>
-        ${blockSeparator}
-        <block id="${targetId}_xposition" type="motion_xposition"/>
-        <block id="${targetId}_yposition" type="motion_yposition"/>
-        <block id="${targetId}_direction" type="motion_direction"/>`}
-        ${categorySeparator}
-    </category>
-    `;
-};
-
-const xmlEscape = function (unsafe) {
-    return unsafe.replace(/[<>&'"]/g, c => {
-        switch (c) {
-        case '<': return '&lt;';
-        case '>': return '&gt;';
-        case '&': return '&amp;';
-        case '\'': return '&apos;';
-        case '"': return '&quot;';
-        }
-    });
-};
-
-const looks = function (isInitialSetup, isStage, targetId, costumeName, backdropName, colors) {
-    const hello = translate('LOOKS_HELLO', 'Hello!');
-    const hmm = translate('LOOKS_HMM', 'Hmm...');
-    // Note: the category's secondaryColour matches up with the blocks' tertiary color, both used for border color.
-    return `
-    <category name="%{BKY_CATEGORY_LOOKS}" id="looks" colour="${colors.primary}" secondaryColour="${colors.tertiary}">
-        ${isStage ? '' : `
-        <block type="looks_sayforsecs">
-            <value name="MESSAGE">
-                <shadow type="text">
-                    <field name="TEXT">${hello}</field>
-                </shadow>
-            </value>
-            <value name="SECS">
-                <shadow type="math_number">
-                    <field name="NUM">2</field>
-                </shadow>
-            </value>
-        </block>
-        <block type="looks_say">
-            <value name="MESSAGE">
-                <shadow type="text">
-                    <field name="TEXT">${hello}</field>
-                </shadow>
-            </value>
-        </block>
-        <block type="looks_thinkforsecs">
-            <value name="MESSAGE">
-                <shadow type="text">
-                    <field name="TEXT">${hmm}</field>
-                </shadow>
-            </value>
-            <value name="SECS">
-                <shadow type="math_number">
-                    <field name="NUM">2</field>
-                </shadow>
-            </value>
-        </block>
-        <block type="looks_think">
-            <value name="MESSAGE">
-                <shadow type="text">
-                    <field name="TEXT">${hmm}</field>
-                </shadow>
-            </value>
-        </block>
-        ${blockSeparator}
-        `}
-        ${isStage ? `
-            <block type="looks_switchbackdropto">
-                <value name="BACKDROP">
-                    <shadow type="looks_backdrops">
-                        <field name="BACKDROP">${backdropName}</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="looks_switchbackdroptoandwait">
-                <value name="BACKDROP">
-                    <shadow type="looks_backdrops">
-                        <field name="BACKDROP">${backdropName}</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="looks_nextbackdrop"/>
-        ` : `
-            <block id="${targetId}_switchcostumeto" type="looks_switchcostumeto">
-                <value name="COSTUME">
-                    <shadow type="looks_costume">
-                        <field name="COSTUME">${costumeName}</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="looks_nextcostume"/>
-            <block type="looks_switchbackdropto">
-                <value name="BACKDROP">
-                    <shadow type="looks_backdrops">
-                        <field name="BACKDROP">${backdropName}</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="looks_nextbackdrop"/>
-            ${blockSeparator}
-            <block type="looks_changesizeby">
-                <value name="CHANGE">
-                    <shadow type="math_number">
-                        <field name="NUM">10</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="looks_setsizeto">
-                <value name="SIZE">
-                    <shadow type="math_number">
-                        <field name="NUM">100</field>
-                    </shadow>
-                </value>
-            </block>
-        `}
-        ${blockSeparator}
-        <block type="looks_changeeffectby">
-            <value name="CHANGE">
-                <shadow type="math_number">
-                    <field name="NUM">25</field>
-                </shadow>
-            </value>
-        </block>
-        <block type="looks_seteffectto">
-            <value name="VALUE">
-                <shadow type="math_number">
-                    <field name="NUM">0</field>
-                </shadow>
-            </value>
-        </block>
-        <block type="looks_cleargraphiceffects"/>
-        ${blockSeparator}
-        ${isStage ? '' : `
-            <block type="looks_show"/>
-            <block type="looks_hide"/>
-        ${blockSeparator}
-            <block type="looks_gotofrontback"/>
-            <block type="looks_goforwardbackwardlayers">
-                <value name="NUM">
-                    <shadow type="math_integer">
-                        <field name="NUM">1</field>
-                    </shadow>
-                </value>
-            </block>
-        `}
-        ${isStage ? `
-            <block id="backdropnumbername" type="looks_backdropnumbername"/>
-        ` : `
-            <block id="${targetId}_costumenumbername" type="looks_costumenumbername"/>
-            <block id="backdropnumbername" type="looks_backdropnumbername"/>
-            <block id="${targetId}_size" type="looks_size"/>
-        `}
-        ${categorySeparator}
-    </category>
-    `;
-};
-
-const sound = function (isInitialSetup, isStage, targetId, soundName, colors) {
-    // Note: the category's secondaryColour matches up with the blocks' tertiary color, both used for border color.
-    return `
-    <category name="%{BKY_CATEGORY_SOUND}" id="sound" colour="${colors.primary}" secondaryColour="${colors.tertiary}">
-        <block id="${targetId}_sound_playuntildone" type="sound_playuntildone">
-            <value name="SOUND_MENU">
-                <shadow type="sound_sounds_menu">
-                    <field name="SOUND_MENU">${soundName}</field>
-                </shadow>
-            </value>
-        </block>
-        <block id="${targetId}_sound_play" type="sound_play">
-            <value name="SOUND_MENU">
-                <shadow type="sound_sounds_menu">
-                    <field name="SOUND_MENU">${soundName}</field>
-                </shadow>
-            </value>
-        </block>
-        <block type="sound_stopallsounds"/>
-        ${blockSeparator}
-        <block type="sound_changeeffectby">
-            <value name="VALUE">
-                <shadow type="math_number">
-                    <field name="NUM">10</field>
-                </shadow>
-            </value>
-        </block>
-        <block type="sound_seteffectto">
-            <value name="VALUE">
-                <shadow type="math_number">
-                    <field name="NUM">100</field>
-                </shadow>
-            </value>
-        </block>
-        <block type="sound_cleareffects"/>
-        ${blockSeparator}
-        <block type="sound_changevolumeby">
-            <value name="VOLUME">
-                <shadow type="math_number">
-                    <field name="NUM">-10</field>
-                </shadow>
-            </value>
-        </block>
-        <block type="sound_setvolumeto">
-            <value name="VOLUME">
-                <shadow type="math_number">
-                    <field name="NUM">100</field>
-                </shadow>
-            </value>
-        </block>
-        <block id="${targetId}_volume" type="sound_volume"/>
-        ${categorySeparator}
-    </category>
-    `;
-};
-
-// 2026-08-04：對齊官方競賽平台（demo.csie.ntnu.edu.tw/ps）的解題積木群組——把「當綠旗被點擊／
-// 說出／詢問並等待／詢問的答案」這幾個解題題目幾乎每題都會用到的積木集中放在最前面，
-// 不用讓學生自己去事件/外觀/偵測三個分類裡分別找。積木本身還是原生Scratch積木（保留各自
-// 原本的顏色），只是額外多列一份在這個自訂分類裡，Blockly本來就允許同一種積木出現在
-// 多個toolbox分類。
+// 2026-08-14：對齊官方競賽平台（demo.csie.ntnu.edu.tw/ps）與BlocklyYdws來源專案自己的
+// toolbox（見`BlocklyYdws/src/blockly/toolbox.js`，同樣叫「專用」分類）——動作／外觀／
+// 音效／事件／偵測這些動畫用的完整分類全部移除，只留「當綠旗被點擊／說出／詢問並等待／
+// 詢問的答案」這幾個解題題目實際會用到的積木，集中放進這個唯一的分類。積木本身還是原生
+// Scratch積木（保留各自原本的顏色），Blockly本來就允許積木出現在自訂分類裡。
 //
 // 這裡放一顆「輸出訊息」積木當作除錯用：opcode還是原生looks_think，只是透過
 // patchThinkBlockLabel()（見上方）把顯示字串從「思考」全域改成「輸出訊息」，
@@ -391,7 +50,7 @@ const judgeHelpers = function (isInitialSetup, isStage, targetId) {
     const sayDefault = translate('LOOKS_HELLO', 'Hello!');
     const thinkDefault = translate('LOOKS_HMM', 'Hmm...');
     return `
-    <category name="解題常用" id="judgeHelpers" colour="#FF6680" secondaryColour="#FF3D5E">
+    <category name="專用" id="judgeHelpers" colour="#FF6680" secondaryColour="#FF3D5E">
         <block type="event_whenflagclicked"/>
         ${blockSeparator}
         <block type="looks_say">
@@ -418,46 +77,6 @@ const judgeHelpers = function (isInitialSetup, isStage, targetId) {
                 <shadow type="text">
                     <field name="TEXT">${thinkDefault}</field>
                 </shadow>
-            </value>
-        </block>
-        ${categorySeparator}
-    </category>
-    `;
-};
-
-const events = function (isInitialSetup, isStage, targetId, colors) {
-    // Note: the category's secondaryColour matches up with the blocks' tertiary color, both used for border color.
-    return `
-    <category name="%{BKY_CATEGORY_EVENTS}" id="events" colour="${colors.primary}" secondaryColour="${colors.tertiary}">
-        <block type="event_whenflagclicked"/>
-        <block type="event_whenkeypressed">
-        </block>
-        ${isStage ? `
-            <block type="event_whenstageclicked"/>
-        ` : `
-            <block type="event_whenthisspriteclicked"/>
-        `}
-        <block type="event_whenbackdropswitchesto">
-        </block>
-        ${blockSeparator}
-        <block type="event_whengreaterthan">
-            <value name="VALUE">
-                <shadow type="math_number">
-                    <field name="NUM">10</field>
-                </shadow>
-            </value>
-        </block>
-        ${blockSeparator}
-        <block type="event_whenbroadcastreceived">
-        </block>
-        <block type="event_broadcast">
-            <value name="BROADCAST_INPUT">
-                <shadow type="event_broadcast_menu"></shadow>
-            </value>
-        </block>
-        <block type="event_broadcastandwait">
-            <value name="BROADCAST_INPUT">
-              <shadow type="event_broadcast_menu"></shadow>
             </value>
         </block>
         ${categorySeparator}
@@ -513,87 +132,6 @@ const control = function (isInitialSetup, isStage, targetId, colors) {
             </block>
             <block type="control_delete_this_clone"/>
         `}
-        ${categorySeparator}
-    </category>
-    `;
-};
-
-const sensing = function (isInitialSetup, isStage, targetId, colors) {
-    const name = translate('SENSING_ASK_TEXT', 'What\'s your name?');
-    // Note: the category's secondaryColour matches up with the blocks' tertiary color, both used for border color.
-    return `
-    <category
-        name="%{BKY_CATEGORY_SENSING}"
-        id="sensing"
-        colour="${colors.primary}"
-        secondaryColour="${colors.tertiary}">
-        ${isStage ? '' : `
-            <block type="sensing_touchingobject">
-                <value name="TOUCHINGOBJECTMENU">
-                    <shadow type="sensing_touchingobjectmenu"/>
-                </value>
-            </block>
-            <block type="sensing_touchingcolor">
-                <value name="COLOR">
-                    <shadow type="colour_picker"/>
-                </value>
-            </block>
-            <block type="sensing_coloristouchingcolor">
-                <value name="COLOR">
-                    <shadow type="colour_picker"/>
-                </value>
-                <value name="COLOR2">
-                    <shadow type="colour_picker"/>
-                </value>
-            </block>
-            <block type="sensing_distanceto">
-                <value name="DISTANCETOMENU">
-                    <shadow type="sensing_distancetomenu"/>
-                </value>
-            </block>
-            ${blockSeparator}
-        `}
-        ${isInitialSetup ? '' : `
-            <block id="askandwait" type="sensing_askandwait">
-                <value name="QUESTION">
-                    <shadow type="text">
-                        <field name="TEXT">${name}</field>
-                    </shadow>
-                </value>
-            </block>
-        `}
-        <block id="answer" type="sensing_answer"/>
-        ${blockSeparator}
-        <block type="sensing_keypressed">
-            <value name="KEY_OPTION">
-                <shadow type="sensing_keyoptions"/>
-            </value>
-        </block>
-        <block type="sensing_mousedown"/>
-        <block type="sensing_mousex"/>
-        <block type="sensing_mousey"/>
-        ${isStage ? '' : `
-            ${blockSeparator}
-            '<block type="sensing_setdragmode" id="sensing_setdragmode"></block>'+
-            ${blockSeparator}
-        `}
-        ${blockSeparator}
-        <block id="loudness" type="sensing_loudness"/>
-        ${blockSeparator}
-        <block id="timer" type="sensing_timer"/>
-        <block type="sensing_resettimer"/>
-        ${blockSeparator}
-        <block id="of" type="sensing_of">
-            <value name="OBJECT">
-                <shadow id="sensing_of_object_menu" type="sensing_of_object_menu"/>
-            </value>
-        </block>
-        ${blockSeparator}
-        <block id="current" type="sensing_current"/>
-        <block type="sensing_dayssince2000"/>
-        ${blockSeparator}
-        <block id="online" type="sensing_online"/>
-        <block type="sensing_username"/>
         ${categorySeparator}
     </category>
     `;
@@ -837,22 +375,15 @@ const xmlClose = '</xml>';
  * and other extensions: core extensions will be placed in the normal Scratch order; others will go at the bottom.
  * @property {string} id - the extension / category ID.
  * @property {string} xml - the `<category>...</category>` XML for this extension / category.
- * @param {?string} costumeName - The name of the default selected costume dropdown.
- * @param {?string} backdropName - The name of the default selected backdrop dropdown.
- * @param {?string} soundName -  The name of the default selected sound dropdown.
  * @param {?object} colors - The colors for the theme.
  * @returns {string} - a ScratchBlocks-style XML document for the contents of the toolbox.
  */
 const makeToolboxXML = function (isInitialSetup, isStage = true, targetId, categoriesXML = [],
-    costumeName = '', backdropName = '', soundName = '', colors = defaultBlockColors) {
+    colors = defaultBlockColors) {
     isStage = isInitialSetup || isStage;
     const gap = [categorySeparator];
 
     patchThinkBlockLabel();
-
-    costumeName = xmlEscape(costumeName);
-    backdropName = xmlEscape(backdropName);
-    soundName = xmlEscape(soundName);
 
     categoriesXML = categoriesXML.slice();
     const moveCategory = categoryId => {
@@ -864,13 +395,7 @@ const makeToolboxXML = function (isInitialSetup, isStage = true, targetId, categ
         }
         // return `undefined`
     };
-    const motionXML = moveCategory('motion') || motion(isInitialSetup, isStage, targetId, colors.motion);
-    const looksXML = moveCategory('looks') ||
-        looks(isInitialSetup, isStage, targetId, costumeName, backdropName, colors.looks);
-    const soundXML = moveCategory('sound') || sound(isInitialSetup, isStage, targetId, soundName, colors.sounds);
-    const eventsXML = moveCategory('event') || events(isInitialSetup, isStage, targetId, colors.event);
     const controlXML = moveCategory('control') || control(isInitialSetup, isStage, targetId, colors.control);
-    const sensingXML = moveCategory('sensing') || sensing(isInitialSetup, isStage, targetId, colors.sensing);
     const operatorsXML = moveCategory('operators') || operators(isInitialSetup, isStage, targetId, colors.operators);
     const variablesXML = moveCategory('data') || variables(isInitialSetup, isStage, targetId, colors.data);
     const myBlocksXML = moveCategory('procedures') || myBlocks(isInitialSetup, isStage, targetId, colors.more);
@@ -887,12 +412,7 @@ const makeToolboxXML = function (isInitialSetup, isStage = true, targetId, categ
     const everything = [
         xmlOpen,
         judgeHelpersXML, gap,
-        motionXML, gap,
-        looksXML, gap,
-        soundXML, gap,
-        eventsXML, gap,
         controlXML, gap,
-        sensingXML, gap,
         operatorsXML, gap,
         variablesXML, gap,
         myBlocksXML
