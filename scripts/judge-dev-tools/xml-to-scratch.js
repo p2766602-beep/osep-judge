@@ -369,15 +369,39 @@ function convertValueBlock(blockEl, parentId, ctx) {
     if (type === 'lists_getIndex') {
         const mode = fieldText(blockEl, 'MODE');
         const where = fieldText(blockEl, 'WHERE');
-        if (mode !== 'GET' || where !== 'FROM_START') {
-            throw new Error(`lists_getIndex只支援MODE=GET/WHERE=FROM_START（實際：${mode}/${where}）`);
+        if (where !== 'FROM_START') {
+            throw new Error(`lists_getIndex只支援WHERE=FROM_START（實際：${where}）`);
         }
         const list = listVarFromValueSlot(blockEl, 'VALUE', ctx, 'lists_getIndex');
-        const id = ctx.nextId();
-        const node = {opcode: 'data_itemoflist', next: null, parent: parentId, inputs: {}, fields: {LIST: [list.name, list.id]}, shadow: false, topLevel: false};
-        ctx.blocks[id] = node;
-        node.inputs.INDEX = convertValueInput(blockEl, 'AT', id, ctx);
-        return [2, id];
+        if (mode === 'GET') {
+            const id = ctx.nextId();
+            const node = {opcode: 'data_itemoflist', next: null, parent: parentId, inputs: {}, fields: {LIST: [list.name, list.id]}, shadow: false, topLevel: false};
+            ctx.blocks[id] = node;
+            node.inputs.INDEX = convertValueInput(blockEl, 'AT', id, ctx);
+            return [2, id];
+        }
+        if (mode === 'GET_REMOVE') {
+            // 取出並移除（例如「搶位子」這種一取用就從清單刪掉的題目）：Scratch沒有
+            // 單一積木同時做到，hoist成：先把該索引的值存進暫時變數，再刪掉該索引，
+            // 這裡回傳讀取暫時變數的值。AT會被轉換兩次（一次給取值、一次給刪除）——
+            // AT只是索引運算式，兩次轉換之間沒有任何東西會改變它的值，是安全的。
+            const tmp = ctx.newTempVar('getremove');
+            const setId = ctx.nextId();
+            const getId = ctx.nextId();
+            const delId = ctx.nextId();
+            const atForGet = convertValueInput(blockEl, 'AT', getId, ctx);
+            const atForDel = convertValueInput(blockEl, 'AT', delId, ctx);
+            ctx.pending.push((parentIdForFirst) => {
+                ctx.blocks[getId] = {opcode: 'data_itemoflist', next: null, parent: setId, inputs: {INDEX: atForGet}, fields: {LIST: [list.name, list.id]}, shadow: false, topLevel: false};
+                ctx.blocks[setId] = {opcode: 'data_setvariableto', next: delId, parent: parentIdForFirst, inputs: {VALUE: [2, getId]}, fields: {VARIABLE: [tmp.name, tmp.id]}, shadow: false, topLevel: false};
+                ctx.blocks[delId] = {opcode: 'data_deleteoflist', next: null, parent: setId, inputs: {INDEX: atForDel}, fields: {LIST: [list.name, list.id]}, shadow: false, topLevel: false};
+                return {firstId: setId, lastId: delId};
+            });
+            const readId = ctx.nextId();
+            ctx.blocks[readId] = {opcode: 'data_variable', next: null, parent: parentId, inputs: {}, fields: {VARIABLE: [tmp.name, tmp.id]}, shadow: false, topLevel: false};
+            return [2, readId];
+        }
+        throw new Error(`lists_getIndex只支援MODE=GET或GET_REMOVE（實際：${mode}）`);
     }
     if (type === 'lists_indexOf') {
         const end = fieldText(blockEl, 'END');
@@ -567,10 +591,18 @@ function buildStatementNode(el, id, parentId, ctx) {
     if (type === 'lists_setIndex') {
         const mode = fieldText(el, 'MODE');
         const where = fieldText(el, 'WHERE');
-        if (mode !== 'SET' || where !== 'FROM_START') {
-            throw new Error(`lists_setIndex只支援MODE=SET/WHERE=FROM_START（實際：${mode}/${where}）`);
-        }
         const list = listVarFromValueSlot(el, 'LIST', ctx, 'lists_setIndex');
+        // MODE=INSERT/WHERE=LAST：插在最後面＝附加到清單尾端，直接對應Scratch的
+        // data_addtolist（不需要INDEX，這個組合的XML本來就沒有AT欄位）。
+        if (mode === 'INSERT' && where === 'LAST') {
+            const node = {opcode: 'data_addtolist', next: null, parent: parentId, inputs: {}, fields: {LIST: [list.name, list.id]}, shadow: false, topLevel: false};
+            ctx.blocks[id] = node;
+            node.inputs.ITEM = convertValueInput(el, 'TO', id, ctx);
+            return id;
+        }
+        if (mode !== 'SET' || where !== 'FROM_START') {
+            throw new Error(`lists_setIndex只支援MODE=SET/WHERE=FROM_START或MODE=INSERT/WHERE=LAST（實際：${mode}/${where}）`);
+        }
         const node = {opcode: 'data_replaceitemoflist', next: null, parent: parentId, inputs: {}, fields: {LIST: [list.name, list.id]}, shadow: false, topLevel: false};
         ctx.blocks[id] = node;
         node.inputs.INDEX = convertValueInput(el, 'AT', id, ctx);

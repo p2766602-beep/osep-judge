@@ -187,6 +187,10 @@ const SelfTestTab = ({vm}) => {
         vm.runtime.targets.forEach(target => {
             if (!target.isStage) target.visible = false;
         });
+        // 跟評分路徑（tw-judge-engine.js的prepareVmForGrading()）一樣開turbo模式，
+        // 原因見那邊的註解——只影響迴圈/清單較重的程式跑多快，不影響「詢問並等待」
+        // 真正等待學生輸入的行為（那是真的非同步等待，turbo模式不會跳過）。
+        vm.setTurboMode(true);
         judgeManualRun.show();
         vm.greenFlag();
 

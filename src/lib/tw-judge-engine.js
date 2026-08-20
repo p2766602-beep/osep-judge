@@ -116,13 +116,22 @@ const gradeSubmission = async (vm, testCases, options = {}) => {
 
 /**
  * 執行評分前的必要準備：強制所有非stage角色visible=false，避免「詢問並等待」的
- * 問題文字echo污染SAY輸出擷取。
+ * 問題文字echo污染SAY輸出擷取；並開啟turbo模式。
+ *
+ * 2026-08-20新增turbo模式：scratch-vm非turbo時，sequencer.stepThreads()只要有積木
+ * 觸發畫面重繪就會提前中斷這一輪、等下一個約33ms（30fps）的frame才繼續（見
+ * node_modules/scratch-vm/src/engine/sequencer.js的stepThreads()），這是為了讓學生
+ * 看動畫用的節流機制。osep-judge舞台本來就強制隱藏（純文字I/O評分，沒有視覺內容），
+ * 不需要這個節流，但迴圈/清單愈重的題目（排序、圖論等）會被拖得愈慢，實測有題目在真實
+ * 瀏覽器分頁跑超過30秒還沒評分完（headless不受影響，因為headless本來就沒有畫面重繪
+ * 這個概念）。vm.setTurboMode(true)只影響執行速度、不影響執行順序或邏輯結果。
  * @param {VM} vm VM實例
  */
 const prepareVmForGrading = vm => {
     vm.runtime.targets.forEach(target => {
         if (!target.isStage) target.visible = false;
     });
+    vm.setTurboMode(true);
 };
 
 module.exports = {
