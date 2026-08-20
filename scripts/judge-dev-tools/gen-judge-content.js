@@ -20,7 +20,12 @@ const COURSE_FILES = ['M0-01-BasicOutput.js', 'M0-02-Variables.js', 'M0-03-Condi
     // 2026-08-13再新增：基隆/桃園/雲林3縣市國小競賽模式課程（114TCPE14~16）。同批J系列
     // （114TCPJ14~16，國中）依osep-judge既有國小限定範圍政策不上架，見本專案CLAUDE.md
     // 「已知待辦」段落。
-    '114TCPE14.js', '114TCPE15.js', '114TCPE16.js'];
+    '114TCPE14.js', '114TCPE15.js', '114TCPE16.js',
+    // 2026-08-20：部分國中老師要求osep-judge也能給國中生用，範圍政策改為國中小並存
+    // （見本專案CLAUDE.md）。第一階段先上114TCPJ01~16（國中競賽模式，比照114TCPE系列，
+    // 沒有starterXml、不用示範解答，純資料搬遷）。114J/114E（國中小學習模式，需要示範
+    // 解答）、M2/M3是後續階段，分階段完成後再擴充這裡。
+    '114TCPJ01.js', '114TCPJ02.js', '114TCPJ03.js', '114TCPJ04.js', '114TCPJ05.js', '114TCPJ06.js', '114TCPJ07.js', '114TCPJ08.js', '114TCPJ09.js', '114TCPJ10.js', '114TCPJ11.js', '114TCPJ12.js', '114TCPJ13.js', '114TCPJ14.js', '114TCPJ15.js', '114TCPJ16.js'];
 
 // 比照BlocklyYdws/blockly-lab現況：JSA00/JSB00是公開課程（不用代碼），其餘一律需要代碼。
 const PUBLIC_COURSE_CODES = new Set(['JSA00', 'JSB00']);

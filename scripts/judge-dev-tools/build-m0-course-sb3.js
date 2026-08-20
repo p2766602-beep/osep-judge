@@ -23,7 +23,11 @@ const COURSE_FILES = ['M0-01-BasicOutput.js', 'M0-02-Variables.js', 'M0-03-Condi
     '114TCPE01.js', '114TCPE02.js', '114TCPE03.js', '114TCPE04.js', '114TCPE05.js', '114TCPE06.js', '114TCPE07.js', '114TCPE08.js', '114TCPE09.js', '114TCPE10.js', '114TCPE11.js', '114TCPE12.js', '114TCPE13.js',
     // 2026-08-13再新增：基隆/桃園/雲林3縣市國小競賽模式課程，J系列（國中）依既有國小限定
     // 範圍政策不上架，見gen-judge-content.js同一段註解。
-    '114TCPE14.js', '114TCPE15.js', '114TCPE16.js'];
+    '114TCPE14.js', '114TCPE15.js', '114TCPE16.js',
+    // 2026-08-20新增：部分國中老師要求Scratch平台也能解題，範圍政策改為國中小並存，見
+    // gen-judge-content.js同一段註解。114TCPJ01~16是國中競賽模式課程，同114TCPE系列，
+    // 每題都會落進[SKIP]分支（沒有starterXml），是預期行為。
+    '114TCPJ01.js', '114TCPJ02.js', '114TCPJ03.js', '114TCPJ04.js', '114TCPJ05.js', '114TCPJ06.js', '114TCPJ07.js', '114TCPJ08.js', '114TCPJ09.js', '114TCPJ10.js', '114TCPJ11.js', '114TCPJ12.js', '114TCPJ13.js', '114TCPJ14.js', '114TCPJ15.js', '114TCPJ16.js'];
 
 function loadCourse(filename) {
     const filePath = path.join(COURSES_DIR, filename);
