@@ -32354,6 +32354,6376 @@ export const courses = [
                 "sb3Path": "m0/114EYunlin/114EYunlin-5.sb3"
             }
         ]
+    },
+    {
+        "code": "M2-01",
+        "title": "運算與條件判斷綜合練習：基礎",
+        "tier": "t2",
+        "unlockCode": "M2-01-CondBasics",
+        "tasks": [
+            {
+                "id": "JSB02-D01",
+                "code": "M2-01-JSB02-D01",
+                "title": "通過門檻",
+                "description": "老師設定一次測驗的通過門檻為 60 分。請輸入一個整數分數，如果分數大於或等於 60，輸出 Pass；否則不輸出任何文字。本題用來示範單一 if 條件成立時才執行輸出的流程",
+                "examples": [
+                    {
+                        "input": "75",
+                        "output": "Pass",
+                        "explanation": "75 大於等於 60，所以輸出 Pass。"
+                    },
+                    {
+                        "input": "40",
+                        "output": "",
+                        "explanation": "40 小於 60，所以不輸出任何文字。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "60",
+                        "expectedOutput": "Pass",
+                        "score": 20
+                    },
+                    {
+                        "input": "59",
+                        "expectedOutput": "",
+                        "score": 20
+                    },
+                    {
+                        "input": "100",
+                        "expectedOutput": "Pass",
+                        "score": 20
+                    },
+                    {
+                        "input": "0",
+                        "expectedOutput": "",
+                        "score": 20
+                    },
+                    {
+                        "input": "75",
+                        "expectedOutput": "Pass",
+                        "score": 20
+                    }
+                ],
+                "difficulty": "L1",
+                "difficultyLabel": "L1｜基礎",
+                "sb3Path": "m0/M2-01-CondBasics/JSB02-D01.sb3"
+            },
+            {
+                "id": "JSB02-D02",
+                "code": "M2-01-JSB02-D02",
+                "title": "優惠或原價",
+                "description": "商店規定消費金額達到 100 元以上可以獲得優惠。請輸入消費金額，如果金額大於或等於 100，輸出 Discount；否則輸出 Normal。本題用來示範 if / else 的二選一流程",
+                "examples": [
+                    {
+                        "input": "120",
+                        "output": "Discount",
+                        "explanation": "120 達到優惠門檻。"
+                    },
+                    {
+                        "input": "80",
+                        "output": "Normal",
+                        "explanation": "80 未達優惠門檻。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "100",
+                        "expectedOutput": "Discount",
+                        "score": 20
+                    },
+                    {
+                        "input": "99",
+                        "expectedOutput": "Normal",
+                        "score": 20
+                    },
+                    {
+                        "input": "250",
+                        "expectedOutput": "Discount",
+                        "score": 20
+                    },
+                    {
+                        "input": "1",
+                        "expectedOutput": "Normal",
+                        "score": 20
+                    },
+                    {
+                        "input": "150",
+                        "expectedOutput": "Discount",
+                        "score": 20
+                    }
+                ],
+                "difficulty": "L1",
+                "difficultyLabel": "L1｜基礎",
+                "sb3Path": "m0/M2-01-CondBasics/JSB02-D02.sb3"
+            },
+            {
+                "id": "A-04-0",
+                "code": "M2-01-A-04-0",
+                "title": "判斷奇偶數",
+                "description": "程式設計中，常常需要根據數字的性質進行分類。\n\n請你寫一個程式，輸入一個整數，如果這個數除以2的餘數為0，表示是偶數，輸出 Even，如果餘數是1，表示是奇數，輸出 Odd。\n\n這樣的練習可以幫助你熟悉條件判斷的應用。",
+                "examples": [
+                    {
+                        "input": "8",
+                        "output": "Even",
+                        "explanation": "輸入8，8除以2餘數=0\n程式輸出偶數Even"
+                    },
+                    {
+                        "input": "7",
+                        "output": "Odd",
+                        "explanation": "輸入7，7除以2餘數=1\n程式輸出奇數數Odd"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "3",
+                        "expectedOutput": "Odd",
+                        "score": 10
+                    },
+                    {
+                        "input": "99",
+                        "expectedOutput": "Odd",
+                        "score": 10
+                    },
+                    {
+                        "input": "78",
+                        "expectedOutput": "Even",
+                        "score": 10
+                    },
+                    {
+                        "input": "22",
+                        "expectedOutput": "Even",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L1",
+                "difficultyLabel": "L1｜基礎",
+                "sb3Path": "m0/M2-01-CondBasics/A-04-0.sb3"
+            },
+            {
+                "id": "JSB02-D03",
+                "code": "M2-01-JSB02-D03",
+                "title": "成績等第示範",
+                "description": "輸入一個整數成績，請依照分數輸出等第。90 分以上輸出 A，80 到 89 輸出 B，70 到 79 輸出 C，60 到 69 輸出 D，未滿 60 輸出 F。本題用來示範多條件判斷",
+                "examples": [
+                    {
+                        "input": "95",
+                        "output": "A",
+                        "explanation": "95 分屬於 A。"
+                    },
+                    {
+                        "input": "72",
+                        "output": "C",
+                        "explanation": "72 分屬於 C。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "90",
+                        "expectedOutput": "A",
+                        "score": 20
+                    },
+                    {
+                        "input": "89",
+                        "expectedOutput": "B",
+                        "score": 20
+                    },
+                    {
+                        "input": "70",
+                        "expectedOutput": "C",
+                        "score": 20
+                    },
+                    {
+                        "input": "60",
+                        "expectedOutput": "D",
+                        "score": 20
+                    },
+                    {
+                        "input": "59",
+                        "expectedOutput": "F",
+                        "score": 20
+                    }
+                ],
+                "difficulty": "L2",
+                "difficultyLabel": "L2｜進階",
+                "sb3Path": "m0/M2-01-CondBasics/JSB02-D03.sb3"
+            },
+            {
+                "id": "A-04-1",
+                "code": "M2-01-A-04-1",
+                "title": "成績等第",
+                "description": "不少學校成績採用等弟制，80~100為A，70~79為B，60~69為C，50~59為D，其餘49分以下為E\n\n請你寫一個程式，輸入一個整數(0~100)，輸出對應的成績等弟。\n\n這樣的練習可以幫助你熟悉條件判斷的應用。",
+                "examples": [
+                    {
+                        "input": "90",
+                        "output": "A",
+                        "explanation": "輸入90，表示成績90\n程式輸出A"
+                    },
+                    {
+                        "input": "45",
+                        "output": "E",
+                        "explanation": "輸入45，表示成績45\n程式輸出E"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "69",
+                        "expectedOutput": "C",
+                        "score": 10
+                    },
+                    {
+                        "input": "99",
+                        "expectedOutput": "A",
+                        "score": 10
+                    },
+                    {
+                        "input": "78",
+                        "expectedOutput": "B",
+                        "score": 10
+                    },
+                    {
+                        "input": "55",
+                        "expectedOutput": "D",
+                        "score": 10
+                    },
+                    {
+                        "input": "12",
+                        "expectedOutput": "E",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L2",
+                "difficultyLabel": "L2｜進階",
+                "sb3Path": "m0/M2-01-CondBasics/A-04-1.sb3"
+            },
+            {
+                "id": "A-05-0",
+                "code": "M2-01-A-05-0",
+                "title": "三科成績計算",
+                "description": "小明參加了數學、英文、自然三科的段考，老師希望能快速算出總分與平均分數，並判斷是否及格。\n\n請設計程式，輸入三科的成績，計算總分與平均。\n\n平均成績以四捨五入取到整數\n\n如果平均分數大於等於 60，就輸出「及格」，否則輸出「不及格」。\n\n這題可以訓練你如何處理多筆資料的加總、平均計算，並搭配條件判斷。",
+                "examples": [
+                    {
+                        "input": "3\n80 70 90",
+                        "output": "240\n80\n及格",
+                        "explanation": "第一行輸入3,表示有3筆資料\n第二行輸入3筆資料80 70 90，經過計算後\n總分、平均、及格或不及格180 80 及格"
+                    },
+                    {
+                        "input": "3\n50 42 60",
+                        "output": "152\n51\n不及格",
+                        "explanation": "第一行輸入3,表示有3筆資料\n第二行輸入3筆資料50 42 60，經過計算後\n程式輸出總分、平均、及格或不及格152 51 不及格"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "3\n20 60 90",
+                        "expectedOutput": "170 57 不及格",
+                        "score": 10
+                    },
+                    {
+                        "input": "3\n80 70 90",
+                        "expectedOutput": "240 80 及格",
+                        "score": 10
+                    },
+                    {
+                        "input": "3\n45 65 80",
+                        "expectedOutput": "190 63 及格",
+                        "score": 10
+                    },
+                    {
+                        "input": "3\n100 100 90",
+                        "expectedOutput": "290 97 及格",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L2",
+                "difficultyLabel": "L2｜進階",
+                "sb3Path": "m0/M2-01-CondBasics/A-05-0.sb3"
+            },
+            {
+                "id": "A-05-1",
+                "code": "M2-01-A-05-1",
+                "title": "購物優惠",
+                "description": "大南百貨進行第二、第三件優惠活動，購買3件物品，第2件9折，第3件8折。\n\n請設計程式，依序輸入三件物品的定價，計算三件物品合計售價，以及最後優惠多少元。\n\n每件物品打折後價格以無條件捨去取整數\n\n程式最後輸出 定價加總總額、售價加總總額、優惠多少元",
+                "examples": [
+                    {
+                        "input": "3\n80 70 90",
+                        "output": "240\n215\n25",
+                        "explanation": "第一行輸入3,表示有3筆資料\n第二行輸入3筆資料80 70 90，經過計算後\n第二筆70打9折再無條件捨去，共63元\n第三筆90打8折再無條件捨去，共72元\n程式輸出定價加總總額240元，售價加總總額215元，共優惠25元"
+                    },
+                    {
+                        "input": "3\n50 42 60",
+                        "output": "152\n135\n17",
+                        "explanation": "第一行輸入3,表示有3筆資料\n第二行輸入3筆資料50 42 60，經過計算後\n第二筆42打9折再無條件捨去，共37元\n第三筆60打8折再無條件捨去，共48元\n程式輸出定價加總總額240元，售價加總總額215元，共優惠25元"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "3\n60 65 1999",
+                        "expectedOutput": "2124 1717 407",
+                        "score": 10
+                    },
+                    {
+                        "input": "3\n70 90 965",
+                        "expectedOutput": "1125 923 202",
+                        "score": 10
+                    },
+                    {
+                        "input": "3\n45 65 80",
+                        "expectedOutput": "190 167 23",
+                        "score": 10
+                    },
+                    {
+                        "input": "3\n90 100 284",
+                        "expectedOutput": "474 407 67",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L2",
+                "difficultyLabel": "L2｜進階",
+                "sb3Path": "m0/M2-01-CondBasics/A-05-1.sb3"
+            },
+            {
+                "id": "nanto-001",
+                "code": "M2-01-nanto-001",
+                "title": "遊樂園的自動售票機",
+                "description": "遊樂園引進了一套自動售票機系統，用來快速計算團體遊客的門票總金額。\n每位遊客依據「是否持有縣民卡」、「年齡」、「身高」等條件，適用不同的票價。\n【收費規則（依下列順序判斷）】\n1. 縣民卡免費：持有縣民卡者，門票為 0 元。\n2. 敬老票：年齡大於等於 65 歲者，票價為 150 元。\n3. 兒童票：身高小於 120 公分 或 年齡小於 6 歲者，票價為 180 元。\n4. 全票：不符合以上條件者，票價為 300 元。",
+                "examples": [
+                    {
+                        "input": "2\n170 25 1 100 8 0",
+                        "output": "180",
+                        "explanation": "第一位：有縣民卡 → 0 元。\n第二位：無卡，身高 100（小於120）→ 兒童票 180 元。\n總計 180 元。"
+                    },
+                    {
+                        "input": "3\n180 30 0 160 70 0 110 5 1",
+                        "output": "450",
+                        "explanation": "第一位：全票 300 元。\n第二位：敬老票 150 元。\n第三位：有縣民卡 → 0 元。\n總計 450 元。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "1\n170 30 0",
+                        "expectedOutput": "300",
+                        "score": 10
+                    },
+                    {
+                        "input": "1\n110 10 0",
+                        "expectedOutput": "180",
+                        "score": 15
+                    },
+                    {
+                        "input": "2\n160 70 0 130 40 0",
+                        "expectedOutput": "450",
+                        "score": 20
+                    },
+                    {
+                        "input": "3\n150 5 0 180 30 1 160 65 0",
+                        "expectedOutput": "330",
+                        "score": 25
+                    },
+                    {
+                        "input": "4\n170 40 0 115 7 0 140 70 1 180 20 0",
+                        "expectedOutput": "780",
+                        "score": 30
+                    }
+                ],
+                "difficulty": "L2",
+                "difficultyLabel": "L2｜進階",
+                "sb3Path": "m0/M2-01-CondBasics/nanto-001.sb3"
+            },
+            {
+                "id": "nanto-003",
+                "code": "M2-01-nanto-003",
+                "title": "跳水比賽成績計算",
+                "description": "跳水比賽為求公平性，會去除評審中較極端的成績。\n比賽共聘用 5～10 位評審，每位評審會給予參賽者 0～10 分的評價。\n參賽者的總成績計算方式如下：\n1. 讀入 N 位評審的分數（未排序）。\n2. 去除一個最高分與一個最低分。\n3. 剩餘評審分數的總和即為該選手的最終得分。\n請撰寫程式，依照輸入的評審分數，計算並輸出參賽者的最終成績",
+                "examples": [
+                    {
+                        "input": "5\n9 8 10 6 7",
+                        "output": "24",
+                        "explanation": "評審分數為 9、8、10、6、7\n去除最高分 10 與最低分 6\n剩餘分數 9 + 8 + 7 = 24"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "5\n9 8 10 6 7",
+                        "expectedOutput": "24",
+                        "score": 10
+                    },
+                    {
+                        "input": "6\n8 8 8 8 8 8",
+                        "expectedOutput": "32",
+                        "score": 15
+                    },
+                    {
+                        "input": "7\n10 9 8 7 6 5 4",
+                        "expectedOutput": "35",
+                        "score": 20
+                    },
+                    {
+                        "input": "10\n0 10 5 6 7 8 9 4 3 2",
+                        "expectedOutput": "44",
+                        "score": 25
+                    },
+                    {
+                        "input": "5\n0 0 10 10 5",
+                        "expectedOutput": "15",
+                        "score": 30
+                    }
+                ],
+                "difficulty": "L2",
+                "difficultyLabel": "L2｜進階",
+                "sb3Path": "m0/M2-01-CondBasics/nanto-003.sb3"
+            },
+            {
+                "id": "nanto-006-1",
+                "code": "M2-01-nanto-006-1",
+                "title": "碼易丁飲料店-1",
+                "description": "小明家的巷口開了一間名叫「碼易丁」的飲料店，販賣好喝的飲料。身為資訊科技高手的你，決定要寫幾個小程式來幫助小明解決店裡遇到的各種計算問題，從計算單筆訂單金額、找錢，到最後計算每天的營業額。讓我們一步一步跟著小明，用程式解決飲料店的經營問題吧！\n\n請根據下列四個子題，逐步完成整個課飲料店程式系統的設計。\n\n子題一：飲料總金額計算-逐筆輸入\n\n客人上門了！首先，我們要解決最基本的問題：計算客人買了數杯飲料時，總共需要付多少錢。\n\n飲料店販售5種飲料名稱、價格如後，請你設計一個程式，讀取各種飲料購買杯數後，計算出總金額。\n\n1 號：珍珠奶茶（每杯 45 元）\n\n2 號：伯爵紅茶（每杯 25 元）\n\n3 號：烏龍綠茶（每杯 30 元）\n\n4 號：四季春茶（每杯 40 元）\n\n5 號：黑糖珍珠鮮奶茶（每杯 60 元）\n\n第一行同學先輸入數字N，表示總共N杯飲料\n\n第二行依序輸入想購買的飲料編號（1～5），編號以空白間隔\n\n程式需計算並輸出此次訂單的總金額。",
+                "examples": [
+                    {
+                        "input": "3\n1 3 5",
+                        "output": "135",
+                        "explanation": "第一行輸入3，有3筆訂單\n第二行輸入1 3 5\n1 → 珍珠奶茶 45 元\n3 → 烏龍綠茶 30 元\n5 → 黑糖珍珠鮮奶茶 60 元\n總金額 = 45 + 30 + 60 = 135 元。"
+                    },
+                    {
+                        "input": "5\n2 2 4 1 3",
+                        "output": "165",
+                        "explanation": "第一行輸入5，有5筆訂單\n2 → 伯爵紅茶 25 元\n2 → 伯爵紅茶 25 元\n4 → 四季春茶 40 元\n1 → 珍珠奶茶 45 元\n3 → 烏龍綠茶 30 元\n總金額 = 25 + 25 + 40 + 45 + 30 = 165 元。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "3\n1 3 5",
+                        "expectedOutput": "135",
+                        "score": 10
+                    },
+                    {
+                        "input": "5\n2 2 4 1 3",
+                        "expectedOutput": "165",
+                        "score": 15
+                    },
+                    {
+                        "input": "4\n5 5 5 5",
+                        "expectedOutput": "240",
+                        "score": 20
+                    },
+                    {
+                        "input": "1\n1",
+                        "expectedOutput": "45",
+                        "score": 25
+                    },
+                    {
+                        "input": "10\n2 2 2 2 2 1 1 1 1 1",
+                        "expectedOutput": "350",
+                        "score": 30
+                    }
+                ],
+                "difficulty": "L2",
+                "difficultyLabel": "L2｜進階",
+                "sb3Path": "m0/M2-01-CondBasics/nanto-006-1.sb3"
+            },
+            {
+                "id": "nanto-006-2",
+                "code": "M2-01-nanto-006-2",
+                "title": "碼易丁飲料店-2",
+                "description": "子題二：付款與找零-批次輸入\n\n前一個程式計算金額時，相同飲料也需要一杯一杯分別計價，請修改程式，讓程式可以依序輸入飲料編號及數量，以加快輸入及計算速度！計算總金額後，下一步再處理收錢和找錢的問題了。請你修改剛剛的程式，除輸入方式改變及計算總金額改變外，還要讀取客人支付的金額，並計算應該找給客人多少錢。如果客人付的錢不夠，也要提醒小明喔！\n\n1 號：珍珠奶茶（每杯 45 元）\n\n2 號：伯爵紅茶（每杯 25 元）\n\n3 號：烏龍綠茶（每杯 30 元）\n\n4 號：四季春茶（每杯 40 元）\n\n5 號：黑糖珍珠鮮奶茶（每杯 60 元）\n\n•輸入有三行，第一行輸入整數N，表示有N項飲料訂單要輸入\n\n•第二行輸入2N個數字，依序代表飲料編號(1~5)與數量(1~20)，中間以空白間隔。\n\n•第三行輸入數字M，代表客人支付金額\n\n•輸出請依下列格式，數字間以一個空白隔開\n\n•付款足夠：總金額X 應找錢Y\n\n•付款不足：總金額X 付款不足Y",
+                "examples": [
+                    {
+                        "input": "2\n5 2 4 3\n500",
+                        "output": "總金額240 應找錢260",
+                        "explanation": "第一行輸入2，代表有2項飲料訂單\n第二行輸入5 2 4 3，表示有5號飲料購買2杯，4號飲料購買3杯，合計總金額420元\n第三行輸入500，表示客人付款500元\n程式運算後一行輸出：總金額420 應找錢80"
+                    },
+                    {
+                        "input": "3\n1 5 3 3 2 2\n350",
+                        "output": "總金額365 付款不足15",
+                        "explanation": "第一行輸入3，代表有3項飲料訂單\n第二行輸入1 5 3 3 2 2，表示有1號飲料購買5杯，3號飲料購買3杯，2號飲料購買2杯，合計總金額365元\n第三行輸入350，表示客人付款350元\n程式運算後一行輸出：總金額365 付款不足15"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "2\n5 2 4 3\n500",
+                        "expectedOutput": "總金額240 應找錢260",
+                        "score": 10
+                    },
+                    {
+                        "input": "3\n1 3 2 2 4 1\n300",
+                        "expectedOutput": "總金額225 應找錢75",
+                        "score": 15
+                    },
+                    {
+                        "input": "1\n1 5\n200",
+                        "expectedOutput": "總金額225 付款不足25",
+                        "score": 20
+                    },
+                    {
+                        "input": "2\n1 2 3 1\n100",
+                        "expectedOutput": "總金額120 付款不足20",
+                        "score": 25
+                    },
+                    {
+                        "input": "4\n1 5 2 4 3 3 5 2\n600",
+                        "expectedOutput": "總金額535 應找錢65",
+                        "score": 30
+                    }
+                ],
+                "difficulty": "L2",
+                "difficultyLabel": "L2｜進階",
+                "sb3Path": "m0/M2-01-CondBasics/nanto-006-2.sb3"
+            },
+            {
+                "id": "WP-01",
+                "code": "M2-01-WP-01",
+                "title": "超商收銀",
+                "description": "顧客到超商購物，收銀機會依序讀取購買的每樣商品價格。 最後顧客拿出一筆錢付款。\n請你設計程式： 先計算所有商品的總金額。 如果付款金額大於或等於總金額，輸出應找的金額。\n如果付款金額不足，輸出：付款金額不足",
+                "examples": [
+                    {
+                        "input": "3\n50 20 30\n120",
+                        "output": "20",
+                        "explanation": "商品總金額 = 50 + 30 + 20 = 100\n付款金額 = 120\n足夠付款 → 應找錢 = 120 - 100 = 20"
+                    },
+                    {
+                        "input": "2\n40 35\n60",
+                        "output": "付款金額不足",
+                        "explanation": "商品總金額 = 40 + 35 = 75\n付款金額 = 60\n不足以支付 → 輸出「付款金額不足」"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "3\n50 20 30\n120",
+                        "expectedOutput": "20",
+                        "score": 10
+                    },
+                    {
+                        "input": "2\n40 35\n60",
+                        "expectedOutput": "付款金額不足",
+                        "score": 10
+                    },
+                    {
+                        "input": "4\n10 20 30 40\n100",
+                        "expectedOutput": "0",
+                        "score": 10
+                    },
+                    {
+                        "input": "4\n5 5 5 5\n50",
+                        "expectedOutput": "30",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L2",
+                "difficultyLabel": "L2｜進階",
+                "sb3Path": "m0/M2-01-CondBasics/WP-01.sb3"
+            }
+        ]
+    },
+    {
+        "code": "M2-02",
+        "title": "運算與條件判斷綜合挑戰",
+        "tier": "t2",
+        "unlockCode": "M2-02-CondChallenge",
+        "tasks": [
+            {
+                "id": "TYTN-09",
+                "code": "M2-02-TYTN-09",
+                "title": "校園販賣機自動補貨",
+                "description": "自立國中販賣機販售多種飲料，每種飲料都有目前庫存量。為避免缺貨造成不便，系統規定：凡庫存低於10罐者，一律自動補貨至20罐；庫存大於等於10者不補貨。\n請寫一個程式，讀入各品項目前的庫存量，進行自動補貨後，輸出所有飲料的總罐數",
+                "examples": [
+                    {
+                        "input": "5\n12 8 5 20 18",
+                        "output": "90",
+                        "explanation": "5 種飲料庫存為 12、8、5、20、18。\n8、5 低於 10，補至 20。\n補貨後為 12、20、20、20、18，總和 90。"
+                    },
+                    {
+                        "input": "4\n9 9 9 9",
+                        "output": "80",
+                        "explanation": "4 種飲料庫存皆低於 10，皆補至 20。\n總量為 20×4=80。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "5\n12 8 5 20 18",
+                        "expectedOutput": "90",
+                        "score": 10
+                    },
+                    {
+                        "input": "4\n9 9 9 9",
+                        "expectedOutput": "80",
+                        "score": 10
+                    },
+                    {
+                        "input": "4\n10 11 15 20",
+                        "expectedOutput": "56",
+                        "score": 10
+                    },
+                    {
+                        "input": "1\n3",
+                        "expectedOutput": "20",
+                        "score": 10
+                    },
+                    {
+                        "input": "6\n0 10 25 9 15 8",
+                        "expectedOutput": "110",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L2",
+                "difficultyLabel": "L2｜進階",
+                "sb3Path": "m0/M2-02-CondChallenge/TYTN-09.sb3"
+            },
+            {
+                "id": "115J-01",
+                "code": "M2-02-115J-01",
+                "title": "考試獎勵",
+                "description": "強強的老師每週的週一到週五都會進行測驗。每位學生在每次測驗後，可以獲得其測驗分數「除以 10（無條件捨去）」的點數，老師會將點數持續累積。每週五老師會提供娃娃當作獎品讓學生用點數兌換。\n【兌換規則】\n1. 第一週：所有學生都有資格兌換獎品。\n2. 第二週起：學生必須「該週五的成績」比「前一週五的成績」更高，才有資格兌換。\n3. 兌換限制：學生若有資格，且累積的點數足夠兌換該週的獎品，就可以扣除該週規定的點數換取一隻娃娃。每人每週最多只能兌換「一隻」娃娃。\n請撰寫一個程式，輸入強強每週的測驗成績與各週兌換娃娃所需的點數，計算 N 週後，強強總共兌換了幾隻娃娃，以及最後剩餘多少點數。",
+                "examples": [
+                    {
+                        "input": "1 23\n10 20 30 40 50",
+                        "output": "0 15",
+                        "explanation": "第 1 週五天成績為 10, 20, 30, 40, 50，累積總點數為 1+2+3+4+5 = 15 點。\n需要 23 點，點數不足，兌換 0 個，剩餘 15 點。"
+                    },
+                    {
+                        "input": "4 10 20 80 99\n80 88 60 70 90\n70 71 72 73 74\n89 80 85 83 81\n100 100 100 100 100",
+                        "output": "2 73",
+                        "explanation": "1. 第 1 週點數 38，週五 90。換 1 隻，扣 10 剩 28 點。\n2. 第 2 週得 35 點，共 63 點。週五 74 分  74 分，具資格。換 1 隻，扣 80 剩 23 點。\n4. 第 4 週得 50 點，共 73 點。週五 100 分 > 81 分，具資格。但點數 73 < 99，點數不足。\n總共兌換 2 隻，剩餘 73 點。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "1 20\n10 20 30 40 50",
+                        "expectedOutput": "0 15",
+                        "score": 10
+                    },
+                    {
+                        "input": "1 15\n50 50 50 50 50",
+                        "expectedOutput": "1 10",
+                        "score": 10
+                    },
+                    {
+                        "input": "2 10 10\n20 20 20 20 80\n30 30 30 30 70",
+                        "expectedOutput": "1 25",
+                        "score": 10
+                    },
+                    {
+                        "input": "2 10 10\n20 20 20 20 60\n90 90 90 90 60",
+                        "expectedOutput": "1 46",
+                        "score": 10
+                    },
+                    {
+                        "input": "3 50 50 50\n50 50 50 50 10\n50 50 50 50 20\n50 50 50 50 30",
+                        "expectedOutput": "1 16",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L3",
+                "difficultyLabel": "L3｜挑戰",
+                "sb3Path": "m0/M2-02-CondChallenge/115J-01.sb3"
+            },
+            {
+                "id": "nanto-002",
+                "code": "M2-02-nanto-002",
+                "title": "勇者的挑戰",
+                "description": "勇者的挑戰\n說明：勇者正在地下城探險。他會遇到怪物（扣血）或撿到藥水（補血）。請模擬他的血量變化。要注意的是，血量有上限，補血不能補超過上限；且一旦血量歸零或變負數，勇者就倒下了，血量歸零，勇者已經陣亡，立即停止事件處理，最終輸出為 0",
+                "examples": [
+                    {
+                        "input": "100\n4\n-30 50 -10 -5",
+                        "output": "85",
+                        "explanation": "第一行輸入100，代表初始血量100，上限100。\n第二行輸入4，代表後面有4筆事件資料要輸入\n第三行輸入-30 50 -10 -5，代表4次事件增減值\n事件1：100-30=70\n事件2：70+50=120，超過上限，修正最高為上限100\n事件3：100-10=90\n事件4：90-5=85，程式輸出 85"
+                    },
+                    {
+                        "input": "50\n3\n-60 20 -10",
+                        "output": "0",
+                        "explanation": "第一行輸入50，代表初始血量50，上限50。\n第二行輸入3，代表後面有3筆事件資料要輸入\n第三行輸入-60 20 -10，代表3次事件增減值\n事件1：50-60=-10，低於下限0，勇者陣亡，血量為0，程式輸出 0。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "100\n1\n-20",
+                        "expectedOutput": "80",
+                        "score": 10
+                    },
+                    {
+                        "input": "100\n2\n-30 80",
+                        "expectedOutput": "100",
+                        "score": 15
+                    },
+                    {
+                        "input": "50\n3\n-60 200 -10",
+                        "expectedOutput": "0",
+                        "score": 20
+                    },
+                    {
+                        "input": "120\n4\n-30 -50 -50 200",
+                        "expectedOutput": "0",
+                        "score": 25
+                    },
+                    {
+                        "input": "77\n6\n-20 10 10 -35 20 15",
+                        "expectedOutput": "77",
+                        "score": 30
+                    }
+                ],
+                "difficulty": "L3",
+                "difficultyLabel": "L3｜挑戰",
+                "sb3Path": "m0/M2-02-CondChallenge/nanto-002.sb3"
+            },
+            {
+                "id": "nanto-005",
+                "code": "M2-02-nanto-005",
+                "title": "玩具收納運送計算",
+                "description": "夢想玩具工坊每天需要將完成的玩具裝箱後，運送到展示倉庫。\n為了確保運送安全，每一個標準收納箱最多只能承載 20 公斤 的玩具重量。\n玩具會依照製作完成的順序，一件一件依序處理。\n當嘗試將某件玩具放入目前使用的收納箱時，\n若箱內現有玩具重量加上該玩具後超過 20 公斤，\n則該玩具不可放入此箱，該箱立即封箱，\n並改使用一個新的收納箱來放置該玩具。\n請根據輸入的玩具重量資料，計算最少需要多少個收納箱，\n才能將所有玩具依序安全裝箱完成",
+                "examples": [
+                    {
+                        "input": "6\n5 6 4 7 9 3",
+                        "output": "3",
+                        "explanation": "第一箱：5＋6＋4＝15，加入 7 會超過 20 → 封箱。\n第二箱：7＋9＝16，加入 3 會超過 20 → 封箱。\n第三箱：3 → 封箱。\n共需要 3 個收納箱。"
+                    },
+                    {
+                        "input": "5\n8 9 6 3 4",
+                        "output": "2",
+                        "explanation": "第一箱：8＋9＝17，加入 6 會超過 20 → 封箱。\n第二箱：6＋3＋4＝13 → 封箱。\n共需要 2 個收納箱。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "1\n20",
+                        "expectedOutput": "1",
+                        "score": 10
+                    },
+                    {
+                        "input": "4\n5 5 5 5",
+                        "expectedOutput": "1",
+                        "score": 15
+                    },
+                    {
+                        "input": "5\n9 9 9 9 9",
+                        "expectedOutput": "3",
+                        "score": 20
+                    },
+                    {
+                        "input": "6\n12 3 4 6 5 2",
+                        "expectedOutput": "2",
+                        "score": 25
+                    },
+                    {
+                        "input": "8\n2 2 2 2 2 2 2 2",
+                        "expectedOutput": "1",
+                        "score": 30
+                    }
+                ],
+                "difficulty": "L3",
+                "difficultyLabel": "L3｜挑戰",
+                "sb3Path": "m0/M2-02-CondChallenge/nanto-005.sb3"
+            },
+            {
+                "id": "nanto-006-3",
+                "code": "M2-02-nanto-006-3",
+                "title": "碼易丁飲料店-3",
+                "description": "子題三：最少硬幣數找零\n為了讓收銀機裡的零錢管理更方便，小明希望找錢時盡量使用最少數量的硬幣與鈔票。假設收銀機裡有充足的 50元、10元、5元、1元 硬幣（暫不考慮鈔票），請依序使用 50、10、5、1 元硬幣，由大到小進行找零，此幣值組合可保證找零所需的硬幣數量最少。請寫出一個計算出找零金額所需的最少硬幣組合。\n•輸入只有一個整數，代表需要找零的總金額 (Change)，範圍 0 ~ 999\n•程式運算，輸出找零組合1 3 1 3，共四筆數字。\n•第一筆1表示50元硬幣數量\n•第二筆3表示10元硬幣數量\n•第三筆1表示5元硬幣數量\n•第四筆3表示1元硬幣數量",
+                "examples": [
+                    {
+                        "input": "88",
+                        "output": "1 3 1 3",
+                        "explanation": "第一行輸入88，表示找零88元\n程式運算後一行輸出四個整數：1 3 1 3，\n分別表示找零50元硬幣1個、10元硬幣3個、5元硬幣1個、1元硬幣3個"
+                    },
+                    {
+                        "input": "124",
+                        "output": "2 2 0 4",
+                        "explanation": "第一行輸入124，表示找零124元\n程式運算後一行輸出四個整數：2 2 0 4，\n分別表示找零50元硬幣2個、10元硬幣2個、5元硬幣0個、1元硬幣4個"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "7",
+                        "expectedOutput": "0 0 1 2",
+                        "score": 10
+                    },
+                    {
+                        "input": "100",
+                        "expectedOutput": "2 0 0 0",
+                        "score": 15
+                    },
+                    {
+                        "input": "388",
+                        "expectedOutput": "7 3 1 3",
+                        "score": 20
+                    },
+                    {
+                        "input": "999",
+                        "expectedOutput": "19 4 1 4",
+                        "score": 25
+                    },
+                    {
+                        "input": "0",
+                        "expectedOutput": "0 0 0 0",
+                        "score": 30
+                    }
+                ],
+                "difficulty": "L3",
+                "difficultyLabel": "L3｜挑戰",
+                "sb3Path": "m0/M2-02-CondChallenge/nanto-006-3.sb3"
+            },
+            {
+                "id": "nanto-006-4",
+                "code": "M2-02-nanto-006-4",
+                "title": "碼易丁飲料店-4",
+                "description": "子題四：每日銷售數量結算\n到了晚上，小明需要結算一整天賣出了多少杯飲料，以及總共多少利潤。\n假設店內共有 K 種飲料（編號為 1 ～ K），每種飲料的「每杯利潤」皆不同。\n今天共有 N 筆訂單，每筆訂單包含「飲料編號」與「購買杯數」。\n請你設計一個程式，依序讀取輸入資料，計算：\n1. 各種飲料的總銷售杯數（依照 1～K 順序）\n2. 當天的總利潤",
+                "examples": [
+                    {
+                        "input": "5\n15 10 15 20 25\n3\n5 5 2 2 2 10",
+                        "output": "0 12 0 0 5 245",
+                        "explanation": "共有 5 種飲料，各自利潤為 15、10、15、20、25 元\n三筆訂單：\n5 號 5 杯、2 號 2 杯、2 號 10 杯\n各飲料銷售量為：0 12 0 0 5\n總利潤 = 12×10 + 5×25 = 245"
+                    },
+                    {
+                        "input": "5\n5 8 8 6 5\n5\n2 4 1 3 5 2 3 3 4 4",
+                        "output": "3 4 3 4 2 105",
+                        "explanation": "共有 5 種飲料，各自利潤為 5、8、8、6、5 元\n五筆訂單：\n2 號 4 杯、1 號 3 杯、5 號 2 杯、3 號 3 杯、4 號 4 杯\n各飲料銷售量為：3 4 3 4 2\n總利潤 = 3*5 + 4*8 + 3*8 + 4*6 + 2*5 = 105"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "3\n10 20 30\n1\n2 5",
+                        "expectedOutput": "0 5 0 100",
+                        "score": 10
+                    },
+                    {
+                        "input": "4\n5 10 15 20\n3\n1 2 2 3 4 1",
+                        "expectedOutput": "2 3 0 1 60",
+                        "score": 15
+                    },
+                    {
+                        "input": "5\n15 10 15 20 25\n4\n1 2 3 3 5 2 1 1",
+                        "expectedOutput": "3 0 3 0 2 140",
+                        "score": 20
+                    },
+                    {
+                        "input": "6\n8 12 20 15 10 25\n6\n6 2 2 5 4 3 6 1 2 2 1 4",
+                        "expectedOutput": "4 7 0 3 0 3 236",
+                        "score": 25
+                    },
+                    {
+                        "input": "10\n5 6 7 8 9 10 11 12 13 14\n10\n1 1 2 2 3 3 4 4 5 5 6 1 7 2 8 1 9 2 10 3",
+                        "expectedOutput": "1 2 3 4 5 1 2 1 2 3 227",
+                        "score": 30
+                    }
+                ],
+                "difficulty": "L3",
+                "difficultyLabel": "L3｜挑戰",
+                "sb3Path": "m0/M2-02-CondChallenge/nanto-006-4.sb3"
+            },
+            {
+                "id": "W2-02",
+                "code": "M2-02-W2-02",
+                "title": "程式設計師阿倫",
+                "description": "阿倫很喜歡寫程式，他每天都會寫好幾個程式。\n為了自我要求，他規定自己：\n從第 3 天開始，每天寫的程式數量必須等於「前 2 天寫的總和」，\n以此作為自己持續進步的證明。\n已知阿倫：\n第 1 天寫了 A 個程式，第 2 天寫了 B 個程式。\n請你撰寫一個程式，計算阿倫在第 N 天寫了多少個程式。",
+                "examples": [
+                    {
+                        "input": "4 1 2",
+                        "output": "5",
+                        "explanation": "第 1 天：1\n第 2 天：2\n第 3 天：1 + 2 = 3\n第 4 天：2 + 3 = 5"
+                    },
+                    {
+                        "input": "1 1 1",
+                        "output": "1",
+                        "explanation": "查詢第 1 天，直接輸出 A = 1"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "1 5 8",
+                        "expectedOutput": "5",
+                        "score": 10
+                    },
+                    {
+                        "input": "2 5 8",
+                        "expectedOutput": "8",
+                        "score": 15
+                    },
+                    {
+                        "input": "5 1 2",
+                        "expectedOutput": "8",
+                        "score": 20
+                    },
+                    {
+                        "input": "6 2 3",
+                        "expectedOutput": "21",
+                        "score": 25
+                    },
+                    {
+                        "input": "10 1 1",
+                        "expectedOutput": "55",
+                        "score": 30
+                    }
+                ],
+                "difficulty": "L3",
+                "difficultyLabel": "L3｜挑戰",
+                "sb3Path": "m0/M2-02-CondChallenge/W2-02.sb3"
+            },
+            {
+                "id": "W9-05",
+                "code": "M2-02-W9-05",
+                "title": "連續成績進步分析",
+                "description": "老師連續記錄了你 N 天的測驗成績，依照時間順序存放在一份成績清單中。老師希望透過這些資料，了解你在學習過程中是否有持續進步的表現。\n\n請從第 2 天開始，將每天的成績與前一天的成績進行比較，並依下列規則判斷：\n\n• 若當天成績大於前一天成績，則視為「成績進步一次」。\n\n• 若當天成績沒有比前一天高（小於或等於），則中斷連續進步的計算。\n\n• 請找出並輸出「連續成績進步」的最長次數。",
+                "examples": [
+                    {
+                        "input": "5\n60 65 70 68 72",
+                        "output": "2",
+                        "explanation": "連續進步區段：\n1. 60 -> 65 -> 70 (連續 2 次進步)\n2. 68 -> 72 (連續 1 次進步)\n最大值為 2。"
+                    },
+                    {
+                        "input": "5\n50 60 55 56 57",
+                        "output": "2",
+                        "explanation": "連續進步區段：\n1. 50 -> 60 (連續 1 次進步)\n2. 55 -> 56 -> 57 (連續 2 次進步)\n最大值為 2。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "5\n60 65 70 68 72",
+                        "expectedOutput": "2",
+                        "score": 10
+                    },
+                    {
+                        "input": "5\n50 60 55 56 57",
+                        "expectedOutput": "2",
+                        "score": 15
+                    },
+                    {
+                        "input": "4\n100 90 90 80",
+                        "expectedOutput": "0",
+                        "score": 20
+                    },
+                    {
+                        "input": "6\n10 20 30 40 50 60",
+                        "expectedOutput": "5",
+                        "score": 25
+                    },
+                    {
+                        "input": "10\n80 85 90 88 89 90 95 95 96 98",
+                        "expectedOutput": "3",
+                        "score": 30
+                    }
+                ],
+                "difficulty": "L3",
+                "difficultyLabel": "L3｜挑戰",
+                "sb3Path": "m0/M2-02-CondChallenge/W9-05.sb3"
+            },
+            {
+                "id": "TYTN-11",
+                "code": "M2-02-TYTN-11",
+                "title": "攻擊防禦力平衡",
+                "description": "小麗在玩一款魔法戰鬥RPG手機遊戲。角色擁有「魔力攻擊」與「魔法防禦」兩種屬性。三件魔法道具會同時提升攻擊與防禦，道具效果可以疊加，但每件道具只能使用一次。\n小麗希望使用最少的道具，使角色攻擊力與防禦力相等。請撰寫程式找出要使用哪些道具才能達成要求，若需要多個道具，請依道具編號由小到大輸出；若無法達成攻擊力等於防禦力則輸出0",
+                "examples": [
+                    {
+                        "input": "15\n20\n20 5 10 10 15 5",
+                        "output": "3",
+                        "explanation": "第1行：角色攻擊力15\n第2行：角色防禦力20\n第3行：20 5 10為三件道具攻擊力；10 15 5為防禦力\n使用3號道具後攻擊與防禦相等。"
+                    },
+                    {
+                        "input": "10\n15\n5 20 15 10 10 25",
+                        "output": "1 2",
+                        "explanation": "第1行：角色攻擊力10\n第2行：角色防禦力15\n第3行：5 20 15為攻擊力；10 10 25為防禦力\n使用1號與2號道具後攻擊與防禦相同。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "15\n20\n20 5 10 10 15 5",
+                        "expectedOutput": "3",
+                        "score": 10
+                    },
+                    {
+                        "input": "10\n15\n5 20 15 10 10 25",
+                        "expectedOutput": "1 2",
+                        "score": 10
+                    },
+                    {
+                        "input": "30\n40\n8 5 10 10 20 0",
+                        "expectedOutput": "3",
+                        "score": 10
+                    },
+                    {
+                        "input": "20\n50\n10 10 10 0 0 0",
+                        "expectedOutput": "1 2 3",
+                        "score": 10
+                    },
+                    {
+                        "input": "10\n100\n20 10 5 5 5 5",
+                        "expectedOutput": "0",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L4",
+                "difficultyLabel": "L4｜精熟",
+                "sb3Path": "m0/M2-02-CondChallenge/TYTN-11.sb3"
+            },
+            {
+                "id": "W4-03",
+                "code": "M2-02-W4-03",
+                "title": "省電大作戰",
+                "description": "小明的房間有一台變頻冷氣，為了節省電費，他研究出冷氣的耗電規則如下：\n【耗電規則】\n1. 運轉費：只要冷氣是開著的（運轉中），每個小時消耗 1 度電。\n2. 啟動費：每次把冷氣「從關機變成開機」的瞬間，需要額外消耗 5 度電。\n注意：若冷氣本來就是開著的，進入下一小時不需要再付啟動費。\n3. 關機省電：冷氣關掉時不耗電（0 度）。\n【行程表】\n小明列出一天 N 個小時的行程表（以 0 和 1 表示）：\n1：代表小明在房間，該小時冷氣必須是開著的。\n0：代表小明不在房間，你可以選擇讓冷氣關掉（省運轉費），或維持開著（避免下次再付啟動費 5 度）。\n【任務】\n在滿足所有「小明在房間」的時段冷氣都必須開著的條件下，請計算一整天最少總共要消耗多少度電。",
+                "examples": [
+                    {
+                        "input": "5\n1 1 1 1 1",
+                        "output": "10",
+                        "explanation": "一直都在房間。\n第 1 小時開機（啟動費 5 + 運轉費 1 = 6 度）。\n第 2~5 小時保持開機（運轉費 1×4 = 4 度）。\n總共：6 + 4 = 10 度。"
+                    },
+                    {
+                        "input": "8\n1 0 0 1 0 1 0 0",
+                        "output": "11",
+                        "explanation": "小明在房間的時段為第 1、4、6 小時。\n最佳策略：第 1~6 小時維持開機（避免多次付 5 度啟動費），第 7~8 小時關機。\n總計耗電為 11 度。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "1\n1",
+                        "expectedOutput": "6",
+                        "score": 10
+                    },
+                    {
+                        "input": "6\n0 0 0 0 0 0",
+                        "expectedOutput": "0",
+                        "score": 15
+                    },
+                    {
+                        "input": "8\n1 0 0 0 0 0 0 1",
+                        "expectedOutput": "12",
+                        "score": 20
+                    },
+                    {
+                        "input": "7\n1 0 0 0 0 0 1",
+                        "expectedOutput": "12",
+                        "score": 25
+                    },
+                    {
+                        "input": "10\n1 0 1 0 1 0 1 0 1 0",
+                        "expectedOutput": "14",
+                        "score": 30
+                    }
+                ],
+                "difficulty": "L4",
+                "difficultyLabel": "L4｜精熟",
+                "sb3Path": "m0/M2-02-CondChallenge/W4-03.sb3"
+            },
+            {
+                "id": "WP-07",
+                "code": "M2-02-WP-07",
+                "title": "找零錢計算",
+                "description": "收銀機內有 5 種面額的錢幣：100、50、10、5、1，且每種面額皆有有限數量。\n顧客付款後需要找零，請在不超過庫存的前提下，用最少的硬幣數完成找零。\n若無法剛好找出需要的金額，輸出 無法找零。若無法剛好找出需要的金額，輸出 無法找零",
+                "examples": [
+                    {
+                        "input": "270\n500\n3 3 10 10 20",
+                        "output": "2 0 3 0 0",
+                        "explanation": "第一行輸入270，表示買270元。\n第二行輸入500，表示付款500元。\n第三行輸入3 3 10 10 20，代表每種零錢剩餘的數量。\n程式分別輸出100、50、10、5、1最少硬幣2 0 3 0 0"
+                    },
+                    {
+                        "input": "500\n500\n1 2 3 4 5",
+                        "output": "0 0 0 0 0",
+                        "explanation": "第一行輸入500，表示買500元。\n第二行輸入500，表示付款500元。\n第三行輸入1 2 3 4 5，代表每種零錢剩餘的數量。\n程式分別輸出100、50、10、5、1最少硬幣0 0 0 0 0"
+                    },
+                    {
+                        "input": "123\n150\n2 2 2 2 0",
+                        "output": "無法找零",
+                        "explanation": "第一行輸入123，表示買123元。\n第二行輸入150，表示付款150元。\n第三行輸入2 2 2 2 0，代表每種零錢剩餘的數量。\n程式輸出無法找零"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "270\n500\n3 3 10 10 20",
+                        "expectedOutput": "2 0 3 0 0",
+                        "score": 10
+                    },
+                    {
+                        "input": "500\n500\n1 2 3 4 5",
+                        "expectedOutput": "0 0 0 0 0",
+                        "score": 10
+                    },
+                    {
+                        "input": "123\n150\n2 2 2 2 0",
+                        "expectedOutput": "無法找零",
+                        "score": 10
+                    },
+                    {
+                        "input": "350\n1000\n5 5 5 5 5",
+                        "expectedOutput": "5 3 0 0 0",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L4",
+                "difficultyLabel": "L4｜精熟",
+                "sb3Path": "m0/M2-02-CondChallenge/WP-07.sb3"
+            },
+            {
+                "id": "WP-08",
+                "code": "M2-02-WP-08",
+                "title": "短片欣賞",
+                "description": "圖書館有一間媒體播放室，每週六會連續播放科學系列短片，\n最多播放 20 個短片。每個短片以一個大寫英文字母表示，\n相同字母代表同一系列短片。\n娜娜有特別喜歡的系列短片，但她每天能夠待在圖書館的時間有限，\n只能連續觀看 K 場短片。她可以自由選擇從哪一場開始觀看。\n請你幫娜娜找出，在連續觀看 K 場短片的情況下，\n最多可以看到幾次她最喜歡的系列短片",
+                "examples": [
+                    {
+                        "input": "8\nA B C A W A Q A\n5 A",
+                        "output": "3",
+                        "explanation": "圖書館安排 8 場短片，\n播放順序為 A B C A W A Q A。\n娜娜可以連續觀看 5 場，最喜歡 A 系列。\n從第 4 場開始觀看 (A W A Q A)，\n可看到 3 次 A，因此輸出 3。"
+                    },
+                    {
+                        "input": "3\nX G X\n2 X",
+                        "output": "1",
+                        "explanation": "不論從第 1 場或第 2 場開始觀看，\n都只能看到 1 次 X 系列短片，因此輸出 1。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "8\nA B C A W A Q A\n5 A",
+                        "expectedOutput": "3",
+                        "score": 50
+                    },
+                    {
+                        "input": "3\nX G X\n2 X",
+                        "expectedOutput": "1",
+                        "score": 50
+                    },
+                    {
+                        "input": "6\nB B B B B B\n3 B",
+                        "expectedOutput": "3",
+                        "score": 50
+                    },
+                    {
+                        "input": "10\nA C A C A C A C A C\n4 A",
+                        "expectedOutput": "2",
+                        "score": 50
+                    },
+                    {
+                        "input": "5\nD E F G H\n3 A",
+                        "expectedOutput": "0",
+                        "score": 50
+                    }
+                ],
+                "difficulty": "L4",
+                "difficultyLabel": "L4｜精熟",
+                "sb3Path": "m0/M2-02-CondChallenge/WP-08.sb3"
+            }
+        ]
+    },
+    {
+        "code": "M2-03",
+        "title": "模擬與狀態：基礎",
+        "tier": "t2",
+        "unlockCode": "M2-03-SimBasics",
+        "tasks": [
+            {
+                "id": "JSSIM01-D01",
+                "code": "M2-03-JSSIM01-D01",
+                "title": "分數累加模擬",
+                "description": "第一行輸入一個整數 N，第二行輸入 N 個整數，代表每一回合得到的分數。請計算最後總分。本題用來示範每回合事件如何更新分數狀態",
+                "examples": [
+                    {
+                        "input": "3\n10 20 30",
+                        "output": "60",
+                        "explanation": "三回合總分為 60。"
+                    },
+                    {
+                        "input": "4\n5 0 5 10",
+                        "output": "20",
+                        "explanation": "總分為 20。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "3\n10 20 30",
+                        "expectedOutput": "60",
+                        "score": 20
+                    },
+                    {
+                        "input": "4\n5 0 5 10",
+                        "expectedOutput": "20",
+                        "score": 20
+                    },
+                    {
+                        "input": "1\n100",
+                        "expectedOutput": "100",
+                        "score": 20
+                    },
+                    {
+                        "input": "5\n1 2 3 4 5",
+                        "expectedOutput": "15",
+                        "score": 20
+                    },
+                    {
+                        "input": "6\n10 10 0 20 0 5",
+                        "expectedOutput": "45",
+                        "score": 20
+                    }
+                ],
+                "difficulty": "L1",
+                "difficultyLabel": "L1｜基礎",
+                "sb3Path": "m0/M2-03-SimBasics/JSSIM01-D01.sb3"
+            },
+            {
+                "id": "JSSIM01-D02",
+                "code": "M2-03-JSSIM01-D02",
+                "title": "血量變化模擬",
+                "description": "第一行輸入初始血量 H，第二行輸入一個整數 N，第三行輸入 N 個整數，代表每一回合血量變化。正數代表恢復，負數代表受傷。請輸出最後血量",
+                "examples": [
+                    {
+                        "input": "100\n3\n-10 5 -20",
+                        "output": "75",
+                        "explanation": "100-10+5-20=75。"
+                    },
+                    {
+                        "input": "50\n2\n10 -5",
+                        "output": "55",
+                        "explanation": "50+10-5=55。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "100\n3\n-10 5 -20",
+                        "expectedOutput": "75",
+                        "score": 20
+                    },
+                    {
+                        "input": "50\n2\n10 -5",
+                        "expectedOutput": "55",
+                        "score": 20
+                    },
+                    {
+                        "input": "30\n1\n-30",
+                        "expectedOutput": "0",
+                        "score": 20
+                    },
+                    {
+                        "input": "80\n4\n-10 -10 20 5",
+                        "expectedOutput": "85",
+                        "score": 20
+                    },
+                    {
+                        "input": "10\n3\n5 5 5",
+                        "expectedOutput": "25",
+                        "score": 20
+                    }
+                ],
+                "difficulty": "L1",
+                "difficultyLabel": "L1｜基礎",
+                "sb3Path": "m0/M2-03-SimBasics/JSSIM01-D02.sb3"
+            },
+            {
+                "id": "JSSIM01-D03",
+                "code": "M2-03-JSSIM01-D03",
+                "title": "根據事件改變狀態",
+                "description": "輸入一串事件字元。字元 G 代表得到 10 分，字元 B 代表扣 5 分。初始分數為 0，請計算所有事件結束後的分數。本題用來示範不同事件對狀態造成不同影響",
+                "examples": [
+                    {
+                        "input": "GGB",
+                        "output": "15",
+                        "explanation": "10+10-5=15。"
+                    },
+                    {
+                        "input": "BBB",
+                        "output": "-15",
+                        "explanation": "三次扣分共 -15。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "GGB",
+                        "expectedOutput": "15",
+                        "score": 20
+                    },
+                    {
+                        "input": "BBB",
+                        "expectedOutput": "-15",
+                        "score": 20
+                    },
+                    {
+                        "input": "GGGG",
+                        "expectedOutput": "40",
+                        "score": 20
+                    },
+                    {
+                        "input": "BGBG",
+                        "expectedOutput": "10",
+                        "score": 20
+                    },
+                    {
+                        "input": "GBGBG",
+                        "expectedOutput": "20",
+                        "score": 20
+                    }
+                ],
+                "difficulty": "L2",
+                "difficultyLabel": "L2｜進階",
+                "sb3Path": "m0/M2-03-SimBasics/JSSIM01-D03.sb3"
+            },
+            {
+                "id": "JSSIM01-P01",
+                "code": "M2-03-JSSIM01-P01",
+                "title": "簡單遊戲關卡累計",
+                "description": "遊戲共有 N 個關卡，每關可得到不同分數。第一行輸入 N，第二行輸入 N 個分數。若最後總分大於或等於 100，輸出 Clear；否則輸出 Retry",
+                "examples": [
+                    {
+                        "input": "3\n40 30 50",
+                        "output": "Clear",
+                        "explanation": "總分 120，過關。"
+                    },
+                    {
+                        "input": "2\n30 40",
+                        "output": "Retry",
+                        "explanation": "總分 70，未過關。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "3\n40 30 50",
+                        "expectedOutput": "Clear",
+                        "score": 20
+                    },
+                    {
+                        "input": "2\n30 40",
+                        "expectedOutput": "Retry",
+                        "score": 20
+                    },
+                    {
+                        "input": "4\n25 25 25 25",
+                        "expectedOutput": "Clear",
+                        "score": 20
+                    },
+                    {
+                        "input": "1\n99",
+                        "expectedOutput": "Retry",
+                        "score": 20
+                    },
+                    {
+                        "input": "5\n10 20 30 40 0",
+                        "expectedOutput": "Clear",
+                        "score": 20
+                    }
+                ],
+                "difficulty": "L2",
+                "difficultyLabel": "L2｜進階",
+                "sb3Path": "m0/M2-03-SimBasics/JSSIM01-P01.sb3"
+            },
+            {
+                "id": "JSSIM01-P02",
+                "code": "M2-03-JSSIM01-P02",
+                "title": "多條件狀態判斷",
+                "description": "輸入玩家的血量 H 與分數 S。若 H 大於 0 且 S 大於或等於 100，輸出 Win；若 H 大於 0 但 S 未達 100，輸出 Keep；若 H 小於或等於 0，輸出 Lose。本題用來練習狀態值與條件分支結合",
+                "examples": [
+                    {
+                        "input": "10 120",
+                        "output": "Win",
+                        "explanation": "血量仍大於 0，且分數達 100。"
+                    },
+                    {
+                        "input": "10 80",
+                        "output": "Keep",
+                        "explanation": "血量仍大於 0，但分數未達 100。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "10 120",
+                        "expectedOutput": "Win",
+                        "score": 20
+                    },
+                    {
+                        "input": "10 80",
+                        "expectedOutput": "Keep",
+                        "score": 20
+                    },
+                    {
+                        "input": "0 200",
+                        "expectedOutput": "Lose",
+                        "score": 20
+                    },
+                    {
+                        "input": "-5 150",
+                        "expectedOutput": "Lose",
+                        "score": 20
+                    },
+                    {
+                        "input": "1 100",
+                        "expectedOutput": "Win",
+                        "score": 20
+                    }
+                ],
+                "difficulty": "L2",
+                "difficultyLabel": "L2｜進階",
+                "sb3Path": "m0/M2-03-SimBasics/JSSIM01-P02.sb3"
+            },
+            {
+                "id": "SIM01-001",
+                "code": "M2-03-SIM01-001",
+                "title": "分數累積",
+                "description": "一場遊戲中，玩家每回合會得到一些分數。給定 N 回合的得分，請計算最後總分。",
+                "examples": [
+                    {
+                        "input": "5\n10 20 5 30 15",
+                        "output": "80",
+                        "explanation": "總分為 10+20+5+30+15=80。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "5\n10 20 5 30 15",
+                        "expectedOutput": "80",
+                        "score": 0
+                    },
+                    {
+                        "input": "3\n0 0 0",
+                        "expectedOutput": "0",
+                        "score": 0
+                    },
+                    {
+                        "input": "4\n100 -20 30 -10",
+                        "expectedOutput": "100",
+                        "score": 0
+                    },
+                    {
+                        "input": "1\n50",
+                        "expectedOutput": "50",
+                        "score": 0
+                    }
+                ],
+                "difficulty": "L2",
+                "difficultyLabel": "L2｜進階",
+                "sb3Path": "m0/M2-03-SimBasics/SIM01-001.sb3"
+            },
+            {
+                "id": "SIM01-002",
+                "code": "M2-03-SIM01-002",
+                "title": "血量變化",
+                "description": "角色初始血量為 H。接著有 N 次事件，每次事件可能增加或減少血量。請計算最後血量。",
+                "examples": [
+                    {
+                        "input": "100\n4\n-20 10 -30 5",
+                        "output": "65",
+                        "explanation": "100-20+10-30+5=65。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "100\n4\n-20 10 -30 5",
+                        "expectedOutput": "65",
+                        "score": 0
+                    },
+                    {
+                        "input": "50\n3\n10 10 -5",
+                        "expectedOutput": "65",
+                        "score": 0
+                    },
+                    {
+                        "input": "30\n2\n-10 -20",
+                        "expectedOutput": "0",
+                        "score": 0
+                    },
+                    {
+                        "input": "80\n1\n15",
+                        "expectedOutput": "95",
+                        "score": 0
+                    }
+                ],
+                "difficulty": "L2",
+                "difficultyLabel": "L2｜進階",
+                "sb3Path": "m0/M2-03-SimBasics/SIM01-002.sb3"
+            },
+            {
+                "id": "SIM01-004",
+                "code": "M2-03-SIM01-004",
+                "title": "左右移動位置",
+                "description": "角色一開始在位置 0。接著有一串移動指令，L 代表向左移動 1 格，R 代表向右移動 1 格。請計算最後位置。",
+                "examples": [
+                    {
+                        "input": "RLRRLLR",
+                        "output": "1",
+                        "explanation": "R 為 +1，L 為 -1，最後位置為 1。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "RLRRLLR",
+                        "expectedOutput": "1",
+                        "score": 0
+                    },
+                    {
+                        "input": "RRRR",
+                        "expectedOutput": "4",
+                        "score": 0
+                    },
+                    {
+                        "input": "LLLL",
+                        "expectedOutput": "-4",
+                        "score": 0
+                    },
+                    {
+                        "input": "LRLR",
+                        "expectedOutput": "0",
+                        "score": 0
+                    }
+                ],
+                "difficulty": "L2",
+                "difficultyLabel": "L2｜進階",
+                "sb3Path": "m0/M2-03-SimBasics/SIM01-004.sb3"
+            },
+            {
+                "id": "SIM01-005",
+                "code": "M2-03-SIM01-005",
+                "title": "開關切換",
+                "description": "一盞燈一開始是關閉狀態。給定 N 次按下開關，每按一次，燈的狀態就會切換。請輸出最後燈是開或關。",
+                "examples": [
+                    {
+                        "input": "3",
+                        "output": "ON",
+                        "explanation": "關→開→關→開，最後是 ON。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "3",
+                        "expectedOutput": "ON",
+                        "score": 0
+                    },
+                    {
+                        "input": "0",
+                        "expectedOutput": "OFF",
+                        "score": 0
+                    },
+                    {
+                        "input": "2",
+                        "expectedOutput": "OFF",
+                        "score": 0
+                    },
+                    {
+                        "input": "10",
+                        "expectedOutput": "OFF",
+                        "score": 0
+                    }
+                ],
+                "difficulty": "L2",
+                "difficultyLabel": "L2｜進階",
+                "sb3Path": "m0/M2-03-SimBasics/SIM01-005.sb3"
+            },
+            {
+                "id": "SIM01-003",
+                "code": "M2-03-SIM01-003",
+                "title": "血量不可低於0",
+                "description": "角色初始血量為 H。每次事件會增加或減少血量，但血量低於 0 時要改為 0。請計算最後血量。",
+                "examples": [
+                    {
+                        "input": "30\n3\n-20 -20 15",
+                        "output": "15",
+                        "explanation": "30-20=10，10-20 低於 0 所以變 0，0+15=15。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "30\n3\n-20 -20 15",
+                        "expectedOutput": "15",
+                        "score": 0
+                    },
+                    {
+                        "input": "100\n2\n-50 -60",
+                        "expectedOutput": "0",
+                        "score": 0
+                    },
+                    {
+                        "input": "10\n3\n-5 -5 -5",
+                        "expectedOutput": "0",
+                        "score": 0
+                    },
+                    {
+                        "input": "20\n4\n10 -5 -40 3",
+                        "expectedOutput": "3",
+                        "score": 0
+                    }
+                ],
+                "difficulty": "L3",
+                "difficultyLabel": "L3｜挑戰",
+                "sb3Path": "m0/M2-03-SimBasics/SIM01-003.sb3"
+            },
+            {
+                "id": "SIM01-006",
+                "code": "M2-03-SIM01-006",
+                "title": "收集金幣與陷阱",
+                "description": "角色在地圖上依序遇到事件。C 代表收集 1 枚金幣，T 代表遇到陷阱失去 1 枚金幣，但金幣數量不可低於 0。請計算最後金幣數量。",
+                "examples": [
+                    {
+                        "input": "CCTTCT",
+                        "output": "0",
+                        "explanation": "金幣變化為 0→1→2→1→0→1→0。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "CCTTCT",
+                        "expectedOutput": "0",
+                        "score": 0
+                    },
+                    {
+                        "input": "CCCC",
+                        "expectedOutput": "4",
+                        "score": 0
+                    },
+                    {
+                        "input": "TTTT",
+                        "expectedOutput": "0",
+                        "score": 0
+                    },
+                    {
+                        "input": "CTCCTT",
+                        "expectedOutput": "0",
+                        "score": 0
+                    }
+                ],
+                "difficulty": "L3",
+                "difficultyLabel": "L3｜挑戰",
+                "sb3Path": "m0/M2-03-SimBasics/SIM01-006.sb3"
+            },
+            {
+                "id": "SIM01-007",
+                "code": "M2-03-SIM01-007",
+                "title": "最高連勝次數",
+                "description": "給定一串比賽結果，W 代表勝利，L 代表失敗。請計算最長連續勝利次數。",
+                "examples": [
+                    {
+                        "input": "WWLWWWLW",
+                        "output": "3",
+                        "explanation": "最長連續勝利為 WWW，共 3 次。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "WWLWWWLW",
+                        "expectedOutput": "3",
+                        "score": 0
+                    },
+                    {
+                        "input": "LLLL",
+                        "expectedOutput": "0",
+                        "score": 0
+                    },
+                    {
+                        "input": "WWWW",
+                        "expectedOutput": "4",
+                        "score": 0
+                    },
+                    {
+                        "input": "WLWWLLWWW",
+                        "expectedOutput": "3",
+                        "score": 0
+                    }
+                ],
+                "difficulty": "L3",
+                "difficultyLabel": "L3｜挑戰",
+                "sb3Path": "m0/M2-03-SimBasics/SIM01-007.sb3"
+            }
+        ]
+    },
+    {
+        "code": "M2-04",
+        "title": "模擬與狀態挑戰A：角色扮演系列",
+        "tier": "t2",
+        "unlockCode": "M2-04-SimRolePlay",
+        "tasks": [
+            {
+                "id": "cycelement-006",
+                "code": "M2-04-cycelement-006",
+                "title": "1-寶可夢訓練師-1",
+                "description": "你是一位剛成為寶可夢訓練師的新手，正在整理你抓到的寶可夢資料。\n你想設計一個程式，幫助你分析寶可夢的資料。\n\n【子題一：計算寶可夢的平均等級】\n\n請設計一個程式，輸入多隻寶可夢的等級，\n計算並輸出牠們的平均等級（無條件捨去至整數）。\n\n• 第一行輸入一個整數 N，代表寶可夢的數量（1 ≤ N ≤ 20）。\n\n• 第二行輸入 N 個整數，分別代表每隻寶可夢的等級（1 ≤ 等級 ≤ 100）。\n\n• 輸出一個整數，代表所有寶可夢等級的平均值（無條件捨去）。",
+                "examples": [
+                    {
+                        "input": "4\n10 20 30 40",
+                        "output": "25",
+                        "explanation": "輸入 4 隻寶可夢，等級為 10、20、30、40。\n平均值 = (10+20+30+40) ÷ 4 = 25。"
+                    },
+                    {
+                        "input": "3\n7 8 10",
+                        "output": "8",
+                        "explanation": "輸入 3 隻寶可夢，等級為7、8、10。\n平均值 = 25 ÷ 3 = 8.33，無條件捨去後為 8。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "1\n50",
+                        "expectedOutput": "50",
+                        "score": 10
+                    },
+                    {
+                        "input": "3\n10 20 30",
+                        "expectedOutput": "20",
+                        "score": 15
+                    },
+                    {
+                        "input": "4\n7 8 9 10",
+                        "expectedOutput": "8",
+                        "score": 20
+                    },
+                    {
+                        "input": "5\n1 100 100 100 100",
+                        "expectedOutput": "80",
+                        "score": 25
+                    },
+                    {
+                        "input": "20\n10 10 10 10 10 10 10 10 10 10 20 20 20 20 20 20 20 20 20 20",
+                        "expectedOutput": "15",
+                        "score": 30
+                    }
+                ],
+                "difficulty": "L2",
+                "difficultyLabel": "L2｜進階",
+                "sb3Path": "m0/M2-04-SimRolePlay/cycelement-006.sb3"
+            },
+            {
+                "id": "cycelement-006-2-寶可夢訓練師-2",
+                "code": "M2-04-cycelement-006-2-寶可夢訓練師-2",
+                "title": "2-寶可夢訓練師-2",
+                "description": "子題二：最高等級的寶可夢\n請設計一個程式，輸入多隻寶可夢的名稱與等級，找出等級最高的寶可夢名稱。\n（本題保證不會有等級相同的情況，寶可夢名稱不包含空白字元）",
+                "examples": [
+                    {
+                        "input": "3\n皮卡丘 25 小火龍 12 妙蛙種子 18",
+                        "output": "25",
+                        "explanation": "共有 3 隻寶可夢，等級最高的是皮卡丘（25）。"
+                    },
+                    {
+                        "input": "4\n傑尼龜 10 伊布 15 卡比獸 35 胖丁 20",
+                        "output": "35",
+                        "explanation": "共有 4 隻寶可夢，卡比獸等級最高（35）。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "1\n皮卡丘 10",
+                        "expectedOutput": "10",
+                        "score": 10
+                    },
+                    {
+                        "input": "3\n小火龍 12 妙蛙種子 18 傑尼龜 15",
+                        "expectedOutput": "18",
+                        "score": 15
+                    },
+                    {
+                        "input": "4\nA 5 B 20 C 15 D 8",
+                        "expectedOutput": "20",
+                        "score": 20
+                    },
+                    {
+                        "input": "5\n皮卡丘 22 伊布 30 卡比獸 28 超夢 100 胖丁 18",
+                        "expectedOutput": "100",
+                        "score": 25
+                    },
+                    {
+                        "input": "6\nP1 3 P2 6 P3 9 P4 12 P5 15 P6 18",
+                        "expectedOutput": "18",
+                        "score": 30
+                    }
+                ],
+                "difficulty": "L2",
+                "difficultyLabel": "L2｜進階",
+                "sb3Path": "m0/M2-04-SimRolePlay/cycelement-006-2-寶可夢訓練師-2.sb3"
+            },
+            {
+                "id": "115J-03",
+                "code": "M2-04-115J-03",
+                "title": "闖關遊戲",
+                "description": "園遊會中有個闖關遊戲：有 12 個小房間依編號（1 到 12）順時鐘圍成一圈。\n闖關時須依給定的條件正確進出不同的房間，若進入錯誤房間即闖關失敗。每個房間內有個螢幕會顯示一個介於 -3 到 +3 的數字。闖關遊戲有三組起始設定：A、B、C，每一組的房間（1號到12號）螢幕數字起始設定如下：\n• A 組：+1, +2, +3, -1, -2, -3, +1, +2, +3, -3, -2, -1\n• B 組：-2, -2, -3, -2, -2, -3, -2, -2, -3, -2, -2, -3\n• C 組：+1, +2, -1, 0, +1, -2, +2, +1, -1, +2, -2, 0\n【闖關遊戲進行方式】\n1. 電腦會給定一組起始設定（A、B 或 C），並給定第一個進入的房間編號。\n2. 若該房間螢幕數字是正值（+i），就要前往「順時針」方向的第 i 個房間；若為負值（-i），就要前往「逆時針」方向的第 i 個房間。\n3. 終止條件：若進入的房間螢幕數字是 0，或者「已累計進入正確房間共 11 次」，則闖關成功，遊戲結束。\n4. 狀態更新：每次離開一個房間後，該房間螢幕上的數字就會「正負交換」，也就是 +i 變 -i，或 -i 變 +i。\n請寫一個程式，依序輸出闖關過程中所進入的房間編號，直到闖關成功。",
+                "examples": [
+                    {
+                        "input": "A 2",
+                        "output": "2 4 3 6 3 12 11 9 12 1 2",
+                        "explanation": "2 號房數字為 +2，前往 4 號房（2 號房變為 -2）；\n4 號房數字為 -1，前往 3 號房（4 號房變為 +1）；\n依此類推，進入 11 個房間後達到終止條件，闖關成功。"
+                    },
+                    {
+                        "input": "B 12",
+                        "output": "12 9 6 3 12 3 6 9 12 9 6",
+                        "explanation": "依據規則走訪。已累計進入房間共 11 次，達到終止條件，闖關成功。"
+                    },
+                    {
+                        "input": "C 5",
+                        "output": "5 6 4",
+                        "explanation": "依序進入 5, 6, 4 三個房間。\n進入 4 號房間時螢幕數字為 0，達到終止條件，闖關成功。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "A 2",
+                        "expectedOutput": "2 4 3 6 3 12 11 9 12 1 2",
+                        "score": 10
+                    },
+                    {
+                        "input": "B 12",
+                        "expectedOutput": "12 9 6 3 12 3 6 9 12 9 6",
+                        "score": 10
+                    },
+                    {
+                        "input": "C 5",
+                        "expectedOutput": "5 6 4",
+                        "score": 10
+                    },
+                    {
+                        "input": "C 1",
+                        "expectedOutput": "1 2 4",
+                        "score": 10
+                    },
+                    {
+                        "input": "A 1",
+                        "expectedOutput": "1 2 4 3 6 3 12 11 9 12 1",
+                        "score": 10
+                    },
+                    {
+                        "input": "B 1",
+                        "expectedOutput": "1 11 9 6 3 12 9 12 3 6 9",
+                        "score": 10
+                    },
+                    {
+                        "input": "C 7",
+                        "expectedOutput": "7 9 8 9 10 12",
+                        "score": 10
+                    },
+                    {
+                        "input": "C 11",
+                        "expectedOutput": "11 9 8 9 10 12",
+                        "score": 10
+                    },
+                    {
+                        "input": "A 6",
+                        "expectedOutput": "6 3 6 9 12 11 9 6 3 12 1",
+                        "score": 10
+                    },
+                    {
+                        "input": "C 2",
+                        "expectedOutput": "2 4",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L3",
+                "difficultyLabel": "L3｜挑戰",
+                "sb3Path": "m0/M2-04-SimRolePlay/115J-03.sb3"
+            },
+            {
+                "id": "cycelement-006-3-寶可夢訓練師-3",
+                "code": "M2-04-cycelement-006-3-寶可夢訓練師-3",
+                "title": "3-寶可夢訓練師-3",
+                "description": "子題三：列出平均等級以上的寶可夢\n\n請綜合前面的概念，輸入寶可夢名稱與等級，計算平均等級後，輸出等級高於平均值的寶可夢名稱。\n\n第一行輸入整數 N，代表寶可夢數量。\n\n第二行輸入 N 個寶可夢名稱及等級資料，名稱及等級以空白間隔，每筆資料也以空白間隔。\n\n程式依照輸入出現順序，輸出所有等級高於平均值的寶可夢名稱。",
+                "examples": [
+                    {
+                        "input": "3\n皮卡丘 25 小火龍 12 妙蛙種子 18",
+                        "output": "皮卡丘",
+                        "explanation": "第一行輸入 3，表示有 3 組寶可夢名稱及等級資料輸入。\n第二行輸入三組寶可夢名稱及等級數據，前面是名稱，後面是等級，三組連續輸入，中間皆以空白間隔。\n程式依序輸出高於平均等級的寶可夢：皮卡丘。"
+                    },
+                    {
+                        "input": "4\n傑尼龜 10 伊布 15 卡比獸 20 胖丁 20",
+                        "output": "卡比獸 胖丁",
+                        "explanation": "第一行輸入 4，表示有 4 組寶可夢名稱及等級資料輸入。\n第二行輸入四組寶可夢名稱及等級數據，前面是名稱，後面是等級，四組連續輸入，中間皆以空白間隔。\n程式依序輸出高於平均等級的寶可夢：卡比獸 胖丁。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "1\n皮卡丘 10",
+                        "expectedOutput": "",
+                        "score": 10
+                    },
+                    {
+                        "input": "5\n伊布 15 胖丁 15 乘龍 10 卡比獸 20 妙蛙種子 15",
+                        "expectedOutput": "卡比獸",
+                        "score": 15
+                    },
+                    {
+                        "input": "4\n妙蛙種子 30 皮卡丘 30 小火龍 30 傑尼龜 30",
+                        "expectedOutput": "",
+                        "score": 20
+                    },
+                    {
+                        "input": "6\n小火龍 100 皮卡丘 0 伊布 50 卡比獸 50 胖丁 50 超夢 100",
+                        "expectedOutput": "小火龍 超夢",
+                        "score": 25
+                    },
+                    {
+                        "input": "8\n皮卡丘 25 皮卡丘 30 妙蛙種子 18 小火龍 12 傑尼龜 40 伊布 35 卡比獸 28 胖丁 28",
+                        "expectedOutput": "皮卡丘 傑尼龜 伊布 卡比獸 胖丁",
+                        "score": 30
+                    }
+                ],
+                "difficulty": "L3",
+                "difficultyLabel": "L3｜挑戰",
+                "sb3Path": "m0/M2-04-SimRolePlay/cycelement-006-3-寶可夢訓練師-3.sb3"
+            },
+            {
+                "id": "cycelement-006-4-寶可夢訓練師-4",
+                "code": "M2-04-cycelement-006-4-寶可夢訓練師-4",
+                "title": "4-寶可夢訓練師-4",
+                "description": "子題四：統計不同屬性寶可夢的數量\n\n請設計一個程式，輸入多隻寶可夢的屬性，輸出各屬性寶可夢的數量統計結果。\n\n第一行輸入整數 N，代表寶可夢數量。\n\n第二行輸入 N 個寶可夢屬性名稱，每筆資料以空白間隔。\n\n程式需依照「屬性第一次出現的順序」，輸出每個屬性與該屬性寶可夢數量，格式為「屬性 數量」，屬性之間以一個空白隔開。\n\n若屬性重複，只輸出一次。",
+                "examples": [
+                    {
+                        "input": "5\n火 水 火 電 水",
+                        "output": "火2 水2 電1",
+                        "explanation": "第一行輸入5，表示有5隻寶可夢。\n第二行依序輸入屬性：火 水 火 電 水。\n依照首次出現順序統計後輸出：火2 水2 電1。"
+                    },
+                    {
+                        "input": "4\n草 草 毒 草",
+                        "output": "草3 毒1",
+                        "explanation": "第一行輸入4，表示有4隻寶可夢。\n第二行輸入屬性：草 草 毒 草。\n輸出結果為：草3 毒1。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "9\n火 水 火 電 水 草 草 毒 草",
+                        "expectedOutput": "火2 水2 電1 草3 毒1",
+                        "score": 10
+                    },
+                    {
+                        "input": "8\n水 火 電 水 草 水 電 草",
+                        "expectedOutput": "水3 火1 電2 草2",
+                        "score": 15
+                    },
+                    {
+                        "input": "1\n草",
+                        "expectedOutput": "草1",
+                        "score": 20
+                    },
+                    {
+                        "input": "5\n水 水 水 水 水",
+                        "expectedOutput": "水5",
+                        "score": 25
+                    },
+                    {
+                        "input": "6\n電 火 草 電 火 水",
+                        "expectedOutput": "電2 火2 草1 水1",
+                        "score": 30
+                    }
+                ],
+                "difficulty": "L3",
+                "difficultyLabel": "L3｜挑戰",
+                "sb3Path": "m0/M2-04-SimRolePlay/cycelement-006-4-寶可夢訓練師-4.sb3"
+            },
+            {
+                "id": "cycjunior-006",
+                "code": "M2-04-cycjunior-006",
+                "title": "1-園遊會攤位熱度分析",
+                "description": "園遊會地圖由「路口」和「走道」組成。學生會想知道哪個路口連接了最多條走道（最熱門交會點），以便安排引導人員。\n1. 給定路口數 N 與走道數 E。\n2. 統計每個路口連接的走道數量（分支量）。\n3. 輸出連接數最多的路口編號（若數量相同，輸出編號較小的）",
+                "examples": [
+                    {
+                        "input": "3\n2\n1 1\n2 3",
+                        "output": "1",
+                        "explanation": "走道: (1-2), (1-3)。\n路口1：連了2條通道，(1-2), (1-3)\n路口2：連了1條通道，(1-2)\n路口3：連了1條通道， (1-3)\n由上可知 路口1 較熱門，輸出 1"
+                    },
+                    {
+                        "input": "4\n3\n1 2 3\n2 3 4",
+                        "output": "2",
+                        "explanation": "連線: (1-2), (2-3), (3-4)。\n路口2和3都連了2條，輸出較小的 2。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "3\n2\n1 2\n2 3",
+                        "expectedOutput": "2",
+                        "score": 10
+                    },
+                    {
+                        "input": "4\n3\n1 1 1\n2 3 4",
+                        "expectedOutput": "1",
+                        "score": 15
+                    },
+                    {
+                        "input": "5\n4\n1 2 3 4\n2 3 4 5",
+                        "expectedOutput": "2",
+                        "score": 20
+                    },
+                    {
+                        "input": "5\n5\n1 2 3 4 5\n2 3 4 5 1",
+                        "expectedOutput": "1",
+                        "score": 25
+                    },
+                    {
+                        "input": "6\n4\n1 3 4 6\n2 2 5 5",
+                        "expectedOutput": "2",
+                        "score": 30
+                    }
+                ],
+                "difficulty": "L3",
+                "difficultyLabel": "L3｜挑戰",
+                "sb3Path": "m0/M2-04-SimRolePlay/cycjunior-006.sb3"
+            },
+            {
+                "id": "cycjunior-006-2-園遊會尋找幸運抽獎號",
+                "code": "M2-04-cycjunior-006-2-園遊會尋找幸運抽獎號",
+                "title": "2-園遊會尋找幸運抽獎號",
+                "description": "園遊會中最熱門的攤位是「幸運跳格子」挑戰賽。地上畫了一排共有 N 格的格子（編號從 1 到 N）。 為了增加遊戲的趣味性與挑戰性，主辦單位規定：參賽者從起點（第 0 格）出發，每次跳躍只能選擇「跳 1 格」或「跳 2 格」。\n例如：要跳到第 3 格，可以有三種跳法：\n1. 跳1格 → 跳1格 → 跳1格 (1, 1, 1)\n2. 跳1格 → 跳2格 (1, 2)\n3. 跳2格 → 跳1格 (2, 1)\n學生會長想知道，如果要剛好停在第 N 格領取大獎，總共有多少種不同的跳法組合？\n這正是經典的費氏數列問題，若剛好停在第 N 格可能的走法數為F(N)種，我們可觀察到\nF(1)=1                ,停在第1格有1種走法\nF(2)=2                ,停在第2格有2種走法\nF(3)=F(2)+F(1)=1+2=3   ,停在第3格有3種走法\nF(4)=F(3)+F(2)=3+2=5   ,停在第4格有5種走法\n…",
+                "examples": [
+                    {
+                        "input": "3",
+                        "output": "3",
+                        "explanation": "共有3種跳法：\n1. (1, 1, 1)\n2. (1, 2)\n3. (2, 1)"
+                    },
+                    {
+                        "input": "4",
+                        "output": "5",
+                        "explanation": "共有5種跳法：\n(1,1,1,1), (1,1,2), (1,2,1), (2,1,1), (2,2)"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "1",
+                        "expectedOutput": "1",
+                        "score": 10
+                    },
+                    {
+                        "input": "5",
+                        "expectedOutput": "8",
+                        "score": 15
+                    },
+                    {
+                        "input": "7",
+                        "expectedOutput": "21",
+                        "score": 20
+                    },
+                    {
+                        "input": "10",
+                        "expectedOutput": "89",
+                        "score": 25
+                    },
+                    {
+                        "input": "20",
+                        "expectedOutput": "10946",
+                        "score": 30
+                    }
+                ],
+                "difficulty": "L3",
+                "difficultyLabel": "L3｜挑戰",
+                "sb3Path": "m0/M2-04-SimRolePlay/cycjunior-006-2-園遊會尋找幸運抽獎號.sb3"
+            },
+            {
+                "id": "cycjunior-005",
+                "code": "M2-04-cycjunior-005",
+                "title": "大風吹搶位子",
+                "description": "隔宿露營的晚會高潮，班聯會設計了一個刺激的「電子傳球大風吹」遊戲。全班 N 位同學圍繞營火坐成一圈，每個人身上都有一個原本的號碼牌（從 1 號到 N 號）。遊戲開始時，音樂響起，一顆發光的電子球從 1 號同學手中開始順時針傳遞。這顆電子球設定了爆炸秒數，相當於傳遞 M 次。也就是說，從目前拿球的人開始算第 1 次，傳給下一位算第 2 次...一直數到第 M 個人，球就會變色發出「嗶！」的聲音，這時候持有球的那個人就被淘汰，必須立刻離開圓圈。被淘汰的人離開後，圓圈會縮小，球交給下一位還在圈子裡的同學，重新開始從 1 數到 M。遊戲持續進行，直到圓圈只剩下最後一位同學，該名同學就是今晚的「大風吹之王」。請設計一個程式，模擬這個過程，算出最後留下的那位同學原本的號碼是多少。\n假設有 5 人參賽 (N=5)，編號為 1, 2, 3, 4, 5。每數到第 2 人 (M=2) 該員即淘汰。\n第 1 輪：從 1 號開始數 (1, 2)，2 號淘汰。剩下：1, 3, 4, 5。\n第 2 輪：從 3 號開始數 (3, 4)，4 號淘汰。剩下：1, 3, 5。\n第 3 輪：從 5 號開始數 (5, 1)，因為繞回開頭，1 號淘汰。剩下：3, 5。\n第 4 輪：從 3 號開始數 (3, 5)，5 號淘汰。剩下：3。\n結果：最後贏家是 3 號",
+                "examples": [
+                    {
+                        "input": "5\n2",
+                        "output": "3",
+                        "explanation": "初始: 1 2 3 4 5\n淘汰2 (剩 1 3 4 5)\n淘汰4 (剩 1 3 5)\n淘汰1 (剩 3 5)\n淘汰5 (剩 3)"
+                    },
+                    {
+                        "input": "4\n1",
+                        "output": "4",
+                        "explanation": "初始: 1 2 3 4\n淘汰1 (剩 2 3 4)\n淘汰2 (剩 3 4)\n淘汰3 (剩 4)"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "3\n1",
+                        "expectedOutput": "3",
+                        "score": 10
+                    },
+                    {
+                        "input": "4\n2",
+                        "expectedOutput": "1",
+                        "score": 15
+                    },
+                    {
+                        "input": "5\n3",
+                        "expectedOutput": "4",
+                        "score": 20
+                    },
+                    {
+                        "input": "7\n4",
+                        "expectedOutput": "2",
+                        "score": 25
+                    },
+                    {
+                        "input": "10\n3",
+                        "expectedOutput": "4",
+                        "score": 30
+                    }
+                ],
+                "difficulty": "L4",
+                "difficultyLabel": "L4｜精熟",
+                "sb3Path": "m0/M2-04-SimRolePlay/cycjunior-005.sb3"
+            },
+            {
+                "id": "cycjunior-006-3-園遊會人潮高峰期",
+                "code": "M2-04-cycjunior-006-3-園遊會人潮高峰期",
+                "title": "3-園遊會人潮高峰期",
+                "description": "一年一度的校慶園遊會順利落幕了！今年學生會為了讓明年的活動辦得更好，決定用數據來說話。他們在校門口和各個攤位區安裝了「人流感測器」。感測器每隔一段時間（例如每 10 分鐘）就會記錄一次數據，這個數據稱為「人潮淨流量」：\n•\t如果是 正數 (例如 +50)：代表進來的人比出去的人多，人潮正在累積。\n•\t如果是 負數 (例如 -30)：代表離開的人比進來的人多，人潮正在消散。\n學生會會長小華拿到了一長串的數據清單，他想要找出一段連續的時間區間，這段時間內的「淨流量總和」是最大的。這個最大的數值就代表了今年園遊會最「盛況空前」時累積的人氣指數。請注意，如果算出來的最大總和是負數（代表整場活動人都一直在變少，或是沒人來），為了報表好看，請直接將結果歸零，輸出 0。\n請你幫忙寫一個程式，找出這個傳說中的「最大熱門指數」！",
+                "examples": [
+                    {
+                        "input": "3\n-1 2 -1",
+                        "output": "2",
+                        "explanation": "可能組合及其和如下：\n由第1個時段開始 -1,-1+2,-1+2-1\n由第2個時段開始 2 ,2+(-1)\n由第3個時段開始 -1\n以上最大為 2"
+                    },
+                    {
+                        "input": "4\n-5 -2 -9 -1",
+                        "output": "0",
+                        "explanation": "所有人流皆為負成長，沒有人潮高峰，輸出 0。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "3\n1 2 3",
+                        "expectedOutput": "6",
+                        "score": 10
+                    },
+                    {
+                        "input": "4\n-1 -2 -3 -4",
+                        "expectedOutput": "0",
+                        "score": 15
+                    },
+                    {
+                        "input": "5\n2 -1 2 -1 2",
+                        "expectedOutput": "4",
+                        "score": 20
+                    },
+                    {
+                        "input": "6\n-2 5 -1 5 -10 2",
+                        "expectedOutput": "9",
+                        "score": 25
+                    },
+                    {
+                        "input": "5\n10 -20 30 -5 10",
+                        "expectedOutput": "35",
+                        "score": 30
+                    }
+                ],
+                "difficulty": "L4",
+                "difficultyLabel": "L4｜精熟",
+                "sb3Path": "m0/M2-04-SimRolePlay/cycjunior-006-3-園遊會人潮高峰期.sb3"
+            },
+            {
+                "id": "115J-04",
+                "code": "M2-04-115J-04",
+                "title": "火星探測車",
+                "description": "火星探測車「玉山號」是一台專門執行火星上各種探測任務（如氣候觀測、岩石採樣等）的車輛，每個任務都有不同的「電力需求」與「科學價值」。\n探測車出發執行任務前，都會先充滿電力至 100 單位。任務無法部分執行，且每個任務最多只能執行一次。請在電力可負擔的範圍內（總消耗電力 ≤ 100），幫玉山號挑選出能獲得最高總科學價值的任務組合。\n請寫一個程式，計算探測車可獲得的最高總科學價值。",
+                "examples": [
+                    {
+                        "input": "3\n20 50 40 60 30 70",
+                        "output": "180",
+                        "explanation": "100 單位的電力可以執行完所有任務（20+40+30 ≤ 100）。\n最高總科學價值為 50+60+70 = 180。"
+                    },
+                    {
+                        "input": "2\n96 220 51 113",
+                        "output": "220",
+                        "explanation": "100 單位的電力無法兩個任務都執行。\n只執行一個時，任務一可獲得較高的科學價值（220 > 113），因此最高總科學價值為 220。"
+                    },
+                    {
+                        "input": "4\n80 100 50 60 20 30 10 10",
+                        "output": "130",
+                        "explanation": "若執行任務一與任務三，所需電力 80+20 ≤ 100 單位，其總科學價值為 100+30 = 130。\n此為最佳任務執行組合。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "3\n20 50 40 60 30 70",
+                        "expectedOutput": "180",
+                        "score": 10
+                    },
+                    {
+                        "input": "2\n96 220 51 113",
+                        "expectedOutput": "220",
+                        "score": 10
+                    },
+                    {
+                        "input": "4\n80 100 50 60 20 30 10 10",
+                        "expectedOutput": "130",
+                        "score": 10
+                    },
+                    {
+                        "input": "3\n60 70 50 50 50 50",
+                        "expectedOutput": "100",
+                        "score": 10
+                    },
+                    {
+                        "input": "4\n0 100 120 500 50 60 50 60",
+                        "expectedOutput": "220",
+                        "score": 10
+                    },
+                    {
+                        "input": "5\n20 30 20 30 20 30 20 30 20 30",
+                        "expectedOutput": "150",
+                        "score": 10
+                    },
+                    {
+                        "input": "6\n10 15 15 20 25 35 30 40 40 50 50 60",
+                        "expectedOutput": "130",
+                        "score": 10
+                    },
+                    {
+                        "input": "4\n25 40 25 40 25 40 25 40",
+                        "expectedOutput": "160",
+                        "score": 10
+                    },
+                    {
+                        "input": "1\n100 999",
+                        "expectedOutput": "999",
+                        "score": 10
+                    },
+                    {
+                        "input": "8\n15 20 15 20 15 20 15 20 15 20 15 20 15 20 15 20",
+                        "expectedOutput": "120",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L5",
+                "difficultyLabel": "L5｜競賽",
+                "sb3Path": "m0/M2-04-SimRolePlay/115J-04.sb3"
+            }
+        ]
+    },
+    {
+        "code": "M2-05",
+        "title": "模擬與狀態挑戰B：感測與監控系列",
+        "tier": "t2",
+        "unlockCode": "M2-05-SimSensor",
+        "tasks": [
+            {
+                "id": "W9-01",
+                "code": "M2-05-W9-01",
+                "title": "公車時刻表",
+                "description": "前往學校的公車路線非常準時，每天從早上 06:00 發出首班車，之後每隔 M 分鐘固定發一班車。\n\n現在小明看手錶，時間是 H 點 S 分。請問小明最少還需要等幾分鐘，下一班公車才會來？\n\n【輸入輸出要求】\n\n• 輸入為單行，包含三個整數 H, S, M，中間以單一空白隔開。\n\n• H 代表小時（0 ≤ H ≤ 23），S 代表分鐘（0 ≤ S ≤ 59），M 代表公車班距分鐘數（1 ≤ M ≤ 120）。\n\n• 若小明到達時剛好有車（等待時間為 0），請輸出 0。\n\n• 假設小明到達時間一定在當天末班車之前。\n\n• 輸出一個整數，代表小明需要等待的分鐘數。",
+                "examples": [
+                    {
+                        "input": "6 15 20",
+                        "output": "5",
+                        "explanation": "首班 06:00，班距 20 分鐘，下一班為 06:20。\n現在 06:15，需再等 5 分鐘。"
+                    },
+                    {
+                        "input": "5 50 20",
+                        "output": "10",
+                        "explanation": "首班車 06:00 才發車。\n小明 05:50 到，必須等到 06:00，需等 10 分鐘。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "5 45 30",
+                        "expectedOutput": "15",
+                        "score": 10
+                    },
+                    {
+                        "input": "6 0 15",
+                        "expectedOutput": "0",
+                        "score": 15
+                    },
+                    {
+                        "input": "6 15 20",
+                        "expectedOutput": "5",
+                        "score": 20
+                    },
+                    {
+                        "input": "7 0 20",
+                        "expectedOutput": "0",
+                        "score": 25
+                    },
+                    {
+                        "input": "7 10 45",
+                        "expectedOutput": "20",
+                        "score": 30
+                    }
+                ],
+                "difficulty": "L1",
+                "difficultyLabel": "L1｜基礎",
+                "sb3Path": "m0/M2-05-SimSensor/W9-01.sb3"
+            },
+            {
+                "id": "W0-01",
+                "code": "M2-05-W0-01",
+                "title": "智慧溫室的自動監控",
+                "description": "隨著農業科技的發展，小明在學校的生物實驗室中參與了一項「智慧溫室」計畫。\n這個溫室利用高精度的感測器，每隔一小時會自動記錄一次溫室內的「溫度」與「濕度」。為了讓農作物在最適合的環境下生長，同時落實環境永續與節能減碳的目標，溫室內的自動噴霧灑水系統設定了一套嚴格的啟動規範。\n系統規則定義如下：假設在連續的N小時內，第i小時測得的溫度為T度，濕度為H%。只有當該小時同時滿足「溫度大於30度」且「濕度小於50%」這兩個條件時，噴霧系統才會自動開啟運作1次；若其中任一條件不滿足，系統將保持待機狀態以節省電力與水資源。\n請你編寫程式，根據小明提供的N小時觀測記錄，計算這段時間內噴霧系統總共被觸發了幾次",
+                "examples": [
+                    {
+                        "input": "3\n32 28 35\n45 60 40",
+                        "output": "2",
+                        "explanation": "第1筆(32, 45)符合；第2筆溫度不足；第3筆(35, 40)符合，輸出2。"
+                    },
+                    {
+                        "input": "2\n31 32\n40 30",
+                        "output": "2",
+                        "explanation": "2筆均符合溫度大於30、濕度小於50，輸出2。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "1\n35\n40",
+                        "expectedOutput": "1",
+                        "score": 10
+                    },
+                    {
+                        "input": "5\n31 32 33 34 35\n49 48 47 46 45",
+                        "expectedOutput": "5",
+                        "score": 10
+                    },
+                    {
+                        "input": "4\n25 35 25 35\n60 40 60 40",
+                        "expectedOutput": "2",
+                        "score": 10
+                    },
+                    {
+                        "input": "6\n30 31 29 40 31 35\n50 49 40 50 51 30",
+                        "expectedOutput": "2",
+                        "score": 10
+                    },
+                    {
+                        "input": "9\n31 32 33 34 35 25 35 25 35\n49 48 47 46 45 60 40 60 40",
+                        "expectedOutput": "7",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L2",
+                "difficultyLabel": "L2｜進階",
+                "sb3Path": "m0/M2-05-SimSensor/W0-01.sb3"
+            },
+            {
+                "id": "W1-03",
+                "code": "M2-05-W1-03",
+                "title": "無人搬運車運送計算",
+                "description": "智慧工廠中使用一輛無人搬運車（AGV），負責將零件從倉庫運送到生產線。\n由於安全與設備限制，每一趟無人搬運車的最大可承載重量為 200 公斤。\n零件會依照完成檢驗的順序排隊裝載，無人搬運車會依序將零件放上車並累加重量。\n若某一件零件放上車後，累計重量超過 200 公斤，\n則該零件不放入本趟車次，無人搬運車立刻出發，該零件改由下一趟車次運送。\n請根據輸入的零件重量資料，計算無人搬運車最少需要出發幾趟，才能將所有零件依序安全運送完成",
+                "examples": [
+                    {
+                        "input": "6\n50 60 40 70 90 30",
+                        "output": "2",
+                        "explanation": "第一趟：50+60+40=150，下一件 70 加入會超過 200 → 出發。\n第二趟：70+90+30=190，未超過 200 → 出發。\n共需要 2 趟無人搬運車。"
+                    },
+                    {
+                        "input": "5\n80 90 60 30 40",
+                        "output": "2",
+                        "explanation": "第一趟：80+90=170，下一件 60 加入會超過 200 → 出發。\n第二趟：60+30+40=130 → 出發。\n共需要 2 趟無人搬運車。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "9\n50 60 40 70 90 30 80 90 60",
+                        "expectedOutput": "4",
+                        "score": 10
+                    },
+                    {
+                        "input": "5\n80 90 60 30 40",
+                        "expectedOutput": "2",
+                        "score": 15
+                    },
+                    {
+                        "input": "5\n100 50 60 70 80",
+                        "expectedOutput": "3",
+                        "score": 20
+                    },
+                    {
+                        "input": "3\n100 100 100",
+                        "expectedOutput": "2",
+                        "score": 25
+                    },
+                    {
+                        "input": "1\n100",
+                        "expectedOutput": "1",
+                        "score": 30
+                    }
+                ],
+                "difficulty": "L2",
+                "difficultyLabel": "L2｜進階",
+                "sb3Path": "m0/M2-05-SimSensor/W1-03.sb3"
+            },
+            {
+                "id": "WP-02",
+                "code": "M2-05-WP-02",
+                "title": "防災臨時屋",
+                "description": "為了在災害發生時，可以將災民快速送往收容所，防災中心定期舉行防災演習，將災民以運輸車送往收容所。\n\n收容所有多個臨時屋（至少1間，最多12間），每個臨時屋可容納人數不盡相同，當第一個臨時屋滿了以後，就開放第二個臨時屋，滿了之後再開放第三個臨時屋，依此類推。請幫防災中心統計防災演習期間共開放了幾個臨時屋。",
+                "examples": [
+                    {
+                        "input": "50\n4\n30 20 15 55",
+                        "output": "2",
+                        "explanation": "此次演習運輸車總共運輸了 50人。\n收容所共有4間臨時屋。\n臨時屋依序各可容納30、20、15、55人。\n第一間臨時屋收容了30人；第二間臨時屋收容了20人，因此總共開放了2間臨時屋。"
+                    },
+                    {
+                        "input": "9\n3\n10 5 15",
+                        "output": "1",
+                        "explanation": "此次演習運輸車總共運輸了9人。\n收容所共有3間臨時屋。\n臨時屋依序各可容納10、5、15人。\n第一間臨時屋即可容納這9人，因此只開放了1 間臨時屋。"
+                    },
+                    {
+                        "input": "0\n2\n30 20",
+                        "output": "0",
+                        "explanation": "此次演習運輸車總共運輸了0人。\n收容所共有2 間臨時屋。\n臨時屋依序各可容納30、20人。\n此次演習沒有任何人被運送，因此總共開放了0間臨時屋。"
+                    },
+                    {
+                        "input": "37\n2\n10 20",
+                        "output": "2",
+                        "explanation": "此次演習運輸車總共運輸了37人。\n收容所共有2 間臨時屋。\n臨時屋依序各可容納10、20人。\n此次演習所有的臨時屋都要開放，雖然仍容不下所有人，但總共開放了2間臨時屋。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "9\n3\n10 2 15",
+                        "expectedOutput": "1",
+                        "score": 10
+                    },
+                    {
+                        "input": "50\n4\n30 20 15 55",
+                        "expectedOutput": "2",
+                        "score": 10
+                    },
+                    {
+                        "input": "0\n2\n30 20",
+                        "expectedOutput": "0",
+                        "score": 10
+                    },
+                    {
+                        "input": "37\n2\n10 20",
+                        "expectedOutput": "2",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L2",
+                "difficultyLabel": "L2｜進階",
+                "sb3Path": "m0/M2-05-SimSensor/WP-02.sb3"
+            },
+            {
+                "id": "W2-01",
+                "code": "M2-05-W2-01",
+                "title": "數位能量方塊實驗",
+                "description": "某實驗室正在測試一種「數位能量方塊」電力系統。\n每一輪實驗會擲出三個能量方塊（點數 1–6），系統根據方塊的點數組合（不限輸入順序）來調整累積能量值。\n【能量調整規則】\n1. 穩定配對（加法）：\n若三個方塊中，恰好有兩個點數相同，則以第三個不同的點數作為增量，加進累積能量中。\n2. 特殊組合（乘除）：\n• 低階共振組合 {1,2,3}：累積能量減半（無條件捨去）。\n• 高階共振組合 {4,5,6}：累積能量乘以 2。\n• 完全同頻（三個相同）：累積能量乘以該點數。\n3. 無效運作與崩潰重置：\n• 不符合上述任何規則時，該輪能量不變。\n• 若連續三輪皆為無效組合，累積能量直接歸零。",
+                "examples": [
+                    {
+                        "input": "3\n2 1 3 6 4 5 2 2 4",
+                        "output": "4",
+                        "explanation": "第1輪 {1,2,3} → 能量 0 減半仍為 0\n第2輪 {4,5,6} → 能量 0 乘2仍為 0\n第3輪 2 2 4 → 穩定配對，能量 +4"
+                    },
+                    {
+                        "input": "1\n2 2 5",
+                        "output": "5",
+                        "explanation": "第 1 輪 2 2 5：符合 穩定配對（加法）。初始能量 0 +5 後為 5"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "1\n3 3 6",
+                        "expectedOutput": "6",
+                        "score": 10
+                    },
+                    {
+                        "input": "2\n2 2 2 3 3 3",
+                        "expectedOutput": "0",
+                        "score": 15
+                    },
+                    {
+                        "input": "4\n1 4 6 2 4 6 3 5 6 2 2 5",
+                        "expectedOutput": "5",
+                        "score": 20
+                    },
+                    {
+                        "input": "4\n2 2 5 1 3 2 4 5 6 3 3 1",
+                        "expectedOutput": "5",
+                        "score": 25
+                    },
+                    {
+                        "input": "6\n2 2 4 4 5 6 1 4 6 2 5 6 3 3 3 2 2 1",
+                        "expectedOutput": "25",
+                        "score": 30
+                    }
+                ],
+                "difficulty": "L4",
+                "difficultyLabel": "L4｜精熟",
+                "sb3Path": "m0/M2-05-SimSensor/W2-01.sb3"
+            },
+            {
+                "id": "W2-03",
+                "code": "M2-05-W2-03",
+                "title": "糖尿病血糖趨勢與預警分析",
+                "description": "糖尿病患者需嚴密監控血糖波動。\n血糖狀態依數值分為三個區間：\n• 低血糖區：血糖值  180\n請設計程式統計異常事件次數，並分析血糖趨勢波動。\n【異常事件判定規則】\n• 低血糖事件：血糖值由「非低血糖區」進入「低血糖區」時計 1 次。\n• 高血糖事件：血糖值由「非高血糖區」進入「高血糖區」時計 1 次。\n• 若血糖持續停留在同一異常區間，則不重複計次。\n• 若血糖由高血糖區直接進入低血糖區（或反之），視為進入新的異常區間，需重新計次。\n【趨勢波動計算】\n• 找出過程中「連續上升」或「連續下降」所造成的最大差值（取絕對值）。\n• 若血糖變化方向改變，該段趨勢即結束，重新開始計算。",
+                "examples": [
+                    {
+                        "input": "3\n100\n110 -160 220",
+                        "output": "1 2 220",
+                        "explanation": "100 → 210（進入高血糖，高計 1）\n210 → 50（進入低血糖，低計 1）\n50 → 270（進入高血糖，高計第 2 次）\n趨勢分析：分別為 +110、-160、+220。單次最大變動為 220。"
+                    },
+                    {
+                        "input": "6\n100\n40 50 -20 -30 -80 -10",
+                        "output": "1 1 140",
+                        "explanation": "100 +40+50 =190 (進入高區，高計 1)。連續上升趨勢：90。\n190 −20−30−80−10 50 (進入低區，低計 1)。連續下降趨勢：140\n趨勢分析：最大差值為 140。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "3\n100\n110 -160 220",
+                        "expectedOutput": "1 2 220",
+                        "score": 10
+                    },
+                    {
+                        "input": "6\n100\n40 50 -20 -30 -80 -10",
+                        "expectedOutput": "1 1 140",
+                        "score": 15
+                    },
+                    {
+                        "input": "5\n150\n40 20 -10 -20 -30",
+                        "expectedOutput": "0 1 60",
+                        "score": 20
+                    },
+                    {
+                        "input": "7\n90\n10 10 10 -50 10 -10 -10",
+                        "expectedOutput": "1 0 50",
+                        "score": 25
+                    },
+                    {
+                        "input": "8\n200\n-10 -10 -10 5 5 -150 20 20",
+                        "expectedOutput": "1 0 150",
+                        "score": 30
+                    }
+                ],
+                "difficulty": "L4",
+                "difficultyLabel": "L4｜精熟",
+                "sb3Path": "m0/M2-05-SimSensor/W2-03.sb3"
+            },
+            {
+                "id": "W3-01",
+                "code": "M2-05-W3-01",
+                "title": "智慧倉儲",
+                "description": "螃蟹超商是購物頻道的取貨店，店面有三種尺寸的貨物櫃子：大櫃子、中櫃子、小櫃子，各有一定數量。\n今天店員要把一批貨物放進櫃子中，每個貨物都有「長、寬、高」三個尺寸（單位：公分），並遵守以下規則：\n1. 一個櫃子只能放一個貨物。\n2. 若貨物在長、寬、高任一方向「大於 80」公分，該貨物只能放進「大櫃子」。\n3. 否則，若貨物在長、寬、高任一方向「大於 30」（且不大於 80）公分，該貨物可以放進「中櫃子或大櫃子」。\n4. 其餘貨物（長、寬、高三邊皆「小於等於 30」公分），該貨物可以放進「小櫃子、中櫃子或大櫃子」。\n5. 在貨物可以擺放進去的前提下，必須盡可能選擇尺寸較小的櫃子（優先使用小櫃子，其次中櫃子，最後才使用大櫃子）。\n6. 如果對某件貨物來說，所有可使用的櫃子尺寸都已經用完（沒有空櫃可用），則該貨物無法被放入任何櫃子。\n請你依照上述規則，計算：\n• 各尺寸櫃子實際使用了多少個？\n• 共有幾件貨物無法放進任何櫃子？",
+                "examples": [
+                    {
+                        "input": "2 2 2\n3\n30 30 30 30 30 30 30 30 40",
+                        "output": "0 1 2 0",
+                        "explanation": "兩件 30×30×30 皆可放小櫃子，依規則優先放小櫃子；30×30×40 需放中或大，優先放中櫃子。\n因此使用：大 0、中 1、小 2，無法放入 0。"
+                    },
+                    {
+                        "input": "2 1 1\n3\n30 30 30 30 30 30 30 30 40",
+                        "output": "1 1 1 0",
+                        "explanation": "第一件 30×30×30 放小櫃子；第二件 30×30×30 小櫃子用完，改放中櫃子；第三件 30×30×40 需中或大，但中櫃子也用完，只好放大櫃子。\n因此使用：大 1、中 1、小 1，無法放入 0。"
+                    },
+                    {
+                        "input": "1 2 5\n4\n60 30 30 30 60 30 30 60 65 100 5 5",
+                        "output": "1 2 0 1",
+                        "explanation": "前三件皆屬於「中或大」：先用掉 2 個中櫃子，第三件改用大櫃子；第四件有一邊大於 80，只能用大櫃子，但大櫃子已用完，因此無法放入。\n因此使用：大 1、中 2、小 0，無法放入 1。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "2 2 1\n5\n30 30 30 31 30 30 80 80 80 81 10 10 30 30 80",
+                        "expectedOutput": "2 2 1 0",
+                        "score": 10
+                    },
+                    {
+                        "input": "0 1 1\n4\n1 1 1 2 2 2 30 30 30 10 10 10",
+                        "expectedOutput": "0 1 1 2",
+                        "score": 15
+                    },
+                    {
+                        "input": "3 0 5\n3\n40 10 10 10 40 10 10 10 40",
+                        "expectedOutput": "3 0 0 0",
+                        "score": 20
+                    },
+                    {
+                        "input": "1 0 0\n2\n10 10 10 90 1 1",
+                        "expectedOutput": "1 0 0 1",
+                        "score": 25
+                    },
+                    {
+                        "input": "1 1 2\n6\n5 5 5 31 31 31 60 30 30 30 30 30 100 2 2 1 1 1",
+                        "expectedOutput": "1 1 2 2",
+                        "score": 30
+                    }
+                ],
+                "difficulty": "L4",
+                "difficultyLabel": "L4｜精熟",
+                "sb3Path": "m0/M2-05-SimSensor/W3-01.sb3"
+            },
+            {
+                "id": "W3-03",
+                "code": "M2-05-W3-03",
+                "title": "機器人行走軌跡",
+                "description": "在未來城市中，你是一名機器人巡邏隊的新人隊長，負責操控一台能在網格城市中移動的巡邏機器人。\n城市為了安全，設定機器人的座標範圍為 (0,0) 到 (10,10) 之間，超過範圍就會被系統擋下。\n你必須自行輸入指令，讓機器人按照 U、D、L、R 行走巡邏並回報座標。\n請依照輸入的指令字串，計算機器人最終位置座標 (x,y)。\n【起點】\n機器人起點為 (0,0)。\n【移動規則】\nU5：向上移動 5 步，Y + 5\nD3：向下移動 3 步，Y - 3\nL2：向左移動 2 步，X - 2\nR4：向右移動 4 步，X + 4\n【邊界限制】\n0 ≤ x ≤ 10，0 ≤ y ≤ 10。\n若某一步會超出邊界，則該「一步」不移動（但同一個指令的其他步仍需照順序嘗試）。",
+                "examples": [
+                    {
+                        "input": "5\nU2 D3 D4 L5 R3",
+                        "output": "(3,0)",
+                        "explanation": "起點 (0,0)\nU2 → Y+2，停在 (0,2)\nD3 → 逐步嘗試往下，第 3 步超界不動，停在 (0,0)\nD4 → 往下皆超界不動，停在 (0,0)\nL5 → 往左皆超界不動，停在 (0,0)\nR3 → X+3，停在 (3,0)\n最終位置 (3,0)"
+                    },
+                    {
+                        "input": "4\nR3 L2 U3 D1",
+                        "output": "(1,2)",
+                        "explanation": "起點 (0,0)\nR3 → X+3，停在 (3,0)\nL2 → X-2，停在 (1,0)\nU3 → Y+3，停在 (1,3)\nD1 → Y-1，停在 (1,2)\n最終位置 (1,2)"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "1\nU9",
+                        "expectedOutput": "(0,9)",
+                        "score": 10
+                    },
+                    {
+                        "input": "2\nU9 U9",
+                        "expectedOutput": "(0,10)",
+                        "score": 15
+                    },
+                    {
+                        "input": "4\nR9 R9 D5 L3",
+                        "expectedOutput": "(7,0)",
+                        "score": 20
+                    },
+                    {
+                        "input": "5\nU5 R4 D9 L9 U2",
+                        "expectedOutput": "(0,2)",
+                        "score": 25
+                    },
+                    {
+                        "input": "9\nR1 U1 R1 U1 R1 U1 R1 U1 R1",
+                        "expectedOutput": "(5,4)",
+                        "score": 30
+                    }
+                ],
+                "difficulty": "L4",
+                "difficultyLabel": "L4｜精熟",
+                "sb3Path": "m0/M2-05-SimSensor/W3-03.sb3"
+            },
+            {
+                "id": "W3-04",
+                "code": "M2-05-W3-04",
+                "title": "猜數字小幫手",
+                "description": "小金正在設計一個「猜數字小幫手」，要幫忙電腦快速猜中一個正確的數字。\n正確答案是一個介於 X 到 Y 之間的整數（含 X 與 Y）\n小幫手會依照固定規則來猜數字，直到猜中正確答案為止。\n【猜數字規則（固定流程）】\n1. 一開始的可能範圍為 X 到 Y（含 X 與 Y），用 L=X、R=Y 表示。\n2. 每一次猜數字時，都猜「目前範圍的中間整數」：mid = ⌊(L + R) ÷ 2⌋（無條件捨去小數）。\n3. 若猜的數字 mid：\n• 比正確答案小 → 更新範圍：L = mid + 1，R 不變。\n• 比正確答案大 → 更新範圍：R = mid - 1，L 不變。\n4. 當猜到的數字 mid 等於正確答案時，停止猜數字。\n【任務】\n請依照規定的猜數字流程進行模擬，並輸出：\n(1) 從開始到猜中為止，總共猜了幾次\n(2) 每一次猜的數字（依照猜測順序）",
+                "examples": [
+                    {
+                        "input": "10 80 75",
+                        "output": "6 45 63 72 76 74 75",
+                        "explanation": "起始範圍 L=10, R=80\n第1次：mid=45（太小）→ L=46\n第2次：mid=63（太小）→ L=64\n第3次：mid=72（太小）→ L=73\n第4次：mid=76（太大）→ R=75\n第5次：mid=74（太小）→ L=75\n第6次：mid=75（猜中）"
+                    },
+                    {
+                        "input": "3 9 3",
+                        "output": "2 6 3",
+                        "explanation": "起始範圍 L=3, R=9\n第1次：mid=6（太大）→ R=5\n第2次：mid=4（太大）→ R=3，下一次 mid=3（猜中）\n（依規則逐次縮小範圍，直到猜中）"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "1 119 60",
+                        "expectedOutput": "1 60",
+                        "score": 10
+                    },
+                    {
+                        "input": "20 30 25",
+                        "expectedOutput": "1 25",
+                        "score": 15
+                    },
+                    {
+                        "input": "7 23 7",
+                        "expectedOutput": "4 15 10 8 7",
+                        "score": 20
+                    },
+                    {
+                        "input": "7 23 23",
+                        "expectedOutput": "5 15 19 21 22 23",
+                        "score": 25
+                    },
+                    {
+                        "input": "10 80 75",
+                        "expectedOutput": "6 45 63 72 76 74 75",
+                        "score": 30
+                    }
+                ],
+                "difficulty": "L4",
+                "difficultyLabel": "L4｜精熟",
+                "sb3Path": "m0/M2-05-SimSensor/W3-04.sb3"
+            },
+            {
+                "id": "W5-03",
+                "code": "M2-05-W5-03",
+                "title": "展演小隊巡場令牌",
+                "description": "校慶展演需要把同學分成若干「雙人小隊」巡場。每位同學有一個表現值。分隊規則如下：\n1) 先把 N 位同學的表現值由小到大排序（N 一定是偶數）。\n2) 第 1 小與第 1 大成為第 1 隊，第 2 小與第 2 大成為第 2 隊……依此類推。\n3) 每一隊的「隊伍能量」= 兩位同學表現值的總和。\n分隊完成後，所有小隊依照隊號（第1隊、第2隊……）排成一個圓圈，開始傳遞「巡場令牌」。令牌一開始在第 1 隊。\n總共進行 K 回合，每回合的傳遞距離由「目前持有令牌的小隊」決定：\n令牌要順時針往前傳 (隊伍能量 mod 3) + 1 隊（也就是可能傳 1、2 或 3 隊）。\n超過最後一隊會回到第 1 隊。\n請輸出：\n(1) 所有小隊中「隊伍能量」的最大值\n(2) K 回合後，令牌最後落在哪一隊（隊號）",
+                "examples": [
+                    {
+                        "input": "4\n1 2 3 4\n1",
+                        "output": "5 2",
+                        "explanation": "分隊：(1,4)=5、(2,3)=5，最大=5。\n第1隊能量5，(5 mod 3)+1=3，往前3隊等同往前1隊 → 到第2隊。"
+                    },
+                    {
+                        "input": "10\n5 15 25 35 45 55 65 75 85 95\n7",
+                        "output": "100 5",
+                        "explanation": "每隊能量皆為100，傳遞距離固定。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "4\n10 90 20 80\n3",
+                        "expectedOutput": "100 1",
+                        "score": 10
+                    },
+                    {
+                        "input": "6\n1 5 10 20 50 100\n2",
+                        "expectedOutput": "101 1",
+                        "score": 10
+                    },
+                    {
+                        "input": "8\n1 100 2 99 3 98 50 50\n0",
+                        "expectedOutput": "101 1",
+                        "score": 10
+                    },
+                    {
+                        "input": "10\n5 15 25 35 45 55 65 75 85 95\n7",
+                        "expectedOutput": "100 5",
+                        "score": 10
+                    },
+                    {
+                        "input": "2\n30 31\n10",
+                        "expectedOutput": "61 1",
+                        "score": 10
+                    },
+                    {
+                        "input": "12\n10 11 12 13 14 15 16 17 18 19 20 21\n5",
+                        "expectedOutput": "31 5",
+                        "score": 10
+                    },
+                    {
+                        "input": "6\n10 80 20 70 30 75\n8",
+                        "expectedOutput": "100 2",
+                        "score": 10
+                    },
+                    {
+                        "input": "4\n1 2 3 4\n1",
+                        "expectedOutput": "5 2",
+                        "score": 10
+                    },
+                    {
+                        "input": "8\n8 7 6 5 4 3 2 1\n9",
+                        "expectedOutput": "9 2",
+                        "score": 10
+                    },
+                    {
+                        "input": "14\n3 1 4 1 5 9 2 6 5 3 5 8 9 7\n20",
+                        "expectedOutput": "10 7",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L4",
+                "difficultyLabel": "L4｜精熟",
+                "sb3Path": "m0/M2-05-SimSensor/W5-03.sb3"
+            },
+            {
+                "id": "W9-06",
+                "code": "M2-05-W9-06",
+                "title": "遊戲關卡的積分計算",
+                "description": "小明在玩一款闖關遊戲，共有 N 個關卡，每個關卡通過後都會獲得對應的分數。\n遊戲結束後，系統會進行多次「回顧分析」，頻繁詢問小明在「第 L 關 到 第 R 關」之間總共獲得了多少分。\n【提示】雖然查詢次數變少了，但依然請試著思考如何「先將資料整理好（例如使用前綴和）」，讓每一次的查詢都能更有效率地給出答案。",
+                "examples": [
+                    {
+                        "input": "5 3 10 20 30 40 50\n1 3\n2 4\n1 5",
+                        "output": "60\n90\n150",
+                        "explanation": "第一筆輸入5 3 10 20 30 40 50，表示5筆分數，查詢3次，分數：[10, 20, 30, 40, 50]\n1. 查詢 1~3 關：10+20+30 = 60\n2. 查詢 2~4 關：20+30+40 = 90\n3. 查詢 1~5 關：總和為 150"
+                    },
+                    {
+                        "input": "3 2 1 1 1\n1 1\n2 3",
+                        "output": "1\n2",
+                        "explanation": "第一筆輸入3 2 1 1 1，表示3筆分數，查詢2次，分數：[1, 1, 1]\n1. 第 1 關到第 1 關：1 分\n2. 第 2 關到第 3 關：1+1 = 2 分"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "5 3 10 20 30 40 50\n1 3\n2 4\n1 5",
+                        "expectedOutput": "60\n90\n150",
+                        "score": 10
+                    },
+                    {
+                        "input": "4 3 7 13 8 5\n1 1\n4 4\n1 4",
+                        "expectedOutput": "7\n5\n33",
+                        "score": 15
+                    },
+                    {
+                        "input": "5 2 0 0 0 0 0\n1 5\n2 4",
+                        "expectedOutput": "0\n0",
+                        "score": 20
+                    },
+                    {
+                        "input": "6 3 5 10 15 20 25 30\n1 2\n3 6\n2 5",
+                        "expectedOutput": "15\n90\n70",
+                        "score": 25
+                    },
+                    {
+                        "input": "10 3 1 2 3 4 5 6 7 8 9 10\n1 10\n5 5\n3 8",
+                        "expectedOutput": "55\n5\n33",
+                        "score": 30
+                    }
+                ],
+                "difficulty": "L4",
+                "difficultyLabel": "L4｜精熟",
+                "sb3Path": "m0/M2-05-SimSensor/W9-06.sb3"
+            }
+        ]
+    },
+    {
+        "code": "M2-06",
+        "title": "模擬與狀態挑戰C：競賽綜合系列",
+        "tier": "t2",
+        "unlockCode": "M2-06-SimContest",
+        "tasks": [
+            {
+                "id": "W4-04",
+                "code": "M2-06-W4-04",
+                "title": "神箭手",
+                "description": "輸入風速與離箭靶的距離，計算弓箭手應瞄準的位置。箭靶靶心位於直角座標 (0,0) 公分。\n【重力影響（往下掉）】\n每離箭靶 8 公尺，箭就會比原本瞄準點往下掉落 1 公分（未滿 8 公尺不計）。\n【風力影響（水平偏移）】\n風速以正負數表示：正數代表往右吹、負數代表往左吹。\n每離箭靶 10 公尺，箭會受到一次風力偏移，其偏移量即為「風速的數字」（往風吹的方向偏移，未滿 10 公尺不計）。\n例如：風速為 3 → 每 10 公尺箭向右偏 3 公分；風速為 -2 → 每 10 公尺箭向左偏 2 公分。\n【任務】\n請撰寫程式，根據風速與距離計算出弓箭手應瞄準的座標位置 (x,y)，以公分為單位，使箭最終能擊中靶心 (0,0)。",
+                "examples": [
+                    {
+                        "input": "3\n24",
+                        "output": "-6 3",
+                        "explanation": "風速 3（往右吹），距離 24 公尺：\n每 10 公尺右偏 3 公分，共 2 次 → 瞄準點水平座標為 -6。\n每 8 公尺掉 1 公分，共 3 次 → 瞄準點垂直座標為 3。\n瞄準點 (-6, 3)。"
+                    },
+                    {
+                        "input": "5\n40",
+                        "output": "-20 5",
+                        "explanation": "風速 5（往右吹），距離 40 公尺：\n每 10 公尺右偏 5 公分，共 4 次 → 瞄準點水平座標為 -20。\n每 8 公尺掉 1 公分，共 5 次 → 瞄準點垂直座標為 5。\n瞄準點 (-20, 5)。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "0\n7",
+                        "expectedOutput": "0 0",
+                        "score": 10
+                    },
+                    {
+                        "input": "3\n9",
+                        "expectedOutput": "0 1",
+                        "score": 15
+                    },
+                    {
+                        "input": "-2\n24",
+                        "expectedOutput": "4 3",
+                        "score": 20
+                    },
+                    {
+                        "input": "5\n40",
+                        "expectedOutput": "-20 5",
+                        "score": 25
+                    },
+                    {
+                        "input": "-7\n105",
+                        "expectedOutput": "70 13",
+                        "score": 30
+                    }
+                ],
+                "difficulty": "L1",
+                "difficultyLabel": "L1｜基礎",
+                "sb3Path": "m0/M2-06-SimContest/W4-04.sb3"
+            },
+            {
+                "id": "TYTN-01",
+                "code": "M2-06-TYTN-01",
+                "title": "遊樂場",
+                "description": "三六九主題遊樂園的門票分為兒童票與成人票兩種：\n兒童票：每張 400 元\n成人票：每張 500 元\n親子套票組：包含 1 張兒童票 + 1 張成人票，每組 800 元\n請設計一個程式，輸入兒童人數、成人人數，計算最優惠的總票價。可先盡量購買親子套票組，再補足剩餘的兒童或成人個別票",
+                "examples": [
+                    {
+                        "input": "5\n5",
+                        "output": "4000",
+                        "explanation": "可購買 5 組親子套票組：5×800=4000\n總價 4000 元。"
+                    },
+                    {
+                        "input": "6\n3",
+                        "output": "3600",
+                        "explanation": "可購買 3 組親子套票組：3×800=2400\n剩下 3 位兒童：3×400=1200\n總價 3600 元。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "5\n5",
+                        "expectedOutput": "4000",
+                        "score": 10
+                    },
+                    {
+                        "input": "6\n3",
+                        "expectedOutput": "3600",
+                        "score": 10
+                    },
+                    {
+                        "input": "4\n1",
+                        "expectedOutput": "2000",
+                        "score": 10
+                    },
+                    {
+                        "input": "2\n5",
+                        "expectedOutput": "3100",
+                        "score": 10
+                    },
+                    {
+                        "input": "7\n7",
+                        "expectedOutput": "5600",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L2",
+                "difficultyLabel": "L2｜進階",
+                "sb3Path": "m0/M2-06-SimContest/TYTN-01.sb3"
+            },
+            {
+                "id": "cyjunior-005",
+                "code": "M2-06-cyjunior-005",
+                "title": "變速傳球的特訓",
+                "description": "康輔社為了訓練社員的反應速度，社長發明了一種忽快忽慢的「變速傳球」遊戲。N 位社員圍成一圈，編號依序為 1 到 N。遊戲從 1 號社員開始持球。遊戲總共進行 K 回合，每一回合的傳球距離取決於「目前持球者的編號」：如果目前持球者的編號是奇數：他必須向順時針方向傳 1 個人（傳給下一位）。如果目前持球者的編號是偶數：他必須向順時針方向傳 2 個人（跳過一位傳給下下位）。請注意，如果傳球後的位置超過了 N，就會回到 1 號繼續數（例如：在 5 人小組中，5 號傳 1 人會變成 1 號）。請你計算在經過 K回合的傳球後，最後球會落在幾號社員的手上？",
+                "examples": [
+                    {
+                        "input": "5\n3",
+                        "output": "1",
+                        "explanation": "初始：在 1 號。\n第1回：1號是奇數，傳1人-> 到 2 號。\n第2回：2號是偶數，傳2人-> 到 4 號。\n第3回：4號是偶數，傳2人-> 到 6 號(超過5回到1)。\n結果：最後在 1 號。"
+                    },
+                    {
+                        "input": "6\n2",
+                        "output": "4",
+                        "explanation": "初始：在 1 號。\n第1回：1號是奇數，傳1人-> 到 2 號。\n第2回：2號是偶數，傳2人 -> 到 4 號。結果：最後在 4 號。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "3\n1",
+                        "expectedOutput": "2",
+                        "score": 10
+                    },
+                    {
+                        "input": "5\n5",
+                        "expectedOutput": "4",
+                        "score": 15
+                    },
+                    {
+                        "input": "10\n4",
+                        "expectedOutput": "8",
+                        "score": 20
+                    },
+                    {
+                        "input": "8\n10",
+                        "expectedOutput": "4",
+                        "score": 25
+                    },
+                    {
+                        "input": "100\n50",
+                        "expectedOutput": "100",
+                        "score": 30
+                    }
+                ],
+                "difficulty": "L3",
+                "difficultyLabel": "L3｜挑戰",
+                "sb3Path": "m0/M2-06-SimContest/cyjunior-005.sb3"
+            },
+            {
+                "id": "TYTN-02",
+                "code": "M2-06-TYTN-02",
+                "title": "歌唱比賽",
+                "description": "金嗓歌唱比賽邀請 5 位評審給予選手分數，評分範圍為 0～10 分。\n請設計一個程式，讀入 5 位評審的分數後，進行以下運算：\n1. 將分數排序\n2. 去除「一個最高分」與「一個最低分」\n3. 計算剩餘 3 個分數的平均值",
+                "examples": [
+                    {
+                        "input": "5\n10 8 9 9 9",
+                        "output": "9",
+                        "explanation": "排序後分數：10, 9, 9, 9, 8\n去除最高 10 與最低 8\n剩餘分數為 9, 9, 9 → 平均為 9"
+                    },
+                    {
+                        "input": "5\n10 9 9 6 6",
+                        "output": "8",
+                        "explanation": "排序後分數：10, 9, 9, 6, 6\n去除最高 10 與最低 6\n剩餘分數為 6, 9, 9 → 平均 8"
+                    },
+                    {
+                        "input": "5\n7 7 7 7 7",
+                        "output": "7",
+                        "explanation": "全部分數皆相同，排序不影響結果\n去除最高 7 與最低 7\n剩餘 7, 7, 7 → 平均 7"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "5\n10 8 9 9 9",
+                        "expectedOutput": "9",
+                        "score": 10
+                    },
+                    {
+                        "input": "5\n10 9 9 6 6",
+                        "expectedOutput": "8",
+                        "score": 10
+                    },
+                    {
+                        "input": "5\n7 7 7 7 7",
+                        "expectedOutput": "7",
+                        "score": 10
+                    },
+                    {
+                        "input": "5\n0 10 5 5 10",
+                        "expectedOutput": "7",
+                        "score": 10
+                    },
+                    {
+                        "input": "5\n3 4 8 8 9",
+                        "expectedOutput": "7",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L3",
+                "difficultyLabel": "L3｜挑戰",
+                "sb3Path": "m0/M2-06-SimContest/TYTN-02.sb3"
+            },
+            {
+                "id": "TYTN-04",
+                "code": "M2-06-TYTN-04",
+                "title": "傳球遊戲",
+                "description": "學校運動會舉辦了一個趣味傳球比賽，所有參賽同學圍成一個圓圈，互相傳球。\n每個同學有一個編號（從 1 到 N）。\n遊戲規則如下：\t比賽開始時，球在 1 號同學手上。\n傳球方式：每次傳球都固定「隔 K 個人」，把球傳給下一位同學。\n例如：K=1 代表傳給下一個人，K=2 代表跳過 1 人後傳給下一個人。\n傳球會一直持續，直到球再次回到 1 號同學手上，比賽才結束。\n請你模擬這個傳球遊戲，輸出整個過程中，球依序落在誰的手上（包含最初的 1 號）。\n輸入格式：2行，每行1個整數： N：同學人數（2 > N <t 1000） K：每次傳球要隔的人數（1 < K < 1000） 輸出格式：1行，輸出一串整數，用空格間隔開。 輸出結果代表傳球過程中球依序落在誰的手上。\n第一個數字必定是 1（表示起始位置），最後一個數字也會是 1（回到起點）。",
+                "examples": [
+                    {
+                        "input": "5\n2",
+                        "output": "1 3 5 2 4 1",
+                        "explanation": "第一行輸入5，共有 5 個人，起始在 1。\n第二行輸入2，傳球每隔 2 人 → 傳到第 3 人。\n傳球過程：1 → 3 → 5 → 2 → 4 → 1\n程式輸出包含起點 → 1 3 5 2 4 1。"
+                    },
+                    {
+                        "input": "6\n3",
+                        "output": "1 4 1",
+                        "explanation": "第一行輸入6，共有 6 個人，起始在 1。\n第二行輸入3，傳球每隔 3 人 → 傳到第 4 人。\n傳球過程：1 → 4 → 1\n程式輸出包含起點 → 1 4 1。"
+                    },
+                    {
+                        "input": "4\n1",
+                        "output": "1 2 3 4 1",
+                        "explanation": "第一行輸入4，共有 4 個人，起始在 1。\n第二行輸入1，傳球每隔 1 人 → 傳到第 2 人。\n傳球過程：1 → 2 →3 → 4 → 1\n程式輸出包含起點 → 1 2 3 4 1。"
+                    },
+                    {
+                        "input": "12\n9",
+                        "output": "1 10 7 4 1",
+                        "explanation": "第一行輸入12，共有 12 個人，起始在 1。\n第二行輸入9，傳球每隔 9 人 → 傳到第 10 人。\n傳球過程：1 → 10 → 7 → 4 → 1\n程式輸出包含起點 → 1 10 7 4 1。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "5\n2",
+                        "expectedOutput": "1 3 5 2 4 1",
+                        "score": 10
+                    },
+                    {
+                        "input": "4\n1",
+                        "expectedOutput": "1 2 3 4 1",
+                        "score": 10
+                    },
+                    {
+                        "input": "6\n3",
+                        "expectedOutput": "1 4 1",
+                        "score": 10
+                    },
+                    {
+                        "input": "12\n9",
+                        "expectedOutput": "1 10 7 4 1",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L3",
+                "difficultyLabel": "L3｜挑戰",
+                "sb3Path": "m0/M2-06-SimContest/TYTN-04.sb3"
+            },
+            {
+                "id": "W4-02",
+                "code": "M2-06-W4-02",
+                "title": "歡樂抽獎",
+                "description": "每位同學會先抽出 1 顆紅球，紅球上寫有一個整數數字（0~9）。\n接著，同學可以從抽獎箱中抽出 3 顆白球，每顆白球上也各有一個整數數字（0~9）。\n同學「一定要使用紅球」，並可選擇使用 0~3 顆白球（每顆白球最多使用一次），將所選球上的數字相加。\n只要總和為 7 的倍數即可中獎。中獎等級依照「使用的白球數量」判定：\n• 不使用白球且紅球本身即為 7 的倍數：特獎\n• 使用 1 顆白球：頭獎\n• 使用 2 顆白球：二獎\n• 使用 3 顆白球：三獎\n• 若無法組成 7 的倍數：未中獎\n請撰寫程式，判斷同學最終可獲得的獎項等級（以使用白球數量最少為優先）。",
+                "examples": [
+                    {
+                        "input": "2\n6 4 2",
+                        "output": "三獎",
+                        "explanation": "三顆白球都使用：2+6+4+2=14，是 7 的倍數。\n但任意使用 0~2 顆白球都無法湊成 7 的倍數，因此為三獎。"
+                    },
+                    {
+                        "input": "8\n3 2 5",
+                        "output": "未中獎",
+                        "explanation": "無論怎麼選 0~3 顆白球搭配紅球，都無法使總和成為 7 的倍數。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "7\n1 2 3",
+                        "expectedOutput": "特獎",
+                        "score": 10
+                    },
+                    {
+                        "input": "1\n6 0 2",
+                        "expectedOutput": "頭獎",
+                        "score": 15
+                    },
+                    {
+                        "input": "2\n2 3 4",
+                        "expectedOutput": "二獎",
+                        "score": 20
+                    },
+                    {
+                        "input": "2\n6 4 2",
+                        "expectedOutput": "三獎",
+                        "score": 25
+                    },
+                    {
+                        "input": "8\n3 2 5",
+                        "expectedOutput": "未中獎",
+                        "score": 30
+                    }
+                ],
+                "difficulty": "L3",
+                "difficultyLabel": "L3｜挑戰",
+                "sb3Path": "m0/M2-06-SimContest/W4-02.sb3"
+            },
+            {
+                "id": "WP-04",
+                "code": "M2-06-WP-04",
+                "title": "大富翁",
+                "description": "有一條環形棋盤，共有 N 格，每一格上都標示著金錢變化，可能是「獲得金錢」（正值）、「失去金錢」（負值）或「沒有變化」（0）。\n玩家一開始站在第 1 格，起始金額為 0。\n接著依序輸入骰子點數，代表玩家往前移動的步數。\n每次移動後，落在的新格子會立即結算金錢變化。\n若該格需要失去金錢，但玩家的金額不足，則只會扣到 0 元，不會變成負數。\n棋盤是環形的，當超過第 N 格時，會回到第 1 格繼續往前走。\n注意：玩家剛開始站在第 1 格時，不會結算金額，只有移動後才會結算。\n請計算所有骰子點數執行完畢後，玩家的最終金額",
+                "examples": [
+                    {
+                        "input": "5\n10 -5 0 20 -10\n3\n1 2 3",
+                        "output": "15",
+                        "explanation": "起始在第 1 格，金額 0\n走 1 → 到第 2 格（-5）：扣到 0 → 金額 0\n走 2 → 到第 4 格（+20）：金額 20\n走 3 → 從第 4 格往前 3 步 → 到第 2 格（-5）：20 → 15\n最終金額 = 15"
+                    },
+                    {
+                        "input": "4\n50 -20 10 -5\n4\n4 1 1 1",
+                        "output": "35",
+                        "explanation": "起始在第 1 格，金額 0\n走 4 → 到第 1 格：+50 → 50\n走 1 → 到第 2 格：-20 → 30\n走 1 → 到第 3 格：+10 → 40\n走 1 → 到第 4 格：-5 → 35\n最終金額 = 35"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "5\n10 -5 0 20 -10\n3\n1 2 3",
+                        "expectedOutput": "15",
+                        "score": 10
+                    },
+                    {
+                        "input": "4\n50 -20 10 -5\n4\n4 1 1 1",
+                        "expectedOutput": "35",
+                        "score": 10
+                    },
+                    {
+                        "input": "3\n-10 5 -5\n2\n1 2",
+                        "expectedOutput": "0",
+                        "score": 10
+                    },
+                    {
+                        "input": "2\n50 -30\n2\n6 6",
+                        "expectedOutput": "100",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L3",
+                "difficultyLabel": "L3｜挑戰",
+                "sb3Path": "m0/M2-06-SimContest/WP-04.sb3"
+            },
+            {
+                "id": "WP-05",
+                "code": "M2-06-WP-05",
+                "title": "傳球遊戲",
+                "description": "學校運動會舉辦了一個趣味傳球比賽，所有參賽同學圍成一個圓圈，互相傳球。\n每個同學有一個編號（從 1 到 N）。\n遊戲規則如下：\t比賽開始時，球在 1 號同學手上。\n傳球方式：每次傳球都固定「隔 K 個人」，把球傳給下一位同學。\n例如：K=1 代表傳給下一個人，K=2 代表跳過 1 人後傳給下一個人。\n傳球會一直持續，直到球再次回到 1 號同學手上，比賽才結束。\n請你模擬這個傳球遊戲，輸出整個過程中，球依序落在誰的手上（包含最初的 1 號）",
+                "examples": [
+                    {
+                        "input": "5\n2",
+                        "output": "1 3 5 2 4 1",
+                        "explanation": "第一行輸入5，共有 5 個人，起始在 1。\n第二行輸入2，傳球每隔 2 人 → 傳到第 3 人。\n傳球過程：1 → 3 → 5 → 2 → 4 → 1\n程式輸出包含起點 → 1 3 5 2 4 1。"
+                    },
+                    {
+                        "input": "6\n3",
+                        "output": "1 4 1",
+                        "explanation": "第一行輸入6，共有 6 個人，起始在 1。\n第二行輸入3，傳球每隔 3 人 → 傳到第 4 人。\n傳球過程：1 → 4 → 1\n程式輸出包含起點 → 1 4 1。"
+                    },
+                    {
+                        "input": "4\n1",
+                        "output": "1 2 3 4 1",
+                        "explanation": "第一行輸入4，共有 4 個人，起始在 1。\n第二行輸入1，傳球每隔 1 人 → 傳到第 2 人。\n傳球過程：1 → 2 →3 → 4 → 1\n程式輸出包含起點 → 1 2 3 4 1。"
+                    },
+                    {
+                        "input": "12\n9",
+                        "output": "1 10 7 4 1",
+                        "explanation": "第一行輸入12，共有 12 個人，起始在 1。\n第二行輸入9，傳球每隔 9 人 → 傳到第 10 人。\n傳球過程：1 → 10 → 7 → 4 → 1\n程式輸出包含起點 → 1 10 7 4 1。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "5\n2",
+                        "expectedOutput": "1 3 5 2 4 1",
+                        "score": 10
+                    },
+                    {
+                        "input": "4\n1",
+                        "expectedOutput": "1 2 3 4 1",
+                        "score": 10
+                    },
+                    {
+                        "input": "6\n3",
+                        "expectedOutput": "1 4 1",
+                        "score": 10
+                    },
+                    {
+                        "input": "12\n9",
+                        "expectedOutput": "1 10 7 4 1",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L3",
+                "difficultyLabel": "L3｜挑戰",
+                "sb3Path": "m0/M2-06-SimContest/WP-05.sb3"
+            },
+            {
+                "id": "cyjunior-001",
+                "code": "M2-06-cyjunior-001",
+                "title": "智慧手環的健康挑戰",
+                "description": "為了響應教育部推廣的「新世代健康校園」計畫，學校本學期發給每位同學一支「智慧運動手環」。這支手環不僅能顯示時間，還內建了高精度的三軸加速規，能夠以「小時」為單位，記錄使用者的步數活動量。\n主角小華為了爭取期末的「健康小鐵人」獎章，立志要嚴格執行運動計畫。根據手環的說明書，系統設定了一個「活躍門檻值 (K)」。如果某一小時內的步數低於這個門檻，該小時就會被系統判定為「靜態時段」，並記上一筆「久坐警告」。\n然而，為了避免學生長時間維持靜態，系統設計了一套嚴厲的連續懲罰機制：如果手環偵測到使用者連續兩個小時（含）以上都處於「靜態時段」，系統會判定這是極不健康的行為。因此，從連續違規的第二個小時開始，該次警告將會被加倍懲罰（也就是該小時會被記 2 次警告）。只有當某一小時的步數成功達到門檻時，這個連續違規的狀態才會解除，計數器才會重置。\n請你根據小華手環中匯出的 N 小時歷史數據，幫他計算這段時間內，系統累計發出了幾次警告訊號",
+                "examples": [
+                    {
+                        "input": "5\n1000\n800 900 1200 500 400",
+                        "output": "6",
+                        "explanation": "800 (=1000): 達標，中斷連續狀態\n500 (<1000): 警告+1 (累計4)\n400 (<1000): 連續未達標，警告+2 (累計6)"
+                    },
+                    {
+                        "input": "4\n500\n600 700 800 900",
+                        "output": "0",
+                        "explanation": "所有時段皆達標，無警告。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "3\n1000\n1200 1500 2000",
+                        "expectedOutput": "0",
+                        "score": 10
+                    },
+                    {
+                        "input": "4\n800\n500 600 700 400",
+                        "expectedOutput": "7",
+                        "score": 15
+                    },
+                    {
+                        "input": "5\n100\n50 150 50 50 150",
+                        "expectedOutput": "4",
+                        "score": 20
+                    },
+                    {
+                        "input": "6\n2000\n1000 1000 1000 2500 1000 1000",
+                        "expectedOutput": "8",
+                        "score": 25
+                    },
+                    {
+                        "input": "10\n500\n400 400 400 600 600 400 400 400 400 400",
+                        "expectedOutput": "14",
+                        "score": 30
+                    }
+                ],
+                "difficulty": "L4",
+                "difficultyLabel": "L4｜精熟",
+                "sb3Path": "m0/M2-06-SimContest/cyjunior-001.sb3"
+            },
+            {
+                "id": "cyjunior-003",
+                "code": "M2-06-cyjunior-003",
+                "title": "資源回收車的極限挑戰",
+                "description": "每週的資源回收工作結束後，回收車準備將垃圾運走。但是，回收車的剩餘空間有限，只剩下 K 的容量單位。 待清運的回收物還有 N包，每包的大小不一。為了讓校園看起來最整潔，衛生組長希望盡可能載走「最多包」的回收物（數量越多越好，而不是體積最大）。 請你運用「貪婪法則」，幫忙計算在容量 K 的限制下，這台回收車最多能載走幾包回收物？ (提示：為了拿走最多包，我們應該優先選擇體積小的，還是體積大的呢？)",
+                "examples": [
+                    {
+                        "input": "5\n10\n5 8 3 2 4",
+                        "output": "3",
+                        "explanation": "1. 排序(小到大)：2, 3, 4, 5, 8\n2. 裝入2 (剩8)\n3. 裝入3 (剩5)\n4. 裝入4 (剩1)\n5. 下一個是5，裝不下。共載走 3 包。"
+                    },
+                    {
+                        "input": "4\n20\n10 10 10 10",
+                        "output": "2",
+                        "explanation": "10+10=20，剛好裝滿，共 2 包。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "3\n100\n20 30 40",
+                        "expectedOutput": "3",
+                        "score": 10
+                    },
+                    {
+                        "input": "5\n10\n20 30 40 50 60",
+                        "expectedOutput": "0",
+                        "score": 15
+                    },
+                    {
+                        "input": "5\n10\n1 2 3 4 5",
+                        "expectedOutput": "4",
+                        "score": 20
+                    },
+                    {
+                        "input": "6\n15\n5 10 5 10 5 10",
+                        "expectedOutput": "3",
+                        "score": 25
+                    },
+                    {
+                        "input": "8\n50\n100 2 100 3 100 5 100 8",
+                        "expectedOutput": "4",
+                        "score": 30
+                    }
+                ],
+                "difficulty": "L4",
+                "difficultyLabel": "L4｜精熟",
+                "sb3Path": "m0/M2-06-SimContest/cyjunior-003.sb3"
+            },
+            {
+                "id": "TYTN-08",
+                "code": "M2-06-TYTN-08",
+                "title": "綠能任務挑戰",
+                "description": "為了推動淨零城市，玩家要在地圖中收集綠能點數（正值）並應對污染事件（負值）。\n地圖共有 N 個地點，每格可能代表「吸收碳」（正值）、「排放碳」（負值）或「無變化」（0）。\n玩家從第 1 格出發（初始能量為 0，不計入第 1 格的能量值）。每次依骰子的點數往前移動，並在抵達的新地點時計算能量變化。\n能量規則：\n1. 若總能量 > 50，觸發「能源過載」，能量強制維持在 50。\n2. 若總能量 ≤ 0，觸發「環境危機」，系統將能量自動補助為 5。\n3. 地圖為環狀，超過第 N 格後會回到第 1 格。\n請計算所有移動結束後的「最終能量值」，並輸出過程中曾達到的「最高能量值」",
+                "examples": [
+                    {
+                        "input": "4\n25 10 30 -5\n4\n1 1 2 1",
+                        "output": "50 50",
+                        "explanation": "能量多次上升超過 50，觸發能源過載維持在 50。\n最終能量 50，最高能量也為 50。"
+                    },
+                    {
+                        "input": "5\n10 -5 0 20 -10\n3\n1 2 3",
+                        "output": "20 25",
+                        "explanation": "玩家依序移動並累計能量，過程中最高能量達 25。\n最後能量為 20。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "4\n25 10 30 -5\n4\n1 1 2 1",
+                        "expectedOutput": "50 50",
+                        "score": 10
+                    },
+                    {
+                        "input": "5\n10 -5 0 20 -10\n3\n1 2 3",
+                        "expectedOutput": "20 25",
+                        "score": 10
+                    },
+                    {
+                        "input": "3\n5 -10 40\n3\n1 1 1",
+                        "expectedOutput": "50 50",
+                        "score": 10
+                    },
+                    {
+                        "input": "6\n0 0 -20 10 5 30\n4\n3 3 3 3",
+                        "expectedOutput": "20 20",
+                        "score": 10
+                    },
+                    {
+                        "input": "4\n50 -50 50 -50\n4\n1 1 1 1",
+                        "expectedOutput": "50 50",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L4",
+                "difficultyLabel": "L4｜精熟",
+                "sb3Path": "m0/M2-06-SimContest/TYTN-08.sb3"
+            }
+        ]
+    },
+    {
+        "code": "M2-07",
+        "title": "圖論基礎",
+        "tier": "t2",
+        "unlockCode": "M2-07-GraphBasics",
+        "tasks": [
+            {
+                "id": "GRAPH01-001",
+                "code": "M2-07-GRAPH01-001",
+                "title": "網路連線數",
+                "description": "一個網路中有 N 個設備與 M 條連線。請輸出連線數 M。",
+                "examples": [
+                    {
+                        "input": "4 3 1 2 2 3 3 4",
+                        "output": "3",
+                        "explanation": "輸入中有 3 條連線。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "4 3 1 2 2 3 3 4",
+                        "expectedOutput": "3",
+                        "score": 0
+                    },
+                    {
+                        "input": "5 0",
+                        "expectedOutput": "0",
+                        "score": 0
+                    },
+                    {
+                        "input": "3 2 1 2 1 3",
+                        "expectedOutput": "2",
+                        "score": 0
+                    },
+                    {
+                        "input": "6 5 1 2 2 3 3 4 4 5 5 6",
+                        "expectedOutput": "5",
+                        "score": 0
+                    }
+                ],
+                "difficulty": "L1",
+                "difficultyLabel": "L1｜基礎",
+                "sb3Path": "m0/M2-07-GraphBasics/GRAPH01-001.sb3"
+            },
+            {
+                "id": "GRAPH01-007",
+                "code": "M2-07-GRAPH01-007",
+                "title": "完整網路缺幾條線",
+                "description": "若 N 個設備中，每兩個不同設備都直接相連，稱為完整網路。給定目前已有 M 條連線，請計算還缺幾條線才會變成完整網路。",
+                "examples": [
+                    {
+                        "input": "4 3",
+                        "output": "3",
+                        "explanation": "4 個設備完整網路需要 6 條線，目前 3 條，所以還缺 3 條。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "4 3",
+                        "expectedOutput": "3",
+                        "score": 0
+                    },
+                    {
+                        "input": "3 3",
+                        "expectedOutput": "0",
+                        "score": 0
+                    },
+                    {
+                        "input": "5 0",
+                        "expectedOutput": "10",
+                        "score": 0
+                    },
+                    {
+                        "input": "6 10",
+                        "expectedOutput": "5",
+                        "score": 0
+                    }
+                ],
+                "difficulty": "L1",
+                "difficultyLabel": "L1｜基礎",
+                "sb3Path": "m0/M2-07-GraphBasics/GRAPH01-007.sb3"
+            },
+            {
+                "id": "GRAPH01-002",
+                "code": "M2-07-GRAPH01-002",
+                "title": "指定設備連線數",
+                "description": "一個網路中有 N 個設備與 M 條連線。給定目標設備 X，請計算 X 連到幾個設備。",
+                "examples": [
+                    {
+                        "input": "4 3 2 1 2 2 3 3 4",
+                        "output": "2",
+                        "explanation": "設備 2 與設備 1、3 相連，所以連線數為 2。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "4 3 2 1 2 2 3 3 4",
+                        "expectedOutput": "2",
+                        "score": 0
+                    },
+                    {
+                        "input": "5 2 5 1 2 2 3",
+                        "expectedOutput": "0",
+                        "score": 0
+                    },
+                    {
+                        "input": "4 3 1 1 2 1 3 1 4",
+                        "expectedOutput": "3",
+                        "score": 0
+                    },
+                    {
+                        "input": "6 5 4 1 4 2 4 3 4 4 5 4 6",
+                        "expectedOutput": "5",
+                        "score": 0
+                    }
+                ],
+                "difficulty": "L2",
+                "difficultyLabel": "L2｜進階",
+                "sb3Path": "m0/M2-07-GraphBasics/GRAPH01-002.sb3"
+            },
+            {
+                "id": "GRAPH01-003",
+                "code": "M2-07-GRAPH01-003",
+                "title": "是否直接相連",
+                "description": "一個網路中有 N 個設備與 M 條連線。給定兩個設備 X 與 Y，請判斷它們是否有直接連線。",
+                "examples": [
+                    {
+                        "input": "4 3 1 3 1 2 2 3 3 4",
+                        "output": "NO",
+                        "explanation": "1 和 3 沒有直接連線。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "4 3 1 3 1 2 2 3 3 4",
+                        "expectedOutput": "NO",
+                        "score": 0
+                    },
+                    {
+                        "input": "4 3 2 3 1 2 2 3 3 4",
+                        "expectedOutput": "YES",
+                        "score": 0
+                    },
+                    {
+                        "input": "3 1 1 2 2 3",
+                        "expectedOutput": "NO",
+                        "score": 0
+                    },
+                    {
+                        "input": "5 4 5 4 1 2 2 3 3 4 4 5",
+                        "expectedOutput": "YES",
+                        "score": 0
+                    }
+                ],
+                "difficulty": "L2",
+                "difficultyLabel": "L2｜進階",
+                "sb3Path": "m0/M2-07-GraphBasics/GRAPH01-003.sb3"
+            },
+            {
+                "id": "GRAPH01-008",
+                "code": "M2-07-GRAPH01-008",
+                "title": "網路狀態分類",
+                "description": "一個網路中有 N 個設備與 M 條連線。若 M 為 0，輸出 EMPTY；若 M 等於完整網路需要的連線數，輸出 FULL；否則輸出 NORMAL。",
+                "examples": [
+                    {
+                        "input": "4 6",
+                        "output": "FULL",
+                        "explanation": "4 個設備完整網路需要 6 條線，所以是 FULL。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "4 6",
+                        "expectedOutput": "FULL",
+                        "score": 0
+                    },
+                    {
+                        "input": "5 0",
+                        "expectedOutput": "EMPTY",
+                        "score": 0
+                    },
+                    {
+                        "input": "4 3",
+                        "expectedOutput": "NORMAL",
+                        "score": 0
+                    },
+                    {
+                        "input": "2 1",
+                        "expectedOutput": "FULL",
+                        "score": 0
+                    }
+                ],
+                "difficulty": "L2",
+                "difficultyLabel": "L2｜進階",
+                "sb3Path": "m0/M2-07-GraphBasics/GRAPH01-008.sb3"
+            },
+            {
+                "id": "GRAPH01-004",
+                "code": "M2-07-GRAPH01-004",
+                "title": "找連線最多的設備",
+                "description": "一個網路中有 N 個設備與 M 條連線。請找出連線數最多的設備。若有多個設備並列，輸出編號最小者。",
+                "examples": [
+                    {
+                        "input": "4 4 1 2 2 3 2 4 3 4",
+                        "output": "2 3",
+                        "explanation": "設備 2 連到 1、3、4，共 3 條，是最多的。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "4 4 1 2 2 3 2 4 3 4",
+                        "expectedOutput": "2 3",
+                        "score": 0
+                    },
+                    {
+                        "input": "3 0",
+                        "expectedOutput": "1 0",
+                        "score": 0
+                    },
+                    {
+                        "input": "5 4 1 2 1 3 4 5 2 3",
+                        "expectedOutput": "1 2",
+                        "score": 0
+                    },
+                    {
+                        "input": "4 3 1 2 2 3 3 4",
+                        "expectedOutput": "2 2",
+                        "score": 0
+                    }
+                ],
+                "difficulty": "L3",
+                "difficultyLabel": "L3｜挑戰",
+                "sb3Path": "m0/M2-07-GraphBasics/GRAPH01-004.sb3"
+            },
+            {
+                "id": "GRAPH01-005",
+                "code": "M2-07-GRAPH01-005",
+                "title": "孤立設備數量",
+                "description": "一個網路中，如果某個設備沒有任何連線，稱為孤立設備。給定網路連線資料，請計算孤立設備數量。",
+                "examples": [
+                    {
+                        "input": "5 2 1 2 2 3",
+                        "output": "2",
+                        "explanation": "設備 4、5 沒有任何連線，所以有 2 個孤立設備。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "5 2 1 2 2 3",
+                        "expectedOutput": "2",
+                        "score": 0
+                    },
+                    {
+                        "input": "4 3 1 2 2 3 3 4",
+                        "expectedOutput": "0",
+                        "score": 0
+                    },
+                    {
+                        "input": "3 0",
+                        "expectedOutput": "3",
+                        "score": 0
+                    },
+                    {
+                        "input": "6 2 1 6 2 5",
+                        "expectedOutput": "2",
+                        "score": 0
+                    }
+                ],
+                "difficulty": "L3",
+                "difficultyLabel": "L3｜挑戰",
+                "sb3Path": "m0/M2-07-GraphBasics/GRAPH01-005.sb3"
+            },
+            {
+                "id": "GRAPH01-006",
+                "code": "M2-07-GRAPH01-006",
+                "title": "兩段路可到達",
+                "description": "一個網路中，若 X 可以先到某個中繼設備，再到 Y，代表 X 和 Y 可以用兩段路到達。請判斷是否存在這樣的中繼設備。若 X 與 Y 直接相連，不算兩段路。",
+                "examples": [
+                    {
+                        "input": "4 3 1 3 1 2 2 3 3 4",
+                        "output": "YES",
+                        "explanation": "1 可以經由 2 到達 3。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "4 3 1 3 1 2 2 3 3 4",
+                        "expectedOutput": "YES",
+                        "score": 0
+                    },
+                    {
+                        "input": "4 2 1 4 1 2 3 4",
+                        "expectedOutput": "NO",
+                        "score": 0
+                    },
+                    {
+                        "input": "5 4 1 5 1 2 2 5 1 3 3 5",
+                        "expectedOutput": "YES",
+                        "score": 0
+                    },
+                    {
+                        "input": "3 1 1 3 1 2",
+                        "expectedOutput": "NO",
+                        "score": 0
+                    }
+                ],
+                "difficulty": "L3",
+                "difficultyLabel": "L3｜挑戰",
+                "sb3Path": "m0/M2-07-GraphBasics/GRAPH01-006.sb3"
+            }
+        ]
+    },
+    {
+        "code": "M2-08",
+        "title": "圖論進階",
+        "tier": "t2",
+        "unlockCode": "M2-08-GraphAdvanced",
+        "tasks": [
+            {
+                "id": "W0-03",
+                "code": "M2-08-W0-03",
+                "title": "量子訊號的接力傳輸",
+                "description": "為了在廣大的星際基地之間建立通訊，\n工程師架設了一套「單向接力」的量子訊號傳輸系統。\n系統中共有 N 個訊號站，編號為 1 到 N。\n其中有一個最重要的「主伺服器」，所有資料最終都必須傳送到這個站點。\n為了節省能源，每一個訊號站（主伺服器除外）都只會設定一個固定的「上游接收站」。\n當某站點收到資料時，會立刻將資料傳送給它的上游站點，\n如此一站接一站，直到資料抵達主伺服器為止。\n若某站點的上游接收站編號為 0，\n則代表該站點本身就是主伺服器，其轉傳次數為 0。\n請根據輸入的系統設定，\n計算整個系統中，從任一站點出發所需的「最大轉傳次數」",
+                "examples": [
+                    {
+                        "input": "5\n0 1 2 2 3",
+                        "output": "3",
+                        "explanation": "5 → 3 → 2 → 1，\n從 5 號站出發轉傳 3 次，為系統中最大值。"
+                    },
+                    {
+                        "input": "3\n2 3 0",
+                        "output": "2",
+                        "explanation": "1 → 2 → 3，\n從 1 號站出發轉傳 2 次，為最大值。"
+                    },
+                    {
+                        "input": "6\n2 6 6 0 1 4",
+                        "output": "4",
+                        "explanation": "5 → 1 → 2 → 6 → 4，\n從 5 號站出發轉傳 4 次最多。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "5\n0 1 2 2 3",
+                        "expectedOutput": "3",
+                        "score": 10
+                    },
+                    {
+                        "input": "4\n0 1 1 1",
+                        "expectedOutput": "1",
+                        "score": 10
+                    },
+                    {
+                        "input": "6\n2 3 4 5 6 0",
+                        "expectedOutput": "5",
+                        "score": 10
+                    },
+                    {
+                        "input": "1\n0",
+                        "expectedOutput": "0",
+                        "score": 10
+                    },
+                    {
+                        "input": "7\n3 3 4 0 4 5 6",
+                        "expectedOutput": "3",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L4",
+                "difficultyLabel": "L4｜精熟",
+                "sb3Path": "m0/M2-08-GraphAdvanced/W0-03.sb3"
+            },
+            {
+                "id": "W4-05",
+                "code": "M2-08-W4-05",
+                "title": "衛星佈署計畫",
+                "description": "台灣正致力於研發自主低軌衛星通訊系統「T-Starlink」，以確保在特殊情況下通訊不中斷。\nTASA 國家太空中心預計在特定的軌道高度上，沿著預定路徑佈署通訊衛星。根據衛星的訊號覆蓋半徑與任務需求，不同路徑段有不同的佈署模式。\n請寫一個程式，根據路徑總長度、衛星間的固定間隔，以及指定的「佈署模式」，計算該路段總共需要佈署多少顆衛星。\n【基本定義】\n• 衛星之間的間隔必須為整數。\n• 若路段長度無法被間隔整除，剩餘不足一個間隔的距離將不佈署衛星（即：計算間隔數時請取整數商）。\n【佈署模式】（依輸入模式編號 M 計算衛星數量）\n1. 模式 1（全線覆蓋）：可佈署段的「起點」與「終點」都必須佈署衛星。\n2. 模式 2（銜接佈署）：僅在「起點」佈署衛星，「終點」不佈署。\n3. 模式 3（受限區域）：起點與終點都不佈署衛星（只佈署中間點）。\n4. 模式 4（全球環繞軌道）：首尾相接的圓形封閉軌道。",
+                "examples": [
+                    {
+                        "input": "1000\n200\n1",
+                        "output": "6",
+                        "explanation": "長度 1000 公里，每 200 公里放一顆。\n間隔數 n = 1000 ÷ 200 = 5。\n模式 1 需含起點與終點，衛星數 = n + 1 = 6。"
+                    },
+                    {
+                        "input": "1000\n200\n3",
+                        "output": "4",
+                        "explanation": "長度 1000，間隔 200，間隔數 n = 5。\n模式 3 起點與終點都不佈署，衛星數 = n - 1 = 4。"
+                    },
+                    {
+                        "input": "1050\n200\n2",
+                        "output": "5",
+                        "explanation": "1050 ÷ 200 = 5.25，取整數商 n = 5（忽略餘數）。\n模式 2 只佈署起點、不佈署終點，衛星數 = n = 5。"
+                    },
+                    {
+                        "input": "800\n200\n4",
+                        "output": "4",
+                        "explanation": "長度 800，間隔 200，n = 4。\n模式 4 為環狀軌道，衛星數 = n = 4。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "1000\n200\n1",
+                        "expectedOutput": "6",
+                        "score": 10
+                    },
+                    {
+                        "input": "999\n100\n2",
+                        "expectedOutput": "9",
+                        "score": 15
+                    },
+                    {
+                        "input": "1000\n200\n3",
+                        "expectedOutput": "4",
+                        "score": 20
+                    },
+                    {
+                        "input": "800\n200\n4",
+                        "expectedOutput": "4",
+                        "score": 25
+                    },
+                    {
+                        "input": "50\n200\n3",
+                        "expectedOutput": "0",
+                        "score": 30
+                    }
+                ],
+                "difficulty": "L4",
+                "difficultyLabel": "L4｜精熟",
+                "sb3Path": "m0/M2-08-GraphAdvanced/W4-05.sb3"
+            },
+            {
+                "id": "W5-06",
+                "code": "M2-08-W5-06",
+                "title": "山區備援工程",
+                "description": "颱風季將至，市府要在山區架設備援通訊設備。現有的基地台連線關係是一棵樹狀結構，編號 1 為主控站，每條連線代表「上級站 → 下級站」。你需要完成三個計算：\n(1) 風險層數：從 1 號站走到最遠的下級站，最多會經過幾條連線（最大層數）。\n(2) 纜線切段：你有 P 條纜線，每條長度為整數。你要把纜線切成「等長」的小段（長度為 L，且 L 必須是正整數），每條纜線最多可切出 ⌊纜線長度 ÷ L⌋ 段，且不能拼接。\n你需要至少「最大層數」段小纜線來完成架設，請找出最大的 L。\n（題目保證：當 L=1 時一定切得出足夠段數。）\n(3) 攀登方式：工程人員要爬上「最大層數」階的梯子，每一步可以爬 1 階或 2 階。請計算走到頂端共有幾種不同走法",
+                "examples": [
+                    {
+                        "input": "3 2\n1 2\n2 3\n10 10",
+                        "output": "2 10 2",
+                        "explanation": "最大層數=2；最大L=10；走法數=2。"
+                    },
+                    {
+                        "input": "5 3\n1 1 1 1\n2 3 4 5\n5 6 7",
+                        "output": "1 7 1",
+                        "explanation": "最大層數=1；最大L=7；走法數=1。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "3 2\n1 2\n2 3\n10 10",
+                        "expectedOutput": "2 10 2",
+                        "score": 10
+                    },
+                    {
+                        "input": "5 3\n1 1 1 1\n2 3 4 5\n5 6 7",
+                        "expectedOutput": "1 7 1",
+                        "score": 10
+                    },
+                    {
+                        "input": "6 2\n1 2 2 4 5\n2 3 4 5 6\n12 7",
+                        "expectedOutput": "4 4 5",
+                        "score": 10
+                    },
+                    {
+                        "input": "6 3\n1 2 3 4 5\n2 3 4 5 6\n3 3 3",
+                        "expectedOutput": "5 1 8",
+                        "score": 10
+                    },
+                    {
+                        "input": "7 4\n1 1 2 2 3 6\n2 3 4 5 6 7\n9 10 11 12",
+                        "expectedOutput": "3 10 3",
+                        "score": 10
+                    },
+                    {
+                        "input": "8 2\n1 2 3 4 1 6 7\n2 3 4 5 6 7 8\n100 1",
+                        "expectedOutput": "4 25 5",
+                        "score": 10
+                    },
+                    {
+                        "input": "4 1\n1 2 3\n2 3 4\n10",
+                        "expectedOutput": "3 3 3",
+                        "score": 10
+                    },
+                    {
+                        "input": "5 2\n1 1 3 4\n2 3 4 5\n8 8",
+                        "expectedOutput": "3 4 3",
+                        "score": 10
+                    },
+                    {
+                        "input": "9 3\n1 2 3 2 5 6 1 8\n2 3 4 5 6 7 8 9\n15 9 6",
+                        "expectedOutput": "4 6 5",
+                        "score": 10
+                    },
+                    {
+                        "input": "10 5\n1 1 2 4 5 3 7 8 9\n2 3 4 5 6 7 8 9 10\n20 20 5 5 5",
+                        "expectedOutput": "5 6 8",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L4",
+                "difficultyLabel": "L4｜精熟",
+                "sb3Path": "m0/M2-08-GraphAdvanced/W5-06.sb3"
+            },
+            {
+                "id": "W9-02",
+                "code": "M2-08-W9-02",
+                "title": "基地台訊號覆蓋",
+                "description": "在一個 N x N 的城鎮地圖中，佈置了若干個基地台。每個基地台都有其初始的訊號強度，而訊號會隨著距離增加而逐漸減弱。\n【訊號傳播規則】\n1. 距離計算：兩格之間的距離採「曼哈頓距離」。距離 = 行數差距 + 列數差距。\n2. 強度減弱：距離基地台每增加 1 格，訊號強度就會減掉 1。例如：基地台初始強度為 5，距離它 1 格的地方強度為 4，距離 2 格的地方強度為 3，依此類推，強度最低為 0。\n3. 訊號重疊：如果某個格子同時接收到多個基地台的訊號，該格子的最終強度以「最高的那一個」為準。\n【訊號等級分類】\n請根據每一格最終得到的最高訊號強度，統計以下四種等級的格子總數：\n• 訊號好：強度為 4 以上（含 4）。\n• 訊號普通：強度為 2 至 3。\n• 訊號弱：強度為 1。\n• 無訊號：強度為 0。",
+                "examples": [
+                    {
+                        "input": "3\n0 0 0 0 3 0 0 0 0",
+                        "output": "0 5 4 0",
+                        "explanation": "地圖中央有一台強度 3 的基地台。\n• 強度 3 的格子：1 個（中心點，距離 0）。\n• 強度 2 的格子：4 個（上下左右，距離 1）。\n• 強度 1 的格子：4 個（四個角落，距離 2）。\n• 強度 0 的格子：0 個。\n故輸出為：0 5 4 0（訊號好共 0 個，普通 1+4=5 個，弱 4 個，無 0 個）。"
+                    },
+                    {
+                        "input": "4\n5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4",
+                        "output": "4 12 0 0",
+                        "explanation": "計算結果（每格最終訊號強度）：\n5 4 3 2\n4 3 2 2 （第 4 格有兩個訊號，取高的 2）\n3 2 2 3 （第 3 格有兩個訊號，取高的 2）\n2 2 3 4 （第 2 格有兩個訊號，取高的 2）\n故輸出為：4 12 0 0。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "3\n0 0 0 0 0 0 0 0 0",
+                        "expectedOutput": "0 0 0 9",
+                        "score": 10
+                    },
+                    {
+                        "input": "5\n0 0 0 0 0 0 0 0 0 0 0 0 4 0 0 0 0 0 0 0 0 0 0 0 0",
+                        "expectedOutput": "1 12 8 4",
+                        "score": 15
+                    },
+                    {
+                        "input": "4\n2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 6",
+                        "expectedOutput": "6 8 2 0",
+                        "score": 20
+                    },
+                    {
+                        "input": "3\n10 0 0 0 10 0 0 0 10",
+                        "expectedOutput": "9 0 0 0",
+                        "score": 25
+                    },
+                    {
+                        "input": "5\n0 0 0 0 0 0 3 0 0 0 0 0 0 0 0 0 0 0 5 0 0 0 0 0 0",
+                        "expectedOutput": "5 15 5 0",
+                        "score": 30
+                    }
+                ],
+                "difficulty": "L4",
+                "difficultyLabel": "L4｜精熟",
+                "sb3Path": "m0/M2-08-GraphAdvanced/W9-02.sb3"
+            },
+            {
+                "id": "JSG01-009",
+                "code": "M2-08-JSG01-009",
+                "title": "訊號網路的連通群組數",
+                "description": "有N個裝置，用M條連線互相連接（無方向性）。請你計算整個網路總共分成幾個獨立的連通群組（同一群組內的裝置都能透過連線互相到達；不同群組之間完全沒有連線路徑）。\n\n第一行輸入N M\n\n第二行輸入2×M個整數，依序是每條連線的兩端裝置編號（裝置編號從1到N；若M=0這行可以是空的）\n\n輸出總共有幾個連通群組。",
+                "examples": [
+                    {
+                        "input": "6 4\n1 2 2 3 4 5 5 6",
+                        "output": "2",
+                        "explanation": "裝置1,2,3是一組，裝置4,5,6是另一組，共2組"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "6 4\n1 2 2 3 4 5 5 6",
+                        "expectedOutput": "2",
+                        "score": 25
+                    },
+                    {
+                        "input": "7 4\n1 2 2 3 4 5 5 6",
+                        "expectedOutput": "3",
+                        "score": 25
+                    },
+                    {
+                        "input": "5 0",
+                        "expectedOutput": "5",
+                        "score": 25
+                    },
+                    {
+                        "input": "4 6\n1 2 1 3 1 4 2 3 2 4 3 4",
+                        "expectedOutput": "1",
+                        "score": 25
+                    }
+                ],
+                "difficulty": "L4",
+                "difficultyLabel": "L4｜精熟",
+                "sb3Path": "m0/M2-08-GraphAdvanced/JSG01-009.sb3"
+            },
+            {
+                "id": "JSG01-010",
+                "code": "M2-08-JSG01-010",
+                "title": "訊號站到主機的轉傳距離查詢",
+                "description": "延續『單向接力』傳輸系統：每個訊號站（除了主伺服器）都有一個固定的上游接收站；上游編號為0代表該站本身就是主伺服器。給定一個要查詢的站點編號，請你算出從該站點出發，需要經過幾次轉傳才能到達主伺服器。\n\n第一行輸入N，代表訊號站總數\n\n第二行輸入N個整數，代表第1站到第N站各自的上游接收站編號（0代表主伺服器本身）\n\n第三行輸入要查詢的站點編號\n\n輸出從該站點到主伺服器所需的轉傳次數。",
+                "examples": [
+                    {
+                        "input": "5\n0 1 1 3 3\n4",
+                        "output": "2",
+                        "explanation": "站4的上游是站3，站3的上游是站1（主伺服器），所以是4→3→1，共2次轉傳"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "5\n0 1 1 3 3\n4",
+                        "expectedOutput": "2",
+                        "score": 25
+                    },
+                    {
+                        "input": "5\n0 1 1 3 3\n1",
+                        "expectedOutput": "0",
+                        "score": 25
+                    },
+                    {
+                        "input": "5\n0 1 1 3 3\n2",
+                        "expectedOutput": "1",
+                        "score": 25
+                    },
+                    {
+                        "input": "5\n0 1 1 3 3\n5",
+                        "expectedOutput": "2",
+                        "score": 25
+                    }
+                ],
+                "difficulty": "L4",
+                "difficultyLabel": "L4｜精熟",
+                "sb3Path": "m0/M2-08-GraphAdvanced/JSG01-010.sb3"
+            },
+            {
+                "id": "cyjunior-009",
+                "code": "M2-08-cyjunior-009",
+                "title": "社團聯絡網(6-4)",
+                "description": "來到最後一層，主控電腦顯示了一張複雜的「社團關係網絡圖」。圖上有 N 個社團成員節點與 M 條單向連線（代表上級指揮下級）。系統會以「連線列表」的方式給你資料。每一條連線包含「起點（上級）」與「終點（下級）」。這是一個樹狀的分層結構，每一個人都只會有一個上級指導人，請找出從最高指揮（編號 1）傳到最底層的人，中間經過的層數最大是多少",
+                "examples": [
+                    {
+                        "input": "3\n2\n1 2\n2 3",
+                        "output": "2",
+                        "explanation": "3個人，2條連線 (1->2、2->3)\n路徑：1 -> 2 -> 3。傳遞在大層數為 2。"
+                    },
+                    {
+                        "input": "4\n3\n1 1 3\n2 3 4",
+                        "output": "2",
+                        "explanation": "4個人，3條連線 (1->2、1->3、3->4)\n路徑一：1 -> 2，起點列沒有2的選項，傳遞終止。\n路徑二：1 -> 3 -> 4，起點列沒有4的選項，傳遞終止。\n最大傳遞層數為2"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "2\n1\n1\n2",
+                        "expectedOutput": "1",
+                        "score": 10
+                    },
+                    {
+                        "input": "5\n4\n1 2 3 4\n2 3 4 5",
+                        "expectedOutput": "4",
+                        "score": 15
+                    },
+                    {
+                        "input": "5\n4\n1 2 1 4\n2 3 4 5",
+                        "expectedOutput": "2",
+                        "score": 20
+                    },
+                    {
+                        "input": "6\n5\n1 2 3 4 1\n2 3 4 6 5",
+                        "expectedOutput": "4",
+                        "score": 25
+                    },
+                    {
+                        "input": "7\n6\n1 2 3 4 2 3\n2 3 4 5 6 7",
+                        "expectedOutput": "4",
+                        "score": 30
+                    }
+                ],
+                "difficulty": "L5",
+                "difficultyLabel": "L5｜競賽",
+                "sb3Path": "m0/M2-08-GraphAdvanced/cyjunior-009.sb3"
+            }
+        ]
+    },
+    {
+        "code": "M2-09",
+        "title": "貪心策略入門",
+        "tier": "t2",
+        "unlockCode": "M2-09-GreedyBasics",
+        "tasks": [
+            {
+                "id": "GREEDY01-002",
+                "code": "M2-09-GREEDY01-002",
+                "title": "最多可買幾瓶水",
+                "description": "每瓶水價格相同。給定身上的錢與每瓶水的價格，請計算最多可以買幾瓶水，以及剩下多少錢。",
+                "examples": [
+                    {
+                        "input": "100 18",
+                        "output": "5 10",
+                        "explanation": "100 元最多可買 5 瓶，剩下 10 元。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "100 18",
+                        "expectedOutput": "5 10",
+                        "score": 0
+                    },
+                    {
+                        "input": "50 10",
+                        "expectedOutput": "5 0",
+                        "score": 0
+                    },
+                    {
+                        "input": "7 20",
+                        "expectedOutput": "0 7",
+                        "score": 0
+                    },
+                    {
+                        "input": "123 11",
+                        "expectedOutput": "11 2",
+                        "score": 0
+                    }
+                ],
+                "difficulty": "L1",
+                "difficultyLabel": "L1｜基礎",
+                "sb3Path": "m0/M2-09-GreedyBasics/GREEDY01-002.sb3"
+            },
+            {
+                "id": "GREEDY01-006",
+                "code": "M2-09-GREEDY01-006",
+                "title": "最少箱子數",
+                "description": "每個箱子最多可裝 C 件物品。給定物品總數 N，請計算至少需要幾個箱子。",
+                "examples": [
+                    {
+                        "input": "23 5",
+                        "output": "5",
+                        "explanation": "前 4 箱裝 20 件，剩下 3 件還需要 1 箱，所以共 5 箱。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "23 5",
+                        "expectedOutput": "5",
+                        "score": 0
+                    },
+                    {
+                        "input": "20 5",
+                        "expectedOutput": "4",
+                        "score": 0
+                    },
+                    {
+                        "input": "1 10",
+                        "expectedOutput": "1",
+                        "score": 0
+                    },
+                    {
+                        "input": "100 30",
+                        "expectedOutput": "4",
+                        "score": 0
+                    }
+                ],
+                "difficulty": "L1",
+                "difficultyLabel": "L1｜基礎",
+                "sb3Path": "m0/M2-09-GreedyBasics/GREEDY01-006.sb3"
+            },
+            {
+                "id": "GREEDY01-001",
+                "code": "M2-09-GREEDY01-001",
+                "title": "最少硬幣數",
+                "description": "商店使用 50 元、10 元、5 元與 1 元硬幣找零。給定找零金額，請用最少硬幣數完成找零。",
+                "examples": [
+                    {
+                        "input": "87",
+                        "output": "7",
+                        "explanation": "87 = 50×1 + 10×3 + 5×1 + 1×2，共 7 枚硬幣。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "87",
+                        "expectedOutput": "7",
+                        "score": 0
+                    },
+                    {
+                        "input": "0",
+                        "expectedOutput": "0",
+                        "score": 0
+                    },
+                    {
+                        "input": "99",
+                        "expectedOutput": "10",
+                        "score": 0
+                    },
+                    {
+                        "input": "125",
+                        "expectedOutput": "5",
+                        "score": 0
+                    }
+                ],
+                "difficulty": "L2",
+                "difficultyLabel": "L2｜進階",
+                "sb3Path": "m0/M2-09-GreedyBasics/GREEDY01-001.sb3"
+            },
+            {
+                "id": "GREEDY01-007",
+                "code": "M2-09-GREEDY01-007",
+                "title": "補到目標分數",
+                "description": "目前分數為 S，每次完成一題可增加 P 分。請計算至少還要完成幾題，才能達到或超過目標分數 T。",
+                "examples": [
+                    {
+                        "input": "65 100 12",
+                        "output": "3",
+                        "explanation": "65+12+12+12=101，至少需要 3 題。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "65 100 12",
+                        "expectedOutput": "3",
+                        "score": 0
+                    },
+                    {
+                        "input": "100 100 10",
+                        "expectedOutput": "0",
+                        "score": 0
+                    },
+                    {
+                        "input": "0 1 5",
+                        "expectedOutput": "1",
+                        "score": 0
+                    },
+                    {
+                        "input": "40 90 20",
+                        "expectedOutput": "3",
+                        "score": 0
+                    }
+                ],
+                "difficulty": "L2",
+                "difficultyLabel": "L2｜進階",
+                "sb3Path": "m0/M2-09-GreedyBasics/GREEDY01-007.sb3"
+            },
+            {
+                "id": "GREEDY01-003",
+                "code": "M2-09-GREEDY01-003",
+                "title": "優先完成短任務",
+                "description": "給定 N 個任務所需時間與可用時間 T。若每次都先做時間最短的任務，請計算最多能完成幾個任務。",
+                "examples": [
+                    {
+                        "input": "5\n10\n4 2 8 1 3",
+                        "output": "3",
+                        "explanation": "依時間排序為 1、2、3、4、8，可完成 1+2+3+4=10，共 4 個任務。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "5\n10\n4 2 8 1 3",
+                        "expectedOutput": "4",
+                        "score": 0
+                    },
+                    {
+                        "input": "3\n5\n6 7 8",
+                        "expectedOutput": "0",
+                        "score": 0
+                    },
+                    {
+                        "input": "4\n10\n5 5 5 5",
+                        "expectedOutput": "2",
+                        "score": 0
+                    },
+                    {
+                        "input": "6\n12\n1 2 3 4 5 6",
+                        "expectedOutput": "4",
+                        "score": 0
+                    }
+                ],
+                "difficulty": "L3",
+                "difficultyLabel": "L3｜挑戰",
+                "sb3Path": "m0/M2-09-GreedyBasics/GREEDY01-003.sb3"
+            },
+            {
+                "id": "GREEDY01-004",
+                "code": "M2-09-GREEDY01-004",
+                "title": "買最多便宜商品",
+                "description": "給定 N 個商品價格與預算 B。若想買到最多商品，應優先購買便宜商品。請計算最多可買幾件商品。",
+                "examples": [
+                    {
+                        "input": "5\n100\n60 20 30 80 10",
+                        "output": "3",
+                        "explanation": "先買 10、20、30，共 60 元，可買 3 件；再買 60 會超過 100。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "5\n100\n60 20 30 80 10",
+                        "expectedOutput": "3",
+                        "score": 0
+                    },
+                    {
+                        "input": "4\n50\n10 10 10 10",
+                        "expectedOutput": "4",
+                        "score": 0
+                    },
+                    {
+                        "input": "3\n5\n6 7 8",
+                        "expectedOutput": "0",
+                        "score": 0
+                    },
+                    {
+                        "input": "6\n25\n9 8 7 6 5 4",
+                        "expectedOutput": "4",
+                        "score": 0
+                    }
+                ],
+                "difficulty": "L3",
+                "difficultyLabel": "L3｜挑戰",
+                "sb3Path": "m0/M2-09-GreedyBasics/GREEDY01-004.sb3"
+            },
+            {
+                "id": "GREEDY01-005",
+                "code": "M2-09-GREEDY01-005",
+                "title": "最大總分選擇",
+                "description": "給定 N 個任務分數，請選出分數最高的 K 個任務，計算總分。",
+                "examples": [
+                    {
+                        "input": "5\n3\n10 50 20 40 30",
+                        "output": "120",
+                        "explanation": "最高的 3 個分數是 50、40、30，總和為 120。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "5\n3\n10 50 20 40 30",
+                        "expectedOutput": "120",
+                        "score": 0
+                    },
+                    {
+                        "input": "4\n2\n1 2 3 4",
+                        "expectedOutput": "7",
+                        "score": 0
+                    },
+                    {
+                        "input": "3\n3\n5 5 5",
+                        "expectedOutput": "15",
+                        "score": 0
+                    },
+                    {
+                        "input": "6\n1\n9 8 7 6 5 4",
+                        "expectedOutput": "9",
+                        "score": 0
+                    }
+                ],
+                "difficulty": "L3",
+                "difficultyLabel": "L3｜挑戰",
+                "sb3Path": "m0/M2-09-GreedyBasics/GREEDY01-005.sb3"
+            },
+            {
+                "id": "GREEDY01-008",
+                "code": "M2-09-GREEDY01-008",
+                "title": "最多裝入背包",
+                "description": "背包容量為 W，給定 N 個物品重量。若想裝入最多物品，應優先選擇重量較輕的物品。請計算最多可裝入幾個物品。",
+                "examples": [
+                    {
+                        "input": "5\n15\n9 2 6 4 8",
+                        "output": "3",
+                        "explanation": "先選 2、4、6，總重 12，可裝 3 個；再選 8 會超過 15。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "5\n15\n9 2 6 4 8",
+                        "expectedOutput": "3",
+                        "score": 0
+                    },
+                    {
+                        "input": "4\n10\n1 2 3 4",
+                        "expectedOutput": "4",
+                        "score": 0
+                    },
+                    {
+                        "input": "3\n5\n6 7 8",
+                        "expectedOutput": "0",
+                        "score": 0
+                    },
+                    {
+                        "input": "6\n20\n5 5 5 5 5 5",
+                        "expectedOutput": "4",
+                        "score": 0
+                    }
+                ],
+                "difficulty": "L3",
+                "difficultyLabel": "L3｜挑戰",
+                "sb3Path": "m0/M2-09-GreedyBasics/GREEDY01-008.sb3"
+            }
+        ]
+    },
+    {
+        "code": "M2-10",
+        "title": "貪心策略進階",
+        "tier": "t2",
+        "unlockCode": "M2-10-GreedyAdvanced",
+        "tasks": [
+            {
+                "id": "115J-02",
+                "code": "M2-10-115J-02",
+                "title": "簽唱會門票",
+                "description": "知名偶像團體準備舉辦一場限定粉絲簽唱會，粉絲報名時會附上該年度參加各項活動而累積的粉絲積分。\n因簽唱會場地空間有限，最多能邀請的粉絲人數必須有所限制。為求公平起見，相同積分的粉絲們不可以只有部分獲得邀請（必須全部受邀或全部不邀請）。若邀請任一積分的粉絲群時，需注意累計的邀請粉絲人數絕對不能超過場地的總人數限制。\n請依粉絲積分的高低（由高至低）選擇哪幾位粉絲可獲得邀請參加簽唱會。若較高分的群組人數超過剩餘名額而無法邀請，請繼續評估次高分的群組是否有機會受邀。",
+                "examples": [
+                    {
+                        "input": "3 6\n90 95 80 95 70 60",
+                        "output": "1 2 4",
+                        "explanation": "依據粉絲積分高低，粉絲 2, 4 積分為 95 且最高，皆可獲邀請，剩餘 1 名額。\n次高分為 90，只有粉絲 1，亦獲邀請。\n此時人數已滿，依報名順序輸出為 1 2 4。"
+                    },
+                    {
+                        "input": "3 5\n10 10 10 10 10",
+                        "output": "0",
+                        "explanation": "5 位粉絲積分同為 10 分，但上限為 3 人。因不可部分邀請，故皆無法受邀，輸出 0。"
+                    },
+                    {
+                        "input": "3 5\n60 80 95 60 60",
+                        "output": "2 3",
+                        "explanation": "粉絲 3 (95分) 獲邀請，剩餘 2 名額。\n粉絲 2 (80分) 獲邀請，剩餘 1 名額。\n粉絲 1, 4, 5 積分為 60 分，人數為 3 超過剩餘 1 名額，無法邀請。\n依順序輸出為 2 3。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "3 6\n90 95 80 95 70 60",
+                        "expectedOutput": "1 2 4",
+                        "score": 10
+                    },
+                    {
+                        "input": "3 5\n10 10 10 10 10",
+                        "expectedOutput": "0",
+                        "score": 10
+                    },
+                    {
+                        "input": "3 5\n60 80 95 60 60",
+                        "expectedOutput": "2 3",
+                        "score": 10
+                    },
+                    {
+                        "input": "2 5\n90 90 90 80 80",
+                        "expectedOutput": "4 5",
+                        "score": 10
+                    },
+                    {
+                        "input": "4 6\n50 50 40 40 30 30",
+                        "expectedOutput": "1 2 3 4",
+                        "score": 10
+                    },
+                    {
+                        "input": "3 4\n10 20 30 20",
+                        "expectedOutput": "2 3 4",
+                        "score": 10
+                    },
+                    {
+                        "input": "10 4\n5 5 5 5",
+                        "expectedOutput": "1 2 3 4",
+                        "score": 10
+                    },
+                    {
+                        "input": "5 8\n100 90 90 90 80 80 70 70",
+                        "expectedOutput": "1 2 3 4",
+                        "score": 10
+                    },
+                    {
+                        "input": "3 5\n50 50 50 50 10",
+                        "expectedOutput": "5",
+                        "score": 10
+                    },
+                    {
+                        "input": "5 10\n99 99 99 88 88 88 77 77 66 66",
+                        "expectedOutput": "1 2 3 7 8",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L4",
+                "difficultyLabel": "L4｜精熟",
+                "sb3Path": "m0/M2-10-GreedyAdvanced/115J-02.sb3"
+            },
+            {
+                "id": "cycjunior-003",
+                "code": "M2-10-cycjunior-003",
+                "title": "圖書館的舊書打包",
+                "description": "學校圖書館正在進行舊書義賣，小華負責將舊 書裝箱。為了節省箱子，小華決定採用一個策略：先把書按重量「由重到輕」排好。每次拿出一個新箱子時，優先嘗試放入最重的書，箱子剩下的空間如果放得下就放進去，放不下就跳過這本，試下一本較輕的書，直到所有書都檢查過一輪，這個箱子就封箱。接著拿新箱子重複上述步驟，直到所有書都裝完。\nNote: 箱子在封箱前要由重到輕，確認已經裝不下任何一本未裝箱的書了",
+                "examples": [
+                    {
+                        "input": "10\n5\n8 5 4 3 2",
+                        "output": "3",
+                        "explanation": "箱1：裝8 (剩2)，5(X), 4(X), 3(X), 裝2 (OK)。(內容:8,2)\n箱2：剩5, 4, 3。裝5 (剩5)，裝4 (剩1)，3(X)。(內容:5,4)\n箱3：剩3。裝3。(內容:3)\n共3箱。"
+                    },
+                    {
+                        "input": "20\n3\n10 10 10",
+                        "output": "2",
+                        "explanation": "箱1：裝10, 裝10 (滿)。\n箱2：裝10。\n共2箱。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "5\n3\n2 2 2",
+                        "expectedOutput": "2",
+                        "score": 10
+                    },
+                    {
+                        "input": "10\n5\n9 9 5 1 1",
+                        "expectedOutput": "3",
+                        "score": 15
+                    },
+                    {
+                        "input": "100\n4\n60 50 40 30",
+                        "expectedOutput": "2",
+                        "score": 20
+                    },
+                    {
+                        "input": "15\n6\n8 7 6 5 4 3",
+                        "expectedOutput": "3",
+                        "score": 25
+                    },
+                    {
+                        "input": "25\n13\n20 19 18 17 16 10 9 8 7 6 3 2 1",
+                        "expectedOutput": "6",
+                        "score": 30
+                    }
+                ],
+                "difficulty": "L4",
+                "difficultyLabel": "L4｜精熟",
+                "sb3Path": "m0/M2-10-GreedyAdvanced/cycjunior-003.sb3"
+            },
+            {
+                "id": "cyjunior-004",
+                "code": "M2-10-cyjunior-004",
+                "title": "大隊接力的棒次安排",
+                "description": "一年一度的校慶運動會即將到來，其中最受矚目的項目就是「兩人三腳大隊接力」。這項比賽要求全班 N 位同學（N 保證為偶數）兩兩一組，將腳綁在一起跑完賽道。\n體育老師深知，這個比賽考驗的不只是速度，更是「默契」與「平衡」。如果將兩位飛毛腿分在同一組，雖然該組會跑得飛快，但剩下的同學可能會因為實力太弱而跟不上節奏，導致全班總成績被拖累。\n為了讓全班的戰力發揮到極致，老師決定採用「強弱互補」的 S 型分組策略：首先將全班同學依照 100 公尺短跑的測驗成績（能力值）進行排序。接著，讓全班跑最快的同學與跑最慢的同學一組，第二快的與第二慢的一組，以此類推。老師認為，這種分法雖然犧牲了頂尖戰力，但能確保沒有任何一組是「絕對弱勢」。為了評估這個策略的風險，老師希望你計算出在這種分組下，所有組別中「兩人能力值總和」的最大值是多少？這個數值代表了班上目前最強勢一組的實力天花板",
+                "examples": [
+                    {
+                        "input": "4\n10 90 20 80",
+                        "output": "100",
+                        "explanation": "排序: 10, 20, 80, 90\n組1: 10+90=100\n組2: 20+80=100\n最大值: 100"
+                    },
+                    {
+                        "input": "6\n1 5 10 20 50 100",
+                        "output": "101",
+                        "explanation": "組: (1+100), (5+50), (10+20)\n最大值: 101"
+                    },
+                    {
+                        "input": "4\n10 90 20 80",
+                        "output": "100",
+                        "explanation": "排序: 10, 20, 80, 90\n組1: 10+90=100\n組2: 20+80=100\n最大值: 100"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "2\n50 60",
+                        "expectedOutput": "110",
+                        "score": 10
+                    },
+                    {
+                        "input": "4\n1 10 2 9",
+                        "expectedOutput": "11",
+                        "score": 15
+                    },
+                    {
+                        "input": "6\n10 20 30 40 50 60",
+                        "expectedOutput": "70",
+                        "score": 20
+                    },
+                    {
+                        "input": "6\n10 80 20 70 30 75",
+                        "expectedOutput": "100",
+                        "score": 25
+                    },
+                    {
+                        "input": "8\n1 100 2 99 3 98 50 50",
+                        "expectedOutput": "101",
+                        "score": 30
+                    }
+                ],
+                "difficulty": "L4",
+                "difficultyLabel": "L4｜精熟",
+                "sb3Path": "m0/M2-10-GreedyAdvanced/cyjunior-004.sb3"
+            },
+            {
+                "id": "nantoJS-006-1",
+                "code": "M2-10-nantoJS-006-1",
+                "title": "星際物資運補-神祕的配重",
+                "description": "人類已經成功在火星的各個極地與赤道區建立了殖民基地，「星際物流中心」有下列任務\n運輸船上設有一道特殊的「配重艙門」。這道門鎖的機制非常嚴格：它不會自動開啟，除非你放入兩件貨物總重量「剛好等於」 系統指定的目標重量 W。\n倉庫中目前存放著 N 件貨物，每一件貨物的重量分別為 W1, W2,…,WN。\n請撰寫程式判斷是否能從倉庫中挑選出一種可能的組合，找到兩件貨物重量總和Wi+Wj恰好等於目標 W, 如果可以找到該組合就輸出 YES , 否則輸出 NO",
+                "examples": [
+                    {
+                        "input": "3\n10 20 30\n50",
+                        "output": "YES",
+                        "explanation": "挑選 20 與 30 兩件貨物，總重 50。"
+                    },
+                    {
+                        "input": "4\n1 5 2 10\n4",
+                        "output": "NO",
+                        "explanation": "無法組成剛好為 4 的重量"
+                    },
+                    {
+                        "input": "5\n1 7 5 3 9\n12",
+                        "output": "YES",
+                        "explanation": "可以挑選 3,9 或 5,7"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "3\n5 10 15\n20",
+                        "expectedOutput": "YES",
+                        "score": 10
+                    },
+                    {
+                        "input": "4\n11 11 11 12\n10",
+                        "expectedOutput": "NO",
+                        "score": 15
+                    },
+                    {
+                        "input": "5\n10 10 10 10 10\n25",
+                        "expectedOutput": "NO",
+                        "score": 20
+                    },
+                    {
+                        "input": "12\n1 2 3 4 5 6 7 8 9 10 11 12\n23",
+                        "expectedOutput": "YES",
+                        "score": 25
+                    },
+                    {
+                        "input": "12\n1 2 3 4 5 6 7 8 9 10 11 12\n24",
+                        "expectedOutput": "NO",
+                        "score": 30
+                    }
+                ],
+                "difficulty": "L4",
+                "difficultyLabel": "L4｜精熟",
+                "sb3Path": "m0/M2-10-GreedyAdvanced/nantoJS-006-1.sb3"
+            },
+            {
+                "id": "nantoJS-006-2",
+                "code": "M2-10-nantoJS-006-2",
+                "title": "星際物資運補-疏散飛船的乘客名單",
+                "description": "星際艦隊需要緊急撤離一個太空站的人員。目前停機坪上有 N 位乘客等待撤離，每個人的體重分別為 W1,W2,…,WN。\n撤離用的逃生小艇非常精密，每艘小艇有兩項嚴格限制：\n1.\t載重上限：小艇上所有人的體重總和不能超過 Limit。\n2.\t人數上限：每艘小艇最多只能搭載 2 人（因為座位只有兩個）。\n為了節省能源與時間，指揮官希望使用「最少」數量的逃生小艇將所有人安全撤離。\n請你設計一個程式，計算出最少需要派出幾艘小艇？\n（提示：為了讓小艇數量最少，我們應該盡可能讓兩人共乘一艘船。你可以試著先將大家的體重排序，讓最重的人嘗試與最輕的人搭配看看。） 這裡舉個例子來說明策略的重要性：假設載重上限 Limit = 10，有 4 人體重為 1, 2, 8, 9。若隨意配對讓輕的先走，(1) ,(2) 同船，剩下的 (8) 和 (9) 因為太重無法同船，結果需要 3 艘船。\n但若採用「最重配最輕」的策略，讓 (9) 帶上 (1) 變成一艘，(8) 帶上 (2) 變成一艘，這樣只需要 2 艘船就能完成任務",
+                "examples": [
+                    {
+                        "input": "4\n1 2 2 3\n3",
+                        "output": "3",
+                        "explanation": "每艘限重 3。配對方式：(1),( 2) 一艘，剩下的 (2) 一艘，(3) 一艘。共 3 艘。\n注意：(2, 2) 會超重變成 4，所以不能同船。"
+                    },
+                    {
+                        "input": "4\n1 2 8 9\n10",
+                        "output": "2",
+                        "explanation": "最佳策略是讓最重的配最輕的：(9, 1) 一艘，(8, 2) 一艘。剛好 2 艘解決。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "5\n50 50 50 50 50\n100",
+                        "expectedOutput": "3",
+                        "score": 10
+                    },
+                    {
+                        "input": "6\n4 5 6 7 8 9\n10",
+                        "expectedOutput": "5",
+                        "score": 15
+                    },
+                    {
+                        "input": "6\n1 2 3 7 8 9\n10",
+                        "expectedOutput": "3",
+                        "score": 20
+                    },
+                    {
+                        "input": "8\n1 2 5 10 10 15 18 19\n20",
+                        "expectedOutput": "4",
+                        "score": 25
+                    },
+                    {
+                        "input": "15\n55 60 65 65 66 66 67 67 70 70 75 80 85 90 100\n145",
+                        "expectedOutput": "8",
+                        "score": 30
+                    }
+                ],
+                "difficulty": "L4",
+                "difficultyLabel": "L4｜精熟",
+                "sb3Path": "m0/M2-10-GreedyAdvanced/nantoJS-006-2.sb3"
+            },
+            {
+                "id": "nantoJS-006-3",
+                "code": "M2-10-nantoJS-006-3",
+                "title": "星際物資運補-火星樣本回收",
+                "description": "火星探測車「好奇二號」在基地的周圍採集了N個相異的岩石樣本，並給予編號：編號1、編號2… 編號N。每個樣本都有兩個屬性：「研究價值」與「重量」。為了節省運回地球的燃料，指揮中心制定了一套嚴格的回收優先順序規則，請你幫忙將這些樣本重新排列，並列出它們原本的編號。\n【排序規則】\n第一優先： 依照「研究價值」由大到小排序（越有價值的排越前面）。\n第二優先： 如果兩個樣本的「研究價值」相同，則依照「重量」由小到大排序（價值一樣時，越輕的越好）。\n不存在研究價值及重量皆相同的相異岩石樣本",
+                "examples": [
+                    {
+                        "input": "3\n80 100 80\n5 10 2",
+                        "output": "2,3,1",
+                        "explanation": "編號2 研究價值最高，排在第一位。\n編號1 和 編號3 研究價值一樣，但編號3 重量較輕，排在編號1前面\n輸出：2,3,1"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "3\n10 50 30\n5 5 5",
+                        "expectedOutput": "2,3,1",
+                        "score": 10
+                    },
+                    {
+                        "input": "4\n99 99 99 99\n20 5 30 10",
+                        "expectedOutput": "2,4,1,3",
+                        "score": 15
+                    },
+                    {
+                        "input": "5\n60 80 60 80 20\n10 5 20 8 3",
+                        "expectedOutput": "2,4,1,3,5",
+                        "score": 20
+                    },
+                    {
+                        "input": "4\n1 2 3 4\n100 100 100 100",
+                        "expectedOutput": "4,3,2,1",
+                        "score": 25
+                    },
+                    {
+                        "input": "6\n10 50 50 10 100 49\n9 3 2 5 50 2",
+                        "expectedOutput": "5,3,2,6,4,1",
+                        "score": 30
+                    }
+                ],
+                "difficulty": "L4",
+                "difficultyLabel": "L4｜精熟",
+                "sb3Path": "m0/M2-10-GreedyAdvanced/nantoJS-006-3.sb3"
+            },
+            {
+                "id": "TYTN-12",
+                "code": "M2-10-TYTN-12",
+                "title": "購買紀念品",
+                "description": "小明趁日幣貶值特別飛去日本旅遊，準備回國時發現還有一些日幣尚未使用，於是想到紀念品店購買禮物送給朋友。\n他希望在盡量花完所有剩餘日幣的前提下，買到最多件紀念品。請撰寫一個程式，根據剩餘日幣、商品價格及商品剩餘數量，計算小明最多能購買的紀念品件數",
+                "examples": [
+                    {
+                        "input": "1000\n3\n100 300 200\n3 4 2",
+                        "output": "6",
+                        "explanation": "小明可購買：100×3 + 200×2 + 300×1 = 1000\n共購買 6 件紀念品。"
+                    },
+                    {
+                        "input": "500\n3\n600 700 800\n3 4 5",
+                        "output": "0",
+                        "explanation": "最便宜的商品也買不起，因此最多可買 0 件。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "1000\n3\n100 300 200\n3 4 2",
+                        "expectedOutput": "6",
+                        "score": 10
+                    },
+                    {
+                        "input": "500\n3\n600 700 800\n3 4 5",
+                        "expectedOutput": "0",
+                        "score": 10
+                    },
+                    {
+                        "input": "350\n3\n100 200 300\n5 5 5",
+                        "expectedOutput": "3",
+                        "score": 10
+                    },
+                    {
+                        "input": "600\n4\n120 120 200 500\n1 5 1 2",
+                        "expectedOutput": "5",
+                        "score": 10
+                    },
+                    {
+                        "input": "1000\n4\n250 150 300 100\n2 4 1 10",
+                        "expectedOutput": "10",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L4",
+                "difficultyLabel": "L4｜精熟",
+                "sb3Path": "m0/M2-10-GreedyAdvanced/TYTN-12.sb3"
+            },
+            {
+                "id": "W2-04",
+                "code": "M2-10-W2-04",
+                "title": "超市採購即時通",
+                "description": "小華在超市幫忙採購，每樣商品他可能會一次買好幾個。\n為了精確掌控錢包裡的錢，他每拿一種商品，\n就會將「該商品的數量」與「單價」相乘，並立刻更新目前的累積總金額。\n請你撰寫一個程式，模擬小華的即時採購計算流程。\n【計算規則】\n1. 每輸入一組商品資料（數量 Q、單價 P），先計算該商品總價 Q×P。\n2. 將該商品總價加入目前的累積總金額。\n3. 每完成一組商品計算後，立即輸出一次目前的累積總金額。",
+                "examples": [
+                    {
+                        "input": "2\n3 10 2 50",
+                        "output": "30 130",
+                        "explanation": "第一種商品：3×10＝30，累積金額為 30\n第二種商品：2×50＝100，累積金額為 130"
+                    },
+                    {
+                        "input": "3\n4 5 3 30 1 100",
+                        "output": "20 110 210",
+                        "explanation": "第一種商品：4×5＝20，累積 20\n第二種商品：3×30＝90，累積 110\n第三種商品：1×100＝100，累積 210"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "1\n5 20",
+                        "expectedOutput": "100",
+                        "score": 10
+                    },
+                    {
+                        "input": "2\n1 100 2 50",
+                        "expectedOutput": "100 200",
+                        "score": 15
+                    },
+                    {
+                        "input": "3\n0 50 2 30 1 40",
+                        "expectedOutput": "0 60 100",
+                        "score": 20
+                    },
+                    {
+                        "input": "4\n3 10 3 10 3 10 3 10",
+                        "expectedOutput": "30 60 90 120",
+                        "score": 25
+                    },
+                    {
+                        "input": "5\n10 100 5 200 2 300 1 400 3 500",
+                        "expectedOutput": "1000 2000 2600 3000 4500",
+                        "score": 30
+                    }
+                ],
+                "difficulty": "L4",
+                "difficultyLabel": "L4｜精熟",
+                "sb3Path": "m0/M2-10-GreedyAdvanced/W2-04.sb3"
+            },
+            {
+                "id": "W2-05",
+                "code": "M2-10-W2-05",
+                "title": "金門小三通春運調度",
+                "description": "春運期間，金門港務局為了疏運人潮，安排了每小時一班的固定航班。\n1. 固定航班：每小時固定發出一班船，每艘船限載 150 人。\n即便當下等待人數為 0，固定航班仍會準時離港（船班數計 1，載客數為 0）。\n2. 加班船機制：在固定航班發出後，若碼頭仍有超過 50 人(含50人)在排隊等待，\n港務局就會加開 1 艘加班船。加班船限載 150 人，\n若剩餘人數超過 150 人，加班船僅載走 150 人，其餘旅客需等待下一小時。\n（限制：每小時最多僅能加開 1 艘加班船）\n3. 統計規則：當最後一小時（包含最後一班固定航班與可能的加班船）結束後，\n若仍有旅客滯留碼頭，這些旅客不計入今日的成功載運人數。",
+                "examples": [
+                    {
+                        "input": "1\n220",
+                        "output": "220 2",
+                        "explanation": "第 1 小時：220 人到站，固定航班載走 150 人，剩 70 人。\n剩餘人數超過 50，啟動加班船，載走 70 人。\n總結：載運 220 人，船班 2 班。"
+                    },
+                    {
+                        "input": "1\n350",
+                        "output": "300 2",
+                        "explanation": "固定航班載走 150 人，加班船載走 150 人。\n剩餘 50 人因營運結束不計入載運人數。"
+                    },
+                    {
+                        "input": "2\n60 40",
+                        "output": "100 2",
+                        "explanation": "第 1 小時載走 60 人，第 2 小時載走 40 人，皆未達加班條件。\n總載運 100 人，船班 2 班。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "1\n0",
+                        "expectedOutput": "0 1",
+                        "score": 10
+                    },
+                    {
+                        "input": "1\n200",
+                        "expectedOutput": "200 2",
+                        "score": 15
+                    },
+                    {
+                        "input": "2\n100 120",
+                        "expectedOutput": "220 2",
+                        "score": 20
+                    },
+                    {
+                        "input": "3\n300 0 80",
+                        "expectedOutput": "380 4",
+                        "score": 25
+                    },
+                    {
+                        "input": "4\n500 500 500 500",
+                        "expectedOutput": "1200 8",
+                        "score": 30
+                    }
+                ],
+                "difficulty": "L4",
+                "difficultyLabel": "L4｜精熟",
+                "sb3Path": "m0/M2-10-GreedyAdvanced/W2-05.sb3"
+            },
+            {
+                "id": "W3-02",
+                "code": "M2-10-W3-02",
+                "title": "王牌教練",
+                "description": "你是學校田徑隊的教練，現在有 4 或 5 名選手準備參加 400 公尺接力賽。\n接力賽需要 4 名選手上場，若有第 5 名選手，則作為「替補」，不一定上場。\n對於每一位選手，我們知道兩個數值：\n• 跑完全程所需時間 r（單位：秒）\n• 接棒動作所需時間 b（單位：秒）\n在比賽中，總時間的計算方式如下：\n1. 總跑步時間 = 實際上場的 4 名選手，各自跑步時間的總和。\n2. 接力共有 4 棒，因此有 3 次接棒：第 1 棒 → 第 2 棒、第 2 棒 → 第 3 棒、第 3 棒 → 第 4 棒。\n3. 每一次接棒的時間 = 這兩位選手的接棒時間 b 中「較大的那一個」。\n也就是：接棒總時間 = max(b1,b2) + max(b2,b3) + max(b3,b4)。\n你的目標是：\n從這 N 名選手（4 ≤ N ≤ 5）中選出 4 人上場（若剛好 N=4 就全員上場），並決定他們的出場順序（第 1 棒到第 4 棒），讓總時間最小。",
+                "examples": [
+                    {
+                        "input": "4\n10 1 10 1 10 1 10 1",
+                        "output": "43",
+                        "explanation": "四位選手的跑步時間總和為 10+10+10+10=40；接棒三次皆為 max(1,1)=1，因此接棒總和 1+1+1=3。\n最短總時間為 40+3=43 秒。"
+                    },
+                    {
+                        "input": "4\n13 1 9 4 12 2 11 3",
+                        "output": "54",
+                        "explanation": "可安排選手編號 2→3→1→4：跑步總和 9+12+13+11=45；接棒總和 max(4,2)+max(2,1)+max(1,3)=4+2+3=9。\n最短總時間為 45+9=54 秒。"
+                    },
+                    {
+                        "input": "5\n12 3 15 4 13 2 11 6 11 1",
+                        "output": "58",
+                        "explanation": "可選擇選手編號 5→3→1→4：跑步總和 11+13+12+11=47；接棒總和 max(1,2)+max(2,3)+max(3,6)=2+3+6=11。\n最短總時間為 47+11=58 秒。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "4\n9 10 10 1 10 1 10 1",
+                        "expectedOutput": "51",
+                        "score": 10
+                    },
+                    {
+                        "input": "4\n8 8 8 8 12 1 12 1",
+                        "expectedOutput": "57",
+                        "score": 15
+                    },
+                    {
+                        "input": "5\n9 5 9 5 9 5 20 1 20 1",
+                        "expectedOutput": "62",
+                        "score": 20
+                    },
+                    {
+                        "input": "5\n10 1 10 1 10 1 10 50 11 2",
+                        "expectedOutput": "45",
+                        "score": 25
+                    },
+                    {
+                        "input": "5\n30 30 31 2 32 2 33 2 34 2",
+                        "expectedOutput": "136",
+                        "score": 30
+                    }
+                ],
+                "difficulty": "L4",
+                "difficultyLabel": "L4｜精熟",
+                "sb3Path": "m0/M2-10-GreedyAdvanced/W3-02.sb3"
+            },
+            {
+                "id": "W4-06",
+                "code": "M2-10-W4-06",
+                "title": "金門粥糜採購任務",
+                "description": "金門的粥糜聞名遐邇，許多遊客會指名購買不同店家的粥糜（共有 9 間名店，編號為 1, 2, 3, ……, 9）。\n導遊小金今天收到了團員們的訂單，準備前往各家店代購。為了節省時間，小金會先統計所有訂單中各家店的粥糜數量，並依照他規劃好的「取貨路線順序」來購買。\n請你幫小金列出最終外送箱中粥糜排列的順序。\n【規則說明】\n1. 數量統計：先統計第二行訂單中，各店家編號（1~9）出現的總次數。\n2. 依序排列：依照第四行給定的「店家取貨順序」，將該店家編號依出現次數重複輸出。\n【重要補充】\n(1) 第四行的取貨順序長度為 M，代表本次訂單中包含的店家種類數量。\n(2) 題目保證：第四行的店家編號皆不重複，且都出現在第二行訂單中。\n(3) 若某店家在訂單中出現 k 次，就必須在輸出中連續輸出 k 次該店家編號。",
+                "examples": [
+                    {
+                        "input": "5\n8 9 9 9 8\n2\n9 8",
+                        "output": "9 9 9 8 8",
+                        "explanation": "總共點了 5 碗粥，店家編號分別為 8 9 9 9 8。\n共有 2 種店家，取貨順序為「先 9 號店、再 8 號店」。\n因此先輸出三個 9，再輸出兩個 8。"
+                    },
+                    {
+                        "input": "7\n3 1 4 1 5 9 3\n5\n1 9 4 3 5",
+                        "output": "1 1 9 4 3 3 5",
+                        "explanation": "總共點了 7 碗粥，店家編號分別為 3 1 4 1 5 9 3。\n共有 5 種店家，取貨順序為 1 9 4 3 5。\n1 號店出現 2 次、9 號店 1 次、4 號店 1 次、3 號店 2 次、5 號店 1 次。\n依照順序輸出其編號。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "1\n7\n1\n7",
+                        "expectedOutput": "7",
+                        "score": 10
+                    },
+                    {
+                        "input": "9\n1 2 3 4 5 6 7 8 9\n9\n9 8 7 6 5 4 3 2 1",
+                        "expectedOutput": "9 8 7 6 5 4 3 2 1",
+                        "score": 15
+                    },
+                    {
+                        "input": "10\n3 3 3 3 3 3 3 3 3 3\n1\n3",
+                        "expectedOutput": "3 3 3 3 3 3 3 3 3 3",
+                        "score": 20
+                    },
+                    {
+                        "input": "12\n1 1 2 2 2 4 4 5 5 5 5 9\n5\n5 2 9 1 4",
+                        "expectedOutput": "5 5 5 5 2 2 2 9 1 1 4 4",
+                        "score": 25
+                    },
+                    {
+                        "input": "14\n2 2 8 8 8 1 1 1 1 9 9 3 3 3\n5\n1 3 9 2 8",
+                        "expectedOutput": "1 1 1 1 3 3 3 9 9 2 2 8 8 8",
+                        "score": 30
+                    }
+                ],
+                "difficulty": "L4",
+                "difficultyLabel": "L4｜精熟",
+                "sb3Path": "m0/M2-10-GreedyAdvanced/W4-06.sb3"
+            },
+            {
+                "id": "W9-03",
+                "code": "M2-10-W9-03",
+                "title": "外送員的接單策略",
+                "description": "你是外送平台的演算法工程師，需要設計一套系統來幫助外送員計算「最多接單數量」。\n\n已知系統中有 N 張待接的訂單，每一張訂單都有固定的「開始時間」與「結束時間」。外送員同一時間只能執行一張訂單（不能同時送兩單）。請問在時間不衝突的情況下，這位外送員最多可以接下幾張訂單？\n\n【重要規則】\n\n1. 如果一張訂單的「結束時間」剛好等於下一張訂單的「開始時間」，則視為不衝突，可以順利銜接。例如：接了 (1, 3) 的單，可以馬上接 (3, 5) 的單。\n\n2. 你的目標是「接單數量最大化」，而不是總時長最大化。\n\n3. 提示：輸入的訂單未經過排序，你可能需要自行整理資料才能找出最佳解。",
+                "examples": [
+                    {
+                        "input": "4\n1 3 2 4 3 5 5 7",
+                        "output": "3",
+                        "explanation": "1. 選擇最早結束的「訂單 A」(1, 3)。此時時間來到 3。\n2. 「訂單 B」(2, 4) 的開始時間是 2，與 A 衝突，略過。\n3. 「訂單 C」(3, 5) 的開始時間是 3，剛好銜接 A。選擇 C。此時時間來到 5。\n4. 「訂單 D」(5, 7) 的開始時間是 5，剛好銜接 C。選擇 D。\n總共接了 3 張單 (A, C, D)。"
+                    },
+                    {
+                        "input": "3\n1 10 10 20 20 30",
+                        "output": "3",
+                        "explanation": "訂單 A (1, 10)、訂單 B (10, 20)、訂單 C (20, 30)。\n三張單時間完全剛好接上，最多接 3 張。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "4\n1 3 2 4 3 5 5 7",
+                        "expectedOutput": "3",
+                        "score": 10
+                    },
+                    {
+                        "input": "3\n1 10 10 20 20 30",
+                        "expectedOutput": "3",
+                        "score": 15
+                    },
+                    {
+                        "input": "4\n0 50 1 5 5 10 10 15",
+                        "expectedOutput": "3",
+                        "score": 20
+                    },
+                    {
+                        "input": "5\n5 10 5 10 5 10 5 10 5 10",
+                        "expectedOutput": "1",
+                        "score": 25
+                    },
+                    {
+                        "input": "6\n10 15 2 4 6 8 1 9 4 5 15 20",
+                        "expectedOutput": "5",
+                        "score": 30
+                    }
+                ],
+                "difficulty": "L4",
+                "difficultyLabel": "L4｜精熟",
+                "sb3Path": "m0/M2-10-GreedyAdvanced/W9-03.sb3"
+            },
+            {
+                "id": "W9-04",
+                "code": "M2-10-W9-04",
+                "title": "神秘的煉金術配對",
+                "description": "在一個充滿神祕氣息的古代實驗室中，煉金術士小特發現了 N 瓶裝有不同成分的藥水。幸運的是，這些藥水已經依照重量「由輕到重」整齊排列好了。\n\n根據實驗室留下的羊皮卷記載，要開啟通往地下密室的機關，必須從這 N 瓶中選出「剛好兩瓶」藥水，這兩瓶藥水的重量相加必須恰好等於目標值 T。\n\n小特需要你的幫助來找出這兩瓶藥水。由於機關可能不只一種配對方式，規則特別註明：如果有多組兩兩配對的重量和都等於目標值 T，為了確保實驗的穩定性，必須優先選擇「兩瓶藥水重量差最小」的那一組。\n\n例如：若目標值 T 為 10，配重 (1, 9) 與 (4, 6) 皆符合目標值。但 (1, 9) 兩數差為 8、(4, 6) 兩數差為 2，因此應選擇兩瓶重量差較小的 (4, 6)。\n\n請你寫一個程式，找出這組最優配對。如果搜尋完整個架子都找不到任何兩瓶藥水相加等於目標值 T，請輸出 -1。",
+                "examples": [
+                    {
+                        "input": "6\n1 3 4 6 8 10\n10",
+                        "output": "4 6",
+                        "explanation": "目標值 10，符合目標值為 4+6=10。"
+                    },
+                    {
+                        "input": "5\n1 3 5 7 9\n10",
+                        "output": "3 7",
+                        "explanation": "(1, 9)、(3, 7) 都符合目標值 10，(3, 7) 兩數相差較小，輸出 3 7。"
+                    },
+                    {
+                        "input": "5\n1 3 5 7 9\n20",
+                        "output": "-1",
+                        "explanation": "全部配對都不符合目標值 20，輸出 -1。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "6\n1 3 4 6 8 9\n10",
+                        "expectedOutput": "4 6",
+                        "score": 10
+                    },
+                    {
+                        "input": "5\n1 3 5 7 9\n20",
+                        "expectedOutput": "-1",
+                        "score": 15
+                    },
+                    {
+                        "input": "4\n2 5 5 8\n10",
+                        "expectedOutput": "5 5",
+                        "score": 20
+                    },
+                    {
+                        "input": "7\n10 20 30 40 50 60 70\n100",
+                        "expectedOutput": "40 60",
+                        "score": 25
+                    },
+                    {
+                        "input": "2\n3 7\n10",
+                        "expectedOutput": "3 7",
+                        "score": 30
+                    }
+                ],
+                "difficulty": "L4",
+                "difficultyLabel": "L4｜精熟",
+                "sb3Path": "m0/M2-10-GreedyAdvanced/W9-04.sb3"
+            },
+            {
+                "id": "WP-06",
+                "code": "M2-10-WP-06",
+                "title": "可口便當",
+                "description": "可口便當的主廚每天早上會先檢視當天所有訂單中的套餐編號，\n套餐最多有 9 種，編號為 1 到 9。\n主廚不會依照訂單順序處理餐點，而是先決定一個\n「套餐烹煮順序」，再依此順序一次完成同一套餐的所有便當。\n請根據訂單上的套餐編號，以及主廚決定的套餐烹煮順序，\n列出實際被處理的所有套餐順序",
+                "examples": [
+                    {
+                        "input": "5\n8 9 9 9 8\n2\n9 8",
+                        "output": "9 9 9 8 8",
+                        "explanation": "總共有 5 筆訂單，\n套餐編號為 8、9、9、9、8。\n主廚先處理 9 號套餐，再處理 8 號套餐，\n因此實際處理順序為 9 9 9 8 8。"
+                    },
+                    {
+                        "input": "7\n3 1 4 1 5 9 3\n5\n1 9 4 3 5",
+                        "output": "1 1 9 4 3 3 5",
+                        "explanation": "主廚先完成所有 1 號套餐，\n再依序完成 9、4、3、5 號套餐。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "5\n8 9 9 9 8\n2\n9 8",
+                        "expectedOutput": "9 9 9 8 8",
+                        "score": 50
+                    },
+                    {
+                        "input": "7\n3 1 4 1 5 9 3\n5\n1 9 4 3 5",
+                        "expectedOutput": "1 1 9 4 3 3 5",
+                        "score": 50
+                    },
+                    {
+                        "input": "6\n2 2 2 2 2 2\n1\n2",
+                        "expectedOutput": "2 2 2 2 2 2",
+                        "score": 50
+                    },
+                    {
+                        "input": "8\n1 2 3 4 5 6 7 8\n8\n8 7 6 5 4 3 2 1",
+                        "expectedOutput": "8 7 6 5 4 3 2 1",
+                        "score": 50
+                    },
+                    {
+                        "input": "9\n1 1 2 3 3 3 2 1 1\n3\n3 1 2",
+                        "expectedOutput": "3 3 3 1 1 1 1 2 2",
+                        "score": 50
+                    }
+                ],
+                "difficulty": "L4",
+                "difficultyLabel": "L4｜精熟",
+                "sb3Path": "m0/M2-10-GreedyAdvanced/WP-06.sb3"
+            }
+        ]
+    },
+    {
+        "code": "M3-00",
+        "title": "二分搜尋入門暖身",
+        "tier": "t3",
+        "unlockCode": "M3-00-BinarySearchWarmup",
+        "tasks": [
+            {
+                "id": "M3-00-01",
+                "code": "M3-00-M3-00-01",
+                "title": "神祕數字找找看",
+                "description": "老師心中把候選數字由小到大排好，請你判斷某個目標數字在不在清單裡。\n\n第一行輸入N，代表清單有N個數字\n\n第二行輸入N個數字（已經由小到大排序），數字間以空白間隔\n\n第三行輸入要查詢的目標數字\n\n如果目標數字有在清單裡，輸出「找到了」；否則輸出「沒找到」。",
+                "examples": [
+                    {
+                        "input": "5\n2 4 6 8 10\n6",
+                        "output": "找到了",
+                        "explanation": "清單中有6，所以輸出找到了"
+                    },
+                    {
+                        "input": "5\n2 4 6 8 10\n7",
+                        "output": "沒找到",
+                        "explanation": "清單中沒有7，所以輸出沒找到"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "5\n2 4 6 8 10\n6",
+                        "expectedOutput": "找到了",
+                        "score": 20
+                    },
+                    {
+                        "input": "5\n2 4 6 8 10\n7",
+                        "expectedOutput": "沒找到",
+                        "score": 20
+                    },
+                    {
+                        "input": "1\n42\n42",
+                        "expectedOutput": "找到了",
+                        "score": 20
+                    },
+                    {
+                        "input": "6\n1 3 5 7 9 11\n1",
+                        "expectedOutput": "找到了",
+                        "score": 20
+                    },
+                    {
+                        "input": "6\n1 3 5 7 9 11\n11",
+                        "expectedOutput": "找到了",
+                        "score": 20
+                    }
+                ],
+                "difficulty": "L2",
+                "difficultyLabel": "L2｜進階",
+                "sb3Path": "m0/M3-00-BinarySearchWarmup/M3-00-01.sb3"
+            },
+            {
+                "id": "M3-00-02",
+                "code": "M3-00-M3-00-02",
+                "title": "神祕數字在第幾個",
+                "description": "承接上一題，這次清單中的數字一樣由小到大排好。請你找出目標數字在清單中的位置（從第1個算起）。\n\n第一行輸入N\n\n第二行輸入N個已排序的數字\n\n第三行輸入要查詢的目標數字\n\n如果找到，輸出目標數字的位置（從1開始算）；如果清單裡沒有這個數字，輸出0。",
+                "examples": [
+                    {
+                        "input": "5\n2 4 6 8 10\n6",
+                        "output": "3",
+                        "explanation": "6是清單中第3個數字，所以輸出3"
+                    },
+                    {
+                        "input": "5\n2 4 6 8 10\n7",
+                        "output": "0",
+                        "explanation": "清單中沒有7，所以輸出0"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "5\n2 4 6 8 10\n6",
+                        "expectedOutput": "3",
+                        "score": 20
+                    },
+                    {
+                        "input": "5\n2 4 6 8 10\n7",
+                        "expectedOutput": "0",
+                        "score": 20
+                    },
+                    {
+                        "input": "1\n42\n42",
+                        "expectedOutput": "1",
+                        "score": 20
+                    },
+                    {
+                        "input": "6\n1 3 5 7 9 11\n1",
+                        "expectedOutput": "1",
+                        "score": 20
+                    },
+                    {
+                        "input": "6\n1 3 5 7 9 11\n11",
+                        "expectedOutput": "6",
+                        "score": 20
+                    }
+                ],
+                "difficulty": "L2",
+                "difficultyLabel": "L2｜進階",
+                "sb3Path": "m0/M3-00-BinarySearchWarmup/M3-00-02.sb3"
+            },
+            {
+                "id": "M3-00-03",
+                "code": "M3-00-M3-00-03",
+                "title": "猜數字裁判",
+                "description": "模擬猜數字遊戲的裁判：給一個正確答案secret，跟一串依序猜測的數字。請你算出玩家是第幾次才猜中（保證猜測序列裡一定會猜中一次）。\n\n第一行輸入secret\n\n第二行輸入M，代表猜測次數\n\n第三行輸入M個猜測值，依序排列，空白分隔\n\n輸出玩家第幾次猜中（從第1次算起）。",
+                "examples": [
+                    {
+                        "input": "42\n5\n50 25 40 42 45",
+                        "output": "4",
+                        "explanation": "第4次猜到42，答對"
+                    },
+                    {
+                        "input": "7\n3\n7 1 9",
+                        "output": "1",
+                        "explanation": "第1次就猜中7"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "42\n5\n50 25 40 42 45",
+                        "expectedOutput": "4",
+                        "score": 20
+                    },
+                    {
+                        "input": "7\n3\n7 1 9",
+                        "expectedOutput": "1",
+                        "score": 20
+                    },
+                    {
+                        "input": "100\n4\n50 75 90 100",
+                        "expectedOutput": "4",
+                        "score": 20
+                    },
+                    {
+                        "input": "3\n6\n10 5 2 3 1 8",
+                        "expectedOutput": "4",
+                        "score": 20
+                    },
+                    {
+                        "input": "1\n1\n1",
+                        "expectedOutput": "1",
+                        "score": 20
+                    }
+                ],
+                "difficulty": "L3",
+                "difficultyLabel": "L3｜挑戰",
+                "sb3Path": "m0/M3-00-BinarySearchWarmup/M3-00-03.sb3"
+            },
+            {
+                "id": "M3-00-04",
+                "code": "M3-00-M3-00-04",
+                "title": "新書該插第幾格",
+                "description": "書架上的書已經依照編號由小到大排好。請你決定新書該插入第幾個位置（從第1個算起），插入後書架仍維持由小到大排序。如果新書編號跟書架上已有的編號重複，新書要插在第一個相同編號的前面。\n\n第一行輸入N，代表書架現有N本書\n\n第二行輸入N個已排序的書本編號\n\n第三行輸入新書編號\n\n輸出新書應該插入的位置。",
+                "examples": [
+                    {
+                        "input": "5\n10 20 30 40 50\n25",
+                        "output": "3",
+                        "explanation": "25要插在30之前，變成第3個"
+                    },
+                    {
+                        "input": "5\n10 20 30 40 50\n5",
+                        "output": "1",
+                        "explanation": "5比全部都小，插在第1個"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "5\n10 20 30 40 50\n25",
+                        "expectedOutput": "3",
+                        "score": 17
+                    },
+                    {
+                        "input": "5\n10 20 30 40 50\n5",
+                        "expectedOutput": "1",
+                        "score": 17
+                    },
+                    {
+                        "input": "5\n10 20 30 40 50\n60",
+                        "expectedOutput": "6",
+                        "score": 17
+                    },
+                    {
+                        "input": "5\n10 20 30 40 50\n30",
+                        "expectedOutput": "3",
+                        "score": 17
+                    },
+                    {
+                        "input": "1\n100\n100",
+                        "expectedOutput": "1",
+                        "score": 16
+                    },
+                    {
+                        "input": "6\n1 3 3 3 7 9\n3",
+                        "expectedOutput": "2",
+                        "score": 16
+                    }
+                ],
+                "difficulty": "L3",
+                "difficultyLabel": "L3｜挑戰",
+                "sb3Path": "m0/M3-00-BinarySearchWarmup/M3-00-04.sb3"
+            },
+            {
+                "id": "M3-00-05",
+                "code": "M3-00-M3-00-05",
+                "title": "訂單一次查",
+                "description": "已排序的會員編號清單，請你一次查詢多筆會員編號是否存在。\n第一行輸入N，代表會員總數\n第二行輸入N個已排序的會員編號\n第三行輸入Q，代表要查詢的筆數\n第四行輸入Q個要查詢的編號，空白分隔\n依查詢順序，依序輸出每筆查詢的結果「有」或「無」，用空白分隔成一行。",
+                "examples": [
+                    {
+                        "input": "5\n3 8 15 22 30\n3\n8 10 22",
+                        "output": "有 無 有",
+                        "explanation": "8有、10沒有、22有"
+                    },
+                    {
+                        "input": "5\n3 8 15 22 30\n2\n3 30",
+                        "output": "有 有",
+                        "explanation": "3跟30都有"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "5\n3 8 15 22 30\n3\n8 10 22",
+                        "expectedOutput": "有 無 有",
+                        "score": 25
+                    },
+                    {
+                        "input": "5\n3 8 15 22 30\n2\n3 30",
+                        "expectedOutput": "有 有",
+                        "score": 25
+                    },
+                    {
+                        "input": "1\n100\n2\n100 99",
+                        "expectedOutput": "有 無",
+                        "score": 25
+                    },
+                    {
+                        "input": "6\n2 4 6 8 10 12\n4\n1 4 13 12",
+                        "expectedOutput": "無 有 無 有",
+                        "score": 25
+                    }
+                ],
+                "difficulty": "L3",
+                "difficultyLabel": "L3｜挑戰",
+                "sb3Path": "m0/M3-00-BinarySearchWarmup/M3-00-05.sb3"
+            },
+            {
+                "id": "M3-00-06",
+                "code": "M3-00-M3-00-06",
+                "title": "打折門檻落點",
+                "description": "店家依消費金額設定折扣門檻（門檻清單由小到大排序），請你判斷某筆消費金額達到第幾個門檻（即金額大於等於的最大門檻編號）。如果金額沒有達到任何門檻，輸出0。\n\n第一行輸入N，代表門檻數量\n\n第二行輸入N個已排序的門檻金額\n\n第三行輸入這筆消費金額\n\n輸出達到的門檻編號。",
+                "examples": [
+                    {
+                        "input": "3\n500 1000 2000\n1500",
+                        "output": "2",
+                        "explanation": "1500達到1000的門檻，但沒到2000，所以是第2個門檻"
+                    },
+                    {
+                        "input": "3\n500 1000 2000\n300",
+                        "output": "0",
+                        "explanation": "300沒達到任何門檻，輸出0"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "3\n500 1000 2000\n1500",
+                        "expectedOutput": "2",
+                        "score": 17
+                    },
+                    {
+                        "input": "3\n500 1000 2000\n300",
+                        "expectedOutput": "0",
+                        "score": 17
+                    },
+                    {
+                        "input": "3\n500 1000 2000\n2000",
+                        "expectedOutput": "3",
+                        "score": 17
+                    },
+                    {
+                        "input": "4\n100 200 300 400\n250",
+                        "expectedOutput": "2",
+                        "score": 17
+                    },
+                    {
+                        "input": "1\n999\n999",
+                        "expectedOutput": "1",
+                        "score": 16
+                    },
+                    {
+                        "input": "4\n100 200 300 400\n99",
+                        "expectedOutput": "0",
+                        "score": 16
+                    }
+                ],
+                "difficulty": "L3",
+                "difficultyLabel": "L3｜挑戰",
+                "sb3Path": "m0/M3-00-BinarySearchWarmup/M3-00-06.sb3"
+            }
+        ]
+    },
+    {
+        "code": "M3-01",
+        "title": "區間與最佳化",
+        "tier": "t3",
+        "unlockCode": "M3-01-IntervalOptimize",
+        "tasks": [
+            {
+                "id": "cycjunior-006-4-園遊會場地復原大作戰",
+                "code": "M3-01-cycjunior-006-4-園遊會場地復原大作戰",
+                "title": "園遊會場地復原大作戰",
+                "description": "熱鬧的園遊會終於圓滿落幕了！現在是最後的場地復原時間。雖然大家都累壞了，但幾位熱心的志工同學自願留下來幫忙清理最後的垃圾。\n現在在操場的跑道旁，整齊地排列著 N 堆分類好的垃圾包。因為垃圾已經打包好了，而且按照順序排成一列，為了避免混亂，每位志工必須負責清理「連續」的幾堆垃圾，不能跳著拿（例如：小明不能拿了第 1 堆又跑去拿第 3 堆，他必須拿第 1、2、3 堆這樣連續的一段）。你是衛生組長，你有 M 位志工可以調度。為了公平起見，你不希望任何一位志工累壞，所以你的目標是：「讓工作量最重的那位志工，搬運的重量越輕越好」。\n換句話說，你要把這一列垃圾切成 M段，分配給 M 個人，請你計算出在最完美的分配策略下，那個「搬最多重量的人」，他最少只需要搬多少公斤？",
+                "examples": [
+                    {
+                        "input": "2\n5\n2 4 3 6 5",
+                        "output": "11",
+                        "explanation": "最理想的的狀況為分成 2 4 3 和 6 5 兩堆讓兩個志工處理。重量分別為\n2 + 4 +3=9、6 + 5  = 11\n最小化最大工作量為11。"
+                    },
+                    {
+                        "input": "3\n3\n10 20 30",
+                        "output": "30",
+                        "explanation": "3個志工，剛好每人負責一堆，工作量分別為 10, 20, 30。最小化最大工作量為30。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "2\n3\n1 1 1",
+                        "expectedOutput": "2",
+                        "score": 10
+                    },
+                    {
+                        "input": "3\n3\n10 20 30",
+                        "expectedOutput": "30",
+                        "score": 15
+                    },
+                    {
+                        "input": "2\n4\n10 20 30 40",
+                        "expectedOutput": "60",
+                        "score": 20
+                    },
+                    {
+                        "input": "3\n6\n1 2 3 4 5 6",
+                        "expectedOutput": "9",
+                        "score": 25
+                    },
+                    {
+                        "input": "1\n5\n1 2 3 4 5",
+                        "expectedOutput": "15",
+                        "score": 30
+                    }
+                ],
+                "difficulty": "L4",
+                "difficultyLabel": "L4｜精熟",
+                "sb3Path": "m0/M3-01-IntervalOptimize/cycjunior-006-4-園遊會場地復原大作戰.sb3"
+            },
+            {
+                "id": "TYTN-07",
+                "code": "M3-01-TYTN-07",
+                "title": "挑選喜歡的午餐區間",
+                "description": "小虎最愛挑午餐，他對多種主餐都有特別喜歡的類別，以字母表示（如 A=雞肉、B=豬排…）。\n學校提供 N 天午餐菜單，每天的主餐以字母表示。小虎想挑出連續 K 天的午餐，使「最愛餐點」在這段期間出現最多次。\n若有多段連續 K 天的午餐其最愛餐點出現次數相同，小虎會選擇「最早」出現的那一段。\n請輸出：\n1. 最愛餐點在最佳區間中出現的總次數\n2. 該區間的起始天數（第一天為 1）",
+                "examples": [
+                    {
+                        "input": "7\nA B A C A B A\n3\nA",
+                        "output": "2 1",
+                        "explanation": "7天菜單如上，連續3天的區間中，A 最多出現 2 次，最早出現於第1天。\n因此輸出「2 1」。"
+                    },
+                    {
+                        "input": "10\nA B C D A B C C B A\n4\nA C",
+                        "output": "3 5",
+                        "explanation": "最愛餐點為 A、C。\n在連續4天的所有區間中，第5天起算的區間 A、C 出現3次且最早達成。\n因此輸出「3 5」。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "7\nA B A C A B A\n3\nA",
+                        "expectedOutput": "2 1",
+                        "score": 10
+                    },
+                    {
+                        "input": "10\nA B C D A B C C B A\n4\nA C",
+                        "expectedOutput": "3 5",
+                        "score": 10
+                    },
+                    {
+                        "input": "5\nA B C A C\n2\nB",
+                        "expectedOutput": "1 1",
+                        "score": 10
+                    },
+                    {
+                        "input": "6\nC C C C C C\n3\nC",
+                        "expectedOutput": "3 1",
+                        "score": 10
+                    },
+                    {
+                        "input": "8\nA B A B A B A B\n4\nA B",
+                        "expectedOutput": "4 1",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L4",
+                "difficultyLabel": "L4｜精熟",
+                "sb3Path": "m0/M3-01-IntervalOptimize/TYTN-07.sb3"
+            },
+            {
+                "id": "W0-04-3-星際物資運補任務-物流中心選址",
+                "code": "M3-01-W0-04-3-星際物資運補任務-物流中心選址",
+                "title": "星際物資運補-物流中心選址",
+                "description": "火星的所有基地目前都分布在「奧林帕斯峽谷」的一條筆直公路上。\n為了降低整體油耗，物流中心決定選擇一個最優的位置 P 來建立「中央配送倉庫」。\n已知共有 N 個基地，其座標分別為 X1, X2, …, XN。\n請找出一個「整數座標點 P」，使得所有基地到該點的距離總和：\n|X1 − P| + |X2 − P| + ⋯ + |XN − P| 達到最小。\n【特別規定】\n• 若有兩個以上的座標點 P 能得到相同且最小的距離總和，請輸出「座標數值較小」的那一個。\n• 可以證明，最佳解一定會落在某一個既有基地的位置上。",
+                "examples": [
+                    {
+                        "input": "5\n1 3 5 10 20",
+                        "output": "5",
+                        "explanation": "選擇中位數 5，距離總和最小。"
+                    },
+                    {
+                        "input": "4\n1 2 100 200",
+                        "output": "2",
+                        "explanation": "2 與 100 的距離總和相同，依規定選較小的 2。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "1\n50",
+                        "expectedOutput": "50",
+                        "score": 10
+                    },
+                    {
+                        "input": "3\n1 2 3",
+                        "expectedOutput": "2",
+                        "score": 15
+                    },
+                    {
+                        "input": "4\n10 10 10 10",
+                        "expectedOutput": "10",
+                        "score": 20
+                    },
+                    {
+                        "input": "6\n1 2 3 100 101 102",
+                        "expectedOutput": "3",
+                        "score": 25
+                    },
+                    {
+                        "input": "5\n-10 -5 0 5 20",
+                        "expectedOutput": "0",
+                        "score": 30
+                    }
+                ],
+                "difficulty": "L4",
+                "difficultyLabel": "L4｜精熟",
+                "sb3Path": "m0/M3-01-IntervalOptimize/W0-04-3-星際物資運補任務-物流中心選址.sb3"
+            },
+            {
+                "id": "115J-05",
+                "code": "M3-01-115J-05",
+                "title": "熱浪區間",
+                "description": "氣候變遷使夏季熱浪更加頻繁，自然老師蒐集了各地區一段暑假期間「每日最高氣溫」（以 °C 為單位，且精確至 1 位小數）。\n老師自行定義了「熱浪」為：在一段連續天數內，挑選出 2 天或更多天（必須包含該區間內的第一天及最後一天），這幾天的最高氣溫都必須達到設定的高溫門檻 T，且溫度呈現越來越高（嚴格遞增）的趨勢。\n換句話說，給定連續 n 天的氣溫：temp[1], temp[2], ..., temp[n]，及高溫門檻 T。請找出若干天 i1 2 k （k ≥ 2），使得：\n1. 每一天都達到門檻：temp[i1] ≥ T, temp[i2] ≥ T, ..., temp[ik] ≥ T\n2. 溫度越來越高：temp[i1] 2] k]\n【熱浪區間的最佳化規則】\n請幫老師寫一個程式找出最優的熱浪區間，並依據下列優先順序進行篩選：\n• 優先條件一：最大化符合條件的天數 (k)。\n• 優先條件二：若有多組區間的 k 值相同，優先選擇「起始日最早」的區間。\n• 優先條件三：若起始日也相同，優先選擇「結束日最早（區間總天數最短）」的區間。\n請輸出該最優熱浪區間的「總天數（ik - i1 + 1）」以及「最早的起始日（i1）」。若完全找不到符合條件（至少兩天）的區間，請輸出 0 0。",
+                "examples": [
+                    {
+                        "input": "8 32.0\n25.0 32.1 31.9 31.9 32.3 32.5 31.0 32.5",
+                        "output": "5 2",
+                        "explanation": "符合門檻且遞增的天數包含 (2, 5, 6) 以及 (2, 5, 8)，最大天數 k 皆為 3。\n兩者起始日皆為 2。依據優先條件三，選擇結束日較早的 (2, 5, 6)。\n該區間總天數為 6 - 2 + 1 = 5 天，起始日為 2。"
+                    },
+                    {
+                        "input": "7 34.0\n35.2 36.3 34.0 28.0 34.1 35.0 36.0",
+                        "output": "5 3",
+                        "explanation": "最多遞增天數的組合為第 3, 5, 6, 7 天 (34.0 < 34.1 < 35.0 < 36.0)，k=4。\n熱浪區間為第 3 天至第 7 天，總天數為 5，起始日是第 3 天。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "8 32.0\n25.0 32.1 31.9 31.9 32.3 32.5 31.0 32.5",
+                        "expectedOutput": "5 2",
+                        "score": 10
+                    },
+                    {
+                        "input": "7 34.0\n35.2 36.3 34.0 28.0 34.1 35.0 36.0",
+                        "expectedOutput": "5 3",
+                        "score": 10
+                    },
+                    {
+                        "input": "5 40.0\n35.0 36.0 37.0 38.0 39.0",
+                        "expectedOutput": "0 0",
+                        "score": 10
+                    },
+                    {
+                        "input": "5 30.0\n35.0 34.0 33.0 32.0 31.0",
+                        "expectedOutput": "0 0",
+                        "score": 10
+                    },
+                    {
+                        "input": "6 30.0\n31.0 32.0 33.0 20.0 33.0 33.0",
+                        "expectedOutput": "3 1",
+                        "score": 10
+                    },
+                    {
+                        "input": "6 30.0\n31.0 32.0 33.0 30.5 31.5 32.5",
+                        "expectedOutput": "3 1",
+                        "score": 10
+                    },
+                    {
+                        "input": "8 30.0\n31.0 25.0 25.0 25.0 39.0 32.0 33.0 34.0",
+                        "expectedOutput": "8 1",
+                        "score": 10
+                    },
+                    {
+                        "input": "10 25.0\n26.0 27.0 28.0 25.0 25.1 25.2 25.3 25.4 25.5 25.6",
+                        "expectedOutput": "7 4",
+                        "score": 10
+                    },
+                    {
+                        "input": "5 30.0\n35.0 35.0 35.0 35.0 35.0",
+                        "expectedOutput": "0 0",
+                        "score": 10
+                    },
+                    {
+                        "input": "8 35.0\n36.0 34.0 37.0 34.0 38.0 34.0 39.0 34.0",
+                        "expectedOutput": "7 1",
+                        "score": 10
+                    }
+                ],
+                "difficulty": "L5",
+                "difficultyLabel": "L5｜競賽",
+                "sb3Path": "m0/M3-01-IntervalOptimize/115J-05.sb3"
+            },
+            {
+                "id": "cyjunior-008",
+                "code": "M3-01-cyjunior-008",
+                "title": "校園密室逃脫-書架修繕工程",
+                "description": "終於來到最後一關，只要修復好眼前倒塌的古老書架，就能拿到智慧之鑰。書架的結構需要 K 根長度完全相同的木條來支撐，才能維持平衡。倉庫角落堆放著 N 根長短不一的備用木材。你可以使用鋸子將一根長木材切成多段短木材，但為了結構強度，嚴禁將兩根短木材拼接使用。\n為了讓修復後的書架越穩固越好，這 K 根支撐木條的長度應該要越長越好。請根據現有木材的庫存狀況，計算出這 K 根木條的最大可能長度是多少？",
+                "examples": [
+                    {
+                        "input": "3\n4\n10 20 30",
+                        "output": "10",
+                        "explanation": "預計使用木條之長度為10時\n木條長10：可切出1段\n木條長20：可切出2段\n木條長30：可切出3段\n總段數為1+2+3=6 段，剛好比需求段數4還要多\n預計使用木條之長度為11 時就無法滿足需求"
+                    },
+                    {
+                        "input": "3\n7\n21 15 10",
+                        "output": "5",
+                        "explanation": "預計使用木條之長度為5時\n木條長21：可切出4段\n木條長15：可切出3段\n木條長10：可切出2段\n總段數為4+3+2=9 段，剛好比需求段數7還要多\n預計使用木條之長度為6 時就無法滿足需求"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "1\n5\n100",
+                        "expectedOutput": "20",
+                        "score": 10
+                    },
+                    {
+                        "input": "3\n3\n10 10 10",
+                        "expectedOutput": "10",
+                        "score": 15
+                    },
+                    {
+                        "input": "2\n5\n50 50",
+                        "expectedOutput": "16",
+                        "score": 20
+                    },
+                    {
+                        "input": "5\n10\n100 200 50 120 80",
+                        "expectedOutput": "50",
+                        "score": 25
+                    },
+                    {
+                        "input": "4\n6\n15 25 35 45",
+                        "expectedOutput": "15",
+                        "score": 30
+                    }
+                ],
+                "difficulty": "L5",
+                "difficultyLabel": "L5｜競賽",
+                "sb3Path": "m0/M3-01-IntervalOptimize/cyjunior-008.sb3"
+            },
+            {
+                "id": "nantoJS-006-4",
+                "code": "M3-01-nantoJS-006-4",
+                "title": "星際物資運補-防禦塔的能量負載",
+                "description": "基地外圍有 N 座依序排列的雷射防禦塔，其能量需求分別為 E1, E2, …, EN。現有 M 台發電機需負責供電，配置規則如下：每台發電機必須負責供應「連續區間」的防禦塔（不可跳號）。所有防禦塔都必須被供電，且每座塔僅由一台發電機負責。請規劃 M 台發電機的負責範圍，使得所有發電機中「負擔最重（能量總和最大）」的那一台，其數值盡可能小。即：求出一組劃分方式，讓「各區段和的最大值」最小化 (Minimize the Maximum Sum)。\n【範例說明】假設 N=3（能量需求：2, 5, 8），M=2（2 台發電機）。\n分法一：第一台負責第 1 座（能量 2）；第二台負責第 2~3 座（能量 5+8=13）。\n這時兩台的負荷分別是 2 和 13，其中負擔最重的是 13。\n分法二：第一台負責第 1~2 座（能量 2+5=7）；第二台負責第 3 座（能量 8）。\n這時兩台的負荷分別是 7 和 8，其中負擔最重的是 8。\n結果：分法二的最大負荷較小，故最佳解為 8",
+                "examples": [
+                    {
+                        "input": "5\n2\n7 2 5 10 8",
+                        "output": "18",
+                        "explanation": "我們有 5 座塔，要分成 2 組發電。策略 A (較差)：\n切分成 (7, 2, 5, 10) 與 (8)。\n第一台負擔 24，第二台負擔 8。最大負荷是 24。策略 B (最佳)：\n切分成 (7, 2, 5) 與 (10, 8)。第一台負擔 14，第二台負擔 18。這是所有分法中最大負荷最小的結果。"
+                    },
+                    {
+                        "input": "4\n4\n1 2 3 4",
+                        "output": "4",
+                        "explanation": "發電機數量剛好跟塔一樣多，所以每台各負責一座。\n負荷分別是 1, 2, 3, 4。其中最大的負荷是 4。"
+                    },
+                    {
+                        "input": "6\n3\n1 1 1 5 1 1",
+                        "output": "5",
+                        "explanation": "建議分配如下：\n第一台：負責第 1~3 座 (1+1+1 = 3) 第二台：負責第 4 座 (5) 第三台：負責第 5~6 座 (1+1 = 2) 三台的負荷分別是 3, 5, 2，最大值為 5。"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "5\n1\n10 20 30 40 50",
+                        "expectedOutput": "150",
+                        "score": 10
+                    },
+                    {
+                        "input": "5\n5\n10 20 30 40 50",
+                        "expectedOutput": "50",
+                        "score": 15
+                    },
+                    {
+                        "input": "5\n2\n5 1 2 2 3",
+                        "expectedOutput": "7",
+                        "score": 20
+                    },
+                    {
+                        "input": "8\n3\n1 10 2 9 3 8 4 7",
+                        "expectedOutput": "19",
+                        "score": 25
+                    },
+                    {
+                        "input": "15\n5\n10 3 5 2 9 11 1 4 8 3 20 21 22 14 13",
+                        "expectedOutput": "40",
+                        "score": 30
+                    }
+                ],
+                "difficulty": "L5",
+                "difficultyLabel": "L5｜競賽",
+                "sb3Path": "m0/M3-01-IntervalOptimize/nantoJS-006-4.sb3"
+            }
+        ]
+    },
+    {
+        "code": "M3-02",
+        "title": "前綴和(prefix sum)",
+        "tier": "t3",
+        "unlockCode": "M3-02-PrefixSum",
+        "tasks": [
+            {
+                "id": "M3-02-01",
+                "code": "M3-02-M3-02-01",
+                "title": "募款進度累積表",
+                "description": "園遊會義賣活動記錄每日募款金額，請你算出每天結束時的累積募款總額（前綴和）。\n\n第一行輸入N，代表有N天\n\n第二行輸入N個數字，代表每天的募款金額\n\n輸出N個數字，代表第1天到第i天為止的累積總額，空白分隔。",
+                "examples": [
+                    {
+                        "input": "4\n100 200 150 50",
+                        "output": "100 300 450 500",
+                        "explanation": "第1天100，第2天100+200=300，第3天300+150=450，第4天450+50=500"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "4\n100 200 150 50",
+                        "expectedOutput": "100 300 450 500",
+                        "score": 25
+                    },
+                    {
+                        "input": "3\n10 20 30",
+                        "expectedOutput": "10 30 60",
+                        "score": 25
+                    },
+                    {
+                        "input": "1\n99",
+                        "expectedOutput": "99",
+                        "score": 25
+                    },
+                    {
+                        "input": "5\n5 5 5 5 5",
+                        "expectedOutput": "5 10 15 20 25",
+                        "score": 25
+                    }
+                ],
+                "difficulty": "L2",
+                "difficultyLabel": "L2｜進階",
+                "sb3Path": "m0/M3-02-PrefixSum/M3-02-01.sb3"
+            },
+            {
+                "id": "M3-02-02",
+                "code": "M3-02-M3-02-02",
+                "title": "區間募款查詢",
+                "description": "延續募款記錄，這次要查詢「第L天到第R天」（含頭尾）總共募到多少錢。\n\n第一行輸入N\n\n第二行輸入N個每日募款金額\n\n第三行輸入L跟R（空白分隔）\n\n輸出第L天到第R天的募款總額。",
+                "examples": [
+                    {
+                        "input": "5\n100 200 150 50 300\n2 4",
+                        "output": "400",
+                        "explanation": "第2~4天：200+150+50=400"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "5\n100 200 150 50 300\n2 4",
+                        "expectedOutput": "400",
+                        "score": 25
+                    },
+                    {
+                        "input": "5\n100 200 150 50 300\n1 5",
+                        "expectedOutput": "800",
+                        "score": 25
+                    },
+                    {
+                        "input": "5\n100 200 150 50 300\n3 3",
+                        "expectedOutput": "150",
+                        "score": 25
+                    },
+                    {
+                        "input": "4\n10 20 30 40\n1 1",
+                        "expectedOutput": "10",
+                        "score": 25
+                    }
+                ],
+                "difficulty": "L3",
+                "difficultyLabel": "L3｜挑戰",
+                "sb3Path": "m0/M3-02-PrefixSum/M3-02-02.sb3"
+            },
+            {
+                "id": "M3-02-03",
+                "code": "M3-02-M3-02-03",
+                "title": "募款多筆區間查詢",
+                "description": "同樣是募款記錄，這次一次要查詢多組區間。\n\n第一行輸入N\n\n第二行輸入N個每日募款金額\n\n第三行輸入Q，代表要查詢的組數\n\n第四行輸入2×Q個數字，依序是每組查詢的L R（例如「1 3 2 5」代表第一組查詢L=1,R=3、第二組查詢L=2,R=5）",
+                "examples": [
+                    {
+                        "input": "5\n100 200 150 50 300\n2\n1 3 2 5",
+                        "output": "450 700",
+                        "explanation": "第1組1~3天：100+200+150=450；第2組2~5天：200+150+50+300=700"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "5\n100 200 150 50 300\n2\n1 3 2 5",
+                        "expectedOutput": "450 700",
+                        "score": 34
+                    },
+                    {
+                        "input": "5\n100 200 150 50 300\n1\n1 5",
+                        "expectedOutput": "800",
+                        "score": 33
+                    },
+                    {
+                        "input": "4\n10 20 30 40\n3\n1 1 2 3 1 4",
+                        "expectedOutput": "10 50 100",
+                        "score": 33
+                    }
+                ],
+                "difficulty": "L3",
+                "difficultyLabel": "L3｜挑戰",
+                "sb3Path": "m0/M3-02-PrefixSum/M3-02-03.sb3"
+            },
+            {
+                "id": "M3-02-04",
+                "code": "M3-02-M3-02-04",
+                "title": "區間平均氣溫是否達標",
+                "description": "記錄N天的氣溫，請你判斷第L天到第R天（含頭尾）的平均氣溫是否達到門檻溫度threshold（大於等於threshold輸出「達標」，否則輸出「未達標」）。平均值用整數除法計算（無條件捨去）。\n\n第一行輸入N\n\n第二行輸入N個氣溫數字\n\n第三行輸入L R threshold（空白分隔）\n\n輸出「達標」或「未達標」。",
+                "examples": [
+                    {
+                        "input": "5\n20 22 25 18 30\n1 3 22",
+                        "output": "達標",
+                        "explanation": "第1~3天平均=(20+22+25)/3=22（整數除法），22>=22所以達標"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "5\n20 22 25 18 30\n1 3 22",
+                        "expectedOutput": "達標",
+                        "score": 25
+                    },
+                    {
+                        "input": "5\n20 22 25 18 30\n3 4 25",
+                        "expectedOutput": "未達標",
+                        "score": 25
+                    },
+                    {
+                        "input": "5\n20 22 25 18 30\n1 5 20",
+                        "expectedOutput": "達標",
+                        "score": 25
+                    },
+                    {
+                        "input": "3\n10 10 10\n1 3 11",
+                        "expectedOutput": "未達標",
+                        "score": 25
+                    }
+                ],
+                "difficulty": "L3",
+                "difficultyLabel": "L3｜挑戰",
+                "sb3Path": "m0/M3-02-PrefixSum/M3-02-04.sb3"
+            },
+            {
+                "id": "M3-02-05",
+                "code": "M3-02-M3-02-05",
+                "title": "扣除單日的區間總和",
+                "description": "給定L天到R天的募款範圍，但其中有一天exclude要扣掉不列入計算（exclude保證在L~R範圍內），請你算出扣除那天之後的區間總額。\n\n第一行輸入N\n\n第二行輸入N個每日募款金額\n\n第三行輸入L R exclude（空白分隔）\n\n輸出扣除exclude那天後的區間總額。",
+                "examples": [
+                    {
+                        "input": "5\n100 200 150 50 300\n1 4 2",
+                        "output": "300",
+                        "explanation": "1~4天總額100+200+150+50=500，扣掉第2天200，剩300"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "5\n100 200 150 50 300\n1 4 2",
+                        "expectedOutput": "300",
+                        "score": 25
+                    },
+                    {
+                        "input": "5\n100 200 150 50 300\n2 5 4",
+                        "expectedOutput": "650",
+                        "score": 25
+                    },
+                    {
+                        "input": "4\n10 20 30 40\n1 4 1",
+                        "expectedOutput": "90",
+                        "score": 25
+                    },
+                    {
+                        "input": "3\n5 5 5\n1 3 2",
+                        "expectedOutput": "10",
+                        "score": 25
+                    }
+                ],
+                "difficulty": "L3",
+                "difficultyLabel": "L3｜挑戰",
+                "sb3Path": "m0/M3-02-PrefixSum/M3-02-05.sb3"
+            },
+            {
+                "id": "M3-02-06",
+                "code": "M3-02-M3-02-06",
+                "title": "找出總和等於目標值的區間",
+                "description": "記錄N天的活動點數，請你找出一組連續區間（第L天到第R天，含頭尾）的點數總和剛好等於目標值target，輸出這組區間的L R（空白分隔）；找不到輸出「0 0」。（測試資料保證答案若存在必定唯一）",
+                "examples": [
+                    {
+                        "input": "5\n4 2 7 1 3\n9",
+                        "output": "2 3",
+                        "explanation": "第2~3天：2+7=9"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "5\n4 2 7 1 3\n9",
+                        "expectedOutput": "2 3",
+                        "score": 25
+                    },
+                    {
+                        "input": "5\n4 2 7 1 3\n100",
+                        "expectedOutput": "0 0",
+                        "score": 25
+                    },
+                    {
+                        "input": "5\n4 2 7 1 3\n8",
+                        "expectedOutput": "3 4",
+                        "score": 25
+                    },
+                    {
+                        "input": "5\n4 2 7 1 3\n11",
+                        "expectedOutput": "3 5",
+                        "score": 25
+                    }
+                ],
+                "difficulty": "L3",
+                "difficultyLabel": "L3｜挑戰",
+                "sb3Path": "m0/M3-02-PrefixSum/M3-02-06.sb3"
+            }
+        ]
+    },
+    {
+        "code": "M3-03",
+        "title": "滑動視窗(sliding window)",
+        "tier": "t3",
+        "unlockCode": "M3-03-SlidingWindow",
+        "tasks": [
+            {
+                "id": "M3-03-01",
+                "code": "M3-03-M3-03-01",
+                "title": "連續K天營收總和一覽",
+                "description": "商店記錄每天營收，請你算出所有『連續K天』區間的營收總和，依開始日期順序輸出。\n\n第一行輸入N，代表有N天\n\n第二行輸入N個數字，代表每天營收\n\n第三行輸入K\n\n輸出從第1天開始、第2天開始……一直到最後一個可能的K天區間，各自的總和，空白分隔。",
+                "examples": [
+                    {
+                        "input": "5\n10 20 30 40 50\n3",
+                        "output": "60 90 120",
+                        "explanation": "第1~3天:10+20+30=60；第2~4天:20+30+40=90；第3~5天:30+40+50=120"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "5\n10 20 30 40 50\n3",
+                        "expectedOutput": "60 90 120",
+                        "score": 25
+                    },
+                    {
+                        "input": "4\n1 2 3 4\n2",
+                        "expectedOutput": "3 5 7",
+                        "score": 25
+                    },
+                    {
+                        "input": "3\n5 5 5\n3",
+                        "expectedOutput": "15",
+                        "score": 25
+                    },
+                    {
+                        "input": "5\n1 1 1 1 1\n1",
+                        "expectedOutput": "1 1 1 1 1",
+                        "score": 25
+                    }
+                ],
+                "difficulty": "L2",
+                "difficultyLabel": "L2｜進階",
+                "sb3Path": "m0/M3-03-SlidingWindow/M3-03-01.sb3"
+            },
+            {
+                "id": "M3-03-02",
+                "code": "M3-03-M3-03-02",
+                "title": "連續K天最大總營收",
+                "description": "同樣是每日營收紀錄，請你找出『連續K天』區間中，總營收最高的金額是多少。\n\n第一行輸入N\n\n第二行輸入N個每日營收\n\n第三行輸入K\n\n輸出所有連續K天區間中的最大總營收。",
+                "examples": [
+                    {
+                        "input": "5\n10 20 30 40 50\n3",
+                        "output": "120",
+                        "explanation": "所有連續3天總和中，30+40+50=120最大"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "5\n10 20 30 40 50\n3",
+                        "expectedOutput": "120",
+                        "score": 25
+                    },
+                    {
+                        "input": "4\n1 2 3 4\n2",
+                        "expectedOutput": "7",
+                        "score": 25
+                    },
+                    {
+                        "input": "6\n5 1 5 9 5 1\n2",
+                        "expectedOutput": "14",
+                        "score": 25
+                    },
+                    {
+                        "input": "5\n9 1 1 1 9\n2",
+                        "expectedOutput": "10",
+                        "score": 25
+                    }
+                ],
+                "difficulty": "L3",
+                "difficultyLabel": "L3｜挑戰",
+                "sb3Path": "m0/M3-03-SlidingWindow/M3-03-02.sb3"
+            },
+            {
+                "id": "M3-03-03",
+                "code": "M3-03-M3-03-03",
+                "title": "連續K天最小總營收",
+                "description": "同樣是每日營收紀錄，請你找出『連續K天』區間中，總營收最低的金額是多少。\n\n第一行輸入N\n\n第二行輸入N個每日營收\n\n第三行輸入K\n\n輸出所有連續K天區間中的最小總營收。",
+                "examples": [
+                    {
+                        "input": "5\n10 20 30 40 50\n3",
+                        "output": "60",
+                        "explanation": "所有連續3天總和中，10+20+30=60最小"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "5\n10 20 30 40 50\n3",
+                        "expectedOutput": "60",
+                        "score": 25
+                    },
+                    {
+                        "input": "4\n1 2 3 4\n2",
+                        "expectedOutput": "3",
+                        "score": 25
+                    },
+                    {
+                        "input": "6\n5 1 5 9 5 1\n2",
+                        "expectedOutput": "6",
+                        "score": 25
+                    },
+                    {
+                        "input": "5\n9 1 1 1 9\n2",
+                        "expectedOutput": "2",
+                        "score": 25
+                    }
+                ],
+                "difficulty": "L3",
+                "difficultyLabel": "L3｜挑戰",
+                "sb3Path": "m0/M3-03-SlidingWindow/M3-03-03.sb3"
+            },
+            {
+                "id": "M3-03-04",
+                "code": "M3-03-M3-03-04",
+                "title": "連續K天平均是否曾經達標",
+                "description": "請你判斷是否存在某一段連續K天，平均營收達到門檻threshold以上（整數除法，無條件捨去）。只要存在至少一段就輸出「有」，否則輸出「無」。\n\n第一行輸入N\n\n第二行輸入N個每日營收\n\n第三行輸入K threshold（空白分隔）\n\n輸出「有」或「無」。",
+                "examples": [
+                    {
+                        "input": "5\n10 20 30 40 50\n3 35",
+                        "output": "有",
+                        "explanation": "第3~5天平均(30+40+50)/3=40，大於等於35，所以有"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "5\n10 20 30 40 50\n3 35",
+                        "expectedOutput": "有",
+                        "score": 25
+                    },
+                    {
+                        "input": "5\n10 20 30 40 50\n3 50",
+                        "expectedOutput": "無",
+                        "score": 25
+                    },
+                    {
+                        "input": "4\n1 2 3 4\n2 3",
+                        "expectedOutput": "有",
+                        "score": 25
+                    },
+                    {
+                        "input": "4\n1 2 3 4\n2 4",
+                        "expectedOutput": "無",
+                        "score": 25
+                    }
+                ],
+                "difficulty": "L3",
+                "difficultyLabel": "L3｜挑戰",
+                "sb3Path": "m0/M3-03-SlidingWindow/M3-03-04.sb3"
+            },
+            {
+                "id": "M3-03-05",
+                "code": "M3-03-M3-03-05",
+                "title": "最長連續達標天數",
+                "description": "請你找出最長一段『連續達標』的天數——只要每天的數值都大於等於門檻threshold，就算是達標；求最長連續達標的天數（如果完全沒有任何一天達標，輸出0）。\n\n第一行輸入N\n\n第二行輸入N個每日數值\n\n第三行輸入threshold",
+                "examples": [
+                    {
+                        "input": "7\n5 8 9 3 10 12 11\n8",
+                        "output": "3",
+                        "explanation": "第2~3天(8,9)連續達標2天；第5~7天(10,12,11)連續達標3天最長"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "7\n5 8 9 3 10 12 11\n8",
+                        "expectedOutput": "3",
+                        "score": 25
+                    },
+                    {
+                        "input": "5\n1 2 3 4 5\n10",
+                        "expectedOutput": "0",
+                        "score": 25
+                    },
+                    {
+                        "input": "5\n5 5 5 5 5\n5",
+                        "expectedOutput": "5",
+                        "score": 25
+                    },
+                    {
+                        "input": "6\n1 9 9 1 9 9\n9",
+                        "expectedOutput": "2",
+                        "score": 25
+                    }
+                ],
+                "difficulty": "L3",
+                "difficultyLabel": "L3｜挑戰",
+                "sb3Path": "m0/M3-03-SlidingWindow/M3-03-05.sb3"
+            },
+            {
+                "id": "M3-03-06",
+                "code": "M3-03-M3-03-06",
+                "title": "最少連續幾天達到目標總量",
+                "description": "請你找出最短的一段連續天數，讓這段天數的總和達到（大於等於）目標值target；如果找不到這樣的連續天數，輸出0。\n\n第一行輸入N\n\n第二行輸入N個每日數值\n\n第三行輸入target\n\n輸出最短的連續天數；找不到輸出0。",
+                "examples": [
+                    {
+                        "input": "6\n2 3 1 2 4 3\n7",
+                        "output": "2",
+                        "explanation": "第5~6天4+3=7，只用2天就達標，是最短的"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "6\n2 3 1 2 4 3\n7",
+                        "expectedOutput": "2",
+                        "score": 25
+                    },
+                    {
+                        "input": "5\n1 1 1 1 1\n100",
+                        "expectedOutput": "0",
+                        "score": 25
+                    },
+                    {
+                        "input": "3\n10 2 3\n10",
+                        "expectedOutput": "1",
+                        "score": 25
+                    },
+                    {
+                        "input": "5\n1 4 4 1 5\n8",
+                        "expectedOutput": "2",
+                        "score": 25
+                    }
+                ],
+                "difficulty": "L3",
+                "difficultyLabel": "L3｜挑戰",
+                "sb3Path": "m0/M3-03-SlidingWindow/M3-03-06.sb3"
+            }
+        ]
+    },
+    {
+        "code": "M3-04",
+        "title": "動態規劃暖身",
+        "tier": "t3",
+        "unlockCode": "M3-04-DPWarmup",
+        "tasks": [
+            {
+                "id": "M3-04-01",
+                "code": "M3-04-M3-04-01",
+                "title": "爬樓梯方法數",
+                "description": "小朋友在爬樓梯，每一步可以爬1階或2階，請問爬到第N階，總共有幾種不同的爬法？（N保證大於等於1）\n\n第一行輸入N\n\n輸出爬到第N階的方法數。",
+                "examples": [
+                    {
+                        "input": "5",
+                        "output": "8",
+                        "explanation": "第5階的方法數=第4階方法數+第3階方法數=5+3=8"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "1",
+                        "expectedOutput": "1",
+                        "score": 25
+                    },
+                    {
+                        "input": "2",
+                        "expectedOutput": "2",
+                        "score": 25
+                    },
+                    {
+                        "input": "5",
+                        "expectedOutput": "8",
+                        "score": 25
+                    },
+                    {
+                        "input": "8",
+                        "expectedOutput": "34",
+                        "score": 25
+                    }
+                ],
+                "difficulty": "L2",
+                "difficultyLabel": "L2｜進階",
+                "sb3Path": "m0/M3-04-DPWarmup/M3-04-01.sb3"
+            },
+            {
+                "id": "M3-04-02",
+                "code": "M3-04-M3-04-02",
+                "title": "最小花費爬樓梯",
+                "description": "每一階樓梯都有一個花費，你可以選擇從第1階或第2階開始爬（不用付出發那階的費用以外的額外代價），每次可以往上爬1階或2階，最終目標是離開樓梯（爬過最後一階或倒數第二階再跨一步出去都算離開）。請問離開樓梯最少要花多少錢？\n\n第一行輸入N，代表共有N階樓梯\n\n第二行輸入N個數字，代表第1階到第N階（由1開始編號）各自的花費\n\n輸出離開樓梯的最小花費。",
+                "examples": [
+                    {
+                        "input": "3\n10 15 20",
+                        "output": "15",
+                        "explanation": "從第2階(花費15)出發，直接跨兩步離開樓梯，只需付15"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "3\n10 15 20",
+                        "expectedOutput": "15",
+                        "score": 25
+                    },
+                    {
+                        "input": "4\n1 100 1 1",
+                        "expectedOutput": "2",
+                        "score": 25
+                    },
+                    {
+                        "input": "2\n5 6",
+                        "expectedOutput": "5",
+                        "score": 25
+                    },
+                    {
+                        "input": "5\n1 2 3 4 5",
+                        "expectedOutput": "6",
+                        "score": 25
+                    }
+                ],
+                "difficulty": "L3",
+                "difficultyLabel": "L3｜挑戰",
+                "sb3Path": "m0/M3-04-DPWarmup/M3-04-02.sb3"
+            },
+            {
+                "id": "M3-04-03",
+                "code": "M3-04-M3-04-03",
+                "title": "不能選相鄰兩個的最大總和",
+                "description": "一排數字，請你從中挑選一些數字（可以不挑），規則是不能同時挑選相鄰的兩個位置，求挑選出來的數字總和最大是多少。\n\n第一行輸入N\n\n第二行輸入N個數字\n\n輸出可以選出的最大總和。",
+                "examples": [
+                    {
+                        "input": "5\n3 2 5 10 7",
+                        "output": "15",
+                        "explanation": "選第1、3、5個數字：3+5+7=15，彼此都不相鄰"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "5\n3 2 5 10 7",
+                        "expectedOutput": "15",
+                        "score": 25
+                    },
+                    {
+                        "input": "1\n5",
+                        "expectedOutput": "5",
+                        "score": 25
+                    },
+                    {
+                        "input": "2\n5 1",
+                        "expectedOutput": "5",
+                        "score": 25
+                    },
+                    {
+                        "input": "4\n1 2 3 1",
+                        "expectedOutput": "4",
+                        "score": 25
+                    }
+                ],
+                "difficulty": "L3",
+                "difficultyLabel": "L3｜挑戰",
+                "sb3Path": "m0/M3-04-DPWarmup/M3-04-03.sb3"
+            },
+            {
+                "id": "M3-04-04",
+                "code": "M3-04-M3-04-04",
+                "title": "硬幣湊金額最少枚數",
+                "description": "有K種硬幣面額可以使用（面額中一定包含1，所以任何金額都湊得出來），每種面額可以重複使用，請你算出湊出目標金額amount最少需要幾枚硬幣。\n\n第一行輸入K，代表有K種硬幣面額\n\n第二行輸入K個數字，代表各面額（保證其中包含1）\n\n第三行輸入amount，代表目標金額\n\n輸出最少需要的硬幣枚數。",
+                "examples": [
+                    {
+                        "input": "3\n1 5 10\n18",
+                        "output": "5",
+                        "explanation": "用10+5+1+1+1共5枚湊出18"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "3\n1 5 10\n18",
+                        "expectedOutput": "5",
+                        "score": 25
+                    },
+                    {
+                        "input": "3\n1 5 10\n10",
+                        "expectedOutput": "1",
+                        "score": 25
+                    },
+                    {
+                        "input": "3\n1 3 4\n6",
+                        "expectedOutput": "2",
+                        "score": 25
+                    },
+                    {
+                        "input": "1\n1\n7",
+                        "expectedOutput": "7",
+                        "score": 25
+                    }
+                ],
+                "difficulty": "L3",
+                "difficultyLabel": "L3｜挑戰",
+                "sb3Path": "m0/M3-04-DPWarmup/M3-04-04.sb3"
+            },
+            {
+                "id": "M3-04-05",
+                "code": "M3-04-M3-04-05",
+                "title": "方格地圖走法數",
+                "description": "有一個R列C行的方格地圖，你從左上角（第1列第1行）出發，每次只能往右走一格或往下走一格，請問走到右下角（第R列第C行）總共有幾種不同的走法？\n\n第一行輸入R C\n\n輸出走法總數。",
+                "examples": [
+                    {
+                        "input": "3 3",
+                        "output": "6",
+                        "explanation": "3x3方格從左上到右下，總共有6種不同走法"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "3 3",
+                        "expectedOutput": "6",
+                        "score": 25
+                    },
+                    {
+                        "input": "2 2",
+                        "expectedOutput": "2",
+                        "score": 25
+                    },
+                    {
+                        "input": "1 5",
+                        "expectedOutput": "1",
+                        "score": 25
+                    },
+                    {
+                        "input": "3 4",
+                        "expectedOutput": "10",
+                        "score": 25
+                    }
+                ],
+                "difficulty": "L3",
+                "difficultyLabel": "L3｜挑戰",
+                "sb3Path": "m0/M3-04-DPWarmup/M3-04-05.sb3"
+            },
+            {
+                "id": "M3-04-06",
+                "code": "M3-04-M3-04-06",
+                "title": "兩字串最長共同子序列長度",
+                "description": "給你兩個字串，請你求出它們的『最長共同子序列』長度（子序列不需要連續出現，但字母的相對先後順序要一致）。\n\n第一行輸入字串A\n\n第二行輸入字串B\n\n輸出最長共同子序列的長度。",
+                "examples": [
+                    {
+                        "input": "ABCDE\nACE",
+                        "output": "3",
+                        "explanation": "A、C、E依序出現在兩個字串中，長度3"
+                    }
+                ],
+                "testCases": [
+                    {
+                        "input": "ABC\nAC",
+                        "expectedOutput": "2",
+                        "score": 25
+                    },
+                    {
+                        "input": "ABCDE\nACE",
+                        "expectedOutput": "3",
+                        "score": 25
+                    },
+                    {
+                        "input": "AAAA\nAA",
+                        "expectedOutput": "2",
+                        "score": 25
+                    },
+                    {
+                        "input": "ABC\nDEF",
+                        "expectedOutput": "0",
+                        "score": 25
+                    }
+                ],
+                "difficulty": "L4",
+                "difficultyLabel": "L4｜精熟",
+                "sb3Path": "m0/M3-04-DPWarmup/M3-04-06.sb3"
+            }
+        ]
     }
 ];
 

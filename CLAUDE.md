@@ -311,10 +311,7 @@ blockly-lab不需要因為這次工作額外commit/deploy。
    真的需要放棄自動轉換（都集中在114ETaichung，用到`text_getSubstring`/`text_prompt_ext`/
    `controls_flow_statements`/`math_constrain`這幾種語料庫裡只出現個位數次的積木類型，
    評估後決定不擴充轉換器去湊，這幾題就沒有示範解答）。
-3. M2、M3：**使用者2026-08-20表示要先評估，還沒決定要不要做**，先不要主動進行，也不用
-   主動催促——之後若使用者提起再處理。如果之後真的要做，可以直接沿用114J/114E這次擴充
-   完成的轉換器（`controls_for`/`controls_repeat_ext`/`controls_whileUntil`/清單/
-   `logic_ternary`等都已經支援），起點會比原本估計輕鬆很多。
+3. **M2、M3（已完成，2026-08-20）**：見下方「Phase 3」段落。
 
 **114TCPJ完成內容**：`gen-judge-content.js`／`build-m0-course-sb3.js`的`COURSE_FILES`
 新增`114TCPJ01.js`~`114TCPJ16.js`（比照114TCPE系列註解與模式）。`verify-m0-course.js`
@@ -358,6 +355,40 @@ GitHub Pages CDN還沒完全生效，也可能是build/deploy時序上的偶發�
 如果測試結果跟預期不符，先直接比對`build/js/pentapod/editor.*.js`的hash跟正式站
 `document.scripts`實際載入的hash是否一致，不要照著舊的假設（例如以為單純是瀏覽器快取）
 就跳過這一步**。
+
+## Phase 3：M2＋M3上架（2026-08-20完成）
+
+範圍政策變更後的第三階段。使用者先要求討論而不是直接動手，討論了兩個問題：
+
+1. **Turbo模式**：Phase 2發現迴圈/清單重的題目在真實瀏覽器分頁評分很慢，討論後確認
+   根因（見上方Phase 2段落），決定開啟`vm.setTurboMode(true)`——已加進
+   `tw-judge-engine.js`的`prepareVmForGrading()`（評分路徑）跟`judge-panel.jsx`的
+   `SelfTestTab.handleStart()`（自行測試路徑），只影響執行速度不影響邏輯結果，已部署。
+   **這個改動在瀏覽器自動化環境裡沒辦法可靠驗證有多快**（懷疑CDP操作的分頁沒有真正
+   取得瀏覽器焦點、被Chrome背景節流影響，跟這次改動本身無關）——已請使用者親自用
+   `114JTaipei`課程的「探險隊員名單排序」題實測，不確定使用者測試結果前，不要假設
+   turbo模式已經完全解決真實使用情境下的速度問題。
+2. **M2/M3自動轉換可行性**：正式上架前先跑過一次**不留痕跡的診斷**（暫時把M2/M3
+   加進三支腳本的`COURSE_FILES`、跑build+headless verify看數字、確認完再revert，
+   sb3產出物也清掉）——這個手法之後如果要評估其他還沒上架的課程群組，可以直接照搬。
+   診斷第一輪135題有91題卡在同一個原因：`lists_setIndex`用`MODE=INSERT/WHERE=LAST`
+   （插在最後＝附加到清單尾端），這是Phase 2完全沒踩過的模式（114J/114E的`lists_setIndex`
+   永遠是`MODE=SET/WHERE=FROM_START`）。補上這個分支（直接對應`data_addtolist`）後
+   91題全過；剩下1題（M2-04「大風吹搶位子」）是`lists_getIndex`的`MODE=GET_REMOVE`
+   （取值同時移除），用跟`logic_ternary`一樣的hoist手法補上（先存值進暫時變數、
+   接著刪除該索引、讀暫時變數當回傳值）。兩個都是`xml-to-scratch.js`的一般性改動，
+   純新增分支，對已上線課程零影響。
+
+使用者確認討論結果後**一次全部上架**（不是再分小階段）。`gen-judge-content.js`／
+`build-m0-course-sb3.js`／`verify-m0-course.js`三支腳本的`COURSE_FILES`都加上
+`M2-01-CondBasics.js`~`M2-10-GreedyAdvanced.js`＋`M3-00-BinarySearchWarmup.js`~
+`M3-04-DPWarmup.js`共15個檔案（`verify-m0-course.js`這次也加，因為M2/M3有真正的
+示範解答可以驗證，跟114TCPE/114TCPJ純競賽模式不同）。
+
+驗證結果：135題全部starterXml、**135題自動轉換成功、headless驗證135題全數功能正確
+（0個功能性錯誤）**，跟診斷階段數字完全一致。重新產生`judge-content.js`：
+**99課程、691題**。已commit+build+deploy，部署後照Phase 2學到的教訓比對過
+`build/js/pentapod/editor.*.js`跟正式站實際載入的hash確認一致。
 
 ## 重要環境注意事項
 
