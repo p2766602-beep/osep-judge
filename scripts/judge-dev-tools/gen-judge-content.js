@@ -74,14 +74,18 @@ const fileContent = `/**
  * 要改題目內容請去改BlocklyYdws src/courses/下對應課程檔，重跑那份腳本重新產生）。
  *
  * 結構比照BlocklyYdws（courses -> tasks陣列）。
- * answerProjectUrl用window.location.origin動態產生（比照舊OSEP擴充功能的慣例），
- * 部署到GitHub Pages子路徑時可能需要調整。
+ * answerProjectUrl用document.baseURI（相對目前頁面路徑）動態產生，能正確處理GitHub Pages
+ * 子路徑部署（例如osep-judge部署在/osep-judge/底下時，document.baseURI本身就是
+ * .../osep-judge/editor.html，用它當base算出來的judge-content會自動落在/osep-judge/
+ * judge-content/底下）。2026-08-20修復：舊版用window.location.origin（只到網域，不含
+ * /osep-judge/子路徑）拼字串，本機dev server（沒有子路徑）測試都正常，但實際部署到
+ * GitHub Pages後「載入範例」全部404——這正是這次修復的bug。
  *
  * course.unlockCode：版權保護用的課程解鎖代碼（見task-list.jsx），值直接沿用
  * BlocklyYdws自己的courseCode（來源課程檔的完整檔名，不含.js），不用另外維護一套。
  */
 
-const judgeContentBase = () => \`\${window.location.origin}/judge-content\`;
+const judgeContentBase = () => new URL('judge-content', document.baseURI).href;
 
 export const courses = ${JSON.stringify(courses, null, 4)};
 
