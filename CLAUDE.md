@@ -341,9 +341,23 @@ blockly-lab不需要因為這次工作額外commit/deploy。
 驗證結果：313題有starterXml的題目，308題自動轉換成功且headless驗證（`verify-m0-course.js`）
 逐筆比對testCases全部正確（0個功能性錯誤），5題（114ETaichung幾題＋1題巢狀清單）
 在轉換階段就直接丟錯、被跳過，不影響其他題目。重新產生`judge-content.js`：
-**84課程、556題**。已在正式站（`p2766602-beep.github.io/osep-judge`）實測114JTaipei
-的「探險隊員名單排序」（排序演算法，實際用到清單）：解鎖課程、載入範例、積木正確出現在
-畫布上，評分分頁10/10通過。
+**84課程、556題**。已在正式站（`p2766602-beep.github.io/osep-judge`）實測114EYunlin的
+「身體質量指數計算與健康判斷」（BMI，無迴圈/清單）：解鎖課程、載入範例、評分100/100，
+約10秒內完成。114JTaipei的「探險隊員名單排序」（排序演算法，實際用到清單＋巢狀迴圈）
+也實測積木正確載入到畫布，但**在瀏覽器分頁評分明顯比headless慢很多**（等了30秒以上還在
+「評分中」，最後直接關閉分頁沒有真的等到結果）——這不是這次轉換出來的答案有問題（同一份
+.sb3已經被headless驗證10/10通過），是Scratch VM本身非turbo模式逐格執行的特性：迴圈/清單
+操作愈多，真實瀏覽器分頁跑起來就愈慢，跟M1系列既有的排序/堆疊佇列題目（已經上線很久）
+是同樣的既有限制，不是Phase 2新產生的問題。**如果之後有老師反映「評分跑很久」，先確認
+題目是不是迴圈/清單較重的類型，這是Scratch平台本身的已知特性，不用當成bug處理。**
+
+**部署時的插曲**：`npm run build`+`npm run deploy`跑完一次後，直接用瀏覽器fetch比對本機
+`build/`資料夾與正式站實際回傳的JS bundle hash，發現兩者不一致（正式站當下serve的是舊版
+bundle），重跑一次`npm run build`+`npm run deploy`後才一致。原因不明（可能是部署當下
+GitHub Pages CDN還沒完全生效，也可能是build/deploy時序上的偶發問題），**以後deploy完
+如果測試結果跟預期不符，先直接比對`build/js/pentapod/editor.*.js`的hash跟正式站
+`document.scripts`實際載入的hash是否一致，不要照著舊的假設（例如以為單純是瀏覽器快取）
+就跳過這一步**。
 
 ## 重要環境注意事項
 
