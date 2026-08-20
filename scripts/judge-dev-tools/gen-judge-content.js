@@ -25,7 +25,14 @@ const COURSE_FILES = ['M0-01-BasicOutput.js', 'M0-02-Variables.js', 'M0-03-Condi
     // （見本專案CLAUDE.md）。第一階段先上114TCPJ01~16（國中競賽模式，比照114TCPE系列，
     // 沒有starterXml、不用示範解答，純資料搬遷）。114J/114E（國中小學習模式，需要示範
     // 解答）、M2/M3是後續階段，分階段完成後再擴充這裡。
-    '114TCPJ01.js', '114TCPJ02.js', '114TCPJ03.js', '114TCPJ04.js', '114TCPJ05.js', '114TCPJ06.js', '114TCPJ07.js', '114TCPJ08.js', '114TCPJ09.js', '114TCPJ10.js', '114TCPJ11.js', '114TCPJ12.js', '114TCPJ13.js', '114TCPJ14.js', '114TCPJ15.js', '114TCPJ16.js'];
+    '114TCPJ01.js', '114TCPJ02.js', '114TCPJ03.js', '114TCPJ04.js', '114TCPJ05.js', '114TCPJ06.js', '114TCPJ07.js', '114TCPJ08.js', '114TCPJ09.js', '114TCPJ10.js', '114TCPJ11.js', '114TCPJ12.js', '114TCPJ13.js', '114TCPJ14.js', '114TCPJ15.js', '114TCPJ16.js',
+    // 2026-08-20 Phase 2：114J（國中學習模式，16縣市）＋114E（國小學習模式，16縣市）。
+    // 這兩批需要示範解答，用擴充後的xml-to-scratch.js（新增迴圈/清單/邏輯/字串積木支援，
+    // 見該檔案開頭註解）自動轉換；少數積木類型（text_getSubstring/text_prompt_ext/
+    // controls_flow_statements/math_constrain，集中在114ETaichung幾題）故意不支援，
+    // 轉換失敗時build-m0-course-sb3.js會照既有機制讓那幾題落入[SKIP]/[FAIL]、不影響其他題。
+    '114JChaiyi.js', '114JChaiyiC.js', '114JChanghua.js', '114JHsinchu.js', '114JHsinchuC.js', '114JHualien.js', '114JKeelung.js', '114JNantou.js', '114JNewTaipei.js', '114JPenghu.js', '114JTaichung.js', '114JTainan.js', '114JTaipei.js', '114JTaitung.js', '114JTaoyuan.js', '114JYunlin.js',
+    '114EChaiyi.js', '114EChaiyiC.js', '114EChanghua.js', '114EHsinchu.js', '114EHsinchuC.js', '114EHualien.js', '114EKeelung.js', '114ENantou.js', '114ENewTaipei.js', '114EPenghu.js', '114ETaichung.js', '114ETainan.js', '114ETaipei.js', '114ETaitung.js', '114ETaoyuan.js', '114EYunlin.js'];
 
 // 比照BlocklyYdws/blockly-lab現況：JSA00/JSB00是公開課程（不用代碼），其餘一律需要代碼。
 const PUBLIC_COURSE_CODES = new Set(['JSA00', 'JSB00']);

@@ -305,19 +305,45 @@ blockly-lab不需要因為這次工作額外commit/deploy。
 的手刻量大很多。已跟使用者確認**分階段進行、每階段完成後回報確認**，順序：
 
 1. **114TCPJ（已完成）**：純資料搬遷，比照114TCPE模式，不需要示範解答。
-2. 114J＋114E（進行中）：先擴充轉換器支援迴圈（`controls_for`/`controls_repeat_ext`/
-   `controls_whileUntil`）／邏輯（`logic_negate`/`logic_operation`/`logic_ternary`/
-   `logic_boolean`）／字串（`text_charAt`/`text_length`/`text_getSubstring`）等新積木
-   類型，處理沒清單的題目；有清單的題目手刻。
-3. M2（待辦）：手刻量最大（66/105題用清單），圖論/貪心邏輯也比縣市題複雜。
-4. M3（待辦）：清單使用率最高（28/30題，93%），幾乎題題要手刻，DP/滑動視窗/前綴和
-   也是四組裡演算法最複雜的。
+2. **114J＋114E（已完成，2026-08-20）**：見下方詳述。**實際手刻量遠低於原本估計的142題**
+   ——原本以為清單一定要逐題手刻，後來設計出「清單變數1:1對應成同名Scratch原生清單」的
+   通用轉換策略（見`xml-to-scratch.js`檔頭註解），313題有starterXml的題目裡，**只有5題**
+   真的需要放棄自動轉換（都集中在114ETaichung，用到`text_getSubstring`/`text_prompt_ext`/
+   `controls_flow_statements`/`math_constrain`這幾種語料庫裡只出現個位數次的積木類型，
+   評估後決定不擴充轉換器去湊，這幾題就沒有示範解答）。
+3. M2、M3：**使用者2026-08-20表示要先評估，還沒決定要不要做**，先不要主動進行，也不用
+   主動催促——之後若使用者提起再處理。如果之後真的要做，可以直接沿用114J/114E這次擴充
+   完成的轉換器（`controls_for`/`controls_repeat_ext`/`controls_whileUntil`/清單/
+   `logic_ternary`等都已經支援），起點會比原本估計輕鬆很多。
 
 **114TCPJ完成內容**：`gen-judge-content.js`／`build-m0-course-sb3.js`的`COURSE_FILES`
 新增`114TCPJ01.js`~`114TCPJ16.js`（比照114TCPE系列註解與模式）。`verify-m0-course.js`
 依既有慣例故意不加（沒有starterXml/示範解答，沒東西可驗證）。跑`build-m0-course-sb3.js`
 確認186題（含既有114TCPE系列）全部落進`[SKIP]`分支、0個失敗，重新產生`judge-content.js`
 （52課程371題）。
+
+**114J＋114E完成內容**：`xml-to-scratch.js`大幅擴充，新支援的積木類型與轉換策略見該檔案
+檔頭註解，重點記錄兩個過程中抓到的真bug（都已修好，未來如果再擴充轉換器要留意這兩類坑）：
+
+- **`lists_setIndex`欄位名稱搞錯**：一開始誤以為「要塞進清單的新值」欄位叫`VALUE`（跟
+  `variables_set`同名習慣），實際Blockly標準欄位名稱是`TO`。這個bug不會讓轉換器報錯
+  （`VALUE`欄位不存在時`convertValueInput`會安靜地回傳空字串），而是**靜默寫入錯誤資料**
+  ——症狀是示範解答執行不會crash，但輸出結果全部不對，只有真的跑headless驗證比對正確答案
+  才抓得到，光看轉換有沒有丟例外看不出來。
+- **`ctx.pending`跨遞迴呼叫狀態外洩**：`logic_ternary`等「hoist成暫時變數」的積木用
+  `ctx.pending`佇列讓外層statement鏈知道要在前面插入額外積木，但`convertStatementChain`
+  會遞迴呼叫自己處理迴圈/條件式的body——如果不在遞迴呼叫前後save/restore `ctx.pending`，
+  body內部處理完自己的pending後殘留的狀態會被外層誤當成「這個statement自己的pending」
+   重複執行一次，導致積木圖出現循環參照（實際測到`RangeError: Maximum call stack size
+  exceeded`）。修法：`convertStatementChain`進入時save目前的`ctx.pending`、離開前
+  restore回去，讓遞迴呼叫對呼叫端保持透明。
+
+驗證結果：313題有starterXml的題目，308題自動轉換成功且headless驗證（`verify-m0-course.js`）
+逐筆比對testCases全部正確（0個功能性錯誤），5題（114ETaichung幾題＋1題巢狀清單）
+在轉換階段就直接丟錯、被跳過，不影響其他題目。重新產生`judge-content.js`：
+**84課程、556題**。已在正式站（`p2766602-beep.github.io/osep-judge`）實測114JTaipei
+的「探險隊員名單排序」（排序演算法，實際用到清單）：解鎖課程、載入範例、積木正確出現在
+畫布上，評分分頁10/10通過。
 
 ## 重要環境注意事項
 
