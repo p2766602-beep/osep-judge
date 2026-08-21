@@ -99,6 +99,28 @@
     line-height: 1.5;
 }
 
+/*
+ * 2026-08-21：延伸學習連結，指到獨立部署的教學鷹架文件網站（tnjbox/teaching-scaffolds，
+ * 見../../lib/scaffold-content.js）。不是每個課程代碼都有對應文件，沒有的話
+ * scaffoldUrlForCourse()回傳null，這個連結就不會出現，不用另外判斷。
+ */
+.scaffold-link {
+    display: inline-block;
+    background: #eef2ff;
+    color: #3f51b5;
+    border: 1px solid #c5cae9;
+    border-radius: $form-radius;
+    padding: calc($space / 2) $space;
+    margin-bottom: $space;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.scaffold-link:hover {
+    background: #dde3fb;
+}
+
 .example-box {
     background: $ui-tertiary;
     border-radius: $form-radius;

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import VM from 'scratch-vm';
 import {gradeSubmission, prepareVmForGrading} from '../../lib/tw-judge-engine.js';
 import {courses, findTaskByCode} from '../../lib/judge-content.js';
+import {scaffoldUrlForCourse} from '../../lib/scaffold-content.js';
 import judgeManualRun from '../../lib/judge-manual-run.js';
 import TaskList from './task-list.jsx';
 import styles from './judge-panel.css';
@@ -57,10 +58,20 @@ const withVisibilityRestore = async (vm, fn) => {
     }
 };
 
-const DescriptionTab = ({task, onLoadDemo, demoStatus, demoLoaded}) => (
+const DescriptionTab = ({task, onLoadDemo, demoStatus, demoLoaded, scaffoldUrl}) => (
     <div className={styles.tabContent}>
         <h3 className={styles.sectionHeading}>題目敘述</h3>
         <p className={styles.description}>{task.description}</p>
+        {scaffoldUrl ? (
+            <a
+                className={styles.scaffoldLink}
+                href={scaffoldUrl}
+                rel="noopener noreferrer"
+                target="_blank"
+            >
+                📘 延伸學習：這個主題的概念補充文件
+            </a>
+        ) : null}
         <h3 className={styles.sectionHeading}>範例測資</h3>
         {task.examples.map((example, index) => (
             <div className={styles.exampleBox} key={index}>
@@ -104,6 +115,7 @@ DescriptionTab.propTypes = {
     demoLoaded: PropTypes.bool,
     demoStatus: PropTypes.string,
     onLoadDemo: PropTypes.func.isRequired,
+    scaffoldUrl: PropTypes.string,
     task: PropTypes.shape({
         description: PropTypes.string,
         examples: PropTypes.array,
@@ -347,6 +359,7 @@ const JudgePanel = ({vm}) => {
 
     const found = selectedTaskCode ? findTaskByCode(selectedTaskCode) : null;
     const task = found ? found.task : null;
+    const scaffoldUrl = found ? scaffoldUrlForCourse(found.course.code) : null;
 
     useEffect(() => {
         if (task) {
@@ -444,6 +457,7 @@ const JudgePanel = ({vm}) => {
                 <DescriptionTab
                     demoLoaded={demoLoaded}
                     demoStatus={demoStatus}
+                    scaffoldUrl={scaffoldUrl}
                     task={task}
                     onLoadDemo={handleLoadDemo}
                 />
