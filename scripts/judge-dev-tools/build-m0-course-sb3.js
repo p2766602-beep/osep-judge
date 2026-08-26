@@ -23,14 +23,14 @@ const COURSE_FILES = ['M0-01-BasicOutput.js', 'M0-02-Variables.js', 'M0-03-Condi
     '114TCPE01.js', '114TCPE02.js', '114TCPE03.js', '114TCPE04.js', '114TCPE05.js', '114TCPE06.js', '114TCPE07.js', '114TCPE08.js', '114TCPE09.js', '114TCPE10.js', '114TCPE11.js', '114TCPE12.js', '114TCPE13.js',
     // 2026-08-13再新增：基隆/桃園/雲林3縣市國小競賽模式課程，J系列（國中）依既有國小限定
     // 範圍政策不上架，見gen-judge-content.js同一段註解。
-    '114TCPE14.js', '114TCPE15.js', '114TCPE16.js',
+    '114TCPE14.js', '114TCPE15.js', '114TCPE16.js', '114TCPE17.js',
     // 2026-08-20新增：部分國中老師要求Scratch平台也能解題，範圍政策改為國中小並存，見
     // gen-judge-content.js同一段註解。114TCPJ01~16是國中競賽模式課程，同114TCPE系列，
     // 每題都會落進[SKIP]分支（沒有starterXml），是預期行為。
-    '114TCPJ01.js', '114TCPJ02.js', '114TCPJ03.js', '114TCPJ04.js', '114TCPJ05.js', '114TCPJ06.js', '114TCPJ07.js', '114TCPJ08.js', '114TCPJ09.js', '114TCPJ10.js', '114TCPJ11.js', '114TCPJ12.js', '114TCPJ13.js', '114TCPJ14.js', '114TCPJ15.js', '114TCPJ16.js',
+    '114TCPJ01.js', '114TCPJ02.js', '114TCPJ03.js', '114TCPJ04.js', '114TCPJ05.js', '114TCPJ06.js', '114TCPJ07.js', '114TCPJ08.js', '114TCPJ09.js', '114TCPJ10.js', '114TCPJ11.js', '114TCPJ12.js', '114TCPJ13.js', '114TCPJ14.js', '114TCPJ15.js', '114TCPJ16.js', '114TCPJ17.js',
     // 2026-08-20 Phase 2：114J＋114E，見gen-judge-content.js同一段註解。
-    '114JChaiyi.js', '114JChaiyiC.js', '114JChanghua.js', '114JHsinchu.js', '114JHsinchuC.js', '114JHualien.js', '114JKeelung.js', '114JNantou.js', '114JNewTaipei.js', '114JPenghu.js', '114JTaichung.js', '114JTainan.js', '114JTaipei.js', '114JTaitung.js', '114JTaoyuan.js', '114JYunlin.js',
-    '114EChaiyi.js', '114EChaiyiC.js', '114EChanghua.js', '114EHsinchu.js', '114EHsinchuC.js', '114EHualien.js', '114EKeelung.js', '114ENantou.js', '114ENewTaipei.js', '114EPenghu.js', '114ETaichung.js', '114ETainan.js', '114ETaipei.js', '114ETaitung.js', '114ETaoyuan.js', '114EYunlin.js',
+    '114JChaiyi.js', '114JChaiyiC.js', '114JChanghua.js', '114JHsinchu.js', '114JHsinchuC.js', '114JHualien.js', '114JKeelung.js', '114JNantou.js', '114JNewTaipei.js', '114JPenghu.js', '114JTaichung.js', '114JTainan.js', '114JTaipei.js', '114JTaitung.js', '114JTaoyuan.js', '114JYunlin.js', '114JKinmen.js',
+    '114EChaiyi.js', '114EChaiyiC.js', '114EChanghua.js', '114EHsinchu.js', '114EHsinchuC.js', '114EHualien.js', '114EKeelung.js', '114ENantou.js', '114ENewTaipei.js', '114EPenghu.js', '114ETaichung.js', '114ETainan.js', '114ETaipei.js', '114ETaitung.js', '114ETaoyuan.js', '114EYunlin.js', '114EKinmen.js',
     // 2026-08-20 Phase 3：M2＋M3，見gen-judge-content.js同一段註解。
     'M2-01-CondBasics.js', 'M2-02-CondChallenge.js', 'M2-03-SimBasics.js', 'M2-04-SimRolePlay.js', 'M2-05-SimSensor.js', 'M2-06-SimContest.js', 'M2-07-GraphBasics.js', 'M2-08-GraphAdvanced.js', 'M2-09-GreedyBasics.js', 'M2-10-GreedyAdvanced.js',
     'M3-00-BinarySearchWarmup.js', 'M3-01-IntervalOptimize.js', 'M3-02-PrefixSum.js', 'M3-03-SlidingWindow.js', 'M3-04-DPWarmup.js'];
