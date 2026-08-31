@@ -27,6 +27,14 @@ const DEFAULT_MAX_STEPS = 200;
 const STEP_INTERVAL_MS = 20;
 
 /**
+ * 官方平台（demo.csie.ntnu.edu.tw）對「多筆輸出」的評分不要求輸出用什麼空白字元分隔——
+ * 分開多次「說出」（換行接起來）跟合成一次「說出」（自己用空白接好）都算對。用任意空白
+ * （含換行、tab、空白）斷詞後逐token比對，忽略用哪種空白字元分隔，但保留token順序
+ * （不能變成集合比對，順序錯仍要判錯）。
+ */
+const normalizeForCompare = s => String(s ?? '').trim().split(/\s+/).filter(Boolean).join(' ');
+
+/**
  * 對一個已經loadProject完成的VM執行單一測資。
  * @param {VM} vm 已經呼叫過vm.start()、且所有非stage角色已強制visible=false的VM實例
  * @param {{input: string, expectedOutput: string}} testCase 單一測資
@@ -84,7 +92,7 @@ const runTestCase = (vm, testCase, options = {}) => {
                 resolve({
                     actualOutput,
                     debugOutput: capturedThink.join('\n'),
-                    pass: actualOutput === testCase.expectedOutput,
+                    pass: normalizeForCompare(actualOutput) === normalizeForCompare(testCase.expectedOutput),
                     timedOut: false
                 });
             }

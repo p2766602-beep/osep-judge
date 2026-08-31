@@ -489,6 +489,14 @@ class Blocks extends React.Component {
         }
         this.workspace.addChangeListener(this.props.vm.blockListener);
 
+        // toolboxRefreshEnabled_ is permanently forced off above (see componentDidMount), so
+        // Blockly's own flyout auto-refresh never fires here. Without this, a workspace reload
+        // that introduces/removes variables (loading a demo answer, loading a saved project from
+        // disk, etc.) leaves the "變數" flyout showing stale content from before the reload,
+        // because the static toolbox XML never encodes variable names to begin with — see
+        // handleDrop's identical workaround for the same reason.
+        this.updateToolbox();
+
         if (this.props.vm.editingTarget && this.props.workspaceMetrics.targets[this.props.vm.editingTarget.id]) {
             const {scrollX, scrollY, scale} = this.props.workspaceMetrics.targets[this.props.vm.editingTarget.id];
             this.workspace.scrollX = scrollX;
