@@ -25409,6 +25409,14 @@ class Blocks extends react__WEBPACK_IMPORTED_MODULE_5___default.a.Component {
       _lib_log_js__WEBPACK_IMPORTED_MODULE_9__["default"].error(error);
     }
     this.workspace.addChangeListener(this.props.vm.blockListener);
+
+    // toolboxRefreshEnabled_ is permanently forced off above (see componentDidMount), so
+    // Blockly's own flyout auto-refresh never fires here. Without this, a workspace reload
+    // that introduces/removes variables (loading a demo answer, loading a saved project from
+    // disk, etc.) leaves the "變數" flyout showing stale content from before the reload,
+    // because the static toolbox XML never encodes variable names to begin with — see
+    // handleDrop's identical workaround for the same reason.
+    this.updateToolbox();
     if (this.props.vm.editingTarget && this.props.workspaceMetrics.targets[this.props.vm.editingTarget.id]) {
       const {
         scrollX,
@@ -43803,6 +43811,14 @@ const DEFAULT_MAX_STEPS = 200;
 const STEP_INTERVAL_MS = 20;
 
 /**
+ * 官方平台（demo.csie.ntnu.edu.tw）對「多筆輸出」的評分不要求輸出用什麼空白字元分隔——
+ * 分開多次「說出」（換行接起來）跟合成一次「說出」（自己用空白接好）都算對。用任意空白
+ * （含換行、tab、空白）斷詞後逐token比對，忽略用哪種空白字元分隔，但保留token順序
+ * （不能變成集合比對，順序錯仍要判錯）。
+ */
+const normalizeForCompare = s => String(s !== null && s !== void 0 ? s : '').trim().split(/\s+/).filter(Boolean).join(' ');
+
+/**
  * 對一個已經loadProject完成的VM執行單一測資。
  * @param {VM} vm 已經呼叫過vm.start()、且所有非stage角色已強制visible=false的VM實例
  * @param {{input: string, expectedOutput: string}} testCase 單一測資
@@ -43853,7 +43869,7 @@ const runTestCase = function runTestCase(vm, testCase) {
         resolve({
           actualOutput,
           debugOutput: capturedThink.join('\n'),
-          pass: actualOutput === testCase.expectedOutput,
+          pass: normalizeForCompare(actualOutput) === normalizeForCompare(testCase.expectedOutput),
           timedOut: false
         });
       }
