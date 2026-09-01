@@ -23,6 +23,9 @@ const TABS = [
 
 const HISTORY_STORAGE_KEY_PREFIX = 'osepJudgeHistory:';
 
+// 累計造訪次數計數器（純統計用途，不記錄任何個人資訊）。
+const VISIT_COUNTER_URL = 'https://osep-judge-visit-counter.tnjboxing.workers.dev/hit';
+
 const loadHistory = taskCode => {
     try {
         const raw = window.localStorage.getItem(HISTORY_STORAGE_KEY_PREFIX + taskCode);
@@ -356,6 +359,24 @@ const JudgePanel = ({vm}) => {
     const [demoStatus, setDemoStatus] = useState(null);
     const [demoLoaded, setDemoLoaded] = useState(false);
     const [history, setHistory] = useState([]);
+    const [visitCount, setVisitCount] = useState(null);
+
+    useEffect(() => {
+        let cancelled = false;
+        fetch(VISIT_COUNTER_URL, {method: 'POST'})
+            .then(res => (res.ok ? res.json() : Promise.reject(new Error(`HTTP ${res.status}`))))
+            .then(data => {
+                if (!cancelled && typeof data.count === 'number') {
+                    setVisitCount(data.count);
+                }
+            })
+            .catch(() => {
+                // 計數器打不到就靜靜放棄，不影響平台其他功能。
+            });
+        return () => {
+            cancelled = true;
+        };
+    }, []);
 
     const found = selectedTaskCode ? findTaskByCode(selectedTaskCode) : null;
     const task = found ? found.task : null;
@@ -414,6 +435,9 @@ const JudgePanel = ({vm}) => {
                     <div className={styles.headerLeft}>
                         <span className={styles.taskTitle}>osep-judge</span>
                     </div>
+                    {visitCount !== null && (
+                        <span className={styles.visitCounter}>累計造訪次數：{visitCount}</span>
+                    )}
                 </div>
                 <TaskList
                     courses={courses}
@@ -440,7 +464,12 @@ const JudgePanel = ({vm}) => {
                         <span className={styles.headerDemoTag}>載入範例中</span>
                     ) : null}
                 </div>
-                <span className={styles.scoreBadge}>{scoreLabel}</span>
+                <div className={styles.headerRight}>
+                    {visitCount !== null && (
+                        <span className={styles.visitCounter}>累計造訪次數：{visitCount}</span>
+                    )}
+                    <span className={styles.scoreBadge}>{scoreLabel}</span>
+                </div>
             </div>
             <div className={styles.tabBar}>
                 {TABS.map(tab => (

@@ -41,6 +41,19 @@
     white-space: nowrap;
 }
 
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: $space;
+}
+
+.visit-counter {
+    font-size: 0.7rem;
+    font-weight: normal;
+    opacity: 0.75;
+    white-space: nowrap;
+}
+
 .back-button {
     background: none;
     border: 1px solid $ui-white-transparent;
