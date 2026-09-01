@@ -2,7 +2,6 @@ import React, {useState, useEffect, useRef} from 'react';
 import PropTypes from 'prop-types';
 import VM from 'scratch-vm';
 import {gradeSubmission, prepareVmForGrading} from '../../lib/tw-judge-engine.js';
-import {courses, findTaskByCode} from '../../lib/judge-content.js';
 import {scaffoldUrlForCourse} from '../../lib/scaffold-content.js';
 import judgeManualRun from '../../lib/judge-manual-run.js';
 import TaskList from './task-list.jsx';
@@ -360,6 +359,22 @@ const JudgePanel = ({vm}) => {
     const [demoLoaded, setDemoLoaded] = useState(false);
     const [history, setHistory] = useState([]);
     const [visitCount, setVisitCount] = useState(null);
+    const [judgeContent, setJudgeContent] = useState(null);
+
+    // judge-content.js是~2MB的純題目資料（跟平台程式碼本身無關），改成動態載入讓webpack
+    // 把它切成獨立chunk：上架新題目只讓這個chunk的雜湊變、平台UI改動只讓主程式碼的雜湊變，
+    // 兩者互不拖累對方的瀏覽器快取。
+    useEffect(() => {
+        let cancelled = false;
+        import(/* webpackChunkName: "judge-content" */ '../../lib/judge-content.js').then(mod => {
+            if (!cancelled) {
+                setJudgeContent({courses: mod.courses, findTaskByCode: mod.findTaskByCode});
+            }
+        });
+        return () => {
+            cancelled = true;
+        };
+    }, []);
 
     useEffect(() => {
         let cancelled = false;
@@ -378,7 +393,7 @@ const JudgePanel = ({vm}) => {
         };
     }, []);
 
-    const found = selectedTaskCode ? findTaskByCode(selectedTaskCode) : null;
+    const found = (judgeContent && selectedTaskCode) ? judgeContent.findTaskByCode(selectedTaskCode) : null;
     const task = found ? found.task : null;
     const scaffoldUrl = found ? scaffoldUrlForCourse(found.course.code) : null;
 
@@ -428,6 +443,21 @@ const JudgePanel = ({vm}) => {
         }
     };
 
+    if (!judgeContent) {
+        return (
+            <div className={styles.judgePanel}>
+                <div className={styles.header}>
+                    <div className={styles.headerLeft}>
+                        <span className={styles.taskTitle}>osep-judge</span>
+                    </div>
+                </div>
+                <div className={styles.tabContent}>
+                    <p className={styles.placeholder}>題目資料載入中…</p>
+                </div>
+            </div>
+        );
+    }
+
     if (!task) {
         return (
             <div className={styles.judgePanel}>
@@ -440,7 +470,7 @@ const JudgePanel = ({vm}) => {
                     )}
                 </div>
                 <TaskList
-                    courses={courses}
+                    courses={judgeContent.courses}
                     onSelectTask={setSelectedTaskCode}
                 />
             </div>
