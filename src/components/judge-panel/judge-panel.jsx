@@ -360,13 +360,17 @@ const JudgePanel = ({vm}) => {
     const [history, setHistory] = useState([]);
     const [visitCount, setVisitCount] = useState(null);
     const [judgeContent, setJudgeContent] = useState(null);
+    const [taskDetail, setTaskDetail] = useState(null);
+    const [taskLoading, setTaskLoading] = useState(false);
 
-    // judge-content.js是~2MB的純題目資料（跟平台程式碼本身無關），改成動態載入讓webpack
-    // 把它切成獨立chunk：上架新題目只讓這個chunk的雜湊變、平台UI改動只讓主程式碼的雜湊變，
-    // 兩者互不拖累對方的瀏覽器快取。
+    // judge-content/是課程資料模組（跟平台程式碼本身無關），改成動態載入讓webpack把它切成
+    // 獨立chunk：上架新題目只讓對應課程檔案的雜湊變、平台UI改動只讓主程式碼的雜湊變，兩者
+    // 互不拖累對方的瀏覽器快取。這裡載入的index.js本身只帶manifest（輕量課程/題目清單），
+    // 個別課程的完整資料（description/testCases等）要點進某個題目才會另外動態載入，見下面
+    // 針對selectedTaskCode的useEffect。
     useEffect(() => {
         let cancelled = false;
-        import(/* webpackChunkName: "judge-content" */ '../../lib/judge-content.js').then(mod => {
+        import(/* webpackChunkName: "judge-content" */ '../../lib/judge-content/index.js').then(mod => {
             if (!cancelled) {
                 setJudgeContent({courses: mod.courses, findTaskByCode: mod.findTaskByCode});
             }
@@ -375,6 +379,26 @@ const JudgePanel = ({vm}) => {
             cancelled = true;
         };
     }, []);
+
+    // 使用者選了某個題目後，才動態載入該題目所屬課程的完整資料（description/testCases等）。
+    useEffect(() => {
+        if (!judgeContent || !selectedTaskCode) {
+            setTaskDetail(null);
+            setTaskLoading(false);
+            return;
+        }
+        let cancelled = false;
+        setTaskLoading(true);
+        judgeContent.findTaskByCode(selectedTaskCode).then(found => {
+            if (!cancelled) {
+                setTaskDetail(found);
+                setTaskLoading(false);
+            }
+        });
+        return () => {
+            cancelled = true;
+        };
+    }, [judgeContent, selectedTaskCode]);
 
     useEffect(() => {
         let cancelled = false;
@@ -393,9 +417,8 @@ const JudgePanel = ({vm}) => {
         };
     }, []);
 
-    const found = (judgeContent && selectedTaskCode) ? judgeContent.findTaskByCode(selectedTaskCode) : null;
-    const task = found ? found.task : null;
-    const scaffoldUrl = found ? scaffoldUrlForCourse(found.course.code) : null;
+    const task = taskDetail ? taskDetail.task : null;
+    const scaffoldUrl = taskDetail ? scaffoldUrlForCourse(taskDetail.course.code) : null;
 
     useEffect(() => {
         if (task) {
@@ -453,6 +476,29 @@ const JudgePanel = ({vm}) => {
                 </div>
                 <div className={styles.tabContent}>
                     <p className={styles.placeholder}>題目資料載入中…</p>
+                </div>
+            </div>
+        );
+    }
+
+    if (selectedTaskCode && !task) {
+        return (
+            <div className={styles.judgePanel}>
+                <div className={styles.header}>
+                    <div className={styles.headerLeft}>
+                        <button
+                            className={styles.backButton}
+                            onClick={() => setSelectedTaskCode(null)}
+                        >
+                            ← 題目列表
+                        </button>
+                        <span className={styles.taskTitle}>osep-judge</span>
+                    </div>
+                </div>
+                <div className={styles.tabContent}>
+                    <p className={styles.placeholder}>
+                        {taskLoading ? '題目資料載入中…' : '找不到這個題目。'}
+                    </p>
                 </div>
             </div>
         );

@@ -1,6 +1,13 @@
-// 產生src/lib/judge-content.js：讀取BlocklyYdws M0-01/M0-02課程檔的description/examples/
-// testCases/difficulty等資料，比對build-m0-course-sb3.js產生的.sb3路徑，組成judge-content.js
-// 的courses陣列。跑完後直接覆寫src/lib/judge-content.js，需要人工檢查diff再決定是否保留。
+// 產生 src/lib/judge-content/ 底下的資料檔：讀取YDWS-CodingBank/courses課程正本的
+// description/examples/testCases/difficulty等資料，比對build-m0-course-sb3.js產生的
+// .sb3路徑，輸出成兩層結構：
+//   1. src/lib/judge-content/manifest.js：全部課程的輕量清單（code/title/tier/unlockCode
+//      +每題只留id/code/title/difficultyLabel），給課程瀏覽清單UI用，體積小、一次載入。
+//   2. src/lib/judge-content/courses/{shortCode}.js：每個課程各自一個檔案，內容是該課程
+//      完整資料（含description/examples/testCases等重欄位），只有使用者實際點進某課程/
+//      題目時才會被動態import，webpack會自動切成獨立chunk——上架新課程只讓新增的那個
+//      課程檔案有新雜湊，不影響其他課程或平台程式碼的瀏覽器快取。
+// 執行後直接覆寫這兩類檔案，需要人工檢查diff再決定是否保留。
 //
 // 用法：node scripts/judge-dev-tools/gen-judge-content.js
 
@@ -10,7 +17,9 @@ const path = require('path');
 // 2026-08-09改讀YDWS-CodingBank/courses（課程JS正本資料夾），不再直接讀BlocklyYdws/src/courses。
 const COURSES_DIR = path.join(__dirname, '../../../YDWS-CodingBank/courses');
 const SB3_BASE = path.join(__dirname, '../../static/judge-content/m0');
-const OUT_FILE = path.join(__dirname, '../../src/lib/judge-content.js');
+const OUT_DIR = path.join(__dirname, '../../src/lib/judge-content');
+const MANIFEST_FILE = path.join(OUT_DIR, 'manifest.js');
+const COURSES_OUT_DIR = path.join(OUT_DIR, 'courses');
 const COURSE_FILES = ['M0-01-BasicOutput.js', 'M0-02-Variables.js', 'M0-03-Conditionals.js', 'M0-04-LoopsAndSum.js', 'M0-05-ListBasics.js', 'M0-06-MinMaxExtra.js', 'M1-01-ListSearch.js', 'M1-02-ListAnalysis.js', 'M1-03-ListStats.js', 'M1-04-ListIndex.js', 'M1-05-StringBasics.js', 'M1-06-StringFormat.js', 'M1-07-SortBasics.js', 'M1-08-SortApplied.js', 'M1-09-MathBasics.js', 'M1-10-MathGCD.js', 'M1-11-StackQueue.js', 'M1-12-DebugFormat.js', 'JSB00.js', 'JSA00.js',
     // 2026-08-13新增：13縣市國小競賽模式課程（114TCPE01~13）。這批課程starterXml故意清空
     // （競賽模式不提供參考解答，見BlocklyYdws/blockly-lab那邊的mode:'contest'設計），
@@ -88,50 +97,52 @@ const courses = COURSE_FILES.map(filename => {
     };
 });
 
-const fileContent = `/**
- * MVP-33後續：課程/題目內容資料模組（2026-08-04擴充：從BlocklyYdws M0-01/M0-02課程檔
- * 自動轉換，見scripts/judge-dev-tools/gen-judge-content.js，不要手動編輯本檔——
- * 要改題目內容請去改BlocklyYdws src/courses/下對應課程檔，重跑那份腳本重新產生）。
+fs.mkdirSync(COURSES_OUT_DIR, {recursive: true});
+
+// 清掉舊的per-course檔案（課程改名/移除時，殘留的舊檔案不會被下面的迴圈覆寫，
+// 必須先清空整個目錄再重新寫入，避免累積孤兒檔案）。
+for (const entry of fs.readdirSync(COURSES_OUT_DIR)) {
+    if (entry.endsWith('.js')) fs.unlinkSync(path.join(COURSES_OUT_DIR, entry));
+}
+
+// manifest.js：輕量清單，只有課程瀏覽清單UI需要的欄位，不含description/examples/testCases。
+const manifestContent = `/**
+ * 自動產生，不要手動編輯——見scripts/judge-dev-tools/gen-judge-content.js。
+ * 要改題目內容請去改YDWS-CodingBank/courses/下對應課程檔，重跑該腳本重新產生。
  *
- * 結構比照BlocklyYdws（courses -> tasks陣列）。
- * answerProjectUrl用document.baseURI（相對目前頁面路徑）動態產生，能正確處理GitHub Pages
- * 子路徑部署（例如osep-judge部署在/osep-judge/底下時，document.baseURI本身就是
- * .../osep-judge/editor.html，用它當base算出來的judge-content會自動落在/osep-judge/
- * judge-content/底下）。2026-08-20修復：舊版用window.location.origin（只到網域，不含
- * /osep-judge/子路徑）拼字串，本機dev server（沒有子路徑）測試都正常，但實際部署到
- * GitHub Pages後「載入範例」全部404——這正是這次修復的bug。
- *
- * course.unlockCode：版權保護用的課程解鎖代碼（見task-list.jsx），值直接沿用
- * BlocklyYdws自己的courseCode（來源課程檔的完整檔名，不含.js），不用另外維護一套。
+ * 這是課程瀏覽清單用的輕量資料（只留課程/題目的標題類欄位，不含題目說明/測資等重欄位），
+ * 讓judge-content/index.js可以同步/低成本載入，用來畫出課程清單、比對unlockCode、
+ * 判斷某個taskCode屬於哪個課程——完整題目內容要透過index.js的getCourseTasks()
+ * 動態載入對應的judge-content/courses/{code}.js。
  */
+export default ${JSON.stringify(courses.map(course => ({
+        code: course.code,
+        title: course.title,
+        tier: course.tier,
+        unlockCode: course.unlockCode,
+        tasks: course.tasks.map(task => ({
+            id: task.id,
+            code: task.code,
+            title: task.title,
+            difficultyLabel: task.difficultyLabel
+        }))
+    })), null, 4)};
+`;
+fs.writeFileSync(MANIFEST_FILE, manifestContent, 'utf8');
 
-const judgeContentBase = () => new URL('judge-content', document.baseURI).href;
-
-export const courses = ${JSON.stringify(courses, null, 4)};
-
+// 每個課程各自一個完整資料檔（含description/examples/testCases等重欄位）。
+// 純資料，不含answerProjectUrl getter/loadable旗標——那兩個是執行期才需要的欄位，
+// 統一由index.js的getCourseTasks()載入後動態補上，避免這裡重複產生同一段邏輯50幾次。
 courses.forEach(course => {
-    course.tasks.forEach(task => {
-        if (!task.sb3Path) {
-            task.loadable = false;
-            return;
-        }
-        Object.defineProperty(task, 'answerProjectUrl', {
-            enumerable: true,
-            get() { return \`\${judgeContentBase()}/\${task.sb3Path}\`; }
-        });
-        task.loadable = true;
-    });
+    const fileContent = `/**
+ * 自動產生，不要手動編輯——見scripts/judge-dev-tools/gen-judge-content.js。
+ * 要改題目內容請去改YDWS-CodingBank/courses/${course.code}對應的正本課程檔，重跑該腳本。
+ */
+export default ${JSON.stringify(course, null, 4)};
+`;
+    fs.writeFileSync(path.join(COURSES_OUT_DIR, `${course.code}.js`), fileContent, 'utf8');
 });
 
-export const findTaskByCode = taskCode => {
-    for (const course of courses) {
-        const task = course.tasks.find(t => t.code === taskCode);
-        if (task) return {course, task};
-    }
-    return null;
-};
-`;
-
-fs.writeFileSync(OUT_FILE, fileContent, 'utf8');
-console.log(`已寫出：${OUT_FILE}`);
+console.log(`已寫出：${MANIFEST_FILE}`);
+console.log(`已寫出：${COURSES_OUT_DIR}/*.js（${courses.length}個課程檔案）`);
 console.log(`共 ${courses.length} 個課程，${courses.reduce((s, c) => s + c.tasks.length, 0)} 題`);
