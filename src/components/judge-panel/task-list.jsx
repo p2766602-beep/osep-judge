@@ -42,6 +42,29 @@ const saveActiveCode = code => {
     }
 };
 
+// 2026-09-05：題目清單加上順序編號（1. 2. 3. ...），CourseGroup跟下面的CourseTaskList
+// （從題目詳情頁「返回題組」用的單一題組清單）共用這個小元件，編號邏輯只需要寫一次。
+const TaskRow = ({task, index, onSelectTask}) => (
+    <li>
+        <button
+            className={styles.taskItemButton}
+            onClick={() => onSelectTask(task.code)}
+        >
+            <span>{index + 1}. {task.title}</span>
+            <span className={styles.taskDifficulty}>{task.difficultyLabel}</span>
+        </button>
+    </li>
+);
+TaskRow.propTypes = {
+    index: PropTypes.number.isRequired,
+    onSelectTask: PropTypes.func.isRequired,
+    task: PropTypes.shape({
+        code: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+        difficultyLabel: PropTypes.string
+    }).isRequired
+};
+
 const CourseGroup = ({course, isCollapsed, onToggle, onSelectTask}) => (
     <div className={styles.courseGroup}>
         <button
@@ -53,16 +76,13 @@ const CourseGroup = ({course, isCollapsed, onToggle, onSelectTask}) => (
         </button>
         {!isCollapsed && (
             <ul className={styles.taskItems}>
-                {course.tasks.map(task => (
-                    <li key={task.code}>
-                        <button
-                            className={styles.taskItemButton}
-                            onClick={() => onSelectTask(task.code)}
-                        >
-                            <span>{task.title}</span>
-                            <span className={styles.taskDifficulty}>{task.difficultyLabel}</span>
-                        </button>
-                    </li>
+                {course.tasks.map((task, index) => (
+                    <TaskRow
+                        index={index}
+                        key={task.code}
+                        onSelectTask={onSelectTask}
+                        task={task}
+                    />
                 ))}
             </ul>
         )}
@@ -77,6 +97,40 @@ CourseGroup.propTypes = {
     isCollapsed: PropTypes.bool,
     onSelectTask: PropTypes.func.isRequired,
     onToggle: PropTypes.func.isRequired
+};
+
+// 2026-09-05：從題目詳情頁按「返回題組」時用——只顯示「剛剛那一題所屬課程」的題目清單，
+// 不是整個TaskList（全部課程＋解鎖輸入框），解掉「解完題只能回到最上層列表，每次都要
+// 重新展開/輸入代碼才能繼續下一題」的問題。
+const CourseTaskList = ({course, onBack, onSelectTask}) => (
+    <div className={styles.taskList}>
+        <button
+            className={styles.backToAllCoursesButton}
+            onClick={onBack}
+        >
+            ← 全部課程
+        </button>
+        <h3 className={styles.sectionHeading}>{course.code}｜{course.title}</h3>
+        <ul className={styles.taskItems}>
+            {course.tasks.map((task, index) => (
+                <TaskRow
+                    index={index}
+                    key={task.code}
+                    onSelectTask={onSelectTask}
+                    task={task}
+                />
+            ))}
+        </ul>
+    </div>
+);
+CourseTaskList.propTypes = {
+    course: PropTypes.shape({
+        code: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+        tasks: PropTypes.array.isRequired
+    }).isRequired,
+    onBack: PropTypes.func.isRequired,
+    onSelectTask: PropTypes.func.isRequired
 };
 
 const TaskList = ({courses, onSelectTask}) => {
@@ -177,3 +231,4 @@ TaskList.propTypes = {
 };
 
 export default TaskList;
+export {CourseTaskList};

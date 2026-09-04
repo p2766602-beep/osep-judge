@@ -20,7 +20,7 @@ import MenuBar from '../menu-bar/menu-bar.jsx';
 import CostumeLibrary from '../../containers/costume-library.jsx';
 import BackdropLibrary from '../../containers/backdrop-library.jsx';
 import Watermark from '../../containers/watermark.jsx';
-import JudgePanel from '../judge-panel/judge-panel.jsx';
+import ResizableJudgePanel from '../judge-panel/resizable-judge-panel.jsx';
 import judgeManualRun from '../../lib/judge-manual-run.js';
 
 import Backpack from '../../containers/backpack.jsx';
@@ -415,9 +415,7 @@ const GUIComponent = props => {
                                 />
                             </Box>
                         </Box>
-                        <Box className={styles.judgePanelWrapper}>
-                            <JudgePanel vm={vm} />
-                        </Box>
+                        <ResizableJudgePanel vm={vm} />
                     </Box>
                 </Box>
                 <DragLayer />

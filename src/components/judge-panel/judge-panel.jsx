@@ -4,7 +4,7 @@ import VM from 'scratch-vm';
 import {gradeSubmission, prepareVmForGrading} from '../../lib/tw-judge-engine.js';
 import {scaffoldUrlForCourse} from '../../lib/scaffold-content.js';
 import judgeManualRun from '../../lib/judge-manual-run.js';
-import TaskList from './task-list.jsx';
+import TaskList, {CourseTaskList} from './task-list.jsx';
 import styles from './judge-panel.css';
 
 /**
@@ -347,6 +347,9 @@ HistoryTab.propTypes = {
 
 const JudgePanel = ({vm}) => {
     const [selectedTaskCode, setSelectedTaskCode] = useState(null);
+    // 2026-09-05：解完題按「返回」時，記住剛剛那一題屬於哪個課程，回去該課程自己的題目清單，
+    // 而不是每次都砍回最上層的全部課程列表（見下面handleBackFromTask）。
+    const [viewingCourseCode, setViewingCourseCode] = useState(null);
     const [activeTab, setActiveTab] = useState('description');
     const [grading, setGrading] = useState({
         isRunning: false,
@@ -436,6 +439,11 @@ const JudgePanel = ({vm}) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [selectedTaskCode]);
 
+    const handleBackFromTask = () => {
+        setViewingCourseCode(taskDetail?.course?.code || null);
+        setSelectedTaskCode(null);
+    };
+
     const handleLoadDemo = async () => {
         setDemoStatus('載入中…');
         try {
@@ -493,9 +501,9 @@ const JudgePanel = ({vm}) => {
                     <div className={styles.headerLeft}>
                         <button
                             className={styles.backButton}
-                            onClick={() => setSelectedTaskCode(null)}
+                            onClick={handleBackFromTask}
                         >
-                            ← 題目列表
+                            ← 上一頁
                         </button>
                         <span className={styles.taskTitle}>osep-judge</span>
                     </div>
@@ -510,6 +518,13 @@ const JudgePanel = ({vm}) => {
     }
 
     if (!task) {
+        // 2026-09-05：從題目詳情頁按「返回」回來時，viewingCourseCode會記著剛剛那一題的課程
+        // 代碼——只要manifest裡找得到這個課程，就顯示該課程自己的題目清單，不要每次都砍回
+        // 最上層的全部課程列表（見上面的handleBackFromTask）。
+        const viewingCourse = viewingCourseCode
+            ? judgeContent.courses.find(course => course.code === viewingCourseCode)
+            : null;
+
         return (
             <div className={styles.judgePanel}>
                 <div className={styles.header}>
@@ -520,10 +535,18 @@ const JudgePanel = ({vm}) => {
                         <span className={styles.visitCounter}>累計造訪次數：{visitCount}</span>
                     )}
                 </div>
-                <TaskList
-                    courses={judgeContent.courses}
-                    onSelectTask={setSelectedTaskCode}
-                />
+                {viewingCourse ? (
+                    <CourseTaskList
+                        course={viewingCourse}
+                        onBack={() => setViewingCourseCode(null)}
+                        onSelectTask={setSelectedTaskCode}
+                    />
+                ) : (
+                    <TaskList
+                        courses={judgeContent.courses}
+                        onSelectTask={setSelectedTaskCode}
+                    />
+                )}
             </div>
         );
     }
@@ -536,9 +559,9 @@ const JudgePanel = ({vm}) => {
                 <div className={styles.headerLeft}>
                     <button
                         className={styles.backButton}
-                        onClick={() => setSelectedTaskCode(null)}
+                        onClick={handleBackFromTask}
                     >
-                        ← 題目列表
+                        ← 上一頁
                     </button>
                     <span className={styles.taskTitle}>{task.title}</span>
                     {demoLoaded ? (

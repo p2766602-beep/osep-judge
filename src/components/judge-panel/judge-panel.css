@@ -11,6 +11,56 @@
     overflow: hidden;
 }
 
+/* 2026-09-05：可調整寬度／可收合的外層容器（見resizable-judge-panel.jsx）。取代gui.css
+   原本寫死width:400px的.judge-panel-wrapper。 */
+.judge-panel-resizable-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    flex-shrink: 0;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.judge-panel-collapse-toggle {
+    width: 20px;
+    flex-shrink: 0;
+    border: none;
+    border-left: 1px solid $ui-black-transparent;
+    background: $ui-white;
+    color: $text-primary-transparent;
+    cursor: pointer;
+    font-size: 0.7rem;
+    padding: 0;
+}
+
+.judge-panel-collapse-toggle:hover {
+    background: $looks-secondary;
+    color: $ui-white;
+}
+
+.judge-panel-resize-handle {
+    width: 6px;
+    flex-shrink: 0;
+    cursor: col-resize;
+    background: transparent;
+}
+
+.judge-panel-resize-handle:hover {
+    background: $ui-black-transparent;
+}
+
+.judge-panel-inner {
+    flex-grow: 1;
+    min-width: 0;
+    height: 100%;
+    padding-left: $space;
+    padding-right: $space;
+    padding-top: $space;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
 .header {
     padding: $space;
     background-color: $looks-secondary;
@@ -347,6 +397,24 @@
 
 .course-group {
     margin-bottom: calc($space * 1.5);
+}
+
+/* 2026-09-05：從題目詳情頁「返回題組」進到單一題組清單時用的返回按鈕（見task-list.jsx的
+   CourseTaskList）——跟header上白字的.back-button不同，這裡是淺色背景，所以用深色文字。 */
+.back-to-all-courses-button {
+    background: none;
+    border: 1px solid $ui-black-transparent;
+    border-radius: $form-radius;
+    padding: calc($space / 4) calc($space / 2);
+    margin-bottom: $space;
+    cursor: pointer;
+    font-size: 0.8rem;
+    color: $text-primary;
+}
+
+.back-to-all-courses-button:hover {
+    color: $looks-secondary;
+    border-color: $looks-secondary;
 }
 
 /* 2026-08-04：課程組代碼解鎖（版權保護，見task-list.jsx）。 */
