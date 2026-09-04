@@ -426,7 +426,12 @@ const JudgePanel = ({vm}) => {
             setActiveTab('description');
             setGrading({isRunning: false, totalScore: null, maxScore: null, results: null, error: null});
             setDemoStatus(null);
-            setDemoLoaded(false);
+            // 安全性修正（2026-09-05）：這裡以前會把demoLoaded重設為false，但切換題目並不會清空
+            // vm畫布（整個檔案只有handleLoadDemo會呼叫vm.loadProject）——若在這裡重設，學生可以
+            // 載入範例→切到別題→切回來，畫布還是範例答案，但demoLoaded已顯示false，評分紀錄跟
+            // GradingTab的警示banner都會消失，就能把範例答案偽裝成自己的評分結果。demoLoaded只
+            // 能在畫布內容真的被替換的地方改（目前就是handleLoadDemo成功時設true），不能跟著
+            // 「目前選哪一題」連動。
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [selectedTaskCode]);
