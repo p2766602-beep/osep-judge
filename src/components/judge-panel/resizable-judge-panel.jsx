@@ -98,6 +98,16 @@ const ResizableJudgePanel = ({vm}) => {
         };
     }, [handlePointerMove, stopDragging]);
 
+    // 2026-09-05：Blockly的SVG畫布不會自己偵測容器CSS寬度變化而重繪——blocks.jsx裡
+    // 兩處既有的window.dispatchEvent(new Event('resize'))就是同樣的作法（見componentDidUpdate
+    // 處理stageSize/customStageSize變動時的hack）。這裡的寬度/收合狀態改變只是改了容器的CSS
+    // width，Blockly完全不知道，必須手動丟一個window resize事件，它內部綁定的resize handler
+    // 才會重新計算SVG尺寸——不然實測會看到「拖曳/收合右側面板有反應，但積木工作區完全沒跟著
+    // 變」（使用者回報過的現象）。
+    useEffect(() => {
+        window.dispatchEvent(new Event('resize'));
+    }, [width, collapsed]);
+
     const startDragging = event => {
         event.preventDefault();
         draggingRef.current = true;
