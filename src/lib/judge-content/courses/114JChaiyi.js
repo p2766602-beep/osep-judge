@@ -62,7 +62,7 @@ export default {
                 }
             ],
             "difficulty": "L3",
-            "sb3Path": null
+            "sb3Path": "m0/114JChaiyi/114JChaiyi-1.sb3"
         },
         {
             "id": "114JChaiyi-2",
@@ -124,7 +124,7 @@ export default {
                 }
             ],
             "difficulty": "L3",
-            "sb3Path": null
+            "sb3Path": "m0/114JChaiyi/114JChaiyi-2.sb3"
         },
         {
             "id": "114JChaiyi-3",
@@ -181,7 +181,7 @@ export default {
                 }
             ],
             "difficulty": "L2",
-            "sb3Path": null
+            "sb3Path": "m0/114JChaiyi/114JChaiyi-3.sb3"
         },
         {
             "id": "114JChaiyi-4",
@@ -238,7 +238,7 @@ export default {
                 }
             ],
             "difficulty": "L3",
-            "sb3Path": null
+            "sb3Path": "m0/114JChaiyi/114JChaiyi-4.sb3"
         },
         {
             "id": "114JChaiyi-5",
@@ -295,7 +295,7 @@ export default {
                 }
             ],
             "difficulty": "L3",
-            "sb3Path": null
+            "sb3Path": "m0/114JChaiyi/114JChaiyi-5.sb3"
         },
         {
             "id": "114JChaiyi-6",
@@ -352,7 +352,7 @@ export default {
                 }
             ],
             "difficulty": "L1",
-            "sb3Path": null
+            "sb3Path": "m0/114JChaiyi/114JChaiyi-6.sb3"
         },
         {
             "id": "114JChaiyi-7",
@@ -409,7 +409,7 @@ export default {
                 }
             ],
             "difficulty": "L2",
-            "sb3Path": null
+            "sb3Path": "m0/114JChaiyi/114JChaiyi-7.sb3"
         },
         {
             "id": "114JChaiyi-8",
@@ -466,7 +466,7 @@ export default {
                 }
             ],
             "difficulty": "L4",
-            "sb3Path": null
+            "sb3Path": "m0/114JChaiyi/114JChaiyi-8.sb3"
         },
         {
             "id": "114JChaiyi-9",
@@ -523,7 +523,7 @@ export default {
                 }
             ],
             "difficulty": "L3",
-            "sb3Path": null
+            "sb3Path": "m0/114JChaiyi/114JChaiyi-9.sb3"
         }
     ]
 };
