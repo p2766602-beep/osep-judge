@@ -17,7 +17,7 @@ const LoadScratchBlocksHOC = function (WrappedComponent) {
                 LazyScratchBlocks.load()
                     .then(() => {
                         // 2026-08-04：在任何toolbox/flyout第一次建置之前先patch好「思考」→
-                        // 「輸出訊息」的積木顯示文字（見make-toolbox-xml.js），避免第一次
+                        // 「輸出至訊息視窗」的積木顯示文字（見make-toolbox-xml.js），避免第一次
                         // 畫面出現時還是舊的「想著」字樣、要切一次分類才會更新的閃爍問題。
                         patchThinkBlockLabel();
                         this.setState({

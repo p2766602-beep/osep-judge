@@ -245,7 +245,7 @@ const SelfTestTab = ({vm}) => {
             )}
             {output !== null ? (
                 <React.Fragment>
-                    <h3 className={styles.sectionHeading}>正式評分輸出（「說出」的內容）</h3>
+                    <h3 className={styles.sectionHeading}>輸出：（「說出」的內容，系統評分依據）</h3>
                     <div className={styles.selfTestOutput}>
                         {output || '（沒有任何「說出」內容）'}
                     </div>
@@ -253,7 +253,7 @@ const SelfTestTab = ({vm}) => {
             ) : null}
             {debugOutput ? (
                 <React.Fragment>
-                    <h3 className={styles.sectionHeading}>除錯輸出（「輸出訊息」積木，不計分）</h3>
+                    <h3 className={styles.sectionHeading}>訊息：（「輸出至訊息視窗」積木，不計分）</h3>
                     <div className={styles.selfTestOutput}>{debugOutput}</div>
                 </React.Fragment>
             ) : null}

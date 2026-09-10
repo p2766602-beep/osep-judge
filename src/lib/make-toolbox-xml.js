@@ -12,21 +12,23 @@ const translate = (id, english) => {
     return english;
 };
 
-// 2026-08-04：把「思考」（looks_think）積木的顯示文字改成「輸出訊息」，讓它在這個平台上
-// 明確就是debug print的角色，不是Scratch原本敘事用的「角色在想什麼」。積木本身還是原生
-// looks_think opcode（tw-judge-engine.js只採計type==='say'，'think'不會算進最終答案），
-// 只是改顯示字串，行為完全沒變。
+// 2026-08-04：把「思考」（looks_think）積木的顯示文字改成除錯print的角色，不是Scratch
+// 原本敘事用的「角色在想什麼」。積木本身還是原生looks_think opcode（tw-judge-engine.js只
+// 採計type==='say'，'think'不會算進最終答案），只是改顯示字串，行為完全沒變。
+// 2026-09-10：字串從「輸出訊息」改成「輸出至訊息視窗」，對齊官方競賽平台跟BlocklyYdws/
+// blockly-lab那邊text_print積木的命名（同一顆「除錯用、不列入評分」的積木，三個平台名稱
+// 現在一致）。
 //
 // 這個字串來自Blockly.ScratchMsgs.locales[locale].LOOKS_THINK，每次workspace init時
 // scratch-blocks的core/scratch_msgs.js都會用`Blockly.Msg = Object.assign({}, Blockly.Msg,
 // Blockly.ScratchMsgs.locales[locale])`重建一次Blockly.Msg，所以兩個地方都要patch——
 // 只改Msg會被下一次setLocale()蓋掉，只改locales表在Msg已經建好之後才patch又不會立刻生效，
-// 兩個都改才保證不管執行順序都拿到「輸出訊息」。冪等（可重複呼叫），每次組toolbox XML時
+// 兩個都改才保證不管執行順序都拿到「輸出至訊息視窗」。冪等（可重複呼叫），每次組toolbox XML時
 // 都呼叫一次確保生效。
 export const patchThinkBlockLabel = () => {
     if (!LazyScratchBlocks.isLoaded()) return;
     const ScratchBlocks = LazyScratchBlocks.get();
-    const label = '輸出訊息 %1';
+    const label = '輸出至訊息視窗 %1';
     if (ScratchBlocks.Msg) ScratchBlocks.Msg.LOOKS_THINK = label;
     const zhTw = ScratchBlocks.ScratchMsgs && ScratchBlocks.ScratchMsgs.locales && ScratchBlocks.ScratchMsgs.locales['zh-tw'];
     if (zhTw) zhTw.LOOKS_THINK = label;
@@ -39,8 +41,8 @@ export const patchThinkBlockLabel = () => {
 // 詢問的答案」這幾個解題題目實際會用到的積木，集中放進這個唯一的分類。積木本身還是原生
 // Scratch積木（保留各自原本的顏色），Blockly本來就允許積木出現在自訂分類裡。
 //
-// 這裡放一顆「輸出訊息」積木當作除錯用：opcode還是原生looks_think，只是透過
-// patchThinkBlockLabel()（見上方）把顯示字串從「思考」全域改成「輸出訊息」，
+// 這裡放一顆「輸出至訊息視窗」積木當作除錯用：opcode還是原生looks_think，只是透過
+// patchThinkBlockLabel()（見上方）把顯示字串從「思考」全域改成「輸出至訊息視窗」，
 // 對學生來說是一顆語意明確的debug print積木，不是Scratch原本敘事用的「角色在想什麼」。
 // tw-judge-engine.js的評分只採計looks_say（說出）事件，looks_think不會被算進最終答案，
 // 可以放心拿來印變數目前的值除錯，不會影響評分結果。畫面上看不到（工作區旁的舞台是
