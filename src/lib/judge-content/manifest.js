@@ -2554,6 +2554,30 @@ export default [
         ]
     },
     {
+        "code": "114TCPE19",
+        "title": "114-屏東縣國小（競賽模式）",
+        "unlockCode": "114TCPE19",
+        "tasks": [
+            {
+                "id": "114TCPE19-1",
+                "code": "114TCPE19-114TCPE19-1",
+                "title": "1-小島越野賽"
+            }
+        ]
+    },
+    {
+        "code": "114TCPJ19",
+        "title": "114-屏東縣國中（競賽模式）",
+        "unlockCode": "114TCPJ19",
+        "tasks": [
+            {
+                "id": "114TCPJ19-1",
+                "code": "114TCPJ19-114TCPJ19-1",
+                "title": "1-基地台訊號覆蓋"
+            }
+        ]
+    },
+    {
         "code": "114JChaiyi",
         "title": "114-嘉義市國中",
         "unlockCode": "114JChaiyi",
@@ -3847,6 +3871,30 @@ export default [
                 "id": "114EMiaoli-5",
                 "code": "114EMiaoli-114EMiaoli-5",
                 "title": "5-進位運算"
+            }
+        ]
+    },
+    {
+        "code": "114EPingtung",
+        "title": "114-屏東縣國小",
+        "unlockCode": "114EPingtung",
+        "tasks": [
+            {
+                "id": "114EPingtung-1",
+                "code": "114EPingtung-114EPingtung-1",
+                "title": "1-小島越野賽"
+            }
+        ]
+    },
+    {
+        "code": "114JPingtung",
+        "title": "114-屏東縣國中",
+        "unlockCode": "114JPingtung",
+        "tasks": [
+            {
+                "id": "114JPingtung-1",
+                "code": "114JPingtung-114JPingtung-1",
+                "title": "1-基地台訊號覆蓋"
             }
         ]
     },
