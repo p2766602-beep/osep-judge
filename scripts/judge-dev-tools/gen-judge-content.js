@@ -45,6 +45,8 @@ const COURSE_FILES = ['M0-01-BasicOutput.js', 'M0-02-Variables.js', 'M0-03-Condi
     // 轉換失敗時build-m0-course-sb3.js會照既有機制讓那幾題落入[SKIP]/[FAIL]、不影響其他題。
     '114JChaiyi.js', '114JChaiyiC.js', '114JChanghua.js', '114JHsinchu.js', '114JHsinchuC.js', '114JHualien.js', '114JKeelung.js', '114JNantou.js', '114JNewTaipei.js', '114JPenghu.js', '114JTaichung.js', '114JTainan.js', '114JTaipei.js', '114JTaitung.js', '114JTaoyuan.js', '114JYunlin.js', '114JKinmen.js', '114JMiaoli.js',
     '114EChaiyi.js', '114EChaiyiC.js', '114EChanghua.js', '114EHsinchu.js', '114EHsinchuC.js', '114EHualien.js', '114EKeelung.js', '114ENantou.js', '114ENewTaipei.js', '114EPenghu.js', '114ETaichung.js', '114ETainan.js', '114ETaipei.js', '114ETaitung.js', '114ETaoyuan.js', '114EYunlin.js', '114EKinmen.js', '114EMiaoli.js',
+    // 2026-09-13新增：屏東縣國小/國中，見build-m0-course-sb3.js同一段註解。
+    '114EPingtung.js', '114JPingtung.js',
     // 2026-09-13新增：屏東縣國小/國中學習模式課程（114EPingtung/114JPingtung，各1題）。
     // 這批PDF題組依既有決策跳過starterXml範例答案（留空字串），不需要sb3示範解答轉換，
     // 純資料上架，跟其他縣市剛建置、尚未補starterXml時的初始狀態一致。

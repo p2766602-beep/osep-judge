@@ -3899,6 +3899,30 @@ export default [
         ]
     },
     {
+        "code": "114EPingtung",
+        "title": "114-屏東縣國小",
+        "unlockCode": "114EPingtung",
+        "tasks": [
+            {
+                "id": "114EPingtung-1",
+                "code": "114EPingtung-114EPingtung-1",
+                "title": "1-小島越野賽"
+            }
+        ]
+    },
+    {
+        "code": "114JPingtung",
+        "title": "114-屏東縣國中",
+        "unlockCode": "114JPingtung",
+        "tasks": [
+            {
+                "id": "114JPingtung-1",
+                "code": "114JPingtung-114JPingtung-1",
+                "title": "1-基地台訊號覆蓋"
+            }
+        ]
+    },
+    {
         "code": "M2-01",
         "title": "運算與條件判斷綜合練習：基礎",
         "tier": "t2",
