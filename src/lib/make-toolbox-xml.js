@@ -86,6 +86,19 @@ const judgeHelpers = function (isInitialSetup, isStage, targetId) {
     `;
 };
 
+// 2026-09-24：對齊官方平台（demo.csie.ntnu.edu.tw）Scratch介面的「控制」分類——原本
+// 這裡有等待1秒／永遠重複／等待直到／停止／複製品×3共7顆官方沒有的動畫敘事類積木，是
+// 早期比照osep-scratch-editor做法保留下來的，但實際用瀏覽器逐一比對官方競賽平台後發現
+// 它只留if/if-else/repeat-N次/repeat-until/while這5顆解題會用到的核心積木，其餘全部沒有。
+// 動手前先掃過當時全部523個已建置參考答案.sb3檔案（覆蓋M0~M3＋114縣市共99課程），
+// 確認這7顆裡的control_wait/control_wait_until/control_forever/control_stop/
+// control_start_as_clone/control_create_clone_of/control_delete_this_clone全部0個檔案
+// 使用，移除不影響任何既有題目的示範解答。
+//
+// 官方平台另外還有一顆我們沒有的「中斷循環」（跳出迴圈），但這不是scratch-vm的原生
+// 積木類型（TurboWarp核心的scratch3_control.js沒有對應opcode），官方是自己另外寫VM
+// extension做出來的，不是調整這份toolbox設定檔就能生出來，這次先不做，留待後續評估
+// 是否要投入客製積木開發。
 const control = function (isInitialSetup, isStage, targetId, colors) {
     // Note: the category's secondaryColour matches up with the blocks' tertiary color, both used for border color.
     return `
@@ -94,14 +107,6 @@ const control = function (isInitialSetup, isStage, targetId, colors) {
         id="control"
         colour="${colors.primary}"
         secondaryColour="${colors.tertiary}">
-        <block type="control_wait">
-            <value name="DURATION">
-                <shadow type="math_positive_number">
-                    <field name="NUM">1</field>
-                </shadow>
-            </value>
-        </block>
-        ${blockSeparator}
         <block type="control_repeat">
             <value name="TIMES">
                 <shadow type="math_whole_number">
@@ -109,31 +114,11 @@ const control = function (isInitialSetup, isStage, targetId, colors) {
                 </shadow>
             </value>
         </block>
-        <block id="forever" type="control_forever"/>
         ${blockSeparator}
         <block type="control_if"/>
         <block type="control_if_else"/>
-        <block id="wait_until" type="control_wait_until"/>
         <block id="repeat_until" type="control_repeat_until"/>
         <block id="while" type="control_while"/>
-        ${blockSeparator}
-        <block type="control_stop"/>
-        ${blockSeparator}
-        ${isStage ? `
-            <block type="control_create_clone_of">
-                <value name="CLONE_OPTION">
-                    <shadow type="control_create_clone_of_menu"/>
-                </value>
-            </block>
-        ` : `
-            <block type="control_start_as_clone"/>
-            <block type="control_create_clone_of">
-                <value name="CLONE_OPTION">
-                    <shadow type="control_create_clone_of_menu"/>
-                </value>
-            </block>
-            <block type="control_delete_this_clone"/>
-        `}
         ${categorySeparator}
     </category>
     `;
