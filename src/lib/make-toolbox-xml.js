@@ -34,6 +34,19 @@ export const patchThinkBlockLabel = () => {
     if (zhTw) zhTw.LOOKS_THINK = label;
 };
 
+// 2026-09-24：control_while原生顯示字串是「當 %1」，官方平台這顆積木顯示「重複當 %1」
+// （跟旁邊control_repeat_until原生就是「重複直到 %1」對齊）。一開始想比照
+// patchThinkBlockLabel直接patch Blockly.Msg.CONTROL_WHILE，結果踩到一個LOOKS_THINK
+// 沒踩過的坑：scratch-blocks的flyout有「回收」機制（見node_modules/scratch-blocks/
+// core/flyout_base.js的recycleBlocks_），同一個`<block>`標籤（沒寫id時用type當key）
+// 只要跟「上一次」渲染出來的舊BlockSVG比對相符，就直接重用舊的，完全不會重新呼叫
+// domToBlock()/init()去讀新patch過的Msg字串——這顆積木在patch生效之前，已經在
+// Blockly.inject()內部某次更早的flyout預熱渲染中被建立並丟進回收池，之後不管Msg改得
+// 多正確、換自訂id也一樣，都會一路沿用那個過期版本。改Msg這條路線在這裡走不通，
+// 已改用judge-control-extension.js另外寫一顆全新的「重複當」自訂積木取代（label是
+// 寫死在extension裡的固定字串，不經過Blockly.Msg，從根本避開這個坑），native
+// control_while opcode保留不動，只是這個toolbox不再放它。
+
 /* eslint-disable no-unused-vars */
 // 2026-08-14：對齊官方競賽平台（demo.csie.ntnu.edu.tw/ps）與BlocklyYdws來源專案自己的
 // toolbox（見`BlocklyYdws/src/blockly/toolbox.js`，同樣叫「專用」分類）——動作／外觀／
@@ -117,8 +130,8 @@ const control = function (isInitialSetup, isStage, targetId, colors) {
         ${blockSeparator}
         <block type="control_if"/>
         <block type="control_if_else"/>
-        <block id="repeat_until" type="control_repeat_until"/>
-        <block id="while" type="control_while"/>
+        <block type="control_repeat_until"/>
+        <block type="judgecontrol_repeatWhile"/>
         ${categorySeparator}
     </category>
     `;
@@ -128,10 +141,12 @@ const control = function (isInitialSetup, isStage, targetId, colors) {
 // 定義的4顆自訂積木（真/假、合併四則運算、合併比較、合併且或）取代原本拆開的
 // operator_add/subtract/multiply/divide（4顆）、operator_gt/lt/equals（3顆）、
 // operator_and/or（2顆），並新增官方有、我們原本完全沒有的布林「真/假」字面值積木。
-// 這4顆自訂積木的defaultValue已經在extension的getInfo()裡設定好，Blockly會照
-// ArgumentTypeMap自動生成對應的math_number/text影子積木，這裡不用再手動寫
-// <value><shadow>XML（跟下面operator_mod/round等原生積木的寫法比，語法簡潔很多，
-// 是extension積木跟手刻native toolbox XML的既有差異，不是遺漏）。
+// 2026-09-24（修正）：一開始以為extension積木的defaultValue會讓Blockly自動生成影子積木，
+// 實測後發現不會——ArgumentTypeMap那套自動影子生成只在「用API動態插入積木」時生效，
+// toolbox flyout的<block type="xxx"/>如果沒有明確寫<value><shadow>，插槽就是完全空的
+// 圓孔（沒有可點擊填數字的白色底），使用者實測回報「兩側應該要有預設是0的數字，否則
+// 沒辦法填入」才發現。修法：跟下面operator_mod/round等原生積木一樣，比較(compare)/
+// 四則運算(arithmetic)手動補上文字/數字影子積木，預設值0，對齊官方畫面。
 const operators = function (isInitialSetup, isStage, targetId, colors) {
     const apple = translate('OPERATORS_JOIN_APPLE', 'apple');
     const banana = translate('OPERATORS_JOIN_BANANA', 'banana');
@@ -145,12 +160,34 @@ const operators = function (isInitialSetup, isStage, targetId, colors) {
         secondaryColour="${colors.tertiary}">
         <block type="judgeoperators_boolLiteral"/>
         ${blockSeparator}
-        <block type="judgeoperators_compare"/>
+        <block type="judgeoperators_compare">
+            <value name="OPERAND1">
+                <shadow type="text">
+                    <field name="TEXT">0</field>
+                </shadow>
+            </value>
+            <value name="OPERAND2">
+                <shadow type="text">
+                    <field name="TEXT">0</field>
+                </shadow>
+            </value>
+        </block>
         ${blockSeparator}
         <block type="judgeoperators_andOr"/>
         <block type="operator_not"/>
         ${blockSeparator}
-        <block type="judgeoperators_arithmetic"/>
+        <block type="judgeoperators_arithmetic">
+            <value name="NUM1">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="NUM2">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
         ${blockSeparator}
         <block type="operator_random">
             <value name="FROM">
@@ -314,10 +351,12 @@ const makeToolboxXML = function (isInitialSetup, isStage = true, targetId, categ
     const variablesXML = moveCategory('data') || variables(isInitialSetup, isStage, targetId, colors.data);
     const myBlocksXML = moveCategory('procedures') || myBlocks(isInitialSetup, isStage, targetId, colors.more);
 
-    // judge-operators-extension.js的積木類型（真假/合併四則運算/合併比較/合併且或）
-    // 已經直接寫進上面operators()自己的XML裡了，這裡把scratch-vm自動幫這個extension
-    // 生成的獨立分類XML丟棄，避免這4顆積木在「運算」分類之外又多長出一個重複的分類。
+    // judge-operators-extension.js／judge-control-extension.js的積木類型分別已經直接
+    // 寫進上面operators()／control()自己的XML裡了，這裡把scratch-vm自動幫這兩個
+    // extension生成的獨立分類XML丟棄，避免這些積木在「運算」/「控制」分類之外又多長出
+    // 重複的分類。
     moveCategory('judgeoperators');
+    moveCategory('judgecontrol');
 
     // Always display TurboWarp blocks as the first extension, if it exists,
     // and also add an "is compiled?" block to the top.

@@ -113,8 +113,11 @@ class JudgeOperatorsExtension {
                 compareOps: {
                     items: [
                         {text: '=', value: '='},
+                        {text: '≠', value: '!='},
+                        {text: '<', value: '<'},
                         {text: '>', value: '>'},
-                        {text: '<', value: '<'}
+                        {text: '≤', value: '<='},
+                        {text: '≥', value: '>='}
                     ]
                 },
                 andOrOps: {
@@ -128,7 +131,8 @@ class JudgeOperatorsExtension {
                         {text: '+', value: '+'},
                         {text: '-', value: '-'},
                         {text: '×', value: '*'},
-                        {text: '÷', value: '/'}
+                        {text: '÷', value: '/'},
+                        {text: '^', value: '^'}
                     ]
                 }
             }
@@ -140,12 +144,16 @@ class JudgeOperatorsExtension {
     }
 
     // 計算邏輯照抄scratch-vm/src/blocks/scratch3_operators.js的equals/gt/lt，
-    // 用同一套Cast.compare確保跟原生operator_equals/gt/lt行為一致。
+    // 用同一套Cast.compare確保跟原生operator_equals/gt/lt行為一致；≠/≤/≥是官方平台
+    // 有、原生scratch-vm沒有的組合，直接用同一個result三向比較結果組出來，語意一致。
     compare (args) {
         const result = Cast.compare(args.OPERAND1, args.OPERAND2);
         switch (args.OP) {
-        case '>': return result > 0;
+        case '!=': return result !== 0;
         case '<': return result < 0;
+        case '>': return result > 0;
+        case '<=': return result <= 0;
+        case '>=': return result >= 0;
         default: return result === 0;
         }
     }
@@ -158,7 +166,8 @@ class JudgeOperatorsExtension {
         return Cast.toBoolean(args.OPERAND1) && Cast.toBoolean(args.OPERAND2);
     }
 
-    // 照抄scratch3_operators.js的add/subtract/multiply/divide，用Cast.toNumber。
+    // 加減乘除照抄scratch3_operators.js的add/subtract/multiply/divide，用Cast.toNumber；
+    // ^（次方）是官方平台有、原生scratch-vm沒有的，用一般JS Math.pow實作。
     arithmetic (args) {
         const n1 = Cast.toNumber(args.NUM1);
         const n2 = Cast.toNumber(args.NUM2);
@@ -166,6 +175,7 @@ class JudgeOperatorsExtension {
         case '-': return n1 - n2;
         case '*': return n1 * n2;
         case '/': return n1 / n2;
+        case '^': return Math.pow(n1, n2);
         default: return n1 + n2;
         }
     }
