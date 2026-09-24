@@ -124,6 +124,14 @@ const control = function (isInitialSetup, isStage, targetId, colors) {
     `;
 };
 
+// 2026-09-24：對齊官方平台Scratch介面的「運算」分類，改用judge-operators-extension.js
+// 定義的4顆自訂積木（真/假、合併四則運算、合併比較、合併且或）取代原本拆開的
+// operator_add/subtract/multiply/divide（4顆）、operator_gt/lt/equals（3顆）、
+// operator_and/or（2顆），並新增官方有、我們原本完全沒有的布林「真/假」字面值積木。
+// 這4顆自訂積木的defaultValue已經在extension的getInfo()裡設定好，Blockly會照
+// ArgumentTypeMap自動生成對應的math_number/text影子積木，這裡不用再手動寫
+// <value><shadow>XML（跟下面operator_mod/round等原生積木的寫法比，語法簡潔很多，
+// 是extension積木跟手刻native toolbox XML的既有差異，不是遺漏）。
 const operators = function (isInitialSetup, isStage, targetId, colors) {
     const apple = translate('OPERATORS_JOIN_APPLE', 'apple');
     const banana = translate('OPERATORS_JOIN_BANANA', 'banana');
@@ -135,54 +143,14 @@ const operators = function (isInitialSetup, isStage, targetId, colors) {
         id="operators"
         colour="${colors.primary}"
         secondaryColour="${colors.tertiary}">
-        <block type="operator_add">
-            <value name="NUM1">
-                <shadow type="math_number">
-                    <field name="NUM"/>
-                </shadow>
-            </value>
-            <value name="NUM2">
-                <shadow type="math_number">
-                    <field name="NUM"/>
-                </shadow>
-            </value>
-        </block>
-        <block type="operator_subtract">
-            <value name="NUM1">
-                <shadow type="math_number">
-                    <field name="NUM"/>
-                </shadow>
-            </value>
-            <value name="NUM2">
-                <shadow type="math_number">
-                    <field name="NUM"/>
-                </shadow>
-            </value>
-        </block>
-        <block type="operator_multiply">
-            <value name="NUM1">
-                <shadow type="math_number">
-                    <field name="NUM"/>
-                </shadow>
-            </value>
-            <value name="NUM2">
-                <shadow type="math_number">
-                    <field name="NUM"/>
-                </shadow>
-            </value>
-        </block>
-        <block type="operator_divide">
-            <value name="NUM1">
-                <shadow type="math_number">
-                    <field name="NUM"/>
-                </shadow>
-            </value>
-            <value name="NUM2">
-                <shadow type="math_number">
-                    <field name="NUM"/>
-                </shadow>
-            </value>
-        </block>
+        <block type="judgeoperators_boolLiteral"/>
+        ${blockSeparator}
+        <block type="judgeoperators_compare"/>
+        ${blockSeparator}
+        <block type="judgeoperators_andOr"/>
+        <block type="operator_not"/>
+        ${blockSeparator}
+        <block type="judgeoperators_arithmetic"/>
         ${blockSeparator}
         <block type="operator_random">
             <value name="FROM">
@@ -197,46 +165,33 @@ const operators = function (isInitialSetup, isStage, targetId, colors) {
             </value>
         </block>
         ${blockSeparator}
-        <block type="operator_gt">
-            <value name="OPERAND1">
-                <shadow type="text">
-                    <field name="TEXT"/>
+        <block type="operator_mod">
+            <value name="NUM1">
+                <shadow type="math_number">
+                    <field name="NUM"/>
                 </shadow>
             </value>
-            <value name="OPERAND2">
-                <shadow type="text">
-                    <field name="TEXT">50</field>
-                </shadow>
-            </value>
-        </block>
-        <block type="operator_lt">
-            <value name="OPERAND1">
-                <shadow type="text">
-                    <field name="TEXT"/>
-                </shadow>
-            </value>
-            <value name="OPERAND2">
-                <shadow type="text">
-                    <field name="TEXT">50</field>
+            <value name="NUM2">
+                <shadow type="math_number">
+                    <field name="NUM"/>
                 </shadow>
             </value>
         </block>
-        <block type="operator_equals">
-            <value name="OPERAND1">
-                <shadow type="text">
-                    <field name="TEXT"/>
-                </shadow>
-            </value>
-            <value name="OPERAND2">
-                <shadow type="text">
-                    <field name="TEXT">50</field>
+        <block type="operator_round">
+            <value name="NUM">
+                <shadow type="math_number">
+                    <field name="NUM"/>
                 </shadow>
             </value>
         </block>
         ${blockSeparator}
-        <block type="operator_and"/>
-        <block type="operator_or"/>
-        <block type="operator_not"/>
+        <block type="operator_mathop">
+            <value name="NUM">
+                <shadow type="math_number">
+                    <field name="NUM"/>
+                </shadow>
+            </value>
+        </block>
         ${blockSeparator}
         ${isInitialSetup ? '' : `
             <block type="operator_join">
@@ -283,34 +238,6 @@ const operators = function (isInitialSetup, isStage, targetId, colors) {
               </value>
             </block>
         `}
-        ${blockSeparator}
-        <block type="operator_mod">
-            <value name="NUM1">
-                <shadow type="math_number">
-                    <field name="NUM"/>
-                </shadow>
-            </value>
-            <value name="NUM2">
-                <shadow type="math_number">
-                    <field name="NUM"/>
-                </shadow>
-            </value>
-        </block>
-        <block type="operator_round">
-            <value name="NUM">
-                <shadow type="math_number">
-                    <field name="NUM"/>
-                </shadow>
-            </value>
-        </block>
-        ${blockSeparator}
-        <block type="operator_mathop">
-            <value name="NUM">
-                <shadow type="math_number">
-                    <field name="NUM"/>
-                </shadow>
-            </value>
-        </block>
         ${categorySeparator}
     </category>
     `;
@@ -386,6 +313,11 @@ const makeToolboxXML = function (isInitialSetup, isStage = true, targetId, categ
     const operatorsXML = moveCategory('operators') || operators(isInitialSetup, isStage, targetId, colors.operators);
     const variablesXML = moveCategory('data') || variables(isInitialSetup, isStage, targetId, colors.data);
     const myBlocksXML = moveCategory('procedures') || myBlocks(isInitialSetup, isStage, targetId, colors.more);
+
+    // judge-operators-extension.js的積木類型（真假/合併四則運算/合併比較/合併且或）
+    // 已經直接寫進上面operators()自己的XML裡了，這裡把scratch-vm自動幫這個extension
+    // 生成的獨立分類XML丟棄，避免這4顆積木在「運算」分類之外又多長出一個重複的分類。
+    moveCategory('judgeoperators');
 
     // Always display TurboWarp blocks as the first extension, if it exists,
     // and also add an "is compiled?" block to the top.
