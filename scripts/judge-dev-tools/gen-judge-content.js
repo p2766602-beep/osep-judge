@@ -40,9 +40,14 @@ const COURSE_FILES = ['M0-01-BasicOutput.js', 'M0-02-Variables.js', 'M0-03-Condi
     '114TCPE19.js', '114TCPJ19.js',
     // 2026-08-20 Phase 2：114J（國中學習模式，16縣市）＋114E（國小學習模式，16縣市）。
     // 這兩批需要示範解答，用擴充後的xml-to-scratch.js（新增迴圈/清單/邏輯/字串積木支援，
-    // 見該檔案開頭註解）自動轉換；少數積木類型（text_getSubstring/text_prompt_ext/
-    // controls_flow_statements/math_constrain，集中在114ETaichung幾題）故意不支援，
-    // 轉換失敗時build-m0-course-sb3.js會照既有機制讓那幾題落入[SKIP]/[FAIL]、不影響其他題。
+    // 見該檔案開頭註解）自動轉換。
+    // 2026-09-25補齊缺口：當時集中在114ETaichung/114EKinmen/114JKinmen/114JNewTaipei
+    // 這幾題、轉換失敗落入[SKIP]/[FAIL]的9題已全部補齊——text_getSubstring/
+    // text_prompt_ext/math_constrain/lists_split已擴充進xml-to-scratch.js；
+    // 114ETaichung-5唯一用到controls_flow_statements（break）的starterXml已改寫成
+    // 旗標變數寫法（VM/編譯器架構上無法支援break，詳見xml-to-scratch.js檔頭註解）；
+    // NewTaipei-J-4（巢狀清單，Scratch資料模型不支援清單存清單）改用
+    // build-newtaipei-j4-hand-authored.js手寫示範解答。
     '114JChaiyi.js', '114JChaiyiC.js', '114JChanghua.js', '114JHsinchu.js', '114JHsinchuC.js', '114JHualien.js', '114JKeelung.js', '114JNantou.js', '114JNewTaipei.js', '114JPenghu.js', '114JTaichung.js', '114JTainan.js', '114JTaipei.js', '114JTaitung.js', '114JTaoyuan.js', '114JYunlin.js', '114JKinmen.js', '114JMiaoli.js',
     '114EChaiyi.js', '114EChaiyiC.js', '114EChanghua.js', '114EHsinchu.js', '114EHsinchuC.js', '114EHualien.js', '114EKeelung.js', '114ENantou.js', '114ENewTaipei.js', '114EPenghu.js', '114ETaichung.js', '114ETainan.js', '114ETaipei.js', '114ETaitung.js', '114ETaoyuan.js', '114EYunlin.js', '114EKinmen.js', '114EMiaoli.js',
     // 2026-09-13新增：屏東縣國小/國中，見build-m0-course-sb3.js同一段註解。

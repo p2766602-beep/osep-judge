@@ -24,9 +24,20 @@
 // lists_repeat剛好出現在「不是清單變數直接賦值」的位置時的例外狀況（目前語料沒有這種情況，
 // 遇到會直接丟錯，不會靜默猜測）。
 //
-// 刻意不支援（語料掃描確認只影響114ETaichung這一份課程檔的少數幾題，直接丟錯讓那幾題
-// 沒有示範解答，不值得為了個位數題目擴充轉換器）：text_getSubstring、text_prompt_ext、
-// controls_flow_statements（break/continue）、math_constrain。
+// 2026-09-25補齊缺口：新增math_constrain（限制在範圍內）、text_prompt_ext（詢問並讀取
+// 答案）、text_getSubstring（只支援語料實際出現的WHERE1=FROM_END/WHERE2=LAST，即
+// 取字串最後N個字元）、lists_split（依分隔符號拆成清單，只支援MODE=SPLIT＋單一字元
+// 分隔符號）支援，補上114ETaichung/114EKinmen/114JKinmen這幾題原本沒有示範解答的缺口。
+// 這4種都沒有對應的Scratch原生積木，一律用跟logic_ternary/lists_getIndex GET_REMOVE
+// 同一套「hoist成暫時變數＋展開成一段手寫的迴圈/if邏輯」手法解決，各自的詳細說明見
+// 對應的if分支註解。
+//
+// controls_flow_statements（break/continue）**沒有**在這裡補上：這不是轉換器能力
+// 不足的問題，是Scratch平台本身沒有對應的執行語意（詳見討論記錄），只能用改寫解法
+// 本身邏輯來繞過（例如用旗標變數取代break），不是轉換器規則能自動處理的事，唯一用到
+// 這個積木的114ETaichung-5已經手動改寫過starterXml本身的邏輯（見YDWS-CodingBank/
+// courses/114ETaichung.js該題的NOTE註解），現在轉換器看到的已經是改寫後、不含break
+// 的版本。
 
 const SUPPORTED_TYPES = new Set([
     'event_whenflagclicked', 'interaction_ask_and_wait', 'interaction_answer', 'interaction_say',
@@ -35,7 +46,8 @@ const SUPPORTED_TYPES = new Set([
     'controls_for', 'controls_repeat_ext', 'controls_whileUntil',
     'logic_negate', 'logic_operation', 'logic_boolean', 'logic_ternary',
     'text_charAt', 'text_length', 'math_single',
-    'lists_create_with', 'lists_repeat', 'lists_getIndex', 'lists_setIndex', 'lists_indexOf', 'lists_length'
+    'lists_create_with', 'lists_repeat', 'lists_getIndex', 'lists_setIndex', 'lists_indexOf', 'lists_length',
+    'math_constrain', 'text_prompt_ext', 'text_getSubstring', 'lists_split'
 ]);
 
 // ---- 極簡XML解析器（只處理本專案starterXml實際用到的語法子集：巢狀標籤/屬性/文字內容） ----
@@ -115,7 +127,7 @@ function collectListVars(xmlRoot) {
         if (blockEl.attrs.type === 'variables_set') {
             const valueEl = namedChild(blockEl, 'value', 'VALUE');
             const inner = valueEl && blockChild(valueEl);
-            if (inner && (inner.attrs.type === 'lists_create_with' || inner.attrs.type === 'lists_repeat')) {
+            if (inner && (inner.attrs.type === 'lists_create_with' || inner.attrs.type === 'lists_repeat' || inner.attrs.type === 'lists_split')) {
                 const varField = namedChild(blockEl, 'field', 'VAR');
                 if (varField) listVars.add(varField.attrs.id);
             }
@@ -181,6 +193,28 @@ function listVarFromValueSlot(parentEl, slotName, ctx, blockTypeForError) {
     }
     ctx.ensureList(varId, varField.text);
     return {id: varId, name: varField.text};
+}
+
+// 建一個「讀取暫時變數」的data_variable積木並登記進ctx.blocks，回傳其input格式[2, id]。
+// 給text_getSubstring/lists_split這種需要在hoist出來的積木鏈裡多次讀同一個暫時變數的
+// 情況用，避免每次都手動重複寫一樣的六行物件常值。
+function readVar(ctx, tmp, parentId) {
+    const id = ctx.nextId();
+    ctx.blocks[id] = {
+        opcode: 'data_variable', next: null, parent: parentId,
+        inputs: {}, fields: {VARIABLE: [tmp.name, tmp.id]}, shadow: false, topLevel: false
+    };
+    return [2, id];
+}
+
+// 建一個「設定暫時變數」的data_setvariableto積木並登記進ctx.blocks，回傳其id。
+function setVar(ctx, tmp, valueInput, parentId, nextId) {
+    const id = ctx.nextId();
+    ctx.blocks[id] = {
+        opcode: 'data_setvariableto', next: nextId || null, parent: parentId,
+        inputs: {VALUE: valueInput}, fields: {VARIABLE: [tmp.name, tmp.id]}, shadow: false, topLevel: false
+    };
+    return id;
 }
 
 // ---- value（reporter）轉換：回傳Scratch input陣列格式 ----
@@ -366,6 +400,194 @@ function convertValueBlock(blockEl, parentId, ctx) {
         };
         return [2, readId];
     }
+    if (type === 'math_constrain') {
+        // Scratch沒有原生「限制在範圍內」積木，hoist成：先把VALUE存進暫時變數，
+        // 再依序用兩個獨立的if（不是if-else）分別把小於LOW、大於HIGH的情況修正回界線值，
+        // 這裡回傳讀取該暫時變數的最終值。LOW/HIGH各自的運算式會被求值兩次（一次給比較、
+        // 一次給指派）——跟lists_getIndex的GET_REMOVE同樣道理，這兩個都只是純運算式，
+        // 兩次之間沒有任何東西會改變它們的值，是安全的。
+        const tmp = ctx.newTempVar('constrain');
+        const setValId = ctx.nextId();
+        const ifLowId = ctx.nextId();
+        const cmpLowId = ctx.nextId();
+        const cmpLowReadId = ctx.nextId();
+        const setLowId = ctx.nextId();
+        const ifHighId = ctx.nextId();
+        const cmpHighId = ctx.nextId();
+        const cmpHighReadId = ctx.nextId();
+        const setHighId = ctx.nextId();
+        const valueInput = convertValueInput(blockEl, 'VALUE', setValId, ctx);
+        const lowInputForCmp = convertValueInput(blockEl, 'LOW', cmpLowId, ctx);
+        const lowInputForSet = convertValueInput(blockEl, 'LOW', setLowId, ctx);
+        const highInputForCmp = convertValueInput(blockEl, 'HIGH', cmpHighId, ctx);
+        const highInputForSet = convertValueInput(blockEl, 'HIGH', setHighId, ctx);
+        ctx.pending.push((parentIdForFirst) => {
+            ctx.blocks[setValId] = {
+                opcode: 'data_setvariableto', next: ifLowId, parent: parentIdForFirst,
+                inputs: {VALUE: valueInput}, fields: {VARIABLE: [tmp.name, tmp.id]}, shadow: false, topLevel: false
+            };
+            ctx.blocks[cmpLowReadId] = {
+                opcode: 'data_variable', next: null, parent: cmpLowId,
+                inputs: {}, fields: {VARIABLE: [tmp.name, tmp.id]}, shadow: false, topLevel: false
+            };
+            ctx.blocks[cmpLowId] = {
+                opcode: 'operator_lt', next: null, parent: ifLowId,
+                inputs: {OPERAND1: [2, cmpLowReadId], OPERAND2: lowInputForCmp}, fields: {}, shadow: false, topLevel: false
+            };
+            ctx.blocks[setLowId] = {
+                opcode: 'data_setvariableto', next: null, parent: ifLowId,
+                inputs: {VALUE: lowInputForSet}, fields: {VARIABLE: [tmp.name, tmp.id]}, shadow: false, topLevel: false
+            };
+            ctx.blocks[ifLowId] = {
+                opcode: 'control_if', next: ifHighId, parent: setValId,
+                inputs: {CONDITION: [2, cmpLowId], SUBSTACK: [2, setLowId]}, fields: {}, shadow: false, topLevel: false
+            };
+            ctx.blocks[cmpHighReadId] = {
+                opcode: 'data_variable', next: null, parent: cmpHighId,
+                inputs: {}, fields: {VARIABLE: [tmp.name, tmp.id]}, shadow: false, topLevel: false
+            };
+            ctx.blocks[cmpHighId] = {
+                opcode: 'operator_gt', next: null, parent: ifHighId,
+                inputs: {OPERAND1: [2, cmpHighReadId], OPERAND2: highInputForCmp}, fields: {}, shadow: false, topLevel: false
+            };
+            ctx.blocks[setHighId] = {
+                opcode: 'data_setvariableto', next: null, parent: ifHighId,
+                inputs: {VALUE: highInputForSet}, fields: {VARIABLE: [tmp.name, tmp.id]}, shadow: false, topLevel: false
+            };
+            ctx.blocks[ifHighId] = {
+                opcode: 'control_if', next: null, parent: ifLowId,
+                inputs: {CONDITION: [2, cmpHighId], SUBSTACK: [2, setHighId]}, fields: {}, shadow: false, topLevel: false
+            };
+            return {firstId: setValId, lastId: ifHighId};
+        });
+        const readId = ctx.nextId();
+        ctx.blocks[readId] = {
+            opcode: 'data_variable', next: null, parent: parentId,
+            inputs: {}, fields: {VARIABLE: [tmp.name, tmp.id]}, shadow: false, topLevel: false
+        };
+        return [2, readId];
+    }
+    if (type === 'text_prompt_ext') {
+        // 語料裡只出現「詢問並等待＋讀取答案」的即問即答用法，hoist成一個
+        // sensing_askandwait statement插在目前statement之前，這裡回傳讀取sensing_answer。
+        // TYPE欄位（TEXT/NUMBER）在Scratch沒有對應概念（answer本來就是字串，數字比較時
+        // 靠Cast自動轉換），不需要處理。
+        const askId = ctx.nextId();
+        const questionInput = convertValueInput(blockEl, 'TEXT', askId, ctx);
+        ctx.pending.push((parentIdForFirst) => {
+            ctx.blocks[askId] = {
+                opcode: 'sensing_askandwait', next: null, parent: parentIdForFirst,
+                inputs: {QUESTION: questionInput}, fields: {}, shadow: false, topLevel: false
+            };
+            return {firstId: askId, lastId: askId};
+        });
+        const readId = ctx.nextId();
+        ctx.blocks[readId] = {
+            opcode: 'sensing_answer', next: null, parent: parentId,
+            inputs: {}, fields: {}, shadow: false, topLevel: false
+        };
+        return [2, readId];
+    }
+    if (type === 'text_getSubstring') {
+        // 語料裡只出現WHERE1=FROM_END＋WHERE2=LAST這個組合（取字串最後AT1個字元），
+        // 只支援這個實際用到的組合，其餘丟錯（跟text_charAt只支援FROM_START同一個
+        // 「只做語料實際出現的用法」原則）。Scratch沒有substring積木，hoist成：
+        // 先把STRING存進暫時變數，算出起始索引（字串長度－AT1＋1），用一個迴圈把
+        // 從起始索引到字串結尾的每個字元逐一組回字串，回傳讀取該結果暫時變數。
+        const where1 = fieldText(blockEl, 'WHERE1');
+        const where2 = fieldText(blockEl, 'WHERE2');
+        if (where1 !== 'FROM_END' || where2 !== 'LAST') {
+            throw new Error(`text_getSubstring只支援WHERE1=FROM_END/WHERE2=LAST（實際：${where1}/${where2}）`);
+        }
+        const tmpText = ctx.newTempVar('substrText');
+        const tmpResult = ctx.newTempVar('substrResult');
+        const tmpI = ctx.newTempVar('substrI');
+
+        const setTextId = ctx.nextId();
+        const stringInput = convertValueInput(blockEl, 'STRING', setTextId, ctx);
+        const subForIId = ctx.nextId();
+        const at1Input = convertValueInput(blockEl, 'AT1', subForIId, ctx);
+
+        ctx.pending.push((parentIdForFirst) => {
+            ctx.blocks[setTextId] = {
+                opcode: 'data_setvariableto', next: null, parent: parentIdForFirst,
+                inputs: {VALUE: stringInput}, fields: {VARIABLE: [tmpText.name, tmpText.id]}, shadow: false, topLevel: false
+            };
+            const setResultId = setVar(ctx, tmpResult, [1, [10, '']], setTextId);
+            ctx.blocks[setTextId].next = setResultId;
+
+            // tmp_i = length(tmp_text) - AT1 + 1
+            const lenForIId = ctx.nextId();
+            ctx.blocks[lenForIId] = {
+                opcode: 'operator_length', next: null, parent: subForIId,
+                inputs: {STRING: readVar(ctx, tmpText, lenForIId)}, fields: {}, shadow: false, topLevel: false
+            };
+            const addForIId = ctx.nextId();
+            ctx.blocks[subForIId] = {
+                opcode: 'operator_subtract', next: null, parent: addForIId,
+                inputs: {NUM1: [2, lenForIId], NUM2: at1Input}, fields: {}, shadow: false, topLevel: false
+            };
+            ctx.blocks[addForIId] = {
+                opcode: 'operator_add', next: null, parent: null,
+                inputs: {NUM1: [2, subForIId], NUM2: [1, [4, '1']]}, fields: {}, shadow: false, topLevel: false
+            };
+            const setIId = setVar(ctx, tmpI, [2, addForIId], setResultId);
+            ctx.blocks[addForIId].parent = setIId;
+            ctx.blocks[setResultId].next = setIId;
+
+            // loop：repeat until (i > length(text)) { result = join(result, letter(i, text)); i = i + 1 }
+            const loopId = ctx.nextId();
+            const cmpId = ctx.nextId();
+            const lenForCmpId = ctx.nextId();
+            ctx.blocks[lenForCmpId] = {
+                opcode: 'operator_length', next: null, parent: cmpId,
+                inputs: {STRING: readVar(ctx, tmpText, lenForCmpId)}, fields: {}, shadow: false, topLevel: false
+            };
+            ctx.blocks[cmpId] = {
+                opcode: 'operator_gt', next: null, parent: loopId,
+                inputs: {OPERAND1: readVar(ctx, tmpI, cmpId), OPERAND2: [2, lenForCmpId]}, fields: {}, shadow: false, topLevel: false
+            };
+
+            const appendSetId = ctx.nextId();
+            const letterId = ctx.nextId();
+            ctx.blocks[letterId] = {
+                opcode: 'operator_letter_of', next: null, parent: appendSetId,
+                inputs: {LETTER: readVar(ctx, tmpI, letterId), STRING: readVar(ctx, tmpText, letterId)},
+                fields: {}, shadow: false, topLevel: false
+            };
+            const appendId = ctx.nextId();
+            ctx.blocks[appendId] = {
+                opcode: 'operator_join', next: null, parent: appendSetId,
+                inputs: {STRING1: readVar(ctx, tmpResult, appendId), STRING2: [2, letterId]},
+                fields: {}, shadow: false, topLevel: false
+            };
+            ctx.blocks[letterId].parent = appendId;
+
+            const incId = ctx.nextId();
+            ctx.blocks[appendSetId] = {
+                opcode: 'data_setvariableto', next: incId, parent: loopId,
+                inputs: {VALUE: [2, appendId]}, fields: {VARIABLE: [tmpResult.name, tmpResult.id]}, shadow: false, topLevel: false
+            };
+            const addIncId = ctx.nextId();
+            ctx.blocks[incId] = {
+                opcode: 'data_setvariableto', next: null, parent: appendSetId,
+                inputs: {VALUE: [2, addIncId]}, fields: {VARIABLE: [tmpI.name, tmpI.id]}, shadow: false, topLevel: false
+            };
+            ctx.blocks[addIncId] = {
+                opcode: 'operator_add', next: null, parent: incId,
+                inputs: {NUM1: readVar(ctx, tmpI, addIncId), NUM2: [1, [4, '1']]}, fields: {}, shadow: false, topLevel: false
+            };
+
+            ctx.blocks[loopId] = {
+                opcode: 'control_repeat_until', next: null, parent: setIId,
+                inputs: {CONDITION: [2, cmpId], SUBSTACK: [2, appendSetId]}, fields: {}, shadow: false, topLevel: false
+            };
+            ctx.blocks[setIId].next = loopId;
+
+            return {firstId: setTextId, lastId: loopId};
+        });
+        return readVar(ctx, tmpResult, parentId);
+    }
     if (type === 'lists_getIndex') {
         const mode = fieldText(blockEl, 'MODE');
         const where = fieldText(blockEl, 'WHERE');
@@ -449,8 +671,26 @@ function convertValueBlock(blockEl, parentId, ctx) {
 
 function convertValueFromValueEl(valueEl, parentId, ctx) {
     const inner = blockChild(valueEl);
-    if (!inner) return [1, [10, '']];
-    return convertValueBlock(inner, parentId, ctx);
+    if (inner) return convertValueBlock(inner, parentId, ctx);
+    // 2026-09-25發現的真bug：這裡原本沒有<block>子標籤就直接回傳空字串，沒有考慮
+    // 「使用者沒有覆寫、直接沿用積木本身預設值」時Blockly會改用<shadow>標籤（不是
+    // <block>）表達這個預設值的情況——lists_split的DELIM欄位在語料裡就是這種「作者
+    // 接受預設逗號、沒有另外接一顆text積木」的shadow-only用法，導致分隔符號被讀成
+    // 空字串，永遠比對不到，整段字串完全沒被拆開卻不會丟例外（症狀跟lists_setIndex
+    // 那次VALUE/TO欄位名稱搞錯一樣：轉換不報錯、示範解答執行不crash，但輸出全部
+    // 不對，只有真的跑headless驗證比對正確答案才抓得到）。修法：沒有<block>時退而
+    // 找<shadow>，直接讀shadow自己的欄位值當常數，跟Blockly runtime本身「沒有真的
+    // 積木插入插槽時就使用shadow積木」的語意一致。目前語料只需要text／math_number
+    // 這兩種shadow類型。
+    const shadow = childByTag(valueEl, 'shadow');
+    if (shadow) {
+        if (shadow.attrs.type === 'text') return [1, [10, fieldText(shadow, 'TEXT')]];
+        if (shadow.attrs.type === 'math_number' || shadow.attrs.type === 'math_positive_number' || shadow.attrs.type === 'math_whole_number') {
+            return [1, [4, fieldText(shadow, 'NUM')]];
+        }
+        throw new Error(`convertValueFromValueEl不支援的shadow類型：${shadow.attrs.type}`);
+    }
+    return [1, [10, '']];
 }
 
 function convertValueInput(parentEl, name, parentId, ctx) {
@@ -578,6 +818,79 @@ function buildStatementNode(el, id, parentId, ctx) {
             ctx.blocks[repeatId] = {opcode: 'control_repeat', next: null, parent: clearId, inputs: {TIMES: numInput, SUBSTACK: [2, addId]}, fields: {}, shadow: false, topLevel: false};
             ctx.blocks[clearId].next = repeatId;
             return repeatId;
+        }
+        if (inner && inner.attrs.type === 'lists_split' && ctx.listVars.has(varId)) {
+            // Scratch沒有「依分隔符號把字串拆成清單」的原生積木，展開成一段手寫的
+            // 逐字元掃描迴圈：INPUT/DELIM各自存進暫時變數（只求值一次，之後在迴圈裡
+            // 重複使用同一份，避免每次迭代重新求值），逐字元比對是不是分隔符號，
+            // 是的話把目前累積的字元組進清單、重置累積字串；不是就接到累積字串後面；
+            // 迴圈跑完最後還要把最後一段（結尾沒有分隔符號收尾）補進清單。
+            // 只支援MODE=SPLIT＋單一字元分隔符號（語料裡唯一出現的用法），多字元分隔符號
+            // 不在這個逐字元比對邏輯的支援範圍內。
+            const mode = fieldText(inner, 'MODE');
+            if (mode !== 'SPLIT') throw new Error(`lists_split只支援MODE=SPLIT（實際：${mode}）`);
+
+            ctx.ensureList(varId, varField.text);
+            const tmpTextVar = ctx.newTempVar('splitText');
+            const tmpDelimVar = ctx.newTempVar('splitDelim');
+            const tmpCurrentVar = ctx.newTempVar('splitCurrent');
+            const tmpIVar = ctx.newTempVar('splitI');
+            const tmpCharVar = ctx.newTempVar('splitChar');
+
+            const clearId = id;
+            ctx.blocks[clearId] = {opcode: 'data_deletealloflist', next: null, parent: parentId, inputs: {}, fields: {LIST: [varField.text, varId]}, shadow: false, topLevel: false};
+            const setTextId = setVar(ctx, tmpTextVar, convertValueInput(inner, 'INPUT', clearId, ctx), clearId);
+            ctx.blocks[clearId].next = setTextId;
+            const setDelimId = setVar(ctx, tmpDelimVar, convertValueInput(inner, 'DELIM', clearId, ctx), setTextId);
+            ctx.blocks[setTextId].next = setDelimId;
+            const setCurrentId = setVar(ctx, tmpCurrentVar, [1, [10, '']], setDelimId);
+            ctx.blocks[setDelimId].next = setCurrentId;
+            const setIId = setVar(ctx, tmpIVar, [1, [4, '1']], setCurrentId);
+            ctx.blocks[setCurrentId].next = setIId;
+
+            const loopId = ctx.nextId();
+            const cmpId = ctx.nextId();
+            const lenId = ctx.nextId();
+            ctx.blocks[lenId] = {opcode: 'operator_length', next: null, parent: cmpId, inputs: {STRING: readVar(ctx, tmpTextVar, lenId)}, fields: {}, shadow: false, topLevel: false};
+            ctx.blocks[cmpId] = {opcode: 'operator_gt', next: null, parent: loopId, inputs: {OPERAND1: readVar(ctx, tmpIVar, cmpId), OPERAND2: [2, lenId]}, fields: {}, shadow: false, topLevel: false};
+
+            const setCharId = ctx.nextId();
+            const letterId = ctx.nextId();
+            ctx.blocks[letterId] = {opcode: 'operator_letter_of', next: null, parent: setCharId, inputs: {LETTER: readVar(ctx, tmpIVar, letterId), STRING: readVar(ctx, tmpTextVar, letterId)}, fields: {}, shadow: false, topLevel: false};
+            ctx.blocks[setCharId] = {opcode: 'data_setvariableto', next: null, parent: loopId, inputs: {VALUE: [2, letterId]}, fields: {VARIABLE: [tmpCharVar.name, tmpCharVar.id]}, shadow: false, topLevel: false};
+
+            const ifElseId = ctx.nextId();
+            const isDelimId = ctx.nextId();
+            ctx.blocks[isDelimId] = {opcode: 'operator_equals', next: null, parent: ifElseId, inputs: {OPERAND1: readVar(ctx, tmpCharVar, isDelimId), OPERAND2: readVar(ctx, tmpDelimVar, isDelimId)}, fields: {}, shadow: false, topLevel: false};
+
+            const addTokenId = ctx.nextId();
+            const resetCurrentId = ctx.nextId();
+            ctx.blocks[addTokenId] = {opcode: 'data_addtolist', next: resetCurrentId, parent: ifElseId, inputs: {ITEM: readVar(ctx, tmpCurrentVar, addTokenId)}, fields: {LIST: [varField.text, varId]}, shadow: false, topLevel: false};
+            ctx.blocks[resetCurrentId] = {opcode: 'data_setvariableto', next: null, parent: addTokenId, inputs: {VALUE: [1, [10, '']]}, fields: {VARIABLE: [tmpCurrentVar.name, tmpCurrentVar.id]}, shadow: false, topLevel: false};
+
+            const appendCharId = ctx.nextId();
+            const joinId = ctx.nextId();
+            ctx.blocks[joinId] = {opcode: 'operator_join', next: null, parent: appendCharId, inputs: {STRING1: readVar(ctx, tmpCurrentVar, joinId), STRING2: readVar(ctx, tmpCharVar, joinId)}, fields: {}, shadow: false, topLevel: false};
+            ctx.blocks[appendCharId] = {opcode: 'data_setvariableto', next: null, parent: ifElseId, inputs: {VALUE: [2, joinId]}, fields: {VARIABLE: [tmpCurrentVar.name, tmpCurrentVar.id]}, shadow: false, topLevel: false};
+
+            ctx.blocks[ifElseId] = {opcode: 'control_if_else', next: null, parent: setCharId, inputs: {CONDITION: [2, isDelimId], SUBSTACK: [2, addTokenId], SUBSTACK2: [2, appendCharId]}, fields: {}, shadow: false, topLevel: false};
+            ctx.blocks[setCharId].next = ifElseId;
+
+            const incId = ctx.nextId();
+            const addOneId = ctx.nextId();
+            ctx.blocks[addOneId] = {opcode: 'operator_add', next: null, parent: incId, inputs: {NUM1: readVar(ctx, tmpIVar, addOneId), NUM2: [1, [4, '1']]}, fields: {}, shadow: false, topLevel: false};
+            ctx.blocks[incId] = {opcode: 'data_setvariableto', next: null, parent: ifElseId, inputs: {VALUE: [2, addOneId]}, fields: {VARIABLE: [tmpIVar.name, tmpIVar.id]}, shadow: false, topLevel: false};
+            ctx.blocks[ifElseId].next = incId;
+
+            ctx.blocks[loopId] = {opcode: 'control_repeat_until', next: null, parent: setIId, inputs: {CONDITION: [2, cmpId], SUBSTACK: [2, setCharId]}, fields: {}, shadow: false, topLevel: false};
+            ctx.blocks[setIId].next = loopId;
+
+            // 迴圈跑完，補上最後一段（結尾沒有分隔符號收尾的那一段）。
+            const addFinalId = ctx.nextId();
+            ctx.blocks[addFinalId] = {opcode: 'data_addtolist', next: null, parent: loopId, inputs: {ITEM: readVar(ctx, tmpCurrentVar, addFinalId)}, fields: {LIST: [varField.text, varId]}, shadow: false, topLevel: false};
+            ctx.blocks[loopId].next = addFinalId;
+
+            return addFinalId;
         }
 
         const node = {

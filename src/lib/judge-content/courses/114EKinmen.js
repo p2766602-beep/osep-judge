@@ -221,7 +221,7 @@ export default {
                 }
             ],
             "difficulty": "L2",
-            "sb3Path": null
+            "sb3Path": "m0/114EKinmen/114EKinmen-3.sb3"
         },
         {
             "id": "114EKinmen-4",
