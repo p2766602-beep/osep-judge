@@ -4,7 +4,7 @@ import VM from 'scratch-vm';
 import {gradeSubmission, prepareVmForGrading} from '../../lib/tw-judge-engine.js';
 import {scaffoldUrlForCourse} from '../../lib/scaffold-content.js';
 import judgeManualRun from '../../lib/judge-manual-run.js';
-import TaskList, {CourseTaskList} from './task-list.jsx';
+import TaskList, {CourseTaskList, saveActiveCode} from './task-list.jsx';
 import styles from './judge-panel.css';
 
 /**
@@ -382,6 +382,29 @@ const JudgePanel = ({vm}) => {
             cancelled = true;
         };
     }, []);
+
+    // 一鍵直達（2026-09-26）：網址帶 ?course=課程代碼&task=題號 時（例如
+    // ?course=B3-02-ListStats&task=CNT01-020），課程清單載入後自動用該代碼解鎖課程；有指定
+    // task就直接開那一題，否則停在該課程的題目清單。供teaching-scaffolds/basic/自主學習教材
+    // 的「前往練習」按鈕使用。代碼或題號對不到時不做任何事，維持原本的課程清單畫面。
+    useEffect(() => {
+        if (!judgeContent) return;
+        const params = new URLSearchParams(window.location.search);
+        const code = (params.get('course') || '').trim().toLowerCase();
+        if (!code) return;
+        const course = judgeContent.courses.find(item =>
+            (item.unlockCode && item.unlockCode.toLowerCase() === code) || item.code.toLowerCase() === code
+        );
+        if (!course) return;
+        if (course.unlockCode) saveActiveCode(course.unlockCode);
+        const taskId = (params.get('task') || '').trim();
+        const matchedTask = taskId ? course.tasks.find(item => item.id === taskId) : null;
+        if (matchedTask) {
+            setSelectedTaskCode(matchedTask.code);
+        } else {
+            setViewingCourseCode(course.code);
+        }
+    }, [judgeContent]);
 
     // 使用者選了某個題目後，才動態載入該題目所屬課程的完整資料（description/testCases等）。
     useEffect(() => {

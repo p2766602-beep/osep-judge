@@ -231,4 +231,4 @@ TaskList.propTypes = {
 };
 
 export default TaskList;
-export {CourseTaskList};
+export {CourseTaskList, saveActiveCode};
