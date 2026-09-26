@@ -1,0 +1,207 @@
+/**
+ * 自動產生，不要手動編輯——見scripts/judge-dev-tools/gen-judge-content.js。
+ * 要改題目內容請去改YDWS-CodingBank/courses/B7-01對應的正本課程檔，重跑該腳本。
+ */
+export default {
+    "code": "B7-01",
+    "title": "K19 堆疊與佇列",
+    "tier": "t1",
+    "unlockCode": "B7-01-StackQueue",
+    "tasks": [
+        {
+            "id": "M1-11-01",
+            "code": "B7-01-M1-11-01",
+            "title": "堆疊操作模擬",
+            "description": "請你模擬堆疊（後進先出）的操作：指令代碼1代表PUSH（把數字加入堆疊頂端），指令代碼2代表POP（把堆疊頂端的數字移除；如果堆疊是空的，這個指令就跳過不執行）。全部指令執行完後，請輸出堆疊裡剩下的內容，由最底部到最頂部依序輸出，空白分隔；如果堆疊是空的，輸出「空」。\n\n第一行輸入M，代表共有M個指令\n\n第二行輸入M個指令代碼（1或2）\n\n第三行輸入M個數字，只有指令代碼是1（PUSH）時才會用到對應位置的數字，指令代碼是2時該位置數字請忽略。",
+            "examples": [
+                {
+                    "input": "5\n1 1 2 1 2\n10 20 0 30 0",
+                    "output": "10",
+                    "explanation": "push10[10]，push20[10,20]，pop移除20變[10]，push30[10,30]，pop移除30變[10]，最後剩[10]"
+                }
+            ],
+            "testCases": [
+                {
+                    "input": "5\n1 1 2 1 2\n10 20 0 30 0",
+                    "expectedOutput": "10",
+                    "score": 25
+                },
+                {
+                    "input": "3\n2 2 2\n0 0 0",
+                    "expectedOutput": "空",
+                    "score": 25
+                },
+                {
+                    "input": "4\n1 1 1 1\n1 2 3 4",
+                    "expectedOutput": "1 2 3 4",
+                    "score": 25
+                },
+                {
+                    "input": "2\n1 2\n5 0",
+                    "expectedOutput": "空",
+                    "score": 25
+                }
+            ],
+            "difficulty": "L2",
+            "difficultyLabel": "L2｜進階",
+            "sb3Path": "m0/B7-01-StackQueue/M1-11-01.sb3"
+        },
+        {
+            "id": "M1-11-02",
+            "code": "B7-01-M1-11-02",
+            "title": "佇列操作模擬",
+            "description": "請你模擬佇列（先進先出）的操作：指令代碼1代表ENQUEUE（把數字加入佇列最後面），指令代碼2代表DEQUEUE（把佇列最前面的數字移除；如果佇列是空的，這個指令就跳過不執行）。全部指令執行完後，請輸出佇列裡剩下的內容，由最前面到最後面依序輸出，空白分隔；如果佇列是空的，輸出「空」。\n\n第一行輸入M，代表共有M個指令\n\n第二行輸入M個指令代碼（1或2）\n\n第三行輸入M個數字，只有指令代碼是1（ENQUEUE）時才會用到對應位置的數字。",
+            "examples": [
+                {
+                    "input": "5\n1 1 2 1 2\n10 20 0 30 0",
+                    "output": "30",
+                    "explanation": "enqueue10[10]，enqueue20[10,20]，dequeue移除10變[20]，enqueue30[20,30]，dequeue移除20變[30]，最後剩[30]"
+                }
+            ],
+            "testCases": [
+                {
+                    "input": "5\n1 1 2 1 2\n10 20 0 30 0",
+                    "expectedOutput": "30",
+                    "score": 25
+                },
+                {
+                    "input": "3\n2 2 2\n0 0 0",
+                    "expectedOutput": "空",
+                    "score": 25
+                },
+                {
+                    "input": "4\n1 1 1 1\n1 2 3 4",
+                    "expectedOutput": "1 2 3 4",
+                    "score": 25
+                },
+                {
+                    "input": "2\n1 2\n5 0",
+                    "expectedOutput": "空",
+                    "score": 25
+                }
+            ],
+            "difficulty": "L2",
+            "difficultyLabel": "L2｜進階",
+            "sb3Path": "m0/B7-01-StackQueue/M1-11-02.sb3"
+        },
+        {
+            "id": "M1-11-04",
+            "code": "B7-01-M1-11-04",
+            "title": "瀏覽器上一頁模擬",
+            "description": "請你模擬瀏覽器的『上一頁』功能：指令代碼1代表造訪一個新頁面（頁面代碼是一個數字，會被放進瀏覽紀錄堆疊）；指令代碼2代表按下上一頁（從堆疊移除目前頁面，回到上一頁；如果已經沒有上一頁可以回，這個指令就跳過不執行）。全部指令執行完後，輸出目前所在頁面的代碼；如果從頭到尾都沒有造訪任何頁面（堆疊是空的），輸出0。\n\n第一行輸入M，代表共有M個指令\n\n第二行輸入M個指令代碼（1代表造訪，2代表上一頁）\n\n第三行輸入M個數字，只有指令代碼是1時才會用到對應位置的數字。",
+            "examples": [
+                {
+                    "input": "4\n1 1 1 2\n100 200 300 0",
+                    "output": "200",
+                    "explanation": "依序造訪100,200,300，再按上一頁移除300，目前在200"
+                }
+            ],
+            "testCases": [
+                {
+                    "input": "4\n1 1 1 2\n100 200 300 0",
+                    "expectedOutput": "200",
+                    "score": 25
+                },
+                {
+                    "input": "3\n1 2 2\n5 0 0",
+                    "expectedOutput": "0",
+                    "score": 25
+                },
+                {
+                    "input": "2\n2 2\n0 0",
+                    "expectedOutput": "0",
+                    "score": 25
+                },
+                {
+                    "input": "5\n1 1 2 1 2\n1 2 0 3 0",
+                    "expectedOutput": "1",
+                    "score": 25
+                }
+            ],
+            "difficulty": "L2",
+            "difficultyLabel": "L2｜進階",
+            "sb3Path": "m0/B7-01-StackQueue/M1-11-04.sb3"
+        },
+        {
+            "id": "M1-11-05",
+            "code": "B7-01-M1-11-05",
+            "title": "排隊叫號系統模擬",
+            "description": "請你模擬排隊叫號系統：指令代碼1代表有一位顧客加入隊伍排隊（號碼是一個數字，加到隊伍最後面）；指令代碼2代表叫號服務隊伍最前面的顧客（把他從隊伍移除；如果隊伍是空的，這個指令就跳過不執行）。全部指令執行完後，輸出還在排隊的顧客號碼，依隊伍前到後順序輸出，空白分隔；如果隊伍是空的，輸出「空」。\n\n第一行輸入M，代表共有M個指令\n\n第二行輸入M個指令代碼（1代表加入排隊，2代表叫號）\n\n第三行輸入M個數字，只有指令代碼是1時才會用到對應位置的數字。",
+            "examples": [
+                {
+                    "input": "4\n1 1 1 2\n101 102 103 0",
+                    "output": "102 103",
+                    "explanation": "101,102,103依序排隊，叫號移除最前面的101，剩下102,103"
+                }
+            ],
+            "testCases": [
+                {
+                    "input": "4\n1 1 1 2\n101 102 103 0",
+                    "expectedOutput": "102 103",
+                    "score": 25
+                },
+                {
+                    "input": "3\n1 2 2\n5 0 0",
+                    "expectedOutput": "空",
+                    "score": 25
+                },
+                {
+                    "input": "2\n2 2\n0 0",
+                    "expectedOutput": "空",
+                    "score": 25
+                },
+                {
+                    "input": "5\n1 1 2 1 2\n1 2 0 3 0",
+                    "expectedOutput": "3",
+                    "score": 25
+                }
+            ],
+            "difficulty": "L2",
+            "difficultyLabel": "L2｜進階",
+            "sb3Path": "m0/B7-01-StackQueue/M1-11-05.sb3"
+        },
+        {
+            "id": "M1-11-03",
+            "code": "B7-01-M1-11-03",
+            "title": "【延伸】括號配對是否合法",
+            "description": "請你判斷一串只包含小括號的字串，括號是否完全合法配對（每個左括號都有對應的右括號，且順序正確，右括號不會在對應的左括號之前出現）。\n\n第一行輸入一個只包含'('與')'的字串\n\n如果合法配對，輸出「合法」；否則輸出「不合法」。",
+            "examples": [
+                {
+                    "input": "(())",
+                    "output": "合法",
+                    "explanation": "每個左括號都有對應的右括號，順序也正確"
+                },
+                {
+                    "input": "(()",
+                    "output": "不合法",
+                    "explanation": "有一個左括號沒有對應的右括號"
+                }
+            ],
+            "testCases": [
+                {
+                    "input": "(())",
+                    "expectedOutput": "合法",
+                    "score": 25
+                },
+                {
+                    "input": "(()",
+                    "expectedOutput": "不合法",
+                    "score": 25
+                },
+                {
+                    "input": ")(",
+                    "expectedOutput": "不合法",
+                    "score": 25
+                },
+                {
+                    "input": "()()()",
+                    "expectedOutput": "合法",
+                    "score": 25
+                }
+            ],
+            "difficulty": "L3",
+            "difficultyLabel": "L3｜挑戰",
+            "sb3Path": "m0/B7-01-StackQueue/M1-11-03.sb3"
+        }
+    ]
+};

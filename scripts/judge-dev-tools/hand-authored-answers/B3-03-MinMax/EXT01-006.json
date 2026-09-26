@@ -1,0 +1,576 @@
+{
+  "variables": {
+    "v_n": [
+      "N",
+      ""
+    ],
+    "v_max": [
+      "最大值",
+      ""
+    ],
+    "v_second": [
+      "第二高",
+      ""
+    ],
+    "v_num": [
+      "數字",
+      ""
+    ]
+  },
+  "blocks": {
+    "h1": {
+      "opcode": "event_whenflagclicked",
+      "next": "h2",
+      "parent": null,
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": true,
+      "x": 40,
+      "y": 40
+    },
+    "h2": {
+      "opcode": "sensing_askandwait",
+      "next": "h4",
+      "parent": "h1",
+      "inputs": {
+        "QUESTION": [
+          1,
+          [
+            10,
+            "請輸入N"
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "h3": {
+      "opcode": "sensing_answer",
+      "next": null,
+      "parent": "h1",
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "h4": {
+      "opcode": "data_setvariableto",
+      "next": "h5",
+      "parent": "h2",
+      "inputs": {
+        "VALUE": [
+          2,
+          "h3"
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "N",
+          "v_n"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "h5": {
+      "opcode": "data_setvariableto",
+      "next": "h6",
+      "parent": "h4",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            4,
+            "-999999999"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "最大值",
+          "v_max"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "h6": {
+      "opcode": "data_setvariableto",
+      "next": "h7",
+      "parent": "h5",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            4,
+            "-999999999"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "第二高",
+          "v_second"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "h7": {
+      "opcode": "control_repeat",
+      "next": "h34",
+      "parent": "h6",
+      "inputs": {
+        "TIMES": [
+          2,
+          "h8"
+        ],
+        "SUBSTACK": [
+          2,
+          "h9"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "h8": {
+      "opcode": "data_variable",
+      "next": null,
+      "parent": "h7",
+      "inputs": {},
+      "fields": {
+        "VARIABLE": [
+          "N",
+          "v_n"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "h9": {
+      "opcode": "sensing_askandwait",
+      "next": "h11",
+      "parent": "h7",
+      "inputs": {
+        "QUESTION": [
+          1,
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "h10": {
+      "opcode": "sensing_answer",
+      "next": null,
+      "parent": "h7",
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "h11": {
+      "opcode": "data_setvariableto",
+      "next": "h12",
+      "parent": "h9",
+      "inputs": {
+        "VALUE": [
+          2,
+          "h10"
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "數字",
+          "v_num"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "h12": {
+      "opcode": "control_if_else",
+      "next": null,
+      "parent": "h11",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "h15"
+        ],
+        "SUBSTACK": [
+          2,
+          "h17"
+        ],
+        "SUBSTACK2": [
+          2,
+          "h20"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "h13": {
+      "opcode": "data_variable",
+      "next": null,
+      "parent": "h12",
+      "inputs": {},
+      "fields": {
+        "VARIABLE": [
+          "數字",
+          "v_num"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "h14": {
+      "opcode": "data_variable",
+      "next": null,
+      "parent": "h12",
+      "inputs": {},
+      "fields": {
+        "VARIABLE": [
+          "最大值",
+          "v_max"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "h15": {
+      "opcode": "operator_gt",
+      "next": null,
+      "parent": "h12",
+      "inputs": {
+        "OPERAND1": [
+          2,
+          "h13"
+        ],
+        "OPERAND2": [
+          2,
+          "h14"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "h16": {
+      "opcode": "data_variable",
+      "next": null,
+      "parent": "h12",
+      "inputs": {},
+      "fields": {
+        "VARIABLE": [
+          "最大值",
+          "v_max"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "h17": {
+      "opcode": "data_setvariableto",
+      "next": "h19",
+      "parent": "h12",
+      "inputs": {
+        "VALUE": [
+          2,
+          "h16"
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "第二高",
+          "v_second"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "h18": {
+      "opcode": "data_variable",
+      "next": null,
+      "parent": "h12",
+      "inputs": {},
+      "fields": {
+        "VARIABLE": [
+          "數字",
+          "v_num"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "h19": {
+      "opcode": "data_setvariableto",
+      "next": null,
+      "parent": "h17",
+      "inputs": {
+        "VALUE": [
+          2,
+          "h18"
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "最大值",
+          "v_max"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "h20": {
+      "opcode": "control_if",
+      "next": null,
+      "parent": "h12",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "h27"
+        ],
+        "SUBSTACK": [
+          2,
+          "h29"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "h21": {
+      "opcode": "data_variable",
+      "next": null,
+      "parent": "h20",
+      "inputs": {},
+      "fields": {
+        "VARIABLE": [
+          "數字",
+          "v_num"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "h22": {
+      "opcode": "data_variable",
+      "next": null,
+      "parent": "h20",
+      "inputs": {},
+      "fields": {
+        "VARIABLE": [
+          "第二高",
+          "v_second"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "h23": {
+      "opcode": "operator_gt",
+      "next": null,
+      "parent": "h20",
+      "inputs": {
+        "OPERAND1": [
+          2,
+          "h21"
+        ],
+        "OPERAND2": [
+          2,
+          "h22"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "h24": {
+      "opcode": "data_variable",
+      "next": null,
+      "parent": "h20",
+      "inputs": {},
+      "fields": {
+        "VARIABLE": [
+          "數字",
+          "v_num"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "h25": {
+      "opcode": "data_variable",
+      "next": null,
+      "parent": "h20",
+      "inputs": {},
+      "fields": {
+        "VARIABLE": [
+          "最大值",
+          "v_max"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "h26": {
+      "opcode": "operator_lt",
+      "next": null,
+      "parent": "h20",
+      "inputs": {
+        "OPERAND1": [
+          2,
+          "h24"
+        ],
+        "OPERAND2": [
+          2,
+          "h25"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "h27": {
+      "opcode": "operator_and",
+      "next": null,
+      "parent": "h20",
+      "inputs": {
+        "OPERAND1": [
+          2,
+          "h23"
+        ],
+        "OPERAND2": [
+          2,
+          "h26"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "h28": {
+      "opcode": "data_variable",
+      "next": null,
+      "parent": "h20",
+      "inputs": {},
+      "fields": {
+        "VARIABLE": [
+          "數字",
+          "v_num"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "h29": {
+      "opcode": "data_setvariableto",
+      "next": null,
+      "parent": "h20",
+      "inputs": {
+        "VALUE": [
+          2,
+          "h28"
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "第二高",
+          "v_second"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "h30": {
+      "opcode": "data_variable",
+      "next": null,
+      "parent": "h1",
+      "inputs": {},
+      "fields": {
+        "VARIABLE": [
+          "最大值",
+          "v_max"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "h31": {
+      "opcode": "operator_join",
+      "next": null,
+      "parent": "h1",
+      "inputs": {
+        "STRING1": [
+          2,
+          "h30"
+        ],
+        "STRING2": [
+          1,
+          [
+            10,
+            " "
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "h32": {
+      "opcode": "data_variable",
+      "next": null,
+      "parent": "h1",
+      "inputs": {},
+      "fields": {
+        "VARIABLE": [
+          "第二高",
+          "v_second"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "h33": {
+      "opcode": "operator_join",
+      "next": null,
+      "parent": "h1",
+      "inputs": {
+        "STRING1": [
+          2,
+          "h31"
+        ],
+        "STRING2": [
+          2,
+          "h32"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "h34": {
+      "opcode": "looks_say",
+      "next": null,
+      "parent": "h7",
+      "inputs": {
+        "MESSAGE": [
+          2,
+          "h33"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    }
+  },
+  "lists": {}
+}

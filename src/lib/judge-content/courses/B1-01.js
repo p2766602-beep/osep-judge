@@ -1,0 +1,141 @@
+/**
+ * 自動產生，不要手動編輯——見scripts/judge-dev-tools/gen-judge-content.js。
+ * 要改題目內容請去改YDWS-CodingBank/courses/B1-01對應的正本課程檔，重跑該腳本。
+ */
+export default {
+    "code": "B1-01",
+    "title": "K01 輸入與輸出",
+    "tier": "t0",
+    "unlockCode": "B1-01-InputOutput",
+    "tasks": [
+        {
+            "id": "A-01-0",
+            "code": "B1-01-A-01-0",
+            "title": "Hello world",
+            "description": "在程式設計的第一步，最重要的是能夠讀取使用者輸入，並將結果正確輸出。\n請你寫一個小程式，讓使用者輸入自己的名字，然後程式要輸出一行「Hello, 名字」。\nHello後面會接小寫逗號，還有一個空白輸入\n這樣的練習可以幫助你理解輸入與輸出，是學習程式設計的基礎。",
+            "examples": [
+                {
+                    "input": "Amy",
+                    "output": "Hello, Amy",
+                    "explanation": "第一個輸入 Amy，代表名字為 Amy\n程式輸出 Hello, Amy"
+                },
+                {
+                    "input": "Tom",
+                    "output": "Hello, Tom",
+                    "explanation": ""
+                }
+            ],
+            "testCases": [
+                {
+                    "input": "John",
+                    "expectedOutput": "Hello, John",
+                    "score": 10
+                },
+                {
+                    "input": "Marry",
+                    "expectedOutput": "Hello, Marry",
+                    "score": 10
+                },
+                {
+                    "input": "Sam",
+                    "expectedOutput": "Hello, Sam",
+                    "score": 10
+                },
+                {
+                    "input": "Tom",
+                    "expectedOutput": "Hello, Tom",
+                    "score": 10
+                }
+            ],
+            "difficulty": "L1",
+            "difficultyLabel": "L1｜基礎",
+            "sb3Path": "m0/B1-01-InputOutput/A-01-0.sb3"
+        },
+        {
+            "id": "A-01-1",
+            "code": "B1-01-A-01-1",
+            "title": "一起學習吧",
+            "description": "在程式設計的第一步，最重要的是能夠讀取使用者輸入，並將結果正確輸出。\n請你寫一個小程式，讓使用者輸入好朋友一的名字、接著輸入好朋友二的名字，然後程式要輸出一行「朋友一名字,朋友二名字, 一起學習吧！」。\n朋友一名字後面、朋友二名字後面都會接小寫逗號，還有一個空白輸入\n這樣的練習可以幫助你理解輸入與輸出，是學習程式設計的基礎。",
+            "examples": [
+                {
+                    "input": "Amy\nJohn",
+                    "output": "Amy, John, 一起學習吧！",
+                    "explanation": "第一個輸入 Amy，代表朋友一名字為 Amy\n第二個輸入 John，代表朋友二名字為 John\n程式輸出 Amy, John, 一起學習吧！"
+                },
+                {
+                    "input": "Tom\nSusan",
+                    "output": "Tom, Susan, 一起學習吧！",
+                    "explanation": ""
+                }
+            ],
+            "testCases": [
+                {
+                    "input": "John\nAmy",
+                    "expectedOutput": "John, Amy, 一起學習吧！",
+                    "score": 10
+                },
+                {
+                    "input": "Tom\nSusan",
+                    "expectedOutput": "Tom, Susan, 一起學習吧！",
+                    "score": 10
+                },
+                {
+                    "input": "Sam\nBrown",
+                    "expectedOutput": "Sam, Brown, 一起學習吧！",
+                    "score": 10
+                },
+                {
+                    "input": "Justin\nLouise",
+                    "expectedOutput": "Justin, Louise, 一起學習吧！",
+                    "score": 10
+                }
+            ],
+            "difficulty": "L1",
+            "difficultyLabel": "L1｜基礎",
+            "sb3Path": "m0/B1-01-InputOutput/A-01-1.sb3"
+        },
+        {
+            "id": "A-02-0",
+            "code": "B1-01-A-02-0",
+            "title": "數字加總",
+            "description": "當我們要處理數字時，常常需要加總。\n請設計一個程式，讓使用者輸入兩個數字，程式要輸出這兩個數字的總和。\n這樣的題目能幫助你熟悉數字資料處理。",
+            "examples": [
+                {
+                    "input": "9\n4",
+                    "output": "13",
+                    "explanation": "第一個輸入9\n第二個輸入4\n程式輸出9+4總和13"
+                },
+                {
+                    "input": "6\n5",
+                    "output": "11",
+                    "explanation": ""
+                }
+            ],
+            "testCases": [
+                {
+                    "input": "3\n7",
+                    "expectedOutput": "10",
+                    "score": 10
+                },
+                {
+                    "input": "99\n100",
+                    "expectedOutput": "199",
+                    "score": 10
+                },
+                {
+                    "input": "78\n22",
+                    "expectedOutput": "100",
+                    "score": 10
+                },
+                {
+                    "input": "21\n35",
+                    "expectedOutput": "56",
+                    "score": 10
+                }
+            ],
+            "difficulty": "L1",
+            "difficultyLabel": "L1｜基礎",
+            "sb3Path": "m0/B1-01-InputOutput/A-02-0.sb3"
+        }
+    ]
+};

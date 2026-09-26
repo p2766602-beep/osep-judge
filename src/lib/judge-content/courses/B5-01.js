@@ -1,0 +1,245 @@
+/**
+ * 自動產生，不要手動編輯——見scripts/judge-dev-tools/gen-judge-content.js。
+ * 要改題目內容請去改YDWS-CodingBank/courses/B5-01對應的正本課程檔，重跑該腳本。
+ */
+export default {
+    "code": "B5-01",
+    "title": "K14 因數、倍數與質數",
+    "tier": "t1",
+    "unlockCode": "B5-01-Factors",
+    "tasks": [
+        {
+            "id": "MATH01-001",
+            "code": "B5-01-MATH01-001",
+            "title": "倍數判斷",
+            "description": "給定兩個正整數 A 與 B，請判斷 A 是否為 B 的倍數。",
+            "examples": [
+                {
+                    "input": "24 6",
+                    "output": "YES",
+                    "explanation": "24 可以被 6 整除，所以是 6 的倍數。"
+                }
+            ],
+            "testCases": [
+                {
+                    "input": "24 6",
+                    "expectedOutput": "YES",
+                    "score": 10
+                },
+                {
+                    "input": "25 6",
+                    "expectedOutput": "NO",
+                    "score": 10
+                },
+                {
+                    "input": "100 10",
+                    "expectedOutput": "YES",
+                    "score": 10
+                },
+                {
+                    "input": "7 9",
+                    "expectedOutput": "NO",
+                    "score": 10
+                }
+            ],
+            "difficulty": "L1",
+            "difficultyLabel": "L1｜基礎",
+            "sb3Path": "m0/B5-01-Factors/MATH01-001.sb3"
+        },
+        {
+            "id": "A-09-1",
+            "code": "B5-01-A-09-1",
+            "title": "找所有因數",
+            "description": "因數是指一個整數能被另一整數「整除」時，這個「除數」就是「被除數」的因數。\n\n0不是任何整數的因數。1是所有整數的因數。\n\n請寫一個程式，輸入一個整數 N，請找出N所有的因數。\n\n所有因數以空白符號間格\n\n這題訓練你使用條件與迴圈判斷。",
+            "examples": [
+                {
+                    "input": "12",
+                    "output": "1 2 3 4 6 12",
+                    "explanation": "第一行輸入12\n程式輸出12所有因數1 2 3 4 6 12"
+                },
+                {
+                    "input": "39",
+                    "output": "1 3 13 39",
+                    "explanation": "第一行輸入39\n程式輸出39所有因數1 3 13 39"
+                }
+            ],
+            "testCases": [
+                {
+                    "input": "56",
+                    "expectedOutput": "1 2 4 7 8 14 28 56",
+                    "score": 10
+                },
+                {
+                    "input": "37",
+                    "expectedOutput": "1 37",
+                    "score": 10
+                },
+                {
+                    "input": "78",
+                    "expectedOutput": "1 2 3 6 13 26 39 78",
+                    "score": 10
+                },
+                {
+                    "input": "88",
+                    "expectedOutput": "1 2 4 8 11 22 44 88",
+                    "score": 10
+                }
+            ],
+            "difficulty": "L2",
+            "difficultyLabel": "L2｜進階",
+            "sb3Path": "m0/B5-01-Factors/A-09-1.sb3"
+        },
+        {
+            "id": "MATH01-002",
+            "code": "B5-01-MATH01-002",
+            "title": "因數個數",
+            "description": "給定一個正整數 N，請計算 N 有幾個正因數。",
+            "examples": [
+                {
+                    "input": "12",
+                    "output": "6",
+                    "explanation": "12 的正因數有 1、2、3、4、6、12，共 6 個。"
+                }
+            ],
+            "testCases": [
+                {
+                    "input": "12",
+                    "expectedOutput": "6",
+                    "score": 10
+                },
+                {
+                    "input": "1",
+                    "expectedOutput": "1",
+                    "score": 10
+                },
+                {
+                    "input": "16",
+                    "expectedOutput": "5",
+                    "score": 10
+                },
+                {
+                    "input": "17",
+                    "expectedOutput": "2",
+                    "score": 10
+                }
+            ],
+            "difficulty": "L2",
+            "difficultyLabel": "L2｜進階",
+            "sb3Path": "m0/B5-01-Factors/MATH01-002.sb3"
+        },
+        {
+            "id": "MATH01-003",
+            "code": "B5-01-MATH01-003",
+            "title": "質數判斷",
+            "description": "給定一個正整數 N，請判斷 N 是否為質數。質數是大於 1，且只有 1 和自己兩個正因數的數。",
+            "examples": [
+                {
+                    "input": "17",
+                    "output": "PRIME",
+                    "explanation": "17 只有 1 和 17 兩個正因數，所以是質數。"
+                }
+            ],
+            "testCases": [
+                {
+                    "input": "17",
+                    "expectedOutput": "PRIME",
+                    "score": 10
+                },
+                {
+                    "input": "1",
+                    "expectedOutput": "NOT",
+                    "score": 10
+                },
+                {
+                    "input": "12",
+                    "expectedOutput": "NOT",
+                    "score": 10
+                },
+                {
+                    "input": "2",
+                    "expectedOutput": "PRIME",
+                    "score": 10
+                }
+            ],
+            "difficulty": "L2",
+            "difficultyLabel": "L2｜進階",
+            "sb3Path": "m0/B5-01-Factors/MATH01-003.sb3"
+        },
+        {
+            "id": "MATH01-004",
+            "code": "B5-01-MATH01-004",
+            "title": "【延伸】最大公因數",
+            "description": "給定兩個正整數 A 與 B，請找出它們的最大公因數。",
+            "examples": [
+                {
+                    "input": "12 18",
+                    "output": "6",
+                    "explanation": "12 與 18 的最大公因數是 6。"
+                }
+            ],
+            "testCases": [
+                {
+                    "input": "12 18",
+                    "expectedOutput": "6",
+                    "score": 10
+                },
+                {
+                    "input": "7 13",
+                    "expectedOutput": "1",
+                    "score": 10
+                },
+                {
+                    "input": "24 36",
+                    "expectedOutput": "12",
+                    "score": 10
+                },
+                {
+                    "input": "100 25",
+                    "expectedOutput": "25",
+                    "score": 10
+                }
+            ],
+            "difficulty": "L3",
+            "difficultyLabel": "L3｜挑戰",
+            "sb3Path": "m0/B5-01-Factors/MATH01-004.sb3"
+        },
+        {
+            "id": "MATH01-005",
+            "code": "B5-01-MATH01-005",
+            "title": "【延伸】最小公倍數",
+            "description": "給定兩個正整數 A 與 B，請找出它們的最小公倍數。",
+            "examples": [
+                {
+                    "input": "12 18",
+                    "output": "36",
+                    "explanation": "12 與 18 的最小公倍數是 36。"
+                }
+            ],
+            "testCases": [
+                {
+                    "input": "12 18",
+                    "expectedOutput": "36",
+                    "score": 10
+                },
+                {
+                    "input": "7 13",
+                    "expectedOutput": "91",
+                    "score": 10
+                },
+                {
+                    "input": "4 6",
+                    "expectedOutput": "12",
+                    "score": 10
+                },
+                {
+                    "input": "20 5",
+                    "expectedOutput": "20",
+                    "score": 10
+                }
+            ],
+            "difficulty": "L3",
+            "difficultyLabel": "L3｜挑戰",
+            "sb3Path": "m0/B5-01-Factors/MATH01-005.sb3"
+        }
+    ]
+};

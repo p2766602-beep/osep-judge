@@ -1,0 +1,176 @@
+{
+  "variables": {
+    "v_n": [
+      "N",
+      ""
+    ],
+    "v_num": [
+      "數字",
+      ""
+    ]
+  },
+  "blocks": {
+    "h1": {
+      "opcode": "event_whenflagclicked",
+      "next": "h2",
+      "parent": null,
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": true,
+      "x": 40,
+      "y": 40
+    },
+    "h2": {
+      "opcode": "sensing_askandwait",
+      "next": "h4",
+      "parent": "h1",
+      "inputs": {
+        "QUESTION": [
+          1,
+          [
+            10,
+            "請輸入N"
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "h3": {
+      "opcode": "sensing_answer",
+      "next": null,
+      "parent": "h1",
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "h4": {
+      "opcode": "data_setvariableto",
+      "next": "h5",
+      "parent": "h2",
+      "inputs": {
+        "VALUE": [
+          2,
+          "h3"
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "N",
+          "v_n"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "h5": {
+      "opcode": "control_repeat",
+      "next": null,
+      "parent": "h4",
+      "inputs": {
+        "TIMES": [
+          2,
+          "h6"
+        ],
+        "SUBSTACK": [
+          2,
+          "h7"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "h6": {
+      "opcode": "data_variable",
+      "next": null,
+      "parent": "h5",
+      "inputs": {},
+      "fields": {
+        "VARIABLE": [
+          "N",
+          "v_n"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "h7": {
+      "opcode": "sensing_askandwait",
+      "next": "h9",
+      "parent": "h5",
+      "inputs": {
+        "QUESTION": [
+          1,
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "h8": {
+      "opcode": "sensing_answer",
+      "next": null,
+      "parent": "h5",
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "h9": {
+      "opcode": "data_setvariableto",
+      "next": "h11",
+      "parent": "h7",
+      "inputs": {
+        "VALUE": [
+          2,
+          "h8"
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "數字",
+          "v_num"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "h10": {
+      "opcode": "data_variable",
+      "next": null,
+      "parent": "h5",
+      "inputs": {},
+      "fields": {
+        "VARIABLE": [
+          "數字",
+          "v_num"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "h11": {
+      "opcode": "looks_say",
+      "next": null,
+      "parent": "h9",
+      "inputs": {
+        "MESSAGE": [
+          2,
+          "h10"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    }
+  },
+  "lists": {}
+}

@@ -12,7 +12,11 @@ const OUT_BASE = path.join(__dirname, '../../static/judge-content/m0');
 // 課程（114TCPE01~13）刻意沒有示範解答（見gen-judge-content.js/build-m0-course-sb3.js
 // 同一段註解），沒有東西可驗證，所以這裡故意不跟其他兩支腳本的COURSE_FILES保持一致——
 // 加進來只會讓每題都判SKIP、把allPass拖成false，變成誤報而已，不要加。
-const COURSE_FILES = ['M0-01-BasicOutput.js', 'M0-02-Variables.js', 'M0-03-Conditionals.js', 'M0-04-LoopsAndSum.js', 'M0-05-ListBasics.js', 'M0-06-MinMaxExtra.js', 'M1-01-ListSearch.js', 'M1-02-ListAnalysis.js', 'M1-03-ListStats.js', 'M1-04-ListIndex.js', 'M1-05-StringBasics.js', 'M1-06-StringFormat.js', 'M1-07-SortBasics.js', 'M1-08-SortApplied.js', 'M1-09-MathBasics.js', 'M1-10-MathGCD.js', 'M1-11-StackQueue.js', 'M1-12-DebugFormat.js', 'JSB00.js', 'JSA00.js',
+const COURSE_FILES = ['M0-01-BasicOutput.js', 'M0-02-Variables.js', 'M0-03-Conditionals.js', 'M0-04-LoopsAndSum.js', 'M0-05-ListBasics.js', 'M0-06-MinMaxExtra.js', 'M1-01-ListSearch.js', 'M1-02-ListAnalysis.js', 'M1-03-ListStats.js', 'M1-04-ListIndex.js', 'M1-05-StringBasics.js', 'M1-06-StringFormat.js', 'M1-07-SortBasics.js', 'M1-08-SortApplied.js', 'M1-09-MathBasics.js', 'M1-10-MathGCD.js', 'M1-11-StackQueue.js', 'M1-12-DebugFormat.js',
+    // 2026-09-26新增：B系列基礎知識點課程（20門、94題，題目取自M0/M1重組，見YDWS-CodingBank tools/build_b_series_courses.cjs）。
+    // 手寫示範解答從對應M系列資料夾複製到hand-authored-answers/<B課程>/。
+    'B1-01-InputOutput.js', 'B1-02-Variables.js', 'B1-03-IfElse.js', 'B1-04-MultiBranch.js', 'B2-01-CountingLoop.js', 'B2-02-Accumulate.js', 'B3-01-ListTraversal.js', 'B3-02-ListStats.js', 'B3-03-MinMax.js', 'B3-04-LinearSearch.js', 'B3-05-Adjacent.js', 'B4-01-StringAccess.js', 'B4-02-StringProcess.js', 'B5-01-Factors.js', 'B5-02-Digits.js', 'B6-01-Swap.js', 'B6-02-SortAlgo.js', 'B6-03-ParallelLists.js', 'B7-01-StackQueue.js', 'B8-01-FormatCheck.js',
+    'JSB00.js', 'JSA00.js',
     // 2026-08-20 Phase 2：114J＋114E有真正的示範解答可以驗證，跟114TCPE/114TCPJ
     // （純競賽模式、沒有demo）不同，特意加進來。
     '114JChaiyi.js', '114JChaiyiC.js', '114JChanghua.js', '114JHsinchu.js', '114JHsinchuC.js', '114JHualien.js', '114JKeelung.js', '114JNantou.js', '114JNewTaipei.js', '114JPenghu.js', '114JTaichung.js', '114JTainan.js', '114JTaipei.js', '114JTaitung.js', '114JTaoyuan.js', '114JYunlin.js', '114JKinmen.js', '114JMiaoli.js',

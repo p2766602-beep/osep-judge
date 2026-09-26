@@ -1,0 +1,88 @@
+/**
+ * 自動產生，不要手動編輯——見scripts/judge-dev-tools/gen-judge-content.js。
+ * 要改題目內容請去改YDWS-CodingBank/courses/B5-02對應的正本課程檔，重跑該腳本。
+ */
+export default {
+    "code": "B5-02",
+    "title": "K15 位數拆解",
+    "tier": "t1",
+    "unlockCode": "B5-02-Digits",
+    "tasks": [
+        {
+            "id": "MATH01-006",
+            "code": "B5-02-MATH01-006",
+            "title": "位數和",
+            "description": "給定一個非負整數 N，請計算它的每一位數字總和。",
+            "examples": [
+                {
+                    "input": "12345",
+                    "output": "15",
+                    "explanation": "1+2+3+4+5=15。"
+                }
+            ],
+            "testCases": [
+                {
+                    "input": "12345",
+                    "expectedOutput": "15",
+                    "score": 10
+                },
+                {
+                    "input": "0",
+                    "expectedOutput": "0",
+                    "score": 10
+                },
+                {
+                    "input": "1008",
+                    "expectedOutput": "9",
+                    "score": 10
+                },
+                {
+                    "input": "9999",
+                    "expectedOutput": "36",
+                    "score": 10
+                }
+            ],
+            "difficulty": "L2",
+            "difficultyLabel": "L2｜進階",
+            "sb3Path": "m0/B5-02-Digits/MATH01-006.sb3"
+        },
+        {
+            "id": "MATH01-007",
+            "code": "B5-02-MATH01-007",
+            "title": "【延伸】數字反轉",
+            "description": "給定一個非負整數 N，請將它的數字順序反轉後輸出。反轉後前導 0 不需要保留。",
+            "examples": [
+                {
+                    "input": "12340",
+                    "output": "4321",
+                    "explanation": "12340 反轉為 04321，前導 0 不保留，所以輸出 4321。"
+                }
+            ],
+            "testCases": [
+                {
+                    "input": "12340",
+                    "expectedOutput": "4321",
+                    "score": 10
+                },
+                {
+                    "input": "0",
+                    "expectedOutput": "0",
+                    "score": 10
+                },
+                {
+                    "input": "1000",
+                    "expectedOutput": "1",
+                    "score": 10
+                },
+                {
+                    "input": "9876",
+                    "expectedOutput": "6789",
+                    "score": 10
+                }
+            ],
+            "difficulty": "L3",
+            "difficultyLabel": "L3｜挑戰",
+            "sb3Path": "m0/B5-02-Digits/MATH01-007.sb3"
+        }
+    ]
+};

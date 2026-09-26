@@ -17,7 +17,11 @@ const OUT_BASE = path.join(__dirname, '../../static/judge-content/m0');
 const BACKDROP_SVG = fs.readFileSync(path.join(__dirname, '../../src/lib/default-project/cd21514d0531fdffb22204e0ec5ed84a.svg'));
 const COSTUME_SVG = fs.readFileSync(path.join(__dirname, '../../src/lib/default-project/dango-cat.svg'));
 
-const COURSE_FILES = ['M0-01-BasicOutput.js', 'M0-02-Variables.js', 'M0-03-Conditionals.js', 'M0-04-LoopsAndSum.js', 'M0-05-ListBasics.js', 'M0-06-MinMaxExtra.js', 'M1-01-ListSearch.js', 'M1-02-ListAnalysis.js', 'M1-03-ListStats.js', 'M1-04-ListIndex.js', 'M1-05-StringBasics.js', 'M1-06-StringFormat.js', 'M1-07-SortBasics.js', 'M1-08-SortApplied.js', 'M1-09-MathBasics.js', 'M1-10-MathGCD.js', 'M1-11-StackQueue.js', 'M1-12-DebugFormat.js', 'JSB00.js', 'JSA00.js',
+const COURSE_FILES = ['M0-01-BasicOutput.js', 'M0-02-Variables.js', 'M0-03-Conditionals.js', 'M0-04-LoopsAndSum.js', 'M0-05-ListBasics.js', 'M0-06-MinMaxExtra.js', 'M1-01-ListSearch.js', 'M1-02-ListAnalysis.js', 'M1-03-ListStats.js', 'M1-04-ListIndex.js', 'M1-05-StringBasics.js', 'M1-06-StringFormat.js', 'M1-07-SortBasics.js', 'M1-08-SortApplied.js', 'M1-09-MathBasics.js', 'M1-10-MathGCD.js', 'M1-11-StackQueue.js', 'M1-12-DebugFormat.js',
+    // 2026-09-26新增：B系列基礎知識點課程（20門、94題，題目取自M0/M1重組，見YDWS-CodingBank tools/build_b_series_courses.cjs）。
+    // 手寫示範解答從對應M系列資料夾複製到hand-authored-answers/<B課程>/。
+    'B1-01-InputOutput.js', 'B1-02-Variables.js', 'B1-03-IfElse.js', 'B1-04-MultiBranch.js', 'B2-01-CountingLoop.js', 'B2-02-Accumulate.js', 'B3-01-ListTraversal.js', 'B3-02-ListStats.js', 'B3-03-MinMax.js', 'B3-04-LinearSearch.js', 'B3-05-Adjacent.js', 'B4-01-StringAccess.js', 'B4-02-StringProcess.js', 'B5-01-Factors.js', 'B5-02-Digits.js', 'B6-01-Swap.js', 'B6-02-SortAlgo.js', 'B6-03-ParallelLists.js', 'B7-01-StackQueue.js', 'B8-01-FormatCheck.js',
+    'JSB00.js', 'JSA00.js',
     // 2026-08-13新增：13縣市國小競賽模式課程，見gen-judge-content.js同一段註解。這裡跑起來
     // 每題都會落進上面的[SKIP]分支（沒有starterXml也沒有手寫示範解答），是預期行為。
     '114TCPE01.js', '114TCPE02.js', '114TCPE03.js', '114TCPE04.js', '114TCPE05.js', '114TCPE06.js', '114TCPE07.js', '114TCPE08.js', '114TCPE09.js', '114TCPE10.js', '114TCPE11.js', '114TCPE12.js', '114TCPE13.js',

@@ -1,0 +1,265 @@
+/**
+ * 自動產生，不要手動編輯——見scripts/judge-dev-tools/gen-judge-content.js。
+ * 要改題目內容請去改YDWS-CodingBank/courses/B3-02對應的正本課程檔，重跑該腳本。
+ */
+export default {
+    "code": "B3-02",
+    "title": "K08 清單累計與條件統計",
+    "tier": "t1",
+    "unlockCode": "B3-02-ListStats",
+    "tasks": [
+        {
+            "id": "JSA01-D02",
+            "code": "B3-02-JSA01-D02",
+            "title": "清單加總與平均示範",
+            "description": "第一行輸入一個整數 N，第二行輸入 N 個整數。請輸出這 N 個數字的總和與整數平均，兩個結果各佔一行。平均值請使用整數除法，只保留整數部分。",
+            "examples": [
+                {
+                    "input": "3\n10 20 30",
+                    "output": "60\n20",
+                    "explanation": "總和 60，平均 20。"
+                },
+                {
+                    "input": "4\n1 2 3 4",
+                    "output": "10\n2",
+                    "explanation": "10 除以 4 取整數部分為 2。"
+                }
+            ],
+            "testCases": [
+                {
+                    "input": "3\n10 20 30",
+                    "expectedOutput": "60\n20",
+                    "score": 20
+                },
+                {
+                    "input": "4\n1 2 3 4",
+                    "expectedOutput": "10\n2",
+                    "score": 20
+                },
+                {
+                    "input": "5\n5 5 5 5 5",
+                    "expectedOutput": "25\n5",
+                    "score": 20
+                },
+                {
+                    "input": "2\n7 8",
+                    "expectedOutput": "15\n7",
+                    "score": 20
+                },
+                {
+                    "input": "6\n1 2 3 4 5 6",
+                    "expectedOutput": "21\n3",
+                    "score": 20
+                }
+            ],
+            "difficulty": "L2",
+            "difficultyLabel": "L2｜進階",
+            "sb3Path": "m0/B3-02-ListStats/JSA01-D02.sb3"
+        },
+        {
+            "id": "JSL01-P02",
+            "code": "B3-02-JSL01-P02",
+            "title": "只加偶數",
+            "description": "第一行輸入一個整數 N，第二行輸入 N 個整數。請只把其中的偶數加總後輸出。本題用來練習迴圈內加入條件判斷",
+            "examples": [
+                {
+                    "input": "5\n1 2 3 4 5",
+                    "output": "6",
+                    "explanation": "偶數為 2 與 4，總和為 6。"
+                },
+                {
+                    "input": "3\n1 3 5",
+                    "output": "0",
+                    "explanation": "沒有偶數，所以輸出 0。"
+                }
+            ],
+            "testCases": [
+                {
+                    "input": "5\n1 2 3 4 5",
+                    "expectedOutput": "6",
+                    "score": 20
+                },
+                {
+                    "input": "4\n2 4 6 8",
+                    "expectedOutput": "20",
+                    "score": 20
+                },
+                {
+                    "input": "3\n1 3 5",
+                    "expectedOutput": "0",
+                    "score": 20
+                },
+                {
+                    "input": "6\n10 11 12 13 14 15",
+                    "expectedOutput": "36",
+                    "score": 20
+                },
+                {
+                    "input": "1\n100",
+                    "expectedOutput": "100",
+                    "score": 20
+                }
+            ],
+            "difficulty": "L2",
+            "difficultyLabel": "L2｜進階",
+            "sb3Path": "m0/B3-02-ListStats/JSL01-P02.sb3"
+        },
+        {
+            "id": "CNT01-020",
+            "code": "B3-02-CNT01-020",
+            "title": "大於門檻的數量",
+            "description": "給定一個門檻值 K 與 N 個整數，請計算有幾個數字大於 K。",
+            "examples": [
+                {
+                    "input": "6\n50\n30 60 50 80 45 90",
+                    "output": "3",
+                    "explanation": "大於 50 的數字有 60、80、90，共 3 個。"
+                }
+            ],
+            "testCases": [
+                {
+                    "input": "6\n50\n30 60 50 80 45 90",
+                    "expectedOutput": "3",
+                    "score": 10
+                },
+                {
+                    "input": "4\n10\n1 2 3 4",
+                    "expectedOutput": "0",
+                    "score": 10
+                },
+                {
+                    "input": "5\n5\n6 7 8 9 10",
+                    "expectedOutput": "5",
+                    "score": 10
+                },
+                {
+                    "input": "7\n20\n20 21 19 22 18 23 17",
+                    "expectedOutput": "3",
+                    "score": 10
+                }
+            ],
+            "difficulty": "L2",
+            "difficultyLabel": "L2｜進階",
+            "sb3Path": "m0/B3-02-ListStats/CNT01-020.sb3"
+        },
+        {
+            "id": "count-016",
+            "code": "B3-02-count-016",
+            "title": "合格的裝備",
+            "description": "勇者的負重能力有限，他只能攜帶重量「小於 10」的輕型裝備。 現在清單中有一堆裝備的重量，請你利用迴圈檢查每一個裝備，只把重量小於 10 的裝備重量印出來。\n輸入格式\n輸入共有兩行。第一行是一個整數 N，代表裝備數量。\n第二行輸入 N 個整數，代表每個裝備重量。\n程式依序輸出小於 10 的數字，中間以空白隔開。\n如果都沒有小於 10 的數字，則什麼都不輸出。",
+            "examples": [
+                {
+                    "input": "5\n15 5 20 8 3",
+                    "output": "5 8 3",
+                    "explanation": "第一行輸入數字5，代表5筆裝備資料\n第二行有5筆整數裝備資料，15 5 20 8 3\n程式依序輸出小於10裝備重量：5 8 3"
+                },
+                {
+                    "input": "3\n12 15 20",
+                    "output": "",
+                    "explanation": "第一行輸入數字3，代表3筆裝備資料\n第二行有3筆整數裝備資料，12 15 20\n沒有小於10裝備輸出為空："
+                }
+            ],
+            "testCases": [
+                {
+                    "input": "3\n1 2 3",
+                    "expectedOutput": "1 2 3",
+                    "score": 10
+                },
+                {
+                    "input": "6\n7 15 7 24 9 7",
+                    "expectedOutput": "7 7 9 7",
+                    "score": 10
+                },
+                {
+                    "input": "4\n33 5 44 11",
+                    "expectedOutput": "5",
+                    "score": 10
+                },
+                {
+                    "input": "5\n3 8 11 69 77",
+                    "expectedOutput": "3 8",
+                    "score": 10
+                }
+            ],
+            "difficulty": "L2",
+            "difficultyLabel": "L2｜進階",
+            "sb3Path": "m0/B3-02-ListStats/count-016.sb3"
+        },
+        {
+            "id": "STA01-004",
+            "code": "B3-02-STA01-004",
+            "title": "通過率整數版",
+            "description": "給定 N 位學生的成績，分數大於或等於 60 為通過。請計算通過人數與通過率。通過率使用整數百分比，小數直接捨去。",
+            "examples": [
+                {
+                    "input": "5\n80 55 60 40 90",
+                    "output": "3 60",
+                    "explanation": "5 人中 3 人通過，通過率為 3×100÷5=60。"
+                }
+            ],
+            "testCases": [
+                {
+                    "input": "5\n80 55 60 40 90",
+                    "expectedOutput": "3 60",
+                    "score": 10
+                },
+                {
+                    "input": "4\n10 20 30 40",
+                    "expectedOutput": "0 0",
+                    "score": 10
+                },
+                {
+                    "input": "3\n60 70 80",
+                    "expectedOutput": "3 100",
+                    "score": 10
+                },
+                {
+                    "input": "6\n59 60 61 62 30 90",
+                    "expectedOutput": "4 66",
+                    "score": 10
+                }
+            ],
+            "difficulty": "L2",
+            "difficultyLabel": "L2｜進階",
+            "sb3Path": "m0/B3-02-ListStats/STA01-004.sb3"
+        },
+        {
+            "id": "STA01-005",
+            "code": "B3-02-STA01-005",
+            "title": "【延伸】高於平均的數量",
+            "description": "給定 N 個整數，先計算整數平均，再計算有幾個數字大於平均。",
+            "examples": [
+                {
+                    "input": "5\n10 20 30 40 50",
+                    "output": "30 2",
+                    "explanation": "平均為 30，大於 30 的數字有 40、50。"
+                }
+            ],
+            "testCases": [
+                {
+                    "input": "5\n10 20 30 40 50",
+                    "expectedOutput": "30 2",
+                    "score": 10
+                },
+                {
+                    "input": "4\n5 5 5 5",
+                    "expectedOutput": "5 0",
+                    "score": 10
+                },
+                {
+                    "input": "3\n1 2 9",
+                    "expectedOutput": "4 1",
+                    "score": 10
+                },
+                {
+                    "input": "6\n8 9 10 11 12 13",
+                    "expectedOutput": "10 3",
+                    "score": 10
+                }
+            ],
+            "difficulty": "L3",
+            "difficultyLabel": "L3｜挑戰",
+            "sb3Path": "m0/B3-02-ListStats/STA01-005.sb3"
+        }
+    ]
+};

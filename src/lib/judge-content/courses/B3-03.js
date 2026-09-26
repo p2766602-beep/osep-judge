@@ -1,0 +1,250 @@
+/**
+ * 自動產生，不要手動編輯——見scripts/judge-dev-tools/gen-judge-content.js。
+ * 要改題目內容請去改YDWS-CodingBank/courses/B3-03對應的正本課程檔，重跑該腳本。
+ */
+export default {
+    "code": "B3-03",
+    "title": "K09 最大值與最小值",
+    "tier": "t1",
+    "unlockCode": "B3-03-MinMax",
+    "tasks": [
+        {
+            "id": "EXT01-001",
+            "code": "B3-03-EXT01-001",
+            "title": "找最大值",
+            "description": "給定 N 個整數，請找出其中最大的數字。",
+            "examples": [
+                {
+                    "input": "5\n8 3 12 7 10",
+                    "output": "12",
+                    "explanation": "5 個數字中最大的是 12。"
+                }
+            ],
+            "testCases": [
+                {
+                    "input": "5\n8 3 12 7 10",
+                    "expectedOutput": "12",
+                    "score": 10
+                },
+                {
+                    "input": "4\n1 1 1 1",
+                    "expectedOutput": "1",
+                    "score": 10
+                },
+                {
+                    "input": "6\n-5 -2 -9 -1 -7 -3",
+                    "expectedOutput": "-1",
+                    "score": 10
+                },
+                {
+                    "input": "3\n100 50 99",
+                    "expectedOutput": "100",
+                    "score": 10
+                }
+            ],
+            "difficulty": "L2",
+            "difficultyLabel": "L2｜進階",
+            "sb3Path": "m0/B3-03-MinMax/EXT01-001.sb3"
+        },
+        {
+            "id": "EXT01-003",
+            "code": "B3-03-EXT01-003",
+            "title": "最大最小差距",
+            "description": "給定 N 個整數，請找出最大值與最小值，並計算兩者差距。",
+            "examples": [
+                {
+                    "input": "5\n8 3 12 7 10",
+                    "output": "12 3 9",
+                    "explanation": "最大值 12，最小值 3，差距為 9。"
+                }
+            ],
+            "testCases": [
+                {
+                    "input": "5\n8 3 12 7 10",
+                    "expectedOutput": "12 3 9",
+                    "score": 10
+                },
+                {
+                    "input": "4\n6 6 6 6",
+                    "expectedOutput": "6 6 0",
+                    "score": 10
+                },
+                {
+                    "input": "6\n-5 -2 -9 -1 -7 -3",
+                    "expectedOutput": "-1 -9 8",
+                    "score": 10
+                },
+                {
+                    "input": "3\n100 50 99",
+                    "expectedOutput": "100 50 50",
+                    "score": 10
+                }
+            ],
+            "difficulty": "L2",
+            "difficultyLabel": "L2｜進階",
+            "sb3Path": "m0/B3-03-MinMax/EXT01-003.sb3"
+        },
+        {
+            "id": "M1-12-06",
+            "code": "B3-03-M1-12-06",
+            "title": "單筆資料時的最大最小值",
+            "description": "請你找出N筆分數中的最大值與最小值，並依序輸出。",
+            "examples": [
+                {
+                    "input": "1\n88",
+                    "output": "88 88",
+                    "explanation": "只有一筆資料88，最大值跟最小值都是88"
+                }
+            ],
+            "testCases": [
+                {
+                    "input": "1\n88",
+                    "expectedOutput": "88 88",
+                    "score": 25
+                },
+                {
+                    "input": "5\n70 90 60 100 80",
+                    "expectedOutput": "100 60",
+                    "score": 25
+                },
+                {
+                    "input": "1\n0",
+                    "expectedOutput": "0 0",
+                    "score": 25
+                },
+                {
+                    "input": "2\n50 50",
+                    "expectedOutput": "50 50",
+                    "score": 25
+                }
+            ],
+            "difficulty": "L2",
+            "difficultyLabel": "L2｜進階",
+            "sb3Path": "m0/B3-03-MinMax/M1-12-06.sb3"
+        },
+        {
+            "id": "EXT01-008",
+            "code": "B3-03-EXT01-008",
+            "title": "區間最大值",
+            "description": "給定 N 個整數，以及查詢區間 L 到 R，請找出第 L 個到第 R 個數字中的最大值。位置從 1 開始計算。",
+            "examples": [
+                {
+                    "input": "6\n5 8 3 12 7 10\n2 5",
+                    "output": "12",
+                    "explanation": "第 2 到第 5 個數字是 8、3、12、7，最大值為 12。"
+                }
+            ],
+            "testCases": [
+                {
+                    "input": "6\n5 8 3 12 7 10\n2 5",
+                    "expectedOutput": "12",
+                    "score": 10
+                },
+                {
+                    "input": "5\n1 2 3 4 5\n1 3",
+                    "expectedOutput": "3",
+                    "score": 10
+                },
+                {
+                    "input": "4\n9 8 7 6\n3 4",
+                    "expectedOutput": "7",
+                    "score": 10
+                },
+                {
+                    "input": "7\n-5 -1 -9 -3 -2 -8 -4\n2 6",
+                    "expectedOutput": "-1",
+                    "score": 10
+                }
+            ],
+            "difficulty": "L2",
+            "difficultyLabel": "L2｜進階",
+            "sb3Path": "m0/B3-03-MinMax/EXT01-008.sb3"
+        },
+        {
+            "id": "EXT01-006",
+            "code": "B3-03-EXT01-006",
+            "title": "【延伸】第二高分",
+            "description": "給定 N 位學生的成績，請找出最高分與第二高分。保證至少有兩種不同分數。",
+            "examples": [
+                {
+                    "input": "6\n70 95 80 95 60 88",
+                    "output": "95 88",
+                    "explanation": "最高分是 95，第二高的不同分數是 88。"
+                }
+            ],
+            "testCases": [
+                {
+                    "input": "6\n70 95 80 95 60 88",
+                    "expectedOutput": "95 88",
+                    "score": 10
+                },
+                {
+                    "input": "5\n100 90 80 70 60",
+                    "expectedOutput": "100 90",
+                    "score": 10
+                },
+                {
+                    "input": "4\n10 20 20 5",
+                    "expectedOutput": "20 10",
+                    "score": 10
+                },
+                {
+                    "input": "7\n-1 -5 -3 -1 -2 -8 -4",
+                    "expectedOutput": "-1 -2",
+                    "score": 10
+                }
+            ],
+            "difficulty": "L3",
+            "difficultyLabel": "L3｜挑戰",
+            "sb3Path": "m0/B3-03-MinMax/EXT01-006.sb3"
+        },
+        {
+            "id": "TYTN-05",
+            "code": "B3-03-TYTN-05",
+            "title": "【延伸】班服投票",
+            "description": "可愛國小601班要製作紀念班服，本次班服設計共有3個款式，分別編號為1、2、3。\n每位同學可在選票上寫下自己選擇的班服款式編號，最後以得票數最高者為班服樣式。\n請先計算每款班服的得票數（依1→3順序），並輸出最高票的班服編號。\n若有兩款或以上的票數相同且為最高票，則輸出：請重新投票",
+            "examples": [
+                {
+                    "input": "8\n1 2 2 3 2 1 3 2",
+                    "output": "2",
+                    "explanation": "8 位同學投票，各自選擇的班服編號如上。\n2 號班服得票最高，因此輸出 2。"
+                },
+                {
+                    "input": "6\n1 2 3 1 2 3",
+                    "output": "請重新投票",
+                    "explanation": "3 種班服皆獲得 2 票，最高票有同票情形。\n因此輸出「請重新投票」。"
+                }
+            ],
+            "testCases": [
+                {
+                    "input": "8\n1 2 2 3 2 1 3 2",
+                    "expectedOutput": "2",
+                    "score": 10
+                },
+                {
+                    "input": "6\n1 2 3 1 2 3",
+                    "expectedOutput": "請重新投票",
+                    "score": 10
+                },
+                {
+                    "input": "5\n1 1 1 2 3",
+                    "expectedOutput": "1",
+                    "score": 10
+                },
+                {
+                    "input": "7\n3 3 2 2 1 3 2",
+                    "expectedOutput": "請重新投票",
+                    "score": 10
+                },
+                {
+                    "input": "4\n2 2 2 3",
+                    "expectedOutput": "2",
+                    "score": 10
+                }
+            ],
+            "difficulty": "L3",
+            "difficultyLabel": "L3｜挑戰",
+            "sb3Path": "m0/B3-03-MinMax/TYTN-05.sb3"
+        }
+    ]
+};

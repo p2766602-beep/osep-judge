@@ -1113,6 +1113,730 @@ export default [
         ]
     },
     {
+        "code": "B1-01",
+        "title": "K01 輸入與輸出",
+        "tier": "t0",
+        "unlockCode": "B1-01-InputOutput",
+        "tasks": [
+            {
+                "id": "A-01-0",
+                "code": "B1-01-A-01-0",
+                "title": "Hello world",
+                "difficultyLabel": "L1｜基礎"
+            },
+            {
+                "id": "A-01-1",
+                "code": "B1-01-A-01-1",
+                "title": "一起學習吧",
+                "difficultyLabel": "L1｜基礎"
+            },
+            {
+                "id": "A-02-0",
+                "code": "B1-01-A-02-0",
+                "title": "數字加總",
+                "difficultyLabel": "L1｜基礎"
+            }
+        ]
+    },
+    {
+        "code": "B1-02",
+        "title": "K02 變數與四則運算",
+        "tier": "t0",
+        "unlockCode": "B1-02-Variables",
+        "tasks": [
+            {
+                "id": "BSA01-001",
+                "code": "B1-02-BSA01-001",
+                "title": "購買文具",
+                "difficultyLabel": "L1｜基礎"
+            },
+            {
+                "id": "BSA01-003",
+                "code": "B1-02-BSA01-003",
+                "title": "長方形周長與面積",
+                "difficultyLabel": "L1｜基礎"
+            },
+            {
+                "id": "A-02-1",
+                "code": "B1-02-A-02-1",
+                "title": "數字平均",
+                "difficultyLabel": "L1｜基礎"
+            },
+            {
+                "id": "BSA01-007",
+                "code": "B1-02-BSA01-007",
+                "title": "平均分數整數版",
+                "difficultyLabel": "L1｜基礎"
+            },
+            {
+                "id": "BSA01-004",
+                "code": "B1-02-BSA01-004",
+                "title": "秒數換算",
+                "difficultyLabel": "L1｜基礎"
+            },
+            {
+                "id": "BSA01-005",
+                "code": "B1-02-BSA01-005",
+                "title": "找零錢",
+                "difficultyLabel": "L2｜進階"
+            }
+        ]
+    },
+    {
+        "code": "B1-03",
+        "title": "K03 條件判斷：二選一",
+        "tier": "t0",
+        "unlockCode": "B1-03-IfElse",
+        "tasks": [
+            {
+                "id": "BSC01-001",
+                "code": "B1-03-BSC01-001",
+                "title": "及格或不及格",
+                "difficultyLabel": "L1｜基礎"
+            },
+            {
+                "id": "BSC01-003",
+                "code": "B1-03-BSC01-003",
+                "title": "判斷奇偶數",
+                "difficultyLabel": "L1｜基礎"
+            },
+            {
+                "id": "BSC01-009",
+                "code": "B1-03-BSC01-009",
+                "title": "購物免運費",
+                "difficultyLabel": "L1｜基礎"
+            }
+        ]
+    },
+    {
+        "code": "B1-04",
+        "title": "K04 條件判斷：多重分支與邏輯運算",
+        "tier": "t0",
+        "unlockCode": "B1-04-MultiBranch",
+        "tasks": [
+            {
+                "id": "A-03-0",
+                "code": "B1-04-A-03-0",
+                "title": "比較大小",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "BSC01-005",
+                "code": "B1-04-BSC01-005",
+                "title": "溫度警示",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "BSC01-006",
+                "code": "B1-04-BSC01-006",
+                "title": "成績等第",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "BSC01-004",
+                "code": "B1-04-BSC01-004",
+                "title": "門票優惠判斷",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "BSC01-007",
+                "code": "B1-04-BSC01-007",
+                "title": "三角形成立判斷",
+                "difficultyLabel": "L2｜進階"
+            }
+        ]
+    },
+    {
+        "code": "B2-01",
+        "title": "K05 計數迴圈",
+        "tier": "t0",
+        "unlockCode": "B2-01-CountingLoop",
+        "tasks": [
+            {
+                "id": "JSL01-D01",
+                "code": "B2-01-JSL01-D01",
+                "title": "從1數到N",
+                "difficultyLabel": "L1｜基礎"
+            },
+            {
+                "id": "A-07-0",
+                "code": "B2-01-A-07-0",
+                "title": "九九乘法",
+                "difficultyLabel": "L1｜基礎"
+            },
+            {
+                "id": "count-002",
+                "code": "B2-01-count-002",
+                "title": "跳石過河-間隔計數",
+                "difficultyLabel": "L1｜基礎"
+            },
+            {
+                "id": "count-003",
+                "code": "B2-01-count-003",
+                "title": "火箭發射倒數",
+                "difficultyLabel": "L1｜基礎"
+            },
+            {
+                "id": "count-006",
+                "code": "B2-01-count-006",
+                "title": "萬能傳送門",
+                "difficultyLabel": "L1｜基礎"
+            },
+            {
+                "id": "count-012",
+                "code": "B2-01-count-012",
+                "title": "登山冒險",
+                "difficultyLabel": "L2｜進階"
+            }
+        ]
+    },
+    {
+        "code": "B2-02",
+        "title": "K06 累加與累乘",
+        "tier": "t0",
+        "unlockCode": "B2-02-Accumulate",
+        "tasks": [
+            {
+                "id": "JSL01-D02",
+                "code": "B2-02-JSL01-D02",
+                "title": "1到N加總示範",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "count-011",
+                "code": "B2-02-count-011",
+                "title": "修復斷橋",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "count-009",
+                "code": "B2-02-count-009",
+                "title": "偶數日的存款",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "JSL01-P03",
+                "code": "B2-02-JSL01-P03",
+                "title": "簡化階乘",
+                "difficultyLabel": "L2｜進階"
+            }
+        ]
+    },
+    {
+        "code": "B3-01",
+        "title": "K07 清單讀取與索引走訪",
+        "tier": "t1",
+        "unlockCode": "B3-01-ListTraversal",
+        "tasks": [
+            {
+                "id": "JSA01-D01",
+                "code": "B3-01-JSA01-D01",
+                "title": "清單逐一讀取",
+                "difficultyLabel": "L1｜基礎"
+            },
+            {
+                "id": "IDX01-001",
+                "code": "B3-01-IDX01-001",
+                "title": "指定位置的數字",
+                "difficultyLabel": "L1｜基礎"
+            },
+            {
+                "id": "count-018",
+                "code": "B3-01-count-018",
+                "title": "冒險日誌",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "count-017",
+                "code": "B3-01-count-017",
+                "title": "倒轉時光",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "IDX01-007",
+                "code": "B3-01-IDX01-007",
+                "title": "左右鄰居總和",
+                "difficultyLabel": "L2｜進階"
+            }
+        ]
+    },
+    {
+        "code": "B3-02",
+        "title": "K08 清單累計與條件統計",
+        "tier": "t1",
+        "unlockCode": "B3-02-ListStats",
+        "tasks": [
+            {
+                "id": "JSA01-D02",
+                "code": "B3-02-JSA01-D02",
+                "title": "清單加總與平均示範",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "JSL01-P02",
+                "code": "B3-02-JSL01-P02",
+                "title": "只加偶數",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "CNT01-020",
+                "code": "B3-02-CNT01-020",
+                "title": "大於門檻的數量",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "count-016",
+                "code": "B3-02-count-016",
+                "title": "合格的裝備",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "STA01-004",
+                "code": "B3-02-STA01-004",
+                "title": "通過率整數版",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "STA01-005",
+                "code": "B3-02-STA01-005",
+                "title": "【延伸】高於平均的數量",
+                "difficultyLabel": "L3｜挑戰"
+            }
+        ]
+    },
+    {
+        "code": "B3-03",
+        "title": "K09 最大值與最小值",
+        "tier": "t1",
+        "unlockCode": "B3-03-MinMax",
+        "tasks": [
+            {
+                "id": "EXT01-001",
+                "code": "B3-03-EXT01-001",
+                "title": "找最大值",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "EXT01-003",
+                "code": "B3-03-EXT01-003",
+                "title": "最大最小差距",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "M1-12-06",
+                "code": "B3-03-M1-12-06",
+                "title": "單筆資料時的最大最小值",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "EXT01-008",
+                "code": "B3-03-EXT01-008",
+                "title": "區間最大值",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "EXT01-006",
+                "code": "B3-03-EXT01-006",
+                "title": "【延伸】第二高分",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "TYTN-05",
+                "code": "B3-03-TYTN-05",
+                "title": "【延伸】班服投票",
+                "difficultyLabel": "L3｜挑戰"
+            }
+        ]
+    },
+    {
+        "code": "B3-04",
+        "title": "K10 位置追蹤與線性搜尋",
+        "tier": "t1",
+        "unlockCode": "B3-04-LinearSearch",
+        "tasks": [
+            {
+                "id": "seclect-003",
+                "code": "B3-04-seclect-003",
+                "title": "清單最大最小值的位置",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "IDX01-003",
+                "code": "B3-04-IDX01-003",
+                "title": "最後一個目標位置",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "IDX01-002",
+                "code": "B3-04-IDX01-002",
+                "title": "第一個目標位置",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "CNT01-022",
+                "code": "B3-04-CNT01-022",
+                "title": "第一個及格的位置",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "IDX01-008",
+                "code": "B3-04-IDX01-008",
+                "title": "【延伸】兩個目標的距離",
+                "difficultyLabel": "L3｜挑戰"
+            }
+        ]
+    },
+    {
+        "code": "B3-05",
+        "title": "K11 相鄰元素比較",
+        "tier": "t1",
+        "unlockCode": "B3-05-Adjacent",
+        "tasks": [
+            {
+                "id": "IDX01-006",
+                "code": "B3-05-IDX01-006",
+                "title": "相鄰相同的位置",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "STA01-008",
+                "code": "B3-05-STA01-008",
+                "title": "【延伸】相鄰變化統計",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "CNT01-023",
+                "code": "B3-05-CNT01-023",
+                "title": "【延伸】相鄰差值最大",
+                "difficultyLabel": "L3｜挑戰"
+            }
+        ]
+    },
+    {
+        "code": "B4-01",
+        "title": "K12 字串存取與走訪",
+        "tier": "t1",
+        "unlockCode": "B4-01-StringAccess",
+        "tasks": [
+            {
+                "id": "STR01-001",
+                "code": "B4-01-STR01-001",
+                "title": "字串長度",
+                "difficultyLabel": "L1｜基礎"
+            },
+            {
+                "id": "STR01-002",
+                "code": "B4-01-STR01-002",
+                "title": "第一個與最後一個字元",
+                "difficultyLabel": "L1｜基礎"
+            },
+            {
+                "id": "STR01-003",
+                "code": "B4-01-STR01-003",
+                "title": "指定位置的字元",
+                "difficultyLabel": "L1｜基礎"
+            },
+            {
+                "id": "JSS01-D03",
+                "code": "B4-01-JSS01-D03",
+                "title": "逐字元輸出",
+                "difficultyLabel": "L1｜基礎"
+            },
+            {
+                "id": "STR01-005",
+                "code": "B4-01-STR01-005",
+                "title": "反向輸出字串",
+                "difficultyLabel": "L2｜進階"
+            }
+        ]
+    },
+    {
+        "code": "B4-02",
+        "title": "K13 字串統計與轉換",
+        "tier": "t1",
+        "unlockCode": "B4-02-StringProcess",
+        "tasks": [
+            {
+                "id": "STR01-004",
+                "code": "B4-02-STR01-004",
+                "title": "計算指定字元數量",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "STR01-006",
+                "code": "B4-02-STR01-006",
+                "title": "母音數量",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "STR01-008",
+                "code": "B4-02-STR01-008",
+                "title": "相鄰相同字元",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "STR01-007",
+                "code": "B4-02-STR01-007",
+                "title": "【延伸】是否回文",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "A-12-0",
+                "code": "B4-02-A-12-0",
+                "title": "【延伸】簡易密碼轉換",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "TYTN-10",
+                "code": "B4-02-TYTN-10",
+                "title": "【延伸】檢查碼",
+                "difficultyLabel": "L3｜挑戰"
+            }
+        ]
+    },
+    {
+        "code": "B5-01",
+        "title": "K14 因數、倍數與質數",
+        "tier": "t1",
+        "unlockCode": "B5-01-Factors",
+        "tasks": [
+            {
+                "id": "MATH01-001",
+                "code": "B5-01-MATH01-001",
+                "title": "倍數判斷",
+                "difficultyLabel": "L1｜基礎"
+            },
+            {
+                "id": "A-09-1",
+                "code": "B5-01-A-09-1",
+                "title": "找所有因數",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "MATH01-002",
+                "code": "B5-01-MATH01-002",
+                "title": "因數個數",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "MATH01-003",
+                "code": "B5-01-MATH01-003",
+                "title": "質數判斷",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "MATH01-004",
+                "code": "B5-01-MATH01-004",
+                "title": "【延伸】最大公因數",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "MATH01-005",
+                "code": "B5-01-MATH01-005",
+                "title": "【延伸】最小公倍數",
+                "difficultyLabel": "L3｜挑戰"
+            }
+        ]
+    },
+    {
+        "code": "B5-02",
+        "title": "K15 位數拆解",
+        "tier": "t1",
+        "unlockCode": "B5-02-Digits",
+        "tasks": [
+            {
+                "id": "MATH01-006",
+                "code": "B5-02-MATH01-006",
+                "title": "位數和",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "MATH01-007",
+                "code": "B5-02-MATH01-007",
+                "title": "【延伸】數字反轉",
+                "difficultyLabel": "L3｜挑戰"
+            }
+        ]
+    },
+    {
+        "code": "B6-01",
+        "title": "K16 資料交換",
+        "tier": "t1",
+        "unlockCode": "B6-01-Swap",
+        "tasks": [
+            {
+                "id": "seclect-001",
+                "code": "B6-01-seclect-001",
+                "title": "SWAP交換函數",
+                "difficultyLabel": "L1｜基礎"
+            },
+            {
+                "id": "SORT01-002",
+                "code": "B6-01-SORT01-002",
+                "title": "三數升冪排序",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "seclect-002",
+                "code": "B6-01-seclect-002",
+                "title": "卡片位置交換清單版",
+                "difficultyLabel": "L2｜進階"
+            }
+        ]
+    },
+    {
+        "code": "B6-02",
+        "title": "K17 排序演算法",
+        "tier": "t1",
+        "unlockCode": "B6-02-SortAlgo",
+        "tasks": [
+            {
+                "id": "SORT01-003",
+                "code": "B6-02-SORT01-003",
+                "title": "相鄰交換一次",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "seclect-004",
+                "code": "B6-02-seclect-004",
+                "title": "選擇排序第一回合",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "SORT01-004",
+                "code": "B6-02-SORT01-004",
+                "title": "【延伸】泡泡排序升冪",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "seclect-005",
+                "code": "B6-02-seclect-005",
+                "title": "【延伸】完整選擇排序",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "SORT01-006",
+                "code": "B6-02-SORT01-006",
+                "title": "【延伸】排序後的中間值",
+                "difficultyLabel": "L3｜挑戰"
+            }
+        ]
+    },
+    {
+        "code": "B6-03",
+        "title": "K18 平行清單連動處理",
+        "tier": "t1",
+        "unlockCode": "B6-03-ParallelLists",
+        "tasks": [
+            {
+                "id": "seclect-007",
+                "code": "B6-03-seclect-007",
+                "title": "雙卡同步交換",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "seclect-008",
+                "code": "B6-03-seclect-008",
+                "title": "找出最高分與最低分學生的位置與姓名",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "seclect-009",
+                "code": "B6-03-seclect-009",
+                "title": "連動選擇排序第一回合",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "seclect-010",
+                "code": "B6-03-seclect-010",
+                "title": "【延伸】完整雙清單排序",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "seclect-011",
+                "code": "B6-03-seclect-011",
+                "title": "【延伸】排序結果應用-成績排行榜",
+                "difficultyLabel": "L3｜挑戰"
+            }
+        ]
+    },
+    {
+        "code": "B7-01",
+        "title": "K19 堆疊與佇列",
+        "tier": "t1",
+        "unlockCode": "B7-01-StackQueue",
+        "tasks": [
+            {
+                "id": "M1-11-01",
+                "code": "B7-01-M1-11-01",
+                "title": "堆疊操作模擬",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "M1-11-02",
+                "code": "B7-01-M1-11-02",
+                "title": "佇列操作模擬",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "M1-11-04",
+                "code": "B7-01-M1-11-04",
+                "title": "瀏覽器上一頁模擬",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "M1-11-05",
+                "code": "B7-01-M1-11-05",
+                "title": "排隊叫號系統模擬",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "M1-11-03",
+                "code": "B7-01-M1-11-03",
+                "title": "【延伸】括號配對是否合法",
+                "difficultyLabel": "L3｜挑戰"
+            }
+        ]
+    },
+    {
+        "code": "B8-01",
+        "title": "K20 輸出格式與例外處理",
+        "tier": "t1",
+        "unlockCode": "B8-01-FormatCheck",
+        "tasks": [
+            {
+                "id": "M1-12-01",
+                "code": "B8-01-M1-12-01",
+                "title": "兩位數補零輸出",
+                "difficultyLabel": "L1｜基礎"
+            },
+            {
+                "id": "M1-12-05",
+                "code": "B8-01-M1-12-05",
+                "title": "負數的正確餘數計算",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "M1-12-03",
+                "code": "B8-01-M1-12-03",
+                "title": "【延伸】平均分數到小數點後兩位",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "M1-12-04",
+                "code": "B8-01-M1-12-04",
+                "title": "【延伸】除以零的例外處理",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "M1-12-02",
+                "code": "B8-01-M1-12-02",
+                "title": "【延伸】金額千分位輸出",
+                "difficultyLabel": "L3｜挑戰"
+            }
+        ]
+    },
+    {
         "code": "JSB00",
         "title": "基礎練習1",
         "unlockCode": null,
