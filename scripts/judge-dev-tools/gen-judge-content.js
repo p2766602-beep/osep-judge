@@ -67,7 +67,12 @@ const COURSE_FILES = ['M0-01-BasicOutput.js', 'M0-02-Variables.js', 'M0-03-Condi
     // （取值同時移除，hoist成先存值再刪除）。補完這兩個模式後135題100%自動轉換成功、
     // headless驗證100%功能正確，見xml-to-scratch.js檔頭註解。
     'M2-01-CondBasics.js', 'M2-02-CondChallenge.js', 'M2-03-SimBasics.js', 'M2-04-SimRolePlay.js', 'M2-05-SimSensor.js', 'M2-06-SimContest.js', 'M2-07-GraphBasics.js', 'M2-08-GraphAdvanced.js', 'M2-09-GreedyBasics.js', 'M2-10-GreedyAdvanced.js',
-    'M3-00-BinarySearchWarmup.js', 'M3-01-IntervalOptimize.js', 'M3-02-PrefixSum.js', 'M3-03-SlidingWindow.js', 'M3-04-DPWarmup.js'];
+    'M3-00-BinarySearchWarmup.js', 'M3-01-IntervalOptimize.js', 'M3-02-PrefixSum.js', 'M3-03-SlidingWindow.js', 'M3-04-DPWarmup.js',
+    // 2026-10-03新增：A系列進階自主學習地圖課程（V1~V12單元、A01~A22知識點，22門課，
+    // 題目取自M1~M3系列重組，見YDWS-CodingBank tools/build_a_series_courses.cjs）。
+    // 全部mode:'contest'、starterXml故意清空（競賽模式不提供範例答案），比照114TCPE/
+    // 114TCPJ系列，每題都會走上面的hasDemo===false分支、loadable設為false，純資料上架。
+    'A1-01-ListAdvanced.js', 'A1-02-StringAdvanced.js', 'A2-01-SortingPractice.js', 'A2-02-MathRules.js', 'A3-01-StackQueue.js', 'A3-02-OutputFormat.js', 'A4-01-CondSynthesis.js', 'A4-02-CondChallenge.js', 'A5-01-StateTracking.js', 'A6-01-RolePlay.js', 'A6-02-SensorMonitor.js', 'A6-03-ContestSim.js', 'A7-01-GraphBasics.js', 'A7-02-GraphAdvanced.js', 'A8-01-GreedyBasics.js', 'A8-02-GreedyAdvanced.js', 'A9-01-BinarySearch.js', 'A10-01-PrefixSum.js', 'A10-02-SlidingWindow.js', 'A11-01-IntervalOptimize.js', 'A11-02-DPWarmup.js', 'A12-01-National115.js'];
 
 // 比照BlocklyYdws/blockly-lab現況：JSA00/JSB00是公開課程（不用代碼），其餘一律需要代碼。
 const PUBLIC_COURSE_CODES = new Set(['JSA00', 'JSB00']);

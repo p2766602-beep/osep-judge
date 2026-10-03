@@ -39,7 +39,11 @@ const COURSE_FILES = ['M0-01-BasicOutput.js', 'M0-02-Variables.js', 'M0-03-Condi
     '114EPingtung.js', '114JPingtung.js',
     // 2026-08-20 Phase 3：M2＋M3，見gen-judge-content.js同一段註解。
     'M2-01-CondBasics.js', 'M2-02-CondChallenge.js', 'M2-03-SimBasics.js', 'M2-04-SimRolePlay.js', 'M2-05-SimSensor.js', 'M2-06-SimContest.js', 'M2-07-GraphBasics.js', 'M2-08-GraphAdvanced.js', 'M2-09-GreedyBasics.js', 'M2-10-GreedyAdvanced.js',
-    'M3-00-BinarySearchWarmup.js', 'M3-01-IntervalOptimize.js', 'M3-02-PrefixSum.js', 'M3-03-SlidingWindow.js', 'M3-04-DPWarmup.js'];
+    'M3-00-BinarySearchWarmup.js', 'M3-01-IntervalOptimize.js', 'M3-02-PrefixSum.js', 'M3-03-SlidingWindow.js', 'M3-04-DPWarmup.js',
+    // 2026-10-03新增：A系列進階自主學習地圖課程，全部mode:'contest'、starterXml故意清空，
+    // 見gen-judge-content.js同一段註解。這裡跑起來每題都會落進上面的[SKIP]分支
+    // （沒有starterXml也沒有手寫示範解答），是預期行為。
+    'A1-01-ListAdvanced.js', 'A1-02-StringAdvanced.js', 'A2-01-SortingPractice.js', 'A2-02-MathRules.js', 'A3-01-StackQueue.js', 'A3-02-OutputFormat.js', 'A4-01-CondSynthesis.js', 'A4-02-CondChallenge.js', 'A5-01-StateTracking.js', 'A6-01-RolePlay.js', 'A6-02-SensorMonitor.js', 'A6-03-ContestSim.js', 'A7-01-GraphBasics.js', 'A7-02-GraphAdvanced.js', 'A8-01-GreedyBasics.js', 'A8-02-GreedyAdvanced.js', 'A9-01-BinarySearch.js', 'A10-01-PrefixSum.js', 'A10-02-SlidingWindow.js', 'A11-01-IntervalOptimize.js', 'A11-02-DPWarmup.js', 'A12-01-National115.js'];
 
 function loadCourse(filename) {
     const filePath = path.join(COURSES_DIR, filename);

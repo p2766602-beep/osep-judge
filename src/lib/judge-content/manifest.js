@@ -5575,5 +5575,1105 @@ export default [
                 "difficultyLabel": "L4｜精熟"
             }
         ]
+    },
+    {
+        "code": "A1-01",
+        "title": "A01 清單進階操作",
+        "tier": "v1",
+        "unlockCode": "A1-01-ListAdvanced",
+        "tasks": [
+            {
+                "id": "count-012",
+                "code": "A1-01-count-012",
+                "title": "登山冒險",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "IDX01-007",
+                "code": "A1-01-IDX01-007",
+                "title": "左右鄰居總和",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "cycjunior-004",
+                "code": "A1-01-cycjunior-004",
+                "title": "校車廣播系統熱血指數統計",
+                "difficultyLabel": "L4｜精熟"
+            }
+        ]
+    },
+    {
+        "code": "A1-02",
+        "title": "A02 字串進階處理",
+        "tier": "v1",
+        "unlockCode": "A1-02-StringAdvanced",
+        "tasks": [
+            {
+                "id": "W4-01",
+                "code": "A1-02-W4-01",
+                "title": "數位顯示器",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "cycjunior-002",
+                "code": "A1-02-cycjunior-002",
+                "title": "5進位解碼",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "A-12-1",
+                "code": "A1-02-A-12-1",
+                "title": "動態密碼轉換",
+                "difficultyLabel": "L4｜精熟"
+            }
+        ]
+    },
+    {
+        "code": "A2-01",
+        "title": "A03 排序法實作",
+        "tier": "v2",
+        "unlockCode": "A2-01-SortingPractice",
+        "tasks": [
+            {
+                "id": "seclect-005",
+                "code": "A2-01-seclect-005",
+                "title": "完整選擇排序",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "SORT01-007",
+                "code": "A2-01-SORT01-007",
+                "title": "排序後第K小",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "seclect-012",
+                "code": "A2-01-seclect-012",
+                "title": "多清單整合實戰-學生資料分析",
+                "difficultyLabel": "L3｜挑戰"
+            }
+        ]
+    },
+    {
+        "code": "A2-02",
+        "title": "A04 數學規則應用",
+        "tier": "v2",
+        "unlockCode": "A2-02-MathRules",
+        "tasks": [
+            {
+                "id": "MATH01-004",
+                "code": "A2-02-MATH01-004",
+                "title": "最大公因數",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "TYTN-03",
+                "code": "A2-02-TYTN-03",
+                "title": "質數和",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "MATH01-007",
+                "code": "A2-02-MATH01-007",
+                "title": "數字反轉",
+                "difficultyLabel": "L3｜挑戰"
+            }
+        ]
+    },
+    {
+        "code": "A3-01",
+        "title": "A05 堆疊與佇列",
+        "tier": "v3",
+        "unlockCode": "A3-01-StackQueue",
+        "tasks": [
+            {
+                "id": "M1-11-01",
+                "code": "A3-01-M1-11-01",
+                "title": "堆疊操作模擬",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "M1-11-02",
+                "code": "A3-01-M1-11-02",
+                "title": "佇列操作模擬",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "M1-11-03",
+                "code": "A3-01-M1-11-03",
+                "title": "括號配對是否合法",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "M1-11-06",
+                "code": "A3-01-M1-11-06",
+                "title": "奇偶分流交錯重組",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "M1-11-04",
+                "code": "A3-01-M1-11-04",
+                "title": "【延伸】瀏覽器上一頁模擬",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "M1-11-05",
+                "code": "A3-01-M1-11-05",
+                "title": "【延伸】排隊叫號系統模擬",
+                "difficultyLabel": "L2｜進階"
+            }
+        ]
+    },
+    {
+        "code": "A3-02",
+        "title": "A06 除錯與格式控制",
+        "tier": "v3",
+        "unlockCode": "A3-02-OutputFormat",
+        "tasks": [
+            {
+                "id": "M1-12-01",
+                "code": "A3-02-M1-12-01",
+                "title": "兩位數補零輸出",
+                "difficultyLabel": "L1｜基礎"
+            },
+            {
+                "id": "M1-12-05",
+                "code": "A3-02-M1-12-05",
+                "title": "負數的正確餘數計算",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "M1-12-06",
+                "code": "A3-02-M1-12-06",
+                "title": "單筆資料時的最大最小值",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "M1-12-03",
+                "code": "A3-02-M1-12-03",
+                "title": "平均分數到小數點後兩位",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "M1-12-04",
+                "code": "A3-02-M1-12-04",
+                "title": "除以零的例外處理",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "M1-12-02",
+                "code": "A3-02-M1-12-02",
+                "title": "金額千分位輸出",
+                "difficultyLabel": "L3｜挑戰"
+            }
+        ]
+    },
+    {
+        "code": "A4-01",
+        "title": "A07 條件判斷綜合",
+        "tier": "v4",
+        "unlockCode": "A4-01-CondSynthesis",
+        "tasks": [
+            {
+                "id": "JSB02-D01",
+                "code": "A4-01-JSB02-D01",
+                "title": "通過門檻",
+                "difficultyLabel": "L1｜基礎"
+            },
+            {
+                "id": "JSB02-D02",
+                "code": "A4-01-JSB02-D02",
+                "title": "優惠或原價",
+                "difficultyLabel": "L1｜基礎"
+            },
+            {
+                "id": "JSB02-D03",
+                "code": "A4-01-JSB02-D03",
+                "title": "成績等第示範",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "nanto-001",
+                "code": "A4-01-nanto-001",
+                "title": "遊樂園的自動售票機",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "nanto-003",
+                "code": "A4-01-nanto-003",
+                "title": "跳水比賽成績計算",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "nanto-006-2",
+                "code": "A4-01-nanto-006-2",
+                "title": "碼易丁飲料店-2",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "A-04-0",
+                "code": "A4-01-A-04-0",
+                "title": "【延伸】判斷奇偶數",
+                "difficultyLabel": "L1｜基礎"
+            },
+            {
+                "id": "A-04-1",
+                "code": "A4-01-A-04-1",
+                "title": "【延伸】成績等第",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "A-05-0",
+                "code": "A4-01-A-05-0",
+                "title": "【延伸】三科成績計算",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "nanto-006-1",
+                "code": "A4-01-nanto-006-1",
+                "title": "【延伸】碼易丁飲料店-1",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "WP-01",
+                "code": "A4-01-WP-01",
+                "title": "【延伸】超商收銀",
+                "difficultyLabel": "L2｜進階"
+            }
+        ]
+    },
+    {
+        "code": "A4-02",
+        "title": "A08 條件判斷挑戰",
+        "tier": "v4",
+        "unlockCode": "A4-02-CondChallenge",
+        "tasks": [
+            {
+                "id": "TYTN-09",
+                "code": "A4-02-TYTN-09",
+                "title": "校園販賣機自動補貨",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "nanto-002",
+                "code": "A4-02-nanto-002",
+                "title": "勇者的挑戰",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "nanto-005",
+                "code": "A4-02-nanto-005",
+                "title": "玩具收納運送計算",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "nanto-006-4",
+                "code": "A4-02-nanto-006-4",
+                "title": "碼易丁飲料店-4",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "W2-02",
+                "code": "A4-02-W2-02",
+                "title": "程式設計師阿倫",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "W9-05",
+                "code": "A4-02-W9-05",
+                "title": "連續成績進步分析",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "TYTN-11",
+                "code": "A4-02-TYTN-11",
+                "title": "攻擊防禦力平衡",
+                "difficultyLabel": "L4｜精熟"
+            },
+            {
+                "id": "W4-03",
+                "code": "A4-02-W4-03",
+                "title": "省電大作戰",
+                "difficultyLabel": "L4｜精熟"
+            }
+        ]
+    },
+    {
+        "code": "A5-01",
+        "title": "A09 狀態追蹤基礎",
+        "tier": "v5",
+        "unlockCode": "A5-01-StateTracking",
+        "tasks": [
+            {
+                "id": "JSSIM01-D01",
+                "code": "A5-01-JSSIM01-D01",
+                "title": "分數累加模擬",
+                "difficultyLabel": "L1｜基礎"
+            },
+            {
+                "id": "JSSIM01-D03",
+                "code": "A5-01-JSSIM01-D03",
+                "title": "根據事件改變狀態",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "JSSIM01-P02",
+                "code": "A5-01-JSSIM01-P02",
+                "title": "多條件狀態判斷",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "SIM01-005",
+                "code": "A5-01-SIM01-005",
+                "title": "開關切換",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "SIM01-003",
+                "code": "A5-01-SIM01-003",
+                "title": "血量不可低於0",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "SIM01-006",
+                "code": "A5-01-SIM01-006",
+                "title": "收集金幣與陷阱",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "JSSIM01-D02",
+                "code": "A5-01-JSSIM01-D02",
+                "title": "【延伸】血量變化模擬",
+                "difficultyLabel": "L1｜基礎"
+            },
+            {
+                "id": "JSSIM01-P01",
+                "code": "A5-01-JSSIM01-P01",
+                "title": "【延伸】簡單遊戲關卡累計",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "SIM01-001",
+                "code": "A5-01-SIM01-001",
+                "title": "【延伸】分數累積",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "SIM01-002",
+                "code": "A5-01-SIM01-002",
+                "title": "【延伸】血量變化",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "SIM01-004",
+                "code": "A5-01-SIM01-004",
+                "title": "【延伸】左右移動位置",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "SIM01-007",
+                "code": "A5-01-SIM01-007",
+                "title": "【延伸】最高連勝次數",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "W2-04",
+                "code": "A5-01-W2-04",
+                "title": "【延伸】超市採購即時通",
+                "difficultyLabel": "L4｜精熟"
+            }
+        ]
+    },
+    {
+        "code": "A6-01",
+        "title": "A10 角色扮演系列",
+        "tier": "v6",
+        "unlockCode": "A6-01-RolePlay",
+        "tasks": [
+            {
+                "id": "cycelement-006",
+                "code": "A6-01-cycelement-006",
+                "title": "寶可夢訓練師-1",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "cycelement-006-2-寶可夢訓練師-2",
+                "code": "A6-01-cycelement-006-2-寶可夢訓練師-2",
+                "title": "寶可夢訓練師-2",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "cycelement-006-3-寶可夢訓練師-3",
+                "code": "A6-01-cycelement-006-3-寶可夢訓練師-3",
+                "title": "寶可夢訓練師-3",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "cycjunior-005",
+                "code": "A6-01-cycjunior-005",
+                "title": "大風吹搶位子",
+                "difficultyLabel": "L4｜精熟"
+            },
+            {
+                "id": "cycelement-006-4-寶可夢訓練師-4",
+                "code": "A6-01-cycelement-006-4-寶可夢訓練師-4",
+                "title": "【延伸】寶可夢訓練師-4",
+                "difficultyLabel": "L3｜挑戰"
+            }
+        ]
+    },
+    {
+        "code": "A6-02",
+        "title": "A11 感測與監控系列",
+        "tier": "v6",
+        "unlockCode": "A6-02-SensorMonitor",
+        "tasks": [
+            {
+                "id": "W9-01",
+                "code": "A6-02-W9-01",
+                "title": "公車時刻表",
+                "difficultyLabel": "L1｜基礎"
+            },
+            {
+                "id": "W0-01",
+                "code": "A6-02-W0-01",
+                "title": "智慧溫室的自動監控",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "W1-03",
+                "code": "A6-02-W1-03",
+                "title": "無人搬運車運送計算",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "W2-01",
+                "code": "A6-02-W2-01",
+                "title": "數位能量方塊實驗",
+                "difficultyLabel": "L4｜精熟"
+            },
+            {
+                "id": "W2-03",
+                "code": "A6-02-W2-03",
+                "title": "糖尿病血糖趨勢與預警分析",
+                "difficultyLabel": "L4｜精熟"
+            },
+            {
+                "id": "W3-01",
+                "code": "A6-02-W3-01",
+                "title": "智慧倉儲",
+                "difficultyLabel": "L4｜精熟"
+            },
+            {
+                "id": "W3-03",
+                "code": "A6-02-W3-03",
+                "title": "機器人行走軌跡",
+                "difficultyLabel": "L4｜精熟"
+            },
+            {
+                "id": "W5-03",
+                "code": "A6-02-W5-03",
+                "title": "展演小隊巡場令牌",
+                "difficultyLabel": "L4｜精熟"
+            },
+            {
+                "id": "WP-02",
+                "code": "A6-02-WP-02",
+                "title": "【延伸】防災臨時屋",
+                "difficultyLabel": "L2｜進階"
+            }
+        ]
+    },
+    {
+        "code": "A6-03",
+        "title": "A12 競賽綜合系列",
+        "tier": "v6",
+        "unlockCode": "A6-03-ContestSim",
+        "tasks": [
+            {
+                "id": "W4-04",
+                "code": "A6-03-W4-04",
+                "title": "神箭手",
+                "difficultyLabel": "L1｜基礎"
+            },
+            {
+                "id": "TYTN-01",
+                "code": "A6-03-TYTN-01",
+                "title": "遊樂場",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "cyjunior-005",
+                "code": "A6-03-cyjunior-005",
+                "title": "變速傳球的特訓",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "TYTN-04",
+                "code": "A6-03-TYTN-04",
+                "title": "傳球遊戲",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "W4-02",
+                "code": "A6-03-W4-02",
+                "title": "歡樂抽獎",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "cyjunior-001",
+                "code": "A6-03-cyjunior-001",
+                "title": "智慧手環的健康挑戰",
+                "difficultyLabel": "L4｜精熟"
+            },
+            {
+                "id": "TYTN-08",
+                "code": "A6-03-TYTN-08",
+                "title": "綠能任務挑戰",
+                "difficultyLabel": "L4｜精熟"
+            },
+            {
+                "id": "TYTN-02",
+                "code": "A6-03-TYTN-02",
+                "title": "【延伸】歌唱比賽",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "WP-05",
+                "code": "A6-03-WP-05",
+                "title": "【延伸】傳球遊戲",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "WP-04",
+                "code": "A6-03-WP-04",
+                "title": "【延伸】大富翁",
+                "difficultyLabel": "L3｜挑戰"
+            }
+        ]
+    },
+    {
+        "code": "A7-01",
+        "title": "A13 圖論基礎",
+        "tier": "v7",
+        "unlockCode": "A7-01-GraphBasics",
+        "tasks": [
+            {
+                "id": "GRAPH01-001",
+                "code": "A7-01-GRAPH01-001",
+                "title": "網路連線數",
+                "difficultyLabel": "L1｜基礎"
+            },
+            {
+                "id": "GRAPH01-007",
+                "code": "A7-01-GRAPH01-007",
+                "title": "完整網路缺幾條線",
+                "difficultyLabel": "L1｜基礎"
+            },
+            {
+                "id": "GRAPH01-002",
+                "code": "A7-01-GRAPH01-002",
+                "title": "指定設備連線數",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "GRAPH01-004",
+                "code": "A7-01-GRAPH01-004",
+                "title": "找連線最多的設備",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "GRAPH01-006",
+                "code": "A7-01-GRAPH01-006",
+                "title": "兩段路可到達",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "GRAPH01-003",
+                "code": "A7-01-GRAPH01-003",
+                "title": "【延伸】是否直接相連",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "GRAPH01-005",
+                "code": "A7-01-GRAPH01-005",
+                "title": "【延伸】孤立設備數量",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "GRAPH01-008",
+                "code": "A7-01-GRAPH01-008",
+                "title": "【延伸】網路狀態分類",
+                "difficultyLabel": "L2｜進階"
+            }
+        ]
+    },
+    {
+        "code": "A7-02",
+        "title": "A14 圖論進階",
+        "tier": "v7",
+        "unlockCode": "A7-02-GraphAdvanced",
+        "tasks": [
+            {
+                "id": "W0-03",
+                "code": "A7-02-W0-03",
+                "title": "量子訊號的接力傳輸",
+                "difficultyLabel": "L4｜精熟"
+            },
+            {
+                "id": "W9-02",
+                "code": "A7-02-W9-02",
+                "title": "基地台訊號覆蓋",
+                "difficultyLabel": "L4｜精熟"
+            },
+            {
+                "id": "JSG01-009",
+                "code": "A7-02-JSG01-009",
+                "title": "訊號網路的連通群組數",
+                "difficultyLabel": "L4｜精熟"
+            },
+            {
+                "id": "cyjunior-009",
+                "code": "A7-02-cyjunior-009",
+                "title": "社團聯絡網(6-4)",
+                "difficultyLabel": "L5｜大師"
+            },
+            {
+                "id": "JSG01-010",
+                "code": "A7-02-JSG01-010",
+                "title": "【延伸】訊號站到主機的轉傳距離查詢",
+                "difficultyLabel": "L4｜精熟"
+            }
+        ]
+    },
+    {
+        "code": "A8-01",
+        "title": "A15 貪心入門",
+        "tier": "v8",
+        "unlockCode": "A8-01-GreedyBasics",
+        "tasks": [
+            {
+                "id": "GREEDY01-002",
+                "code": "A8-01-GREEDY01-002",
+                "title": "最多可買幾瓶水",
+                "difficultyLabel": "L1｜基礎"
+            },
+            {
+                "id": "GREEDY01-006",
+                "code": "A8-01-GREEDY01-006",
+                "title": "最少箱子數",
+                "difficultyLabel": "L1｜基礎"
+            },
+            {
+                "id": "GREEDY01-001",
+                "code": "A8-01-GREEDY01-001",
+                "title": "最少硬幣數",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "GREEDY01-003",
+                "code": "A8-01-GREEDY01-003",
+                "title": "優先完成短任務",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "GREEDY01-005",
+                "code": "A8-01-GREEDY01-005",
+                "title": "最大總分選擇",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "GREEDY01-007",
+                "code": "A8-01-GREEDY01-007",
+                "title": "【延伸】補到目標分數",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "GREEDY01-004",
+                "code": "A8-01-GREEDY01-004",
+                "title": "【延伸】買最多便宜商品",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "GREEDY01-008",
+                "code": "A8-01-GREEDY01-008",
+                "title": "【延伸】最多裝入背包",
+                "difficultyLabel": "L3｜挑戰"
+            }
+        ]
+    },
+    {
+        "code": "A8-02",
+        "title": "A16 貪心進階",
+        "tier": "v8",
+        "unlockCode": "A8-02-GreedyAdvanced",
+        "tasks": [
+            {
+                "id": "cycjunior-003",
+                "code": "A8-02-cycjunior-003",
+                "title": "圖書館的舊書打包",
+                "difficultyLabel": "L4｜精熟"
+            },
+            {
+                "id": "cyjunior-004",
+                "code": "A8-02-cyjunior-004",
+                "title": "大隊接力的棒次安排",
+                "difficultyLabel": "L4｜精熟"
+            },
+            {
+                "id": "nantoJS-006-2",
+                "code": "A8-02-nantoJS-006-2",
+                "title": "星際物資運補-疏散飛船的乘客名單",
+                "difficultyLabel": "L4｜精熟"
+            },
+            {
+                "id": "nantoJS-006-3",
+                "code": "A8-02-nantoJS-006-3",
+                "title": "星際物資運補-火星樣本回收",
+                "difficultyLabel": "L4｜精熟"
+            },
+            {
+                "id": "TYTN-12",
+                "code": "A8-02-TYTN-12",
+                "title": "購買紀念品",
+                "difficultyLabel": "L4｜精熟"
+            },
+            {
+                "id": "W2-05",
+                "code": "A8-02-W2-05",
+                "title": "金門小三通春運調度",
+                "difficultyLabel": "L4｜精熟"
+            },
+            {
+                "id": "W3-02",
+                "code": "A8-02-W3-02",
+                "title": "王牌教練",
+                "difficultyLabel": "L4｜精熟"
+            },
+            {
+                "id": "W4-06",
+                "code": "A8-02-W4-06",
+                "title": "金門粥糜採購任務",
+                "difficultyLabel": "L4｜精熟"
+            },
+            {
+                "id": "W9-03",
+                "code": "A8-02-W9-03",
+                "title": "外送員的接單策略",
+                "difficultyLabel": "L4｜精熟"
+            },
+            {
+                "id": "W9-04",
+                "code": "A8-02-W9-04",
+                "title": "神秘的煉金術配對",
+                "difficultyLabel": "L4｜精熟"
+            },
+            {
+                "id": "WP-07",
+                "code": "A8-02-WP-07",
+                "title": "找零錢計算",
+                "difficultyLabel": "L4｜精熟"
+            },
+            {
+                "id": "nantoJS-006-1",
+                "code": "A8-02-nantoJS-006-1",
+                "title": "【延伸】星際物資運補-神祕的配重",
+                "difficultyLabel": "L4｜精熟"
+            },
+            {
+                "id": "WP-06",
+                "code": "A8-02-WP-06",
+                "title": "【延伸】可口便當",
+                "difficultyLabel": "L4｜精熟"
+            }
+        ]
+    },
+    {
+        "code": "A9-01",
+        "title": "A17 二分搜尋",
+        "tier": "v9",
+        "unlockCode": "A9-01-BinarySearch",
+        "tasks": [
+            {
+                "id": "M3-00-01",
+                "code": "A9-01-M3-00-01",
+                "title": "神祕數字找找看",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "M3-00-02",
+                "code": "A9-01-M3-00-02",
+                "title": "神祕數字在第幾個",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "M3-00-03",
+                "code": "A9-01-M3-00-03",
+                "title": "猜數字裁判",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "M3-00-04",
+                "code": "A9-01-M3-00-04",
+                "title": "新書該插第幾格",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "M3-00-05",
+                "code": "A9-01-M3-00-05",
+                "title": "【延伸】訂單一次查",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "M3-00-06",
+                "code": "A9-01-M3-00-06",
+                "title": "【延伸】打折門檻落點",
+                "difficultyLabel": "L3｜挑戰"
+            }
+        ]
+    },
+    {
+        "code": "A10-01",
+        "title": "A18 前綴和",
+        "tier": "v10",
+        "unlockCode": "A10-01-PrefixSum",
+        "tasks": [
+            {
+                "id": "M3-02-01",
+                "code": "A10-01-M3-02-01",
+                "title": "募款進度累積表",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "M3-02-02",
+                "code": "A10-01-M3-02-02",
+                "title": "區間募款查詢",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "M3-02-04",
+                "code": "A10-01-M3-02-04",
+                "title": "區間平均氣溫是否達標",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "M3-02-05",
+                "code": "A10-01-M3-02-05",
+                "title": "扣除單日的區間總和",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "M3-02-06",
+                "code": "A10-01-M3-02-06",
+                "title": "找出總和等於目標值的區間",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "W9-06",
+                "code": "A10-01-W9-06",
+                "title": "遊戲關卡的積分計算",
+                "difficultyLabel": "L4｜精熟"
+            },
+            {
+                "id": "M3-02-03",
+                "code": "A10-01-M3-02-03",
+                "title": "【延伸】募款多筆區間查詢",
+                "difficultyLabel": "L3｜挑戰"
+            }
+        ]
+    },
+    {
+        "code": "A10-02",
+        "title": "A19 滑動視窗",
+        "tier": "v10",
+        "unlockCode": "A10-02-SlidingWindow",
+        "tasks": [
+            {
+                "id": "M3-03-01",
+                "code": "A10-02-M3-03-01",
+                "title": "連續K天營收總和一覽",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "M3-03-02",
+                "code": "A10-02-M3-03-02",
+                "title": "連續K天最大總營收",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "M3-03-04",
+                "code": "A10-02-M3-03-04",
+                "title": "連續K天平均是否曾經達標",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "M3-03-05",
+                "code": "A10-02-M3-03-05",
+                "title": "最長連續達標天數",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "M3-03-06",
+                "code": "A10-02-M3-03-06",
+                "title": "最少連續幾天達到目標總量",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "WP-08",
+                "code": "A10-02-WP-08",
+                "title": "短片欣賞",
+                "difficultyLabel": "L4｜精熟"
+            },
+            {
+                "id": "M3-03-03",
+                "code": "A10-02-M3-03-03",
+                "title": "【延伸】連續K天最小總營收",
+                "difficultyLabel": "L3｜挑戰"
+            }
+        ]
+    },
+    {
+        "code": "A11-01",
+        "title": "A20 區間最佳化",
+        "tier": "v11",
+        "unlockCode": "A11-01-IntervalOptimize",
+        "tasks": [
+            {
+                "id": "cycjunior-006-4-園遊會場地復原大作戰",
+                "code": "A11-01-cycjunior-006-4-園遊會場地復原大作戰",
+                "title": "園遊會場地復原大作戰",
+                "difficultyLabel": "L4｜精熟"
+            },
+            {
+                "id": "TYTN-07",
+                "code": "A11-01-TYTN-07",
+                "title": "挑選喜歡的午餐區間",
+                "difficultyLabel": "L4｜精熟"
+            },
+            {
+                "id": "W0-04-3-星際物資運補任務-物流中心選址",
+                "code": "A11-01-W0-04-3-星際物資運補任務-物流中心選址",
+                "title": "星際物資運補-物流中心選址",
+                "difficultyLabel": "L4｜精熟"
+            },
+            {
+                "id": "cyjunior-008",
+                "code": "A11-01-cyjunior-008",
+                "title": "校園密室逃脫-書架修繕工程",
+                "difficultyLabel": "L5｜大師"
+            },
+            {
+                "id": "cycjunior-006-3-園遊會人潮高峰期",
+                "code": "A11-01-cycjunior-006-3-園遊會人潮高峰期",
+                "title": "園遊會人潮高峰期",
+                "difficultyLabel": "L4｜精熟"
+            },
+            {
+                "id": "nantoJS-006-4",
+                "code": "A11-01-nantoJS-006-4",
+                "title": "【延伸】星際物資運補-防禦塔的能量負載",
+                "difficultyLabel": "L5｜大師"
+            },
+            {
+                "id": "W4-05",
+                "code": "A11-01-W4-05",
+                "title": "【延伸】衛星佈署計畫",
+                "difficultyLabel": "L4｜精熟"
+            },
+            {
+                "id": "W5-06",
+                "code": "A11-01-W5-06",
+                "title": "【延伸】山區備援工程",
+                "difficultyLabel": "L4｜精熟"
+            }
+        ]
+    },
+    {
+        "code": "A11-02",
+        "title": "A21 動態規劃暖身",
+        "tier": "v11",
+        "unlockCode": "A11-02-DPWarmup",
+        "tasks": [
+            {
+                "id": "M3-04-01",
+                "code": "A11-02-M3-04-01",
+                "title": "爬樓梯方法數",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "M3-04-02",
+                "code": "A11-02-M3-04-02",
+                "title": "最小花費爬樓梯",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "M3-04-03",
+                "code": "A11-02-M3-04-03",
+                "title": "不能選相鄰兩個的最大總和",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "M3-04-04",
+                "code": "A11-02-M3-04-04",
+                "title": "硬幣湊金額最少枚數",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "M3-04-05",
+                "code": "A11-02-M3-04-05",
+                "title": "方格地圖走法數",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "M3-04-06",
+                "code": "A11-02-M3-04-06",
+                "title": "兩字串最長共同子序列長度",
+                "difficultyLabel": "L4｜精熟"
+            },
+            {
+                "id": "cycjunior-006-2-園遊會尋找幸運抽獎號",
+                "code": "A11-02-cycjunior-006-2-園遊會尋找幸運抽獎號",
+                "title": "【延伸】園遊會尋找幸運抽獎號",
+                "difficultyLabel": "L3｜挑戰"
+            }
+        ]
+    },
+    {
+        "code": "A12-01",
+        "title": "A22 115全國賽示範題",
+        "tier": "v12",
+        "unlockCode": "A12-01-National115",
+        "tasks": [
+            {
+                "id": "115J-01",
+                "code": "A12-01-115J-01",
+                "title": "考試獎勵",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "115J-02",
+                "code": "A12-01-115J-02",
+                "title": "簽唱會門票",
+                "difficultyLabel": "L4｜精熟"
+            },
+            {
+                "id": "115J-03",
+                "code": "A12-01-115J-03",
+                "title": "闖關遊戲",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "115J-04",
+                "code": "A12-01-115J-04",
+                "title": "火星探測車",
+                "difficultyLabel": "L5｜大師"
+            },
+            {
+                "id": "115J-05",
+                "code": "A12-01-115J-05",
+                "title": "熱浪區間",
+                "difficultyLabel": "L5｜大師"
+            }
+        ]
     }
 ];
