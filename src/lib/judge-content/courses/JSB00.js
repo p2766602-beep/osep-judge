@@ -21,7 +21,7 @@ export default {
                 {
                     "input": "Tom",
                     "output": "Hello, Tom",
-                    "explanation": "第一個輸入 Tom，代表名字為 Tom\n程式輸出 Hello, Amy"
+                    "explanation": "第一個輸入 Tom，代表名字為 Tom\n程式輸出 Hello, Tom"
                 }
             ],
             "testCases": [
@@ -349,7 +349,7 @@ export default {
                 {
                     "input": "3\n80 70 90",
                     "output": "240\n80\n及格",
-                    "explanation": "第一行輸入3,表示有3筆資料\n第二行輸入3筆資料80 70 90，經過計算後\n總分、平均、及格或不及格180 80 及格"
+                    "explanation": "第一行輸入3,表示有3筆資料\n第二行輸入3筆資料80 70 90，經過計算後\n程式輸出總分、平均、及格或不及格180 80 及格"
                 },
                 {
                     "input": "3\n50 42 60",
@@ -518,7 +518,7 @@ export default {
                 {
                     "input": "6",
                     "output": "720",
-                    "explanation": "6 → 1*2*3*4*5*6=720\n程式輸出720"
+                    "explanation": "輸入 6 → 1*2*3*4*5*6=720\n程式輸出720"
                 }
             ],
             "testCases": [

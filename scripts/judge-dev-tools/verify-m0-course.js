@@ -7,6 +7,8 @@ const VM = require('scratch-vm');
 const {gradeSubmission, prepareVmForGrading} = require('../../src/lib/tw-judge-engine.js');
 
 const COURSES_DIR = path.join(__dirname, '../../../YDWS-CodingBank/courses');
+// 課程編輯器（YDWS-CodingBank/tools/edit-server.mjs）套用教學版修改後的成品；有同名成品就優先讀成品。
+const BUILT_DIR = path.join(__dirname, '../../../YDWS-CodingBank/courses-built');
 const OUT_BASE = path.join(__dirname, '../../static/judge-content/m0');
 // 這支腳本專門驗證「示範解答本身能不能拿到滿分」，2026-08-13新增的13縣市國小競賽模式
 // 課程（114TCPE01~13）刻意沒有示範解答（見gen-judge-content.js/build-m0-course-sb3.js
@@ -28,7 +30,8 @@ const COURSE_FILES = ['M0-01-BasicOutput.js', 'M0-02-Variables.js', 'M0-03-Condi
     'M3-00-BinarySearchWarmup.js', 'M3-01-IntervalOptimize.js', 'M3-02-PrefixSum.js', 'M3-03-SlidingWindow.js', 'M3-04-DPWarmup.js'];
 
 function loadCourse(filename) {
-    const filePath = path.join(COURSES_DIR, filename);
+    const builtPath = path.join(BUILT_DIR, filename);
+    const filePath = fs.existsSync(builtPath) ? builtPath : path.join(COURSES_DIR, filename);
     const src = fs.readFileSync(filePath, 'utf8');
     const bodySrc = src.replace(/^export default/m, 'return');
     // eslint-disable-next-line no-new-func

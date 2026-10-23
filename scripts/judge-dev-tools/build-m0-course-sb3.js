@@ -12,6 +12,8 @@ const {convertStarterXml} = require('./xml-to-scratch.js');
 // 2026-08-09改讀YDWS-CodingBank/courses（課程JS正本資料夾），不再直接讀BlocklyYdws/src/courses——
 // 三個平台（BlocklyYdws/blockly-lab/osep-judge）現在統一從這裡取得題目內容。
 const COURSES_DIR = path.join(__dirname, '../../../YDWS-CodingBank/courses');
+// 課程編輯器（YDWS-CodingBank/tools/edit-server.mjs）套用教學版修改後的成品；有同名成品就優先讀成品。
+const BUILT_DIR = path.join(__dirname, '../../../YDWS-CodingBank/courses-built');
 const HAND_AUTHORED_DIR = path.join(__dirname, 'hand-authored-answers');
 const OUT_BASE = path.join(__dirname, '../../static/judge-content/m0');
 const BACKDROP_SVG = fs.readFileSync(path.join(__dirname, '../../src/lib/default-project/cd21514d0531fdffb22204e0ec5ed84a.svg'));
@@ -46,7 +48,8 @@ const COURSE_FILES = ['M0-01-BasicOutput.js', 'M0-02-Variables.js', 'M0-03-Condi
     'A1-01-ListAdvanced.js', 'A1-02-StringAdvanced.js', 'A2-01-SortingPractice.js', 'A2-02-MathRules.js', 'A3-01-StackQueue.js', 'A3-02-OutputFormat.js', 'A4-01-CondSynthesis.js', 'A4-02-CondChallenge.js', 'A5-01-StateTracking.js', 'A6-01-RolePlay.js', 'A6-02-SensorMonitor.js', 'A6-03-ContestSim.js', 'A7-01-GraphBasics.js', 'A7-02-GraphAdvanced.js', 'A8-01-GreedyBasics.js', 'A8-02-GreedyAdvanced.js', 'A9-01-BinarySearch.js', 'A10-01-PrefixSum.js', 'A10-02-SlidingWindow.js', 'A11-01-IntervalOptimize.js', 'A11-02-DPWarmup.js', 'A12-01-National115.js'];
 
 function loadCourse(filename) {
-    const filePath = path.join(COURSES_DIR, filename);
+    const builtPath = path.join(BUILT_DIR, filename);
+    const filePath = fs.existsSync(builtPath) ? builtPath : path.join(COURSES_DIR, filename);
     const src = fs.readFileSync(filePath, 'utf8');
     const bodySrc = src.replace(/^export default/m, 'return');
     // eslint-disable-next-line no-new-func

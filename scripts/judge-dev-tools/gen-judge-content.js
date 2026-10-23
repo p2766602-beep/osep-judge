@@ -16,6 +16,8 @@ const path = require('path');
 
 // 2026-08-09改讀YDWS-CodingBank/courses（課程JS正本資料夾），不再直接讀BlocklyYdws/src/courses。
 const COURSES_DIR = path.join(__dirname, '../../../YDWS-CodingBank/courses');
+// 課程編輯器（YDWS-CodingBank/tools/edit-server.mjs）套用教學版修改後的成品；有同名成品就優先讀成品。
+const BUILT_DIR = path.join(__dirname, '../../../YDWS-CodingBank/courses-built');
 const SB3_BASE = path.join(__dirname, '../../static/judge-content/m0');
 const OUT_DIR = path.join(__dirname, '../../src/lib/judge-content');
 const MANIFEST_FILE = path.join(OUT_DIR, 'manifest.js');
@@ -78,7 +80,8 @@ const COURSE_FILES = ['M0-01-BasicOutput.js', 'M0-02-Variables.js', 'M0-03-Condi
 const PUBLIC_COURSE_CODES = new Set(['JSA00', 'JSB00']);
 
 function loadCourse(filename) {
-    const filePath = path.join(COURSES_DIR, filename);
+    const builtPath = path.join(BUILT_DIR, filename);
+    const filePath = fs.existsSync(builtPath) ? builtPath : path.join(COURSES_DIR, filename);
     const src = fs.readFileSync(filePath, 'utf8');
     const bodySrc = src.replace(/^export default/m, 'return');
     // eslint-disable-next-line no-new-func
