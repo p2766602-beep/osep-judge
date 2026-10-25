@@ -53,7 +53,7 @@ export default {
             ],
             "difficulty": "L1",
             "difficultyLabel": "L1｜基礎",
-            "sb3Path": null
+            "sb3Path": "m0/CSeclect/seclect-001.sb3"
         },
         {
             "id": "seclect-002",
@@ -101,7 +101,7 @@ export default {
             ],
             "difficulty": "L2",
             "difficultyLabel": "L2｜進階",
-            "sb3Path": null
+            "sb3Path": "m0/CSeclect/seclect-002.sb3"
         },
         {
             "id": "seclect-003",
@@ -149,7 +149,7 @@ export default {
             ],
             "difficulty": "L2",
             "difficultyLabel": "L2｜進階",
-            "sb3Path": null
+            "sb3Path": "m0/CSeclect/seclect-003.sb3"
         },
         {
             "id": "seclect-004",
@@ -197,7 +197,7 @@ export default {
             ],
             "difficulty": "L2",
             "difficultyLabel": "L2｜進階",
-            "sb3Path": null
+            "sb3Path": "m0/CSeclect/seclect-004.sb3"
         },
         {
             "id": "seclect-005",
@@ -245,7 +245,7 @@ export default {
             ],
             "difficulty": "L3",
             "difficultyLabel": "L3｜挑戰",
-            "sb3Path": null
+            "sb3Path": "m0/CSeclect/seclect-005.sb3"
         },
         {
             "id": "seclect-006",
@@ -293,7 +293,7 @@ export default {
             ],
             "difficulty": "L3",
             "difficultyLabel": "L3｜挑戰",
-            "sb3Path": null
+            "sb3Path": "m0/CSeclect/seclect-006.sb3"
         },
         {
             "id": "seclect-007",
@@ -341,7 +341,7 @@ export default {
             ],
             "difficulty": "L2",
             "difficultyLabel": "L2｜進階",
-            "sb3Path": null
+            "sb3Path": "m0/CSeclect/seclect-007.sb3"
         },
         {
             "id": "seclect-008",
@@ -389,7 +389,7 @@ export default {
             ],
             "difficulty": "L2",
             "difficultyLabel": "L2｜進階",
-            "sb3Path": null
+            "sb3Path": "m0/CSeclect/seclect-008.sb3"
         },
         {
             "id": "seclect-009",
@@ -437,7 +437,7 @@ export default {
             ],
             "difficulty": "L2",
             "difficultyLabel": "L2｜進階",
-            "sb3Path": null
+            "sb3Path": "m0/CSeclect/seclect-009.sb3"
         },
         {
             "id": "seclect-010",
@@ -485,7 +485,7 @@ export default {
             ],
             "difficulty": "L3",
             "difficultyLabel": "L3｜挑戰",
-            "sb3Path": null
+            "sb3Path": "m0/CSeclect/seclect-010.sb3"
         },
         {
             "id": "seclect-011",
@@ -533,7 +533,7 @@ export default {
             ],
             "difficulty": "L3",
             "difficultyLabel": "L3｜挑戰",
-            "sb3Path": null
+            "sb3Path": "m0/CSeclect/seclect-011.sb3"
         },
         {
             "id": "seclect-012",
@@ -576,7 +576,7 @@ export default {
             ],
             "difficulty": "L3",
             "difficultyLabel": "L3｜挑戰",
-            "sb3Path": null
+            "sb3Path": "m0/CSeclect/seclect-012.sb3"
         }
     ]
 };
