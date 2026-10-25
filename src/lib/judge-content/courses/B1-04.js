@@ -93,7 +93,7 @@ export default {
             "id": "BSC01-006",
             "code": "B1-04-BSC01-006",
             "title": "成績等第",
-            "description": "給定一個分數，請依分數輸出等第。90 分以上為 A，80 到 89 為 B，70 到 79 為 C，60 到 69 為 D，未滿 60 為 F。",
+            "description": "給定一個分數，請依分數輸出等第。90 分以上為 A，80 到 89 為 B，70 到 79 為 C，60 到 69 為 D，未滿 60 為 E。",
             "examples": [
                 {
                     "input": "86",
@@ -119,7 +119,7 @@ export default {
                 },
                 {
                     "input": "59",
-                    "expectedOutput": "F",
+                    "expectedOutput": "E",
                     "score": 10
                 }
             ],

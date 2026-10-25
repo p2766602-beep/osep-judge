@@ -6754,5 +6754,120 @@ export default [
                 "difficultyLabel": "L3｜挑戰"
             }
         ]
+    },
+    {
+        "code": "CLoop",
+        "title": "循環技術迴圈特訓",
+        "unlockCode": "CLoop",
+        "tasks": [
+            {
+                "id": "count-001",
+                "code": "CLoop-count-001",
+                "title": "暖身運動-基礎計數",
+                "difficultyLabel": "L1｜基礎"
+            },
+            {
+                "id": "count-002",
+                "code": "CLoop-count-002",
+                "title": "跳石過河-間隔計數",
+                "difficultyLabel": "L1｜基礎"
+            },
+            {
+                "id": "count-003",
+                "code": "CLoop-count-003",
+                "title": "火箭發射倒數",
+                "difficultyLabel": "L1｜基礎"
+            },
+            {
+                "id": "count-004",
+                "code": "CLoop-count-004",
+                "title": "魔法金幣倍增術",
+                "difficultyLabel": "L1｜基礎"
+            },
+            {
+                "id": "count-005",
+                "code": "CLoop-count-005",
+                "title": "存錢買裝備",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "count-006",
+                "code": "CLoop-count-006",
+                "title": "萬能傳送門",
+                "difficultyLabel": "L1｜基礎"
+            },
+            {
+                "id": "count-007",
+                "code": "CLoop-count-007",
+                "title": "寶箱獵人",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "count-008",
+                "code": "CLoop-count-008",
+                "title": "防禦工事",
+                "difficultyLabel": "L1｜基礎"
+            },
+            {
+                "id": "count-009",
+                "code": "CLoop-count-009",
+                "title": "偶數日的存款",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "count-010",
+                "code": "CLoop-count-010",
+                "title": "能量水晶融合",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "count-011",
+                "code": "CLoop-count-011",
+                "title": "修復斷橋",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "count-012",
+                "code": "CLoop-count-012",
+                "title": "登山冒險",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "count-013",
+                "code": "CLoop-count-013",
+                "title": "勇者的背包",
+                "difficultyLabel": "L1｜基礎"
+            },
+            {
+                "id": "count-014",
+                "code": "CLoop-count-014",
+                "title": "戰利品清點",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "count-015",
+                "code": "CLoop-count-015",
+                "title": "尋找戰鬥力最高的魔王",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "count-016",
+                "code": "CLoop-count-016",
+                "title": "合格的裝備",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "count-017",
+                "code": "CLoop-count-017",
+                "title": "倒轉時光",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "count-018",
+                "code": "CLoop-count-018",
+                "title": "冒險日誌",
+                "difficultyLabel": "L2｜進階"
+            }
+        ]
     }
 ];

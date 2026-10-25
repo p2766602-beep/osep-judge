@@ -754,6 +754,87 @@ function buildRepeatUntil(id, parentId, conditionInput, bodyStartEl, ctx) {
     return id;
 }
 
+// 通用controls_for：忠實對應Blockly產生的JS——TO與BY只在迴圈開始時各求值一次；
+// 步長=abs(BY)，若起點>終點則步長取負（往下數）；方向決定後逐圈檢查。
+// 展開成：i=FROM；__forTo=TO；__forBy=abs(BY)；如果 i>__forTo 則 __forBy=0-__forBy；
+// 重複直到「(__forBy>=0 且 i>__forTo) 或 (__forBy<0 且 i<__forTo)」：body；i=i+__forBy。
+function buildGeneralFor(el, id, parentId, ctx) {
+    const varField = namedChild(el, 'field', 'VAR');
+    const iv = {name: varField.text, id: varField.attrs.id};
+    const toTmp = ctx.newTempVar('forTo');
+    const byTmp = ctx.newTempVar('forBy');
+    const node = (opcode, parent, inputs, fields) => {
+        const nid = ctx.nextId();
+        ctx.blocks[nid] = {opcode, next: null, parent, inputs: inputs || {}, fields: fields || {}, shadow: false, topLevel: false};
+        return nid;
+    };
+    const zero = [1, [4, '0']];
+
+    ctx.blocks[id] = {opcode: 'data_setvariableto', next: null, parent: parentId, inputs: {}, fields: {VARIABLE: [iv.name, iv.id]}, shadow: false, topLevel: false};
+    ctx.blocks[id].inputs.VALUE = convertValueInput(el, 'FROM', id, ctx);
+
+    const setToId = ctx.nextId();
+    const toVal = convertValueInput(el, 'TO', setToId, ctx);
+    ctx.blocks[setToId] = {opcode: 'data_setvariableto', next: null, parent: id, inputs: {VALUE: toVal}, fields: {VARIABLE: [toTmp.name, toTmp.id]}, shadow: false, topLevel: false};
+
+    const setById = ctx.nextId();
+    const absId = ctx.nextId();
+    ctx.blocks[absId] = {opcode: 'operator_mathop', next: null, parent: setById, inputs: {NUM: convertValueInput(el, 'BY', absId, ctx)}, fields: {OPERATOR: ['abs', null]}, shadow: false, topLevel: false};
+    ctx.blocks[setById] = {opcode: 'data_setvariableto', next: null, parent: setToId, inputs: {VALUE: [2, absId]}, fields: {VARIABLE: [byTmp.name, byTmp.id]}, shadow: false, topLevel: false};
+
+    // if (i > to) by = 0 - by
+    const ifId = ctx.nextId();
+    const gt0Id = ctx.nextId();
+    ctx.blocks[gt0Id] = {opcode: 'operator_gt', next: null, parent: ifId, inputs: {OPERAND1: readVar(ctx, iv, gt0Id), OPERAND2: readVar(ctx, toTmp, gt0Id)}, fields: {}, shadow: false, topLevel: false};
+    const negId = ctx.nextId();
+    const subId = ctx.nextId();
+    ctx.blocks[subId] = {opcode: 'operator_subtract', next: null, parent: negId, inputs: {NUM1: zero, NUM2: readVar(ctx, byTmp, subId)}, fields: {}, shadow: false, topLevel: false};
+    ctx.blocks[negId] = {opcode: 'data_setvariableto', next: null, parent: ifId, inputs: {VALUE: [2, subId]}, fields: {VARIABLE: [byTmp.name, byTmp.id]}, shadow: false, topLevel: false};
+    ctx.blocks[ifId] = {opcode: 'control_if', next: null, parent: setById, inputs: {CONDITION: [2, gt0Id], SUBSTACK: [2, negId]}, fields: {}, shadow: false, topLevel: false};
+
+    // repeat until ((not (by < 0)) and (i > to)) or ((by < 0) and (i < to))
+    const loopId = ctx.nextId();
+    const orId = ctx.nextId();
+    const and1Id = ctx.nextId();
+    const and2Id = ctx.nextId();
+    const notId = ctx.nextId();
+    const lt1Id = ctx.nextId();
+    const gtId = ctx.nextId();
+    const lt2Id = ctx.nextId();
+    const lt3Id = ctx.nextId();
+    ctx.blocks[lt1Id] = {opcode: 'operator_lt', next: null, parent: notId, inputs: {OPERAND1: readVar(ctx, byTmp, lt1Id), OPERAND2: zero}, fields: {}, shadow: false, topLevel: false};
+    ctx.blocks[notId] = {opcode: 'operator_not', next: null, parent: and1Id, inputs: {OPERAND: [2, lt1Id]}, fields: {}, shadow: false, topLevel: false};
+    ctx.blocks[gtId] = {opcode: 'operator_gt', next: null, parent: and1Id, inputs: {OPERAND1: readVar(ctx, iv, gtId), OPERAND2: readVar(ctx, toTmp, gtId)}, fields: {}, shadow: false, topLevel: false};
+    ctx.blocks[and1Id] = {opcode: 'operator_and', next: null, parent: orId, inputs: {OPERAND1: [2, notId], OPERAND2: [2, gtId]}, fields: {}, shadow: false, topLevel: false};
+    ctx.blocks[lt2Id] = {opcode: 'operator_lt', next: null, parent: and2Id, inputs: {OPERAND1: readVar(ctx, byTmp, lt2Id), OPERAND2: zero}, fields: {}, shadow: false, topLevel: false};
+    ctx.blocks[lt3Id] = {opcode: 'operator_lt', next: null, parent: and2Id, inputs: {OPERAND1: readVar(ctx, iv, lt3Id), OPERAND2: readVar(ctx, toTmp, lt3Id)}, fields: {}, shadow: false, topLevel: false};
+    ctx.blocks[and2Id] = {opcode: 'operator_and', next: null, parent: orId, inputs: {OPERAND1: [2, lt2Id], OPERAND2: [2, lt3Id]}, fields: {}, shadow: false, topLevel: false};
+    ctx.blocks[orId] = {opcode: 'operator_or', next: null, parent: loopId, inputs: {OPERAND1: [2, and1Id], OPERAND2: [2, and2Id]}, fields: {}, shadow: false, topLevel: false};
+    ctx.blocks[loopId] = {opcode: 'control_repeat_until', next: null, parent: ifId, inputs: {CONDITION: [2, orId]}, fields: {}, shadow: false, topLevel: false};
+
+    const bodyStart = statementStart(el, 'DO');
+    const bodyFirstId = bodyStart ? convertStatementChain(bodyStart, loopId, ctx) : null;
+    const incId = ctx.nextId();
+    const addId = ctx.nextId();
+    ctx.blocks[addId] = {opcode: 'operator_add', next: null, parent: incId, inputs: {NUM1: readVar(ctx, iv, addId), NUM2: readVar(ctx, byTmp, addId)}, fields: {}, shadow: false, topLevel: false};
+    ctx.blocks[incId] = {opcode: 'data_setvariableto', next: null, parent: bodyFirstId || loopId, inputs: {VALUE: [2, addId]}, fields: {VARIABLE: [iv.name, iv.id]}, shadow: false, topLevel: false};
+    if (bodyFirstId) {
+        let tail = bodyFirstId;
+        while (ctx.blocks[tail].next) tail = ctx.blocks[tail].next;
+        ctx.blocks[tail].next = incId;
+        ctx.blocks[incId].parent = tail;
+        ctx.blocks[loopId].inputs.SUBSTACK = [2, bodyFirstId];
+    } else {
+        ctx.blocks[loopId].inputs.SUBSTACK = [2, incId];
+    }
+
+    ctx.blocks[id].next = setToId;
+    ctx.blocks[setToId].next = setById;
+    ctx.blocks[setById].next = ifId;
+    ctx.blocks[ifId].next = loopId;
+    return loopId;
+}
+
 function buildStatementNode(el, id, parentId, ctx) {
     const type = el.attrs.type;
     if (!SUPPORTED_TYPES.has(type)) {
@@ -955,8 +1036,17 @@ function buildStatementNode(el, id, parentId, ctx) {
         const varField = namedChild(el, 'field', 'VAR');
         const byEl = namedChild(el, 'value', 'BY');
         const byInner = byEl && blockChild(byEl);
-        if (!byInner || byInner.attrs.type !== 'math_number') {
-            throw new Error('controls_for只支援BY是常數（math_number）的情況');
+        const isConstInput = (name) => {
+            const e = namedChild(el, 'value', name);
+            const inner = e && blockChild(e);
+            return Boolean(inner && inner.attrs.type === 'math_number');
+        };
+        if (!byInner || byInner.attrs.type !== 'math_number' || (!isConstInput('FROM') && isConstInput('TO'))) {
+            // 只在兩種情況改走忠實對應Blockly的通用版本（見buildGeneralFor）：
+            // (1) BY不是常數；(2) FROM不是常數但TO是常數（如 N-1 倒數到 0，方向要在執行時決定）。
+            // 其他情況（例如FROM常數＋TO變數）維持原本的簡單轉換：2026-10實測若一律改用通用版本，
+            // 114EKeelung-4這類TO=0時Blockly會倒數兩圈的邊界情況會跟原本已驗證的行為不同。
+            return buildGeneralFor(el, id, parentId, ctx);
         }
         const byNum = parseFloat(fieldText(byInner, 'NUM'));
         const ascending = byNum >= 0;

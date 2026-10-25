@@ -27,7 +27,7 @@ const COURSE_FILES = ['M0-01-BasicOutput.js', 'M0-02-Variables.js', 'M0-03-Condi
     '114EPingtung.js', '114JPingtung.js',
     // 2026-08-20 Phase 3：M2＋M3，見gen-judge-content.js同一段註解。
     'M2-01-CondBasics.js', 'M2-02-CondChallenge.js', 'M2-03-SimBasics.js', 'M2-04-SimRolePlay.js', 'M2-05-SimSensor.js', 'M2-06-SimContest.js', 'M2-07-GraphBasics.js', 'M2-08-GraphAdvanced.js', 'M2-09-GreedyBasics.js', 'M2-10-GreedyAdvanced.js',
-    'M3-00-BinarySearchWarmup.js', 'M3-01-IntervalOptimize.js', 'M3-02-PrefixSum.js', 'M3-03-SlidingWindow.js', 'M3-04-DPWarmup.js', 'CSeclect.js'];
+    'M3-00-BinarySearchWarmup.js', 'M3-01-IntervalOptimize.js', 'M3-02-PrefixSum.js', 'M3-03-SlidingWindow.js', 'M3-04-DPWarmup.js', 'CSeclect.js', 'CLoop.js'];
 
 function loadCourse(filename) {
     const builtPath = path.join(BUILT_DIR, filename);

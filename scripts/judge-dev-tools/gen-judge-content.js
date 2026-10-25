@@ -74,7 +74,7 @@ const COURSE_FILES = ['M0-01-BasicOutput.js', 'M0-02-Variables.js', 'M0-03-Condi
     // 題目取自M1~M3系列重組，見YDWS-CodingBank tools/build_a_series_courses.cjs）。
     // 全部mode:'contest'、starterXml故意清空（競賽模式不提供範例答案），比照114TCPE/
     // 114TCPJ系列，每題都會走上面的hasDemo===false分支、loadable設為false，純資料上架。
-    'A1-01-ListAdvanced.js', 'A1-02-StringAdvanced.js', 'A2-01-SortingPractice.js', 'A2-02-MathRules.js', 'A3-01-StackQueue.js', 'A3-02-OutputFormat.js', 'A4-01-CondSynthesis.js', 'A4-02-CondChallenge.js', 'A5-01-StateTracking.js', 'A6-01-RolePlay.js', 'A6-02-SensorMonitor.js', 'A6-03-ContestSim.js', 'A7-01-GraphBasics.js', 'A7-02-GraphAdvanced.js', 'A8-01-GreedyBasics.js', 'A8-02-GreedyAdvanced.js', 'A9-01-BinarySearch.js', 'A10-01-PrefixSum.js', 'A10-02-SlidingWindow.js', 'A11-01-IntervalOptimize.js', 'A11-02-DPWarmup.js', 'A12-01-National115.js', 'CSeclect.js'];
+    'A1-01-ListAdvanced.js', 'A1-02-StringAdvanced.js', 'A2-01-SortingPractice.js', 'A2-02-MathRules.js', 'A3-01-StackQueue.js', 'A3-02-OutputFormat.js', 'A4-01-CondSynthesis.js', 'A4-02-CondChallenge.js', 'A5-01-StateTracking.js', 'A6-01-RolePlay.js', 'A6-02-SensorMonitor.js', 'A6-03-ContestSim.js', 'A7-01-GraphBasics.js', 'A7-02-GraphAdvanced.js', 'A8-01-GreedyBasics.js', 'A8-02-GreedyAdvanced.js', 'A9-01-BinarySearch.js', 'A10-01-PrefixSum.js', 'A10-02-SlidingWindow.js', 'A11-01-IntervalOptimize.js', 'A11-02-DPWarmup.js', 'A12-01-National115.js', 'CSeclect.js', 'CLoop.js'];
 
 // 比照BlocklyYdws/blockly-lab現況：JSA00/JSB00是公開課程（不用代碼），其餘一律需要代碼。
 const PUBLIC_COURSE_CODES = new Set(['JSA00', 'JSB00']);
