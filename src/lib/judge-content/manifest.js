@@ -6675,5 +6675,84 @@ export default [
                 "difficultyLabel": "L5｜大師"
             }
         ]
+    },
+    {
+        "code": "CSeclect",
+        "title": "選擇排序法特訓",
+        "unlockCode": "CSeclect",
+        "tasks": [
+            {
+                "id": "seclect-001",
+                "code": "CSeclect-seclect-001",
+                "title": "SWAP交換函數",
+                "difficultyLabel": "L1｜基礎"
+            },
+            {
+                "id": "seclect-002",
+                "code": "CSeclect-seclect-002",
+                "title": "卡片位置交換清單版",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "seclect-003",
+                "code": "CSeclect-seclect-003",
+                "title": "清單最大最小值的位置",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "seclect-004",
+                "code": "CSeclect-seclect-004",
+                "title": "選擇排序第一回合",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "seclect-005",
+                "code": "CSeclect-seclect-005",
+                "title": "【延伸】完整選擇排序",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "seclect-006",
+                "code": "CSeclect-seclect-006",
+                "title": "排序演算法",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "seclect-007",
+                "code": "CSeclect-seclect-007",
+                "title": "雙卡同步交換",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "seclect-008",
+                "code": "CSeclect-seclect-008",
+                "title": "找出最高分與最低分學生的位置與姓名",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "seclect-009",
+                "code": "CSeclect-seclect-009",
+                "title": "連動選擇排序第一回合",
+                "difficultyLabel": "L2｜進階"
+            },
+            {
+                "id": "seclect-010",
+                "code": "CSeclect-seclect-010",
+                "title": "【延伸】完整雙清單排序",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "seclect-011",
+                "code": "CSeclect-seclect-011",
+                "title": "【延伸】排序結果應用-成績排行榜",
+                "difficultyLabel": "L3｜挑戰"
+            },
+            {
+                "id": "seclect-012",
+                "code": "CSeclect-seclect-012",
+                "title": "多清單整合實戰-學生資料分析",
+                "difficultyLabel": "L3｜挑戰"
+            }
+        ]
     }
 ];
