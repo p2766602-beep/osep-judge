@@ -108,7 +108,7 @@ export default {
                     "score": 10
                 },
                 {
-                    "input": "00007261",
+                    "input": "12345261",
                     "expectedOutput": "六獎",
                     "score": 10
                 }
