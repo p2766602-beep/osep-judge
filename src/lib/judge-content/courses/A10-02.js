@@ -6,6 +6,7 @@ export default {
     "code": "A10-02",
     "title": "A19 滑動視窗",
     "tier": "v10",
+    "mode": "contest",
     "unlockCode": "A10-02-SlidingWindow",
     "tasks": [
         {

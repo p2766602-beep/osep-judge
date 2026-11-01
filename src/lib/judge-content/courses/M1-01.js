@@ -6,6 +6,7 @@ export default {
     "code": "M1-01",
     "title": "清單搜尋與篩選進階",
     "tier": "t1",
+    "mode": "learning",
     "unlockCode": "M1-01-ListSearch",
     "tasks": [
         {

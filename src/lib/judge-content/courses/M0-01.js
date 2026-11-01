@@ -6,6 +6,7 @@ export default {
     "code": "M0-01",
     "title": "程式起步：輸出與基本運算",
     "tier": "t0",
+    "mode": "learning",
     "unlockCode": "M0-01-BasicOutput",
     "tasks": [
         {

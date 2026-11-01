@@ -6,6 +6,7 @@ export default {
     "code": "M2-02",
     "title": "運算與條件判斷綜合挑戰",
     "tier": "t2",
+    "mode": "learning",
     "unlockCode": "M2-02-CondChallenge",
     "tasks": [
         {

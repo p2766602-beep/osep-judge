@@ -5,6 +5,7 @@
 export default {
     "code": "114TCPJ14",
     "title": "114-基隆市國中（競賽模式）",
+    "mode": "contest",
     "unlockCode": "114TCPJ14",
     "tasks": [
         {

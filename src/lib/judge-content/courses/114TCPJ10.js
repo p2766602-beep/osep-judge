@@ -5,6 +5,7 @@
 export default {
     "code": "114TCPJ10",
     "title": "114-臺中市國中（競賽模式）",
+    "mode": "contest",
     "unlockCode": "114TCPJ10",
     "tasks": [
         {

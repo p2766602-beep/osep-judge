@@ -6,6 +6,7 @@ export default {
     "code": "A11-01",
     "title": "A20 區間最佳化",
     "tier": "v11",
+    "mode": "contest",
     "unlockCode": "A11-01-IntervalOptimize",
     "tasks": [
         {

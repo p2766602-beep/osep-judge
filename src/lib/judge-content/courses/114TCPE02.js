@@ -5,6 +5,7 @@
 export default {
     "code": "114TCPE02",
     "title": "114-嘉義縣國小（競賽模式）",
+    "mode": "contest",
     "unlockCode": "114TCPE02",
     "tasks": [
         {

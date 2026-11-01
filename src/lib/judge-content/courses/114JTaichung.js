@@ -5,6 +5,7 @@
 export default {
     "code": "114JTaichung",
     "title": "114-臺中市國中",
+    "mode": "learning",
     "unlockCode": "114JTaichung",
     "tasks": [
         {

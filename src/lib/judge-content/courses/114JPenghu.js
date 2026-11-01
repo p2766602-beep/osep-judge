@@ -5,6 +5,7 @@
 export default {
     "code": "114JPenghu",
     "title": "114-澎湖縣國中",
+    "mode": "learning",
     "unlockCode": "114JPenghu",
     "tasks": [
         {

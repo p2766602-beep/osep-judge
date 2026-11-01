@@ -6,6 +6,7 @@ export default {
     "code": "B6-03",
     "title": "K18 平行清單連動處理",
     "tier": "t1",
+    "mode": "learning",
     "unlockCode": "B6-03-ParallelLists",
     "tasks": [
         {

@@ -6,6 +6,7 @@ export default {
     "code": "A8-02",
     "title": "A16 貪心進階",
     "tier": "v8",
+    "mode": "contest",
     "unlockCode": "A8-02-GreedyAdvanced",
     "tasks": [
         {

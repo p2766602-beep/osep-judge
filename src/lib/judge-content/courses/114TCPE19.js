@@ -5,6 +5,7 @@
 export default {
     "code": "114TCPE19",
     "title": "114-屏東縣國小（競賽模式）",
+    "mode": "contest",
     "unlockCode": "114TCPE19",
     "tasks": [
         {

@@ -5,6 +5,7 @@
 export default {
     "code": "114ETainan",
     "title": "114-臺南市國小",
+    "mode": "learning",
     "unlockCode": "114ETainan",
     "tasks": [
         {

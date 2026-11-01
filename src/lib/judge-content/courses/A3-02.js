@@ -6,6 +6,7 @@ export default {
     "code": "A3-02",
     "title": "A06 除錯與格式控制",
     "tier": "v3",
+    "mode": "contest",
     "unlockCode": "A3-02-OutputFormat",
     "tasks": [
         {

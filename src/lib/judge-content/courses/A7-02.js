@@ -6,6 +6,7 @@ export default {
     "code": "A7-02",
     "title": "A14 圖論進階",
     "tier": "v7",
+    "mode": "contest",
     "unlockCode": "A7-02-GraphAdvanced",
     "tasks": [
         {

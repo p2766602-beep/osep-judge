@@ -5,6 +5,7 @@
 export default {
     "code": "114TCPE09",
     "title": "114-澎湖縣國小（競賽模式）",
+    "mode": "contest",
     "unlockCode": "114TCPE09",
     "tasks": [
         {

@@ -6,6 +6,7 @@ export default {
     "code": "M0-04",
     "title": "迴圈與累計",
     "tier": "t0",
+    "mode": "learning",
     "unlockCode": "M0-04-LoopsAndSum",
     "tasks": [
         {

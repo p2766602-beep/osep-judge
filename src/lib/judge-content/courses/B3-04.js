@@ -6,6 +6,7 @@ export default {
     "code": "B3-04",
     "title": "K10 位置追蹤與線性搜尋",
     "tier": "t1",
+    "mode": "learning",
     "unlockCode": "B3-04-LinearSearch",
     "tasks": [
         {

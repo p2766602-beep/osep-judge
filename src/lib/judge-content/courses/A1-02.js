@@ -6,6 +6,7 @@ export default {
     "code": "A1-02",
     "title": "A02 字串進階處理",
     "tier": "v1",
+    "mode": "contest",
     "unlockCode": "A1-02-StringAdvanced",
     "tasks": [
         {

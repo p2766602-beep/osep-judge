@@ -6,6 +6,7 @@ export default {
     "code": "B3-05",
     "title": "K11 相鄰元素比較",
     "tier": "t1",
+    "mode": "learning",
     "unlockCode": "B3-05-Adjacent",
     "tasks": [
         {

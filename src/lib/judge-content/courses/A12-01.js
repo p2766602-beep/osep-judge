@@ -6,6 +6,7 @@ export default {
     "code": "A12-01",
     "title": "A22 115全國賽示範題",
     "tier": "v12",
+    "mode": "contest",
     "unlockCode": "A12-01-National115",
     "tasks": [
         {

@@ -6,6 +6,7 @@ export default {
     "code": "M2-08",
     "title": "圖論進階",
     "tier": "t2",
+    "mode": "learning",
     "unlockCode": "M2-08-GraphAdvanced",
     "tasks": [
         {

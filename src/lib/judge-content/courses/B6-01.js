@@ -6,6 +6,7 @@ export default {
     "code": "B6-01",
     "title": "K16 資料交換",
     "tier": "t1",
+    "mode": "learning",
     "unlockCode": "B6-01-Swap",
     "tasks": [
         {

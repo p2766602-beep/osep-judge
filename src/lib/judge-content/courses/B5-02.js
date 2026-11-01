@@ -6,6 +6,7 @@ export default {
     "code": "B5-02",
     "title": "K15 位數拆解",
     "tier": "t1",
+    "mode": "learning",
     "unlockCode": "B5-02-Digits",
     "tasks": [
         {

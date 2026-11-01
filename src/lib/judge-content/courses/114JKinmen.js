@@ -5,6 +5,7 @@
 export default {
     "code": "114JKinmen",
     "title": "114-金門縣國中",
+    "mode": "learning",
     "unlockCode": "114JKinmen",
     "tasks": [
         {

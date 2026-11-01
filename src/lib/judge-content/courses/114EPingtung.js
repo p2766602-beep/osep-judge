@@ -5,6 +5,7 @@
 export default {
     "code": "114EPingtung",
     "title": "114-屏東縣國小",
+    "mode": "learning",
     "unlockCode": "114EPingtung",
     "tasks": [
         {

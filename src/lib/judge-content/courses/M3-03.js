@@ -6,6 +6,7 @@ export default {
     "code": "M3-03",
     "title": "滑動視窗(sliding window)",
     "tier": "t3",
+    "mode": "learning",
     "unlockCode": "M3-03-SlidingWindow",
     "tasks": [
         {

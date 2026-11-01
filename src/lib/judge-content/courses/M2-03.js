@@ -6,6 +6,7 @@ export default {
     "code": "M2-03",
     "title": "模擬與狀態：基礎",
     "tier": "t2",
+    "mode": "learning",
     "unlockCode": "M2-03-SimBasics",
     "tasks": [
         {
@@ -276,22 +277,22 @@ export default {
                 {
                     "input": "5\n10 20 5 30 15",
                     "expectedOutput": "80",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "3\n0 0 0",
                     "expectedOutput": "0",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "4\n100 -20 30 -10",
                     "expectedOutput": "100",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "1\n50",
                     "expectedOutput": "50",
-                    "score": 0
+                    "score": 10
                 }
             ],
             "difficulty": "L2",
@@ -316,22 +317,22 @@ export default {
                 {
                     "input": "100\n4\n-20 10 -30 5",
                     "expectedOutput": "65",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "50\n3\n10 10 -5",
                     "expectedOutput": "65",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "30\n2\n-10 -20",
                     "expectedOutput": "0",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "80\n1\n15",
                     "expectedOutput": "95",
-                    "score": 0
+                    "score": 10
                 }
             ],
             "difficulty": "L2",
@@ -356,22 +357,22 @@ export default {
                 {
                     "input": "RLRRLLR",
                     "expectedOutput": "1",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "RRRR",
                     "expectedOutput": "4",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "LLLL",
                     "expectedOutput": "-4",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "LRLR",
                     "expectedOutput": "0",
-                    "score": 0
+                    "score": 10
                 }
             ],
             "difficulty": "L2",
@@ -396,22 +397,22 @@ export default {
                 {
                     "input": "3",
                     "expectedOutput": "ON",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "0",
                     "expectedOutput": "OFF",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "2",
                     "expectedOutput": "OFF",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "10",
                     "expectedOutput": "OFF",
-                    "score": 0
+                    "score": 10
                 }
             ],
             "difficulty": "L2",
@@ -436,22 +437,22 @@ export default {
                 {
                     "input": "30\n3\n-20 -20 15",
                     "expectedOutput": "15",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "100\n2\n-50 -60",
                     "expectedOutput": "0",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "10\n3\n-5 -5 -5",
                     "expectedOutput": "0",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "20\n4\n10 -5 -40 3",
                     "expectedOutput": "3",
-                    "score": 0
+                    "score": 10
                 }
             ],
             "difficulty": "L3",
@@ -476,22 +477,22 @@ export default {
                 {
                     "input": "CCTTCT",
                     "expectedOutput": "0",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "CCCC",
                     "expectedOutput": "4",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "TTTT",
                     "expectedOutput": "0",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "CTCCTT",
                     "expectedOutput": "0",
-                    "score": 0
+                    "score": 10
                 }
             ],
             "difficulty": "L3",
@@ -516,22 +517,22 @@ export default {
                 {
                     "input": "WWLWWWLW",
                     "expectedOutput": "3",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "LLLL",
                     "expectedOutput": "0",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "WWWW",
                     "expectedOutput": "4",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "WLWWLLWWW",
                     "expectedOutput": "3",
-                    "score": 0
+                    "score": 10
                 }
             ],
             "difficulty": "L3",

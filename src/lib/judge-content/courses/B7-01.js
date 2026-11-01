@@ -6,6 +6,7 @@ export default {
     "code": "B7-01",
     "title": "K19 堆疊與佇列",
     "tier": "t1",
+    "mode": "learning",
     "unlockCode": "B7-01-StackQueue",
     "tasks": [
         {

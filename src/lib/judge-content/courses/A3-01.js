@@ -6,6 +6,7 @@ export default {
     "code": "A3-01",
     "title": "A05 堆疊與佇列",
     "tier": "v3",
+    "mode": "contest",
     "unlockCode": "A3-01-StackQueue",
     "tasks": [
         {

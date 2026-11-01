@@ -5,6 +5,7 @@
 export default {
     "code": "114ENantou",
     "title": "114-南投縣國小",
+    "mode": "learning",
     "unlockCode": "114ENantou",
     "tasks": [
         {

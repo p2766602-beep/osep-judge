@@ -6,6 +6,7 @@ export default {
     "code": "A11-02",
     "title": "A21 動態規劃暖身",
     "tier": "v11",
+    "mode": "contest",
     "unlockCode": "A11-02-DPWarmup",
     "tasks": [
         {

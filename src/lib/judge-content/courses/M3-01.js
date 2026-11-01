@@ -6,6 +6,7 @@ export default {
     "code": "M3-01",
     "title": "區間與最佳化",
     "tier": "t3",
+    "mode": "learning",
     "unlockCode": "M3-01-IntervalOptimize",
     "tasks": [
         {

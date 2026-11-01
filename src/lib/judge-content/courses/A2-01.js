@@ -6,6 +6,7 @@ export default {
     "code": "A2-01",
     "title": "A03 排序法實作",
     "tier": "v2",
+    "mode": "contest",
     "unlockCode": "A2-01-SortingPractice",
     "tasks": [
         {

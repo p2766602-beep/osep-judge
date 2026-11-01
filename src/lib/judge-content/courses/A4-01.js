@@ -6,6 +6,7 @@ export default {
     "code": "A4-01",
     "title": "A07 條件判斷綜合",
     "tier": "v4",
+    "mode": "contest",
     "unlockCode": "A4-01-CondSynthesis",
     "tasks": [
         {

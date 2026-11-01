@@ -6,6 +6,7 @@ export default {
     "code": "M2-06",
     "title": "模擬與狀態挑戰C：競賽綜合系列",
     "tier": "t2",
+    "mode": "learning",
     "unlockCode": "M2-06-SimContest",
     "tasks": [
         {

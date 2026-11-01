@@ -6,6 +6,7 @@ export default {
     "code": "A7-01",
     "title": "A13 圖論基礎",
     "tier": "v7",
+    "mode": "contest",
     "unlockCode": "A7-01-GraphBasics",
     "tasks": [
         {

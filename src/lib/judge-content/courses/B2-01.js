@@ -6,6 +6,7 @@ export default {
     "code": "B2-01",
     "title": "K05 計數迴圈",
     "tier": "t0",
+    "mode": "learning",
     "unlockCode": "B2-01-CountingLoop",
     "tasks": [
         {

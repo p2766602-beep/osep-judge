@@ -6,6 +6,7 @@ export default {
     "code": "M1-02",
     "title": "清單資料分析挑戰",
     "tier": "t1",
+    "mode": "learning",
     "unlockCode": "M1-02-ListAnalysis",
     "tasks": [
         {

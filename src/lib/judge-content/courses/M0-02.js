@@ -6,6 +6,7 @@ export default {
     "code": "M0-02",
     "title": "變數與四則運算",
     "tier": "t0",
+    "mode": "learning",
     "unlockCode": "M0-02-Variables",
     "tasks": [
         {

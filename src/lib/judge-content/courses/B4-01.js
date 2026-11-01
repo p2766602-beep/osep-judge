@@ -6,6 +6,7 @@ export default {
     "code": "B4-01",
     "title": "K12 字串存取與走訪",
     "tier": "t1",
+    "mode": "learning",
     "unlockCode": "B4-01-StringAccess",
     "tasks": [
         {

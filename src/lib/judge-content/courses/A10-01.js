@@ -6,6 +6,7 @@ export default {
     "code": "A10-01",
     "title": "A18 前綴和",
     "tier": "v10",
+    "mode": "contest",
     "unlockCode": "A10-01-PrefixSum",
     "tasks": [
         {

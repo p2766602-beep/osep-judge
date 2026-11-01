@@ -6,6 +6,7 @@ export default {
     "code": "A4-02",
     "title": "A08 條件判斷挑戰",
     "tier": "v4",
+    "mode": "contest",
     "unlockCode": "A4-02-CondChallenge",
     "tasks": [
         {

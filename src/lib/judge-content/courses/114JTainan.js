@@ -5,6 +5,7 @@
 export default {
     "code": "114JTainan",
     "title": "114-臺南市國中",
+    "mode": "learning",
     "unlockCode": "114JTainan",
     "tasks": [
         {

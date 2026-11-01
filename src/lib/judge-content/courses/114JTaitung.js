@@ -5,6 +5,7 @@
 export default {
     "code": "114JTaitung",
     "title": "114-臺東縣國中",
+    "mode": "learning",
     "unlockCode": "114JTaitung",
     "tasks": [
         {

@@ -6,6 +6,7 @@ export default {
     "code": "A1-01",
     "title": "A01 清單進階操作",
     "tier": "v1",
+    "mode": "contest",
     "unlockCode": "A1-01-ListAdvanced",
     "tasks": [
         {

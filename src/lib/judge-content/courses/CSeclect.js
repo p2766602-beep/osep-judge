@@ -5,6 +5,7 @@
 export default {
     "code": "CSeclect",
     "title": "選擇排序法特訓",
+    "mode": "learning",
     "unlockCode": "CSeclect",
     "tasks": [
         {

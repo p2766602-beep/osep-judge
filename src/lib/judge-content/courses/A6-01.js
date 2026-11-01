@@ -6,6 +6,7 @@ export default {
     "code": "A6-01",
     "title": "A10 角色扮演系列",
     "tier": "v6",
+    "mode": "contest",
     "unlockCode": "A6-01-RolePlay",
     "tasks": [
         {

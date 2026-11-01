@@ -6,6 +6,7 @@ export default {
     "code": "M1-06",
     "title": "字串處理進階：格式與編碼",
     "tier": "t1",
+    "mode": "learning",
     "unlockCode": "M1-06-StringFormat",
     "tasks": [
         {

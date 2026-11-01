@@ -6,6 +6,7 @@ export default {
     "code": "B1-03",
     "title": "K03 條件判斷：二選一",
     "tier": "t0",
+    "mode": "learning",
     "unlockCode": "B1-03-IfElse",
     "tasks": [
         {

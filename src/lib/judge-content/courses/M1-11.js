@@ -6,6 +6,7 @@ export default {
     "code": "M1-11",
     "title": "堆疊與佇列",
     "tier": "t1",
+    "mode": "learning",
     "unlockCode": "M1-11-StackQueue",
     "tasks": [
         {

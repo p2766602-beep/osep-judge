@@ -6,6 +6,7 @@ export default {
     "code": "B3-02",
     "title": "K08 清單累計與條件統計",
     "tier": "t1",
+    "mode": "learning",
     "unlockCode": "B3-02-ListStats",
     "tasks": [
         {

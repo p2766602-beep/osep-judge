@@ -5,6 +5,7 @@
 export default {
     "code": "114TCPE18",
     "title": "114-苗栗縣國小（競賽模式）",
+    "mode": "contest",
     "unlockCode": "114TCPE18",
     "tasks": [
         {

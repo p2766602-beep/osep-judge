@@ -6,6 +6,7 @@ export default {
     "code": "B2-02",
     "title": "K06 累加與累乘",
     "tier": "t0",
+    "mode": "learning",
     "unlockCode": "B2-02-Accumulate",
     "tasks": [
         {

@@ -5,6 +5,7 @@
 export default {
     "code": "114JKeelung",
     "title": "114-基隆市國中",
+    "mode": "learning",
     "unlockCode": "114JKeelung",
     "tasks": [
         {

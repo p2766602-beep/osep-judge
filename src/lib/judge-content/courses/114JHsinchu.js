@@ -5,6 +5,7 @@
 export default {
     "code": "114JHsinchu",
     "title": "114-新竹市國中",
+    "mode": "learning",
     "unlockCode": "114JHsinchu",
     "tasks": [
         {

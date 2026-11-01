@@ -5,6 +5,7 @@
 export default {
     "code": "114TCPE03",
     "title": "114-彰化縣國小（競賽模式）",
+    "mode": "contest",
     "unlockCode": "114TCPE03",
     "tasks": [
         {

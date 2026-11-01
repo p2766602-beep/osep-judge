@@ -6,6 +6,7 @@ export default {
     "code": "B4-02",
     "title": "K13 字串統計與轉換",
     "tier": "t1",
+    "mode": "learning",
     "unlockCode": "B4-02-StringProcess",
     "tasks": [
         {

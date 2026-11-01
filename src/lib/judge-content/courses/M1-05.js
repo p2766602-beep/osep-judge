@@ -6,6 +6,7 @@ export default {
     "code": "M1-05",
     "title": "字串處理基礎",
     "tier": "t1",
+    "mode": "learning",
     "unlockCode": "M1-05-StringBasics",
     "tasks": [
         {
@@ -26,22 +27,22 @@ export default {
                 {
                     "input": "hello",
                     "expectedOutput": "5",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "a",
                     "expectedOutput": "1",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "Scratch",
                     "expectedOutput": "7",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "YDWS2026",
                     "expectedOutput": "8",
-                    "score": 0
+                    "score": 10
                 }
             ],
             "difficulty": "L1",
@@ -66,22 +67,22 @@ export default {
                 {
                     "input": "coding",
                     "expectedOutput": "c g",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "a",
                     "expectedOutput": "a a",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "Blockly",
                     "expectedOutput": "B y",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "12345",
                     "expectedOutput": "1 5",
-                    "score": 0
+                    "score": 10
                 }
             ],
             "difficulty": "L1",
@@ -106,22 +107,22 @@ export default {
                 {
                     "input": "teacher\n4",
                     "expectedOutput": "c",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "abcde\n1",
                     "expectedOutput": "a",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "abcde\n5",
                     "expectedOutput": "e",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "SmartRing\n6",
                     "expectedOutput": "R",
-                    "score": 0
+                    "score": 10
                 }
             ],
             "difficulty": "L2",
@@ -146,22 +147,22 @@ export default {
                 {
                     "input": "banana\na",
                     "expectedOutput": "3",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "mississippi\ns",
                     "expectedOutput": "4",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "hello\nz",
                     "expectedOutput": "0",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "aaaaa\na",
                     "expectedOutput": "5",
-                    "score": 0
+                    "score": 10
                 }
             ],
             "difficulty": "L2",
@@ -186,22 +187,22 @@ export default {
                 {
                     "input": "abcde",
                     "expectedOutput": "edcba",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "a",
                     "expectedOutput": "a",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "level",
                     "expectedOutput": "level",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "Smart",
                     "expectedOutput": "tramS",
-                    "score": 0
+                    "score": 10
                 }
             ],
             "difficulty": "L2",
@@ -226,22 +227,22 @@ export default {
                 {
                     "input": "education",
                     "expectedOutput": "5",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "sky",
                     "expectedOutput": "0",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "banana",
                     "expectedOutput": "3",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "aeiou",
                     "expectedOutput": "5",
-                    "score": 0
+                    "score": 10
                 }
             ],
             "difficulty": "L2",
@@ -266,22 +267,22 @@ export default {
                 {
                     "input": "level",
                     "expectedOutput": "YES",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "abc",
                     "expectedOutput": "NO",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "a",
                     "expectedOutput": "YES",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "noon",
                     "expectedOutput": "YES",
-                    "score": 0
+                    "score": 10
                 }
             ],
             "difficulty": "L3",
@@ -306,22 +307,22 @@ export default {
                 {
                     "input": "book",
                     "expectedOutput": "YES",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "abcd",
                     "expectedOutput": "NO",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "a",
                     "expectedOutput": "NO",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "committee",
                     "expectedOutput": "YES",
-                    "score": 0
+                    "score": 10
                 }
             ],
             "difficulty": "L3",

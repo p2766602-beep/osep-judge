@@ -6,6 +6,7 @@ export default {
     "code": "A6-02",
     "title": "A11 感測與監控系列",
     "tier": "v6",
+    "mode": "contest",
     "unlockCode": "A6-02-SensorMonitor",
     "tasks": [
         {

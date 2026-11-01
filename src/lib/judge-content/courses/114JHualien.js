@@ -5,6 +5,7 @@
 export default {
     "code": "114JHualien",
     "title": "114-花蓮縣國中",
+    "mode": "learning",
     "unlockCode": "114JHualien",
     "tasks": [
         {

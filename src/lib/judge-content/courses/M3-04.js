@@ -6,6 +6,7 @@ export default {
     "code": "M3-04",
     "title": "動態規劃暖身",
     "tier": "t3",
+    "mode": "learning",
     "unlockCode": "M3-04-DPWarmup",
     "tasks": [
         {

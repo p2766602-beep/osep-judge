@@ -5,6 +5,7 @@
 export default {
     "code": "114TCPE08",
     "title": "114-新北市國小（競賽模式）",
+    "mode": "contest",
     "unlockCode": "114TCPE08",
     "tasks": [
         {

@@ -6,6 +6,7 @@ export default {
     "code": "M0-06",
     "title": "找最大值/最小值延伸",
     "tier": "t0",
+    "mode": "learning",
     "unlockCode": "M0-06-MinMaxExtra",
     "tasks": [
         {
@@ -26,22 +27,22 @@ export default {
                 {
                     "input": "5\n8 3 12 7 10",
                     "expectedOutput": "12",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "4\n1 1 1 1",
                     "expectedOutput": "1",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "6\n-5 -2 -9 -1 -7 -3",
                     "expectedOutput": "-1",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "3\n100 50 99",
                     "expectedOutput": "100",
-                    "score": 0
+                    "score": 10
                 }
             ],
             "difficulty": "L2",
@@ -66,22 +67,22 @@ export default {
                 {
                     "input": "5\n8 3 12 7 10",
                     "expectedOutput": "3",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "4\n6 6 6 6",
                     "expectedOutput": "6",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "6\n-5 -2 -9 -1 -7 -3",
                     "expectedOutput": "-9",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "3\n100 50 99",
                     "expectedOutput": "50",
-                    "score": 0
+                    "score": 10
                 }
             ],
             "difficulty": "L2",
@@ -106,22 +107,22 @@ export default {
                 {
                     "input": "5\n8 3 12 7 10",
                     "expectedOutput": "12 3 9",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "4\n6 6 6 6",
                     "expectedOutput": "6 6 0",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "6\n-5 -2 -9 -1 -7 -3",
                     "expectedOutput": "-1 -9 8",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "3\n100 50 99",
                     "expectedOutput": "100 50 50",
-                    "score": 0
+                    "score": 10
                 }
             ],
             "difficulty": "L2",
@@ -146,22 +147,22 @@ export default {
                 {
                     "input": "6\n70 95 80 95 60 88",
                     "expectedOutput": "95 2",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "4\n100 90 80 70",
                     "expectedOutput": "100 1",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "5\n50 60 70 80 90",
                     "expectedOutput": "90 5",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "3\n88 88 88",
                     "expectedOutput": "88 1",
-                    "score": 0
+                    "score": 10
                 }
             ],
             "difficulty": "L3",
@@ -186,22 +187,22 @@ export default {
                 {
                     "input": "5\n22 18 20 18 25",
                     "expectedOutput": "18 2",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "4\n5 4 3 2",
                     "expectedOutput": "2 4",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "6\n-1 -3 -2 -3 0 1",
                     "expectedOutput": "-3 2",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "3\n10 10 10",
                     "expectedOutput": "10 1",
-                    "score": 0
+                    "score": 10
                 }
             ],
             "difficulty": "L3",
@@ -226,22 +227,22 @@ export default {
                 {
                     "input": "6\n70 95 80 95 60 88",
                     "expectedOutput": "95 88",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "5\n100 90 80 70 60",
                     "expectedOutput": "100 90",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "4\n10 20 20 5",
                     "expectedOutput": "20 10",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "7\n-1 -5 -3 -1 -2 -8 -4",
                     "expectedOutput": "-1 -2",
-                    "score": 0
+                    "score": 10
                 }
             ],
             "difficulty": "L3",
@@ -266,22 +267,22 @@ export default {
                 {
                     "input": "5\n3 8 6 15 10",
                     "expectedOutput": "9",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "2\n100 40",
                     "expectedOutput": "60",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "6\n1 2 3 4 5 6",
                     "expectedOutput": "1",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "4\n10 30 5 25",
                     "expectedOutput": "25",
-                    "score": 0
+                    "score": 10
                 }
             ],
             "difficulty": "L3",
@@ -306,22 +307,22 @@ export default {
                 {
                     "input": "6\n5 8 3 12 7 10\n2 5",
                     "expectedOutput": "12",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "5\n1 2 3 4 5\n1 3",
                     "expectedOutput": "3",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "4\n9 8 7 6\n3 4",
                     "expectedOutput": "7",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "7\n-5 -1 -9 -3 -2 -8 -4\n2 6",
                     "expectedOutput": "-1",
-                    "score": 0
+                    "score": 10
                 }
             ],
             "difficulty": "L3",

@@ -6,6 +6,7 @@ export default {
     "code": "M0-05",
     "title": "清單走訪與讀取",
     "tier": "t0",
+    "mode": "learning",
     "unlockCode": "M0-05-ListBasics",
     "tasks": [
         {

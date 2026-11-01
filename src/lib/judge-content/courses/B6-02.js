@@ -6,6 +6,7 @@ export default {
     "code": "B6-02",
     "title": "K17 排序演算法",
     "tier": "t1",
+    "mode": "learning",
     "unlockCode": "B6-02-SortAlgo",
     "tasks": [
         {

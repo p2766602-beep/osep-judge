@@ -6,6 +6,7 @@ export default {
     "code": "M2-07",
     "title": "圖論基礎",
     "tier": "t2",
+    "mode": "learning",
     "unlockCode": "M2-07-GraphBasics",
     "tasks": [
         {
@@ -26,22 +27,22 @@ export default {
                 {
                     "input": "4 3 1 2 2 3 3 4",
                     "expectedOutput": "3",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "5 0",
                     "expectedOutput": "0",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "3 2 1 2 1 3",
                     "expectedOutput": "2",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "6 5 1 2 2 3 3 4 4 5 5 6",
                     "expectedOutput": "5",
-                    "score": 0
+                    "score": 10
                 }
             ],
             "difficulty": "L1",
@@ -66,22 +67,22 @@ export default {
                 {
                     "input": "4 3",
                     "expectedOutput": "3",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "3 3",
                     "expectedOutput": "0",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "5 0",
                     "expectedOutput": "10",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "6 10",
                     "expectedOutput": "5",
-                    "score": 0
+                    "score": 10
                 }
             ],
             "difficulty": "L1",
@@ -106,22 +107,22 @@ export default {
                 {
                     "input": "4 3 2 1 2 2 3 3 4",
                     "expectedOutput": "2",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "5 2 5 1 2 2 3",
                     "expectedOutput": "0",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "4 3 1 1 2 1 3 1 4",
                     "expectedOutput": "3",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "6 5 4 1 4 2 4 3 4 4 5 4 6",
                     "expectedOutput": "5",
-                    "score": 0
+                    "score": 10
                 }
             ],
             "difficulty": "L2",
@@ -146,22 +147,22 @@ export default {
                 {
                     "input": "4 3 1 3 1 2 2 3 3 4",
                     "expectedOutput": "NO",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "4 3 2 3 1 2 2 3 3 4",
                     "expectedOutput": "YES",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "3 1 1 2 2 3",
                     "expectedOutput": "NO",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "5 4 5 4 1 2 2 3 3 4 4 5",
                     "expectedOutput": "YES",
-                    "score": 0
+                    "score": 10
                 }
             ],
             "difficulty": "L2",
@@ -186,22 +187,22 @@ export default {
                 {
                     "input": "4 6",
                     "expectedOutput": "FULL",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "5 0",
                     "expectedOutput": "EMPTY",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "4 3",
                     "expectedOutput": "NORMAL",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "2 1",
                     "expectedOutput": "FULL",
-                    "score": 0
+                    "score": 10
                 }
             ],
             "difficulty": "L2",
@@ -226,22 +227,22 @@ export default {
                 {
                     "input": "4 4 1 2 2 3 2 4 3 4",
                     "expectedOutput": "2 3",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "3 0",
                     "expectedOutput": "1 0",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "5 4 1 2 1 3 4 5 2 3",
                     "expectedOutput": "1 2",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "4 3 1 2 2 3 3 4",
                     "expectedOutput": "2 2",
-                    "score": 0
+                    "score": 10
                 }
             ],
             "difficulty": "L3",
@@ -266,22 +267,22 @@ export default {
                 {
                     "input": "5 2 1 2 2 3",
                     "expectedOutput": "2",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "4 3 1 2 2 3 3 4",
                     "expectedOutput": "0",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "3 0",
                     "expectedOutput": "3",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "6 2 1 6 2 5",
                     "expectedOutput": "2",
-                    "score": 0
+                    "score": 10
                 }
             ],
             "difficulty": "L3",
@@ -306,22 +307,22 @@ export default {
                 {
                     "input": "4 3 1 3 1 2 2 3 3 4",
                     "expectedOutput": "YES",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "4 2 1 4 1 2 3 4",
                     "expectedOutput": "NO",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "5 4 1 5 1 2 2 5 1 3 3 5",
                     "expectedOutput": "YES",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "3 1 1 3 1 2",
                     "expectedOutput": "NO",
-                    "score": 0
+                    "score": 10
                 }
             ],
             "difficulty": "L3",

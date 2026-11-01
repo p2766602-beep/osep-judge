@@ -6,6 +6,7 @@ export default {
     "code": "B1-01",
     "title": "K01 輸入與輸出",
     "tier": "t0",
+    "mode": "learning",
     "unlockCode": "B1-01-InputOutput",
     "tasks": [
         {

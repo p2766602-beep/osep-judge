@@ -5,6 +5,7 @@
 export default {
     "code": "JSB00",
     "title": "基礎練習1",
+    "mode": "learning",
     "unlockCode": null,
     "tasks": [
         {

@@ -6,6 +6,7 @@ export default {
     "code": "M1-09",
     "title": "數學規則：因數倍數質數",
     "tier": "t1",
+    "mode": "learning",
     "unlockCode": "M1-09-MathBasics",
     "tasks": [
         {
@@ -26,22 +27,22 @@ export default {
                 {
                     "input": "24 6",
                     "expectedOutput": "YES",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "25 6",
                     "expectedOutput": "NO",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "100 10",
                     "expectedOutput": "YES",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "7 9",
                     "expectedOutput": "NO",
-                    "score": 0
+                    "score": 10
                 }
             ],
             "difficulty": "L1",
@@ -66,22 +67,22 @@ export default {
                 {
                     "input": "12",
                     "expectedOutput": "6",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "1",
                     "expectedOutput": "1",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "16",
                     "expectedOutput": "5",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "17",
                     "expectedOutput": "2",
-                    "score": 0
+                    "score": 10
                 }
             ],
             "difficulty": "L2",
@@ -106,22 +107,22 @@ export default {
                 {
                     "input": "12345",
                     "expectedOutput": "15",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "0",
                     "expectedOutput": "0",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "1008",
                     "expectedOutput": "9",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "9999",
                     "expectedOutput": "36",
-                    "score": 0
+                    "score": 10
                 }
             ],
             "difficulty": "L2",
@@ -146,22 +147,22 @@ export default {
                 {
                     "input": "6\n3 5 9 10 12 14",
                     "expectedOutput": "3",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "4\n1 2 4 5",
                     "expectedOutput": "0",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "5\n0 3 6 9 12",
                     "expectedOutput": "5",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "7\n-3 -2 0 4 6 8 10",
                     "expectedOutput": "3",
-                    "score": 0
+                    "score": 10
                 }
             ],
             "difficulty": "L2",
@@ -186,22 +187,22 @@ export default {
                 {
                     "input": "17",
                     "expectedOutput": "PRIME",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "1",
                     "expectedOutput": "NOT",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "12",
                     "expectedOutput": "NOT",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "2",
                     "expectedOutput": "PRIME",
-                    "score": 0
+                    "score": 10
                 }
             ],
             "difficulty": "L3",
@@ -226,22 +227,22 @@ export default {
                 {
                     "input": "12 18",
                     "expectedOutput": "6",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "7 13",
                     "expectedOutput": "1",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "24 36",
                     "expectedOutput": "12",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "100 25",
                     "expectedOutput": "25",
-                    "score": 0
+                    "score": 10
                 }
             ],
             "difficulty": "L3",
@@ -266,22 +267,22 @@ export default {
                 {
                     "input": "12 18",
                     "expectedOutput": "36",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "7 13",
                     "expectedOutput": "91",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "4 6",
                     "expectedOutput": "12",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "20 5",
                     "expectedOutput": "20",
-                    "score": 0
+                    "score": 10
                 }
             ],
             "difficulty": "L3",
@@ -306,22 +307,22 @@ export default {
                 {
                     "input": "12340",
                     "expectedOutput": "4321",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "0",
                     "expectedOutput": "0",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "1000",
                     "expectedOutput": "1",
-                    "score": 0
+                    "score": 10
                 },
                 {
                     "input": "9876",
                     "expectedOutput": "6789",
-                    "score": 0
+                    "score": 10
                 }
             ],
             "difficulty": "L3",

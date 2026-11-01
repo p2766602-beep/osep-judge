@@ -5,6 +5,7 @@
 export default {
     "code": "114TCPJ13",
     "title": "114-臺東縣國中（競賽模式）",
+    "mode": "contest",
     "unlockCode": "114TCPJ13",
     "tasks": [
         {

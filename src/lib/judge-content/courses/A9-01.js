@@ -6,6 +6,7 @@ export default {
     "code": "A9-01",
     "title": "A17 二分搜尋",
     "tier": "v9",
+    "mode": "contest",
     "unlockCode": "A9-01-BinarySearch",
     "tasks": [
         {

@@ -267,14 +267,6 @@
     margin-bottom: $space;
 }
 
-.result-row {
-    display: flex;
-    gap: $space;
-    padding: calc($space / 2) 0;
-    font-size: 0.8rem;
-    border-bottom: 1px solid $ui-black-transparent;
-}
-
 .pass {
     color: #2e7d32;
     font-weight: bold;
@@ -285,8 +277,64 @@
     font-weight: bold;
 }
 
-.result-input {
+/* 2026-11-01：評分結果每筆一張卡片（見judge-panel.jsx的GradingResultCard），比照blockly-lab
+   系統評分結果的欄位，但改成直排以適應較窄的評分面板。 */
+.result-note {
+    font-size: 0.75rem;
     color: $text-primary-transparent;
+    margin: 0 0 $space 0;
+}
+
+.result-card {
+    border: 1px solid $ui-black-transparent;
+    border-left-width: 4px;
+    border-radius: $form-radius;
+    padding: calc($space / 2) $space;
+    margin-bottom: $space;
+    font-size: 0.8rem;
+}
+
+.result-card-pass {
+    composes: result-card;
+    border-left-color: #2e7d32;
+}
+
+.result-card-fail {
+    composes: result-card;
+    border-left-color: #c62828;
+    background: #fff5f5;
+}
+
+.result-card-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+.result-card-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: calc($space / 2);
+}
+
+.result-card-table th,
+.result-card-table td {
+    border: 1px solid $ui-black-transparent;
+    padding: calc($space / 2);
+    text-align: left;
+    vertical-align: top;
+}
+
+.result-card-table th {
+    width: 6.5em;
+    white-space: nowrap;
+    background: $ui-secondary;
+    font-weight: normal;
+}
+
+.result-timed-out {
+    color: #c62828;
+    margin-top: calc($space / 4);
 }
 
 .error-box {

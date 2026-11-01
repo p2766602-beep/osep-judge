@@ -5,6 +5,7 @@
 export default {
     "code": "114TCPJ06",
     "title": "114-花蓮縣國中（競賽模式）",
+    "mode": "contest",
     "unlockCode": "114TCPJ06",
     "tasks": [
         {

@@ -5,6 +5,7 @@
 export default {
     "code": "114EMiaoli",
     "title": "114-苗栗縣國小",
+    "mode": "learning",
     "unlockCode": "114EMiaoli",
     "tasks": [
         {

@@ -6,6 +6,7 @@ export default {
     "code": "B5-01",
     "title": "K14 因數、倍數與質數",
     "tier": "t1",
+    "mode": "learning",
     "unlockCode": "B5-01-Factors",
     "tasks": [
         {

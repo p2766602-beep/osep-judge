@@ -6,6 +6,7 @@ export default {
     "code": "A5-01",
     "title": "A09 狀態追蹤基礎",
     "tier": "v5",
+    "mode": "contest",
     "unlockCode": "A5-01-StateTracking",
     "tasks": [
         {

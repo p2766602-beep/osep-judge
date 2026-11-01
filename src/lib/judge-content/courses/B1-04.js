@@ -6,6 +6,7 @@ export default {
     "code": "B1-04",
     "title": "K04 條件判斷：多重分支與邏輯運算",
     "tier": "t0",
+    "mode": "learning",
     "unlockCode": "B1-04-MultiBranch",
     "tasks": [
         {

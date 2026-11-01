@@ -6,6 +6,7 @@ export default {
     "code": "M2-01",
     "title": "運算與條件判斷綜合練習：基礎",
     "tier": "t2",
+    "mode": "learning",
     "unlockCode": "M2-01-CondBasics",
     "tasks": [
         {

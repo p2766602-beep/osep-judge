@@ -6,6 +6,7 @@ export default {
     "code": "B8-01",
     "title": "K20 輸出格式與例外處理",
     "tier": "t1",
+    "mode": "learning",
     "unlockCode": "B8-01-FormatCheck",
     "tasks": [
         {

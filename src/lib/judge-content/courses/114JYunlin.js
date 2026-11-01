@@ -5,6 +5,7 @@
 export default {
     "code": "114JYunlin",
     "title": "114-雲林縣國中",
+    "mode": "learning",
     "unlockCode": "114JYunlin",
     "tasks": [
         {

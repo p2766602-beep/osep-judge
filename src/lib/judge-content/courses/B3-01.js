@@ -6,6 +6,7 @@ export default {
     "code": "B3-01",
     "title": "K07 清單讀取與索引走訪",
     "tier": "t1",
+    "mode": "learning",
     "unlockCode": "B3-01-ListTraversal",
     "tasks": [
         {

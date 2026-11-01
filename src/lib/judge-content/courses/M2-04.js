@@ -6,6 +6,7 @@ export default {
     "code": "M2-04",
     "title": "模擬與狀態挑戰A：角色扮演系列",
     "tier": "t2",
+    "mode": "learning",
     "unlockCode": "M2-04-SimRolePlay",
     "tasks": [
         {

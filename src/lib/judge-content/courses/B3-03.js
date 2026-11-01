@@ -6,6 +6,7 @@ export default {
     "code": "B3-03",
     "title": "K09 最大值與最小值",
     "tier": "t1",
+    "mode": "learning",
     "unlockCode": "B3-03-MinMax",
     "tasks": [
         {

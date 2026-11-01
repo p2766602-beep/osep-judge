@@ -6,6 +6,7 @@ export default {
     "code": "M2-10",
     "title": "貪心策略進階",
     "tier": "t2",
+    "mode": "learning",
     "unlockCode": "M2-10-GreedyAdvanced",
     "tasks": [
         {

@@ -6,6 +6,7 @@ export default {
     "code": "M1-10",
     "title": "數學規則進階：GCD與應用",
     "tier": "t1",
+    "mode": "learning",
     "unlockCode": "M1-10-MathGCD",
     "tasks": [
         {

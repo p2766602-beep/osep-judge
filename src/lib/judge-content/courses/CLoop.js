@@ -5,6 +5,7 @@
 export default {
     "code": "CLoop",
     "title": "循環技術迴圈特訓",
+    "mode": "learning",
     "unlockCode": "CLoop",
     "tasks": [
         {

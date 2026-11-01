@@ -5,6 +5,7 @@
 export default {
     "code": "114JTaoyuan",
     "title": "114-桃園市國中",
+    "mode": "learning",
     "unlockCode": "114JTaoyuan",
     "tasks": [
         {

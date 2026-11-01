@@ -6,6 +6,7 @@ export default {
     "code": "A2-02",
     "title": "A04 數學規則應用",
     "tier": "v2",
+    "mode": "contest",
     "unlockCode": "A2-02-MathRules",
     "tasks": [
         {

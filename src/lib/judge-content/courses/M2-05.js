@@ -6,6 +6,7 @@ export default {
     "code": "M2-05",
     "title": "模擬與狀態挑戰B：感測與監控系列",
     "tier": "t2",
+    "mode": "learning",
     "unlockCode": "M2-05-SimSensor",
     "tasks": [
         {

@@ -5,6 +5,7 @@
 export default {
     "code": "114TCPJ19",
     "title": "114-屏東縣國中（競賽模式）",
+    "mode": "contest",
     "unlockCode": "114TCPJ19",
     "tasks": [
         {

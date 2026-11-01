@@ -6,6 +6,7 @@ export default {
     "code": "M1-08",
     "title": "排序應用：連動資料處理",
     "tier": "t1",
+    "mode": "learning",
     "unlockCode": "M1-08-SortApplied",
     "tasks": [
         {

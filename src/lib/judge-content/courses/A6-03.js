@@ -6,6 +6,7 @@ export default {
     "code": "A6-03",
     "title": "A12 競賽綜合系列",
     "tier": "v6",
+    "mode": "contest",
     "unlockCode": "A6-03-ContestSim",
     "tasks": [
         {

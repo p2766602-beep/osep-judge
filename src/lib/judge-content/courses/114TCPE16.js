@@ -5,6 +5,7 @@
 export default {
     "code": "114TCPE16",
     "title": "114-雲林縣國小（競賽模式）",
+    "mode": "contest",
     "unlockCode": "114TCPE16",
     "tasks": [
         {

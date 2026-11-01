@@ -5,6 +5,7 @@
 export default {
     "code": "114JChanghua",
     "title": "114-彰化縣國中",
+    "mode": "learning",
     "unlockCode": "114JChanghua",
     "tasks": [
         {

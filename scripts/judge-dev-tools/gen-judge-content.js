@@ -118,6 +118,9 @@ const courses = COURSE_FILES.map(filename => {
         code: shortCode,
         title: source.title,
         tier: source.tier,
+        // 2026-11-01：評分結果顯示依模式切換（學習模式顯示輸入/預期/實際，競賽模式只顯示通過與否），
+        // 正規化規則比照BlocklyYdws main.js的normalizeCourseMode()。
+        mode: source.mode === 'contest' || source.mode === 'competition' ? 'contest' : 'learning',
         // 課程解鎖代碼＝BlocklyYdws自己的courseCode（完整檔名，不含.js，比對邏輯見
         // BlocklyYdws src/courses/index.js的normalizeCourseCode()——就是trim+轉大寫，
         // 沒有另外截短）。跟BlocklyYdws共用同一套代碼，老師/學生不用記兩套。

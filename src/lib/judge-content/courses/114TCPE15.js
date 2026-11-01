@@ -5,6 +5,7 @@
 export default {
     "code": "114TCPE15",
     "title": "114-桃園市國小（競賽模式）",
+    "mode": "contest",
     "unlockCode": "114TCPE15",
     "tasks": [
         {

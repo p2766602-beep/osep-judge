@@ -5,6 +5,7 @@
 export default {
     "code": "114EChaiyi",
     "title": "114-嘉義市國小",
+    "mode": "learning",
     "unlockCode": "114EChaiyi",
     "tasks": [
         {

@@ -6,6 +6,7 @@ export default {
     "code": "M3-02",
     "title": "前綴和(prefix sum)",
     "tier": "t3",
+    "mode": "learning",
     "unlockCode": "M3-02-PrefixSum",
     "tasks": [
         {

@@ -6,6 +6,7 @@ export default {
     "code": "M1-12",
     "title": "除錯與輸出格式控制",
     "tier": "t1",
+    "mode": "learning",
     "unlockCode": "M1-12-DebugFormat",
     "tasks": [
         {

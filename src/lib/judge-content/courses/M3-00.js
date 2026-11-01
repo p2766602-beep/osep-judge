@@ -6,6 +6,7 @@ export default {
     "code": "M3-00",
     "title": "二分搜尋入門暖身",
     "tier": "t3",
+    "mode": "learning",
     "unlockCode": "M3-00-BinarySearchWarmup",
     "tasks": [
         {

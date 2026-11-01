@@ -279,7 +279,54 @@ SelfTestTab.propTypes = {
     vm: PropTypes.instanceOf(VM).isRequired
 };
 
-const GradingTab = ({grading, onRunGrading, demoLoaded}) => (
+// 2026-11-01：比照blockly-lab的系統評分結果——學習模式每筆顯示使用者輸入/預期輸出/實際說出內容，
+// 競賽模式只顯示每筆是否通過。評分面板較窄，改用每筆一張卡片而不是五欄表格。
+const GradingResultCard = ({result, index, isContestMode}) => (
+    <div className={result.pass ? styles.resultCardPass : styles.resultCardFail}>
+        <div className={styles.resultCardHeader}>
+            <span>第 {index + 1} 筆</span>
+            <span className={result.pass ? styles.pass : styles.fail}>
+                {result.pass ? '✓ 通過' : '✗ 未通過'}
+            </span>
+        </div>
+        {isContestMode ? null : (
+            <table className={styles.resultCardTable}>
+                <tbody>
+                    <tr>
+                        <th>使用者輸入</th>
+                        <td className={styles.exampleValue}>{result.input}</td>
+                    </tr>
+                    <tr>
+                        <th>預期輸出</th>
+                        <td className={styles.exampleValue}>{result.expectedOutput}</td>
+                    </tr>
+                    <tr>
+                        <th>實際說出內容</th>
+                        <td className={styles.exampleValue}>
+                            {result.actualOutput}
+                            {result.timedOut ? (
+                                <div className={styles.resultTimedOut}>執行逾時（程式沒有在時間內結束）</div>
+                            ) : null}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        )}
+    </div>
+);
+GradingResultCard.propTypes = {
+    index: PropTypes.number.isRequired,
+    isContestMode: PropTypes.bool,
+    result: PropTypes.shape({
+        actualOutput: PropTypes.string,
+        expectedOutput: PropTypes.string,
+        input: PropTypes.string,
+        pass: PropTypes.bool,
+        timedOut: PropTypes.bool
+    }).isRequired
+};
+
+const GradingTab = ({grading, onRunGrading, demoLoaded, isContestMode}) => (
     <div className={styles.tabContent}>
         {demoLoaded ? (
             <div className={styles.demoWarningBanner}>
@@ -299,16 +346,18 @@ const GradingTab = ({grading, onRunGrading, demoLoaded}) => (
                 <div className={styles.scoreLine}>
                     分數：{grading.totalScore} / {grading.maxScore}
                 </div>
+                <p className={styles.resultNote}>
+                    {isContestMode ?
+                        '競賽模式僅顯示每筆測資是否通過，不顯示輸入、預期輸出與實際輸出。' :
+                        '系統評分只比對「說出」積木的內容，「輸出至訊息視窗」積木只是顯示訊息，不會列入評分。'}
+                </p>
                 {grading.results.map((result, index) => (
-                    <div
-                        className={styles.resultRow}
+                    <GradingResultCard
+                        index={index}
+                        isContestMode={isContestMode}
                         key={index}
-                    >
-                        <span className={result.pass ? styles.pass : styles.fail}>
-                            {result.pass ? '通過' : '未通過'}
-                        </span>
-                        <span className={styles.resultInput}>輸入：{result.input}</span>
-                    </div>
+                        result={result}
+                    />
                 ))}
             </div>
         ) : null}
@@ -326,6 +375,7 @@ GradingTab.propTypes = {
         results: PropTypes.array,
         error: PropTypes.string
     }).isRequired,
+    isContestMode: PropTypes.bool,
     onRunGrading: PropTypes.func.isRequired
 };
 
@@ -638,6 +688,7 @@ const JudgePanel = ({vm}) => {
                 <GradingTab
                     demoLoaded={demoLoaded}
                     grading={grading}
+                    isContestMode={Boolean(taskDetail && taskDetail.course.mode === 'contest')}
                     onRunGrading={handleRunGrading}
                 />
             )}

@@ -6,6 +6,7 @@ export default {
     "code": "B1-02",
     "title": "K02 變數與四則運算",
     "tier": "t0",
+    "mode": "learning",
     "unlockCode": "B1-02-Variables",
     "tasks": [
         {

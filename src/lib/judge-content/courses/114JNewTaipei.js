@@ -5,6 +5,7 @@
 export default {
     "code": "114JNewTaipei",
     "title": "114-新北市國中",
+    "mode": "learning",
     "unlockCode": "114JNewTaipei",
     "tasks": [
         {
