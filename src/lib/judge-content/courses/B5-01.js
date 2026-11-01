@@ -13,6 +13,8 @@ export default {
             "code": "B5-01-MATH01-001",
             "title": "倍數判斷",
             "description": "給定兩個正整數 A 與 B，請判斷 A 是否為 B 的倍數。",
+            "inputDescription": "輸入兩個正整數 A 與 B。",
+            "outputDescription": "若 A 是 B 的倍數，輸出 YES；否則輸出 NO。",
             "examples": [
                 {
                     "input": "24 6",
@@ -51,6 +53,8 @@ export default {
             "code": "B5-01-A-09-1",
             "title": "找所有因數",
             "description": "因數是指一個整數能被另一整數「整除」時，這個「除數」就是「被除數」的因數。\n\n0不是任何整數的因數。1是所有整數的因數。\n\n請寫一個程式，輸入一個整數 N，請找出N所有的因數。\n\n所有因數以空白符號間格\n\n這題訓練你使用條件與迴圈判斷。",
+            "inputDescription": "",
+            "outputDescription": "",
             "examples": [
                 {
                     "input": "12",
@@ -94,6 +98,8 @@ export default {
             "code": "B5-01-MATH01-002",
             "title": "因數個數",
             "description": "給定一個正整數 N，請計算 N 有幾個正因數。",
+            "inputDescription": "輸入一個正整數 N。",
+            "outputDescription": "輸出一個整數，代表 N 的正因數個數。",
             "examples": [
                 {
                     "input": "12",
@@ -132,6 +138,8 @@ export default {
             "code": "B5-01-MATH01-003",
             "title": "質數判斷",
             "description": "給定一個正整數 N，請判斷 N 是否為質數。質數是大於 1，且只有 1 和自己兩個正因數的數。",
+            "inputDescription": "輸入一個正整數 N。",
+            "outputDescription": "若 N 是質數，輸出 PRIME；否則輸出 NOT。",
             "examples": [
                 {
                     "input": "17",
@@ -170,6 +178,8 @@ export default {
             "code": "B5-01-MATH01-004",
             "title": "【延伸】最大公因數",
             "description": "給定兩個正整數 A 與 B，請找出它們的最大公因數。",
+            "inputDescription": "輸入兩個正整數 A 與 B。",
+            "outputDescription": "輸出一個整數，代表 A 與 B 的最大公因數。",
             "examples": [
                 {
                     "input": "12 18",
@@ -208,6 +218,8 @@ export default {
             "code": "B5-01-MATH01-005",
             "title": "【延伸】最小公倍數",
             "description": "給定兩個正整數 A 與 B，請找出它們的最小公倍數。",
+            "inputDescription": "輸入兩個正整數 A 與 B。",
+            "outputDescription": "輸出一個整數，代表 A 與 B 的最小公倍數。",
             "examples": [
                 {
                     "input": "12 18",

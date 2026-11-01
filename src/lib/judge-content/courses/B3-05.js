@@ -13,6 +13,8 @@ export default {
             "code": "B3-05-IDX01-006",
             "title": "相鄰相同的位置",
             "description": "給定 N 個整數，請找出第一組相鄰且數值相同的位置。若第 i 個與第 i+1 個相同，輸出 i。若沒有相鄰相同，輸出 0。",
+            "inputDescription": "第一個整數為 N，接著輸入 N 個整數。保證 N 大於或等於 2。",
+            "outputDescription": "輸出一個整數，代表第一組相鄰相同的左側位置；若不存在則輸出 0。",
             "examples": [
                 {
                     "input": "6\n3 5 5 2 2 8",
@@ -51,6 +53,8 @@ export default {
             "code": "B3-05-STA01-008",
             "title": "【延伸】相鄰變化統計",
             "description": "給定 N 天的數值紀錄，請統計有幾次比前一天增加、幾次比前一天減少，以及幾次和前一天相同。",
+            "inputDescription": "第一個整數為 N，接著輸入 N 個整數。保證 N 大於或等於 2。",
+            "outputDescription": "輸出三個整數，依序為增加次數、減少次數、相同次數，中間以空白分隔。",
             "examples": [
                 {
                     "input": "6\n10 12 12 9 15 14",
@@ -89,6 +93,8 @@ export default {
             "code": "B3-05-CNT01-023",
             "title": "【延伸】相鄰差值最大",
             "description": "給定 N 個整數，請計算相鄰兩個數字之間差值的最大值。差值一律用較大的數減較小的數。",
+            "inputDescription": "第一個整數為 N，接著輸入 N 個整數。保證 N 大於或等於 2。",
+            "outputDescription": "輸出一個整數，代表相鄰差值最大值。",
             "examples": [
                 {
                     "input": "5\n3 8 6 15 10",

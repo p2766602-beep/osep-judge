@@ -13,6 +13,8 @@ export default {
             "code": "M0-03-BSC01-001",
             "title": "及格或不及格",
             "description": "給定一位學生的分數，請判斷是否及格。分數大於或等於 60 分為及格。",
+            "inputDescription": "輸入一個整數 S，代表分數。",
+            "outputDescription": "若 S 大於或等於 60，輸出 PASS；否則輸出 FAIL。",
             "examples": [
                 {
                     "input": "75",
@@ -51,6 +53,8 @@ export default {
             "code": "M0-03-BSC01-002",
             "title": "比較兩個數",
             "description": "給定兩個整數，請判斷第一個數和第二個數的大小關係。",
+            "inputDescription": "輸入兩個整數 A 與 B。",
+            "outputDescription": "若 A 大於 B，輸出 A；若 B 大於 A，輸出 B；若兩者相等，輸出 SAME。",
             "examples": [
                 {
                     "input": "8 5",
@@ -89,6 +93,8 @@ export default {
             "code": "M0-03-BSC01-003",
             "title": "判斷奇偶數",
             "description": "給定一個整數，請判斷它是奇數或偶數。",
+            "inputDescription": "輸入一個整數 N。",
+            "outputDescription": "若 N 是偶數，輸出 EVEN；若 N 是奇數，輸出 ODD。",
             "examples": [
                 {
                     "input": "14",
@@ -127,6 +133,8 @@ export default {
             "code": "M0-03-BSC01-008",
             "title": "是否為閏年簡化版",
             "description": "簡化閏年規則：若年份可以被 4 整除，視為閏年；否則不是閏年。",
+            "inputDescription": "輸入一個整數 Y，代表年份。",
+            "outputDescription": "若 Y 可以被 4 整除，輸出 LEAP；否則輸出 COMMON。",
             "examples": [
                 {
                     "input": "2024",
@@ -165,6 +173,8 @@ export default {
             "code": "M0-03-BSC01-012",
             "title": "密碼長度檢查",
             "description": "系統要求密碼長度至少 8 個字元。給定密碼長度，請判斷是否符合規定。",
+            "inputDescription": "輸入一個整數 L，代表密碼長度。",
+            "outputDescription": "若 L 大於或等於 8，輸出 OK；否則輸出 SHORT。",
             "examples": [
                 {
                     "input": "6",
@@ -203,6 +213,8 @@ export default {
             "code": "M0-03-BSC01-004",
             "title": "門票優惠判斷",
             "description": "某遊樂園規定，年齡小於 12 歲或大於等於 65 歲可以購買優惠票，其餘為一般票。",
+            "inputDescription": "輸入一個整數 A，代表年齡。",
+            "outputDescription": "若可購買優惠票，輸出 DISCOUNT；否則輸出 NORMAL。",
             "examples": [
                 {
                     "input": "10",
@@ -241,6 +253,8 @@ export default {
             "code": "M0-03-BSC01-005",
             "title": "溫度警示",
             "description": "給定目前溫度，請判斷天氣狀態。低於 18 度為 COLD，18 到 27 度為 OK，高於 27 度為 HOT。",
+            "inputDescription": "輸入一個整數 T，代表溫度。",
+            "outputDescription": "依規則輸出 COLD、OK 或 HOT。",
             "examples": [
                 {
                     "input": "30",
@@ -279,6 +293,8 @@ export default {
             "code": "M0-03-BSC01-006",
             "title": "成績等第",
             "description": "給定一個分數，請依分數輸出等第。90 分以上為 A，80 到 89 為 B，70 到 79 為 C，60 到 69 為 D，未滿 60 為 E。",
+            "inputDescription": "輸入一個整數 S，代表分數。",
+            "outputDescription": "輸出一個字母，代表等第。",
             "examples": [
                 {
                     "input": "86",
@@ -317,6 +333,8 @@ export default {
             "code": "M0-03-BSC01-007",
             "title": "三角形成立判斷",
             "description": "給定三個正整數作為邊長，請判斷是否可以形成三角形。任兩邊和都必須大於第三邊。",
+            "inputDescription": "輸入三個正整數 A、B、C，代表三邊長。",
+            "outputDescription": "若可形成三角形，輸出 YES；否則輸出 NO。",
             "examples": [
                 {
                     "input": "3 4 5",
@@ -355,6 +373,8 @@ export default {
             "code": "M0-03-BSC01-009",
             "title": "購物免運費",
             "description": "網路商店規定，購物金額大於或等於 1000 元可以免運費，否則需加收 80 元運費。請輸出最後應付金額。",
+            "inputDescription": "輸入一個整數 N，代表購物金額。",
+            "outputDescription": "輸出一個整數，代表最後應付金額。",
             "examples": [
                 {
                     "input": "950",
@@ -393,6 +413,8 @@ export default {
             "code": "M0-03-BSC01-010",
             "title": "電影院票價",
             "description": "電影院票價規則：未滿 12 歲票價 150 元，12 到 64 歲票價 280 元，65 歲以上票價 120 元。請依年齡輸出票價。",
+            "inputDescription": "輸入一個整數 A，代表年齡。",
+            "outputDescription": "輸出一個整數，代表票價。",
             "examples": [
                 {
                     "input": "8",
@@ -431,6 +453,8 @@ export default {
             "code": "M0-03-BSC01-011",
             "title": "遊戲血量狀態",
             "description": "給定角色目前血量，請判斷狀態。血量大於 70 為 SAFE，30 到 70 為 WARNING，低於 30 為 DANGER。",
+            "inputDescription": "輸入一個整數 H，代表血量。",
+            "outputDescription": "依規則輸出 SAFE、WARNING 或 DANGER。",
             "examples": [
                 {
                     "input": "25",

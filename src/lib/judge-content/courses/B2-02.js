@@ -13,6 +13,8 @@ export default {
             "code": "B2-02-JSL01-D02",
             "title": "1到N加總示範",
             "description": "輸入一個正整數 N，請計算 1 + 2 + 3 + ... + N 的總和。本題用來示範累加變數的初始化、更新與輸出。",
+            "inputDescription": "第一行：一個正整數 N。",
+            "outputDescription": "輸出 1 到 N 的總和。",
             "examples": [
                 {
                     "input": "5",
@@ -61,6 +63,8 @@ export default {
             "code": "B2-02-count-011",
             "title": "修復斷橋",
             "description": "勇者需要修復一座斷掉的橋。橋的每一段需要的木材數量等於該段的編號。\n現在只需修復從編號M到編號N的這一段區間。\n請計算修復這段區間總共需要多少木材？(即計算M+(M+1)+...+N的總和)。\n輸入格式\n第一行：輸入一個整數M\n第二行：輸入一個整數N\n程式輸出 M加到N 之值。",
+            "inputDescription": "",
+            "outputDescription": "",
             "examples": [
                 {
                     "input": "3\n5",
@@ -104,6 +108,8 @@ export default {
             "code": "B2-02-count-009",
             "title": "偶數日的存款",
             "description": "勇者改變了存錢計畫，他決定「只在偶數日存錢」。\n在第 2 天存 2 元，第 4 天存 4 元，第 6 天存 6 元...以此類推。奇數天（1, 3, 5...）則不存錢。\n請問到了第 N 天結束(N>1)，勇者總共存了多少錢？\n輸入格式\n第一行：輸入一個整數 N\n程式輸出從 1 到 N 之間所有偶數的總和。",
+            "inputDescription": "",
+            "outputDescription": "",
             "examples": [
                 {
                     "input": "4",
@@ -147,6 +153,8 @@ export default {
             "code": "B2-02-JSL01-P03",
             "title": "簡化階乘",
             "description": "輸入一個正整數 N，請計算 1 × 2 × 3 × ... × N 的結果。本題用來練習累乘變數與迴圈結構",
+            "inputDescription": "第一行：一個正整數 N。",
+            "outputDescription": "輸出 N 的階乘結果。",
             "examples": [
                 {
                     "input": "4",

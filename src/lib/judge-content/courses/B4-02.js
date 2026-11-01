@@ -13,6 +13,8 @@ export default {
             "code": "B4-02-STR01-004",
             "title": "計算指定字元數量",
             "description": "給定一個字串與目標字元 C，請計算 C 在字串中出現幾次。",
+            "inputDescription": "第一行輸入字串 S。第二行輸入一個字元 C。S 不包含空白。",
+            "outputDescription": "輸出一個整數，代表 C 出現的次數。",
             "examples": [
                 {
                     "input": "banana\na",
@@ -51,6 +53,8 @@ export default {
             "code": "B4-02-STR01-006",
             "title": "母音數量",
             "description": "給定一個只包含小寫英文字母的字串，請計算母音 a、e、i、o、u 共出現幾次。",
+            "inputDescription": "輸入一個只包含小寫英文字母的字串 S。",
+            "outputDescription": "輸出一個整數，代表母音總數。",
             "examples": [
                 {
                     "input": "education",
@@ -89,6 +93,8 @@ export default {
             "code": "B4-02-STR01-008",
             "title": "相鄰相同字元",
             "description": "給定一個字串，請判斷是否存在兩個相鄰且相同的字元。",
+            "inputDescription": "輸入一個字串 S。S 不包含空白，且長度至少為 1。",
+            "outputDescription": "若存在相鄰相同字元，輸出 YES；否則輸出 NO。",
             "examples": [
                 {
                     "input": "book",
@@ -127,6 +133,8 @@ export default {
             "code": "B4-02-STR01-007",
             "title": "【延伸】是否回文",
             "description": "給定一個不含空白的字串，請判斷它是否正著讀和反著讀都相同。",
+            "inputDescription": "輸入一個字串 S。S 不包含空白。",
+            "outputDescription": "若 S 是回文，輸出 YES；否則輸出 NO。",
             "examples": [
                 {
                     "input": "level",
@@ -165,6 +173,8 @@ export default {
             "code": "B4-02-A-12-0",
             "title": "【延伸】簡易密碼轉換",
             "description": "小明設計了一種簡單的密碼環密碼規則：將每個字母向後移二個字母（z 變 b）。\n\n密碼環：abcdefghijklmnopqrstuvwxyz\n\n請寫一個程式，輸入一個英文單字，輸出轉換後的字串。\n\n這樣的練習訓練你字元處理與條件轉換。",
+            "inputDescription": "",
+            "outputDescription": "",
             "examples": [
                 {
                     "input": "banana",
@@ -208,6 +218,8 @@ export default {
             "code": "B4-02-TYTN-10",
             "title": "【延伸】檢查碼",
             "description": "書店會員卡享有購書8折優惠，為避免有人偽造會員卡，書店老闆在卡號中加入檢查碼。\n\n會員卡編號格式為：一個英文字母 + 4個數字 + 1個檢查碼。\n\n英文字母對應的數字如下：\n\nA → 11 B → 13 C → 15 D → 17\n\n若為正確的會員卡號，則 (英文字母對應的數字 + 4個數字 + 檢查碼) 除以 5 的餘數會是 4，其餘情況皆為不正確。\n\n例如：\n\nB20135 = 13+2+0+1+3+5 = 24 → 24÷5=4餘4 → 正確會員卡\n\nA15274 = 11+1+5+2+7+4 = 30 → 30÷5=6餘0 → 不正確會員卡\n\n請寫一個程式判斷會員卡號是否正確，若正確輸出 yes，否則輸出 no。",
+            "inputDescription": "",
+            "outputDescription": "",
             "examples": [
                 {
                     "input": "C20351",

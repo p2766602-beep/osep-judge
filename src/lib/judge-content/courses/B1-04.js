@@ -13,6 +13,8 @@ export default {
             "code": "B1-04-A-03-0",
             "title": "比較大小",
             "description": "在生活中常常會需要比較兩個數字誰比較大。\n\n請寫一個程式，輸入兩個整數，輸出較大的數字。\n\n如果兩個數字相同，就輸出「一樣大」。\n\n這樣的練習可以訓練你使用條件判斷。",
+            "inputDescription": "",
+            "outputDescription": "",
             "examples": [
                 {
                     "input": "8\n5",
@@ -56,6 +58,8 @@ export default {
             "code": "B1-04-BSC01-005",
             "title": "溫度警示",
             "description": "給定目前溫度，請判斷天氣狀態。低於 18 度為 COLD，18 到 27 度為 OK，高於 27 度為 HOT。",
+            "inputDescription": "輸入一個整數 T，代表溫度。",
+            "outputDescription": "依規則輸出 COLD、OK 或 HOT。",
             "examples": [
                 {
                     "input": "30",
@@ -94,6 +98,8 @@ export default {
             "code": "B1-04-BSC01-006",
             "title": "成績等第",
             "description": "給定一個分數，請依分數輸出等第。90 分以上為 A，80 到 89 為 B，70 到 79 為 C，60 到 69 為 D，未滿 60 為 E。",
+            "inputDescription": "輸入一個整數 S，代表分數。",
+            "outputDescription": "輸出一個字母，代表等第。",
             "examples": [
                 {
                     "input": "86",
@@ -132,6 +138,8 @@ export default {
             "code": "B1-04-BSC01-004",
             "title": "門票優惠判斷",
             "description": "某遊樂園規定，年齡小於 12 歲或大於等於 65 歲可以購買優惠票，其餘為一般票。",
+            "inputDescription": "輸入一個整數 A，代表年齡。",
+            "outputDescription": "若可購買優惠票，輸出 DISCOUNT；否則輸出 NORMAL。",
             "examples": [
                 {
                     "input": "10",
@@ -170,6 +178,8 @@ export default {
             "code": "B1-04-BSC01-007",
             "title": "三角形成立判斷",
             "description": "給定三個正整數作為邊長，請判斷是否可以形成三角形。任兩邊和都必須大於第三邊。",
+            "inputDescription": "輸入三個正整數 A、B、C，代表三邊長。",
+            "outputDescription": "若可形成三角形，輸出 YES；否則輸出 NO。",
             "examples": [
                 {
                     "input": "3 4 5",

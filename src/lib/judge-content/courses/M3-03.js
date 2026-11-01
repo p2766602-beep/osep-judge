@@ -13,6 +13,8 @@ export default {
             "code": "M3-03-M3-03-01",
             "title": "連續K天營收總和一覽",
             "description": "商店記錄每天營收，請你算出所有『連續K天』區間的營收總和，依開始日期順序輸出。\n\n第一行輸入N，代表有N天\n\n第二行輸入N個數字，代表每天營收\n\n第三行輸入K\n\n輸出從第1天開始、第2天開始……一直到最後一個可能的K天區間，各自的總和，空白分隔。",
+            "inputDescription": "N、N個每日營收、K",
+            "outputDescription": "每個K天區間的總和，空白分隔",
             "examples": [
                 {
                     "input": "5\n10 20 30 40 50\n3",
@@ -51,6 +53,8 @@ export default {
             "code": "M3-03-M3-03-02",
             "title": "連續K天最大總營收",
             "description": "同樣是每日營收紀錄，請你找出『連續K天』區間中，總營收最高的金額是多少。\n\n第一行輸入N\n\n第二行輸入N個每日營收\n\n第三行輸入K\n\n輸出所有連續K天區間中的最大總營收。",
+            "inputDescription": "N、N個每日營收、K",
+            "outputDescription": "最大總營收",
             "examples": [
                 {
                     "input": "5\n10 20 30 40 50\n3",
@@ -89,6 +93,8 @@ export default {
             "code": "M3-03-M3-03-03",
             "title": "連續K天最小總營收",
             "description": "同樣是每日營收紀錄，請你找出『連續K天』區間中，總營收最低的金額是多少。\n\n第一行輸入N\n\n第二行輸入N個每日營收\n\n第三行輸入K\n\n輸出所有連續K天區間中的最小總營收。",
+            "inputDescription": "N、N個每日營收、K",
+            "outputDescription": "最小總營收",
             "examples": [
                 {
                     "input": "5\n10 20 30 40 50\n3",
@@ -127,6 +133,8 @@ export default {
             "code": "M3-03-M3-03-04",
             "title": "連續K天平均是否曾經達標",
             "description": "請你判斷是否存在某一段連續K天，平均營收達到門檻threshold以上（整數除法，無條件捨去）。只要存在至少一段就輸出「有」，否則輸出「無」。\n\n第一行輸入N\n\n第二行輸入N個每日營收\n\n第三行輸入K threshold（空白分隔）\n\n輸出「有」或「無」。",
+            "inputDescription": "N、N個每日營收、K threshold",
+            "outputDescription": "有 或 無",
             "examples": [
                 {
                     "input": "5\n10 20 30 40 50\n3 35",
@@ -165,6 +173,8 @@ export default {
             "code": "M3-03-M3-03-05",
             "title": "最長連續達標天數",
             "description": "請你找出最長一段『連續達標』的天數——只要每天的數值都大於等於門檻threshold，就算是達標；求最長連續達標的天數（如果完全沒有任何一天達標，輸出0）。\n\n第一行輸入N\n\n第二行輸入N個每日數值\n\n第三行輸入threshold",
+            "inputDescription": "N、N個每日數值、threshold",
+            "outputDescription": "最長連續達標天數",
             "examples": [
                 {
                     "input": "7\n5 8 9 3 10 12 11\n8",
@@ -203,6 +213,8 @@ export default {
             "code": "M3-03-M3-03-06",
             "title": "最少連續幾天達到目標總量",
             "description": "請你找出最短的一段連續天數，讓這段天數的總和達到（大於等於）目標值target；如果找不到這樣的連續天數，輸出0。\n\n第一行輸入N\n\n第二行輸入N個每日數值\n\n第三行輸入target\n\n輸出最短的連續天數；找不到輸出0。",
+            "inputDescription": "N、N個每日數值、target",
+            "outputDescription": "最短連續天數，找不到輸出0",
             "examples": [
                 {
                     "input": "6\n2 3 1 2 4 3\n7",

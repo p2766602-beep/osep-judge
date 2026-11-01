@@ -12,6 +12,8 @@ export default {
             "code": "114EHsinchuC-114EHsinchuC-1",
             "title": "圓柱體積計算",
             "description": "請輸入圓柱的半徑 r 與高 h，計算圓柱體積（π 取 3.14），輸出到小數點後兩位。體積公式為 π×r×r×h。",
+            "inputDescription": "第一行輸入半徑 r。\n第二行輸入高 h。",
+            "outputDescription": "輸出圓柱體積，四捨五入至小數點後兩位。",
             "examples": [
                 {
                     "input": "3\n7",
@@ -59,6 +61,8 @@ export default {
             "code": "114EHsinchuC-114EHsinchuC-2",
             "title": "身體質量指數計算與健康判斷",
             "description": "請輸入體重（公斤）與身高（公尺），計算 BMI 值（體重除以身高的平方），四捨五入到小數點後兩位。並依下列標準判斷：小於18.5為過輕；18.5以上且小於24為標準；24以上為過重。",
+            "inputDescription": "第一行輸入體重（公斤）。\n第二行輸入身高（公尺）。",
+            "outputDescription": "輸出「BMI值 判斷」。",
             "examples": [
                 {
                     "input": "60\n1.55",
@@ -106,6 +110,8 @@ export default {
             "code": "114EHsinchuC-114EHsinchuC-3",
             "title": "房間磁磚的購買計算",
             "description": "房間長、寬各若干公尺，要鋪滿60公分×60公分的磁磚，每包12片。請計算至少需要購買幾包磁磚（無條件進位）。",
+            "inputDescription": "第一行輸入房間長度（公尺）。\n第二行輸入房間寬度（公尺）。",
+            "outputDescription": "輸出至少需要購買的磁磚包數。",
             "examples": [
                 {
                     "input": "4\n4",
@@ -153,6 +159,8 @@ export default {
             "code": "114EHsinchuC-114EHsinchuC-4",
             "title": "美味餐車三明治多重折扣與利潤計算",
             "description": "三明治成本已知，售價為成本的1.5倍（四捨五入取整數）。若販售時段（整數小時）大於等於12，售價打6折（四捨五入取整數）；若時段大於等於11但小於12，打8折；其餘不打折。請判斷是否有利潤，並輸出賺或賠的金額（取絕對值）。",
+            "inputDescription": "第一行輸入成本。\n第二行輸入販售時段（整數小時）。",
+            "outputDescription": "輸出「有利潤 賺X元」或「無利潤 賠X元」。",
             "examples": [
                 {
                     "input": "20\n11",
@@ -200,6 +208,8 @@ export default {
             "code": "114EHsinchuC-114EHsinchuC-5",
             "title": "雲端資料備份硬碟統計",
             "description": "有一批待備份資料，總量已知，雲端有 N 顆硬碟依序可使用，每顆有各自容量。依序將資料填入硬碟直到備份完成為止，請輸出總共動用了幾顆硬碟；若所有硬碟容量總和仍不足以完整備份，輸出「待備份檔案總容量超過雲端硬碟總空間，無法完整備份，請重新輸入。」",
+            "inputDescription": "第一行輸入待備份總量。\n第二行輸入硬碟數量 N。\n第三行輸入 N 顆硬碟的容量。",
+            "outputDescription": "輸出動用的硬碟數量，或容量不足的提示訊息。",
             "examples": [
                 {
                     "input": "50\n2\n100 50",
@@ -247,6 +257,8 @@ export default {
             "code": "114EHsinchuC-114EHsinchuC-6",
             "title": "綠色節能競賽：電價分段計費與成本分析",
             "description": "共有 N 戶家庭，各自有一個月的用電度數。電價採四段累進費率：120度以內每度1.63元；121~330度部分每度2.38元；331~500度部分每度3.52元；501度以上部分每度4.80元。請計算每戶電費（四捨五入取整數元），並找出電費最低的金額，以及電費最高的戶序號與金額。",
+            "inputDescription": "第一行輸入戶數 N。\n第二行輸入 N 戶的用電度數。",
+            "outputDescription": "輸出「戶數 最低費用 最高費用戶序號 最高費用」。",
             "examples": [
                 {
                     "input": "3\n555 339 80",

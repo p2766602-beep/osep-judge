@@ -13,6 +13,8 @@ export default {
             "code": "M0-01-A-01-0",
             "title": "Hello world",
             "description": "在程式設計的第一步，最重要的是能夠讀取使用者輸入，並將結果正確輸出。\n請你寫一個小程式，讓使用者輸入自己的名字，然後程式要輸出一行「Hello, 名字」。\nHello後面會接小寫逗號，還有一個空白輸入\n這樣的練習可以幫助你理解輸入與輸出，是學習程式設計的基礎。",
+            "inputDescription": "",
+            "outputDescription": "",
             "examples": [
                 {
                     "input": "Amy",
@@ -56,6 +58,8 @@ export default {
             "code": "M0-01-A-01-1",
             "title": "一起學習吧",
             "description": "在程式設計的第一步，最重要的是能夠讀取使用者輸入，並將結果正確輸出。\n請你寫一個小程式，讓使用者輸入好朋友一的名字、接著輸入好朋友二的名字，然後程式要輸出一行「朋友一名字,朋友二名字, 一起學習吧！」。\n朋友一名字後面、朋友二名字後面都會接小寫逗號，還有一個空白輸入\n這樣的練習可以幫助你理解輸入與輸出，是學習程式設計的基礎。",
+            "inputDescription": "",
+            "outputDescription": "",
             "examples": [
                 {
                     "input": "Amy\nJohn",
@@ -99,6 +103,8 @@ export default {
             "code": "M0-01-A-02-0",
             "title": "數字加總",
             "description": "當我們要處理數字時，常常需要加總。\n請設計一個程式，讓使用者輸入兩個數字，程式要輸出這兩個數字的總和。\n這樣的題目能幫助你熟悉數字資料處理。",
+            "inputDescription": "",
+            "outputDescription": "",
             "examples": [
                 {
                     "input": "9\n4",
@@ -142,6 +148,8 @@ export default {
             "code": "M0-01-A-02-1",
             "title": "數字平均",
             "description": "當我們要處理數字時，常常需計算平均。\n請設計一個程式，讓使用者輸入兩個數字，程式要輸出這兩個數字的平均(四捨五入取整數)。\n這樣的題目能幫助你熟悉數字資料處理。",
+            "inputDescription": "",
+            "outputDescription": "",
             "examples": [
                 {
                     "input": "9\n4",
@@ -185,6 +193,8 @@ export default {
             "code": "M0-01-A-03-0",
             "title": "比較大小",
             "description": "在生活中常常會需要比較兩個數字誰比較大。\n\n請寫一個程式，輸入兩個整數，輸出較大的數字。\n\n如果兩個數字相同，就輸出「一樣大」。\n\n這樣的練習可以訓練你使用條件判斷。",
+            "inputDescription": "",
+            "outputDescription": "",
             "examples": [
                 {
                     "input": "8\n5",
@@ -228,6 +238,8 @@ export default {
             "code": "M0-01-A-03-1",
             "title": "臺斤公斤大PK",
             "description": "在生活中常常會需要比較重量，台灣常見的單位有台斤、公斤，一台斤等於0.6公斤\n\n請寫一個程式，輸入兩個不同單位重量\n\n第一個數字輸入M，表示重量M台斤\n\n第二個數字輸入N，表示重量N公斤\n\n請比較兩筆重量輸入，輸出較大重量的數字及單位。\n如果兩個數字相同，就輸出「一樣重」。\n\n這樣的練習可以訓練你使用條件判斷。",
+            "inputDescription": "",
+            "outputDescription": "",
             "examples": [
                 {
                     "input": "10\n5",

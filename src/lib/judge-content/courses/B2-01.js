@@ -13,6 +13,8 @@ export default {
             "code": "B2-01-JSL01-D01",
             "title": "從1數到N",
             "description": "輸入一個正整數 N，請依序輸出 1 到 N 的所有整數，每個數字各佔一行。本題用來示範最基本的計數迴圈",
+            "inputDescription": "第一行：一個正整數 N。",
+            "outputDescription": "輸出 1 到 N，每個數字各佔一行。",
             "examples": [
                 {
                     "input": "3",
@@ -61,6 +63,8 @@ export default {
             "code": "B2-01-A-07-0",
             "title": "九九乘法",
             "description": "請寫一個程式，輸入一個整數 N，輸出 1 到 9 的乘法表結果。\n例如輸入 3，輸出 1x3=3, 2x3=6, …, 9x3=27。\n\n程式輸出3 6 9 12 15 18 21 24 27\n\n這樣的練習能讓你熟悉迴圈的運用。",
+            "inputDescription": "",
+            "outputDescription": "",
             "examples": [
                 {
                     "input": "3",
@@ -104,6 +108,8 @@ export default {
             "code": "B2-01-count-002",
             "title": "跳石過河-間隔計數",
             "description": "勇者來到了一條充滿鱷魚的河流，河面上有一排標有號碼的石頭（1, 2, 3, 4...）。為了安全，勇者決定施展「輕功」，從第 1 塊石頭開始，每次跳躍都跳過 1 個石頭（也就是每次號碼 +2），直到超過或剛好到達指定的目標號碼 N 為止。請印出勇者踩到的所有石頭號碼。\n輸入格式\n第一行：輸入一個整數 N ，代表河岸對面的目標號碼。 N 為大於 0 的整數\n程式依照順序輸出勇者踩到的石頭編號，從 1 開始，每次加 2。\n數字之間以空白隔開。",
+            "inputDescription": "",
+            "outputDescription": "",
             "examples": [
                 {
                     "input": "6",
@@ -147,6 +153,8 @@ export default {
             "code": "B2-01-count-003",
             "title": "火箭發射倒數",
             "description": "勇者要搭乘火箭前往太空站。火箭發射控制中心需要一個倒數計時器。請你設計一個程式，輸入開始倒數的秒數 S，程式會從 S 開始倒數，每次減少 1，直到數到 0 為止。\n輸入格式\n第一行：輸入一個整數 S ，代表倒數的起始秒數。\n程式依照順序輸出S到0的編號，每次減1。\n數字之間以空白隔開。",
+            "inputDescription": "",
+            "outputDescription": "",
             "examples": [
                 {
                     "input": "5",
@@ -190,6 +198,8 @@ export default {
             "code": "B2-01-count-006",
             "title": "萬能傳送門",
             "description": "勇者發現了一個萬能傳送門。這個傳送門可以讓勇者自由設定「起點」、「終點」以及每次傳送的「跨度（距離）」。 請設計一個程式，讀取三個數字，分別代表：起點 (Start)、終點 (End)、跨度 (Step)。 請依序印出傳送過程中經過的所有座標點。\n輸入格式\n第一行：輸入一個整數 M ，代表起點。\n第二行：輸入一個整數 N ，代表終點。\n第三行：輸入一個整數 O ，代表跨度。\n(N>M，O>0)。\n輸出從起點開始，每次增加跨度，直到超過終點為止的所有數字。",
+            "inputDescription": "",
+            "outputDescription": "",
             "examples": [
                 {
                     "input": "2\n10\n2",
@@ -233,6 +243,8 @@ export default {
             "code": "B2-01-count-012",
             "title": "登山冒險",
             "description": "這是一題大魔王關卡！勇者要爬一座高山，然後再下山。\n這座山的高度是 N。勇者必須從 1 爬到 N，到達山頂後，再從 N-1 走回 1。\n請依序列出勇者經過的高度。。\n輸入格式\n第一行：輸入一個整數N\n程式輸出一個序列：1 2 3 ...N N-1 ...1。\n序列數字以空白間隔",
+            "inputDescription": "",
+            "outputDescription": "",
             "examples": [
                 {
                     "input": "5",

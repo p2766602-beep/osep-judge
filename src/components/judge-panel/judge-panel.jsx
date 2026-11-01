@@ -74,6 +74,19 @@ const DescriptionTab = ({task, onLoadDemo, demoStatus, demoLoaded, scaffoldUrl})
                 📘 延伸學習：這個主題的概念補充文件
             </a>
         ) : null}
+        {/* 2026-11-01：比照BlocklyYdws題目頁的「輸入說明／輸出說明」區塊，空的就不顯示。 */}
+        {task.inputDescription ? (
+            <React.Fragment>
+                <h3 className={styles.sectionHeading}>輸入說明</h3>
+                <p className={styles.description}>{task.inputDescription}</p>
+            </React.Fragment>
+        ) : null}
+        {task.outputDescription ? (
+            <React.Fragment>
+                <h3 className={styles.sectionHeading}>輸出說明</h3>
+                <p className={styles.description}>{task.outputDescription}</p>
+            </React.Fragment>
+        ) : null}
         <h3 className={styles.sectionHeading}>範例測資</h3>
         {task.examples.map((example, index) => (
             <div className={styles.exampleBox} key={index}>
@@ -121,7 +134,9 @@ DescriptionTab.propTypes = {
     task: PropTypes.shape({
         description: PropTypes.string,
         examples: PropTypes.array,
-        loadable: PropTypes.bool
+        inputDescription: PropTypes.string,
+        loadable: PropTypes.bool,
+        outputDescription: PropTypes.string
     }).isRequired
 };
 

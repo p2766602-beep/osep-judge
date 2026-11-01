@@ -13,6 +13,8 @@ export default {
             "code": "A8-01-GREEDY01-002",
             "title": "最多可買幾瓶水",
             "description": "每瓶水價格相同。給定身上的錢與每瓶水的價格，請計算最多可以買幾瓶水，以及剩下多少錢。",
+            "inputDescription": "輸入兩個整數 M 與 P，分別代表身上的錢與每瓶水的價格。",
+            "outputDescription": "輸出兩個整數，依序為最多可買瓶數與剩餘金額，中間以空白分隔。",
             "examples": [
                 {
                     "input": "100 18",
@@ -51,6 +53,8 @@ export default {
             "code": "A8-01-GREEDY01-006",
             "title": "最少箱子數",
             "description": "每個箱子最多可裝 C 件物品。給定物品總數 N，請計算至少需要幾個箱子。",
+            "inputDescription": "輸入兩個整數 N 與 C，分別代表物品總數與每箱容量。",
+            "outputDescription": "輸出一個整數，代表至少需要的箱子數。",
             "examples": [
                 {
                     "input": "23 5",
@@ -89,6 +93,8 @@ export default {
             "code": "A8-01-GREEDY01-001",
             "title": "最少硬幣數",
             "description": "商店使用 50 元、10 元、5 元與 1 元硬幣找零。給定找零金額，請用最少硬幣數完成找零。",
+            "inputDescription": "輸入一個整數 N，代表找零金額。",
+            "outputDescription": "輸出一個整數，代表最少硬幣數。",
             "examples": [
                 {
                     "input": "87",
@@ -127,6 +133,8 @@ export default {
             "code": "A8-01-GREEDY01-003",
             "title": "優先完成短任務",
             "description": "給定 N 個任務所需時間與可用時間 T。若每次都先做時間最短的任務，請計算最多能完成幾個任務。",
+            "inputDescription": "第一個整數為 N，第二個整數為 T，接著輸入 N 個整數代表每個任務所需時間。",
+            "outputDescription": "輸出一個整數，代表最多可完成任務數。",
             "examples": [
                 {
                     "input": "5\n10\n4 2 8 1 3",
@@ -165,6 +173,8 @@ export default {
             "code": "A8-01-GREEDY01-005",
             "title": "最大總分選擇",
             "description": "給定 N 個任務分數，請選出分數最高的 K 個任務，計算總分。",
+            "inputDescription": "第一個整數為 N，第二個整數為 K，接著輸入 N 個整數代表任務分數。保證 1 <= K <= N。",
+            "outputDescription": "輸出一個整數，代表最高 K 個分數的總和。",
             "examples": [
                 {
                     "input": "5\n3\n10 50 20 40 30",
@@ -203,6 +213,8 @@ export default {
             "code": "A8-01-GREEDY01-007",
             "title": "【延伸】補到目標分數",
             "description": "目前分數為 S，每次完成一題可增加 P 分。請計算至少還要完成幾題，才能達到或超過目標分數 T。",
+            "inputDescription": "輸入三個整數 S、T、P，分別代表目前分數、目標分數與每題增加分數。",
+            "outputDescription": "輸出一個整數，代表至少還要完成幾題。若目前已達標，輸出 0。",
             "examples": [
                 {
                     "input": "65 100 12",
@@ -241,6 +253,8 @@ export default {
             "code": "A8-01-GREEDY01-004",
             "title": "【延伸】買最多便宜商品",
             "description": "給定 N 個商品價格與預算 B。若想買到最多商品，應優先購買便宜商品。請計算最多可買幾件商品。",
+            "inputDescription": "第一個整數為 N，第二個整數為 B，接著輸入 N 個整數代表商品價格。",
+            "outputDescription": "輸出一個整數，代表最多可買商品數。",
             "examples": [
                 {
                     "input": "5\n100\n60 20 30 80 10",
@@ -279,6 +293,8 @@ export default {
             "code": "A8-01-GREEDY01-008",
             "title": "【延伸】最多裝入背包",
             "description": "背包容量為 W，給定 N 個物品重量。若想裝入最多物品，應優先選擇重量較輕的物品。請計算最多可裝入幾個物品。",
+            "inputDescription": "第一個整數為 N，第二個整數為 W，接著輸入 N 個整數代表物品重量。",
+            "outputDescription": "輸出一個整數，代表最多可裝入物品數。",
             "examples": [
                 {
                     "input": "5\n15\n9 2 6 4 8",

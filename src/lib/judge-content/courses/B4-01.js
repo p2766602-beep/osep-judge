@@ -13,6 +13,8 @@ export default {
             "code": "B4-01-STR01-001",
             "title": "字串長度",
             "description": "給定一個不含空白的字串，請輸出它的長度。",
+            "inputDescription": "輸入一個字串 S。S 不包含空白。",
+            "outputDescription": "輸出一個整數，代表字串長度。",
             "examples": [
                 {
                     "input": "hello",
@@ -51,6 +53,8 @@ export default {
             "code": "B4-01-STR01-002",
             "title": "第一個與最後一個字元",
             "description": "給定一個不含空白的字串，請輸出第一個字元與最後一個字元。",
+            "inputDescription": "輸入一個字串 S。S 不包含空白，且長度至少為 1。",
+            "outputDescription": "輸出兩個字元，依序為第一個字元與最後一個字元，中間以空白分隔。",
             "examples": [
                 {
                     "input": "coding",
@@ -89,6 +93,8 @@ export default {
             "code": "B4-01-STR01-003",
             "title": "指定位置的字元",
             "description": "給定一個字串與位置 P，請輸出第 P 個字元。位置從 1 開始計算。",
+            "inputDescription": "第一行輸入字串 S。第二行輸入整數 P。S 不包含空白，且 1 <= P <= 字串長度。",
+            "outputDescription": "輸出一個字元，代表第 P 個字元。",
             "examples": [
                 {
                     "input": "teacher\n4",
@@ -127,6 +133,8 @@ export default {
             "code": "B4-01-JSS01-D03",
             "title": "逐字元輸出",
             "description": "輸入一個字串，請依序輸出每一個字元，每個字元各佔一行。本題用來示範用迴圈逐一處理字元",
+            "inputDescription": "第一行：一個不含空白的字串 S。",
+            "outputDescription": "依序輸出 S 的每一個字元，每個字元各佔一行。",
             "examples": [
                 {
                     "input": "cat",
@@ -175,6 +183,8 @@ export default {
             "code": "B4-01-STR01-005",
             "title": "反向輸出字串",
             "description": "給定一個不含空白的字串，請將字串反向輸出。",
+            "inputDescription": "輸入一個字串 S。S 不包含空白。",
+            "outputDescription": "輸出反向後的字串。",
             "examples": [
                 {
                     "input": "abcde",

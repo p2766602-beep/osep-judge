@@ -13,6 +13,8 @@ export default {
             "code": "B1-01-A-01-0",
             "title": "Hello world",
             "description": "在程式設計的第一步，最重要的是能夠讀取使用者輸入，並將結果正確輸出。\n請你寫一個小程式，讓使用者輸入自己的名字，然後程式要輸出一行「Hello, 名字」。\nHello後面會接小寫逗號，還有一個空白輸入\n這樣的練習可以幫助你理解輸入與輸出，是學習程式設計的基礎。",
+            "inputDescription": "",
+            "outputDescription": "",
             "examples": [
                 {
                     "input": "Amy",
@@ -56,6 +58,8 @@ export default {
             "code": "B1-01-A-01-1",
             "title": "一起學習吧",
             "description": "在程式設計的第一步，最重要的是能夠讀取使用者輸入，並將結果正確輸出。\n請你寫一個小程式，讓使用者輸入好朋友一的名字、接著輸入好朋友二的名字，然後程式要輸出一行「朋友一名字,朋友二名字, 一起學習吧！」。\n朋友一名字後面、朋友二名字後面都會接小寫逗號，還有一個空白輸入\n這樣的練習可以幫助你理解輸入與輸出，是學習程式設計的基礎。",
+            "inputDescription": "",
+            "outputDescription": "",
             "examples": [
                 {
                     "input": "Amy\nJohn",
@@ -99,6 +103,8 @@ export default {
             "code": "B1-01-A-02-0",
             "title": "數字加總",
             "description": "當我們要處理數字時，常常需要加總。\n請設計一個程式，讓使用者輸入兩個數字，程式要輸出這兩個數字的總和。\n這樣的題目能幫助你熟悉數字資料處理。",
+            "inputDescription": "",
+            "outputDescription": "",
             "examples": [
                 {
                     "input": "9\n4",

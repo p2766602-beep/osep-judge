@@ -13,6 +13,8 @@ export default {
             "code": "A3-02-M1-12-01",
             "title": "兩位數補零輸出",
             "description": "請你把一個介於0到99之間的整數，輸出成固定兩位數的格式：如果數字小於10，前面要補一個0（例如5要輸出成05）；如果數字是兩位數，直接輸出即可（例如23輸出23）。\n\n第一行輸入一個介於0到99之間的整數N",
+            "inputDescription": "N（0~99）",
+            "outputDescription": "補零後的兩位數字串",
             "examples": [
                 {
                     "input": "5",
@@ -56,6 +58,8 @@ export default {
             "code": "A3-02-M1-12-05",
             "title": "負數的正確餘數計算",
             "description": "請你計算a除以b的餘數，餘數必須維持在0到b-1之間（即使a是負數，也要輸出這個範圍內正確的餘數，不能直接用一般的取餘數運算導致出現負的餘數）。（b保證是正整數）\n\n第一行輸入a b（空白分隔）",
+            "inputDescription": "a b",
+            "outputDescription": "0到b-1之間的正確餘數",
             "examples": [
                 {
                     "input": "-3 5",
@@ -94,6 +98,8 @@ export default {
             "code": "A3-02-M1-12-06",
             "title": "單筆資料時的最大最小值",
             "description": "請你找出N筆分數中的最大值與最小值，並依序輸出。",
+            "inputDescription": "N、N個分數",
+            "outputDescription": "最大值 最小值",
             "examples": [
                 {
                     "input": "1\n88",
@@ -132,6 +138,8 @@ export default {
             "code": "A3-02-M1-12-03",
             "title": "平均分數到小數點後兩位",
             "description": "請你計算N筆分數的平均值，輸出到小數點後兩位（四捨五入），即使結果剛好是整數，也要顯示到小數點後兩位（例如平均剛好80分要輸出80.00）。\n\n第一行輸入N\n\n第二行輸入N個分數\n\n輸出平均值，格式為小數點後兩位。",
+            "inputDescription": "N、N個分數",
+            "outputDescription": "平均值（小數點後兩位）",
             "examples": [
                 {
                     "input": "4\n80 90 70 100",
@@ -170,6 +178,8 @@ export default {
             "code": "A3-02-M1-12-04",
             "title": "除以零的例外處理",
             "description": "請你計算兩個整數a除以b的結果，並輸出到小數點後兩位。但是b有可能是0，這時候不能真的做除法（會出錯），請改成輸出「無法計算」。\n\n第一行輸入a b（空白分隔）\n\n如果b不是0，輸出a除以b的結果（小數點後兩位）；如果b是0，輸出「無法計算」。",
+            "inputDescription": "a b",
+            "outputDescription": "除法結果（小數點後兩位）或「無法計算」",
             "examples": [
                 {
                     "input": "10 4",
@@ -213,6 +223,8 @@ export default {
             "code": "A3-02-M1-12-02",
             "title": "金額千分位輸出",
             "description": "請你把一個金額數字，輸出成加上千分位逗號的格式（從個位數往左，每三位加一個逗號，例如1234567要輸出成1,234,567）。金額保證是不含小數的正整數。\n\n第一行輸入一個正整數金額amount",
+            "inputDescription": "amount（正整數）",
+            "outputDescription": "加上千分位逗號的金額字串",
             "examples": [
                 {
                     "input": "1234567",

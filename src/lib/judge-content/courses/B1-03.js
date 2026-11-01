@@ -13,6 +13,8 @@ export default {
             "code": "B1-03-BSC01-001",
             "title": "及格或不及格",
             "description": "給定一位學生的分數，請判斷是否及格。分數大於或等於 60 分為及格。",
+            "inputDescription": "輸入一個整數 S，代表分數。",
+            "outputDescription": "若 S 大於或等於 60，輸出 PASS；否則輸出 FAIL。",
             "examples": [
                 {
                     "input": "75",
@@ -51,6 +53,8 @@ export default {
             "code": "B1-03-BSC01-003",
             "title": "判斷奇偶數",
             "description": "給定一個整數，請判斷它是奇數或偶數。",
+            "inputDescription": "輸入一個整數 N。",
+            "outputDescription": "若 N 是偶數，輸出 EVEN；若 N 是奇數，輸出 ODD。",
             "examples": [
                 {
                     "input": "14",
@@ -89,6 +93,8 @@ export default {
             "code": "B1-03-BSC01-009",
             "title": "購物免運費",
             "description": "網路商店規定，購物金額大於或等於 1000 元可以免運費，否則需加收 80 元運費。請輸出最後應付金額。",
+            "inputDescription": "輸入一個整數 N，代表購物金額。",
+            "outputDescription": "輸出一個整數，代表最後應付金額。",
             "examples": [
                 {
                     "input": "950",

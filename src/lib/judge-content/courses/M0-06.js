@@ -13,6 +13,8 @@ export default {
             "code": "M0-06-EXT01-001",
             "title": "找最大值",
             "description": "給定 N 個整數，請找出其中最大的數字。",
+            "inputDescription": "第一個整數為 N，接著輸入 N 個整數。",
+            "outputDescription": "輸出一個整數，代表最大值。",
             "examples": [
                 {
                     "input": "5\n8 3 12 7 10",
@@ -51,6 +53,8 @@ export default {
             "code": "M0-06-EXT01-002",
             "title": "找最小值",
             "description": "給定 N 個整數，請找出其中最小的數字。",
+            "inputDescription": "第一個整數為 N，接著輸入 N 個整數。",
+            "outputDescription": "輸出一個整數，代表最小值。",
             "examples": [
                 {
                     "input": "5\n8 3 12 7 10",
@@ -89,6 +93,8 @@ export default {
             "code": "M0-06-EXT01-003",
             "title": "最大最小差距",
             "description": "給定 N 個整數，請找出最大值與最小值，並計算兩者差距。",
+            "inputDescription": "第一個整數為 N，接著輸入 N 個整數。",
+            "outputDescription": "輸出三個整數，依序為最大值、最小值、差距，中間以空白分隔。",
             "examples": [
                 {
                     "input": "5\n8 3 12 7 10",
@@ -127,6 +133,8 @@ export default {
             "code": "M0-06-EXT01-004",
             "title": "最高分的位置",
             "description": "給定 N 位學生的成績，請找出最高分第一次出現的位置。位置從 1 開始計算。",
+            "inputDescription": "第一個整數為 N，接著輸入 N 個整數代表成績。",
+            "outputDescription": "輸出兩個整數，依序為最高分與最高分第一次出現的位置，中間以空白分隔。",
             "examples": [
                 {
                     "input": "6\n70 95 80 95 60 88",
@@ -165,6 +173,8 @@ export default {
             "code": "M0-06-EXT01-005",
             "title": "最低溫的位置",
             "description": "給定 N 天的溫度，請找出最低溫第一次出現的位置。位置從 1 開始計算。",
+            "inputDescription": "第一個整數為 N，接著輸入 N 個整數代表溫度。",
+            "outputDescription": "輸出兩個整數，依序為最低溫與最低溫第一次出現的位置，中間以空白分隔。",
             "examples": [
                 {
                     "input": "5\n22 18 20 18 25",
@@ -203,6 +213,8 @@ export default {
             "code": "M0-06-EXT01-006",
             "title": "第二高分",
             "description": "給定 N 位學生的成績，請找出最高分與第二高分。保證至少有兩種不同分數。",
+            "inputDescription": "第一個整數為 N，接著輸入 N 個整數代表成績。",
+            "outputDescription": "輸出兩個整數，依序為最高分與第二高分，中間以空白分隔。",
             "examples": [
                 {
                     "input": "6\n70 95 80 95 60 88",
@@ -241,6 +253,8 @@ export default {
             "code": "M0-06-EXT01-007",
             "title": "相鄰最大差",
             "description": "給定 N 個整數，請找出相鄰兩個數字之間的最大差值。差值一律用較大的數減較小的數。",
+            "inputDescription": "第一個整數為 N，接著輸入 N 個整數。保證 N 大於或等於 2。",
+            "outputDescription": "輸出一個整數，代表相鄰最大差值。",
             "examples": [
                 {
                     "input": "5\n3 8 6 15 10",
@@ -279,6 +293,8 @@ export default {
             "code": "M0-06-EXT01-008",
             "title": "區間最大值",
             "description": "給定 N 個整數，以及查詢區間 L 到 R，請找出第 L 個到第 R 個數字中的最大值。位置從 1 開始計算。",
+            "inputDescription": "第一個整數為 N，接著輸入 N 個整數，最後輸入兩個整數 L 與 R。保證 1 <= L <= R <= N。",
+            "outputDescription": "輸出一個整數，代表區間最大值。",
             "examples": [
                 {
                     "input": "6\n5 8 3 12 7 10\n2 5",

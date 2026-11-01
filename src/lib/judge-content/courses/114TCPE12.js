@@ -12,6 +12,8 @@ export default {
             "code": "114TCPE12-114TCPE12-1",
             "title": "崔老師的出缺席紀錄表",
             "description": "崔老師用二維清單記錄一週的出席狀況：\n小明到到缺到到\n小美到缺缺到到\n說明：\n每一列是一位學生\n第一個元素是姓名\n後面五個元素代表星期一到星期五的出席狀況\n【任務】\n輸入學生姓名與出席紀錄，顯示該名學生缺席幾天\n輸出格式：小明缺席1天",
+            "inputDescription": "輸入一個字串，前段為學生姓名(長度不固定)，緊接著5個字元代表週一到週五的出席狀況(到/缺)，兩者間沒有分隔符號。",
+            "outputDescription": "輸出「姓名缺席X天」，X為5天中缺席的次數。",
             "examples": [
                 {
                     "input": "小明到到缺到到",
@@ -84,6 +86,8 @@ export default {
             "code": "114TCPE12-114TCPE12-2",
             "title": "校車安全：有沒有超載？",
             "description": "每列是一台校車，第一格是車號，後面是每站上車人數，總共只會有五站。\n例如：\nA\n2 3 4 5 6\nB\n1 1 2 2 3\nC\n7 1 1 2 2\n【規則】\n每台校車總人數 > 20：要警告超載\n【任務】\n計算每一台總人數，輸出「車號+總人數」，如：A車20人\n若超過20，額外輸出：B車超載",
+            "inputDescription": "用英文大寫字母輸入三臺車編號，並且輸入每一站上車人數(共五站)",
+            "outputDescription": "A車幾人\nB車幾人\nC車幾人\n(超載要顯示超載)",
             "examples": [
                 {
                     "input": "A\n5 3 4 4 4\nB\n4 5 4 3 4\nC\n3 3 4 3 3",
@@ -156,6 +160,8 @@ export default {
             "code": "114TCPE12-114TCPE12-3",
             "title": "成績補考機制",
             "description": "學校規定所有低於60分的成績都以60分計算。請幫老師修正所有學生的成績表。\n【任務規則】\n1. 使用者輸入一個數字，代表有N位學生\n2. 接著輸入 N行成績資料，每行代表一位學生的各科分數(以空白分隔)\n3. 請檢查每一個分數，若小於60則改成60，否則保持不變\n4. 輸出修正後的分數表",
+            "inputDescription": "學生數與N行成績",
+            "outputDescription": "修正後的成績清單",
             "examples": [
                 {
                     "input": "2\n50 80 90\n40 55 100",
@@ -228,6 +234,8 @@ export default {
             "code": "114TCPE12-114TCPE12-4",
             "title": "滑動平均值",
             "description": "請計算清單中連續K個數字的平均值(Moving Average)。\n【任務規則】\n1. 第一次輸入：一串數字，以空白分隔\n2. 第二次輸入：區間大小 K\n3. 請依序計算每K 個相鄰數字的平均值\n4. 例如數列 10 20 30，K=2。第一組(10+20)/2=15，第二組(20+30)/2=25。",
+            "inputDescription": "數字字串與整數 K",
+            "outputDescription": "算出的平均值數列 (數字之間以空白隔開)",
             "examples": [
                 {
                     "input": "10 20 30 40 50\n2",
@@ -300,6 +308,8 @@ export default {
             "code": "114TCPE12-114TCPE12-5",
             "title": "連續字元分段顯示",
             "description": "給一個字串s，請將連續相同的字元視為一組，並依序顯示「字元+出現次數」。",
+            "inputDescription": "輸入一串英文字串s。",
+            "outputDescription": "每一組字元與次數以換行輸出。",
             "examples": [
                 {
                     "input": "aaabbcddd",
@@ -372,6 +382,8 @@ export default {
             "code": "114TCPE12-114TCPE12-6",
             "title": "移除指定字元後輸出新字串",
             "description": "給一個字串s與一個字元 target，請用迴圈移除所有 target，並輸出新字串。",
+            "inputDescription": "第一行輸入字串s。\n第二行輸入目標字元 target。",
+            "outputDescription": "輸出移除指定字元後的新字串。",
             "examples": [
                 {
                     "input": "banana\na",

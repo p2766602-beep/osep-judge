@@ -13,6 +13,8 @@ export default {
             "code": "M0-02-BSA01-001",
             "title": "購買文具",
             "description": "小明到文具店購買鉛筆與橡皮擦。請根據單價與數量，計算總金額。",
+            "inputDescription": "輸入四個整數，依序為鉛筆單價、鉛筆數量、橡皮擦單價、橡皮擦數量。",
+            "outputDescription": "輸出一個整數，代表總金額。",
             "examples": [
                 {
                     "input": "10 3 5 2",
@@ -51,6 +53,8 @@ export default {
             "code": "M0-02-BSA01-002",
             "title": "飲料店結帳",
             "description": "飲料店販售紅茶與奶茶。請根據兩種飲料的單價與杯數，計算顧客應付金額。",
+            "inputDescription": "輸入四個整數，依序為紅茶單價、紅茶杯數、奶茶單價、奶茶杯數。",
+            "outputDescription": "輸出一個整數，代表總金額。",
             "examples": [
                 {
                     "input": "25 2 40 3",
@@ -89,6 +93,8 @@ export default {
             "code": "M0-02-BSA01-003",
             "title": "長方形周長與面積",
             "description": "給定長方形的長與寬，請計算長方形的周長與面積。",
+            "inputDescription": "輸入兩個整數，依序為長方形的長與寬。",
+            "outputDescription": "輸出兩個整數，依序為周長與面積，中間以空白分隔。",
             "examples": [
                 {
                     "input": "8 5",
@@ -127,6 +133,8 @@ export default {
             "code": "M0-02-BSA01-004",
             "title": "秒數換算",
             "description": "給定一段時間的總秒數，請換算成幾分鐘又幾秒。",
+            "inputDescription": "輸入一個整數 S，代表總秒數。",
+            "outputDescription": "輸出兩個整數，依序為分鐘與剩餘秒數，中間以空白分隔。",
             "examples": [
                 {
                     "input": "125",
@@ -165,6 +173,8 @@ export default {
             "code": "M0-02-BSA01-005",
             "title": "找零錢",
             "description": "商店只使用 50 元、10 元與 1 元硬幣找零。給定找零金額，請計算最少需要多少枚硬幣。",
+            "inputDescription": "輸入一個整數 N，代表找零金額。",
+            "outputDescription": "輸出三個整數，依序為 50 元、10 元與 1 元硬幣的數量，中間以空白分隔。",
             "examples": [
                 {
                     "input": "187",
@@ -203,6 +213,8 @@ export default {
             "code": "M0-02-BSA01-006",
             "title": "班級分組",
             "description": "老師要將學生平均分組。給定學生人數與每組人數，請計算可以分成幾組，以及剩下幾人。",
+            "inputDescription": "輸入兩個整數，依序為學生總人數 N 與每組人數 K。",
+            "outputDescription": "輸出兩個整數，依序為完整組數與剩餘人數，中間以空白分隔。",
             "examples": [
                 {
                     "input": "32 5",
@@ -241,6 +253,8 @@ export default {
             "code": "M0-02-BSA01-007",
             "title": "平均分數整數版",
             "description": "給定三科成績，請計算總分與整數平均。整數平均只取商，不處理小數。",
+            "inputDescription": "輸入三個整數，代表三科成績。",
+            "outputDescription": "輸出兩個整數，依序為總分與整數平均，中間以空白分隔。",
             "examples": [
                 {
                     "input": "80 75 91",
@@ -279,6 +293,8 @@ export default {
             "code": "M0-02-BSA01-008",
             "title": "簡易旅行費用",
             "description": "一次旅行包含車票、餐費與門票。請根據人數與各項費用，計算全班總費用。",
+            "inputDescription": "輸入四個整數，依序為人數、每人車票費、每人餐費、每人門票費。",
+            "outputDescription": "輸出一個整數，代表全班總費用。",
             "examples": [
                 {
                     "input": "30 120 80 50",

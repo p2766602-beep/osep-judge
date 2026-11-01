@@ -12,6 +12,8 @@ export default {
             "code": "JSA00-A-08-0",
             "title": "查找最大值",
             "description": "老師進行成績統計，老師輸入每位同學的成績，請你寫一個程式找出最高分。\n\n輸入第一行是整數 N，代表有 N 筆成績\n\n第二行輸入 N 個數字，數字間以空白間隔\n\n程式輸出最大值。\n這樣的練習可以幫助你處理一串資料，並找出其中的最大值。",
+            "inputDescription": "",
+            "outputDescription": "",
             "examples": [
                 {
                     "input": "3\n9 6 8",
@@ -53,6 +55,8 @@ export default {
             "code": "JSA00-A-08-1",
             "title": "查找最大值、最小值",
             "description": "老師進行成績統計，老師輸入每位同學的成績，請你寫一個程式找出最高分及最低分。\n\n輸入第一行是整數 N，代表有 N 筆成績\n\n第二行輸入 N 個數字，數字間以空白間隔\n\n程式輸出最大值及最小值。\n這樣的練習可以幫助你處理一串資料，並同時找出其中的最大值、最小值。",
+            "inputDescription": "",
+            "outputDescription": "",
             "examples": [
                 {
                     "input": "3\n9 6 8",
@@ -94,6 +98,8 @@ export default {
             "code": "JSA00-A-09-0",
             "title": "判斷質數",
             "description": "質數是大於 1 且只能被 1 和自己整除的數字。\n請寫一個程式，輸入一個整數 N，判斷它是否為質數。\n\n若是質數輸出 Yes，否則輸出 No。\n\n這題訓練你使用條件與迴圈判斷。",
+            "inputDescription": "",
+            "outputDescription": "",
             "examples": [
                 {
                     "input": "1",
@@ -145,6 +151,8 @@ export default {
             "code": "JSA00-A-09-1",
             "title": "找因數",
             "description": "因數是指一個整數能被另一整數「整除」時，這個「除數」就是「被除數」的因數。\n\n0不是任何整數的因數。1是所有整數的因數。\n\n請寫一個程式，輸入一個整數 N，請找出N所有的因數。\n\n所有因數以空白符號間格\n\n這題訓練你使用條件與迴圈判斷。",
+            "inputDescription": "",
+            "outputDescription": "",
             "examples": [
                 {
                     "input": "12",
@@ -186,6 +194,8 @@ export default {
             "code": "JSA00-A-10-0",
             "title": "多科成績計算",
             "description": "小明參加了數學、英文、自然...等多科的段考，老師希望能快速算出總分與平均分數，並判斷是否及格。\n\n請設計程式，輸入多科的成績，計算總分與平均。\n\n第一行輸入共有幾科\n\n第二行依序輸入各科成績，科成績之間以空白間隔\n\n計算總分，平均成績以四捨五入取整數\n\n如果平均分數大於等於 60，就輸出「及格」，否則輸出「不及格」。\n\n這題可以訓練你如何處理多筆資料的加總、平均計算，並搭配條件判斷。",
+            "inputDescription": "",
+            "outputDescription": "",
             "examples": [
                 {
                     "input": "3\n80 70 90",
@@ -227,6 +237,8 @@ export default {
             "code": "JSA00-A-11-0",
             "title": "計算字元出現次數",
             "description": "請設計程式，輸入一個字串，並輸入一個英文字母輸出該字母在字串中出現的次數。\n\n這樣的練習可以訓練你操作字串與統計。",
+            "inputDescription": "",
+            "outputDescription": "",
             "examples": [
                 {
                     "input": "banana\na",
@@ -268,6 +280,8 @@ export default {
             "code": "JSA00-A-12-0",
             "title": "簡易密碼轉換",
             "description": "小明設計了一種簡單的密碼環密碼規則：將每個字母向後移二個字母（z 變 b）。\n\n密碼環：abcdefghijklmnopqrstuvwxyz\n\n請寫一個程式，輸入一個英文單字，輸出轉換後的字串。\n\n這樣的練習訓練你字元處理與條件轉換。",
+            "inputDescription": "",
+            "outputDescription": "",
             "examples": [
                 {
                     "input": "banana",
@@ -309,6 +323,8 @@ export default {
             "code": "JSA00-A-13-0",
             "title": "二數的最大公因數",
             "description": "小明上學時，不太會找最大公因數，請寫個程式幫他找一下\n輸入二個整數，請計算這二個數字的最大公因數",
+            "inputDescription": "輸入2行\n第一行輸入第1個整數N\n第二行輸入地2個整數M\n程式運算找出二數的最大公因數並輸出",
+            "outputDescription": "",
             "examples": [
                 {
                     "input": "9\n6",
@@ -350,6 +366,8 @@ export default {
             "code": "JSA00-A-10-1",
             "title": "加權成績計算",
             "description": "大明綜合高中辦理考試，不同科系考試科目數量、每周上課時數不一定相同\n成績計算時，以每一科成績乘以該科上課時數為加權成績，將所有科目的加權成績加總，並除以全部科目總時數，即為學生加權平均成績\n請設計一個程式，輸入各科的成績、各科加權時數，程式運算後輸出加權總分、加權平均、等第。\n第一行輸入N，代表該科共有N科考試成績\n第二行依序輸入N筆各科成績，各科成績之間以空白間隔\n第三行依序輸入N筆各科對應加權時數，各科加權時數之間以空白間隔\n計算全部加權總分，加權平均成績以四捨五入取整數\n如果平均分數大於等於 80，就是「A」等第，小於80大於等於70則是「B」等第，小於70大於等於60則是「C」等第，否則是「D」等第。\n程式輸出加權總分、加權平均、等第。\n這題可以訓練你如何處理多筆資料的加總、平均計算，並搭配條件判斷。",
+            "inputDescription": "",
+            "outputDescription": "",
             "examples": [
                 {
                     "input": "3\n80 70 90\n1 2 1",
@@ -391,6 +409,8 @@ export default {
             "code": "JSA00-A-11-1",
             "title": "計算字元出現最多的次數",
             "description": "請設計程式，輸入一字串由小寫英文字母組合，長度1~50間的字串\n程式會統計該字串的字母中，出現最多的次數。\n這樣的練習可以訓練你循環計數迴圈與字串統計。",
+            "inputDescription": "",
+            "outputDescription": "",
             "examples": [
                 {
                     "input": "banana",
@@ -442,6 +462,8 @@ export default {
             "code": "JSA00-A-12-1",
             "title": "動態密碼轉換",
             "description": "小明設計了一種英文字元密碼環編碼規則：\n密碼環為『abcdefghijklmnopqrstuvwxyz0123456789』\n第一行輸入數字N(N介於0~36)，N為編碼位移值\n編碼時，待編碼字串每個字元都按照密碼環『往前』移動N個位置\n如果轉換後密碼往前超過密碼環第一個字元a，則接續最後面9繼續接回密碼環\n請寫一個程式，輸入一個英文單字，程式輸出依照編碼規則轉換後的密碼字串。\n這樣的練習訓練你字元處理與條件轉換。",
+            "inputDescription": "",
+            "outputDescription": "",
             "examples": [
                 {
                     "input": "2\nbanana",
@@ -483,6 +505,8 @@ export default {
             "code": "JSA00-A-13-1",
             "title": "最大公因數",
             "description": "小明上學時，不太會找最大公因數，請寫個程式幫他找一下\n輸入一組整數，請計算這些數字的最大公因數\n輸入格式：輸入2行\n第一行輸入1個整數N，代表接下來要計算最大公因數的個數\n第二行輸入N個整數，用空格隔開，代表要計算最大公因數的N個整數",
+            "inputDescription": "",
+            "outputDescription": "",
             "examples": [
                 {
                     "input": "2\n6 9",

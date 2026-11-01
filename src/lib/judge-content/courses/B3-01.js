@@ -13,6 +13,8 @@ export default {
             "code": "B3-01-JSA01-D01",
             "title": "清單逐一讀取",
             "description": "第一行輸入一個整數 N，第二行輸入 N 個整數。請依照原本順序逐一輸出每個數字，每個數字各佔一行。本題用來示範清單逐一讀取與輸出。",
+            "inputDescription": "第一行：一個整數 N。\n\n第二行：N 個整數，以空白分隔。",
+            "outputDescription": "依序輸出每個數字，每個數字各佔一行。",
             "examples": [
                 {
                     "input": "3\n5 8 2",
@@ -61,6 +63,8 @@ export default {
             "code": "B3-01-IDX01-001",
             "title": "指定位置的數字",
             "description": "給定 N 個整數與一個位置 P，請輸出第 P 個數字。位置從 1 開始計算。",
+            "inputDescription": "第一個整數為 N，接著輸入 N 個整數，最後輸入一個整數 P。保證 1 <= P <= N。",
+            "outputDescription": "輸出一個整數，代表第 P 個數字。",
             "examples": [
                 {
                     "input": "5\n8 3 12 7 10\n3",
@@ -99,6 +103,8 @@ export default {
             "code": "B3-01-count-018",
             "title": "冒險日誌",
             "description": "勇者寫了 N 天的冒險日誌，清單中依序記錄了每天打倒的怪物數量。\n例如清單的第一個數字是第 1 天打倒的數量，第二個數字是第 2 天的...\n請你格式化輸出每天的戰績，格式為：Day-[第幾天]-[數量]。\n輸入格式\n輸入共有兩行。第一行是一個整數 N，代表天數。\n第二行輸入 N 個整數，代表每天怪物的數量。\n程式依序輸出 N 天資料，每天格式為 Day-i-數量 不同天中間以空白間隔。",
+            "inputDescription": "",
+            "outputDescription": "",
             "examples": [
                 {
                     "input": "2\n15 5",
@@ -142,6 +148,8 @@ export default {
             "code": "B3-01-count-017",
             "title": "倒轉時光",
             "description": "勇者獲得了一個「時光倒流」的魔法卷軸。這個卷軸上有一串數字密碼，但是必須從最後一個數字讀回到第一個數字，魔法才能生效。 請讀取一個清單，並將清單內的數字「由後往前」印出來。\n輸入格式\n輸入共有兩行。第一行是一個整數 N，代表密碼長度。\n第二行輸入 N 個整數，代表N個數字的密碼組合。\n程式反序輸 N 筆密碼數字資料，中間以空白間隔\n(提示：循環計數迴圈起點設為清單長度，終點設為 1，間隔設為 -1)",
+            "inputDescription": "",
+            "outputDescription": "",
             "examples": [
                 {
                     "input": "4\n10 20 30 40",
@@ -185,6 +193,8 @@ export default {
             "code": "B3-01-IDX01-007",
             "title": "左右鄰居總和",
             "description": "給定 N 個整數與位置 P，請計算第 P 個數字左右鄰居的總和。若沒有左鄰居或右鄰居，該側視為 0。",
+            "inputDescription": "第一個整數為 N，接著輸入 N 個整數，最後輸入一個整數 P。保證 1 <= P <= N。",
+            "outputDescription": "輸出一個整數，代表左右鄰居總和。",
             "examples": [
                 {
                     "input": "5\n10 20 30 40 50\n3",

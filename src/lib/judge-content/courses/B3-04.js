@@ -13,6 +13,8 @@ export default {
             "code": "B3-04-seclect-003",
             "title": "清單最大最小值的位置",
             "description": "在進行排序之前，程式必須先知道「最大值或最小值在清單的哪一個位置」。\n小安已經可以找出清單中的最大值與最小值，\n但老師希望他進一步找出該數值所在的位置（索引值），\n才能正確進行資料交換。\n現在給你一個固定長度為 5 的整數清單，\n請找出清單中最小值所在的位置。\n注意事項：\n1. 清單位置由 1 開始計算（第 1 個為位置 1）。\n2. 若最小值出現多次，請輸出最前面出現的那一個位置",
+            "inputDescription": "第 1 行：輸入一個數N，N固定為整數5\n\n第 2 行：輸入5 個整數，代表清單內容（以空格隔開）。",
+            "outputDescription": "輸出一個整數，代表最小值所在的位置（索引值）。",
             "examples": [
                 {
                     "input": "5\n8 3 5 1 6",
@@ -61,6 +63,8 @@ export default {
             "code": "B3-04-IDX01-003",
             "title": "最後一個目標位置",
             "description": "給定 N 個整數與目標值 X，請找出 X 最後一次出現的位置。位置從 1 開始計算。若沒有出現，輸出 0。",
+            "inputDescription": "第一個整數為 N，接著輸入 N 個整數，最後輸入一個整數 X。",
+            "outputDescription": "輸出一個整數，代表 X 最後一次出現的位置；若不存在則輸出 0。",
             "examples": [
                 {
                     "input": "6\n4 8 3 8 5 8\n8",
@@ -99,6 +103,8 @@ export default {
             "code": "B3-04-IDX01-002",
             "title": "第一個目標位置",
             "description": "給定 N 個整數與目標值 X，請找出 X 第一次出現的位置。位置從 1 開始計算。若沒有出現，輸出 0。",
+            "inputDescription": "第一個整數為 N，接著輸入 N 個整數，最後輸入一個整數 X。",
+            "outputDescription": "輸出一個整數，代表 X 第一次出現的位置；若不存在則輸出 0。",
             "examples": [
                 {
                     "input": "6\n4 8 3 8 5 8\n8",
@@ -137,6 +143,8 @@ export default {
             "code": "B3-04-CNT01-022",
             "title": "第一個及格的位置",
             "description": "給定 N 位學生的成績，請找出第一個分數大於或等於 60 的位置。位置從 1 開始計算。保證至少有一位學生及格。",
+            "inputDescription": "第一個整數為 N，接著輸入 N 個整數代表成績。",
+            "outputDescription": "輸出一個整數，代表第一個及格成績的位置。",
             "examples": [
                 {
                     "input": "5\n40 55 60 80 30",
@@ -175,6 +183,8 @@ export default {
             "code": "B3-04-IDX01-008",
             "title": "【延伸】兩個目標的距離",
             "description": "給定 N 個整數，以及兩個目標值 A 與 B。請找出 A 第一次出現的位置與 B 第一次出現的位置，並輸出兩個位置的距離。保證 A 與 B 都會出現。",
+            "inputDescription": "第一個整數為 N，接著輸入 N 個整數，最後輸入兩個整數 A 與 B。",
+            "outputDescription": "輸出一個整數，代表兩個位置的距離。距離一律用較大的位置減較小的位置。",
             "examples": [
                 {
                     "input": "6\n4 8 3 9 5 8\n8 9",

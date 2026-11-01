@@ -13,6 +13,8 @@ export default {
             "code": "M1-04-IDX01-001",
             "title": "（指定位置的數字",
             "description": "給定 N 個整數與一個位置 P，請輸出第 P 個數字。位置從 1 開始計算。",
+            "inputDescription": "第一個整數為 N，接著輸入 N 個整數，最後輸入一個整數 P。保證 1 <= P <= N。",
+            "outputDescription": "輸出一個整數，代表第 P 個數字。",
             "examples": [
                 {
                     "input": "5\n8 3 12 7 10\n3",
@@ -51,6 +53,8 @@ export default {
             "code": "M1-04-IDX01-002",
             "title": "第一個目標位置",
             "description": "給定 N 個整數與目標值 X，請找出 X 第一次出現的位置。位置從 1 開始計算。若沒有出現，輸出 0。",
+            "inputDescription": "第一個整數為 N，接著輸入 N 個整數，最後輸入一個整數 X。",
+            "outputDescription": "輸出一個整數，代表 X 第一次出現的位置；若不存在則輸出 0。",
             "examples": [
                 {
                     "input": "6\n4 8 3 8 5 8\n8",
@@ -89,6 +93,8 @@ export default {
             "code": "M1-04-IDX01-003",
             "title": "最後一個目標位置",
             "description": "給定 N 個整數與目標值 X，請找出 X 最後一次出現的位置。位置從 1 開始計算。若沒有出現，輸出 0。",
+            "inputDescription": "第一個整數為 N，接著輸入 N 個整數，最後輸入一個整數 X。",
+            "outputDescription": "輸出一個整數，代表 X 最後一次出現的位置；若不存在則輸出 0。",
             "examples": [
                 {
                     "input": "6\n4 8 3 8 5 8\n8",
@@ -127,6 +133,8 @@ export default {
             "code": "M1-04-IDX01-004",
             "title": "最大值的位置",
             "description": "給定 N 個整數，請找出最大值第一次出現的位置。位置從 1 開始計算。",
+            "inputDescription": "第一個整數為 N，接著輸入 N 個整數。",
+            "outputDescription": "輸出兩個整數，依序為最大值與最大值第一次出現的位置，中間以空白分隔。",
             "examples": [
                 {
                     "input": "6\n5 9 3 9 7 2",
@@ -165,6 +173,8 @@ export default {
             "code": "M1-04-IDX01-005",
             "title": "最小值的位置",
             "description": "給定 N 個整數，請找出最小值最後一次出現的位置。位置從 1 開始計算。",
+            "inputDescription": "第一個整數為 N，接著輸入 N 個整數。",
+            "outputDescription": "輸出兩個整數，依序為最小值與最小值最後一次出現的位置，中間以空白分隔。",
             "examples": [
                 {
                     "input": "6\n5 2 3 2 7 2",
@@ -203,6 +213,8 @@ export default {
             "code": "M1-04-IDX01-006",
             "title": "相鄰相同的位置",
             "description": "給定 N 個整數，請找出第一組相鄰且數值相同的位置。若第 i 個與第 i+1 個相同，輸出 i。若沒有相鄰相同，輸出 0。",
+            "inputDescription": "第一個整數為 N，接著輸入 N 個整數。保證 N 大於或等於 2。",
+            "outputDescription": "輸出一個整數，代表第一組相鄰相同的左側位置；若不存在則輸出 0。",
             "examples": [
                 {
                     "input": "6\n3 5 5 2 2 8",
@@ -241,6 +253,8 @@ export default {
             "code": "M1-04-IDX01-007",
             "title": "左右鄰居總和",
             "description": "給定 N 個整數與位置 P，請計算第 P 個數字左右鄰居的總和。若沒有左鄰居或右鄰居，該側視為 0。",
+            "inputDescription": "第一個整數為 N，接著輸入 N 個整數，最後輸入一個整數 P。保證 1 <= P <= N。",
+            "outputDescription": "輸出一個整數，代表左右鄰居總和。",
             "examples": [
                 {
                     "input": "5\n10 20 30 40 50\n3",
@@ -279,6 +293,8 @@ export default {
             "code": "M1-04-IDX01-008",
             "title": "兩個目標的距離）＋",
             "description": "給定 N 個整數，以及兩個目標值 A 與 B。請找出 A 第一次出現的位置與 B 第一次出現的位置，並輸出兩個位置的距離。保證 A 與 B 都會出現。",
+            "inputDescription": "第一個整數為 N，接著輸入 N 個整數，最後輸入兩個整數 A 與 B。",
+            "outputDescription": "輸出一個整數，代表兩個位置的距離。距離一律用較大的位置減較小的位置。",
             "examples": [
                 {
                     "input": "6\n4 8 3 9 5 8\n8 9",
@@ -317,6 +333,8 @@ export default {
             "code": "M1-04-CNT01-022",
             "title": "第一個及格的位置",
             "description": "給定 N 位學生的成績，請找出第一個分數大於或等於 60 的位置。位置從 1 開始計算。保證至少有一位學生及格。",
+            "inputDescription": "第一個整數為 N，接著輸入 N 個整數代表成績。",
+            "outputDescription": "輸出一個整數，代表第一個及格成績的位置。",
             "examples": [
                 {
                     "input": "5\n40 55 60 80 30",
@@ -355,6 +373,8 @@ export default {
             "code": "M1-04-CNT01-023",
             "title": "相鄰差值最大",
             "description": "給定 N 個整數，請計算相鄰兩個數字之間差值的最大值。差值一律用較大的數減較小的數。",
+            "inputDescription": "第一個整數為 N，接著輸入 N 個整數。保證 N 大於或等於 2。",
+            "outputDescription": "輸出一個整數，代表相鄰差值最大值。",
             "examples": [
                 {
                     "input": "5\n3 8 6 15 10",

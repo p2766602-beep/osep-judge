@@ -13,6 +13,8 @@ export default {
             "code": "B1-02-BSA01-001",
             "title": "購買文具",
             "description": "小明到文具店購買鉛筆與橡皮擦。請根據單價與數量，計算總金額。",
+            "inputDescription": "輸入四個整數，依序為鉛筆單價、鉛筆數量、橡皮擦單價、橡皮擦數量。",
+            "outputDescription": "輸出一個整數，代表總金額。",
             "examples": [
                 {
                     "input": "10 3 5 2",
@@ -51,6 +53,8 @@ export default {
             "code": "B1-02-BSA01-003",
             "title": "長方形周長與面積",
             "description": "給定長方形的長與寬，請計算長方形的周長與面積。",
+            "inputDescription": "輸入兩個整數，依序為長方形的長與寬。",
+            "outputDescription": "輸出兩個整數，依序為周長與面積，中間以空白分隔。",
             "examples": [
                 {
                     "input": "8 5",
@@ -89,6 +93,8 @@ export default {
             "code": "B1-02-A-02-1",
             "title": "數字平均",
             "description": "當我們要處理數字時，常常需計算平均。\n請設計一個程式，讓使用者輸入兩個數字，程式要輸出這兩個數字的平均(四捨五入取整數)。\n這樣的題目能幫助你熟悉數字資料處理。",
+            "inputDescription": "",
+            "outputDescription": "",
             "examples": [
                 {
                     "input": "9\n4",
@@ -132,6 +138,8 @@ export default {
             "code": "B1-02-BSA01-007",
             "title": "平均分數整數版",
             "description": "給定三科成績，請計算總分與整數平均。整數平均只取商，不處理小數。",
+            "inputDescription": "輸入三個整數，代表三科成績。",
+            "outputDescription": "輸出兩個整數，依序為總分與整數平均，中間以空白分隔。",
             "examples": [
                 {
                     "input": "80 75 91",
@@ -170,6 +178,8 @@ export default {
             "code": "B1-02-BSA01-004",
             "title": "秒數換算",
             "description": "給定一段時間的總秒數，請換算成幾分鐘又幾秒。",
+            "inputDescription": "輸入一個整數 S，代表總秒數。",
+            "outputDescription": "輸出兩個整數，依序為分鐘與剩餘秒數，中間以空白分隔。",
             "examples": [
                 {
                     "input": "125",
@@ -208,6 +218,8 @@ export default {
             "code": "B1-02-BSA01-005",
             "title": "找零錢",
             "description": "商店只使用 50 元、10 元與 1 元硬幣找零。給定找零金額，請計算最少需要多少枚硬幣。",
+            "inputDescription": "輸入一個整數 N，代表找零金額。",
+            "outputDescription": "輸出三個整數，依序為 50 元、10 元與 1 元硬幣的數量，中間以空白分隔。",
             "examples": [
                 {
                     "input": "187",

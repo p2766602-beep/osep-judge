@@ -13,6 +13,8 @@ export default {
             "code": "A7-01-GRAPH01-001",
             "title": "網路連線數",
             "description": "一個網路中有 N 個設備與 M 條連線。請輸出連線數 M。",
+            "inputDescription": "第一個整數為 N，第二個整數為 M，接著有 M 組整數 A B，代表設備 A 與設備 B 有一條連線。",
+            "outputDescription": "輸出一個整數，代表連線數。",
             "examples": [
                 {
                     "input": "4 3 1 2 2 3 3 4",
@@ -51,6 +53,8 @@ export default {
             "code": "A7-01-GRAPH01-007",
             "title": "完整網路缺幾條線",
             "description": "若 N 個設備中，每兩個不同設備都直接相連，稱為完整網路。給定目前已有 M 條連線，請計算還缺幾條線才會變成完整網路。",
+            "inputDescription": "輸入兩個整數 N 與 M，分別代表設備數與目前連線數。",
+            "outputDescription": "輸出一個整數，代表還缺少的連線數。",
             "examples": [
                 {
                     "input": "4 3",
@@ -89,6 +93,8 @@ export default {
             "code": "A7-01-GRAPH01-002",
             "title": "指定設備連線數",
             "description": "一個網路中有 N 個設備與 M 條連線。給定目標設備 X，請計算 X 連到幾個設備。",
+            "inputDescription": "第一個整數為 N，第二個整數為 M，第三個整數為 X，接著有 M 組整數 A B，代表設備 A 與設備 B 有一條連線。",
+            "outputDescription": "輸出一個整數，代表設備 X 的連線數。",
             "examples": [
                 {
                     "input": "4 3 2 1 2 2 3 3 4",
@@ -127,6 +133,8 @@ export default {
             "code": "A7-01-GRAPH01-004",
             "title": "找連線最多的設備",
             "description": "一個網路中有 N 個設備與 M 條連線。請找出連線數最多的設備。若有多個設備並列，輸出編號最小者。",
+            "inputDescription": "第一個整數為 N，第二個整數為 M，接著有 M 組整數 A B，代表設備 A 與設備 B 有一條連線。",
+            "outputDescription": "輸出兩個整數，依序為設備編號與連線數，中間以空白分隔。",
             "examples": [
                 {
                     "input": "4 4 1 2 2 3 2 4 3 4",
@@ -165,6 +173,8 @@ export default {
             "code": "A7-01-GRAPH01-006",
             "title": "兩段路可到達",
             "description": "一個網路中，若 X 可以先到某個中繼設備，再到 Y，代表 X 和 Y 可以用兩段路到達。請判斷是否存在這樣的中繼設備。若 X 與 Y 直接相連，不算兩段路。",
+            "inputDescription": "第一個整數為 N，第二個整數為 M，第三與第四個整數為 X 與 Y，接著有 M 組整數 A B，代表設備 A 與設備 B 有一條連線。",
+            "outputDescription": "若存在一個中繼設備讓 X 可用兩段路到 Y，輸出 YES；否則輸出 NO。",
             "examples": [
                 {
                     "input": "4 3 1 3 1 2 2 3 3 4",
@@ -203,6 +213,8 @@ export default {
             "code": "A7-01-GRAPH01-003",
             "title": "【延伸】是否直接相連",
             "description": "一個網路中有 N 個設備與 M 條連線。給定兩個設備 X 與 Y，請判斷它們是否有直接連線。",
+            "inputDescription": "第一個整數為 N，第二個整數為 M，第三與第四個整數為 X 與 Y，接著有 M 組整數 A B，代表設備 A 與設備 B 有一條連線。",
+            "outputDescription": "若 X 與 Y 直接相連，輸出 YES；否則輸出 NO。",
             "examples": [
                 {
                     "input": "4 3 1 3 1 2 2 3 3 4",
@@ -241,6 +253,8 @@ export default {
             "code": "A7-01-GRAPH01-005",
             "title": "【延伸】孤立設備數量",
             "description": "一個網路中，如果某個設備沒有任何連線，稱為孤立設備。給定網路連線資料，請計算孤立設備數量。",
+            "inputDescription": "第一個輸入為整數 N，表示有編號1~編號N共N個設備；第二個輸入為整數 M，表示接著會輸入 M 組整數 A B；A B代表設備 A 與設備 B 有一條連線。",
+            "outputDescription": "輸出一個整數，代表孤立設備數量編號。",
             "examples": [
                 {
                     "input": "5 2 1 2 2 3",
@@ -279,6 +293,8 @@ export default {
             "code": "A7-01-GRAPH01-008",
             "title": "【延伸】網路狀態分類",
             "description": "一個網路中有 N 個設備與 M 條連線。若 M 為 0，輸出 EMPTY；若 M 等於完整網路需要的連線數，輸出 FULL；否則輸出 NORMAL。",
+            "inputDescription": "輸入兩個整數 N 與 M，分別代表設備數與目前連線數。",
+            "outputDescription": "依規則輸出 EMPTY、FULL 或 NORMAL。",
             "examples": [
                 {
                     "input": "4 6",

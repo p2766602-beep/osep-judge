@@ -13,6 +13,8 @@ export default {
             "code": "M1-01-count-008",
             "title": "防禦工事",
             "description": "為了抵禦怪獸，勇者需要建造正方形的防禦陣型。國王要求勇者展示不同規模的陣型人數。\n當邊長為 i 時，需要的人數就是 i * i。\n請輸入一個數字 N，依序列出邊長從 1 到 N 的正方形陣型各需要多少人。\n輸入格式\n第一行：輸入一個整數 N ，代表最大邊長\n程式依序輸出從 1 到 N 之間的平方數(1*1 2*2...N*N)\n數字之間以空白隔開。",
+            "inputDescription": "",
+            "outputDescription": "",
             "examples": [
                 {
                     "input": "3",
@@ -56,6 +58,8 @@ export default {
             "code": "M1-01-count-013",
             "title": "勇者的背包",
             "description": "勇者準備出發了，他把所有的道具都放入了神奇背包（清單）中。 為了確認東西沒帶錯，勇者需要依照順序把背包裡的東西拿出來檢查一遍。 請你設計一個程式，將清單中的物品編號依序印出來。\n輸入格式\n第一行：輸入一個整數 N ，代表背包裡有幾樣物品。\n第二行有 N 個整數，代表物品的編號，中間以空白隔開。\n程式依序輸出清單中的每一個數字\n數字之間以空白隔開。",
+            "inputDescription": "",
+            "outputDescription": "",
             "examples": [
                 {
                     "input": "3\n101 102 103",
@@ -99,6 +103,8 @@ export default {
             "code": "M1-01-count-009",
             "title": "偶數日的存款",
             "description": "勇者改變了存錢計畫，他決定「只在偶數日存錢」。\n在第 2 天存 2 元，第 4 天存 4 元，第 6 天存 6 元...以此類推。奇數天（1, 3, 5...）則不存錢。\n請問到了第 N 天結束(N>1)，勇者總共存了多少錢？\n輸入格式\n第一行：輸入一個整數 N\n程式輸出從 1 到 N 之間所有偶數的總和。",
+            "inputDescription": "",
+            "outputDescription": "",
             "examples": [
                 {
                     "input": "4",
@@ -142,6 +148,8 @@ export default {
             "code": "M1-01-count-010",
             "title": "能量水晶融合",
             "description": "勇者正在合成一顆能量水晶。這顆水晶的能量是不斷相乘的！\n第 1 階段能量為 1。\n第 2 階段能量變成 1 * 2。\n第 3 階段能量變成 1 * 2 * 3。\n請問到了第 N 階段，能量總共有多少？\n輸入格式\n第一行：輸入一個整數 N\n程式輸出 1*2*3*4...*N 之值。",
+            "inputDescription": "",
+            "outputDescription": "",
             "examples": [
                 {
                     "input": "4",
@@ -185,6 +193,8 @@ export default {
             "code": "M1-01-count-011",
             "title": "修復斷橋",
             "description": "勇者需要修復一座斷掉的橋。橋的每一段需要的木材數量等於該段的編號。\n現在只需修復從編號M到編號N的這一段區間。\n請計算修復這段區間總共需要多少木材？(即計算M+(M+1)+...+N的總和)。\n輸入格式\n第一行：輸入一個整數M\n第二行：輸入一個整數N\n程式輸出 M加到N 之值。",
+            "inputDescription": "",
+            "outputDescription": "",
             "examples": [
                 {
                     "input": "3\n5",
@@ -228,6 +238,8 @@ export default {
             "code": "M1-01-count-014",
             "title": "戰利品清點",
             "description": "勇者打敗了一群史萊姆，每隻史萊姆身上掉落的金幣數量都不一樣。 助手已經把每隻史萊姆掉落的金幣數量記在清單上了。 請你幫勇者算算看，這次戰鬥總共獲得了多少金幣？\n輸入格式\n輸入共有兩行。第一行是一個整數 N，代表有幾筆金幣資料。\n第二行輸入 N 個整數，代表每一筆金幣的金額。數字之間以空白隔開。\n程式輸出清單中所有數字的總和。",
+            "inputDescription": "",
+            "outputDescription": "",
             "examples": [
                 {
                     "input": "3\n10 20 30",
@@ -271,6 +283,8 @@ export default {
             "code": "M1-01-count-015",
             "title": "尋找戰鬥力最高的魔王",
             "description": "偵查兵帶回了一份情報，上面記錄了前方 N 隻怪物的戰鬥力數值。\n勇者想要先挑戰最強的那一隻！\n請你找出這份清單中，數值最大的那個數字是多少。\n輸入格式\n輸入共有兩行。第一行是一個整數 N，代表怪物數量。\n第二行輸入 N 個整數，代表每隻怪物的戰鬥力。數字之間以空白隔開。\n程式輸出清單中的最大值。\n(提示：設一個變數叫 Max，先假設第一隻是最大的，然後用迴圈跟後面的一一比對，如果發現比 Max 大的，就更新 Max)",
+            "inputDescription": "",
+            "outputDescription": "",
             "examples": [
                 {
                     "input": "3\n10 20 30",
@@ -314,6 +328,8 @@ export default {
             "code": "M1-01-count-012",
             "title": "登山冒險",
             "description": "這是一題大魔王關卡！勇者要爬一座高山，然後再下山。\n這座山的高度是 N。勇者必須從 1 爬到 N，到達山頂後，再從 N-1 走回 1。\n請依序列出勇者經過的高度。。\n輸入格式\n第一行：輸入一個整數N\n程式輸出一個序列：1 2 3 ...N N-1 ...1。\n序列數字以空白間隔",
+            "inputDescription": "",
+            "outputDescription": "",
             "examples": [
                 {
                     "input": "5",

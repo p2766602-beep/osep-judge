@@ -13,6 +13,8 @@ export default {
             "code": "B5-02-MATH01-006",
             "title": "位數和",
             "description": "給定一個非負整數 N，請計算它的每一位數字總和。",
+            "inputDescription": "輸入一個非負整數 N。",
+            "outputDescription": "輸出一個整數，代表 N 的位數和。",
             "examples": [
                 {
                     "input": "12345",
@@ -51,6 +53,8 @@ export default {
             "code": "B5-02-MATH01-007",
             "title": "【延伸】數字反轉",
             "description": "給定一個非負整數 N，請將它的數字順序反轉後輸出。反轉後前導 0 不需要保留。",
+            "inputDescription": "輸入一個非負整數 N。",
+            "outputDescription": "輸出一個整數，代表反轉後的數字。",
             "examples": [
                 {
                     "input": "12340",

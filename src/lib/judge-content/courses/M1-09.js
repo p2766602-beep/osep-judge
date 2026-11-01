@@ -13,6 +13,8 @@ export default {
             "code": "M1-09-MATH01-001",
             "title": "倍數判斷",
             "description": "給定兩個正整數 A 與 B，請判斷 A 是否為 B 的倍數。",
+            "inputDescription": "輸入兩個正整數 A 與 B。",
+            "outputDescription": "若 A 是 B 的倍數，輸出 YES；否則輸出 NO。",
             "examples": [
                 {
                     "input": "24 6",
@@ -51,6 +53,8 @@ export default {
             "code": "M1-09-MATH01-002",
             "title": "因數個數",
             "description": "給定一個正整數 N，請計算 N 有幾個正因數。",
+            "inputDescription": "輸入一個正整數 N。",
+            "outputDescription": "輸出一個整數，代表 N 的正因數個數。",
             "examples": [
                 {
                     "input": "12",
@@ -89,6 +93,8 @@ export default {
             "code": "M1-09-MATH01-006",
             "title": "位數和",
             "description": "給定一個非負整數 N，請計算它的每一位數字總和。",
+            "inputDescription": "輸入一個非負整數 N。",
+            "outputDescription": "輸出一個整數，代表 N 的位數和。",
             "examples": [
                 {
                     "input": "12345",
@@ -127,6 +133,8 @@ export default {
             "code": "M1-09-MATH01-008",
             "title": "可被3整除的數量",
             "description": "給定 N 個整數，請計算其中有幾個數字可以被 3 整除。",
+            "inputDescription": "第一個整數為 N，接著輸入 N 個整數。",
+            "outputDescription": "輸出一個整數，代表可以被 3 整除的數量。",
             "examples": [
                 {
                     "input": "6\n3 5 9 10 12 14",
@@ -165,6 +173,8 @@ export default {
             "code": "M1-09-MATH01-003",
             "title": "質數判斷",
             "description": "給定一個正整數 N，請判斷 N 是否為質數。質數是大於 1，且只有 1 和自己兩個正因數的數。",
+            "inputDescription": "輸入一個正整數 N。",
+            "outputDescription": "若 N 是質數，輸出 PRIME；否則輸出 NOT。",
             "examples": [
                 {
                     "input": "17",
@@ -203,6 +213,8 @@ export default {
             "code": "M1-09-MATH01-004",
             "title": "最大公因數",
             "description": "給定兩個正整數 A 與 B，請找出它們的最大公因數。",
+            "inputDescription": "輸入兩個正整數 A 與 B。",
+            "outputDescription": "輸出一個整數，代表 A 與 B 的最大公因數。",
             "examples": [
                 {
                     "input": "12 18",
@@ -241,6 +253,8 @@ export default {
             "code": "M1-09-MATH01-005",
             "title": "最小公倍數",
             "description": "給定兩個正整數 A 與 B，請找出它們的最小公倍數。",
+            "inputDescription": "輸入兩個正整數 A 與 B。",
+            "outputDescription": "輸出一個整數，代表 A 與 B 的最小公倍數。",
             "examples": [
                 {
                     "input": "12 18",
@@ -279,6 +293,8 @@ export default {
             "code": "M1-09-MATH01-007",
             "title": "數字反轉",
             "description": "給定一個非負整數 N，請將它的數字順序反轉後輸出。反轉後前導 0 不需要保留。",
+            "inputDescription": "輸入一個非負整數 N。",
+            "outputDescription": "輸出一個整數，代表反轉後的數字。",
             "examples": [
                 {
                     "input": "12340",

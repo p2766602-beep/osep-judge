@@ -13,6 +13,8 @@ export default {
             "code": "M2-03-JSSIM01-D01",
             "title": "分數累加模擬",
             "description": "第一行輸入一個整數 N，第二行輸入 N 個整數，代表每一回合得到的分數。請計算最後總分。本題用來示範每回合事件如何更新分數狀態",
+            "inputDescription": "第一行：一個整數 N。\n\n第二行：N 個整數，以空白分隔。",
+            "outputDescription": "輸出最後總分。",
             "examples": [
                 {
                     "input": "3\n10 20 30",
@@ -61,6 +63,8 @@ export default {
             "code": "M2-03-JSSIM01-D02",
             "title": "血量變化模擬",
             "description": "第一行輸入初始血量 H，第二行輸入一個整數 N，第三行輸入 N 個整數，代表每一回合血量變化。正數代表恢復，負數代表受傷。請輸出最後血量",
+            "inputDescription": "第一行：一個整數 H，代表初始血量。\n\n第二行：一個整數 N。\n\n第三行：N 個整數，以空白分隔。",
+            "outputDescription": "輸出最後血量。",
             "examples": [
                 {
                     "input": "100\n3\n-10 5 -20",
@@ -109,6 +113,8 @@ export default {
             "code": "M2-03-JSSIM01-D03",
             "title": "根據事件改變狀態",
             "description": "輸入一串事件字元。字元 G 代表得到 10 分，字元 B 代表扣 5 分。初始分數為 0，請計算所有事件結束後的分數。本題用來示範不同事件對狀態造成不同影響",
+            "inputDescription": "第一行：一個只包含 G 與 B 的字串 S。",
+            "outputDescription": "輸出最後分數。",
             "examples": [
                 {
                     "input": "GGB",
@@ -157,6 +163,8 @@ export default {
             "code": "M2-03-JSSIM01-P01",
             "title": "簡單遊戲關卡累計",
             "description": "遊戲共有 N 個關卡，每關可得到不同分數。第一行輸入 N，第二行輸入 N 個分數。若最後總分大於或等於 100，輸出 Clear；否則輸出 Retry",
+            "inputDescription": "第一行：一個整數 N。\n\n第二行：N 個整數，以空白分隔。",
+            "outputDescription": "若總分大於或等於 100，輸出 Clear；否則輸出 Retry。",
             "examples": [
                 {
                     "input": "3\n40 30 50",
@@ -205,6 +213,8 @@ export default {
             "code": "M2-03-JSSIM01-P02",
             "title": "多條件狀態判斷",
             "description": "輸入玩家的血量 H 與分數 S。若 H 大於 0 且 S 大於或等於 100，輸出 Win；若 H 大於 0 但 S 未達 100，輸出 Keep；若 H 小於或等於 0，輸出 Lose。本題用來練習狀態值與條件分支結合",
+            "inputDescription": "第一行：兩個整數 H 與 S，以空白分隔。",
+            "outputDescription": "依狀態輸出 Win、Keep 或 Lose。",
             "examples": [
                 {
                     "input": "10 120",
@@ -253,6 +263,8 @@ export default {
             "code": "M2-03-SIM01-001",
             "title": "分數累積",
             "description": "一場遊戲中，玩家每回合會得到一些分數。給定 N 回合的得分，請計算最後總分。",
+            "inputDescription": "第一個整數為 N，接著輸入 N 個整數，代表每回合得分。",
+            "outputDescription": "輸出一個整數，代表最後總分。",
             "examples": [
                 {
                     "input": "5\n10 20 5 30 15",
@@ -291,6 +303,8 @@ export default {
             "code": "M2-03-SIM01-002",
             "title": "血量變化",
             "description": "角色初始血量為 H。接著有 N 次事件，每次事件可能增加或減少血量。請計算最後血量。",
+            "inputDescription": "第一個整數為 H，第二個整數為 N，接著輸入 N 個整數，代表每次血量變化量。",
+            "outputDescription": "輸出一個整數，代表最後血量。",
             "examples": [
                 {
                     "input": "100\n4\n-20 10 -30 5",
@@ -329,6 +343,8 @@ export default {
             "code": "M2-03-SIM01-004",
             "title": "左右移動位置",
             "description": "角色一開始在位置 0。接著有一串移動指令，L 代表向左移動 1 格，R 代表向右移動 1 格。請計算最後位置。",
+            "inputDescription": "輸入一個只包含 L 與 R 的字串 S。",
+            "outputDescription": "輸出一個整數，代表最後位置。",
             "examples": [
                 {
                     "input": "RLRRLLR",
@@ -367,6 +383,8 @@ export default {
             "code": "M2-03-SIM01-005",
             "title": "開關切換",
             "description": "一盞燈一開始是關閉狀態。給定 N 次按下開關，每按一次，燈的狀態就會切換。請輸出最後燈是開或關。",
+            "inputDescription": "輸入一個整數 N，代表按下開關的次數。",
+            "outputDescription": "若最後是開啟，輸出 ON；若最後是關閉，輸出 OFF。",
             "examples": [
                 {
                     "input": "3",
@@ -405,6 +423,8 @@ export default {
             "code": "M2-03-SIM01-003",
             "title": "血量不可低於0",
             "description": "角色初始血量為 H。每次事件會增加或減少血量，但血量低於 0 時要改為 0。請計算最後血量。",
+            "inputDescription": "第一個整數為 H，第二個整數為 N，接著輸入 N 個整數，代表每次血量變化量。",
+            "outputDescription": "輸出一個整數，代表最後血量。",
             "examples": [
                 {
                     "input": "30\n3\n-20 -20 15",
@@ -443,6 +463,8 @@ export default {
             "code": "M2-03-SIM01-006",
             "title": "收集金幣與陷阱",
             "description": "角色在地圖上依序遇到事件。C 代表收集 1 枚金幣，T 代表遇到陷阱失去 1 枚金幣，但金幣數量不可低於 0。請計算最後金幣數量。",
+            "inputDescription": "輸入一個只包含 C 與 T 的字串 S。",
+            "outputDescription": "輸出一個整數，代表最後金幣數量。",
             "examples": [
                 {
                     "input": "CCTTCT",
@@ -481,6 +503,8 @@ export default {
             "code": "M2-03-SIM01-007",
             "title": "最高連勝次數",
             "description": "給定一串比賽結果，W 代表勝利，L 代表失敗。請計算最長連續勝利次數。",
+            "inputDescription": "輸入一個只包含 W 與 L 的字串 S。",
+            "outputDescription": "輸出一個整數，代表最長連勝次數。",
             "examples": [
                 {
                     "input": "WWLWWWLW",

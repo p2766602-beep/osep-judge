@@ -13,6 +13,8 @@ export default {
             "code": "M1-05-STR01-001",
             "title": "字串長度",
             "description": "給定一個不含空白的字串，請輸出它的長度。",
+            "inputDescription": "輸入一個字串 S。S 不包含空白。",
+            "outputDescription": "輸出一個整數，代表字串長度。",
             "examples": [
                 {
                     "input": "hello",
@@ -51,6 +53,8 @@ export default {
             "code": "M1-05-STR01-002",
             "title": "第一個與最後一個字元",
             "description": "給定一個不含空白的字串，請輸出第一個字元與最後一個字元。",
+            "inputDescription": "輸入一個字串 S。S 不包含空白，且長度至少為 1。",
+            "outputDescription": "輸出兩個字元，依序為第一個字元與最後一個字元，中間以空白分隔。",
             "examples": [
                 {
                     "input": "coding",
@@ -89,6 +93,8 @@ export default {
             "code": "M1-05-STR01-003",
             "title": "指定位置的字元",
             "description": "給定一個字串與位置 P，請輸出第 P 個字元。位置從 1 開始計算。",
+            "inputDescription": "第一行輸入字串 S。第二行輸入整數 P。S 不包含空白，且 1 <= P <= 字串長度。",
+            "outputDescription": "輸出一個字元，代表第 P 個字元。",
             "examples": [
                 {
                     "input": "teacher\n4",
@@ -127,6 +133,8 @@ export default {
             "code": "M1-05-STR01-004",
             "title": "計算指定字元數量",
             "description": "給定一個字串與目標字元 C，請計算 C 在字串中出現幾次。",
+            "inputDescription": "第一行輸入字串 S。第二行輸入一個字元 C。S 不包含空白。",
+            "outputDescription": "輸出一個整數，代表 C 出現的次數。",
             "examples": [
                 {
                     "input": "banana\na",
@@ -165,6 +173,8 @@ export default {
             "code": "M1-05-STR01-005",
             "title": "反向輸出字串",
             "description": "給定一個不含空白的字串，請將字串反向輸出。",
+            "inputDescription": "輸入一個字串 S。S 不包含空白。",
+            "outputDescription": "輸出反向後的字串。",
             "examples": [
                 {
                     "input": "abcde",
@@ -203,6 +213,8 @@ export default {
             "code": "M1-05-STR01-006",
             "title": "母音數量",
             "description": "給定一個只包含小寫英文字母的字串，請計算母音 a、e、i、o、u 共出現幾次。",
+            "inputDescription": "輸入一個只包含小寫英文字母的字串 S。",
+            "outputDescription": "輸出一個整數，代表母音總數。",
             "examples": [
                 {
                     "input": "education",
@@ -241,6 +253,8 @@ export default {
             "code": "M1-05-STR01-007",
             "title": "是否回文",
             "description": "給定一個不含空白的字串，請判斷它是否正著讀和反著讀都相同。",
+            "inputDescription": "輸入一個字串 S。S 不包含空白。",
+            "outputDescription": "若 S 是回文，輸出 YES；否則輸出 NO。",
             "examples": [
                 {
                     "input": "level",
@@ -279,6 +293,8 @@ export default {
             "code": "M1-05-STR01-008",
             "title": "相鄰相同字元",
             "description": "給定一個字串，請判斷是否存在兩個相鄰且相同的字元。",
+            "inputDescription": "輸入一個字串 S。S 不包含空白，且長度至少為 1。",
+            "outputDescription": "若存在相鄰相同字元，輸出 YES；否則輸出 NO。",
             "examples": [
                 {
                     "input": "book",

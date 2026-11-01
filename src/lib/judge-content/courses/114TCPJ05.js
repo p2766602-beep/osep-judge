@@ -12,6 +12,8 @@ export default {
             "code": "114TCPJ05-114TCPJ05-1",
             "title": "射箭比賽成績計算",
             "description": "射箭比賽共射 N 箭（5~10箭），每箭分數為 0~10。計分規則（首箭以原始分計）：若本箭分數低於前一箭，計原始分（1倍）；若等於前一箭（且非連續兩次都是10分），計2倍；若高於前一箭，或連續兩箭都是10分，計3倍。請計算總分。",
+            "inputDescription": "第一行輸入箭數 N。\n第二行輸入 N 箭的分數。",
+            "outputDescription": "輸出總分。",
             "examples": [
                 {
                     "input": "5\n7 7 9 10 10",
@@ -59,6 +61,8 @@ export default {
             "code": "114TCPJ05-114TCPJ05-2",
             "title": "猜數字",
             "description": "答案與猜測各由 N 個不重複的數字組成。請計算：A = 位置與數字都對的個數；B = 數字對但位置錯的個數。輸出格式為「XAYB」。",
+            "inputDescription": "第一行輸入數字個數 N。\n第二行輸入答案的 N 個數字。\n第三行輸入猜測的 N 個數字。",
+            "outputDescription": "輸出「XAYB」，X 為位置全對的數量，Y 為數字對但位置錯的數量。",
             "examples": [
                 {
                     "input": "4\n4 7 1 9\n4 9 7 8",
@@ -106,6 +110,8 @@ export default {
             "code": "114TCPJ05-114TCPJ05-3",
             "title": "寶可夢訓練師",
             "description": "訓練師依序捕捉 N 筆「屬性 數量」紀錄。請將相同屬性的數量加總，只在該屬性「第一次出現」的位置輸出一次（依屬性最早出現的順序），格式為「屬性總數量」。",
+            "inputDescription": "第一行輸入紀錄筆數 N。\n第二行輸入 N 組「屬性 數量」，共 2N 個項目。",
+            "outputDescription": "依屬性首次出現順序，輸出「屬性總數量」，以空格分隔。",
             "examples": [
                 {
                     "input": "5\n火 2 水 1 火 3 電 2 水 1",
@@ -153,6 +159,8 @@ export default {
             "code": "114TCPJ05-114TCPJ05-4",
             "title": "機器人行走軌跡",
             "description": "機器人從座標 (0,0) 出發，活動範圍限制在 0≤x≤10、0≤y≤10 之間。依序輸入移動指令（U上、D下、L左、R右，加上步數），若移動後會超出邊界，則座標只會移動到邊界處（不會超出範圍）。請輸出所有指令執行完後的最終座標。",
+            "inputDescription": "第一行輸入指令數量 N。\n第二行輸入 N 個指令，格式如 U2、D3（方向加步數），以空格分隔。",
+            "outputDescription": "輸出最終座標，格式為「(x,y)」。",
             "examples": [
                 {
                     "input": "5\nU2 D3 D4 L5 R3",
@@ -200,6 +208,8 @@ export default {
             "code": "114TCPJ05-114TCPJ05-5",
             "title": "學校運動會",
             "description": "學校運動會共有 N 班（N≥3）參賽，各班有一個總得分。請將各班依得分由高到低排序，輸出得分前「N/2（四捨五入取整數）」名的班級名稱（依排序順序）。",
+            "inputDescription": "第一行輸入班級數量 N。\n第二行輸入 N 組「班級名稱 得分」，共 2N 個項目。",
+            "outputDescription": "輸出得分前 N/2（四捨五入）名的班級名稱，依名次順序以空格分隔。",
             "examples": [
                 {
                     "input": "5\n一甲 85 二乙 92 三丙 78 四丁 95 五戊 88",
@@ -247,6 +257,8 @@ export default {
             "code": "114TCPJ05-114TCPJ05-6",
             "title": "機器人跳樓梯",
             "description": "機器人要爬 N 階樓梯，每次最多可以跳 K 階（1≤K≤N≤30）。請計算機器人到達第 N 階的方法總數。",
+            "inputDescription": "第一行輸入階梯數 N。\n第二行輸入單次最多跳躍階數 K。",
+            "outputDescription": "輸出到達第 N 階的方法總數。",
             "examples": [
                 {
                     "input": "4\n2",

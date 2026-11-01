@@ -12,6 +12,8 @@ export default {
             "code": "114TCPE11-114TCPE11-1",
             "title": "偶數和",
             "description": "請設計一個程式，輸入二個正整數（由小到大），計算出二個正整數之間，所有偶數的和。",
+            "inputDescription": "輸入兩行，第一行為起始數，第二行為結束數（保證起始數 <= 結束數）。",
+            "outputDescription": "輸出一個整數，代表起始數到結束數之間（含端點）所有偶數的總和。",
             "examples": [
                 {
                     "input": "10\n20",
@@ -84,6 +86,8 @@ export default {
             "code": "114TCPE11-114TCPE11-2",
             "title": "三角形",
             "description": "已知一個三角形的任意兩邊和必定大於第三邊，請寫一個程式，一次輸入三個正整數，判斷能否組成一個三角形。",
+            "inputDescription": "一次輸入三個正整數，以半形空格間隔。",
+            "outputDescription": "若能組成三角形輸出 yes，否則輸出 no。",
             "examples": [
                 {
                     "input": "9 6 8",
@@ -156,6 +160,8 @@ export default {
             "code": "114TCPE11-114TCPE11-3",
             "title": "刮刮樂",
             "description": "小哲彩券公司推出一種六六大順的刮刮樂，每張刮刮樂上面有三個 0~9 的數字。如果出現一個數字 6，可以得到 100 元；出現二個數字 6，可以得到 200 元；出現三個數字 6，可以得到 500 元。以上三種得獎方式，只能選擇獎金最高的一種來領取。現在給你一張刮刮樂上的三個數字，請問你可以得到多少獎金。",
+            "inputDescription": "輸入一個由三個 0~9 數字組成的字串。",
+            "outputDescription": "輸出一個整數，代表可以得到的獎金。",
             "examples": [
                 {
                     "input": "666",

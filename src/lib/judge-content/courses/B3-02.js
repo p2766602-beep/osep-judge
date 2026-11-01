@@ -13,6 +13,8 @@ export default {
             "code": "B3-02-JSA01-D02",
             "title": "清單加總與平均示範",
             "description": "第一行輸入一個整數 N，第二行輸入 N 個整數。請輸出這 N 個數字的總和與整數平均，兩個結果各佔一行。平均值請使用整數除法，只保留整數部分。",
+            "inputDescription": "第一行：一個整數 N。\n\n第二行：N 個整數，以空白分隔。",
+            "outputDescription": "第一行：總和。\n\n第二行：整數平均。",
             "examples": [
                 {
                     "input": "3\n10 20 30",
@@ -61,6 +63,8 @@ export default {
             "code": "B3-02-JSL01-P02",
             "title": "只加偶數",
             "description": "第一行輸入一個整數 N，第二行輸入 N 個整數。請只把其中的偶數加總後輸出。本題用來練習迴圈內加入條件判斷",
+            "inputDescription": "第一行：一個整數 N。\n\n第二行：N 個整數，以空白分隔。",
+            "outputDescription": "輸出所有偶數的總和。若沒有偶數，輸出 0。",
             "examples": [
                 {
                     "input": "5\n1 2 3 4 5",
@@ -109,6 +113,8 @@ export default {
             "code": "B3-02-CNT01-020",
             "title": "大於門檻的數量",
             "description": "給定一個門檻值 K 與 N 個整數，請計算有幾個數字大於 K。",
+            "inputDescription": "第一個整數為 N，第二個整數為 K，接著輸入 N 個整數。",
+            "outputDescription": "輸出一個整數，代表大於 K 的數字數量。",
             "examples": [
                 {
                     "input": "6\n50\n30 60 50 80 45 90",
@@ -147,6 +153,8 @@ export default {
             "code": "B3-02-count-016",
             "title": "合格的裝備",
             "description": "勇者的負重能力有限，他只能攜帶重量「小於 10」的輕型裝備。 現在清單中有一堆裝備的重量，請你利用迴圈檢查每一個裝備，只把重量小於 10 的裝備重量印出來。\n輸入格式\n輸入共有兩行。第一行是一個整數 N，代表裝備數量。\n第二行輸入 N 個整數，代表每個裝備重量。\n程式依序輸出小於 10 的數字，中間以空白隔開。\n如果都沒有小於 10 的數字，則什麼都不輸出。",
+            "inputDescription": "",
+            "outputDescription": "",
             "examples": [
                 {
                     "input": "5\n15 5 20 8 3",
@@ -190,6 +198,8 @@ export default {
             "code": "B3-02-STA01-004",
             "title": "通過率整數版",
             "description": "給定 N 位學生的成績，分數大於或等於 60 為通過。請計算通過人數與通過率。通過率使用整數百分比，小數直接捨去。",
+            "inputDescription": "第一個整數為 N，接著輸入 N 個整數代表成績。",
+            "outputDescription": "輸出兩個整數，依序為通過人數與通過率百分比，中間以空白分隔。",
             "examples": [
                 {
                     "input": "5\n80 55 60 40 90",
@@ -228,6 +238,8 @@ export default {
             "code": "B3-02-STA01-005",
             "title": "【延伸】高於平均的數量",
             "description": "給定 N 個整數，先計算整數平均，再計算有幾個數字大於平均。",
+            "inputDescription": "第一個整數為 N，接著輸入 N 個整數。",
+            "outputDescription": "輸出兩個整數，依序為整數平均與大於平均的數量，中間以空白分隔。",
             "examples": [
                 {
                     "input": "5\n10 20 30 40 50",

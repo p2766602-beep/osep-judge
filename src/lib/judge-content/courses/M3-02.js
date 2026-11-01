@@ -13,6 +13,8 @@ export default {
             "code": "M3-02-M3-02-01",
             "title": "募款進度累積表",
             "description": "園遊會義賣活動記錄每日募款金額，請你算出每天結束時的累積募款總額（前綴和）。\n\n第一行輸入N，代表有N天\n\n第二行輸入N個數字，代表每天的募款金額\n\n輸出N個數字，代表第1天到第i天為止的累積總額，空白分隔。",
+            "inputDescription": "N、N個每日募款金額",
+            "outputDescription": "N個累積總額，空白分隔",
             "examples": [
                 {
                     "input": "4\n100 200 150 50",
@@ -51,6 +53,8 @@ export default {
             "code": "M3-02-M3-02-02",
             "title": "區間募款查詢",
             "description": "延續募款記錄，這次要查詢「第L天到第R天」（含頭尾）總共募到多少錢。\n\n第一行輸入N\n\n第二行輸入N個每日募款金額\n\n第三行輸入L跟R（空白分隔）\n\n輸出第L天到第R天的募款總額。",
+            "inputDescription": "N、N個每日募款金額、L R",
+            "outputDescription": "區間總額",
             "examples": [
                 {
                     "input": "5\n100 200 150 50 300\n2 4",
@@ -89,6 +93,8 @@ export default {
             "code": "M3-02-M3-02-03",
             "title": "募款多筆區間查詢",
             "description": "同樣是募款記錄，這次一次要查詢多組區間。\n\n第一行輸入N\n\n第二行輸入N個每日募款金額\n\n第三行輸入Q，代表要查詢的組數\n\n第四行輸入2×Q個數字，依序是每組查詢的L R（例如「1 3 2 5」代表第一組查詢L=1,R=3、第二組查詢L=2,R=5）",
+            "inputDescription": "N、N個每日募款金額、Q、2×Q個L R數字",
+            "outputDescription": "依序輸出每組查詢的區間總額，空白分隔",
             "examples": [
                 {
                     "input": "5\n100 200 150 50 300\n2\n1 3 2 5",
@@ -122,6 +128,8 @@ export default {
             "code": "M3-02-M3-02-04",
             "title": "區間平均氣溫是否達標",
             "description": "記錄N天的氣溫，請你判斷第L天到第R天（含頭尾）的平均氣溫是否達到門檻溫度threshold（大於等於threshold輸出「達標」，否則輸出「未達標」）。平均值用整數除法計算（無條件捨去）。\n\n第一行輸入N\n\n第二行輸入N個氣溫數字\n\n第三行輸入L R threshold（空白分隔）\n\n輸出「達標」或「未達標」。",
+            "inputDescription": "N、N個氣溫數字、L R threshold",
+            "outputDescription": "達標 或 未達標",
             "examples": [
                 {
                     "input": "5\n20 22 25 18 30\n1 3 22",
@@ -160,6 +168,8 @@ export default {
             "code": "M3-02-M3-02-05",
             "title": "扣除單日的區間總和",
             "description": "給定L天到R天的募款範圍，但其中有一天exclude要扣掉不列入計算（exclude保證在L~R範圍內），請你算出扣除那天之後的區間總額。\n\n第一行輸入N\n\n第二行輸入N個每日募款金額\n\n第三行輸入L R exclude（空白分隔）\n\n輸出扣除exclude那天後的區間總額。",
+            "inputDescription": "N、N個每日募款金額、L R exclude",
+            "outputDescription": "扣除後的區間總額",
             "examples": [
                 {
                     "input": "5\n100 200 150 50 300\n1 4 2",
@@ -198,6 +208,8 @@ export default {
             "code": "M3-02-M3-02-06",
             "title": "找出總和等於目標值的區間",
             "description": "記錄N天的活動點數，請你找出一組連續區間（第L天到第R天，含頭尾）的點數總和剛好等於目標值target，輸出這組區間的L R（空白分隔）；找不到輸出「0 0」。（測試資料保證答案若存在必定唯一）",
+            "inputDescription": "N、N個每日點數、target",
+            "outputDescription": "符合的L R，找不到輸出0 0",
             "examples": [
                 {
                     "input": "5\n4 2 7 1 3\n9",

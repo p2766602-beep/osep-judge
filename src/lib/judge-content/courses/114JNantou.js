@@ -12,6 +12,8 @@ export default {
             "code": "114JNantou-114JNantou-1",
             "title": "智慧溫室的自動監控",
             "description": "智慧溫室每小時記錄一次溫度與濕度。當某小時的溫度大於 30 度「且」濕度小於 50% 時，視為需要自動啟動噴霧降溫的異常時段。請計算總共有幾個小時符合這個條件。",
+            "inputDescription": "第一行輸入監測小時數 N（1~24 的整數）。\n第二行輸入 N 個溫度整數。\n第三行輸入 N 個濕度整數。",
+            "outputDescription": "輸出符合「溫度>30 且 濕度<50」的小時數。",
             "examples": [
                 {
                     "input": "3\n32 28 35\n45 60 40",
@@ -69,6 +71,8 @@ export default {
             "code": "114JNantou-114JNantou-2",
             "title": "熱門影片的流量密碼",
             "description": "某影片平台記錄每小時的觀看流量。請找出連續 K 個小時流量總和的最大值，作為該影片的「熱門密碼」。",
+            "inputDescription": "第一行輸入記錄的小時數 N。\n第二行輸入視窗長度 K（1≤K≤N）。\n第三行輸入 N 個流量整數。",
+            "outputDescription": "輸出連續 K 小時流量總和的最大值。",
             "examples": [
                 {
                     "input": "8\n3\n1 5 2 10 8 3 7 2",
@@ -126,6 +130,8 @@ export default {
             "code": "114JNantou-114JNantou-3",
             "title": "神秘的煉金術配對",
             "description": "煉金術士有 N 種材料，每種材料有一個能量值。請找出兩種材料，使其能量總和恰好等於目標值 T，且兩者能量差的絕對值最小。輸出這兩個材料的能量值（由小到大）；若找不到符合總和為 T 的配對，輸出 -1。",
+            "inputDescription": "第一行輸入材料數量 N。\n第二行輸入 N 個材料能量值。\n第三行輸入目標值 T。",
+            "outputDescription": "輸出兩個能量值（由小到大，以空格分隔）；若無解輸出 -1。",
             "examples": [
                 {
                     "input": "6\n1 3 4 6 8 10\n10",
@@ -188,6 +194,8 @@ export default {
             "code": "114JNantou-114JNantou-4",
             "title": "量子訊號的接力傳輸",
             "description": "有 N 個訊號站，每個站都有一個上一層轉發站編號（0 表示是最頂層、沒有上一層）。訊號從某個站出發，沿著上一層轉發站一路往上傳到最頂層，稱為一次「接力」，經過的站數即為接力次數。請找出所有訊號站中，接力次數最多的站，輸出其接力次數。",
+            "inputDescription": "第一行輸入訊號站數量 N。\n第二行輸入 N 個整數，第 i 個數字表示第 i 站的上一層轉發站編號（0 表示無上一層）。",
+            "outputDescription": "輸出所有訊號站中最大的接力次數。",
             "examples": [
                 {
                     "input": "5\n0 1 2 2 3",
@@ -250,6 +258,8 @@ export default {
             "code": "114JNantou-114JNantou-5",
             "title": "古文明的能量融合",
             "description": "兩塊古文明石板各自刻有一個能量數值，數值可能非常龐大（超過一般整數能表示的範圍），因此每個數值的結尾都會加上字母 a 作為超長數字的標記（計算時應忽略這個標記）。請計算兩個能量值相加的結果，並在結果結尾同樣加上 a。",
+            "inputDescription": "第一行輸入第一個能量值（結尾有 a 標記）。\n第二行輸入第二個能量值（結尾有 a 標記）。",
+            "outputDescription": "輸出兩數相加的結果，結尾加上 a。",
             "examples": [
                 {
                     "input": "192a\n81a",
@@ -307,6 +317,8 @@ export default {
             "code": "114JNantou-114JNantou-6",
             "title": "星際物資運補任務：神祕的配重",
             "description": "星際貨船有 N 個貨櫃，每個貨櫃有一個重量。為了配重平衡，需要判斷是否存在兩個貨櫃，其重量總和恰好等於配重目標值 W。若存在輸出 YES，否則輸出 NO。",
+            "inputDescription": "第一行輸入貨櫃數量 N。\n第二行輸入 N 個貨櫃重量。\n第三行輸入配重目標值 W。",
+            "outputDescription": "若存在兩貨櫃重量總和為 W，輸出 YES，否則輸出 NO。",
             "examples": [
                 {
                     "input": "3\n10 20 30\n50",
@@ -369,6 +381,8 @@ export default {
             "code": "114JNantou-114JNantou-7",
             "title": "星際物資運補任務：疏散飛船的乘客名單",
             "description": "有 N 名乘客需要搭乘疏散飛船撤離，已知每名乘客的體重（由小到大排序），每艘船最多可承載兩人，且兩人總體重不可超過限重 limit（若無法配對則單獨一人一艘船）。請用最少的飛船數量疏散所有乘客：優先讓最重與最輕的乘客配對，若超重則讓最重者獨自搭船。",
+            "inputDescription": "第一行輸入乘客數量 N。\n第二行輸入 N 名乘客體重（由小到大排序）。\n第三行輸入每艘船的限重 limit。",
+            "outputDescription": "輸出疏散所有乘客所需的最少飛船數量。",
             "examples": [
                 {
                     "input": "4\n1 2 2 3\n3",
@@ -426,6 +440,8 @@ export default {
             "code": "114JNantou-114JNantou-8",
             "title": "星際物資運補任務：火星樣本回收",
             "description": "火星探勘車採集了 N 個樣本，每個樣本有價值與重量兩項數據。請將樣本依「價值」由大到小排序回收，若價值相同則依「重量」由小到大排序。輸出排序後樣本原本的編號（1 開始），以逗號分隔。",
+            "inputDescription": "第一行輸入樣本數量 N。\n第二行輸入 N 個樣本的價值。\n第三行輸入 N 個樣本的重量。",
+            "outputDescription": "輸出排序後的原始樣本編號，以逗號分隔。",
             "examples": [
                 {
                     "input": "3\n80 100 80\n5 10 2",
@@ -478,6 +494,8 @@ export default {
             "code": "114JNantou-114JNantou-9",
             "title": "星際物資運補任務：防禦塔的能量負載",
             "description": "防禦塔要將 N 個依序排列的能量模組分給 M 組（每組須是連續的模組，不可拆散順序），使得每組能量總和的「最大值」盡可能小（避免單一組負載過高）。請輸出這個最小可能的最大組總和。",
+            "inputDescription": "第一行輸入能量模組數量 N。\n第二行輸入分組數量 M。\n第三行輸入 N 個能量模組的能量值。",
+            "outputDescription": "輸出將模組分成 M 組（依序、連續）後，各組總和中的最大值之最小可能值。",
             "examples": [
                 {
                     "input": "5\n2\n7 2 5 10 8",

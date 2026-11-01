@@ -13,6 +13,8 @@ export default {
             "code": "M1-03-STA01-001",
             "title": "（清單總和",
             "description": "給定 N 個整數，請計算這些數字的總和。",
+            "inputDescription": "第一個整數為 N，接著輸入 N 個整數。",
+            "outputDescription": "輸出一個整數，代表總和。",
             "examples": [
                 {
                     "input": "5\n3 6 1 8 2",
@@ -51,6 +53,8 @@ export default {
             "code": "M1-03-STA01-002",
             "title": "整數平均",
             "description": "給定 N 個整數，請計算總和與整數平均。整數平均只取整數商，不處理小數。",
+            "inputDescription": "第一個整數為 N，接著輸入 N 個整數。",
+            "outputDescription": "輸出兩個整數，依序為總和與整數平均，中間以空白分隔。",
             "examples": [
                 {
                     "input": "4\n70 80 90 100",
@@ -89,6 +93,8 @@ export default {
             "code": "M1-03-STA01-003",
             "title": "最高分與最低分",
             "description": "給定 N 位學生的成績，請找出最高分與最低分。",
+            "inputDescription": "第一個整數為 N，接著輸入 N 個整數代表成績。",
+            "outputDescription": "輸出兩個整數，依序為最高分與最低分，中間以空白分隔。",
             "examples": [
                 {
                     "input": "5\n80 60 95 70 88",
@@ -127,6 +133,8 @@ export default {
             "code": "M1-03-STA01-004",
             "title": "通過率整數版",
             "description": "給定 N 位學生的成績，分數大於或等於 60 為通過。請計算通過人數與通過率。通過率使用整數百分比，小數直接捨去。",
+            "inputDescription": "第一個整數為 N，接著輸入 N 個整數代表成績。",
+            "outputDescription": "輸出兩個整數，依序為通過人數與通過率百分比，中間以空白分隔。",
             "examples": [
                 {
                     "input": "5\n80 55 60 40 90",
@@ -165,6 +173,8 @@ export default {
             "code": "M1-03-CNT01-019",
             "title": "清單平均值",
             "description": "給定 N 個整數，請計算這些數字的總和與整數平均。整數平均只取商，不處理小數。",
+            "inputDescription": "第一個整數為 N，接著輸入 N 個整數。",
+            "outputDescription": "輸出兩個整數，依序為總和與整數平均，中間以空白分隔。",
             "examples": [
                 {
                     "input": "5\n80 75 90 60 95",
@@ -203,6 +213,8 @@ export default {
             "code": "M1-03-CNT01-020",
             "title": "大於門檻的數量",
             "description": "給定一個門檻值 K 與 N 個整數，請計算有幾個數字大於 K。",
+            "inputDescription": "第一個整數為 N，第二個整數為 K，接著輸入 N 個整數。",
+            "outputDescription": "輸出一個整數，代表大於 K 的數字數量。",
             "examples": [
                 {
                     "input": "6\n50\n30 60 50 80 45 90",
@@ -241,6 +253,8 @@ export default {
             "code": "M1-03-CNT01-021",
             "title": "找最小值",
             "description": "給定 N 個整數，請找出其中最小的數字。",
+            "inputDescription": "第一個整數為 N，接著輸入 N 個整數。",
+            "outputDescription": "輸出一個整數，代表最小值。",
             "examples": [
                 {
                     "input": "5\n8 3 9 2 7",
@@ -279,6 +293,8 @@ export default {
             "code": "M1-03-STA01-005",
             "title": "高於平均的數量",
             "description": "給定 N 個整數，先計算整數平均，再計算有幾個數字大於平均。",
+            "inputDescription": "第一個整數為 N，接著輸入 N 個整數。",
+            "outputDescription": "輸出兩個整數，依序為整數平均與大於平均的數量，中間以空白分隔。",
             "examples": [
                 {
                     "input": "5\n10 20 30 40 50",
@@ -317,6 +333,8 @@ export default {
             "code": "M1-03-STA01-006",
             "title": "正負零統計",
             "description": "給定 N 個整數，請統計正數、負數與零各有幾個。",
+            "inputDescription": "第一個整數為 N，接著輸入 N 個整數。",
+            "outputDescription": "輸出三個整數，依序為正數個數、負數個數與零的個數，中間以空白分隔。",
             "examples": [
                 {
                     "input": "6\n-3 0 5 8 -1 0",
@@ -355,6 +373,8 @@ export default {
             "code": "M1-03-STA01-007",
             "title": "每日步數統計",
             "description": "給定 7 天的步數，請計算總步數、平均步數，以及步數大於或等於 10000 的天數。",
+            "inputDescription": "輸入 7 個整數，代表連續 7 天的步數。",
+            "outputDescription": "輸出三個整數，依序為總步數、整數平均步數、達標天數，中間以空白分隔。",
             "examples": [
                 {
                     "input": "8000 12000 10000 6000 15000 9000 11000",
@@ -393,6 +413,8 @@ export default {
             "code": "M1-03-STA01-008",
             "title": "相鄰變化統計）＋",
             "description": "給定 N 天的數值紀錄，請統計有幾次比前一天增加、幾次比前一天減少，以及幾次和前一天相同。",
+            "inputDescription": "第一個整數為 N，接著輸入 N 個整數。保證 N 大於或等於 2。",
+            "outputDescription": "輸出三個整數，依序為增加次數、減少次數、相同次數，中間以空白分隔。",
             "examples": [
                 {
                     "input": "6\n10 12 12 9 15 14",
@@ -431,6 +453,8 @@ export default {
             "code": "M1-03-CNT01-024",
             "title": "清單反向加總",
             "description": "給定 N 個整數，請從最後一個數字往前讀取，並輸出反向讀取時的累加結果。",
+            "inputDescription": "第一個整數為 N，接著輸入 N 個整數。",
+            "outputDescription": "輸出 N 個整數，代表從後往前累加的結果，每個數字中間以空白分隔。",
             "examples": [
                 {
                     "input": "4\n2 5 3 1",

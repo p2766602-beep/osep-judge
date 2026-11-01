@@ -13,6 +13,8 @@ export default {
             "code": "B3-03-EXT01-001",
             "title": "找最大值",
             "description": "給定 N 個整數，請找出其中最大的數字。",
+            "inputDescription": "第一個整數為 N，接著輸入 N 個整數。",
+            "outputDescription": "輸出一個整數，代表最大值。",
             "examples": [
                 {
                     "input": "5\n8 3 12 7 10",
@@ -51,6 +53,8 @@ export default {
             "code": "B3-03-EXT01-003",
             "title": "最大最小差距",
             "description": "給定 N 個整數，請找出最大值與最小值，並計算兩者差距。",
+            "inputDescription": "第一個整數為 N，接著輸入 N 個整數。",
+            "outputDescription": "輸出三個整數，依序為最大值、最小值、差距，中間以空白分隔。",
             "examples": [
                 {
                     "input": "5\n8 3 12 7 10",
@@ -89,6 +93,8 @@ export default {
             "code": "B3-03-M1-12-06",
             "title": "單筆資料時的最大最小值",
             "description": "請你找出N筆分數中的最大值與最小值，並依序輸出。",
+            "inputDescription": "N、N個分數",
+            "outputDescription": "最大值 最小值",
             "examples": [
                 {
                     "input": "1\n88",
@@ -127,6 +133,8 @@ export default {
             "code": "B3-03-EXT01-008",
             "title": "區間最大值",
             "description": "給定 N 個整數，以及查詢區間 L 到 R，請找出第 L 個到第 R 個數字中的最大值。位置從 1 開始計算。",
+            "inputDescription": "第一個整數為 N，接著輸入 N 個整數，最後輸入兩個整數 L 與 R。保證 1 <= L <= R <= N。",
+            "outputDescription": "輸出一個整數，代表區間最大值。",
             "examples": [
                 {
                     "input": "6\n5 8 3 12 7 10\n2 5",
@@ -165,6 +173,8 @@ export default {
             "code": "B3-03-EXT01-006",
             "title": "【延伸】第二高分",
             "description": "給定 N 位學生的成績，請找出最高分與第二高分。保證至少有兩種不同分數。",
+            "inputDescription": "第一個整數為 N，接著輸入 N 個整數代表成績。",
+            "outputDescription": "輸出兩個整數，依序為最高分與第二高分，中間以空白分隔。",
             "examples": [
                 {
                     "input": "6\n70 95 80 95 60 88",
@@ -203,6 +213,8 @@ export default {
             "code": "B3-03-TYTN-05",
             "title": "【延伸】班服投票",
             "description": "可愛國小601班要製作紀念班服，本次班服設計共有3個款式，分別編號為1、2、3。\n每位同學可在選票上寫下自己選擇的班服款式編號，最後以得票數最高者為班服樣式。\n請先計算每款班服的得票數（依1→3順序），並輸出最高票的班服編號。\n若有兩款或以上的票數相同且為最高票，則輸出：請重新投票",
+            "inputDescription": "第一行：整數 N，代表投票數。\n\n第二行：N 個整數（介於 1~3），代表每張選票的班服設計編號。",
+            "outputDescription": "若票數最高者唯一，輸出該款式編號；若最高票出現同票數，輸出「請重新投票」。",
             "examples": [
                 {
                     "input": "8\n1 2 2 3 2 1 3 2",

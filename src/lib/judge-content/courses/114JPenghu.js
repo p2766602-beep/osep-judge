@@ -12,6 +12,8 @@ export default {
             "code": "114JPenghu-114JPenghu-1",
             "title": "神秘留言解碼器",
             "description": "每個人會收到一段被編碼的英文字母訊息，訊息中只有小寫字母與空白。解碼規則：每個英文字母向前移動一個字母（例如 b→a，c→b，…，a→z），空白保持不變。請讀入一段編碼後的字串，輸出正確解碼後的內容。",
+            "inputDescription": "輸入共有一行，為一段包含小寫字母與空白的字串（長度不超過 100）。",
+            "outputDescription": "輸出解碼後的字串。",
             "examples": [
                 {
                     "input": "bqqmf",
@@ -59,6 +61,8 @@ export default {
             "code": "114JPenghu-114JPenghu-2",
             "title": "剛好的禮券",
             "description": "小華手上有一張金額固定的禮券，想在商店中正好買兩樣不同的商品，將禮券金額完全花光。請檢查是否能從商品價格清單中找到兩個不同位置的商品，價格總和恰好等於禮券面額。如果找得到，輸出這兩個商品的價格（小的在前，大的在後）；如果同時有多組組合符合，輸出價差最小的兩樣商品價格；找不到則輸出 No Solution。",
+            "inputDescription": "第一行輸入兩個整數 N 與 T，N 為商品數量，T 為禮券面額。\n第二行包含 N 個整數，代表各商品的價格。",
+            "outputDescription": "若找到符合條件的兩個商品，輸出其價格（數值較小者先輸出）。若找不到，輸出 No Solution。",
             "examples": [
                 {
                     "input": "3 10\n1 2 3",
@@ -106,6 +110,8 @@ export default {
             "code": "114JPenghu-114JPenghu-3",
             "title": "細胞分裂模擬",
             "description": "某種細胞第 1 天有 0 個，第 2 天有 1 個，第 3 天開始，每一天的細胞數量都是「前一天」加上「前前一天」的數量之和。請列出從第 1 天到第 n 天每天的細胞數量。",
+            "inputDescription": "輸入一個整數 n，代表觀察的天數。",
+            "outputDescription": "輸出一行，包含 n 個整數（以空格分隔），代表第 1 天至第 n 天的細胞數量。",
             "examples": [
                 {
                     "input": "5",
@@ -148,6 +154,8 @@ export default {
             "code": "114JPenghu-114JPenghu-4",
             "title": "分組報告",
             "description": "電腦課要同學分組做期末報告，分組方式為依座號順序，每 3 個人一組（1,2,3 為第一組，4,5,6 為第二組……以此類推）。輸入同學的座號，請判斷他在哪一組。",
+            "inputDescription": "輸入只有一行，含有一個正整數 n，代表同學的座號。",
+            "outputDescription": "輸出該同學的組別。",
             "examples": [
                 {
                     "input": "7",
@@ -195,6 +203,8 @@ export default {
             "code": "114JPenghu-114JPenghu-5",
             "title": "購買紀念品",
             "description": "小明想要盡量把身上剩下的日幣都花完，來買到最多件紀念品。請寫一個程式，判斷在不超過剩餘日幣的情況下，最多可以買到幾件紀念品（依商品單價由低到高依序購買，並受限於各商品的剩餘數量）。",
+            "inputDescription": "第一行：一個整數 N，代表小明剩下的日幣總數。\n第二行：一個整數 M，代表商品的數量。\n第三行：輸入 M 個整數，代表每樣商品的日幣價格。\n第四行：輸入 M 個整數，代表每樣商品剩下的數量。",
+            "outputDescription": "輸出一個整數，代表可以買到的紀念品總數量。",
             "examples": [
                 {
                     "input": "1000\n3\n100 300 200\n3 4 2",

@@ -89,6 +89,27 @@ function loadCourse(filename) {
     return factory();
 }
 
+// 2026-11-01：補上輸入說明／輸出說明。取值順序與用語正規化逐字比照BlocklyYdws
+// src/main.js的getProblemInputDescription()/getProblemOutputDescription()
+// （statement物件優先，其次inputDescription/outputDescription，再其次input/output）。
+// 這兩欄從2026-08-09建立這支腳本起就漏帶，導致Scratch說明頁少了輸入/輸出格式資訊。
+function normalizeNoOutputWording(content) {
+    return String(content || '')
+        .replace(/輸出為空白/g, '不輸出')
+        .replace(/輸出空白/g, '不輸出')
+        .replace(/空白輸出/g, '不輸出')
+        .replace(/輸出空字串/g, '不輸出')
+        .replace(/沒有輸出內容/g, '不輸出');
+}
+
+function getStatementField(task, key, fallbackKeys) {
+    const statement = task.statement;
+    const fromStatement = (statement && typeof statement === 'object' && !Array.isArray(statement)) ?
+        String(statement[key] || '').trim() : '';
+    const raw = fromStatement || fallbackKeys.map(k => task[k]).find(v => v) || '';
+    return normalizeNoOutputWording(raw).trim();
+}
+
 const courses = COURSE_FILES.map(filename => {
     const source = loadCourse(filename);
     const shortCode = source.code.split('-').slice(0, 2).join('-');
@@ -113,6 +134,8 @@ const courses = COURSE_FILES.map(filename => {
                 code: `${shortCode}-${task.id}`,
                 title: task.title,
                 description: task.description,
+                inputDescription: getStatementField(task, 'input', ['inputDescription', 'input']),
+                outputDescription: getStatementField(task, 'output', ['outputDescription', 'output']),
                 examples: task.examples,
                 testCases: task.testCases.map(tc => ({input: tc.input, expectedOutput: tc.expectedOutput, score: tc.score})),
                 difficulty: task.difficulty,

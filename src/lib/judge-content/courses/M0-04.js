@@ -13,6 +13,8 @@ export default {
             "code": "M0-04-JSL01-D01",
             "title": "從1數到N",
             "description": "輸入一個正整數 N，請依序輸出 1 到 N 的所有整數，每個數字各佔一行。本題用來示範最基本的計數迴圈",
+            "inputDescription": "第一行：一個正整數 N。",
+            "outputDescription": "輸出 1 到 N，每個數字各佔一行。",
             "examples": [
                 {
                     "input": "3",
@@ -61,6 +63,8 @@ export default {
             "code": "M0-04-A-07-0",
             "title": "九九乘法",
             "description": "請寫一個程式，輸入一個整數 N，輸出 1 到 9 的乘法表結果。\n例如輸入 3，輸出 1x3=3, 2x3=6, …, 9x3=27。\n\n程式輸出3 6 9 12 15 18 21 24 27\n\n這樣的練習能讓你熟悉迴圈的運用。",
+            "inputDescription": "",
+            "outputDescription": "",
             "examples": [
                 {
                     "input": "3",
@@ -104,6 +108,8 @@ export default {
             "code": "M0-04-JSL01-D02",
             "title": "1到N加總示範",
             "description": "輸入一個正整數 N，請計算 1 + 2 + 3 + ... + N 的總和。本題用來示範累加變數的初始化、更新與輸出。",
+            "inputDescription": "第一行：一個正整數 N。",
+            "outputDescription": "輸出 1 到 N 的總和。",
             "examples": [
                 {
                     "input": "5",
@@ -152,6 +158,8 @@ export default {
             "code": "M0-04-JSL01-P01",
             "title": "N個數字累加",
             "description": "第一行輸入一個整數 N，第二行輸入 N 個整數。請計算這 N 個整數的總和。本題用來練習重複讀取資料並累加",
+            "inputDescription": "第一行：一個整數 N。\n\n第二行：N 個整數，以空白分隔。",
+            "outputDescription": "輸出 N 個整數的總和。",
             "examples": [
                 {
                     "input": "3\n10 20 30",
@@ -200,6 +208,8 @@ export default {
             "code": "M0-04-JSL01-P02",
             "title": "只加偶數",
             "description": "第一行輸入一個整數 N，第二行輸入 N 個整數。請只把其中的偶數加總後輸出。本題用來練習迴圈內加入條件判斷",
+            "inputDescription": "第一行：一個整數 N。\n\n第二行：N 個整數，以空白分隔。",
+            "outputDescription": "輸出所有偶數的總和。若沒有偶數，輸出 0。",
             "examples": [
                 {
                     "input": "5\n1 2 3 4 5",
@@ -248,6 +258,8 @@ export default {
             "code": "M0-04-JSL01-P03",
             "title": "簡化階乘",
             "description": "輸入一個正整數 N，請計算 1 × 2 × 3 × ... × N 的結果。本題用來練習累乘變數與迴圈結構",
+            "inputDescription": "第一行：一個正整數 N。",
+            "outputDescription": "輸出 N 的階乘結果。",
             "examples": [
                 {
                     "input": "4",
@@ -296,6 +308,8 @@ export default {
             "code": "M0-04-A-06-0",
             "title": "連續加總",
             "description": "有時候我們需要計算從 1 到某個數字的總和。\n請寫一個程式，輸入一個整數 N，計算從 1 加到 N 的結果。\n\n例如 N=5 時，1+2+3+4+5=15。這樣的練習可以訓練你使用迴圈進行加總。",
+            "inputDescription": "",
+            "outputDescription": "",
             "examples": [
                 {
                     "input": "5",
@@ -339,6 +353,8 @@ export default {
             "code": "M0-04-A-06-1",
             "title": "連續乘積",
             "description": "輸入一個整數 N，計算從 1*2*3....*N 的結果。\n\n例如 N=5 時，1*2*3*4*5=120。\n這樣的練習可以訓練你使用迴圈計算。",
+            "inputDescription": "",
+            "outputDescription": "",
             "examples": [
                 {
                     "input": "5",
@@ -382,6 +398,8 @@ export default {
             "code": "M0-04-A-07-1",
             "title": "跳繩比賽法",
             "description": "體育課上，學生進行跳繩小組競賽比賽，小組人數不定，每人跳的次數也不同。\n\n請設計一個程式，第一行輸入數字N，代表小組有N人，後續輸入N筆資料\n\n第二行輸入一串數列共N筆整數，序列的數字以空隔間格。\n\n程式輸出小組全部人員總共跳繩幾次？",
+            "inputDescription": "",
+            "outputDescription": "",
             "examples": [
                 {
                     "input": "5\n20 19 36 25 30",
@@ -425,6 +443,8 @@ export default {
             "code": "M0-04-A-08-0",
             "title": "找最大值",
             "description": "老師進行成績統計，老師輸入每位同學的成績，請你寫一個程式找出最高分。\n\n輸入第一行是整數 N，代表有 N 筆成績\n\n第二行輸入 N 個數字，數字間以空白間隔\n\n程式輸出最大值。\n這樣的練習可以幫助你處理一串資料，並找出其中的最大值。",
+            "inputDescription": "",
+            "outputDescription": "",
             "examples": [
                 {
                     "input": "3\n9 6 8",
@@ -468,6 +488,8 @@ export default {
             "code": "M0-04-A-08-1",
             "title": "找最大最小值",
             "description": "老師進行成績統計，老師輸入每位同學的成績，請你寫一個程式找出最高分及最低分。\n\n輸入第一行是整數 N，代表有 N 筆成績\n\n第二行輸入 N 個數字，數字間以空白間隔\n\n程式輸出最大值及最小值。\n這樣的練習可以幫助你處理一串資料，並同時找出其中的最大值、最小值。",
+            "inputDescription": "",
+            "outputDescription": "",
             "examples": [
                 {
                     "input": "3\n9 6 8",

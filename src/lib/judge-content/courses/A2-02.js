@@ -13,6 +13,8 @@ export default {
             "code": "A2-02-MATH01-004",
             "title": "最大公因數",
             "description": "給定兩個正整數 A 與 B，請找出它們的最大公因數。",
+            "inputDescription": "輸入兩個正整數 A 與 B。",
+            "outputDescription": "輸出一個整數，代表 A 與 B 的最大公因數。",
             "examples": [
                 {
                     "input": "12 18",
@@ -51,6 +53,8 @@ export default {
             "code": "A2-02-TYTN-03",
             "title": "質數和",
             "description": "請輸入兩個 100 以內的正整數（由小到大），找出這兩個數之間所有的質數，並計算這些質數的總和。\n質數定義：大於 1 的整數，除了 1 與本身外沒有其他因數。\n埃拉托賽尼篩法（示意 100 以內）：\n1. 刪除 1（1 不是質數也不是合數）\n2. 2 是質數，刪除大於 2 的所有 2 的倍數\n3. 3 是質數，刪除大於 3 的所有 3 的倍數\n4. 5 是質數，刪除大於 5 的所有 5 的倍數\n5. 7 是質數，刪除大於 7 的所有 7 的倍數\n最後留下的數即為質數",
+            "inputDescription": "第一行：正整數 A（起始值）\n\n第二行：正整數 B（結束值，且 B ≥ A）",
+            "outputDescription": "輸出 A 至 B 之間所有質數的總和（若沒有質數則輸出 0）。",
             "examples": [
                 {
                     "input": "21\n30",
@@ -104,6 +108,8 @@ export default {
             "code": "A2-02-MATH01-007",
             "title": "數字反轉",
             "description": "給定一個非負整數 N，請將它的數字順序反轉後輸出。反轉後前導 0 不需要保留。",
+            "inputDescription": "輸入一個非負整數 N。",
+            "outputDescription": "輸出一個整數，代表反轉後的數字。",
             "examples": [
                 {
                     "input": "12340",

@@ -12,6 +12,8 @@ export default {
             "code": "114JChaiyi-114JChaiyi-1",
             "title": "智慧手環的健康挑戰",
             "description": "智慧手環記錄 N 個小時的步數。若某小時步數低於活躍門檻 K，視為靜態時段，該小時累積 1 點警告；若該小時是「連續靜態」的第 2 小時（含）以後，改累積 2 點警告（只要連續靜態就持續是 2 點，直到某小時步數達標中斷連續才重新從 1 點開始算）。請計算總警告點數。",
+            "inputDescription": "第一行輸入監測小時數 N。\n第二行輸入活躍門檻 K。\n第三行輸入 N 個小時的步數。",
+            "outputDescription": "輸出總警告點數。",
             "examples": [
                 {
                     "input": "5\n1000\n800 900 1200 500 400",
@@ -69,6 +71,8 @@ export default {
             "code": "114JChaiyi-114JChaiyi-2",
             "title": "神秘的古代石板",
             "description": "古代石板上刻著一串超長數字（結尾加上字母 a 作為標記，計算時應忽略），請判斷：(1) 這個數字是否為 5 的倍數（末位是 0 或 5）；(2) 這個數字是否為 11 的倍數（從右邊數來，奇數位數字和減去偶數位數字和，若此差為 11 的倍數，則原數字也是 11 的倍數）。依序輸出兩個判斷結果（1 表示是，0 表示否）。",
+            "inputDescription": "輸入一個超長數字字串，結尾有字母 a 標記。",
+            "outputDescription": "輸出兩個數字（以空格分隔）：是否為5的倍數、是否為11的倍數（1或0）。",
             "examples": [
                 {
                     "input": "55a",
@@ -131,6 +135,8 @@ export default {
             "code": "114JChaiyi-114JChaiyi-3",
             "title": "資源回收車的極限挑戰",
             "description": "資源回收車有 N 包待回收物，每包有重量，回收車容量為 K。請問將回收物由輕到重依序裝載，最多可以裝下幾包（裝到不能再裝為止）？",
+            "inputDescription": "第一行輸入回收物包數 N。\n第二行輸入容量 K。\n第三行輸入 N 個包裹重量。",
+            "outputDescription": "輸出最多可裝載的包數。",
             "examples": [
                 {
                     "input": "5\n10\n5 8 3 2 4",
@@ -188,6 +194,8 @@ export default {
             "code": "114JChaiyi-114JChaiyi-4",
             "title": "大隊接力的棒次安排",
             "description": "大隊接力共有 N（偶數）位同學，每人有一個能力值。安排方式為：將所有同學依能力值排序後，最快的配最慢的、次快的配次慢的，以此類推，兩兩一組。請計算所有組別中，能力值總和的最大值。",
+            "inputDescription": "第一行輸入同學人數 N（偶數）。\n第二行輸入 N 個能力值。",
+            "outputDescription": "輸出各組能力總和中的最大值。",
             "examples": [
                 {
                     "input": "4\n10 90 20 80",
@@ -245,6 +253,8 @@ export default {
             "code": "114JChaiyi-114JChaiyi-5",
             "title": "變速傳球的特訓",
             "description": "N 位同學圍成一圈（編號 1~N），球從 1 號開始持有。每一回合，若目前持球者編號是奇數，球往順時針方向傳 1 人；若是偶數，傳 2 人（超過 N 號會回到 1 號繼續數）。請問經過 K 回合後，球在幾號同學手上？",
+            "inputDescription": "第一行輸入圍圈人數 N。\n第二行輸入回合數 K。",
+            "outputDescription": "輸出 K 回合後持球同學的編號。",
             "examples": [
                 {
                     "input": "5\n3",
@@ -302,6 +312,8 @@ export default {
             "code": "114JChaiyi-114JChaiyi-6",
             "title": "校園密室逃脫：書架的密碼",
             "description": "書架的密碼鎖需要輸入一組二進位字串（只包含 0 與 1），請將它轉換成十進位數字作為密碼。",
+            "inputDescription": "輸入一個二進位字串 S。",
+            "outputDescription": "輸出轉換後的十進位數字。",
             "examples": [
                 {
                     "input": "101",
@@ -359,6 +371,8 @@ export default {
             "code": "114JChaiyi-114JChaiyi-7",
             "title": "校園密室逃脫：費氏階梯",
             "description": "密室出口前有 N 階階梯，每次可以走 1 階或 2 階，請問總共有幾種走法可以走完 N 階？",
+            "inputDescription": "輸入階梯數量 N。",
+            "outputDescription": "輸出走完 N 階的走法總數。",
             "examples": [
                 {
                     "input": "3",
@@ -416,6 +430,8 @@ export default {
             "code": "114JChaiyi-114JChaiyi-8",
             "title": "校園密室逃脫：書架修繕工程",
             "description": "書架修繕需要 N 根長度不一的木材，切出至少 K 根等長的木條（木材只能切割不能拼接）。請找出可以切出的木條最大可能長度。",
+            "inputDescription": "第一行輸入木材數量 N。\n第二行輸入所需木條數量 K。\n第三行輸入 N 根木材的長度。",
+            "outputDescription": "輸出可切出至少 K 根木條的最大長度。",
             "examples": [
                 {
                     "input": "3\n4\n10 20 30",
@@ -473,6 +489,8 @@ export default {
             "code": "114JChaiyi-114JChaiyi-9",
             "title": "校園密室逃脫：社團聯絡網",
             "description": "社團聯絡網共有 N 人，其中有 M 條單向聯絡關係（起點列表與終點列表），每個人最多只會聯絡固定的下線（形成樹狀結構）。請從 1 號同學開始往下聯絡，找出最長可以聯絡到第幾層（層數以經過的聯絡次數，即邊數計算）。",
+            "inputDescription": "第一行輸入人數 N。\n第二行輸入聯絡關係數量 M。\n第三行輸入 M 個聯絡關係的起點。\n第四行輸入 M 個聯絡關係的終點。",
+            "outputDescription": "輸出從 1 號同學出發能聯絡到的最長邊數。",
             "examples": [
                 {
                     "input": "3\n2\n1 2\n2 3",
