@@ -1,6 +1,7 @@
 import BlockType from 'scratch-vm/src/extension-support/block-type';
 import ArgumentType from 'scratch-vm/src/extension-support/argument-type';
 import Cast from 'scratch-vm/src/util/cast';
+import {ScriptTreeGenerator} from 'scratch-vm/src/compiler/irgen';
 
 // 2026-09-24：對齊官方平台Scratch介面「控制」分類的「重複當」積木。原生scratch-vm的
 // control_while opcode顯示字串是「當 %1」（少了「重複」二字，容易被誤會成別種積木），
@@ -20,7 +21,33 @@ import Cast from 'scratch-vm/src/util/cast';
 // util.startBranch）照抄scratch-vm/src/blocks/scratch3_control.js的repeatWhile
 // 實作，確保行為跟原生control_while完全一致。native control_while opcode本身沒有
 // 被動到，只是這個toolbox不再放它，跟其餘6顆官方沒有的控制積木下架方式一致。
+//
+// 2026-11-05：加「中斷循環」（judgecontrol_breakLoop），對齊官方平台同名積木，也對齊
+// BlocklyYdws的「跳出迴圈」（controls_flow_statements），A系列題目在兩個平台可以用同一種
+// 寫法。原生scratch-vm沒有break，這顆只在osep-judge自己的VM裡能執行（.sb3拿去原版
+// Scratch開會變成不認得的積木），這是刻意的取捨。
+//
+// 實作分兩段：
+// 1. 直譯模式（sequencer）：迴圈積木呼叫startBranch(n, true)時，會把迴圈積木自己那層
+//    stackFrame標成isLoop。breakLoop往下pop到最近一層isLoop的frame，再goToNextBlock()
+//    把那層換成迴圈積木的下一顆，等於整個迴圈結束、從迴圈後面繼續跑。原生control_stop
+//    「停止這個程式」也是在積木函式裡直接改thread.stack，同一種做法。重複N次／重複直到／
+//    重複當（含原生control_while、control_forever）都靠isLoop判斷，不用逐一列opcode。
+//    碰到procedures_call那層就停（不跨出自訂積木），找不到迴圈時什麼都不做。
+// 2. TurboWarp編譯器：編譯後的迴圈是真正的JS迴圈，extension積木走compatibility layer
+//    無法跳出JS迴圈。所以讓編譯器遇到breakLoop就丟例外——Thread.tryCompile()本來就會
+//    接住編譯錯誤、改用上面的直譯模式跑這個程式（含它呼叫的自訂積木）。只有用到中斷循環
+//    的程式會變直譯模式，其餘程式照常編譯；評分時本來就開turbo模式，速度影響有限。
 const EXTENSION_ID = 'judgecontrol';
+const BREAK_OPCODE = `${EXTENSION_ID}_breakLoop`;
+
+const originalDescendStackedBlock = ScriptTreeGenerator.prototype.descendStackedBlock;
+ScriptTreeGenerator.prototype.descendStackedBlock = function (block) {
+    if (block.opcode === BREAK_OPCODE) {
+        throw new Error(`${BREAK_OPCODE} runs in the interpreter only`);
+    }
+    return originalDescendStackedBlock.call(this, block);
+};
 
 class JudgeControlExtension {
     getInfo () {
@@ -40,9 +67,28 @@ class JudgeControlExtension {
                             type: ArgumentType.BOOLEAN
                         }
                     }
+                },
+                {
+                    opcode: 'breakLoop',
+                    blockType: BlockType.COMMAND,
+                    text: '中斷循環',
+                    isTerminal: true
                 }
             ]
         };
+    }
+
+    breakLoop (args, util) {
+        const thread = util.thread;
+        for (let i = thread.stackFrames.length - 2; i >= 0; i--) {
+            const block = thread.target.blocks.getBlock(thread.stack[i]);
+            if (block && block.opcode === 'procedures_call') return;
+            if (thread.stackFrames[i].isLoop) {
+                while (thread.stack.length > i + 1) thread.popStack();
+                thread.goToNextBlock();
+                return;
+            }
+        }
     }
 
     // 照抄scratch3_control.js的repeatWhile：條件為真才進分支一次，交給sequencer每個tick

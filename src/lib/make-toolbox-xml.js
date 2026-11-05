@@ -111,7 +111,8 @@ const judgeHelpers = function (isInitialSetup, isStage, targetId) {
 // 官方平台另外還有一顆我們沒有的「中斷循環」（跳出迴圈），但這不是scratch-vm的原生
 // 積木類型（TurboWarp核心的scratch3_control.js沒有對應opcode），官方是自己另外寫VM
 // extension做出來的，不是調整這份toolbox設定檔就能生出來，這次先不做，留待後續評估
-// 是否要投入客製積木開發。
+// 是否要投入客製積木開發。2026-11-05已補上：judgecontrol_breakLoop，見
+// judge-control-extension.js。
 const control = function (isInitialSetup, isStage, targetId, colors) {
     // Note: the category's secondaryColour matches up with the blocks' tertiary color, both used for border color.
     return `
@@ -132,6 +133,7 @@ const control = function (isInitialSetup, isStage, targetId, colors) {
         <block type="control_if_else"/>
         <block type="control_repeat_until"/>
         <block type="judgecontrol_repeatWhile"/>
+        <block type="judgecontrol_breakLoop"/>
         ${categorySeparator}
     </category>
     `;
