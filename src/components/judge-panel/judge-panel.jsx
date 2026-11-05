@@ -4,6 +4,7 @@ import VM from 'scratch-vm';
 import {gradeSubmission, prepareVmForGrading} from '../../lib/tw-judge-engine.js';
 import {scaffoldUrlForCourse} from '../../lib/scaffold-content.js';
 import judgeManualRun from '../../lib/judge-manual-run.js';
+import {fetchContestLock} from '../../lib/course-contest-lock.js';
 import TaskList, {CourseTaskList, saveActiveCode} from './task-list.jsx';
 import styles from './judge-panel.css';
 
@@ -60,7 +61,46 @@ const withVisibilityRestore = async (vm, fn) => {
     }
 };
 
-const DescriptionTab = ({task, onLoadDemo, demoStatus, demoLoaded, scaffoldUrl}) => (
+/**
+ * 2026-11-05：學習／競賽模式切換。課程只要有任何一題附範例答案，學生可自行切換（預設競賽模式）；
+ * 沒有範例的課程或教師在BlocklyYdws教師後台鎖定測驗的課程，固定競賽模式。
+ * 競賽模式不能載入範例、評分只顯示每筆是否通過；學習模式可載入範例、評分顯示詳細比對。
+ */
+const MODES = [
+    {id: 'learning', label: '學習模式', hint: '學習模式：可以載入範例，評分會顯示輸入、預期輸出與實際輸出。'},
+    {id: 'contest', label: '競賽模式', hint: '競賽模式：不能載入範例，評分只顯示每筆測資是否通過。'}
+];
+
+const ModeSwitch = ({mode, lockReason, onChange}) => (
+    <div className={styles.modeBar}>
+        <div
+            aria-label="切換學習模式或競賽模式"
+            className={styles.modeSwitch}
+            role="group"
+        >
+            {MODES.map(item => (
+                <button
+                    className={mode === item.id ? styles.modeButtonActive : styles.modeButton}
+                    data-mode={item.id}
+                    disabled={Boolean(lockReason)}
+                    key={item.id}
+                    title={lockReason || item.hint}
+                    onClick={() => onChange(item.id)}
+                >
+                    {mode === item.id && lockReason ? '🔒 ' : ''}{item.label}
+                </button>
+            ))}
+        </div>
+        {lockReason ? <span className={styles.modeLockNote}>{lockReason}</span> : null}
+    </div>
+);
+ModeSwitch.propTypes = {
+    lockReason: PropTypes.string,
+    mode: PropTypes.oneOf(['learning', 'contest']).isRequired,
+    onChange: PropTypes.func.isRequired
+};
+
+const DescriptionTab = ({task, onLoadDemo, demoStatus, demoLoaded, scaffoldUrl, isContestMode}) => (
     <div className={styles.tabContent}>
         <h3 className={styles.sectionHeading}>題目敘述</h3>
         <p className={styles.description}>{task.description}</p>
@@ -111,7 +151,10 @@ const DescriptionTab = ({task, onLoadDemo, demoStatus, demoLoaded, scaffoldUrl})
                 </table>
             </div>
         ))}
-        {task.loadable ? (
+        {task.loadable && isContestMode ? (
+            <div className={styles.demoStatus}>競賽模式不能載入範例；要看範例請切換到學習模式。</div>
+        ) : null}
+        {task.loadable && !isContestMode ? (
             <React.Fragment>
                 <button
                     className={demoLoaded ? styles.demoButtonLoaded : styles.demoButton}
@@ -129,6 +172,7 @@ const DescriptionTab = ({task, onLoadDemo, demoStatus, demoLoaded, scaffoldUrl})
 DescriptionTab.propTypes = {
     demoLoaded: PropTypes.bool,
     demoStatus: PropTypes.string,
+    isContestMode: PropTypes.bool,
     onLoadDemo: PropTypes.func.isRequired,
     scaffoldUrl: PropTypes.string,
     task: PropTypes.shape({
@@ -430,6 +474,8 @@ const JudgePanel = ({vm}) => {
     const [judgeContent, setJudgeContent] = useState(null);
     const [taskDetail, setTaskDetail] = useState(null);
     const [taskLoading, setTaskLoading] = useState(false);
+    // 目前課程的模式狀態；換課程時才重新決定（同一課程切換題目維持學生選的模式）
+    const [courseMode, setCourseMode] = useState({courseCode: null, mode: 'contest', lockReason: ''});
 
     // judge-content/是課程資料模組（跟平台程式碼本身無關），改成動態載入讓webpack把它切成
     // 獨立chunk：上架新題目只讓對應課程檔案的雜湊變、平台UI改動只讓主程式碼的雜湊變，兩者
@@ -509,6 +555,39 @@ const JudgePanel = ({vm}) => {
     }, []);
 
     const task = taskDetail ? taskDetail.task : null;
+    const detailCourse = taskDetail ? taskDetail.course : null;
+
+    useEffect(() => {
+        if (!detailCourse || courseMode.courseCode === detailCourse.code) return;
+        const hasDemo = detailCourse.tasks.some(item => item.loadable);
+        setCourseMode({
+            courseCode: detailCourse.code,
+            mode: 'contest',
+            lockReason: hasDemo ? '' : '這是測驗課程（沒有範例解答），只能使用競賽模式。'
+        });
+        if (!hasDemo) return;
+        let cancelled = false;
+        fetchContestLock(detailCourse.unlockCode || detailCourse.code).then(locked => {
+            if (cancelled || !locked) return;
+            setCourseMode(prev => (prev.courseCode === detailCourse.code ?
+                {...prev, mode: 'contest', lockReason: '老師已將這門課設為測驗，只能使用競賽模式。'} :
+                prev));
+        });
+        return () => {
+            cancelled = true;
+        };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [detailCourse]);
+
+    const isContestMode = courseMode.mode === 'contest';
+
+    const handleChangeMode = nextMode => {
+        if (courseMode.lockReason || nextMode === courseMode.mode) return;
+        setCourseMode(prev => ({...prev, mode: nextMode}));
+        // 評分結果的顯示方式跟模式綁在一起，切換後清掉，避免學習模式的詳細比對留在競賽模式畫面上
+        setGrading({isRunning: false, totalScore: null, maxScore: null, results: null, error: null});
+        setDemoStatus(null);
+    };
     const scaffoldUrl = taskDetail ? scaffoldUrlForCourse(taskDetail.course.code) : null;
 
     useEffect(() => {
@@ -533,6 +612,7 @@ const JudgePanel = ({vm}) => {
     };
 
     const handleLoadDemo = async () => {
+        if (isContestMode) return;
         setDemoStatus('載入中…');
         try {
             const response = await fetch(task.answerProjectUrl);
@@ -663,6 +743,11 @@ const JudgePanel = ({vm}) => {
                     <span className={styles.scoreBadge}>{scoreLabel}</span>
                 </div>
             </div>
+            <ModeSwitch
+                lockReason={courseMode.lockReason}
+                mode={courseMode.mode}
+                onChange={handleChangeMode}
+            />
             <div className={styles.tabBar}>
                 {TABS.map(tab => (
                     <button
@@ -678,6 +763,7 @@ const JudgePanel = ({vm}) => {
                 <DescriptionTab
                     demoLoaded={demoLoaded}
                     demoStatus={demoStatus}
+                    isContestMode={isContestMode}
                     scaffoldUrl={scaffoldUrl}
                     task={task}
                     onLoadDemo={handleLoadDemo}
@@ -688,7 +774,7 @@ const JudgePanel = ({vm}) => {
                 <GradingTab
                     demoLoaded={demoLoaded}
                     grading={grading}
-                    isContestMode={Boolean(taskDetail && taskDetail.course.mode === 'contest')}
+                    isContestMode={isContestMode}
                     onRunGrading={handleRunGrading}
                 />
             )}

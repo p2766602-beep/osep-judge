@@ -568,3 +568,64 @@
     font-size: 0.7rem;
     color: $text-primary-transparent;
 }
+
+/* 2026-11-05：學習／競賽模式切換列（見judge-panel.jsx的ModeSwitch） */
+.mode-bar {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: calc($space / 2) $space;
+    padding: calc($space / 2) $space;
+    border-bottom: 1px solid $ui-black-transparent;
+}
+
+.mode-switch {
+    display: flex;
+    border: 1px solid $ui-black-transparent;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.mode-button {
+    border: none;
+    background: $ui-white;
+    color: $text-primary-transparent;
+    padding: calc($space / 3) $space;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.mode-button:hover:not(:disabled) {
+    background: $ui-tertiary;
+}
+
+.mode-button:disabled {
+    cursor: not-allowed;
+    color: #c4c4c4;
+}
+
+.mode-button-active {
+    composes: mode-button;
+    font-weight: bold;
+}
+
+.mode-button-active[data-mode="learning"],
+.mode-button-active[data-mode="learning"]:disabled {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.mode-button-active[data-mode="contest"],
+.mode-button-active[data-mode="contest"]:disabled {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.mode-button-active:disabled {
+    cursor: default;
+}
+
+.mode-lock-note {
+    font-size: 0.7rem;
+    color: $text-primary-transparent;
+}
