@@ -2571,11 +2571,6 @@ export default [
                 "id": "114TCPE17-5",
                 "code": "114TCPE17-114TCPE17-5",
                 "title": "5-風獅爺排排隊"
-            },
-            {
-                "id": "114TCPE17-6",
-                "code": "114TCPE17-114TCPE17-6",
-                "title": "7-智慧掃地機器人"
             }
         ]
     },
@@ -3232,11 +3227,6 @@ export default [
                 "id": "114TCPJ17-6",
                 "code": "114TCPJ17-114TCPJ17-6",
                 "title": "6-金門粥糜採購任務"
-            },
-            {
-                "id": "114TCPJ17-7",
-                "code": "114TCPJ17-114TCPJ17-7",
-                "title": "7-智慧掃地機器人"
             }
         ]
     },
@@ -3922,11 +3912,6 @@ export default [
                 "id": "114JKinmen-6",
                 "code": "114JKinmen-114JKinmen-6",
                 "title": "6-金門粥糜採購任務"
-            },
-            {
-                "id": "114JKinmen-7",
-                "code": "114JKinmen-114JKinmen-7",
-                "title": "7-智慧掃地機器人"
             }
         ]
     },
@@ -4558,11 +4543,6 @@ export default [
                 "id": "114EKinmen-5",
                 "code": "114EKinmen-114EKinmen-5",
                 "title": "5-風獅爺排排隊"
-            },
-            {
-                "id": "114EKinmen-6",
-                "code": "114EKinmen-114EKinmen-6",
-                "title": "7-智慧掃地機器人"
             }
         ]
     },
