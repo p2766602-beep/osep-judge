@@ -1,14 +1,15 @@
 {
   "variables": {
-    "v_s": [
-      "S",
-      ""
+    "v1": [
+      "字串",
+      0
     ]
   },
+  "lists": {},
   "blocks": {
-    "h1": {
+    "b1": {
       "opcode": "event_whenflagclicked",
-      "next": "h2",
+      "next": "b2",
       "parent": null,
       "inputs": {},
       "fields": {},
@@ -17,16 +18,16 @@
       "x": 40,
       "y": 40
     },
-    "h2": {
+    "b2": {
       "opcode": "sensing_askandwait",
-      "next": "h4",
-      "parent": "h1",
+      "next": "b3",
+      "parent": "b1",
       "inputs": {
         "QUESTION": [
           1,
           [
             10,
-            "請輸入S"
+            ""
           ]
         ]
       },
@@ -34,137 +35,120 @@
       "shadow": false,
       "topLevel": false
     },
-    "h3": {
-      "opcode": "sensing_answer",
-      "next": null,
-      "parent": "h1",
-      "inputs": {},
-      "fields": {},
-      "shadow": false,
-      "topLevel": false
-    },
-    "h4": {
+    "b3": {
       "opcode": "data_setvariableto",
-      "next": "h13",
-      "parent": "h2",
+      "next": "b5",
+      "parent": "b2",
       "inputs": {
         "VALUE": [
-          2,
-          "h3"
-        ]
-      },
-      "fields": {
-        "VARIABLE": [
-          "S",
-          "v_s"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h5": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h1",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "S",
-          "v_s"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h6": {
-      "opcode": "operator_letter_of",
-      "next": null,
-      "parent": "h1",
-      "inputs": {
-        "LETTER": [
-          1,
+          3,
+          "b4",
           [
-            4,
-            "1"
+            10,
+            ""
           ]
-        ],
-        "STRING": [
-          2,
-          "h5"
         ]
       },
-      "fields": {},
-      "shadow": false,
-      "topLevel": false
-    },
-    "h7": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h1",
-      "inputs": {},
       "fields": {
         "VARIABLE": [
-          "S",
-          "v_s"
+          "字串",
+          "v1"
         ]
       },
       "shadow": false,
       "topLevel": false
     },
-    "h8": {
-      "opcode": "operator_length",
+    "b4": {
+      "opcode": "sensing_answer",
       "next": null,
-      "parent": "h1",
-      "inputs": {
-        "STRING": [
-          2,
-          "h7"
-        ]
-      },
+      "parent": "b3",
+      "inputs": {},
       "fields": {},
       "shadow": false,
       "topLevel": false
     },
-    "h9": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h1",
-      "inputs": {},
+    "b5": {
+      "opcode": "data_setvariableto",
+      "next": "b7",
+      "parent": "b3",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b6",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
       "fields": {
         "VARIABLE": [
-          "S",
-          "v_s"
+          "字串",
+          "v1"
         ]
       },
       "shadow": false,
       "topLevel": false
     },
-    "h10": {
-      "opcode": "operator_letter_of",
-      "next": null,
-      "parent": "h1",
-      "inputs": {
-        "LETTER": [
-          2,
-          "h8"
-        ],
-        "STRING": [
-          2,
-          "h9"
-        ]
-      },
-      "fields": {},
-      "shadow": false,
-      "topLevel": false
-    },
-    "h11": {
+    "b6": {
       "opcode": "operator_join",
       "next": null,
-      "parent": "h1",
+      "parent": "b5",
       "inputs": {
         "STRING1": [
-          2,
-          "h6"
+          1,
+          [
+            10,
+            ""
+          ]
+        ],
+        "STRING2": [
+          3,
+          [
+            12,
+            "字串",
+            "v1"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b7": {
+      "opcode": "looks_say",
+      "next": null,
+      "parent": "b5",
+      "inputs": {
+        "MESSAGE": [
+          3,
+          "b10",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b8": {
+      "opcode": "operator_join",
+      "next": null,
+      "parent": "b10",
+      "inputs": {
+        "STRING1": [
+          3,
+          "b9",
+          [
+            10,
+            ""
+          ]
         ],
         "STRING2": [
           1,
@@ -178,38 +162,112 @@
       "shadow": false,
       "topLevel": false
     },
-    "h12": {
-      "opcode": "operator_join",
+    "b9": {
+      "opcode": "operator_letter_of",
       "next": null,
-      "parent": "h1",
+      "parent": "b8",
       "inputs": {
-        "STRING1": [
-          2,
-          "h11"
+        "LETTER": [
+          1,
+          [
+            6,
+            "1"
+          ]
         ],
-        "STRING2": [
-          2,
-          "h10"
+        "STRING": [
+          3,
+          [
+            12,
+            "字串",
+            "v1"
+          ],
+          [
+            10,
+            ""
+          ]
         ]
       },
       "fields": {},
       "shadow": false,
       "topLevel": false
     },
-    "h13": {
-      "opcode": "looks_say",
+    "b10": {
+      "opcode": "operator_join",
       "next": null,
-      "parent": "h4",
+      "parent": "b7",
       "inputs": {
-        "MESSAGE": [
-          2,
-          "h12"
+        "STRING1": [
+          3,
+          "b8",
+          [
+            10,
+            ""
+          ]
+        ],
+        "STRING2": [
+          3,
+          "b11",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b11": {
+      "opcode": "operator_letter_of",
+      "next": null,
+      "parent": "b10",
+      "inputs": {
+        "LETTER": [
+          3,
+          "b12",
+          [
+            6,
+            ""
+          ]
+        ],
+        "STRING": [
+          3,
+          [
+            12,
+            "字串",
+            "v1"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b12": {
+      "opcode": "operator_length",
+      "next": null,
+      "parent": "b11",
+      "inputs": {
+        "STRING": [
+          3,
+          [
+            12,
+            "字串",
+            "v1"
+          ],
+          [
+            10,
+            ""
+          ]
         ]
       },
       "fields": {},
       "shadow": false,
       "topLevel": false
     }
-  },
-  "lists": {}
+  }
 }

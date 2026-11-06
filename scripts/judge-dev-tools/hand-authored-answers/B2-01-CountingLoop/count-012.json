@@ -1,22 +1,23 @@
 {
   "variables": {
-    "v_n": [
-      "N",
-      ""
+    "v1": [
+      "山高",
+      0
     ],
-    "v_result": [
-      "結果",
-      ""
+    "v2": [
+      "路線",
+      0
     ],
-    "v_i": [
-      "i",
-      ""
+    "v3": [
+      "高度",
+      0
     ]
   },
+  "lists": {},
   "blocks": {
-    "h1": {
+    "b1": {
       "opcode": "event_whenflagclicked",
-      "next": "h2",
+      "next": "b2",
       "parent": null,
       "inputs": {},
       "fields": {},
@@ -25,16 +26,16 @@
       "x": 40,
       "y": 40
     },
-    "h2": {
+    "b2": {
       "opcode": "sensing_askandwait",
-      "next": "h4",
-      "parent": "h1",
+      "next": "b3",
+      "parent": "b1",
       "inputs": {
         "QUESTION": [
           1,
           [
             10,
-            "請輸入N"
+            ""
           ]
         ]
       },
@@ -42,118 +43,120 @@
       "shadow": false,
       "topLevel": false
     },
-    "h3": {
+    "b3": {
+      "opcode": "data_setvariableto",
+      "next": "b5",
+      "parent": "b2",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b4",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "山高",
+          "v1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b4": {
       "opcode": "sensing_answer",
       "next": null,
-      "parent": "h1",
+      "parent": "b3",
       "inputs": {},
       "fields": {},
       "shadow": false,
       "topLevel": false
     },
-    "h4": {
+    "b5": {
       "opcode": "data_setvariableto",
-      "next": "h5",
-      "parent": "h2",
-      "inputs": {
-        "VALUE": [
-          2,
-          "h3"
-        ]
-      },
-      "fields": {
-        "VARIABLE": [
-          "N",
-          "v_n"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h5": {
-      "opcode": "data_setvariableto",
-      "next": "h6",
-      "parent": "h4",
+      "next": "b6",
+      "parent": "b3",
       "inputs": {
         "VALUE": [
           1,
           [
-            4,
+            10,
             "1"
           ]
         ]
       },
       "fields": {
         "VARIABLE": [
-          "結果",
-          "v_result"
+          "路線",
+          "v2"
         ]
       },
       "shadow": false,
       "topLevel": false
     },
-    "h6": {
+    "b6": {
       "opcode": "data_setvariableto",
-      "next": "h7",
-      "parent": "h5",
+      "next": "b7",
+      "parent": "b5",
       "inputs": {
         "VALUE": [
           1,
           [
-            4,
+            10,
             "2"
           ]
         ]
       },
       "fields": {
         "VARIABLE": [
-          "i",
-          "v_i"
+          "高度",
+          "v3"
         ]
       },
       "shadow": false,
       "topLevel": false
     },
-    "h7": {
+    "b7": {
       "opcode": "control_repeat",
-      "next": "h20",
-      "parent": "h6",
+      "next": "b13",
+      "parent": "b6",
       "inputs": {
         "TIMES": [
-          2,
-          "h9"
+          3,
+          "b8",
+          [
+            6,
+            ""
+          ]
         ],
         "SUBSTACK": [
           2,
-          "h14"
+          "b9"
         ]
       },
       "fields": {},
       "shadow": false,
       "topLevel": false
     },
-    "h8": {
-      "opcode": "data_variable",
+    "b8": {
+      "opcode": "judgeoperators_arithmetic",
       "next": null,
-      "parent": "h7",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "N",
-          "v_n"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h9": {
-      "opcode": "operator_subtract",
-      "next": null,
-      "parent": "h7",
+      "parent": "b7",
       "inputs": {
         "NUM1": [
-          2,
-          "h8"
+          3,
+          [
+            12,
+            "山高",
+            "v1"
+          ],
+          [
+            4,
+            ""
+          ]
         ],
         "NUM2": [
           1,
@@ -163,118 +166,158 @@
           ]
         ]
       },
-      "fields": {},
-      "shadow": false,
-      "topLevel": false
-    },
-    "h10": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h7",
-      "inputs": {},
       "fields": {
-        "VARIABLE": [
-          "結果",
-          "v_result"
+        "OP": [
+          "-",
+          null
         ]
       },
       "shadow": false,
       "topLevel": false
     },
-    "h11": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h7",
-      "inputs": {},
+    "b9": {
+      "opcode": "data_setvariableto",
+      "next": "b12",
+      "parent": "b7",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b11",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
       "fields": {
         "VARIABLE": [
-          "i",
-          "v_i"
+          "路線",
+          "v2"
         ]
       },
       "shadow": false,
       "topLevel": false
     },
-    "h12": {
+    "b10": {
       "opcode": "operator_join",
       "next": null,
-      "parent": "h7",
+      "parent": "b11",
       "inputs": {
         "STRING1": [
+          3,
+          [
+            12,
+            "路線",
+            "v2"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "STRING2": [
           1,
           [
             10,
             " "
           ]
-        ],
-        "STRING2": [
-          2,
-          "h11"
         ]
       },
       "fields": {},
       "shadow": false,
       "topLevel": false
     },
-    "h13": {
+    "b11": {
       "opcode": "operator_join",
       "next": null,
-      "parent": "h7",
+      "parent": "b9",
       "inputs": {
         "STRING1": [
-          2,
-          "h10"
+          3,
+          "b10",
+          [
+            10,
+            ""
+          ]
         ],
         "STRING2": [
-          2,
-          "h12"
+          3,
+          [
+            12,
+            "高度",
+            "v3"
+          ],
+          [
+            10,
+            ""
+          ]
         ]
       },
       "fields": {},
       "shadow": false,
       "topLevel": false
     },
-    "h14": {
-      "opcode": "data_setvariableto",
-      "next": "h17",
-      "parent": "h7",
+    "b12": {
+      "opcode": "data_changevariableby",
+      "next": null,
+      "parent": "b9",
       "inputs": {
         "VALUE": [
-          2,
-          "h13"
+          1,
+          [
+            4,
+            "1"
+          ]
         ]
       },
       "fields": {
         "VARIABLE": [
-          "結果",
-          "v_result"
+          "高度",
+          "v3"
         ]
       },
       "shadow": false,
       "topLevel": false
     },
-    "h15": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h7",
-      "inputs": {},
+    "b13": {
+      "opcode": "data_setvariableto",
+      "next": "b15",
+      "parent": "b7",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b14",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
       "fields": {
         "VARIABLE": [
-          "i",
-          "v_i"
+          "高度",
+          "v3"
         ]
       },
       "shadow": false,
       "topLevel": false
     },
-    "h16": {
-      "opcode": "operator_add",
+    "b14": {
+      "opcode": "judgeoperators_arithmetic",
       "next": null,
-      "parent": "h7",
+      "parent": "b13",
       "inputs": {
         "NUM1": [
-          2,
-          "h15"
+          3,
+          [
+            12,
+            "山高",
+            "v1"
+          ],
+          [
+            4,
+            ""
+          ]
         ],
         "NUM2": [
           1,
@@ -284,282 +327,146 @@
           ]
         ]
       },
-      "fields": {},
-      "shadow": false,
-      "topLevel": false
-    },
-    "h17": {
-      "opcode": "data_setvariableto",
-      "next": null,
-      "parent": "h14",
-      "inputs": {
-        "VALUE": [
-          2,
-          "h16"
-        ]
-      },
       "fields": {
-        "VARIABLE": [
-          "i",
-          "v_i"
+        "OP": [
+          "-",
+          null
         ]
       },
       "shadow": false,
       "topLevel": false
     },
-    "h18": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h1",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "N",
-          "v_n"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h19": {
-      "opcode": "operator_subtract",
-      "next": null,
-      "parent": "h1",
-      "inputs": {
-        "NUM1": [
-          2,
-          "h18"
-        ],
-        "NUM2": [
-          1,
-          [
-            4,
-            "1"
-          ]
-        ]
-      },
-      "fields": {},
-      "shadow": false,
-      "topLevel": false
-    },
-    "h20": {
-      "opcode": "data_setvariableto",
-      "next": "h21",
-      "parent": "h7",
-      "inputs": {
-        "VALUE": [
-          2,
-          "h19"
-        ]
-      },
-      "fields": {
-        "VARIABLE": [
-          "i",
-          "v_i"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h21": {
+    "b15": {
       "opcode": "control_repeat",
-      "next": "h35",
-      "parent": "h20",
+      "next": "b21",
+      "parent": "b13",
       "inputs": {
         "TIMES": [
-          2,
-          "h22"
+          3,
+          "b16",
+          [
+            6,
+            ""
+          ]
         ],
         "SUBSTACK": [
           2,
-          "h23"
+          "b17"
         ]
       },
       "fields": {},
       "shadow": false,
       "topLevel": false
     },
-    "h22": {
-      "opcode": "data_variable",
+    "b16": {
+      "opcode": "judgeoperators_arithmetic",
       "next": null,
-      "parent": "h21",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "N",
-          "v_n"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h23": {
-      "opcode": "control_if",
-      "next": null,
-      "parent": "h21",
+      "parent": "b15",
       "inputs": {
-        "CONDITION": [
-          2,
-          "h25"
+        "NUM1": [
+          3,
+          [
+            12,
+            "山高",
+            "v1"
+          ],
+          [
+            4,
+            ""
+          ]
         ],
-        "SUBSTACK": [
-          2,
-          "h30"
-        ]
-      },
-      "fields": {},
-      "shadow": false,
-      "topLevel": false
-    },
-    "h24": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h23",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "i",
-          "v_i"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h25": {
-      "opcode": "operator_gt",
-      "next": null,
-      "parent": "h23",
-      "inputs": {
-        "OPERAND1": [
-          2,
-          "h24"
-        ],
-        "OPERAND2": [
+        "NUM2": [
           1,
           [
             4,
-            "0"
+            "1"
           ]
         ]
       },
-      "fields": {},
-      "shadow": false,
-      "topLevel": false
-    },
-    "h26": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h23",
-      "inputs": {},
       "fields": {
-        "VARIABLE": [
-          "結果",
-          "v_result"
+        "OP": [
+          "-",
+          null
         ]
       },
       "shadow": false,
       "topLevel": false
     },
-    "h27": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h23",
-      "inputs": {},
+    "b17": {
+      "opcode": "data_setvariableto",
+      "next": "b20",
+      "parent": "b15",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b19",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
       "fields": {
         "VARIABLE": [
-          "i",
-          "v_i"
+          "路線",
+          "v2"
         ]
       },
       "shadow": false,
       "topLevel": false
     },
-    "h28": {
+    "b18": {
       "opcode": "operator_join",
       "next": null,
-      "parent": "h23",
+      "parent": "b19",
       "inputs": {
         "STRING1": [
+          3,
+          [
+            12,
+            "路線",
+            "v2"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "STRING2": [
           1,
           [
             10,
             " "
           ]
-        ],
-        "STRING2": [
-          2,
-          "h27"
         ]
       },
       "fields": {},
       "shadow": false,
       "topLevel": false
     },
-    "h29": {
+    "b19": {
       "opcode": "operator_join",
       "next": null,
-      "parent": "h23",
+      "parent": "b17",
       "inputs": {
         "STRING1": [
-          2,
-          "h26"
+          3,
+          "b18",
+          [
+            10,
+            ""
+          ]
         ],
         "STRING2": [
-          2,
-          "h28"
-        ]
-      },
-      "fields": {},
-      "shadow": false,
-      "topLevel": false
-    },
-    "h30": {
-      "opcode": "data_setvariableto",
-      "next": "h33",
-      "parent": "h23",
-      "inputs": {
-        "VALUE": [
-          2,
-          "h29"
-        ]
-      },
-      "fields": {
-        "VARIABLE": [
-          "結果",
-          "v_result"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h31": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h23",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "i",
-          "v_i"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h32": {
-      "opcode": "operator_subtract",
-      "next": null,
-      "parent": "h23",
-      "inputs": {
-        "NUM1": [
-          2,
-          "h31"
-        ],
-        "NUM2": [
-          1,
+          3,
           [
-            4,
-            "1"
+            12,
+            "高度",
+            "v3"
+          ],
+          [
+            10,
+            ""
           ]
         ]
       },
@@ -567,53 +474,49 @@
       "shadow": false,
       "topLevel": false
     },
-    "h33": {
-      "opcode": "data_setvariableto",
+    "b20": {
+      "opcode": "data_changevariableby",
       "next": null,
-      "parent": "h30",
+      "parent": "b17",
       "inputs": {
         "VALUE": [
-          2,
-          "h32"
+          1,
+          [
+            4,
+            "-1"
+          ]
         ]
       },
       "fields": {
         "VARIABLE": [
-          "i",
-          "v_i"
+          "高度",
+          "v3"
         ]
       },
       "shadow": false,
       "topLevel": false
     },
-    "h34": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h1",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "結果",
-          "v_result"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h35": {
+    "b21": {
       "opcode": "looks_say",
       "next": null,
-      "parent": "h21",
+      "parent": "b15",
       "inputs": {
         "MESSAGE": [
-          2,
-          "h34"
+          3,
+          [
+            12,
+            "路線",
+            "v2"
+          ],
+          [
+            10,
+            ""
+          ]
         ]
       },
       "fields": {},
       "shadow": false,
       "topLevel": false
     }
-  },
-  "lists": {}
+  }
 }

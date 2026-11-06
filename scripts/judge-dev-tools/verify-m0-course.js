@@ -5,6 +5,7 @@ const fs = require('fs');
 const path = require('path');
 const VM = require('scratch-vm');
 const {gradeSubmission, prepareVmForGrading} = require('../../src/lib/tw-judge-engine.js');
+const registerJudgeExtensions = require('./load-judge-extensions.js');
 
 const COURSES_DIR = path.join(__dirname, '../../../YDWS-CodingBank/courses');
 // 課程編輯器（YDWS-CodingBank/tools/edit-server.mjs）套用教學版修改後的成品；有同名成品就優先讀成品。
@@ -54,6 +55,7 @@ function loadCourse(filename) {
             }
             const buffer = fs.readFileSync(sb3Path);
             const vm = new VM();
+            registerJudgeExtensions(vm);
             // eslint-disable-next-line no-await-in-loop
             await vm.loadProject(buffer);
             vm.start();

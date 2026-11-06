@@ -1,22 +1,32 @@
 {
   "variables": {
-    "v_n": [
-      "N",
-      ""
+    "v1": [
+      "數量",
+      0
     ],
-    "v_num": [
-      "數字",
-      ""
+    "v2": [
+      "件數",
+      0
     ],
-    "v_result": [
+    "v3": [
       "結果",
-      ""
+      0
+    ],
+    "v4": [
+      "第幾個",
+      0
+    ]
+  },
+  "lists": {
+    "L1": [
+      "重量",
+      []
     ]
   },
   "blocks": {
-    "h1": {
+    "b1": {
       "opcode": "event_whenflagclicked",
-      "next": "h2",
+      "next": "b2",
       "parent": null,
       "inputs": {},
       "fields": {},
@@ -25,16 +35,16 @@
       "x": 40,
       "y": 40
     },
-    "h2": {
+    "b2": {
       "opcode": "sensing_askandwait",
-      "next": "h4",
-      "parent": "h1",
+      "next": "b3",
+      "parent": "b1",
       "inputs": {
         "QUESTION": [
           1,
           [
             10,
-            "請輸入N"
+            ""
           ]
         ]
       },
@@ -42,38 +52,153 @@
       "shadow": false,
       "topLevel": false
     },
-    "h3": {
+    "b3": {
+      "opcode": "data_setvariableto",
+      "next": "b5",
+      "parent": "b2",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b4",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "數量",
+          "v1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b4": {
       "opcode": "sensing_answer",
       "next": null,
-      "parent": "h1",
+      "parent": "b3",
       "inputs": {},
       "fields": {},
       "shadow": false,
       "topLevel": false
     },
-    "h4": {
-      "opcode": "data_setvariableto",
-      "next": "h5",
-      "parent": "h2",
-      "inputs": {
-        "VALUE": [
-          2,
-          "h3"
-        ]
-      },
+    "b5": {
+      "opcode": "data_deletealloflist",
+      "next": "b6",
+      "parent": "b3",
+      "inputs": {},
       "fields": {
-        "VARIABLE": [
-          "N",
-          "v_n"
+        "LIST": [
+          "重量",
+          "L1"
         ]
       },
       "shadow": false,
       "topLevel": false
     },
-    "h5": {
+    "b6": {
+      "opcode": "control_repeat",
+      "next": "b10",
+      "parent": "b5",
+      "inputs": {
+        "TIMES": [
+          3,
+          [
+            12,
+            "數量",
+            "v1"
+          ],
+          [
+            6,
+            ""
+          ]
+        ],
+        "SUBSTACK": [
+          2,
+          "b7"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b7": {
+      "opcode": "sensing_askandwait",
+      "next": "b8",
+      "parent": "b6",
+      "inputs": {
+        "QUESTION": [
+          1,
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b8": {
+      "opcode": "data_addtolist",
+      "next": null,
+      "parent": "b7",
+      "inputs": {
+        "ITEM": [
+          3,
+          "b9",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "重量",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b9": {
+      "opcode": "sensing_answer",
+      "next": null,
+      "parent": "b8",
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b10": {
       "opcode": "data_setvariableto",
-      "next": "h6",
-      "parent": "h4",
+      "next": "b11",
+      "parent": "b6",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "0"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "件數",
+          "v2"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b11": {
+      "opcode": "data_setvariableto",
+      "next": "b12",
+      "parent": "b10",
       "inputs": {
         "VALUE": [
           1,
@@ -86,346 +211,411 @@
       "fields": {
         "VARIABLE": [
           "結果",
-          "v_result"
+          "v3"
         ]
       },
       "shadow": false,
       "topLevel": false
     },
-    "h6": {
+    "b12": {
+      "opcode": "data_setvariableto",
+      "next": "b13",
+      "parent": "b11",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "第幾個",
+          "v4"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b13": {
       "opcode": "control_repeat",
-      "next": "h25",
-      "parent": "h5",
+      "next": "b27",
+      "parent": "b12",
       "inputs": {
         "TIMES": [
-          2,
-          "h7"
+          3,
+          [
+            12,
+            "數量",
+            "v1"
+          ],
+          [
+            6,
+            ""
+          ]
         ],
         "SUBSTACK": [
           2,
-          "h8"
+          "b14"
         ]
       },
       "fields": {},
       "shadow": false,
       "topLevel": false
     },
-    "h7": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h6",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "N",
-          "v_n"
+    "b14": {
+      "opcode": "control_if",
+      "next": "b26",
+      "parent": "b13",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b15"
+        ],
+        "SUBSTACK": [
+          2,
+          "b17"
         ]
       },
+      "fields": {},
       "shadow": false,
       "topLevel": false
     },
-    "h8": {
-      "opcode": "sensing_askandwait",
-      "next": "h10",
-      "parent": "h6",
+    "b15": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b14",
       "inputs": {
-        "QUESTION": [
-          1,
+        "OPERAND1": [
+          3,
+          "b16",
           [
             10,
             ""
           ]
-        ]
-      },
-      "fields": {},
-      "shadow": false,
-      "topLevel": false
-    },
-    "h9": {
-      "opcode": "sensing_answer",
-      "next": null,
-      "parent": "h6",
-      "inputs": {},
-      "fields": {},
-      "shadow": false,
-      "topLevel": false
-    },
-    "h10": {
-      "opcode": "data_setvariableto",
-      "next": "h11",
-      "parent": "h8",
-      "inputs": {
-        "VALUE": [
-          2,
-          "h9"
-        ]
-      },
-      "fields": {
-        "VARIABLE": [
-          "數字",
-          "v_num"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h11": {
-      "opcode": "control_if",
-      "next": null,
-      "parent": "h10",
-      "inputs": {
-        "CONDITION": [
-          2,
-          "h13"
-        ],
-        "SUBSTACK": [
-          2,
-          "h14"
-        ]
-      },
-      "fields": {},
-      "shadow": false,
-      "topLevel": false
-    },
-    "h12": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h11",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "數字",
-          "v_num"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h13": {
-      "opcode": "operator_lt",
-      "next": null,
-      "parent": "h11",
-      "inputs": {
-        "OPERAND1": [
-          2,
-          "h12"
         ],
         "OPERAND2": [
           1,
           [
-            4,
+            10,
             "10"
           ]
         ]
       },
-      "fields": {},
+      "fields": {
+        "OP": [
+          "<",
+          null
+        ]
+      },
       "shadow": false,
       "topLevel": false
     },
-    "h14": {
+    "b16": {
+      "opcode": "data_itemoflist",
+      "next": null,
+      "parent": "b15",
+      "inputs": {
+        "INDEX": [
+          3,
+          [
+            12,
+            "第幾個",
+            "v4"
+          ],
+          [
+            7,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "重量",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b17": {
+      "opcode": "data_changevariableby",
+      "next": "b18",
+      "parent": "b14",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            4,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "件數",
+          "v2"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b18": {
       "opcode": "control_if_else",
       "next": null,
-      "parent": "h11",
+      "parent": "b17",
       "inputs": {
         "CONDITION": [
           2,
-          "h16"
+          "b19"
         ],
         "SUBSTACK": [
           2,
-          "h18"
+          "b20"
         ],
         "SUBSTACK2": [
           2,
-          "h23"
+          "b22"
         ]
       },
       "fields": {},
       "shadow": false,
       "topLevel": false
     },
-    "h15": {
-      "opcode": "data_variable",
+    "b19": {
+      "opcode": "judgeoperators_compare",
       "next": null,
-      "parent": "h14",
-      "inputs": {},
+      "parent": "b18",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "件數",
+            "v2"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          1,
+          [
+            10,
+            "1"
+          ]
+        ]
+      },
       "fields": {
-        "VARIABLE": [
-          "結果",
-          "v_result"
+        "OP": [
+          "=",
+          null
         ]
       },
       "shadow": false,
       "topLevel": false
     },
-    "h16": {
-      "opcode": "operator_equals",
+    "b20": {
+      "opcode": "data_setvariableto",
       "next": null,
-      "parent": "h14",
+      "parent": "b18",
       "inputs": {
-        "OPERAND1": [
-          2,
-          "h15"
-        ],
-        "OPERAND2": [
-          1,
+        "VALUE": [
+          3,
+          "b21",
           [
             10,
             ""
           ]
         ]
       },
-      "fields": {},
-      "shadow": false,
-      "topLevel": false
-    },
-    "h17": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h14",
-      "inputs": {},
       "fields": {
         "VARIABLE": [
-          "數字",
-          "v_num"
+          "結果",
+          "v3"
         ]
       },
       "shadow": false,
       "topLevel": false
     },
-    "h18": {
+    "b21": {
+      "opcode": "data_itemoflist",
+      "next": null,
+      "parent": "b20",
+      "inputs": {
+        "INDEX": [
+          3,
+          [
+            12,
+            "第幾個",
+            "v4"
+          ],
+          [
+            7,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "重量",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b22": {
       "opcode": "data_setvariableto",
       "next": null,
-      "parent": "h14",
+      "parent": "b18",
       "inputs": {
         "VALUE": [
-          2,
-          "h17"
+          3,
+          "b24",
+          [
+            10,
+            ""
+          ]
         ]
       },
       "fields": {
         "VARIABLE": [
           "結果",
-          "v_result"
+          "v3"
         ]
       },
       "shadow": false,
       "topLevel": false
     },
-    "h19": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h14",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "結果",
-          "v_result"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h20": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h14",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "數字",
-          "v_num"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h21": {
+    "b23": {
       "opcode": "operator_join",
       "next": null,
-      "parent": "h14",
+      "parent": "b24",
       "inputs": {
         "STRING1": [
+          3,
+          [
+            12,
+            "結果",
+            "v3"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "STRING2": [
           1,
           [
             10,
             " "
           ]
-        ],
-        "STRING2": [
-          2,
-          "h20"
         ]
       },
       "fields": {},
       "shadow": false,
       "topLevel": false
     },
-    "h22": {
+    "b24": {
       "opcode": "operator_join",
       "next": null,
-      "parent": "h14",
+      "parent": "b22",
       "inputs": {
         "STRING1": [
-          2,
-          "h19"
+          3,
+          "b23",
+          [
+            10,
+            ""
+          ]
         ],
         "STRING2": [
-          2,
-          "h21"
+          3,
+          "b25",
+          [
+            10,
+            ""
+          ]
         ]
       },
       "fields": {},
       "shadow": false,
       "topLevel": false
     },
-    "h23": {
-      "opcode": "data_setvariableto",
+    "b25": {
+      "opcode": "data_itemoflist",
       "next": null,
-      "parent": "h14",
+      "parent": "b24",
+      "inputs": {
+        "INDEX": [
+          3,
+          [
+            12,
+            "第幾個",
+            "v4"
+          ],
+          [
+            7,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "重量",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b26": {
+      "opcode": "data_changevariableby",
+      "next": null,
+      "parent": "b14",
       "inputs": {
         "VALUE": [
-          2,
-          "h22"
+          1,
+          [
+            4,
+            "1"
+          ]
         ]
       },
       "fields": {
         "VARIABLE": [
-          "結果",
-          "v_result"
+          "第幾個",
+          "v4"
         ]
       },
       "shadow": false,
       "topLevel": false
     },
-    "h24": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h1",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "結果",
-          "v_result"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h25": {
+    "b27": {
       "opcode": "looks_say",
       "next": null,
-      "parent": "h6",
+      "parent": "b13",
       "inputs": {
         "MESSAGE": [
-          2,
-          "h24"
+          3,
+          [
+            12,
+            "結果",
+            "v3"
+          ],
+          [
+            10,
+            ""
+          ]
         ]
       },
       "fields": {},
       "shadow": false,
       "topLevel": false
     }
-  },
-  "lists": {}
+  }
 }

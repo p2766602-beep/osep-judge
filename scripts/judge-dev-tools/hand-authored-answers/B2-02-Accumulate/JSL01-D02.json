@@ -1,22 +1,23 @@
 {
   "variables": {
-    "v_n": [
-      "N",
-      ""
+    "v1": [
+      "終點",
+      0
     ],
-    "v_sum": [
+    "v2": [
       "總和",
-      ""
+      0
     ],
-    "v_i": [
-      "i",
-      ""
+    "v3": [
+      "數字",
+      0
     ]
   },
+  "lists": {},
   "blocks": {
-    "h1": {
+    "b1": {
       "opcode": "event_whenflagclicked",
-      "next": "h2",
+      "next": "b2",
       "parent": null,
       "inputs": {},
       "fields": {},
@@ -25,16 +26,16 @@
       "x": 40,
       "y": 40
     },
-    "h2": {
+    "b2": {
       "opcode": "sensing_askandwait",
-      "next": "h4",
-      "parent": "h1",
+      "next": "b3",
+      "parent": "b1",
       "inputs": {
         "QUESTION": [
           1,
           [
             10,
-            "請輸入N"
+            ""
           ]
         ]
       },
@@ -42,43 +43,47 @@
       "shadow": false,
       "topLevel": false
     },
-    "h3": {
+    "b3": {
+      "opcode": "data_setvariableto",
+      "next": "b5",
+      "parent": "b2",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b4",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "終點",
+          "v1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b4": {
       "opcode": "sensing_answer",
       "next": null,
-      "parent": "h1",
+      "parent": "b3",
       "inputs": {},
       "fields": {},
       "shadow": false,
       "topLevel": false
     },
-    "h4": {
+    "b5": {
       "opcode": "data_setvariableto",
-      "next": "h5",
-      "parent": "h2",
-      "inputs": {
-        "VALUE": [
-          2,
-          "h3"
-        ]
-      },
-      "fields": {
-        "VARIABLE": [
-          "N",
-          "v_n"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h5": {
-      "opcode": "data_setvariableto",
-      "next": "h6",
-      "parent": "h4",
+      "next": "b6",
+      "parent": "b3",
       "inputs": {
         "VALUE": [
           1,
           [
-            4,
+            10,
             "0"
           ]
         ]
@@ -86,155 +91,93 @@
       "fields": {
         "VARIABLE": [
           "總和",
-          "v_sum"
+          "v2"
         ]
       },
       "shadow": false,
       "topLevel": false
     },
-    "h6": {
+    "b6": {
       "opcode": "data_setvariableto",
-      "next": "h7",
-      "parent": "h5",
+      "next": "b7",
+      "parent": "b5",
       "inputs": {
         "VALUE": [
           1,
           [
-            4,
+            10,
             "1"
           ]
         ]
       },
       "fields": {
         "VARIABLE": [
-          "i",
-          "v_i"
+          "數字",
+          "v3"
         ]
       },
       "shadow": false,
       "topLevel": false
     },
-    "h8": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h7",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "N",
-          "v_n"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h7": {
+    "b7": {
       "opcode": "control_repeat",
-      "next": "h17",
-      "parent": "h6",
+      "next": "b10",
+      "parent": "b6",
       "inputs": {
         "TIMES": [
-          2,
-          "h8"
+          3,
+          [
+            12,
+            "終點",
+            "v1"
+          ],
+          [
+            6,
+            ""
+          ]
         ],
         "SUBSTACK": [
           2,
-          "h12"
+          "b8"
         ]
       },
       "fields": {},
       "shadow": false,
       "topLevel": false
     },
-    "h9": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h7",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "總和",
-          "v_sum"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h10": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h7",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "i",
-          "v_i"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h11": {
-      "opcode": "operator_add",
-      "next": null,
-      "parent": "h7",
-      "inputs": {
-        "NUM1": [
-          2,
-          "h9"
-        ],
-        "NUM2": [
-          2,
-          "h10"
-        ]
-      },
-      "fields": {},
-      "shadow": false,
-      "topLevel": false
-    },
-    "h12": {
-      "opcode": "data_setvariableto",
-      "next": "h15",
-      "parent": "h7",
+    "b8": {
+      "opcode": "data_changevariableby",
+      "next": "b9",
+      "parent": "b7",
       "inputs": {
         "VALUE": [
-          2,
-          "h11"
+          3,
+          [
+            12,
+            "數字",
+            "v3"
+          ],
+          [
+            4,
+            ""
+          ]
         ]
       },
       "fields": {
         "VARIABLE": [
           "總和",
-          "v_sum"
+          "v2"
         ]
       },
       "shadow": false,
       "topLevel": false
     },
-    "h13": {
-      "opcode": "data_variable",
+    "b9": {
+      "opcode": "data_changevariableby",
       "next": null,
-      "parent": "h7",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "i",
-          "v_i"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h14": {
-      "opcode": "operator_add",
-      "next": null,
-      "parent": "h7",
+      "parent": "b8",
       "inputs": {
-        "NUM1": [
-          2,
-          "h13"
-        ],
-        "NUM2": [
+        "VALUE": [
           1,
           [
             4,
@@ -242,57 +185,36 @@
           ]
         ]
       },
-      "fields": {},
-      "shadow": false,
-      "topLevel": false
-    },
-    "h15": {
-      "opcode": "data_setvariableto",
-      "next": null,
-      "parent": "h12",
-      "inputs": {
-        "VALUE": [
-          2,
-          "h14"
-        ]
-      },
       "fields": {
         "VARIABLE": [
-          "i",
-          "v_i"
+          "數字",
+          "v3"
         ]
       },
       "shadow": false,
       "topLevel": false
     },
-    "h16": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h1",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "總和",
-          "v_sum"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h17": {
+    "b10": {
       "opcode": "looks_say",
       "next": null,
-      "parent": "h7",
+      "parent": "b7",
       "inputs": {
         "MESSAGE": [
-          2,
-          "h16"
+          3,
+          [
+            12,
+            "總和",
+            "v2"
+          ],
+          [
+            10,
+            ""
+          ]
         ]
       },
       "fields": {},
       "shadow": false,
       "topLevel": false
     }
-  },
-  "lists": {}
+  }
 }

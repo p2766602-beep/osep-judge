@@ -1,22 +1,23 @@
 {
   "variables": {
-    "v_s": [
-      "S",
-      ""
+    "v1": [
+      "字串",
+      0
     ],
-    "v_i": [
-      "i",
-      ""
+    "v2": [
+      "結果",
+      0
     ],
-    "v_result": [
-      "反向結果",
-      ""
+    "v3": [
+      "第幾個",
+      0
     ]
   },
+  "lists": {},
   "blocks": {
-    "h1": {
+    "b1": {
       "opcode": "event_whenflagclicked",
-      "next": "h2",
+      "next": "b2",
       "parent": null,
       "inputs": {},
       "fields": {},
@@ -25,16 +26,16 @@
       "x": 40,
       "y": 40
     },
-    "h2": {
+    "b2": {
       "opcode": "sensing_askandwait",
-      "next": "h4",
-      "parent": "h1",
+      "next": "b3",
+      "parent": "b1",
       "inputs": {
         "QUESTION": [
           1,
           [
             10,
-            "請輸入S"
+            ""
           ]
         ]
       },
@@ -42,38 +43,94 @@
       "shadow": false,
       "topLevel": false
     },
-    "h3": {
+    "b3": {
+      "opcode": "data_setvariableto",
+      "next": "b5",
+      "parent": "b2",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b4",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "字串",
+          "v1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b4": {
       "opcode": "sensing_answer",
       "next": null,
-      "parent": "h1",
+      "parent": "b3",
       "inputs": {},
       "fields": {},
       "shadow": false,
       "topLevel": false
     },
-    "h4": {
+    "b5": {
       "opcode": "data_setvariableto",
-      "next": "h5",
-      "parent": "h2",
+      "next": "b7",
+      "parent": "b3",
       "inputs": {
         "VALUE": [
-          2,
-          "h3"
+          3,
+          "b6",
+          [
+            10,
+            ""
+          ]
         ]
       },
       "fields": {
         "VARIABLE": [
-          "S",
-          "v_s"
+          "字串",
+          "v1"
         ]
       },
       "shadow": false,
       "topLevel": false
     },
-    "h5": {
+    "b6": {
+      "opcode": "operator_join",
+      "next": null,
+      "parent": "b5",
+      "inputs": {
+        "STRING1": [
+          1,
+          [
+            10,
+            ""
+          ]
+        ],
+        "STRING2": [
+          3,
+          [
+            12,
+            "字串",
+            "v1"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b7": {
       "opcode": "data_setvariableto",
-      "next": "h8",
-      "parent": "h4",
+      "next": "b8",
+      "parent": "b5",
       "inputs": {
         "VALUE": [
           1,
@@ -85,106 +142,95 @@
       },
       "fields": {
         "VARIABLE": [
-          "反向結果",
-          "v_result"
+          "結果",
+          "v2"
         ]
       },
       "shadow": false,
       "topLevel": false
     },
-    "h6": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h1",
-      "inputs": {},
+    "b8": {
+      "opcode": "data_setvariableto",
+      "next": "b10",
+      "parent": "b7",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b9",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
       "fields": {
         "VARIABLE": [
-          "S",
-          "v_s"
+          "第幾個",
+          "v3"
         ]
       },
       "shadow": false,
       "topLevel": false
     },
-    "h7": {
+    "b9": {
       "opcode": "operator_length",
       "next": null,
-      "parent": "h1",
+      "parent": "b8",
       "inputs": {
         "STRING": [
-          2,
-          "h6"
+          3,
+          [
+            12,
+            "字串",
+            "v1"
+          ],
+          [
+            10,
+            ""
+          ]
         ]
       },
       "fields": {},
       "shadow": false,
       "topLevel": false
     },
-    "h8": {
-      "opcode": "data_setvariableto",
-      "next": "h9",
-      "parent": "h5",
+    "b10": {
+      "opcode": "control_repeat",
+      "next": "b16",
+      "parent": "b8",
       "inputs": {
-        "VALUE": [
-          2,
-          "h7"
-        ]
-      },
-      "fields": {
-        "VARIABLE": [
-          "i",
-          "v_i"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h9": {
-      "opcode": "control_repeat_until",
-      "next": "h22",
-      "parent": "h8",
-      "inputs": {
-        "CONDITION": [
-          2,
-          "h11"
+        "TIMES": [
+          3,
+          "b11",
+          [
+            6,
+            ""
+          ]
         ],
         "SUBSTACK": [
           2,
-          "h17"
+          "b12"
         ]
       },
       "fields": {},
       "shadow": false,
       "topLevel": false
     },
-    "h10": {
-      "opcode": "data_variable",
+    "b11": {
+      "opcode": "operator_length",
       "next": null,
-      "parent": "h9",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "i",
-          "v_i"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h11": {
-      "opcode": "operator_lt",
-      "next": null,
-      "parent": "h9",
+      "parent": "b10",
       "inputs": {
-        "OPERAND1": [
-          2,
-          "h10"
-        ],
-        "OPERAND2": [
-          1,
+        "STRING": [
+          3,
           [
-            4,
-            "1"
+            12,
+            "字串",
+            "v1"
+          ],
+          [
+            10,
+            ""
           ]
         ]
       },
@@ -192,131 +238,52 @@
       "shadow": false,
       "topLevel": false
     },
-    "h12": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h9",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "反向結果",
-          "v_result"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h13": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h9",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "i",
-          "v_i"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h14": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h9",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "S",
-          "v_s"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h15": {
-      "opcode": "operator_letter_of",
-      "next": null,
-      "parent": "h9",
+    "b12": {
+      "opcode": "data_setvariableto",
+      "next": "b15",
+      "parent": "b10",
       "inputs": {
-        "LETTER": [
-          2,
-          "h13"
-        ],
-        "STRING": [
-          2,
-          "h14"
+        "VALUE": [
+          3,
+          "b13",
+          [
+            10,
+            ""
+          ]
         ]
       },
-      "fields": {},
+      "fields": {
+        "VARIABLE": [
+          "結果",
+          "v2"
+        ]
+      },
       "shadow": false,
       "topLevel": false
     },
-    "h16": {
+    "b13": {
       "opcode": "operator_join",
       "next": null,
-      "parent": "h9",
+      "parent": "b12",
       "inputs": {
         "STRING1": [
-          2,
-          "h12"
+          3,
+          [
+            12,
+            "結果",
+            "v2"
+          ],
+          [
+            10,
+            ""
+          ]
         ],
         "STRING2": [
-          2,
-          "h15"
-        ]
-      },
-      "fields": {},
-      "shadow": false,
-      "topLevel": false
-    },
-    "h17": {
-      "opcode": "data_setvariableto",
-      "next": "h20",
-      "parent": "h9",
-      "inputs": {
-        "VALUE": [
-          2,
-          "h16"
-        ]
-      },
-      "fields": {
-        "VARIABLE": [
-          "反向結果",
-          "v_result"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h18": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h9",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "i",
-          "v_i"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h19": {
-      "opcode": "operator_subtract",
-      "next": null,
-      "parent": "h9",
-      "inputs": {
-        "NUM1": [
-          2,
-          "h18"
-        ],
-        "NUM2": [
-          1,
+          3,
+          "b14",
           [
-            4,
-            "1"
+            10,
+            ""
           ]
         ]
       },
@@ -324,53 +291,83 @@
       "shadow": false,
       "topLevel": false
     },
-    "h20": {
-      "opcode": "data_setvariableto",
+    "b14": {
+      "opcode": "operator_letter_of",
       "next": null,
-      "parent": "h17",
+      "parent": "b13",
+      "inputs": {
+        "LETTER": [
+          3,
+          [
+            12,
+            "第幾個",
+            "v3"
+          ],
+          [
+            6,
+            ""
+          ]
+        ],
+        "STRING": [
+          3,
+          [
+            12,
+            "字串",
+            "v1"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b15": {
+      "opcode": "data_changevariableby",
+      "next": null,
+      "parent": "b12",
       "inputs": {
         "VALUE": [
-          2,
-          "h19"
+          1,
+          [
+            4,
+            "-1"
+          ]
         ]
       },
       "fields": {
         "VARIABLE": [
-          "i",
-          "v_i"
+          "第幾個",
+          "v3"
         ]
       },
       "shadow": false,
       "topLevel": false
     },
-    "h21": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h1",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "反向結果",
-          "v_result"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h22": {
+    "b16": {
       "opcode": "looks_say",
       "next": null,
-      "parent": "h9",
+      "parent": "b10",
       "inputs": {
         "MESSAGE": [
-          2,
-          "h21"
+          3,
+          [
+            12,
+            "結果",
+            "v2"
+          ],
+          [
+            10,
+            ""
+          ]
         ]
       },
       "fields": {},
       "shadow": false,
       "topLevel": false
     }
-  },
-  "lists": {}
+  }
 }

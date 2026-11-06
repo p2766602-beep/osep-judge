@@ -1,22 +1,32 @@
 {
   "variables": {
-    "v_n": [
-      "N",
-      ""
+    "v1": [
+      "人數",
+      0
     ],
-    "v_count": [
+    "v2": [
       "通過人數",
-      ""
+      0
     ],
-    "v_num": [
+    "v3": [
+      "第幾位",
+      0
+    ],
+    "v4": [
+      "通過率",
+      0
+    ]
+  },
+  "lists": {
+    "L1": [
       "成績",
-      ""
+      []
     ]
   },
   "blocks": {
-    "h1": {
+    "b1": {
       "opcode": "event_whenflagclicked",
-      "next": "h2",
+      "next": "b2",
       "parent": null,
       "inputs": {},
       "fields": {},
@@ -25,109 +35,10 @@
       "x": 40,
       "y": 40
     },
-    "h2": {
+    "b2": {
       "opcode": "sensing_askandwait",
-      "next": "h4",
-      "parent": "h1",
-      "inputs": {
-        "QUESTION": [
-          1,
-          [
-            10,
-            "請輸入N"
-          ]
-        ]
-      },
-      "fields": {},
-      "shadow": false,
-      "topLevel": false
-    },
-    "h3": {
-      "opcode": "sensing_answer",
-      "next": null,
-      "parent": "h1",
-      "inputs": {},
-      "fields": {},
-      "shadow": false,
-      "topLevel": false
-    },
-    "h4": {
-      "opcode": "data_setvariableto",
-      "next": "h5",
-      "parent": "h2",
-      "inputs": {
-        "VALUE": [
-          2,
-          "h3"
-        ]
-      },
-      "fields": {
-        "VARIABLE": [
-          "N",
-          "v_n"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h5": {
-      "opcode": "data_setvariableto",
-      "next": "h6",
-      "parent": "h4",
-      "inputs": {
-        "VALUE": [
-          1,
-          [
-            4,
-            "0"
-          ]
-        ]
-      },
-      "fields": {
-        "VARIABLE": [
-          "通過人數",
-          "v_count"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h6": {
-      "opcode": "control_repeat",
-      "next": "h26",
-      "parent": "h5",
-      "inputs": {
-        "TIMES": [
-          2,
-          "h7"
-        ],
-        "SUBSTACK": [
-          2,
-          "h8"
-        ]
-      },
-      "fields": {},
-      "shadow": false,
-      "topLevel": false
-    },
-    "h7": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h6",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "N",
-          "v_n"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h8": {
-      "opcode": "sensing_askandwait",
-      "next": "h10",
-      "parent": "h6",
+      "next": "b3",
+      "parent": "b1",
       "inputs": {
         "QUESTION": [
           1,
@@ -141,80 +52,88 @@
       "shadow": false,
       "topLevel": false
     },
-    "h9": {
+    "b3": {
+      "opcode": "data_setvariableto",
+      "next": "b5",
+      "parent": "b2",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b4",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "人數",
+          "v1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b4": {
       "opcode": "sensing_answer",
       "next": null,
-      "parent": "h6",
+      "parent": "b3",
       "inputs": {},
       "fields": {},
       "shadow": false,
       "topLevel": false
     },
-    "h10": {
-      "opcode": "data_setvariableto",
-      "next": "h11",
-      "parent": "h8",
-      "inputs": {
-        "VALUE": [
-          2,
-          "h9"
-        ]
-      },
+    "b5": {
+      "opcode": "data_deletealloflist",
+      "next": "b6",
+      "parent": "b3",
+      "inputs": {},
       "fields": {
-        "VARIABLE": [
+        "LIST": [
           "成績",
-          "v_num"
+          "L1"
         ]
       },
       "shadow": false,
       "topLevel": false
     },
-    "h11": {
-      "opcode": "control_if",
-      "next": null,
-      "parent": "h10",
+    "b6": {
+      "opcode": "control_repeat",
+      "next": "b10",
+      "parent": "b5",
       "inputs": {
-        "CONDITION": [
-          2,
-          "h14"
+        "TIMES": [
+          3,
+          [
+            12,
+            "人數",
+            "v1"
+          ],
+          [
+            6,
+            ""
+          ]
         ],
         "SUBSTACK": [
           2,
-          "h17"
+          "b7"
         ]
       },
       "fields": {},
       "shadow": false,
       "topLevel": false
     },
-    "h12": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h11",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "成績",
-          "v_num"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h13": {
-      "opcode": "operator_lt",
-      "next": null,
-      "parent": "h11",
+    "b7": {
+      "opcode": "sensing_askandwait",
+      "next": "b8",
+      "parent": "b6",
       "inputs": {
-        "OPERAND1": [
-          2,
-          "h12"
-        ],
-        "OPERAND2": [
+        "QUESTION": [
           1,
           [
-            4,
-            "60"
+            10,
+            ""
           ]
         ]
       },
@@ -222,44 +141,189 @@
       "shadow": false,
       "topLevel": false
     },
-    "h14": {
-      "opcode": "operator_not",
+    "b8": {
+      "opcode": "data_addtolist",
       "next": null,
-      "parent": "h11",
+      "parent": "b7",
       "inputs": {
-        "OPERAND": [
+        "ITEM": [
+          3,
+          "b9",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "成績",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b9": {
+      "opcode": "sensing_answer",
+      "next": null,
+      "parent": "b8",
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b10": {
+      "opcode": "data_setvariableto",
+      "next": "b11",
+      "parent": "b6",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "0"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "通過人數",
+          "v2"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b11": {
+      "opcode": "data_setvariableto",
+      "next": "b12",
+      "parent": "b10",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "第幾位",
+          "v3"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b12": {
+      "opcode": "control_repeat",
+      "next": "b18",
+      "parent": "b11",
+      "inputs": {
+        "TIMES": [
+          3,
+          [
+            12,
+            "人數",
+            "v1"
+          ],
+          [
+            6,
+            ""
+          ]
+        ],
+        "SUBSTACK": [
           2,
-          "h13"
+          "b13"
         ]
       },
       "fields": {},
       "shadow": false,
       "topLevel": false
     },
-    "h15": {
-      "opcode": "data_variable",
+    "b13": {
+      "opcode": "control_if",
+      "next": "b17",
+      "parent": "b12",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b14"
+        ],
+        "SUBSTACK": [
+          2,
+          "b16"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b14": {
+      "opcode": "judgeoperators_compare",
       "next": null,
-      "parent": "h11",
-      "inputs": {},
+      "parent": "b13",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          "b15",
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          1,
+          [
+            10,
+            "60"
+          ]
+        ]
+      },
       "fields": {
-        "VARIABLE": [
-          "通過人數",
-          "v_count"
+        "OP": [
+          ">=",
+          null
         ]
       },
       "shadow": false,
       "topLevel": false
     },
-    "h16": {
-      "opcode": "operator_add",
+    "b15": {
+      "opcode": "data_itemoflist",
       "next": null,
-      "parent": "h11",
+      "parent": "b14",
       "inputs": {
-        "NUM1": [
-          2,
-          "h15"
-        ],
-        "NUM2": [
+        "INDEX": [
+          3,
+          [
+            12,
+            "第幾位",
+            "v3"
+          ],
+          [
+            7,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "成績",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b16": {
+      "opcode": "data_changevariableby",
+      "next": null,
+      "parent": "b13",
+      "inputs": {
+        "VALUE": [
           1,
           [
             4,
@@ -267,104 +331,72 @@
           ]
         ]
       },
-      "fields": {},
+      "fields": {
+        "VARIABLE": [
+          "通過人數",
+          "v2"
+        ]
+      },
       "shadow": false,
       "topLevel": false
     },
-    "h17": {
-      "opcode": "data_setvariableto",
+    "b17": {
+      "opcode": "data_changevariableby",
       "next": null,
-      "parent": "h11",
+      "parent": "b13",
       "inputs": {
         "VALUE": [
-          2,
-          "h16"
-        ]
-      },
-      "fields": {
-        "VARIABLE": [
-          "通過人數",
-          "v_count"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h18": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h1",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "通過人數",
-          "v_count"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h19": {
-      "opcode": "operator_multiply",
-      "next": null,
-      "parent": "h1",
-      "inputs": {
-        "NUM1": [
-          2,
-          "h18"
-        ],
-        "NUM2": [
           1,
           [
             4,
-            "100"
+            "1"
           ]
         ]
       },
-      "fields": {},
-      "shadow": false,
-      "topLevel": false
-    },
-    "h20": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h1",
-      "inputs": {},
       "fields": {
         "VARIABLE": [
-          "N",
-          "v_n"
+          "第幾位",
+          "v3"
         ]
       },
       "shadow": false,
       "topLevel": false
     },
-    "h21": {
-      "opcode": "operator_divide",
-      "next": null,
-      "parent": "h1",
+    "b18": {
+      "opcode": "data_setvariableto",
+      "next": "b22",
+      "parent": "b12",
       "inputs": {
-        "NUM1": [
-          2,
-          "h19"
-        ],
-        "NUM2": [
-          2,
-          "h20"
+        "VALUE": [
+          3,
+          "b19",
+          [
+            10,
+            ""
+          ]
         ]
       },
-      "fields": {},
+      "fields": {
+        "VARIABLE": [
+          "通過率",
+          "v4"
+        ]
+      },
       "shadow": false,
       "topLevel": false
     },
-    "h22": {
+    "b19": {
       "opcode": "operator_mathop",
       "next": null,
-      "parent": "h1",
+      "parent": "b18",
       "inputs": {
         "NUM": [
-          2,
-          "h21"
+          3,
+          "b20",
+          [
+            4,
+            ""
+          ]
         ]
       },
       "fields": {
@@ -376,28 +408,109 @@
       "shadow": false,
       "topLevel": false
     },
-    "h23": {
-      "opcode": "data_variable",
+    "b20": {
+      "opcode": "judgeoperators_arithmetic",
       "next": null,
-      "parent": "h1",
-      "inputs": {},
+      "parent": "b19",
+      "inputs": {
+        "NUM1": [
+          3,
+          "b21",
+          [
+            4,
+            ""
+          ]
+        ],
+        "NUM2": [
+          3,
+          [
+            12,
+            "人數",
+            "v1"
+          ],
+          [
+            4,
+            ""
+          ]
+        ]
+      },
       "fields": {
-        "VARIABLE": [
-          "通過人數",
-          "v_count"
+        "OP": [
+          "/",
+          null
         ]
       },
       "shadow": false,
       "topLevel": false
     },
-    "h24": {
+    "b21": {
+      "opcode": "judgeoperators_arithmetic",
+      "next": null,
+      "parent": "b20",
+      "inputs": {
+        "NUM1": [
+          3,
+          [
+            12,
+            "通過人數",
+            "v2"
+          ],
+          [
+            4,
+            ""
+          ]
+        ],
+        "NUM2": [
+          1,
+          [
+            4,
+            "100"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "*",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b22": {
+      "opcode": "looks_say",
+      "next": null,
+      "parent": "b18",
+      "inputs": {
+        "MESSAGE": [
+          3,
+          "b24",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b23": {
       "opcode": "operator_join",
       "next": null,
-      "parent": "h1",
+      "parent": "b24",
       "inputs": {
         "STRING1": [
-          2,
-          "h23"
+          3,
+          [
+            12,
+            "通過人數",
+            "v2"
+          ],
+          [
+            10,
+            ""
+          ]
         ],
         "STRING2": [
           1,
@@ -411,38 +524,35 @@
       "shadow": false,
       "topLevel": false
     },
-    "h25": {
+    "b24": {
       "opcode": "operator_join",
       "next": null,
-      "parent": "h1",
+      "parent": "b22",
       "inputs": {
         "STRING1": [
-          2,
-          "h24"
+          3,
+          "b23",
+          [
+            10,
+            ""
+          ]
         ],
         "STRING2": [
-          2,
-          "h22"
-        ]
-      },
-      "fields": {},
-      "shadow": false,
-      "topLevel": false
-    },
-    "h26": {
-      "opcode": "looks_say",
-      "next": null,
-      "parent": "h6",
-      "inputs": {
-        "MESSAGE": [
-          2,
-          "h25"
+          3,
+          [
+            12,
+            "通過率",
+            "v4"
+          ],
+          [
+            10,
+            ""
+          ]
         ]
       },
       "fields": {},
       "shadow": false,
       "topLevel": false
     }
-  },
-  "lists": {}
+  }
 }

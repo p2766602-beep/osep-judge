@@ -1,38 +1,39 @@
 {
   "variables": {
-    "v_n": [
-      "N",
-      ""
+    "v1": [
+      "票數",
+      0
     ],
-    "v_vote": [
-      "票",
-      ""
+    "v2": [
+      "一號票",
+      0
     ],
-    "v_c1": [
-      "C1",
-      ""
+    "v3": [
+      "二號票",
+      0
     ],
-    "v_c2": [
-      "C2",
-      ""
+    "v4": [
+      "三號票",
+      0
     ],
-    "v_c3": [
-      "C3",
-      ""
+    "v5": [
+      "款式",
+      0
     ],
-    "v_maxval": [
-      "最高票數",
-      ""
+    "v6": [
+      "最高票",
+      0
     ],
-    "v_tiecount": [
+    "v7": [
       "並列數",
-      ""
+      0
     ]
   },
+  "lists": {},
   "blocks": {
-    "h1": {
+    "b1": {
       "opcode": "event_whenflagclicked",
-      "next": "h2",
+      "next": "b2",
       "parent": null,
       "inputs": {},
       "fields": {},
@@ -41,153 +42,10 @@
       "x": 40,
       "y": 40
     },
-    "h2": {
+    "b2": {
       "opcode": "sensing_askandwait",
-      "next": "h4",
-      "parent": "h1",
-      "inputs": {
-        "QUESTION": [
-          1,
-          [
-            10,
-            "請輸入N"
-          ]
-        ]
-      },
-      "fields": {},
-      "shadow": false,
-      "topLevel": false
-    },
-    "h3": {
-      "opcode": "sensing_answer",
-      "next": null,
-      "parent": "h1",
-      "inputs": {},
-      "fields": {},
-      "shadow": false,
-      "topLevel": false
-    },
-    "h4": {
-      "opcode": "data_setvariableto",
-      "next": "h5",
-      "parent": "h2",
-      "inputs": {
-        "VALUE": [
-          2,
-          "h3"
-        ]
-      },
-      "fields": {
-        "VARIABLE": [
-          "N",
-          "v_n"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h5": {
-      "opcode": "data_setvariableto",
-      "next": "h6",
-      "parent": "h4",
-      "inputs": {
-        "VALUE": [
-          1,
-          [
-            4,
-            "0"
-          ]
-        ]
-      },
-      "fields": {
-        "VARIABLE": [
-          "C1",
-          "v_c1"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h6": {
-      "opcode": "data_setvariableto",
-      "next": "h7",
-      "parent": "h5",
-      "inputs": {
-        "VALUE": [
-          1,
-          [
-            4,
-            "0"
-          ]
-        ]
-      },
-      "fields": {
-        "VARIABLE": [
-          "C2",
-          "v_c2"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h7": {
-      "opcode": "data_setvariableto",
-      "next": "h8",
-      "parent": "h6",
-      "inputs": {
-        "VALUE": [
-          1,
-          [
-            4,
-            "0"
-          ]
-        ]
-      },
-      "fields": {
-        "VARIABLE": [
-          "C3",
-          "v_c3"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h8": {
-      "opcode": "control_repeat",
-      "next": "h32",
-      "parent": "h7",
-      "inputs": {
-        "TIMES": [
-          2,
-          "h9"
-        ],
-        "SUBSTACK": [
-          2,
-          "h10"
-        ]
-      },
-      "fields": {},
-      "shadow": false,
-      "topLevel": false
-    },
-    "h9": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h8",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "N",
-          "v_n"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h10": {
-      "opcode": "sensing_askandwait",
-      "next": "h12",
-      "parent": "h8",
+      "next": "b3",
+      "parent": "b1",
       "inputs": {
         "QUESTION": [
           1,
@@ -201,80 +59,140 @@
       "shadow": false,
       "topLevel": false
     },
-    "h11": {
+    "b3": {
+      "opcode": "data_setvariableto",
+      "next": "b5",
+      "parent": "b2",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b4",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "票數",
+          "v1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b4": {
       "opcode": "sensing_answer",
       "next": null,
-      "parent": "h8",
+      "parent": "b3",
       "inputs": {},
       "fields": {},
       "shadow": false,
       "topLevel": false
     },
-    "h12": {
+    "b5": {
       "opcode": "data_setvariableto",
-      "next": "h13",
-      "parent": "h10",
+      "next": "b6",
+      "parent": "b3",
       "inputs": {
         "VALUE": [
-          2,
-          "h11"
+          1,
+          [
+            10,
+            "0"
+          ]
         ]
       },
       "fields": {
         "VARIABLE": [
-          "票",
-          "v_vote"
+          "一號票",
+          "v2"
         ]
       },
       "shadow": false,
       "topLevel": false
     },
-    "h13": {
-      "opcode": "control_if",
-      "next": "h19",
-      "parent": "h12",
+    "b6": {
+      "opcode": "data_setvariableto",
+      "next": "b7",
+      "parent": "b5",
       "inputs": {
-        "CONDITION": [
-          2,
-          "h15"
+        "VALUE": [
+          1,
+          [
+            10,
+            "0"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "二號票",
+          "v3"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b7": {
+      "opcode": "data_setvariableto",
+      "next": "b8",
+      "parent": "b6",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "0"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "三號票",
+          "v4"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b8": {
+      "opcode": "control_repeat",
+      "next": "b19",
+      "parent": "b7",
+      "inputs": {
+        "TIMES": [
+          3,
+          [
+            12,
+            "票數",
+            "v1"
+          ],
+          [
+            6,
+            ""
+          ]
         ],
         "SUBSTACK": [
           2,
-          "h18"
+          "b9"
         ]
       },
       "fields": {},
       "shadow": false,
       "topLevel": false
     },
-    "h14": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h13",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "票",
-          "v_vote"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h15": {
-      "opcode": "operator_equals",
-      "next": null,
-      "parent": "h13",
+    "b9": {
+      "opcode": "sensing_askandwait",
+      "next": "b10",
+      "parent": "b8",
       "inputs": {
-        "OPERAND1": [
-          2,
-          "h14"
-        ],
-        "OPERAND2": [
+        "QUESTION": [
           1,
           [
-            4,
-            "1"
+            10,
+            ""
           ]
         ]
       },
@@ -282,30 +200,100 @@
       "shadow": false,
       "topLevel": false
     },
-    "h16": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h13",
-      "inputs": {},
+    "b10": {
+      "opcode": "data_setvariableto",
+      "next": "b12",
+      "parent": "b9",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b11",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
       "fields": {
         "VARIABLE": [
-          "C1",
-          "v_c1"
+          "款式",
+          "v5"
         ]
       },
       "shadow": false,
       "topLevel": false
     },
-    "h17": {
-      "opcode": "operator_add",
+    "b11": {
+      "opcode": "sensing_answer",
       "next": null,
-      "parent": "h13",
+      "parent": "b10",
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b12": {
+      "opcode": "control_if_else",
+      "next": null,
+      "parent": "b10",
       "inputs": {
-        "NUM1": [
+        "CONDITION": [
           2,
-          "h16"
+          "b13"
         ],
-        "NUM2": [
+        "SUBSTACK": [
+          2,
+          "b14"
+        ],
+        "SUBSTACK2": [
+          2,
+          "b15"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b13": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b12",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "款式",
+            "v5"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          1,
+          [
+            10,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "=",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b14": {
+      "opcode": "data_changevariableby",
+      "next": null,
+      "parent": "b12",
+      "inputs": {
+        "VALUE": [
           1,
           [
             4,
@@ -313,106 +301,77 @@
           ]
         ]
       },
-      "fields": {},
-      "shadow": false,
-      "topLevel": false
-    },
-    "h18": {
-      "opcode": "data_setvariableto",
-      "next": null,
-      "parent": "h13",
-      "inputs": {
-        "VALUE": [
-          2,
-          "h17"
-        ]
-      },
       "fields": {
         "VARIABLE": [
-          "C1",
-          "v_c1"
+          "一號票",
+          "v2"
         ]
       },
       "shadow": false,
       "topLevel": false
     },
-    "h19": {
-      "opcode": "control_if",
-      "next": "h25",
-      "parent": "h13",
+    "b15": {
+      "opcode": "control_if_else",
+      "next": null,
+      "parent": "b12",
       "inputs": {
         "CONDITION": [
           2,
-          "h21"
+          "b16"
         ],
         "SUBSTACK": [
           2,
-          "h24"
+          "b17"
+        ],
+        "SUBSTACK2": [
+          2,
+          "b18"
         ]
       },
       "fields": {},
       "shadow": false,
       "topLevel": false
     },
-    "h20": {
-      "opcode": "data_variable",
+    "b16": {
+      "opcode": "judgeoperators_compare",
       "next": null,
-      "parent": "h19",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "票",
-          "v_vote"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h21": {
-      "opcode": "operator_equals",
-      "next": null,
-      "parent": "h19",
+      "parent": "b15",
       "inputs": {
         "OPERAND1": [
-          2,
-          "h20"
+          3,
+          [
+            12,
+            "款式",
+            "v5"
+          ],
+          [
+            10,
+            ""
+          ]
         ],
         "OPERAND2": [
           1,
           [
-            4,
+            10,
             "2"
           ]
         ]
       },
-      "fields": {},
-      "shadow": false,
-      "topLevel": false
-    },
-    "h22": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h19",
-      "inputs": {},
       "fields": {
-        "VARIABLE": [
-          "C2",
-          "v_c2"
+        "OP": [
+          "=",
+          null
         ]
       },
       "shadow": false,
       "topLevel": false
     },
-    "h23": {
-      "opcode": "operator_add",
+    "b17": {
+      "opcode": "data_changevariableby",
       "next": null,
-      "parent": "h19",
+      "parent": "b15",
       "inputs": {
-        "NUM1": [
-          2,
-          "h22"
-        ],
-        "NUM2": [
+        "VALUE": [
           1,
           [
             4,
@@ -420,106 +379,21 @@
           ]
         ]
       },
-      "fields": {},
+      "fields": {
+        "VARIABLE": [
+          "二號票",
+          "v3"
+        ]
+      },
       "shadow": false,
       "topLevel": false
     },
-    "h24": {
-      "opcode": "data_setvariableto",
+    "b18": {
+      "opcode": "data_changevariableby",
       "next": null,
-      "parent": "h19",
+      "parent": "b15",
       "inputs": {
         "VALUE": [
-          2,
-          "h23"
-        ]
-      },
-      "fields": {
-        "VARIABLE": [
-          "C2",
-          "v_c2"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h25": {
-      "opcode": "control_if",
-      "next": null,
-      "parent": "h19",
-      "inputs": {
-        "CONDITION": [
-          2,
-          "h27"
-        ],
-        "SUBSTACK": [
-          2,
-          "h30"
-        ]
-      },
-      "fields": {},
-      "shadow": false,
-      "topLevel": false
-    },
-    "h26": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h25",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "票",
-          "v_vote"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h27": {
-      "opcode": "operator_equals",
-      "next": null,
-      "parent": "h25",
-      "inputs": {
-        "OPERAND1": [
-          2,
-          "h26"
-        ],
-        "OPERAND2": [
-          1,
-          [
-            4,
-            "3"
-          ]
-        ]
-      },
-      "fields": {},
-      "shadow": false,
-      "topLevel": false
-    },
-    "h28": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h25",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "C3",
-          "v_c3"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h29": {
-      "opcode": "operator_add",
-      "next": null,
-      "parent": "h25",
-      "inputs": {
-        "NUM1": [
-          2,
-          "h28"
-        ],
-        "NUM2": [
           1,
           [
             4,
@@ -527,265 +401,219 @@
           ]
         ]
       },
-      "fields": {},
+      "fields": {
+        "VARIABLE": [
+          "三號票",
+          "v4"
+        ]
+      },
       "shadow": false,
       "topLevel": false
     },
-    "h30": {
+    "b19": {
       "opcode": "data_setvariableto",
-      "next": null,
-      "parent": "h25",
+      "next": "b20",
+      "parent": "b8",
       "inputs": {
         "VALUE": [
-          2,
-          "h29"
+          3,
+          [
+            12,
+            "一號票",
+            "v2"
+          ],
+          [
+            10,
+            ""
+          ]
         ]
       },
       "fields": {
         "VARIABLE": [
-          "C3",
-          "v_c3"
+          "最高票",
+          "v6"
         ]
       },
       "shadow": false,
       "topLevel": false
     },
-    "h31": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h1",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "C1",
-          "v_c1"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h32": {
-      "opcode": "data_setvariableto",
-      "next": "h33",
-      "parent": "h8",
-      "inputs": {
-        "VALUE": [
-          2,
-          "h31"
-        ]
-      },
-      "fields": {
-        "VARIABLE": [
-          "最高票數",
-          "v_maxval"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h33": {
+    "b20": {
       "opcode": "control_if",
-      "next": "h39",
-      "parent": "h32",
+      "next": "b23",
+      "parent": "b19",
       "inputs": {
         "CONDITION": [
           2,
-          "h36"
+          "b21"
         ],
         "SUBSTACK": [
           2,
-          "h38"
+          "b22"
         ]
       },
       "fields": {},
       "shadow": false,
       "topLevel": false
     },
-    "h34": {
-      "opcode": "data_variable",
+    "b21": {
+      "opcode": "judgeoperators_compare",
       "next": null,
-      "parent": "h33",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "C2",
-          "v_c2"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h35": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h33",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "最高票數",
-          "v_maxval"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h36": {
-      "opcode": "operator_gt",
-      "next": null,
-      "parent": "h33",
+      "parent": "b20",
       "inputs": {
         "OPERAND1": [
-          2,
-          "h34"
+          3,
+          [
+            12,
+            "二號票",
+            "v3"
+          ],
+          [
+            10,
+            ""
+          ]
         ],
         "OPERAND2": [
-          2,
-          "h35"
+          3,
+          [
+            12,
+            "最高票",
+            "v6"
+          ],
+          [
+            10,
+            ""
+          ]
         ]
       },
-      "fields": {},
-      "shadow": false,
-      "topLevel": false
-    },
-    "h37": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h33",
-      "inputs": {},
       "fields": {
-        "VARIABLE": [
-          "C2",
-          "v_c2"
+        "OP": [
+          ">",
+          null
         ]
       },
       "shadow": false,
       "topLevel": false
     },
-    "h38": {
+    "b22": {
       "opcode": "data_setvariableto",
       "next": null,
-      "parent": "h33",
+      "parent": "b20",
       "inputs": {
         "VALUE": [
-          2,
-          "h37"
+          3,
+          [
+            12,
+            "二號票",
+            "v3"
+          ],
+          [
+            10,
+            ""
+          ]
         ]
       },
       "fields": {
         "VARIABLE": [
-          "最高票數",
-          "v_maxval"
+          "最高票",
+          "v6"
         ]
       },
       "shadow": false,
       "topLevel": false
     },
-    "h39": {
+    "b23": {
       "opcode": "control_if",
-      "next": "h45",
-      "parent": "h33",
+      "next": "b26",
+      "parent": "b20",
       "inputs": {
         "CONDITION": [
           2,
-          "h42"
+          "b24"
         ],
         "SUBSTACK": [
           2,
-          "h44"
+          "b25"
         ]
       },
       "fields": {},
       "shadow": false,
       "topLevel": false
     },
-    "h40": {
-      "opcode": "data_variable",
+    "b24": {
+      "opcode": "judgeoperators_compare",
       "next": null,
-      "parent": "h39",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "C3",
-          "v_c3"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h41": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h39",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "最高票數",
-          "v_maxval"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h42": {
-      "opcode": "operator_gt",
-      "next": null,
-      "parent": "h39",
+      "parent": "b23",
       "inputs": {
         "OPERAND1": [
-          2,
-          "h40"
+          3,
+          [
+            12,
+            "三號票",
+            "v4"
+          ],
+          [
+            10,
+            ""
+          ]
         ],
         "OPERAND2": [
-          2,
-          "h41"
+          3,
+          [
+            12,
+            "最高票",
+            "v6"
+          ],
+          [
+            10,
+            ""
+          ]
         ]
       },
-      "fields": {},
-      "shadow": false,
-      "topLevel": false
-    },
-    "h43": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h39",
-      "inputs": {},
       "fields": {
-        "VARIABLE": [
-          "C3",
-          "v_c3"
+        "OP": [
+          ">",
+          null
         ]
       },
       "shadow": false,
       "topLevel": false
     },
-    "h44": {
+    "b25": {
       "opcode": "data_setvariableto",
       "next": null,
-      "parent": "h39",
+      "parent": "b23",
       "inputs": {
         "VALUE": [
-          2,
-          "h43"
+          3,
+          [
+            12,
+            "三號票",
+            "v4"
+          ],
+          [
+            10,
+            ""
+          ]
         ]
       },
       "fields": {
         "VARIABLE": [
-          "最高票數",
-          "v_maxval"
+          "最高票",
+          "v6"
         ]
       },
       "shadow": false,
       "topLevel": false
     },
-    "h45": {
+    "b26": {
       "opcode": "data_setvariableto",
-      "next": "h46",
-      "parent": "h39",
+      "next": "b27",
+      "parent": "b23",
       "inputs": {
         "VALUE": [
           1,
           [
-            4,
+            10,
             "0"
           ]
         ]
@@ -793,100 +621,75 @@
       "fields": {
         "VARIABLE": [
           "並列數",
-          "v_tiecount"
+          "v7"
         ]
       },
       "shadow": false,
       "topLevel": false
     },
-    "h46": {
+    "b27": {
       "opcode": "control_if",
-      "next": "h53",
-      "parent": "h45",
+      "next": "b30",
+      "parent": "b26",
       "inputs": {
         "CONDITION": [
           2,
-          "h49"
+          "b28"
         ],
         "SUBSTACK": [
           2,
-          "h52"
+          "b29"
         ]
       },
       "fields": {},
       "shadow": false,
       "topLevel": false
     },
-    "h47": {
-      "opcode": "data_variable",
+    "b28": {
+      "opcode": "judgeoperators_compare",
       "next": null,
-      "parent": "h46",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "C1",
-          "v_c1"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h48": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h46",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "最高票數",
-          "v_maxval"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h49": {
-      "opcode": "operator_equals",
-      "next": null,
-      "parent": "h46",
+      "parent": "b27",
       "inputs": {
         "OPERAND1": [
-          2,
-          "h47"
+          3,
+          [
+            12,
+            "一號票",
+            "v2"
+          ],
+          [
+            10,
+            ""
+          ]
         ],
         "OPERAND2": [
-          2,
-          "h48"
+          3,
+          [
+            12,
+            "最高票",
+            "v6"
+          ],
+          [
+            10,
+            ""
+          ]
         ]
       },
-      "fields": {},
-      "shadow": false,
-      "topLevel": false
-    },
-    "h50": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h46",
-      "inputs": {},
       "fields": {
-        "VARIABLE": [
-          "並列數",
-          "v_tiecount"
+        "OP": [
+          "=",
+          null
         ]
       },
       "shadow": false,
       "topLevel": false
     },
-    "h51": {
-      "opcode": "operator_add",
+    "b29": {
+      "opcode": "data_changevariableby",
       "next": null,
-      "parent": "h46",
+      "parent": "b27",
       "inputs": {
-        "NUM1": [
-          2,
-          "h50"
-        ],
-        "NUM2": [
+        "VALUE": [
           1,
           [
             4,
@@ -894,117 +697,78 @@
           ]
         ]
       },
-      "fields": {},
-      "shadow": false,
-      "topLevel": false
-    },
-    "h52": {
-      "opcode": "data_setvariableto",
-      "next": null,
-      "parent": "h46",
-      "inputs": {
-        "VALUE": [
-          2,
-          "h51"
-        ]
-      },
       "fields": {
         "VARIABLE": [
           "並列數",
-          "v_tiecount"
+          "v7"
         ]
       },
       "shadow": false,
       "topLevel": false
     },
-    "h53": {
+    "b30": {
       "opcode": "control_if",
-      "next": "h60",
-      "parent": "h46",
+      "next": "b33",
+      "parent": "b27",
       "inputs": {
         "CONDITION": [
           2,
-          "h56"
+          "b31"
         ],
         "SUBSTACK": [
           2,
-          "h59"
+          "b32"
         ]
       },
       "fields": {},
       "shadow": false,
       "topLevel": false
     },
-    "h54": {
-      "opcode": "data_variable",
+    "b31": {
+      "opcode": "judgeoperators_compare",
       "next": null,
-      "parent": "h53",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "C2",
-          "v_c2"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h55": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h53",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "最高票數",
-          "v_maxval"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h56": {
-      "opcode": "operator_equals",
-      "next": null,
-      "parent": "h53",
+      "parent": "b30",
       "inputs": {
         "OPERAND1": [
-          2,
-          "h54"
+          3,
+          [
+            12,
+            "二號票",
+            "v3"
+          ],
+          [
+            10,
+            ""
+          ]
         ],
         "OPERAND2": [
-          2,
-          "h55"
+          3,
+          [
+            12,
+            "最高票",
+            "v6"
+          ],
+          [
+            10,
+            ""
+          ]
         ]
       },
-      "fields": {},
-      "shadow": false,
-      "topLevel": false
-    },
-    "h57": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h53",
-      "inputs": {},
       "fields": {
-        "VARIABLE": [
-          "並列數",
-          "v_tiecount"
+        "OP": [
+          "=",
+          null
         ]
       },
       "shadow": false,
       "topLevel": false
     },
-    "h58": {
-      "opcode": "operator_add",
+    "b32": {
+      "opcode": "data_changevariableby",
       "next": null,
-      "parent": "h53",
+      "parent": "b30",
       "inputs": {
-        "NUM1": [
-          2,
-          "h57"
-        ],
-        "NUM2": [
+        "VALUE": [
           1,
           [
             4,
@@ -1012,117 +776,78 @@
           ]
         ]
       },
-      "fields": {},
-      "shadow": false,
-      "topLevel": false
-    },
-    "h59": {
-      "opcode": "data_setvariableto",
-      "next": null,
-      "parent": "h53",
-      "inputs": {
-        "VALUE": [
-          2,
-          "h58"
-        ]
-      },
       "fields": {
         "VARIABLE": [
           "並列數",
-          "v_tiecount"
+          "v7"
         ]
       },
       "shadow": false,
       "topLevel": false
     },
-    "h60": {
+    "b33": {
       "opcode": "control_if",
-      "next": "h67",
-      "parent": "h53",
+      "next": "b36",
+      "parent": "b30",
       "inputs": {
         "CONDITION": [
           2,
-          "h63"
+          "b34"
         ],
         "SUBSTACK": [
           2,
-          "h66"
+          "b35"
         ]
       },
       "fields": {},
       "shadow": false,
       "topLevel": false
     },
-    "h61": {
-      "opcode": "data_variable",
+    "b34": {
+      "opcode": "judgeoperators_compare",
       "next": null,
-      "parent": "h60",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "C3",
-          "v_c3"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h62": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h60",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "最高票數",
-          "v_maxval"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h63": {
-      "opcode": "operator_equals",
-      "next": null,
-      "parent": "h60",
+      "parent": "b33",
       "inputs": {
         "OPERAND1": [
-          2,
-          "h61"
+          3,
+          [
+            12,
+            "三號票",
+            "v4"
+          ],
+          [
+            10,
+            ""
+          ]
         ],
         "OPERAND2": [
-          2,
-          "h62"
+          3,
+          [
+            12,
+            "最高票",
+            "v6"
+          ],
+          [
+            10,
+            ""
+          ]
         ]
       },
-      "fields": {},
-      "shadow": false,
-      "topLevel": false
-    },
-    "h64": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h60",
-      "inputs": {},
       "fields": {
-        "VARIABLE": [
-          "並列數",
-          "v_tiecount"
+        "OP": [
+          "=",
+          null
         ]
       },
       "shadow": false,
       "topLevel": false
     },
-    "h65": {
-      "opcode": "operator_add",
+    "b35": {
+      "opcode": "data_changevariableby",
       "next": null,
-      "parent": "h60",
+      "parent": "b33",
       "inputs": {
-        "NUM1": [
-          2,
-          "h64"
-        ],
-        "NUM2": [
+        "VALUE": [
           1,
           [
             4,
@@ -1130,90 +855,75 @@
           ]
         ]
       },
-      "fields": {},
-      "shadow": false,
-      "topLevel": false
-    },
-    "h66": {
-      "opcode": "data_setvariableto",
-      "next": null,
-      "parent": "h60",
-      "inputs": {
-        "VALUE": [
-          2,
-          "h65"
-        ]
-      },
       "fields": {
         "VARIABLE": [
           "並列數",
-          "v_tiecount"
+          "v7"
         ]
       },
       "shadow": false,
       "topLevel": false
     },
-    "h67": {
+    "b36": {
       "opcode": "control_if_else",
       "next": null,
-      "parent": "h60",
+      "parent": "b33",
       "inputs": {
         "CONDITION": [
           2,
-          "h69"
+          "b37"
         ],
         "SUBSTACK": [
           2,
-          "h70"
+          "b38"
         ],
         "SUBSTACK2": [
           2,
-          "h71"
+          "b39"
         ]
       },
       "fields": {},
       "shadow": false,
       "topLevel": false
     },
-    "h68": {
-      "opcode": "data_variable",
+    "b37": {
+      "opcode": "judgeoperators_compare",
       "next": null,
-      "parent": "h67",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "並列數",
-          "v_tiecount"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h69": {
-      "opcode": "operator_gt",
-      "next": null,
-      "parent": "h67",
+      "parent": "b36",
       "inputs": {
         "OPERAND1": [
-          2,
-          "h68"
+          3,
+          [
+            12,
+            "並列數",
+            "v7"
+          ],
+          [
+            10,
+            ""
+          ]
         ],
         "OPERAND2": [
           1,
           [
-            4,
+            10,
             "1"
           ]
         ]
       },
-      "fields": {},
+      "fields": {
+        "OP": [
+          ">",
+          null
+        ]
+      },
       "shadow": false,
       "topLevel": false
     },
-    "h70": {
+    "b38": {
       "opcode": "looks_say",
       "next": null,
-      "parent": "h67",
+      "parent": "b36",
       "inputs": {
         "MESSAGE": [
           1,
@@ -1227,83 +937,76 @@
       "shadow": false,
       "topLevel": false
     },
-    "h71": {
+    "b39": {
       "opcode": "control_if_else",
       "next": null,
-      "parent": "h67",
+      "parent": "b36",
       "inputs": {
         "CONDITION": [
           2,
-          "h74"
+          "b40"
         ],
         "SUBSTACK": [
           2,
-          "h75"
+          "b41"
         ],
         "SUBSTACK2": [
           2,
-          "h76"
+          "b42"
         ]
       },
       "fields": {},
       "shadow": false,
       "topLevel": false
     },
-    "h72": {
-      "opcode": "data_variable",
+    "b40": {
+      "opcode": "judgeoperators_compare",
       "next": null,
-      "parent": "h71",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "C1",
-          "v_c1"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h73": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h71",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "最高票數",
-          "v_maxval"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h74": {
-      "opcode": "operator_equals",
-      "next": null,
-      "parent": "h71",
+      "parent": "b39",
       "inputs": {
         "OPERAND1": [
-          2,
-          "h72"
+          3,
+          [
+            12,
+            "一號票",
+            "v2"
+          ],
+          [
+            10,
+            ""
+          ]
         ],
         "OPERAND2": [
-          2,
-          "h73"
+          3,
+          [
+            12,
+            "最高票",
+            "v6"
+          ],
+          [
+            10,
+            ""
+          ]
         ]
       },
-      "fields": {},
+      "fields": {
+        "OP": [
+          "=",
+          null
+        ]
+      },
       "shadow": false,
       "topLevel": false
     },
-    "h75": {
+    "b41": {
       "opcode": "looks_say",
       "next": null,
-      "parent": "h71",
+      "parent": "b39",
       "inputs": {
         "MESSAGE": [
           1,
           [
-            4,
+            10,
             "1"
           ]
         ]
@@ -1312,83 +1015,76 @@
       "shadow": false,
       "topLevel": false
     },
-    "h76": {
+    "b42": {
       "opcode": "control_if_else",
       "next": null,
-      "parent": "h71",
+      "parent": "b39",
       "inputs": {
         "CONDITION": [
           2,
-          "h79"
+          "b43"
         ],
         "SUBSTACK": [
           2,
-          "h80"
+          "b44"
         ],
         "SUBSTACK2": [
           2,
-          "h81"
+          "b45"
         ]
       },
       "fields": {},
       "shadow": false,
       "topLevel": false
     },
-    "h77": {
-      "opcode": "data_variable",
+    "b43": {
+      "opcode": "judgeoperators_compare",
       "next": null,
-      "parent": "h76",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "C2",
-          "v_c2"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h78": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h76",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "最高票數",
-          "v_maxval"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h79": {
-      "opcode": "operator_equals",
-      "next": null,
-      "parent": "h76",
+      "parent": "b42",
       "inputs": {
         "OPERAND1": [
-          2,
-          "h77"
+          3,
+          [
+            12,
+            "二號票",
+            "v3"
+          ],
+          [
+            10,
+            ""
+          ]
         ],
         "OPERAND2": [
-          2,
-          "h78"
+          3,
+          [
+            12,
+            "最高票",
+            "v6"
+          ],
+          [
+            10,
+            ""
+          ]
         ]
       },
-      "fields": {},
+      "fields": {
+        "OP": [
+          "=",
+          null
+        ]
+      },
       "shadow": false,
       "topLevel": false
     },
-    "h80": {
+    "b44": {
       "opcode": "looks_say",
       "next": null,
-      "parent": "h76",
+      "parent": "b42",
       "inputs": {
         "MESSAGE": [
           1,
           [
-            4,
+            10,
             "2"
           ]
         ]
@@ -1397,15 +1093,15 @@
       "shadow": false,
       "topLevel": false
     },
-    "h81": {
+    "b45": {
       "opcode": "looks_say",
       "next": null,
-      "parent": "h76",
+      "parent": "b42",
       "inputs": {
         "MESSAGE": [
           1,
           [
-            4,
+            10,
             "3"
           ]
         ]
@@ -1414,6 +1110,5 @@
       "shadow": false,
       "topLevel": false
     }
-  },
-  "lists": {}
+  }
 }

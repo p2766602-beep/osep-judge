@@ -1,30 +1,31 @@
 {
   "variables": {
-    "v_a": [
-      "A",
-      ""
+    "v1": [
+      "被除數",
+      0
     ],
-    "v_b": [
-      "B",
-      ""
+    "v2": [
+      "除數",
+      0
     ],
-    "v_scaled": [
-      "放大值",
-      ""
+    "v3": [
+      "放大",
+      0
     ],
-    "v_intpart": [
+    "v4": [
       "整數部分",
-      ""
+      0
     ],
-    "v_decpart": [
+    "v5": [
       "小數部分",
-      ""
+      0
     ]
   },
+  "lists": {},
   "blocks": {
-    "h1": {
+    "b1": {
       "opcode": "event_whenflagclicked",
-      "next": "h2",
+      "next": "b2",
       "parent": null,
       "inputs": {},
       "fields": {},
@@ -33,55 +34,10 @@
       "x": 40,
       "y": 40
     },
-    "h2": {
+    "b2": {
       "opcode": "sensing_askandwait",
-      "next": "h4",
-      "parent": "h1",
-      "inputs": {
-        "QUESTION": [
-          1,
-          [
-            10,
-            "請輸入A B"
-          ]
-        ]
-      },
-      "fields": {},
-      "shadow": false,
-      "topLevel": false
-    },
-    "h3": {
-      "opcode": "sensing_answer",
-      "next": null,
-      "parent": "h1",
-      "inputs": {},
-      "fields": {},
-      "shadow": false,
-      "topLevel": false
-    },
-    "h4": {
-      "opcode": "data_setvariableto",
-      "next": "h5",
-      "parent": "h2",
-      "inputs": {
-        "VALUE": [
-          2,
-          "h3"
-        ]
-      },
-      "fields": {
-        "VARIABLE": [
-          "A",
-          "v_a"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h5": {
-      "opcode": "sensing_askandwait",
-      "next": "h7",
-      "parent": "h4",
+      "next": "b3",
+      "parent": "b1",
       "inputs": {
         "QUESTION": [
           1,
@@ -95,84 +51,48 @@
       "shadow": false,
       "topLevel": false
     },
-    "h6": {
-      "opcode": "sensing_answer",
-      "next": null,
-      "parent": "h1",
-      "inputs": {},
-      "fields": {},
-      "shadow": false,
-      "topLevel": false
-    },
-    "h7": {
+    "b3": {
       "opcode": "data_setvariableto",
-      "next": "h8",
-      "parent": "h5",
+      "next": "b5",
+      "parent": "b2",
       "inputs": {
         "VALUE": [
-          2,
-          "h6"
+          3,
+          "b4",
+          [
+            10,
+            ""
+          ]
         ]
       },
       "fields": {
         "VARIABLE": [
-          "B",
-          "v_b"
+          "被除數",
+          "v1"
         ]
       },
       "shadow": false,
       "topLevel": false
     },
-    "h8": {
-      "opcode": "control_if_else",
+    "b4": {
+      "opcode": "sensing_answer",
       "next": null,
-      "parent": "h7",
-      "inputs": {
-        "CONDITION": [
-          2,
-          "h10"
-        ],
-        "SUBSTACK": [
-          2,
-          "h11"
-        ],
-        "SUBSTACK2": [
-          2,
-          "h17"
-        ]
-      },
+      "parent": "b3",
+      "inputs": {},
       "fields": {},
       "shadow": false,
       "topLevel": false
     },
-    "h9": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h8",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "B",
-          "v_b"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h10": {
-      "opcode": "operator_equals",
-      "next": null,
-      "parent": "h8",
+    "b5": {
+      "opcode": "sensing_askandwait",
+      "next": "b6",
+      "parent": "b3",
       "inputs": {
-        "OPERAND1": [
-          2,
-          "h9"
-        ],
-        "OPERAND2": [
+        "QUESTION": [
           1,
           [
-            4,
-            "0"
+            10,
+            ""
           ]
         ]
       },
@@ -180,10 +100,98 @@
       "shadow": false,
       "topLevel": false
     },
-    "h11": {
+    "b6": {
+      "opcode": "data_setvariableto",
+      "next": "b8",
+      "parent": "b5",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b7",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "除數",
+          "v2"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b7": {
+      "opcode": "sensing_answer",
+      "next": null,
+      "parent": "b6",
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b8": {
+      "opcode": "control_if_else",
+      "next": null,
+      "parent": "b6",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b9"
+        ],
+        "SUBSTACK": [
+          2,
+          "b10"
+        ],
+        "SUBSTACK2": [
+          2,
+          "b11"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b9": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b8",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "除數",
+            "v2"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          1,
+          [
+            10,
+            "0"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "=",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b10": {
       "opcode": "looks_say",
       "next": null,
-      "parent": "h8",
+      "parent": "b8",
       "inputs": {
         "MESSAGE": [
           1,
@@ -197,128 +205,59 @@
       "shadow": false,
       "topLevel": false
     },
-    "h12": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h8",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "A",
-          "v_a"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h13": {
-      "opcode": "operator_multiply",
-      "next": null,
-      "parent": "h8",
-      "inputs": {
-        "NUM1": [
-          2,
-          "h12"
-        ],
-        "NUM2": [
-          1,
-          [
-            4,
-            "100"
-          ]
-        ]
-      },
-      "fields": {},
-      "shadow": false,
-      "topLevel": false
-    },
-    "h14": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h8",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "B",
-          "v_b"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h15": {
-      "opcode": "operator_divide",
-      "next": null,
-      "parent": "h8",
-      "inputs": {
-        "NUM1": [
-          2,
-          "h13"
-        ],
-        "NUM2": [
-          2,
-          "h14"
-        ]
-      },
-      "fields": {},
-      "shadow": false,
-      "topLevel": false
-    },
-    "h16": {
-      "opcode": "operator_round",
-      "next": null,
-      "parent": "h8",
-      "inputs": {
-        "NUM": [
-          2,
-          "h15"
-        ]
-      },
-      "fields": {},
-      "shadow": false,
-      "topLevel": false
-    },
-    "h17": {
+    "b11": {
       "opcode": "data_setvariableto",
-      "next": "h21",
-      "parent": "h8",
+      "next": "b15",
+      "parent": "b8",
       "inputs": {
         "VALUE": [
-          2,
-          "h16"
+          3,
+          "b12",
+          [
+            10,
+            ""
+          ]
         ]
       },
       "fields": {
         "VARIABLE": [
-          "放大值",
-          "v_scaled"
+          "放大",
+          "v3"
         ]
       },
       "shadow": false,
       "topLevel": false
     },
-    "h18": {
-      "opcode": "data_variable",
+    "b12": {
+      "opcode": "operator_round",
       "next": null,
-      "parent": "h8",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "放大值",
-          "v_scaled"
+      "parent": "b11",
+      "inputs": {
+        "NUM": [
+          3,
+          "b13",
+          [
+            4,
+            ""
+          ]
         ]
       },
+      "fields": {},
       "shadow": false,
       "topLevel": false
     },
-    "h19": {
-      "opcode": "operator_divide",
+    "b13": {
+      "opcode": "judgeoperators_arithmetic",
       "next": null,
-      "parent": "h8",
+      "parent": "b12",
       "inputs": {
         "NUM1": [
-          2,
-          "h18"
+          3,
+          "b14",
+          [
+            4,
+            ""
+          ]
         ],
         "NUM2": [
           1,
@@ -328,18 +267,89 @@
           ]
         ]
       },
-      "fields": {},
+      "fields": {
+        "OP": [
+          "*",
+          null
+        ]
+      },
       "shadow": false,
       "topLevel": false
     },
-    "h20": {
+    "b14": {
+      "opcode": "judgeoperators_arithmetic",
+      "next": null,
+      "parent": "b13",
+      "inputs": {
+        "NUM1": [
+          3,
+          [
+            12,
+            "被除數",
+            "v1"
+          ],
+          [
+            4,
+            ""
+          ]
+        ],
+        "NUM2": [
+          3,
+          [
+            12,
+            "除數",
+            "v2"
+          ],
+          [
+            4,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "/",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b15": {
+      "opcode": "data_setvariableto",
+      "next": "b18",
+      "parent": "b11",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b16",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "整數部分",
+          "v4"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b16": {
       "opcode": "operator_mathop",
       "next": null,
-      "parent": "h8",
+      "parent": "b15",
       "inputs": {
         "NUM": [
-          2,
-          "h19"
+          3,
+          "b17",
+          [
+            4,
+            ""
+          ]
         ]
       },
       "fields": {
@@ -351,61 +361,79 @@
       "shadow": false,
       "topLevel": false
     },
-    "h21": {
-      "opcode": "data_setvariableto",
-      "next": "h26",
-      "parent": "h17",
-      "inputs": {
-        "VALUE": [
-          2,
-          "h20"
-        ]
-      },
-      "fields": {
-        "VARIABLE": [
-          "整數部分",
-          "v_intpart"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h22": {
-      "opcode": "data_variable",
+    "b17": {
+      "opcode": "judgeoperators_arithmetic",
       "next": null,
-      "parent": "h8",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "放大值",
-          "v_scaled"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h23": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h8",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "整數部分",
-          "v_intpart"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h24": {
-      "opcode": "operator_multiply",
-      "next": null,
-      "parent": "h8",
+      "parent": "b16",
       "inputs": {
         "NUM1": [
-          2,
-          "h23"
+          3,
+          [
+            12,
+            "放大",
+            "v3"
+          ],
+          [
+            4,
+            ""
+          ]
+        ],
+        "NUM2": [
+          1,
+          [
+            4,
+            "100"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "/",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b18": {
+      "opcode": "data_setvariableto",
+      "next": "b20",
+      "parent": "b15",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b19",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "小數部分",
+          "v5"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b19": {
+      "opcode": "operator_mod",
+      "next": null,
+      "parent": "b18",
+      "inputs": {
+        "NUM1": [
+          3,
+          [
+            12,
+            "放大",
+            "v3"
+          ],
+          [
+            4,
+            ""
+          ]
         ],
         "NUM2": [
           1,
@@ -419,93 +447,73 @@
       "shadow": false,
       "topLevel": false
     },
-    "h25": {
-      "opcode": "operator_subtract",
-      "next": null,
-      "parent": "h8",
-      "inputs": {
-        "NUM1": [
-          2,
-          "h22"
-        ],
-        "NUM2": [
-          2,
-          "h24"
-        ]
-      },
-      "fields": {},
-      "shadow": false,
-      "topLevel": false
-    },
-    "h26": {
-      "opcode": "data_setvariableto",
-      "next": "h27",
-      "parent": "h21",
-      "inputs": {
-        "VALUE": [
-          2,
-          "h25"
-        ]
-      },
-      "fields": {
-        "VARIABLE": [
-          "小數部分",
-          "v_decpart"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h27": {
+    "b20": {
       "opcode": "control_if_else",
       "next": null,
-      "parent": "h26",
+      "parent": "b18",
       "inputs": {
         "CONDITION": [
           2,
-          "h29"
+          "b21"
         ],
         "SUBSTACK": [
           2,
-          "h34"
+          "b22"
         ],
         "SUBSTACK2": [
           2,
-          "h39"
+          "b25"
         ]
       },
       "fields": {},
       "shadow": false,
       "topLevel": false
     },
-    "h28": {
-      "opcode": "data_variable",
+    "b21": {
+      "opcode": "judgeoperators_compare",
       "next": null,
-      "parent": "h27",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "小數部分",
-          "v_decpart"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h29": {
-      "opcode": "operator_lt",
-      "next": null,
-      "parent": "h27",
+      "parent": "b20",
       "inputs": {
         "OPERAND1": [
-          2,
-          "h28"
+          3,
+          [
+            12,
+            "小數部分",
+            "v5"
+          ],
+          [
+            10,
+            ""
+          ]
         ],
         "OPERAND2": [
           1,
           [
-            4,
+            10,
             "10"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "<",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b22": {
+      "opcode": "looks_say",
+      "next": null,
+      "parent": "b20",
+      "inputs": {
+        "MESSAGE": [
+          3,
+          "b24",
+          [
+            10,
+            ""
           ]
         ]
       },
@@ -513,28 +521,22 @@
       "shadow": false,
       "topLevel": false
     },
-    "h30": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h27",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "整數部分",
-          "v_intpart"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h31": {
+    "b23": {
       "opcode": "operator_join",
       "next": null,
-      "parent": "h27",
+      "parent": "b24",
       "inputs": {
         "STRING1": [
-          2,
-          "h30"
+          3,
+          [
+            12,
+            "整數部分",
+            "v4"
+          ],
+          [
+            10,
+            ""
+          ]
         ],
         "STRING2": [
           1,
@@ -548,74 +550,70 @@
       "shadow": false,
       "topLevel": false
     },
-    "h32": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h27",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "小數部分",
-          "v_decpart"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h33": {
+    "b24": {
       "opcode": "operator_join",
       "next": null,
-      "parent": "h27",
+      "parent": "b22",
       "inputs": {
         "STRING1": [
-          2,
-          "h31"
+          3,
+          "b23",
+          [
+            10,
+            ""
+          ]
         ],
         "STRING2": [
-          2,
-          "h32"
+          3,
+          [
+            12,
+            "小數部分",
+            "v5"
+          ],
+          [
+            10,
+            ""
+          ]
         ]
       },
       "fields": {},
       "shadow": false,
       "topLevel": false
     },
-    "h34": {
+    "b25": {
       "opcode": "looks_say",
       "next": null,
-      "parent": "h27",
+      "parent": "b20",
       "inputs": {
         "MESSAGE": [
-          2,
-          "h33"
+          3,
+          "b27",
+          [
+            10,
+            ""
+          ]
         ]
       },
       "fields": {},
       "shadow": false,
       "topLevel": false
     },
-    "h35": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h27",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "整數部分",
-          "v_intpart"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h36": {
+    "b26": {
       "opcode": "operator_join",
       "next": null,
-      "parent": "h27",
+      "parent": "b27",
       "inputs": {
         "STRING1": [
-          2,
-          "h35"
+          3,
+          [
+            12,
+            "整數部分",
+            "v4"
+          ],
+          [
+            10,
+            ""
+          ]
         ],
         "STRING2": [
           1,
@@ -629,52 +627,35 @@
       "shadow": false,
       "topLevel": false
     },
-    "h37": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h27",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "小數部分",
-          "v_decpart"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h38": {
+    "b27": {
       "opcode": "operator_join",
       "next": null,
-      "parent": "h27",
+      "parent": "b25",
       "inputs": {
         "STRING1": [
-          2,
-          "h36"
+          3,
+          "b26",
+          [
+            10,
+            ""
+          ]
         ],
         "STRING2": [
-          2,
-          "h37"
-        ]
-      },
-      "fields": {},
-      "shadow": false,
-      "topLevel": false
-    },
-    "h39": {
-      "opcode": "looks_say",
-      "next": null,
-      "parent": "h27",
-      "inputs": {
-        "MESSAGE": [
-          2,
-          "h38"
+          3,
+          [
+            12,
+            "小數部分",
+            "v5"
+          ],
+          [
+            10,
+            ""
+          ]
         ]
       },
       "fields": {},
       "shadow": false,
       "topLevel": false
     }
-  },
-  "lists": {}
+  }
 }

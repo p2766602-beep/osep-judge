@@ -1,22 +1,23 @@
 {
   "variables": {
-    "v_n": [
-      "N",
-      ""
+    "v1": [
+      "數字",
+      0
     ],
-    "v_i": [
-      "i",
-      ""
+    "v2": [
+      "個數",
+      0
     ],
-    "v_isprime": [
-      "是否質數",
-      ""
+    "v3": [
+      "除數",
+      0
     ]
   },
+  "lists": {},
   "blocks": {
-    "h1": {
+    "b1": {
       "opcode": "event_whenflagclicked",
-      "next": "h2",
+      "next": "b2",
       "parent": null,
       "inputs": {},
       "fields": {},
@@ -25,16 +26,16 @@
       "x": 40,
       "y": 40
     },
-    "h2": {
+    "b2": {
       "opcode": "sensing_askandwait",
-      "next": "h4",
-      "parent": "h1",
+      "next": "b3",
+      "parent": "b1",
       "inputs": {
         "QUESTION": [
           1,
           [
             10,
-            "請輸入N"
+            ""
           ]
         ]
       },
@@ -42,283 +43,183 @@
       "shadow": false,
       "topLevel": false
     },
-    "h3": {
-      "opcode": "sensing_answer",
-      "next": null,
-      "parent": "h1",
-      "inputs": {},
-      "fields": {},
-      "shadow": false,
-      "topLevel": false
-    },
-    "h4": {
+    "b3": {
       "opcode": "data_setvariableto",
-      "next": "h5",
-      "parent": "h2",
+      "next": "b5",
+      "parent": "b2",
       "inputs": {
         "VALUE": [
-          2,
-          "h3"
-        ]
-      },
-      "fields": {
-        "VARIABLE": [
-          "N",
-          "v_n"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h5": {
-      "opcode": "control_if_else",
-      "next": null,
-      "parent": "h4",
-      "inputs": {
-        "CONDITION": [
-          2,
-          "h7"
-        ],
-        "SUBSTACK": [
-          2,
-          "h8"
-        ],
-        "SUBSTACK2": [
-          2,
-          "h9"
-        ]
-      },
-      "fields": {},
-      "shadow": false,
-      "topLevel": false
-    },
-    "h6": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h5",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "N",
-          "v_n"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h7": {
-      "opcode": "operator_lt",
-      "next": null,
-      "parent": "h5",
-      "inputs": {
-        "OPERAND1": [
-          2,
-          "h6"
-        ],
-        "OPERAND2": [
-          1,
+          3,
+          "b4",
           [
-            4,
-            "2"
+            10,
+            ""
           ]
         ]
       },
+      "fields": {
+        "VARIABLE": [
+          "數字",
+          "v1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b4": {
+      "opcode": "sensing_answer",
+      "next": null,
+      "parent": "b3",
+      "inputs": {},
       "fields": {},
       "shadow": false,
       "topLevel": false
     },
-    "h8": {
-      "opcode": "looks_say",
-      "next": null,
-      "parent": "h5",
+    "b5": {
+      "opcode": "data_setvariableto",
+      "next": "b6",
+      "parent": "b3",
       "inputs": {
-        "MESSAGE": [
+        "VALUE": [
           1,
           [
             10,
-            "NOT"
+            "0"
           ]
         ]
       },
-      "fields": {},
+      "fields": {
+        "VARIABLE": [
+          "個數",
+          "v2"
+        ]
+      },
       "shadow": false,
       "topLevel": false
     },
-    "h9": {
+    "b6": {
       "opcode": "data_setvariableto",
-      "next": "h10",
-      "parent": "h5",
+      "next": "b7",
+      "parent": "b5",
       "inputs": {
         "VALUE": [
           1,
           [
-            4,
+            10,
             "1"
           ]
         ]
       },
       "fields": {
         "VARIABLE": [
-          "是否質數",
-          "v_isprime"
+          "除數",
+          "v3"
         ]
       },
       "shadow": false,
       "topLevel": false
     },
-    "h10": {
-      "opcode": "data_setvariableto",
-      "next": "h11",
-      "parent": "h9",
-      "inputs": {
-        "VALUE": [
-          1,
-          [
-            4,
-            "2"
-          ]
-        ]
-      },
-      "fields": {
-        "VARIABLE": [
-          "i",
-          "v_i"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h11": {
+    "b7": {
       "opcode": "control_repeat",
-      "next": "h23",
-      "parent": "h10",
+      "next": "b16",
+      "parent": "b6",
       "inputs": {
         "TIMES": [
-          2,
-          "h13"
+          3,
+          [
+            12,
+            "數字",
+            "v1"
+          ],
+          [
+            6,
+            ""
+          ]
         ],
         "SUBSTACK": [
           2,
-          "h14"
+          "b8"
         ]
       },
       "fields": {},
       "shadow": false,
       "topLevel": false
     },
-    "h12": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h11",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "N",
-          "v_n"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h13": {
-      "opcode": "operator_subtract",
-      "next": null,
-      "parent": "h11",
-      "inputs": {
-        "NUM1": [
-          2,
-          "h12"
-        ],
-        "NUM2": [
-          1,
-          [
-            4,
-            "2"
-          ]
-        ]
-      },
-      "fields": {},
-      "shadow": false,
-      "topLevel": false
-    },
-    "h14": {
+    "b8": {
       "opcode": "control_if",
-      "next": "h22",
-      "parent": "h11",
+      "next": "b15",
+      "parent": "b7",
       "inputs": {
         "CONDITION": [
           2,
-          "h18"
+          "b9"
         ],
         "SUBSTACK": [
           2,
-          "h19"
+          "b11"
         ]
       },
       "fields": {},
       "shadow": false,
       "topLevel": false
     },
-    "h15": {
-      "opcode": "data_variable",
+    "b9": {
+      "opcode": "judgeoperators_compare",
       "next": null,
-      "parent": "h14",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "N",
-          "v_n"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h16": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h14",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "i",
-          "v_i"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h17": {
-      "opcode": "operator_mod",
-      "next": null,
-      "parent": "h14",
-      "inputs": {
-        "NUM1": [
-          2,
-          "h15"
-        ],
-        "NUM2": [
-          2,
-          "h16"
-        ]
-      },
-      "fields": {},
-      "shadow": false,
-      "topLevel": false
-    },
-    "h18": {
-      "opcode": "operator_equals",
-      "next": null,
-      "parent": "h14",
+      "parent": "b8",
       "inputs": {
         "OPERAND1": [
-          2,
-          "h17"
+          3,
+          "b10",
+          [
+            10,
+            ""
+          ]
         ],
         "OPERAND2": [
           1,
           [
-            4,
+            10,
             "0"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "=",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b10": {
+      "opcode": "operator_mod",
+      "next": null,
+      "parent": "b9",
+      "inputs": {
+        "NUM1": [
+          3,
+          [
+            12,
+            "數字",
+            "v1"
+          ],
+          [
+            4,
+            ""
+          ]
+        ],
+        "NUM2": [
+          3,
+          [
+            12,
+            "除數",
+            "v3"
+          ],
+          [
+            4,
+            ""
           ]
         ]
       },
@@ -326,52 +227,12 @@
       "shadow": false,
       "topLevel": false
     },
-    "h19": {
-      "opcode": "data_setvariableto",
-      "next": null,
-      "parent": "h14",
+    "b11": {
+      "opcode": "data_changevariableby",
+      "next": "b12",
+      "parent": "b8",
       "inputs": {
         "VALUE": [
-          1,
-          [
-            4,
-            "0"
-          ]
-        ]
-      },
-      "fields": {
-        "VARIABLE": [
-          "是否質數",
-          "v_isprime"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h20": {
-      "opcode": "data_variable",
-      "next": null,
-      "parent": "h11",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "i",
-          "v_i"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h21": {
-      "opcode": "operator_add",
-      "next": null,
-      "parent": "h11",
-      "inputs": {
-        "NUM1": [
-          2,
-          "h20"
-        ],
-        "NUM2": [
           1,
           [
             4,
@@ -379,90 +240,158 @@
           ]
         ]
       },
+      "fields": {
+        "VARIABLE": [
+          "個數",
+          "v2"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b12": {
+      "opcode": "control_if",
+      "next": null,
+      "parent": "b11",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b13"
+        ],
+        "SUBSTACK": [
+          2,
+          "b14"
+        ]
+      },
       "fields": {},
       "shadow": false,
       "topLevel": false
     },
-    "h22": {
-      "opcode": "data_setvariableto",
+    "b13": {
+      "opcode": "judgeoperators_compare",
       "next": null,
-      "parent": "h14",
+      "parent": "b12",
       "inputs": {
-        "VALUE": [
-          2,
-          "h21"
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "個數",
+            "v2"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          1,
+          [
+            10,
+            "2"
+          ]
         ]
       },
       "fields": {
-        "VARIABLE": [
-          "i",
-          "v_i"
+        "OP": [
+          ">",
+          null
         ]
       },
       "shadow": false,
       "topLevel": false
     },
-    "h23": {
+    "b14": {
+      "opcode": "judgecontrol_breakLoop",
+      "next": null,
+      "parent": "b12",
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b15": {
+      "opcode": "data_changevariableby",
+      "next": null,
+      "parent": "b8",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            4,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "除數",
+          "v3"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b16": {
       "opcode": "control_if_else",
       "next": null,
-      "parent": "h11",
+      "parent": "b7",
       "inputs": {
         "CONDITION": [
           2,
-          "h25"
+          "b17"
         ],
         "SUBSTACK": [
           2,
-          "h26"
+          "b18"
         ],
         "SUBSTACK2": [
           2,
-          "h27"
+          "b19"
         ]
       },
       "fields": {},
       "shadow": false,
       "topLevel": false
     },
-    "h24": {
-      "opcode": "data_variable",
+    "b17": {
+      "opcode": "judgeoperators_compare",
       "next": null,
-      "parent": "h23",
-      "inputs": {},
-      "fields": {
-        "VARIABLE": [
-          "是否質數",
-          "v_isprime"
-        ]
-      },
-      "shadow": false,
-      "topLevel": false
-    },
-    "h25": {
-      "opcode": "operator_equals",
-      "next": null,
-      "parent": "h23",
+      "parent": "b16",
       "inputs": {
         "OPERAND1": [
-          2,
-          "h24"
+          3,
+          [
+            12,
+            "個數",
+            "v2"
+          ],
+          [
+            10,
+            ""
+          ]
         ],
         "OPERAND2": [
           1,
           [
-            4,
-            "1"
+            10,
+            "2"
           ]
         ]
       },
-      "fields": {},
+      "fields": {
+        "OP": [
+          "=",
+          null
+        ]
+      },
       "shadow": false,
       "topLevel": false
     },
-    "h26": {
+    "b18": {
       "opcode": "looks_say",
       "next": null,
-      "parent": "h23",
+      "parent": "b16",
       "inputs": {
         "MESSAGE": [
           1,
@@ -476,10 +405,10 @@
       "shadow": false,
       "topLevel": false
     },
-    "h27": {
+    "b19": {
       "opcode": "looks_say",
       "next": null,
-      "parent": "h23",
+      "parent": "b16",
       "inputs": {
         "MESSAGE": [
           1,
@@ -493,6 +422,5 @@
       "shadow": false,
       "topLevel": false
     }
-  },
-  "lists": {}
+  }
 }
