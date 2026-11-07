@@ -1,0 +1,494 @@
+{
+  "variables": {
+    "v1": [
+      "時數",
+      0
+    ],
+    "v2": [
+      "次數",
+      0
+    ],
+    "v3": [
+      "第幾小時",
+      0
+    ],
+    "v4": [
+      "濕度",
+      0
+    ]
+  },
+  "lists": {
+    "L1": [
+      "溫度",
+      []
+    ]
+  },
+  "blocks": {
+    "b1": {
+      "opcode": "event_whenflagclicked",
+      "next": "b2",
+      "parent": null,
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": true,
+      "x": 40,
+      "y": 40
+    },
+    "b2": {
+      "opcode": "sensing_askandwait",
+      "next": "b3",
+      "parent": "b1",
+      "inputs": {
+        "QUESTION": [
+          1,
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b3": {
+      "opcode": "data_setvariableto",
+      "next": "b5",
+      "parent": "b2",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b4",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "時數",
+          "v1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b4": {
+      "opcode": "sensing_answer",
+      "next": null,
+      "parent": "b3",
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b5": {
+      "opcode": "data_deletealloflist",
+      "next": "b6",
+      "parent": "b3",
+      "inputs": {},
+      "fields": {
+        "LIST": [
+          "溫度",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b6": {
+      "opcode": "control_repeat",
+      "next": "b10",
+      "parent": "b5",
+      "inputs": {
+        "TIMES": [
+          3,
+          [
+            12,
+            "時數",
+            "v1"
+          ],
+          [
+            6,
+            ""
+          ]
+        ],
+        "SUBSTACK": [
+          2,
+          "b7"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b7": {
+      "opcode": "sensing_askandwait",
+      "next": "b8",
+      "parent": "b6",
+      "inputs": {
+        "QUESTION": [
+          1,
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b8": {
+      "opcode": "data_addtolist",
+      "next": null,
+      "parent": "b7",
+      "inputs": {
+        "ITEM": [
+          3,
+          "b9",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "溫度",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b9": {
+      "opcode": "sensing_answer",
+      "next": null,
+      "parent": "b8",
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b10": {
+      "opcode": "data_setvariableto",
+      "next": "b11",
+      "parent": "b6",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "0"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "次數",
+          "v2"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b11": {
+      "opcode": "data_setvariableto",
+      "next": "b12",
+      "parent": "b10",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "第幾小時",
+          "v3"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b12": {
+      "opcode": "control_repeat",
+      "next": "b23",
+      "parent": "b11",
+      "inputs": {
+        "TIMES": [
+          3,
+          [
+            12,
+            "時數",
+            "v1"
+          ],
+          [
+            6,
+            ""
+          ]
+        ],
+        "SUBSTACK": [
+          2,
+          "b13"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b13": {
+      "opcode": "sensing_askandwait",
+      "next": "b14",
+      "parent": "b12",
+      "inputs": {
+        "QUESTION": [
+          1,
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b14": {
+      "opcode": "data_setvariableto",
+      "next": "b16",
+      "parent": "b13",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b15",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "濕度",
+          "v4"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b15": {
+      "opcode": "sensing_answer",
+      "next": null,
+      "parent": "b14",
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b16": {
+      "opcode": "control_if",
+      "next": "b22",
+      "parent": "b14",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b17"
+        ],
+        "SUBSTACK": [
+          2,
+          "b21"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b17": {
+      "opcode": "judgeoperators_andOr",
+      "next": null,
+      "parent": "b16",
+      "inputs": {
+        "OPERAND1": [
+          2,
+          "b18"
+        ],
+        "OPERAND2": [
+          2,
+          "b20"
+        ]
+      },
+      "fields": {
+        "OP": [
+          "and",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b18": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b17",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          "b19",
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          1,
+          [
+            10,
+            "30"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          ">",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b19": {
+      "opcode": "data_itemoflist",
+      "next": null,
+      "parent": "b18",
+      "inputs": {
+        "INDEX": [
+          3,
+          [
+            12,
+            "第幾小時",
+            "v3"
+          ],
+          [
+            7,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "溫度",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b20": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b17",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "濕度",
+            "v4"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          1,
+          [
+            10,
+            "50"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "<",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b21": {
+      "opcode": "data_changevariableby",
+      "next": null,
+      "parent": "b16",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            4,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "次數",
+          "v2"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b22": {
+      "opcode": "data_changevariableby",
+      "next": null,
+      "parent": "b16",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            4,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "第幾小時",
+          "v3"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b23": {
+      "opcode": "looks_say",
+      "next": null,
+      "parent": "b12",
+      "inputs": {
+        "MESSAGE": [
+          3,
+          [
+            12,
+            "次數",
+            "v2"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    }
+  }
+}

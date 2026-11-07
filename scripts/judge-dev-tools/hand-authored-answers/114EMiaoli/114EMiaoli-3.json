@@ -1,0 +1,451 @@
+{
+  "variables": {
+    "v1": [
+      "紀錄",
+      0
+    ],
+    "v2": [
+      "人數",
+      0
+    ],
+    "v3": [
+      "最多",
+      0
+    ],
+    "v4": [
+      "第幾字",
+      0
+    ]
+  },
+  "lists": {},
+  "blocks": {
+    "b1": {
+      "opcode": "event_whenflagclicked",
+      "next": "b2",
+      "parent": null,
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": true,
+      "x": 40,
+      "y": 40
+    },
+    "b2": {
+      "opcode": "sensing_askandwait",
+      "next": "b3",
+      "parent": "b1",
+      "inputs": {
+        "QUESTION": [
+          1,
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b3": {
+      "opcode": "data_setvariableto",
+      "next": "b5",
+      "parent": "b2",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b4",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "紀錄",
+          "v1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b4": {
+      "opcode": "sensing_answer",
+      "next": null,
+      "parent": "b3",
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b5": {
+      "opcode": "data_setvariableto",
+      "next": "b6",
+      "parent": "b3",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "0"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "人數",
+          "v2"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b6": {
+      "opcode": "data_setvariableto",
+      "next": "b7",
+      "parent": "b5",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "0"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "最多",
+          "v3"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b7": {
+      "opcode": "data_setvariableto",
+      "next": "b8",
+      "parent": "b6",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "第幾字",
+          "v4"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b8": {
+      "opcode": "control_repeat",
+      "next": "b19",
+      "parent": "b7",
+      "inputs": {
+        "TIMES": [
+          3,
+          "b9",
+          [
+            6,
+            ""
+          ]
+        ],
+        "SUBSTACK": [
+          2,
+          "b10"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b9": {
+      "opcode": "operator_length",
+      "next": null,
+      "parent": "b8",
+      "inputs": {
+        "STRING": [
+          3,
+          [
+            12,
+            "紀錄",
+            "v1"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b10": {
+      "opcode": "control_if_else",
+      "next": "b15",
+      "parent": "b8",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b11"
+        ],
+        "SUBSTACK": [
+          2,
+          "b13"
+        ],
+        "SUBSTACK2": [
+          2,
+          "b14"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b11": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b10",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          "b12",
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          1,
+          [
+            10,
+            "A"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "=",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b12": {
+      "opcode": "operator_letter_of",
+      "next": null,
+      "parent": "b11",
+      "inputs": {
+        "LETTER": [
+          3,
+          [
+            12,
+            "第幾字",
+            "v4"
+          ],
+          [
+            6,
+            ""
+          ]
+        ],
+        "STRING": [
+          3,
+          [
+            12,
+            "紀錄",
+            "v1"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b13": {
+      "opcode": "data_changevariableby",
+      "next": null,
+      "parent": "b10",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            4,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "人數",
+          "v2"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b14": {
+      "opcode": "data_changevariableby",
+      "next": null,
+      "parent": "b10",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            4,
+            "-1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "人數",
+          "v2"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b15": {
+      "opcode": "control_if",
+      "next": "b18",
+      "parent": "b10",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b16"
+        ],
+        "SUBSTACK": [
+          2,
+          "b17"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b16": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b15",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "人數",
+            "v2"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          3,
+          [
+            12,
+            "最多",
+            "v3"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          ">",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b17": {
+      "opcode": "data_setvariableto",
+      "next": null,
+      "parent": "b15",
+      "inputs": {
+        "VALUE": [
+          3,
+          [
+            12,
+            "人數",
+            "v2"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "最多",
+          "v3"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b18": {
+      "opcode": "data_changevariableby",
+      "next": null,
+      "parent": "b15",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            4,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "第幾字",
+          "v4"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b19": {
+      "opcode": "looks_say",
+      "next": null,
+      "parent": "b8",
+      "inputs": {
+        "MESSAGE": [
+          3,
+          [
+            12,
+            "最多",
+            "v3"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    }
+  }
+}

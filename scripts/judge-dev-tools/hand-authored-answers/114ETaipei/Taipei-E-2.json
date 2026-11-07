@@ -1,0 +1,424 @@
+{
+  "variables": {
+    "v1": [
+      "車號",
+      0
+    ],
+    "v2": [
+      "總人數",
+      0
+    ],
+    "v3": [
+      "人數",
+      0
+    ]
+  },
+  "lists": {},
+  "blocks": {
+    "b1": {
+      "opcode": "event_whenflagclicked",
+      "next": "b2",
+      "parent": null,
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": true,
+      "x": 40,
+      "y": 40
+    },
+    "b2": {
+      "opcode": "control_repeat",
+      "next": null,
+      "parent": "b1",
+      "inputs": {
+        "TIMES": [
+          1,
+          [
+            6,
+            "3"
+          ]
+        ],
+        "SUBSTACK": [
+          2,
+          "b3"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b3": {
+      "opcode": "sensing_askandwait",
+      "next": "b4",
+      "parent": "b2",
+      "inputs": {
+        "QUESTION": [
+          1,
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b4": {
+      "opcode": "data_setvariableto",
+      "next": "b6",
+      "parent": "b3",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b5",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "車號",
+          "v1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b5": {
+      "opcode": "sensing_answer",
+      "next": null,
+      "parent": "b4",
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b6": {
+      "opcode": "data_setvariableto",
+      "next": "b7",
+      "parent": "b4",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "0"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "總人數",
+          "v2"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b7": {
+      "opcode": "control_repeat",
+      "next": "b12",
+      "parent": "b6",
+      "inputs": {
+        "TIMES": [
+          1,
+          [
+            6,
+            "5"
+          ]
+        ],
+        "SUBSTACK": [
+          2,
+          "b8"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b8": {
+      "opcode": "sensing_askandwait",
+      "next": "b9",
+      "parent": "b7",
+      "inputs": {
+        "QUESTION": [
+          1,
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b9": {
+      "opcode": "data_setvariableto",
+      "next": "b11",
+      "parent": "b8",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b10",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "人數",
+          "v3"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b10": {
+      "opcode": "sensing_answer",
+      "next": null,
+      "parent": "b9",
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b11": {
+      "opcode": "data_changevariableby",
+      "next": null,
+      "parent": "b9",
+      "inputs": {
+        "VALUE": [
+          3,
+          [
+            12,
+            "人數",
+            "v3"
+          ],
+          [
+            4,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "總人數",
+          "v2"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b12": {
+      "opcode": "control_if_else",
+      "next": null,
+      "parent": "b7",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b13"
+        ],
+        "SUBSTACK": [
+          2,
+          "b14"
+        ],
+        "SUBSTACK2": [
+          2,
+          "b16"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b13": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b12",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "總人數",
+            "v2"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          1,
+          [
+            10,
+            "20"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          ">",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b14": {
+      "opcode": "looks_say",
+      "next": null,
+      "parent": "b12",
+      "inputs": {
+        "MESSAGE": [
+          3,
+          "b15",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b15": {
+      "opcode": "operator_join",
+      "next": null,
+      "parent": "b14",
+      "inputs": {
+        "STRING1": [
+          3,
+          [
+            12,
+            "車號",
+            "v1"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "STRING2": [
+          1,
+          [
+            10,
+            "車超載"
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b16": {
+      "opcode": "looks_say",
+      "next": null,
+      "parent": "b12",
+      "inputs": {
+        "MESSAGE": [
+          3,
+          "b19",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b17": {
+      "opcode": "operator_join",
+      "next": null,
+      "parent": "b18",
+      "inputs": {
+        "STRING1": [
+          3,
+          [
+            12,
+            "車號",
+            "v1"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "STRING2": [
+          1,
+          [
+            10,
+            "車"
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b18": {
+      "opcode": "operator_join",
+      "next": null,
+      "parent": "b19",
+      "inputs": {
+        "STRING1": [
+          3,
+          "b17",
+          [
+            10,
+            ""
+          ]
+        ],
+        "STRING2": [
+          3,
+          [
+            12,
+            "總人數",
+            "v2"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b19": {
+      "opcode": "operator_join",
+      "next": null,
+      "parent": "b16",
+      "inputs": {
+        "STRING1": [
+          3,
+          "b18",
+          [
+            10,
+            ""
+          ]
+        ],
+        "STRING2": [
+          1,
+          [
+            10,
+            "人"
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    }
+  }
+}

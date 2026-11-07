@@ -1,0 +1,827 @@
+{
+  "variables": {
+    "v1": [
+      "天數",
+      0
+    ],
+    "v2": [
+      "連續天數",
+      0
+    ],
+    "v3": [
+      "區間和",
+      0
+    ],
+    "v4": [
+      "第幾天",
+      0
+    ],
+    "v5": [
+      "最大",
+      0
+    ],
+    "v6": [
+      "新的一天",
+      0
+    ]
+  },
+  "lists": {
+    "L1": [
+      "觀看",
+      []
+    ]
+  },
+  "blocks": {
+    "b1": {
+      "opcode": "event_whenflagclicked",
+      "next": "b2",
+      "parent": null,
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": true,
+      "x": 40,
+      "y": 40
+    },
+    "b2": {
+      "opcode": "sensing_askandwait",
+      "next": "b3",
+      "parent": "b1",
+      "inputs": {
+        "QUESTION": [
+          1,
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b3": {
+      "opcode": "data_setvariableto",
+      "next": "b5",
+      "parent": "b2",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b4",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "天數",
+          "v1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b4": {
+      "opcode": "sensing_answer",
+      "next": null,
+      "parent": "b3",
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b5": {
+      "opcode": "sensing_askandwait",
+      "next": "b6",
+      "parent": "b3",
+      "inputs": {
+        "QUESTION": [
+          1,
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b6": {
+      "opcode": "data_setvariableto",
+      "next": "b8",
+      "parent": "b5",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b7",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "連續天數",
+          "v2"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b7": {
+      "opcode": "sensing_answer",
+      "next": null,
+      "parent": "b6",
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b8": {
+      "opcode": "data_deletealloflist",
+      "next": "b9",
+      "parent": "b6",
+      "inputs": {},
+      "fields": {
+        "LIST": [
+          "觀看",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b9": {
+      "opcode": "control_repeat",
+      "next": "b13",
+      "parent": "b8",
+      "inputs": {
+        "TIMES": [
+          3,
+          [
+            12,
+            "天數",
+            "v1"
+          ],
+          [
+            6,
+            ""
+          ]
+        ],
+        "SUBSTACK": [
+          2,
+          "b10"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b10": {
+      "opcode": "sensing_askandwait",
+      "next": "b11",
+      "parent": "b9",
+      "inputs": {
+        "QUESTION": [
+          1,
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b11": {
+      "opcode": "data_addtolist",
+      "next": null,
+      "parent": "b10",
+      "inputs": {
+        "ITEM": [
+          3,
+          "b12",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "觀看",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b12": {
+      "opcode": "sensing_answer",
+      "next": null,
+      "parent": "b11",
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b13": {
+      "opcode": "data_setvariableto",
+      "next": "b14",
+      "parent": "b9",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "0"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "區間和",
+          "v3"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b14": {
+      "opcode": "data_setvariableto",
+      "next": "b15",
+      "parent": "b13",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "第幾天",
+          "v4"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b15": {
+      "opcode": "control_repeat",
+      "next": "b19",
+      "parent": "b14",
+      "inputs": {
+        "TIMES": [
+          3,
+          [
+            12,
+            "連續天數",
+            "v2"
+          ],
+          [
+            6,
+            ""
+          ]
+        ],
+        "SUBSTACK": [
+          2,
+          "b16"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b16": {
+      "opcode": "data_changevariableby",
+      "next": "b18",
+      "parent": "b15",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b17",
+          [
+            4,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "區間和",
+          "v3"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b17": {
+      "opcode": "data_itemoflist",
+      "next": null,
+      "parent": "b16",
+      "inputs": {
+        "INDEX": [
+          3,
+          [
+            12,
+            "第幾天",
+            "v4"
+          ],
+          [
+            7,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "觀看",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b18": {
+      "opcode": "data_changevariableby",
+      "next": null,
+      "parent": "b16",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            4,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "第幾天",
+          "v4"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b19": {
+      "opcode": "data_setvariableto",
+      "next": "b20",
+      "parent": "b15",
+      "inputs": {
+        "VALUE": [
+          3,
+          [
+            12,
+            "區間和",
+            "v3"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "最大",
+          "v5"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b20": {
+      "opcode": "data_setvariableto",
+      "next": "b22",
+      "parent": "b19",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b21",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "新的一天",
+          "v6"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b21": {
+      "opcode": "judgeoperators_arithmetic",
+      "next": null,
+      "parent": "b20",
+      "inputs": {
+        "NUM1": [
+          3,
+          [
+            12,
+            "連續天數",
+            "v2"
+          ],
+          [
+            4,
+            ""
+          ]
+        ],
+        "NUM2": [
+          1,
+          [
+            4,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "+",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b22": {
+      "opcode": "control_repeat",
+      "next": "b34",
+      "parent": "b20",
+      "inputs": {
+        "TIMES": [
+          3,
+          "b23",
+          [
+            6,
+            ""
+          ]
+        ],
+        "SUBSTACK": [
+          2,
+          "b24"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b23": {
+      "opcode": "judgeoperators_arithmetic",
+      "next": null,
+      "parent": "b22",
+      "inputs": {
+        "NUM1": [
+          3,
+          [
+            12,
+            "天數",
+            "v1"
+          ],
+          [
+            4,
+            ""
+          ]
+        ],
+        "NUM2": [
+          3,
+          [
+            12,
+            "連續天數",
+            "v2"
+          ],
+          [
+            4,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "-",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b24": {
+      "opcode": "data_setvariableto",
+      "next": "b30",
+      "parent": "b22",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b25",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "區間和",
+          "v3"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b25": {
+      "opcode": "judgeoperators_arithmetic",
+      "next": null,
+      "parent": "b24",
+      "inputs": {
+        "NUM1": [
+          3,
+          "b26",
+          [
+            4,
+            ""
+          ]
+        ],
+        "NUM2": [
+          3,
+          "b28",
+          [
+            4,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "-",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b26": {
+      "opcode": "judgeoperators_arithmetic",
+      "next": null,
+      "parent": "b25",
+      "inputs": {
+        "NUM1": [
+          3,
+          [
+            12,
+            "區間和",
+            "v3"
+          ],
+          [
+            4,
+            ""
+          ]
+        ],
+        "NUM2": [
+          3,
+          "b27",
+          [
+            4,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "+",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b27": {
+      "opcode": "data_itemoflist",
+      "next": null,
+      "parent": "b26",
+      "inputs": {
+        "INDEX": [
+          3,
+          [
+            12,
+            "新的一天",
+            "v6"
+          ],
+          [
+            7,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "觀看",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b28": {
+      "opcode": "data_itemoflist",
+      "next": null,
+      "parent": "b25",
+      "inputs": {
+        "INDEX": [
+          3,
+          "b29",
+          [
+            7,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "觀看",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b29": {
+      "opcode": "judgeoperators_arithmetic",
+      "next": null,
+      "parent": "b28",
+      "inputs": {
+        "NUM1": [
+          3,
+          [
+            12,
+            "新的一天",
+            "v6"
+          ],
+          [
+            4,
+            ""
+          ]
+        ],
+        "NUM2": [
+          3,
+          [
+            12,
+            "連續天數",
+            "v2"
+          ],
+          [
+            4,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "-",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b30": {
+      "opcode": "control_if",
+      "next": "b33",
+      "parent": "b24",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b31"
+        ],
+        "SUBSTACK": [
+          2,
+          "b32"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b31": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b30",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "區間和",
+            "v3"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          3,
+          [
+            12,
+            "最大",
+            "v5"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          ">",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b32": {
+      "opcode": "data_setvariableto",
+      "next": null,
+      "parent": "b30",
+      "inputs": {
+        "VALUE": [
+          3,
+          [
+            12,
+            "區間和",
+            "v3"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "最大",
+          "v5"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b33": {
+      "opcode": "data_changevariableby",
+      "next": null,
+      "parent": "b30",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            4,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "新的一天",
+          "v6"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b34": {
+      "opcode": "looks_say",
+      "next": null,
+      "parent": "b22",
+      "inputs": {
+        "MESSAGE": [
+          3,
+          [
+            12,
+            "最大",
+            "v5"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    }
+  }
+}

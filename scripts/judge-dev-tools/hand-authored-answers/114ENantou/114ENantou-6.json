@@ -1,0 +1,377 @@
+{
+  "variables": {
+    "v1": [
+      "筆數",
+      0
+    ],
+    "v2": [
+      "總金額",
+      0
+    ],
+    "v3": [
+      "編號",
+      0
+    ]
+  },
+  "lists": {
+    "L1": [
+      "價目",
+      []
+    ]
+  },
+  "blocks": {
+    "b1": {
+      "opcode": "event_whenflagclicked",
+      "next": "b2",
+      "parent": null,
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": true,
+      "x": 40,
+      "y": 40
+    },
+    "b2": {
+      "opcode": "data_deletealloflist",
+      "next": "b3",
+      "parent": "b1",
+      "inputs": {},
+      "fields": {
+        "LIST": [
+          "價目",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b3": {
+      "opcode": "data_addtolist",
+      "next": "b4",
+      "parent": "b2",
+      "inputs": {
+        "ITEM": [
+          1,
+          [
+            10,
+            "45"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "價目",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b4": {
+      "opcode": "data_addtolist",
+      "next": "b5",
+      "parent": "b3",
+      "inputs": {
+        "ITEM": [
+          1,
+          [
+            10,
+            "25"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "價目",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b5": {
+      "opcode": "data_addtolist",
+      "next": "b6",
+      "parent": "b4",
+      "inputs": {
+        "ITEM": [
+          1,
+          [
+            10,
+            "30"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "價目",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b6": {
+      "opcode": "data_addtolist",
+      "next": "b7",
+      "parent": "b5",
+      "inputs": {
+        "ITEM": [
+          1,
+          [
+            10,
+            "40"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "價目",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b7": {
+      "opcode": "data_addtolist",
+      "next": "b8",
+      "parent": "b6",
+      "inputs": {
+        "ITEM": [
+          1,
+          [
+            10,
+            "60"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "價目",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b8": {
+      "opcode": "sensing_askandwait",
+      "next": "b9",
+      "parent": "b7",
+      "inputs": {
+        "QUESTION": [
+          1,
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b9": {
+      "opcode": "data_setvariableto",
+      "next": "b11",
+      "parent": "b8",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b10",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "筆數",
+          "v1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b10": {
+      "opcode": "sensing_answer",
+      "next": null,
+      "parent": "b9",
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b11": {
+      "opcode": "data_setvariableto",
+      "next": "b12",
+      "parent": "b9",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "0"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "總金額",
+          "v2"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b12": {
+      "opcode": "control_repeat",
+      "next": "b18",
+      "parent": "b11",
+      "inputs": {
+        "TIMES": [
+          3,
+          [
+            12,
+            "筆數",
+            "v1"
+          ],
+          [
+            6,
+            ""
+          ]
+        ],
+        "SUBSTACK": [
+          2,
+          "b13"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b13": {
+      "opcode": "sensing_askandwait",
+      "next": "b14",
+      "parent": "b12",
+      "inputs": {
+        "QUESTION": [
+          1,
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b14": {
+      "opcode": "data_setvariableto",
+      "next": "b16",
+      "parent": "b13",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b15",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "編號",
+          "v3"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b15": {
+      "opcode": "sensing_answer",
+      "next": null,
+      "parent": "b14",
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b16": {
+      "opcode": "data_changevariableby",
+      "next": null,
+      "parent": "b14",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b17",
+          [
+            4,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "總金額",
+          "v2"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b17": {
+      "opcode": "data_itemoflist",
+      "next": null,
+      "parent": "b16",
+      "inputs": {
+        "INDEX": [
+          3,
+          [
+            12,
+            "編號",
+            "v3"
+          ],
+          [
+            7,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "價目",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b18": {
+      "opcode": "looks_say",
+      "next": null,
+      "parent": "b12",
+      "inputs": {
+        "MESSAGE": [
+          3,
+          [
+            12,
+            "總金額",
+            "v2"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    }
+  }
+}

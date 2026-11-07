@@ -1,0 +1,1601 @@
+{
+  "variables": {
+    "v1": [
+      "戶數",
+      0
+    ],
+    "v2": [
+      "第幾戶",
+      0
+    ],
+    "v3": [
+      "度數",
+      0
+    ],
+    "v4": [
+      "電費",
+      0
+    ],
+    "v5": [
+      "最低",
+      0
+    ],
+    "v6": [
+      "最高",
+      0
+    ],
+    "v7": [
+      "最高戶",
+      0
+    ]
+  },
+  "lists": {},
+  "blocks": {
+    "b1": {
+      "opcode": "event_whenflagclicked",
+      "next": "b2",
+      "parent": null,
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": true,
+      "x": 40,
+      "y": 40
+    },
+    "b2": {
+      "opcode": "sensing_askandwait",
+      "next": "b3",
+      "parent": "b1",
+      "inputs": {
+        "QUESTION": [
+          1,
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b3": {
+      "opcode": "data_setvariableto",
+      "next": "b5",
+      "parent": "b2",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b4",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "戶數",
+          "v1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b4": {
+      "opcode": "sensing_answer",
+      "next": null,
+      "parent": "b3",
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b5": {
+      "opcode": "data_setvariableto",
+      "next": "b6",
+      "parent": "b3",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "第幾戶",
+          "v2"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b6": {
+      "opcode": "control_repeat",
+      "next": "b53",
+      "parent": "b5",
+      "inputs": {
+        "TIMES": [
+          3,
+          [
+            12,
+            "戶數",
+            "v1"
+          ],
+          [
+            6,
+            ""
+          ]
+        ],
+        "SUBSTACK": [
+          2,
+          "b7"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b7": {
+      "opcode": "sensing_askandwait",
+      "next": "b8",
+      "parent": "b6",
+      "inputs": {
+        "QUESTION": [
+          1,
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b8": {
+      "opcode": "data_setvariableto",
+      "next": "b10",
+      "parent": "b7",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b9",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "度數",
+          "v3"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b9": {
+      "opcode": "sensing_answer",
+      "next": null,
+      "parent": "b8",
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b10": {
+      "opcode": "control_if_else",
+      "next": "b39",
+      "parent": "b8",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b11"
+        ],
+        "SUBSTACK": [
+          2,
+          "b12"
+        ],
+        "SUBSTACK2": [
+          2,
+          "b14"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b11": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b10",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "度數",
+            "v3"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          1,
+          [
+            10,
+            "120"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "<=",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b12": {
+      "opcode": "data_setvariableto",
+      "next": null,
+      "parent": "b10",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b13",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "電費",
+          "v4"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b13": {
+      "opcode": "judgeoperators_arithmetic",
+      "next": null,
+      "parent": "b12",
+      "inputs": {
+        "NUM1": [
+          3,
+          [
+            12,
+            "度數",
+            "v3"
+          ],
+          [
+            4,
+            ""
+          ]
+        ],
+        "NUM2": [
+          1,
+          [
+            4,
+            "1.63"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "*",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b14": {
+      "opcode": "control_if_else",
+      "next": null,
+      "parent": "b10",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b15"
+        ],
+        "SUBSTACK": [
+          2,
+          "b16"
+        ],
+        "SUBSTACK2": [
+          2,
+          "b21"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b15": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b14",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "度數",
+            "v3"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          1,
+          [
+            10,
+            "330"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "<=",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b16": {
+      "opcode": "data_setvariableto",
+      "next": null,
+      "parent": "b14",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b17",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "電費",
+          "v4"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b17": {
+      "opcode": "judgeoperators_arithmetic",
+      "next": null,
+      "parent": "b16",
+      "inputs": {
+        "NUM1": [
+          3,
+          "b18",
+          [
+            4,
+            ""
+          ]
+        ],
+        "NUM2": [
+          3,
+          "b19",
+          [
+            4,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "+",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b18": {
+      "opcode": "judgeoperators_arithmetic",
+      "next": null,
+      "parent": "b17",
+      "inputs": {
+        "NUM1": [
+          1,
+          [
+            4,
+            "120"
+          ]
+        ],
+        "NUM2": [
+          1,
+          [
+            4,
+            "1.63"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "*",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b19": {
+      "opcode": "judgeoperators_arithmetic",
+      "next": null,
+      "parent": "b17",
+      "inputs": {
+        "NUM1": [
+          3,
+          "b20",
+          [
+            4,
+            ""
+          ]
+        ],
+        "NUM2": [
+          1,
+          [
+            4,
+            "2.38"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "*",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b20": {
+      "opcode": "judgeoperators_arithmetic",
+      "next": null,
+      "parent": "b19",
+      "inputs": {
+        "NUM1": [
+          3,
+          [
+            12,
+            "度數",
+            "v3"
+          ],
+          [
+            4,
+            ""
+          ]
+        ],
+        "NUM2": [
+          1,
+          [
+            4,
+            "120"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "-",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b21": {
+      "opcode": "control_if_else",
+      "next": null,
+      "parent": "b14",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b22"
+        ],
+        "SUBSTACK": [
+          2,
+          "b23"
+        ],
+        "SUBSTACK2": [
+          2,
+          "b30"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b22": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b21",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "度數",
+            "v3"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          1,
+          [
+            10,
+            "500"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "<=",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b23": {
+      "opcode": "data_setvariableto",
+      "next": null,
+      "parent": "b21",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b24",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "電費",
+          "v4"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b24": {
+      "opcode": "judgeoperators_arithmetic",
+      "next": null,
+      "parent": "b23",
+      "inputs": {
+        "NUM1": [
+          3,
+          "b25",
+          [
+            4,
+            ""
+          ]
+        ],
+        "NUM2": [
+          3,
+          "b28",
+          [
+            4,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "+",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b25": {
+      "opcode": "judgeoperators_arithmetic",
+      "next": null,
+      "parent": "b24",
+      "inputs": {
+        "NUM1": [
+          3,
+          "b26",
+          [
+            4,
+            ""
+          ]
+        ],
+        "NUM2": [
+          3,
+          "b27",
+          [
+            4,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "+",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b26": {
+      "opcode": "judgeoperators_arithmetic",
+      "next": null,
+      "parent": "b25",
+      "inputs": {
+        "NUM1": [
+          1,
+          [
+            4,
+            "120"
+          ]
+        ],
+        "NUM2": [
+          1,
+          [
+            4,
+            "1.63"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "*",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b27": {
+      "opcode": "judgeoperators_arithmetic",
+      "next": null,
+      "parent": "b25",
+      "inputs": {
+        "NUM1": [
+          1,
+          [
+            4,
+            "210"
+          ]
+        ],
+        "NUM2": [
+          1,
+          [
+            4,
+            "2.38"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "*",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b28": {
+      "opcode": "judgeoperators_arithmetic",
+      "next": null,
+      "parent": "b24",
+      "inputs": {
+        "NUM1": [
+          3,
+          "b29",
+          [
+            4,
+            ""
+          ]
+        ],
+        "NUM2": [
+          1,
+          [
+            4,
+            "3.52"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "*",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b29": {
+      "opcode": "judgeoperators_arithmetic",
+      "next": null,
+      "parent": "b28",
+      "inputs": {
+        "NUM1": [
+          3,
+          [
+            12,
+            "度數",
+            "v3"
+          ],
+          [
+            4,
+            ""
+          ]
+        ],
+        "NUM2": [
+          1,
+          [
+            4,
+            "330"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "-",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b30": {
+      "opcode": "data_setvariableto",
+      "next": null,
+      "parent": "b21",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b31",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "電費",
+          "v4"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b31": {
+      "opcode": "judgeoperators_arithmetic",
+      "next": null,
+      "parent": "b30",
+      "inputs": {
+        "NUM1": [
+          3,
+          "b32",
+          [
+            4,
+            ""
+          ]
+        ],
+        "NUM2": [
+          3,
+          "b37",
+          [
+            4,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "+",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b32": {
+      "opcode": "judgeoperators_arithmetic",
+      "next": null,
+      "parent": "b31",
+      "inputs": {
+        "NUM1": [
+          3,
+          "b33",
+          [
+            4,
+            ""
+          ]
+        ],
+        "NUM2": [
+          3,
+          "b36",
+          [
+            4,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "+",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b33": {
+      "opcode": "judgeoperators_arithmetic",
+      "next": null,
+      "parent": "b32",
+      "inputs": {
+        "NUM1": [
+          3,
+          "b34",
+          [
+            4,
+            ""
+          ]
+        ],
+        "NUM2": [
+          3,
+          "b35",
+          [
+            4,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "+",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b34": {
+      "opcode": "judgeoperators_arithmetic",
+      "next": null,
+      "parent": "b33",
+      "inputs": {
+        "NUM1": [
+          1,
+          [
+            4,
+            "120"
+          ]
+        ],
+        "NUM2": [
+          1,
+          [
+            4,
+            "1.63"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "*",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b35": {
+      "opcode": "judgeoperators_arithmetic",
+      "next": null,
+      "parent": "b33",
+      "inputs": {
+        "NUM1": [
+          1,
+          [
+            4,
+            "210"
+          ]
+        ],
+        "NUM2": [
+          1,
+          [
+            4,
+            "2.38"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "*",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b36": {
+      "opcode": "judgeoperators_arithmetic",
+      "next": null,
+      "parent": "b32",
+      "inputs": {
+        "NUM1": [
+          1,
+          [
+            4,
+            "170"
+          ]
+        ],
+        "NUM2": [
+          1,
+          [
+            4,
+            "3.52"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "*",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b37": {
+      "opcode": "judgeoperators_arithmetic",
+      "next": null,
+      "parent": "b31",
+      "inputs": {
+        "NUM1": [
+          3,
+          "b38",
+          [
+            4,
+            ""
+          ]
+        ],
+        "NUM2": [
+          1,
+          [
+            4,
+            "4.8"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "*",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b38": {
+      "opcode": "judgeoperators_arithmetic",
+      "next": null,
+      "parent": "b37",
+      "inputs": {
+        "NUM1": [
+          3,
+          [
+            12,
+            "度數",
+            "v3"
+          ],
+          [
+            4,
+            ""
+          ]
+        ],
+        "NUM2": [
+          1,
+          [
+            4,
+            "500"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "-",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b39": {
+      "opcode": "data_setvariableto",
+      "next": "b41",
+      "parent": "b10",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b40",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "電費",
+          "v4"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b40": {
+      "opcode": "operator_round",
+      "next": null,
+      "parent": "b39",
+      "inputs": {
+        "NUM": [
+          3,
+          [
+            12,
+            "電費",
+            "v4"
+          ],
+          [
+            4,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b41": {
+      "opcode": "control_if",
+      "next": "b46",
+      "parent": "b39",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b42"
+        ],
+        "SUBSTACK": [
+          2,
+          "b45"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b42": {
+      "opcode": "judgeoperators_andOr",
+      "next": null,
+      "parent": "b41",
+      "inputs": {
+        "OPERAND1": [
+          2,
+          "b43"
+        ],
+        "OPERAND2": [
+          2,
+          "b44"
+        ]
+      },
+      "fields": {
+        "OP": [
+          "or",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b43": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b42",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "第幾戶",
+            "v2"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          1,
+          [
+            10,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "=",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b44": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b42",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "電費",
+            "v4"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          3,
+          [
+            12,
+            "最低",
+            "v5"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "<",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b45": {
+      "opcode": "data_setvariableto",
+      "next": null,
+      "parent": "b41",
+      "inputs": {
+        "VALUE": [
+          3,
+          [
+            12,
+            "電費",
+            "v4"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "最低",
+          "v5"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b46": {
+      "opcode": "control_if",
+      "next": "b52",
+      "parent": "b41",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b47"
+        ],
+        "SUBSTACK": [
+          2,
+          "b50"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b47": {
+      "opcode": "judgeoperators_andOr",
+      "next": null,
+      "parent": "b46",
+      "inputs": {
+        "OPERAND1": [
+          2,
+          "b48"
+        ],
+        "OPERAND2": [
+          2,
+          "b49"
+        ]
+      },
+      "fields": {
+        "OP": [
+          "or",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b48": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b47",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "第幾戶",
+            "v2"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          1,
+          [
+            10,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "=",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b49": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b47",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "電費",
+            "v4"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          3,
+          [
+            12,
+            "最高",
+            "v6"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          ">",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b50": {
+      "opcode": "data_setvariableto",
+      "next": "b51",
+      "parent": "b46",
+      "inputs": {
+        "VALUE": [
+          3,
+          [
+            12,
+            "電費",
+            "v4"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "最高",
+          "v6"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b51": {
+      "opcode": "data_setvariableto",
+      "next": null,
+      "parent": "b50",
+      "inputs": {
+        "VALUE": [
+          3,
+          [
+            12,
+            "第幾戶",
+            "v2"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "最高戶",
+          "v7"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b52": {
+      "opcode": "data_changevariableby",
+      "next": null,
+      "parent": "b46",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            4,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "第幾戶",
+          "v2"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b53": {
+      "opcode": "looks_say",
+      "next": null,
+      "parent": "b6",
+      "inputs": {
+        "MESSAGE": [
+          3,
+          "b59",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b54": {
+      "opcode": "operator_join",
+      "next": null,
+      "parent": "b55",
+      "inputs": {
+        "STRING1": [
+          3,
+          [
+            12,
+            "戶數",
+            "v1"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "STRING2": [
+          1,
+          [
+            10,
+            " "
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b55": {
+      "opcode": "operator_join",
+      "next": null,
+      "parent": "b56",
+      "inputs": {
+        "STRING1": [
+          3,
+          "b54",
+          [
+            10,
+            ""
+          ]
+        ],
+        "STRING2": [
+          3,
+          [
+            12,
+            "最低",
+            "v5"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b56": {
+      "opcode": "operator_join",
+      "next": null,
+      "parent": "b57",
+      "inputs": {
+        "STRING1": [
+          3,
+          "b55",
+          [
+            10,
+            ""
+          ]
+        ],
+        "STRING2": [
+          1,
+          [
+            10,
+            " "
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b57": {
+      "opcode": "operator_join",
+      "next": null,
+      "parent": "b58",
+      "inputs": {
+        "STRING1": [
+          3,
+          "b56",
+          [
+            10,
+            ""
+          ]
+        ],
+        "STRING2": [
+          3,
+          [
+            12,
+            "最高戶",
+            "v7"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b58": {
+      "opcode": "operator_join",
+      "next": null,
+      "parent": "b59",
+      "inputs": {
+        "STRING1": [
+          3,
+          "b57",
+          [
+            10,
+            ""
+          ]
+        ],
+        "STRING2": [
+          1,
+          [
+            10,
+            " "
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b59": {
+      "opcode": "operator_join",
+      "next": null,
+      "parent": "b53",
+      "inputs": {
+        "STRING1": [
+          3,
+          "b58",
+          [
+            10,
+            ""
+          ]
+        ],
+        "STRING2": [
+          3,
+          [
+            12,
+            "最高",
+            "v6"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    }
+  }
+}

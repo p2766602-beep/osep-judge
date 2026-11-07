@@ -1,0 +1,503 @@
+{
+  "variables": {
+    "v1": [
+      "大袋剩",
+      0
+    ],
+    "v2": [
+      "中袋剩",
+      0
+    ],
+    "v3": [
+      "小袋剩",
+      0
+    ],
+    "v4": [
+      "顆數",
+      0
+    ]
+  },
+  "lists": {},
+  "blocks": {
+    "b1": {
+      "opcode": "event_whenflagclicked",
+      "next": "b2",
+      "parent": null,
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": true,
+      "x": 40,
+      "y": 40
+    },
+    "b2": {
+      "opcode": "sensing_askandwait",
+      "next": "b3",
+      "parent": "b1",
+      "inputs": {
+        "QUESTION": [
+          1,
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b3": {
+      "opcode": "data_setvariableto",
+      "next": "b5",
+      "parent": "b2",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b4",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "大袋剩",
+          "v1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b4": {
+      "opcode": "sensing_answer",
+      "next": null,
+      "parent": "b3",
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b5": {
+      "opcode": "sensing_askandwait",
+      "next": "b6",
+      "parent": "b3",
+      "inputs": {
+        "QUESTION": [
+          1,
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b6": {
+      "opcode": "data_setvariableto",
+      "next": "b8",
+      "parent": "b5",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b7",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "中袋剩",
+          "v2"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b7": {
+      "opcode": "sensing_answer",
+      "next": null,
+      "parent": "b6",
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b8": {
+      "opcode": "sensing_askandwait",
+      "next": "b9",
+      "parent": "b6",
+      "inputs": {
+        "QUESTION": [
+          1,
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b9": {
+      "opcode": "data_setvariableto",
+      "next": "b11",
+      "parent": "b8",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b10",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "小袋剩",
+          "v3"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b10": {
+      "opcode": "sensing_answer",
+      "next": null,
+      "parent": "b9",
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b11": {
+      "opcode": "data_setvariableto",
+      "next": "b12",
+      "parent": "b9",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "10"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "顆數",
+          "v4"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b12": {
+      "opcode": "control_repeat_until",
+      "next": "b22",
+      "parent": "b11",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b13"
+        ],
+        "SUBSTACK": [
+          2,
+          "b21"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b13": {
+      "opcode": "judgeoperators_andOr",
+      "next": null,
+      "parent": "b12",
+      "inputs": {
+        "OPERAND1": [
+          2,
+          "b14"
+        ],
+        "OPERAND2": [
+          2,
+          "b19"
+        ]
+      },
+      "fields": {
+        "OP": [
+          "and",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b14": {
+      "opcode": "judgeoperators_andOr",
+      "next": null,
+      "parent": "b13",
+      "inputs": {
+        "OPERAND1": [
+          2,
+          "b15"
+        ],
+        "OPERAND2": [
+          2,
+          "b17"
+        ]
+      },
+      "fields": {
+        "OP": [
+          "and",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b15": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b14",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          "b16",
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          3,
+          [
+            12,
+            "大袋剩",
+            "v1"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "=",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b16": {
+      "opcode": "operator_mod",
+      "next": null,
+      "parent": "b15",
+      "inputs": {
+        "NUM1": [
+          3,
+          [
+            12,
+            "顆數",
+            "v4"
+          ],
+          [
+            4,
+            ""
+          ]
+        ],
+        "NUM2": [
+          1,
+          [
+            4,
+            "7"
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b17": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b14",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          "b18",
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          3,
+          [
+            12,
+            "中袋剩",
+            "v2"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "=",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b18": {
+      "opcode": "operator_mod",
+      "next": null,
+      "parent": "b17",
+      "inputs": {
+        "NUM1": [
+          3,
+          [
+            12,
+            "顆數",
+            "v4"
+          ],
+          [
+            4,
+            ""
+          ]
+        ],
+        "NUM2": [
+          1,
+          [
+            4,
+            "5"
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b19": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b13",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          "b20",
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          3,
+          [
+            12,
+            "小袋剩",
+            "v3"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "=",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b20": {
+      "opcode": "operator_mod",
+      "next": null,
+      "parent": "b19",
+      "inputs": {
+        "NUM1": [
+          3,
+          [
+            12,
+            "顆數",
+            "v4"
+          ],
+          [
+            4,
+            ""
+          ]
+        ],
+        "NUM2": [
+          1,
+          [
+            4,
+            "3"
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b21": {
+      "opcode": "data_changevariableby",
+      "next": null,
+      "parent": "b12",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            4,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "顆數",
+          "v4"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b22": {
+      "opcode": "looks_say",
+      "next": null,
+      "parent": "b12",
+      "inputs": {
+        "MESSAGE": [
+          3,
+          [
+            12,
+            "顆數",
+            "v4"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    }
+  }
+}

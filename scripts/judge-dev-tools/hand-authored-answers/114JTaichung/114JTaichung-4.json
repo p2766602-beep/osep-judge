@@ -1,0 +1,2423 @@
+{
+  "variables": {
+    "v1": [
+      "本數",
+      0
+    ],
+    "v2": [
+      "書",
+      0
+    ],
+    "v3": [
+      "第幾種",
+      0
+    ],
+    "v4": [
+      "庫存不足",
+      0
+    ],
+    "v5": [
+      "組數ABC",
+      0
+    ],
+    "v6": [
+      "組數DE",
+      0
+    ],
+    "v7": [
+      "原價總和",
+      0
+    ],
+    "v8": [
+      "組合原價",
+      0
+    ],
+    "v9": [
+      "小計",
+      0
+    ],
+    "v10": [
+      "折扣",
+      0
+    ]
+  },
+  "lists": {
+    "L1": [
+      "書種",
+      []
+    ],
+    "L2": [
+      "庫存",
+      []
+    ],
+    "L3": [
+      "單價",
+      []
+    ],
+    "L4": [
+      "購買數量",
+      []
+    ]
+  },
+  "blocks": {
+    "b1": {
+      "opcode": "event_whenflagclicked",
+      "next": "b2",
+      "parent": null,
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": true,
+      "x": 40,
+      "y": 40
+    },
+    "b2": {
+      "opcode": "data_deletealloflist",
+      "next": "b3",
+      "parent": "b1",
+      "inputs": {},
+      "fields": {
+        "LIST": [
+          "書種",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b3": {
+      "opcode": "data_addtolist",
+      "next": "b4",
+      "parent": "b2",
+      "inputs": {
+        "ITEM": [
+          1,
+          [
+            10,
+            "A"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "書種",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b4": {
+      "opcode": "data_addtolist",
+      "next": "b5",
+      "parent": "b3",
+      "inputs": {
+        "ITEM": [
+          1,
+          [
+            10,
+            "B"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "書種",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b5": {
+      "opcode": "data_addtolist",
+      "next": "b6",
+      "parent": "b4",
+      "inputs": {
+        "ITEM": [
+          1,
+          [
+            10,
+            "C"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "書種",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b6": {
+      "opcode": "data_addtolist",
+      "next": "b7",
+      "parent": "b5",
+      "inputs": {
+        "ITEM": [
+          1,
+          [
+            10,
+            "D"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "書種",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b7": {
+      "opcode": "data_addtolist",
+      "next": "b8",
+      "parent": "b6",
+      "inputs": {
+        "ITEM": [
+          1,
+          [
+            10,
+            "E"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "書種",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b8": {
+      "opcode": "data_addtolist",
+      "next": "b9",
+      "parent": "b7",
+      "inputs": {
+        "ITEM": [
+          1,
+          [
+            10,
+            "F"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "書種",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b9": {
+      "opcode": "data_deletealloflist",
+      "next": "b10",
+      "parent": "b8",
+      "inputs": {},
+      "fields": {
+        "LIST": [
+          "庫存",
+          "L2"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b10": {
+      "opcode": "data_addtolist",
+      "next": "b11",
+      "parent": "b9",
+      "inputs": {
+        "ITEM": [
+          1,
+          [
+            10,
+            "8"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "庫存",
+          "L2"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b11": {
+      "opcode": "data_addtolist",
+      "next": "b12",
+      "parent": "b10",
+      "inputs": {
+        "ITEM": [
+          1,
+          [
+            10,
+            "10"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "庫存",
+          "L2"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b12": {
+      "opcode": "data_addtolist",
+      "next": "b13",
+      "parent": "b11",
+      "inputs": {
+        "ITEM": [
+          1,
+          [
+            10,
+            "6"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "庫存",
+          "L2"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b13": {
+      "opcode": "data_addtolist",
+      "next": "b14",
+      "parent": "b12",
+      "inputs": {
+        "ITEM": [
+          1,
+          [
+            10,
+            "4"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "庫存",
+          "L2"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b14": {
+      "opcode": "data_addtolist",
+      "next": "b15",
+      "parent": "b13",
+      "inputs": {
+        "ITEM": [
+          1,
+          [
+            10,
+            "5"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "庫存",
+          "L2"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b15": {
+      "opcode": "data_addtolist",
+      "next": "b16",
+      "parent": "b14",
+      "inputs": {
+        "ITEM": [
+          1,
+          [
+            10,
+            "9"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "庫存",
+          "L2"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b16": {
+      "opcode": "data_deletealloflist",
+      "next": "b17",
+      "parent": "b15",
+      "inputs": {},
+      "fields": {
+        "LIST": [
+          "單價",
+          "L3"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b17": {
+      "opcode": "data_addtolist",
+      "next": "b18",
+      "parent": "b16",
+      "inputs": {
+        "ITEM": [
+          1,
+          [
+            10,
+            "40"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "單價",
+          "L3"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b18": {
+      "opcode": "data_addtolist",
+      "next": "b19",
+      "parent": "b17",
+      "inputs": {
+        "ITEM": [
+          1,
+          [
+            10,
+            "45"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "單價",
+          "L3"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b19": {
+      "opcode": "data_addtolist",
+      "next": "b20",
+      "parent": "b18",
+      "inputs": {
+        "ITEM": [
+          1,
+          [
+            10,
+            "30"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "單價",
+          "L3"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b20": {
+      "opcode": "data_addtolist",
+      "next": "b21",
+      "parent": "b19",
+      "inputs": {
+        "ITEM": [
+          1,
+          [
+            10,
+            "35"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "單價",
+          "L3"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b21": {
+      "opcode": "data_addtolist",
+      "next": "b22",
+      "parent": "b20",
+      "inputs": {
+        "ITEM": [
+          1,
+          [
+            10,
+            "55"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "單價",
+          "L3"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b22": {
+      "opcode": "data_addtolist",
+      "next": "b23",
+      "parent": "b21",
+      "inputs": {
+        "ITEM": [
+          1,
+          [
+            10,
+            "60"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "單價",
+          "L3"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b23": {
+      "opcode": "data_deletealloflist",
+      "next": "b24",
+      "parent": "b22",
+      "inputs": {},
+      "fields": {
+        "LIST": [
+          "購買數量",
+          "L4"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b24": {
+      "opcode": "data_addtolist",
+      "next": "b25",
+      "parent": "b23",
+      "inputs": {
+        "ITEM": [
+          1,
+          [
+            10,
+            "0"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "購買數量",
+          "L4"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b25": {
+      "opcode": "data_addtolist",
+      "next": "b26",
+      "parent": "b24",
+      "inputs": {
+        "ITEM": [
+          1,
+          [
+            10,
+            "0"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "購買數量",
+          "L4"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b26": {
+      "opcode": "data_addtolist",
+      "next": "b27",
+      "parent": "b25",
+      "inputs": {
+        "ITEM": [
+          1,
+          [
+            10,
+            "0"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "購買數量",
+          "L4"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b27": {
+      "opcode": "data_addtolist",
+      "next": "b28",
+      "parent": "b26",
+      "inputs": {
+        "ITEM": [
+          1,
+          [
+            10,
+            "0"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "購買數量",
+          "L4"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b28": {
+      "opcode": "data_addtolist",
+      "next": "b29",
+      "parent": "b27",
+      "inputs": {
+        "ITEM": [
+          1,
+          [
+            10,
+            "0"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "購買數量",
+          "L4"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b29": {
+      "opcode": "data_addtolist",
+      "next": "b30",
+      "parent": "b28",
+      "inputs": {
+        "ITEM": [
+          1,
+          [
+            10,
+            "0"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "購買數量",
+          "L4"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b30": {
+      "opcode": "sensing_askandwait",
+      "next": "b31",
+      "parent": "b29",
+      "inputs": {
+        "QUESTION": [
+          1,
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b31": {
+      "opcode": "data_setvariableto",
+      "next": "b33",
+      "parent": "b30",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b32",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "本數",
+          "v1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b32": {
+      "opcode": "sensing_answer",
+      "next": null,
+      "parent": "b31",
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b33": {
+      "opcode": "control_repeat",
+      "next": "b44",
+      "parent": "b31",
+      "inputs": {
+        "TIMES": [
+          3,
+          [
+            12,
+            "本數",
+            "v1"
+          ],
+          [
+            6,
+            ""
+          ]
+        ],
+        "SUBSTACK": [
+          2,
+          "b34"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b34": {
+      "opcode": "sensing_askandwait",
+      "next": "b35",
+      "parent": "b33",
+      "inputs": {
+        "QUESTION": [
+          1,
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b35": {
+      "opcode": "data_setvariableto",
+      "next": "b37",
+      "parent": "b34",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b36",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "書",
+          "v2"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b36": {
+      "opcode": "sensing_answer",
+      "next": null,
+      "parent": "b35",
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b37": {
+      "opcode": "data_setvariableto",
+      "next": "b39",
+      "parent": "b35",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b38",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "第幾種",
+          "v3"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b38": {
+      "opcode": "data_itemnumoflist",
+      "next": null,
+      "parent": "b37",
+      "inputs": {
+        "ITEM": [
+          3,
+          [
+            12,
+            "書",
+            "v2"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "書種",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b39": {
+      "opcode": "control_if",
+      "next": null,
+      "parent": "b37",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b40"
+        ],
+        "SUBSTACK": [
+          2,
+          "b41"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b40": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b39",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "第幾種",
+            "v3"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          1,
+          [
+            10,
+            "0"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          ">",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b41": {
+      "opcode": "data_replaceitemoflist",
+      "next": null,
+      "parent": "b39",
+      "inputs": {
+        "INDEX": [
+          3,
+          [
+            12,
+            "第幾種",
+            "v3"
+          ],
+          [
+            7,
+            ""
+          ]
+        ],
+        "ITEM": [
+          3,
+          "b42",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "購買數量",
+          "L4"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b42": {
+      "opcode": "judgeoperators_arithmetic",
+      "next": null,
+      "parent": "b41",
+      "inputs": {
+        "NUM1": [
+          3,
+          "b43",
+          [
+            4,
+            ""
+          ]
+        ],
+        "NUM2": [
+          1,
+          [
+            4,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "+",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b43": {
+      "opcode": "data_itemoflist",
+      "next": null,
+      "parent": "b42",
+      "inputs": {
+        "INDEX": [
+          3,
+          [
+            12,
+            "第幾種",
+            "v3"
+          ],
+          [
+            7,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "購買數量",
+          "L4"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b44": {
+      "opcode": "data_setvariableto",
+      "next": "b45",
+      "parent": "b33",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "0"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "庫存不足",
+          "v4"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b45": {
+      "opcode": "data_setvariableto",
+      "next": "b46",
+      "parent": "b44",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "第幾種",
+          "v3"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b46": {
+      "opcode": "control_repeat",
+      "next": "b54",
+      "parent": "b45",
+      "inputs": {
+        "TIMES": [
+          1,
+          [
+            6,
+            "6"
+          ]
+        ],
+        "SUBSTACK": [
+          2,
+          "b47"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b47": {
+      "opcode": "control_if",
+      "next": "b53",
+      "parent": "b46",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b48"
+        ],
+        "SUBSTACK": [
+          2,
+          "b51"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b48": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b47",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          "b49",
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          3,
+          "b50",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          ">",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b49": {
+      "opcode": "data_itemoflist",
+      "next": null,
+      "parent": "b48",
+      "inputs": {
+        "INDEX": [
+          3,
+          [
+            12,
+            "第幾種",
+            "v3"
+          ],
+          [
+            7,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "購買數量",
+          "L4"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b50": {
+      "opcode": "data_itemoflist",
+      "next": null,
+      "parent": "b48",
+      "inputs": {
+        "INDEX": [
+          3,
+          [
+            12,
+            "第幾種",
+            "v3"
+          ],
+          [
+            7,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "庫存",
+          "L2"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b51": {
+      "opcode": "data_setvariableto",
+      "next": "b52",
+      "parent": "b47",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "庫存不足",
+          "v4"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b52": {
+      "opcode": "judgecontrol_breakLoop",
+      "next": null,
+      "parent": "b51",
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b53": {
+      "opcode": "data_changevariableby",
+      "next": null,
+      "parent": "b47",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            4,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "第幾種",
+          "v3"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b54": {
+      "opcode": "control_if_else",
+      "next": null,
+      "parent": "b46",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b55"
+        ],
+        "SUBSTACK": [
+          2,
+          "b56"
+        ],
+        "SUBSTACK2": [
+          2,
+          "b57"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b55": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b54",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "庫存不足",
+            "v4"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          1,
+          [
+            10,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "=",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b56": {
+      "opcode": "looks_say",
+      "next": null,
+      "parent": "b54",
+      "inputs": {
+        "MESSAGE": [
+          1,
+          [
+            10,
+            "庫存不足"
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b57": {
+      "opcode": "data_setvariableto",
+      "next": "b59",
+      "parent": "b54",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b58",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "組數ABC",
+          "v5"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b58": {
+      "opcode": "data_itemoflist",
+      "next": null,
+      "parent": "b57",
+      "inputs": {
+        "INDEX": [
+          1,
+          [
+            7,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "購買數量",
+          "L4"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b59": {
+      "opcode": "control_if",
+      "next": "b64",
+      "parent": "b57",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b60"
+        ],
+        "SUBSTACK": [
+          2,
+          "b62"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b60": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b59",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          "b61",
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          3,
+          [
+            12,
+            "組數ABC",
+            "v5"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "<",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b61": {
+      "opcode": "data_itemoflist",
+      "next": null,
+      "parent": "b60",
+      "inputs": {
+        "INDEX": [
+          1,
+          [
+            7,
+            "2"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "購買數量",
+          "L4"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b62": {
+      "opcode": "data_setvariableto",
+      "next": null,
+      "parent": "b59",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b63",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "組數ABC",
+          "v5"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b63": {
+      "opcode": "data_itemoflist",
+      "next": null,
+      "parent": "b62",
+      "inputs": {
+        "INDEX": [
+          1,
+          [
+            7,
+            "2"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "購買數量",
+          "L4"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b64": {
+      "opcode": "control_if",
+      "next": "b69",
+      "parent": "b59",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b65"
+        ],
+        "SUBSTACK": [
+          2,
+          "b67"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b65": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b64",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          "b66",
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          3,
+          [
+            12,
+            "組數ABC",
+            "v5"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "<",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b66": {
+      "opcode": "data_itemoflist",
+      "next": null,
+      "parent": "b65",
+      "inputs": {
+        "INDEX": [
+          1,
+          [
+            7,
+            "3"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "購買數量",
+          "L4"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b67": {
+      "opcode": "data_setvariableto",
+      "next": null,
+      "parent": "b64",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b68",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "組數ABC",
+          "v5"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b68": {
+      "opcode": "data_itemoflist",
+      "next": null,
+      "parent": "b67",
+      "inputs": {
+        "INDEX": [
+          1,
+          [
+            7,
+            "3"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "購買數量",
+          "L4"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b69": {
+      "opcode": "data_setvariableto",
+      "next": "b71",
+      "parent": "b64",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b70",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "組數DE",
+          "v6"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b70": {
+      "opcode": "data_itemoflist",
+      "next": null,
+      "parent": "b69",
+      "inputs": {
+        "INDEX": [
+          1,
+          [
+            7,
+            "4"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "購買數量",
+          "L4"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b71": {
+      "opcode": "control_if",
+      "next": "b76",
+      "parent": "b69",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b72"
+        ],
+        "SUBSTACK": [
+          2,
+          "b74"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b72": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b71",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          "b73",
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          3,
+          [
+            12,
+            "組數DE",
+            "v6"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "<",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b73": {
+      "opcode": "data_itemoflist",
+      "next": null,
+      "parent": "b72",
+      "inputs": {
+        "INDEX": [
+          1,
+          [
+            7,
+            "5"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "購買數量",
+          "L4"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b74": {
+      "opcode": "data_setvariableto",
+      "next": null,
+      "parent": "b71",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b75",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "組數DE",
+          "v6"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b75": {
+      "opcode": "data_itemoflist",
+      "next": null,
+      "parent": "b74",
+      "inputs": {
+        "INDEX": [
+          1,
+          [
+            7,
+            "5"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "購買數量",
+          "L4"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b76": {
+      "opcode": "data_setvariableto",
+      "next": "b77",
+      "parent": "b71",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "0"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "原價總和",
+          "v7"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b77": {
+      "opcode": "data_setvariableto",
+      "next": "b78",
+      "parent": "b76",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "第幾種",
+          "v3"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b78": {
+      "opcode": "control_repeat",
+      "next": "b84",
+      "parent": "b77",
+      "inputs": {
+        "TIMES": [
+          1,
+          [
+            6,
+            "6"
+          ]
+        ],
+        "SUBSTACK": [
+          2,
+          "b79"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b79": {
+      "opcode": "data_changevariableby",
+      "next": "b83",
+      "parent": "b78",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b80",
+          [
+            4,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "原價總和",
+          "v7"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b80": {
+      "opcode": "judgeoperators_arithmetic",
+      "next": null,
+      "parent": "b79",
+      "inputs": {
+        "NUM1": [
+          3,
+          "b81",
+          [
+            4,
+            ""
+          ]
+        ],
+        "NUM2": [
+          3,
+          "b82",
+          [
+            4,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "*",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b81": {
+      "opcode": "data_itemoflist",
+      "next": null,
+      "parent": "b80",
+      "inputs": {
+        "INDEX": [
+          3,
+          [
+            12,
+            "第幾種",
+            "v3"
+          ],
+          [
+            7,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "購買數量",
+          "L4"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b82": {
+      "opcode": "data_itemoflist",
+      "next": null,
+      "parent": "b80",
+      "inputs": {
+        "INDEX": [
+          3,
+          [
+            12,
+            "第幾種",
+            "v3"
+          ],
+          [
+            7,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "單價",
+          "L3"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b83": {
+      "opcode": "data_changevariableby",
+      "next": null,
+      "parent": "b79",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            4,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "第幾種",
+          "v3"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b84": {
+      "opcode": "data_setvariableto",
+      "next": "b88",
+      "parent": "b78",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b85",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "組合原價",
+          "v8"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b85": {
+      "opcode": "judgeoperators_arithmetic",
+      "next": null,
+      "parent": "b84",
+      "inputs": {
+        "NUM1": [
+          3,
+          "b86",
+          [
+            4,
+            ""
+          ]
+        ],
+        "NUM2": [
+          3,
+          "b87",
+          [
+            4,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "+",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b86": {
+      "opcode": "judgeoperators_arithmetic",
+      "next": null,
+      "parent": "b85",
+      "inputs": {
+        "NUM1": [
+          3,
+          [
+            12,
+            "組數ABC",
+            "v5"
+          ],
+          [
+            4,
+            ""
+          ]
+        ],
+        "NUM2": [
+          1,
+          [
+            4,
+            "115"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "*",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b87": {
+      "opcode": "judgeoperators_arithmetic",
+      "next": null,
+      "parent": "b85",
+      "inputs": {
+        "NUM1": [
+          3,
+          [
+            12,
+            "組數DE",
+            "v6"
+          ],
+          [
+            4,
+            ""
+          ]
+        ],
+        "NUM2": [
+          1,
+          [
+            4,
+            "90"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "*",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b88": {
+      "opcode": "data_setvariableto",
+      "next": "b92",
+      "parent": "b84",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b89",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "小計",
+          "v9"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b89": {
+      "opcode": "judgeoperators_arithmetic",
+      "next": null,
+      "parent": "b88",
+      "inputs": {
+        "NUM1": [
+          3,
+          "b90",
+          [
+            4,
+            ""
+          ]
+        ],
+        "NUM2": [
+          3,
+          "b91",
+          [
+            4,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "+",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b90": {
+      "opcode": "judgeoperators_arithmetic",
+      "next": null,
+      "parent": "b89",
+      "inputs": {
+        "NUM1": [
+          3,
+          [
+            12,
+            "組合原價",
+            "v8"
+          ],
+          [
+            4,
+            ""
+          ]
+        ],
+        "NUM2": [
+          1,
+          [
+            4,
+            "0.8"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "*",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b91": {
+      "opcode": "judgeoperators_arithmetic",
+      "next": null,
+      "parent": "b89",
+      "inputs": {
+        "NUM1": [
+          3,
+          [
+            12,
+            "原價總和",
+            "v7"
+          ],
+          [
+            4,
+            ""
+          ]
+        ],
+        "NUM2": [
+          3,
+          [
+            12,
+            "組合原價",
+            "v8"
+          ],
+          [
+            4,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "-",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b92": {
+      "opcode": "control_if_else",
+      "next": "b99",
+      "parent": "b88",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b93"
+        ],
+        "SUBSTACK": [
+          2,
+          "b94"
+        ],
+        "SUBSTACK2": [
+          2,
+          "b95"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b93": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b92",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "本數",
+            "v1"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          1,
+          [
+            10,
+            "5"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          ">",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b94": {
+      "opcode": "data_setvariableto",
+      "next": null,
+      "parent": "b92",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "0.8"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "折扣",
+          "v10"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b95": {
+      "opcode": "control_if_else",
+      "next": null,
+      "parent": "b92",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b96"
+        ],
+        "SUBSTACK": [
+          2,
+          "b97"
+        ],
+        "SUBSTACK2": [
+          2,
+          "b98"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b96": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b95",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "本數",
+            "v1"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          1,
+          [
+            10,
+            "3"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          ">",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b97": {
+      "opcode": "data_setvariableto",
+      "next": null,
+      "parent": "b95",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "0.95"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "折扣",
+          "v10"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b98": {
+      "opcode": "data_setvariableto",
+      "next": null,
+      "parent": "b95",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "折扣",
+          "v10"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b99": {
+      "opcode": "looks_say",
+      "next": null,
+      "parent": "b92",
+      "inputs": {
+        "MESSAGE": [
+          3,
+          "b100",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b100": {
+      "opcode": "operator_mathop",
+      "next": null,
+      "parent": "b99",
+      "inputs": {
+        "NUM": [
+          3,
+          "b101",
+          [
+            4,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "OPERATOR": [
+          "floor",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b101": {
+      "opcode": "judgeoperators_arithmetic",
+      "next": null,
+      "parent": "b100",
+      "inputs": {
+        "NUM1": [
+          3,
+          [
+            12,
+            "小計",
+            "v9"
+          ],
+          [
+            4,
+            ""
+          ]
+        ],
+        "NUM2": [
+          3,
+          [
+            12,
+            "折扣",
+            "v10"
+          ],
+          [
+            4,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "*",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    }
+  }
+}

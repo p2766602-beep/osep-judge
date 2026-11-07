@@ -1,0 +1,915 @@
+{
+  "variables": {
+    "v1": [
+      "人數",
+      0
+    ],
+    "v2": [
+      "最小",
+      0
+    ],
+    "v3": [
+      "地點",
+      0
+    ],
+    "v4": [
+      "總距離",
+      0
+    ],
+    "v5": [
+      "朋友",
+      0
+    ],
+    "v6": [
+      "最佳",
+      0
+    ]
+  },
+  "lists": {
+    "L1": [
+      "座標",
+      []
+    ]
+  },
+  "blocks": {
+    "b1": {
+      "opcode": "event_whenflagclicked",
+      "next": "b2",
+      "parent": null,
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": true,
+      "x": 40,
+      "y": 40
+    },
+    "b2": {
+      "opcode": "sensing_askandwait",
+      "next": "b3",
+      "parent": "b1",
+      "inputs": {
+        "QUESTION": [
+          1,
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b3": {
+      "opcode": "data_setvariableto",
+      "next": "b5",
+      "parent": "b2",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b4",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "人數",
+          "v1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b4": {
+      "opcode": "sensing_answer",
+      "next": null,
+      "parent": "b3",
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b5": {
+      "opcode": "data_deletealloflist",
+      "next": "b6",
+      "parent": "b3",
+      "inputs": {},
+      "fields": {
+        "LIST": [
+          "座標",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b6": {
+      "opcode": "control_repeat",
+      "next": "b10",
+      "parent": "b5",
+      "inputs": {
+        "TIMES": [
+          3,
+          [
+            12,
+            "人數",
+            "v1"
+          ],
+          [
+            6,
+            ""
+          ]
+        ],
+        "SUBSTACK": [
+          2,
+          "b7"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b7": {
+      "opcode": "sensing_askandwait",
+      "next": "b8",
+      "parent": "b6",
+      "inputs": {
+        "QUESTION": [
+          1,
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b8": {
+      "opcode": "data_addtolist",
+      "next": null,
+      "parent": "b7",
+      "inputs": {
+        "ITEM": [
+          3,
+          "b9",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "座標",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b9": {
+      "opcode": "sensing_answer",
+      "next": null,
+      "parent": "b8",
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b10": {
+      "opcode": "data_setvariableto",
+      "next": "b11",
+      "parent": "b6",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "-1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "最小",
+          "v2"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b11": {
+      "opcode": "data_setvariableto",
+      "next": "b12",
+      "parent": "b10",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "地點",
+          "v3"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b12": {
+      "opcode": "control_repeat",
+      "next": "b35",
+      "parent": "b11",
+      "inputs": {
+        "TIMES": [
+          3,
+          [
+            12,
+            "人數",
+            "v1"
+          ],
+          [
+            6,
+            ""
+          ]
+        ],
+        "SUBSTACK": [
+          2,
+          "b13"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b13": {
+      "opcode": "data_setvariableto",
+      "next": "b14",
+      "parent": "b12",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "0"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "總距離",
+          "v4"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b14": {
+      "opcode": "data_setvariableto",
+      "next": "b15",
+      "parent": "b13",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "朋友",
+          "v5"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b15": {
+      "opcode": "control_repeat",
+      "next": "b22",
+      "parent": "b14",
+      "inputs": {
+        "TIMES": [
+          3,
+          [
+            12,
+            "人數",
+            "v1"
+          ],
+          [
+            6,
+            ""
+          ]
+        ],
+        "SUBSTACK": [
+          2,
+          "b16"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b16": {
+      "opcode": "data_changevariableby",
+      "next": "b21",
+      "parent": "b15",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b17",
+          [
+            4,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "總距離",
+          "v4"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b17": {
+      "opcode": "operator_mathop",
+      "next": null,
+      "parent": "b16",
+      "inputs": {
+        "NUM": [
+          3,
+          "b18",
+          [
+            4,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "OPERATOR": [
+          "abs",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b18": {
+      "opcode": "judgeoperators_arithmetic",
+      "next": null,
+      "parent": "b17",
+      "inputs": {
+        "NUM1": [
+          3,
+          "b19",
+          [
+            4,
+            ""
+          ]
+        ],
+        "NUM2": [
+          3,
+          "b20",
+          [
+            4,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "-",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b19": {
+      "opcode": "data_itemoflist",
+      "next": null,
+      "parent": "b18",
+      "inputs": {
+        "INDEX": [
+          3,
+          [
+            12,
+            "朋友",
+            "v5"
+          ],
+          [
+            7,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "座標",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b20": {
+      "opcode": "data_itemoflist",
+      "next": null,
+      "parent": "b18",
+      "inputs": {
+        "INDEX": [
+          3,
+          [
+            12,
+            "地點",
+            "v3"
+          ],
+          [
+            7,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "座標",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b21": {
+      "opcode": "data_changevariableby",
+      "next": null,
+      "parent": "b16",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            4,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "朋友",
+          "v5"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b22": {
+      "opcode": "control_if",
+      "next": "b34",
+      "parent": "b15",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b23"
+        ],
+        "SUBSTACK": [
+          2,
+          "b31"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b23": {
+      "opcode": "judgeoperators_andOr",
+      "next": null,
+      "parent": "b22",
+      "inputs": {
+        "OPERAND1": [
+          2,
+          "b24"
+        ],
+        "OPERAND2": [
+          2,
+          "b27"
+        ]
+      },
+      "fields": {
+        "OP": [
+          "or",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b24": {
+      "opcode": "judgeoperators_andOr",
+      "next": null,
+      "parent": "b23",
+      "inputs": {
+        "OPERAND1": [
+          2,
+          "b25"
+        ],
+        "OPERAND2": [
+          2,
+          "b26"
+        ]
+      },
+      "fields": {
+        "OP": [
+          "or",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b25": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b24",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "最小",
+            "v2"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          1,
+          [
+            10,
+            "-1"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "=",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b26": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b24",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "總距離",
+            "v4"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          3,
+          [
+            12,
+            "最小",
+            "v2"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "<",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b27": {
+      "opcode": "judgeoperators_andOr",
+      "next": null,
+      "parent": "b23",
+      "inputs": {
+        "OPERAND1": [
+          2,
+          "b28"
+        ],
+        "OPERAND2": [
+          2,
+          "b29"
+        ]
+      },
+      "fields": {
+        "OP": [
+          "and",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b28": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b27",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "總距離",
+            "v4"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          3,
+          [
+            12,
+            "最小",
+            "v2"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "=",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b29": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b27",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          "b30",
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          3,
+          [
+            12,
+            "最佳",
+            "v6"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "<",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b30": {
+      "opcode": "data_itemoflist",
+      "next": null,
+      "parent": "b29",
+      "inputs": {
+        "INDEX": [
+          3,
+          [
+            12,
+            "地點",
+            "v3"
+          ],
+          [
+            7,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "座標",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b31": {
+      "opcode": "data_setvariableto",
+      "next": "b32",
+      "parent": "b22",
+      "inputs": {
+        "VALUE": [
+          3,
+          [
+            12,
+            "總距離",
+            "v4"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "最小",
+          "v2"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b32": {
+      "opcode": "data_setvariableto",
+      "next": null,
+      "parent": "b31",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b33",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "最佳",
+          "v6"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b33": {
+      "opcode": "data_itemoflist",
+      "next": null,
+      "parent": "b32",
+      "inputs": {
+        "INDEX": [
+          3,
+          [
+            12,
+            "地點",
+            "v3"
+          ],
+          [
+            7,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "座標",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b34": {
+      "opcode": "data_changevariableby",
+      "next": null,
+      "parent": "b22",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            4,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "地點",
+          "v3"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b35": {
+      "opcode": "looks_say",
+      "next": null,
+      "parent": "b12",
+      "inputs": {
+        "MESSAGE": [
+          3,
+          "b37",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b36": {
+      "opcode": "operator_join",
+      "next": null,
+      "parent": "b37",
+      "inputs": {
+        "STRING1": [
+          3,
+          [
+            12,
+            "最佳",
+            "v6"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "STRING2": [
+          1,
+          [
+            10,
+            " "
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b37": {
+      "opcode": "operator_join",
+      "next": null,
+      "parent": "b35",
+      "inputs": {
+        "STRING1": [
+          3,
+          "b36",
+          [
+            10,
+            ""
+          ]
+        ],
+        "STRING2": [
+          3,
+          [
+            12,
+            "最小",
+            "v2"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    }
+  }
+}

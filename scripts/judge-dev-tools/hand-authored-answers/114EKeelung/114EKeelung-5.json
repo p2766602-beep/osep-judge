@@ -1,0 +1,900 @@
+{
+  "variables": {
+    "v1": [
+      "目標",
+      0
+    ],
+    "v2": [
+      "組數",
+      0
+    ],
+    "v3": [
+      "起點",
+      0
+    ],
+    "v4": [
+      "總和",
+      0
+    ],
+    "v5": [
+      "數",
+      0
+    ],
+    "v6": [
+      "算式",
+      0
+    ]
+  },
+  "lists": {},
+  "blocks": {
+    "b1": {
+      "opcode": "event_whenflagclicked",
+      "next": "b2",
+      "parent": null,
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": true,
+      "x": 40,
+      "y": 40
+    },
+    "b2": {
+      "opcode": "sensing_askandwait",
+      "next": "b3",
+      "parent": "b1",
+      "inputs": {
+        "QUESTION": [
+          1,
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b3": {
+      "opcode": "data_setvariableto",
+      "next": "b5",
+      "parent": "b2",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b4",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "目標",
+          "v1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b4": {
+      "opcode": "sensing_answer",
+      "next": null,
+      "parent": "b3",
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b5": {
+      "opcode": "data_setvariableto",
+      "next": "b6",
+      "parent": "b3",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "0"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "組數",
+          "v2"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b6": {
+      "opcode": "data_setvariableto",
+      "next": "b7",
+      "parent": "b5",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "起點",
+          "v3"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b7": {
+      "opcode": "control_repeat",
+      "next": "b33",
+      "parent": "b6",
+      "inputs": {
+        "TIMES": [
+          3,
+          "b8",
+          [
+            6,
+            ""
+          ]
+        ],
+        "SUBSTACK": [
+          2,
+          "b10"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b8": {
+      "opcode": "operator_mathop",
+      "next": null,
+      "parent": "b7",
+      "inputs": {
+        "NUM": [
+          3,
+          "b9",
+          [
+            4,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "OPERATOR": [
+          "floor",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b9": {
+      "opcode": "judgeoperators_arithmetic",
+      "next": null,
+      "parent": "b8",
+      "inputs": {
+        "NUM1": [
+          3,
+          [
+            12,
+            "目標",
+            "v1"
+          ],
+          [
+            4,
+            ""
+          ]
+        ],
+        "NUM2": [
+          1,
+          [
+            4,
+            "2"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "/",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b10": {
+      "opcode": "data_setvariableto",
+      "next": "b11",
+      "parent": "b7",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "0"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "總和",
+          "v4"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b11": {
+      "opcode": "data_setvariableto",
+      "next": "b12",
+      "parent": "b10",
+      "inputs": {
+        "VALUE": [
+          3,
+          [
+            12,
+            "起點",
+            "v3"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "數",
+          "v5"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b12": {
+      "opcode": "data_setvariableto",
+      "next": "b13",
+      "parent": "b11",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "算式",
+          "v6"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b13": {
+      "opcode": "control_repeat_until",
+      "next": "b23",
+      "parent": "b12",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b14"
+        ],
+        "SUBSTACK": [
+          2,
+          "b15"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b14": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b13",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "總和",
+            "v4"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          3,
+          [
+            12,
+            "目標",
+            "v1"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          ">=",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b15": {
+      "opcode": "data_changevariableby",
+      "next": "b16",
+      "parent": "b13",
+      "inputs": {
+        "VALUE": [
+          3,
+          [
+            12,
+            "數",
+            "v5"
+          ],
+          [
+            4,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "總和",
+          "v4"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b16": {
+      "opcode": "control_if_else",
+      "next": "b22",
+      "parent": "b15",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b17"
+        ],
+        "SUBSTACK": [
+          2,
+          "b18"
+        ],
+        "SUBSTACK2": [
+          2,
+          "b19"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b17": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b16",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "數",
+            "v5"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          3,
+          [
+            12,
+            "起點",
+            "v3"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "=",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b18": {
+      "opcode": "data_setvariableto",
+      "next": null,
+      "parent": "b16",
+      "inputs": {
+        "VALUE": [
+          3,
+          [
+            12,
+            "數",
+            "v5"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "算式",
+          "v6"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b19": {
+      "opcode": "data_setvariableto",
+      "next": null,
+      "parent": "b16",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b21",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "算式",
+          "v6"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b20": {
+      "opcode": "operator_join",
+      "next": null,
+      "parent": "b21",
+      "inputs": {
+        "STRING1": [
+          3,
+          [
+            12,
+            "算式",
+            "v6"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "STRING2": [
+          1,
+          [
+            10,
+            "+"
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b21": {
+      "opcode": "operator_join",
+      "next": null,
+      "parent": "b19",
+      "inputs": {
+        "STRING1": [
+          3,
+          "b20",
+          [
+            10,
+            ""
+          ]
+        ],
+        "STRING2": [
+          3,
+          [
+            12,
+            "數",
+            "v5"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b22": {
+      "opcode": "data_changevariableby",
+      "next": null,
+      "parent": "b16",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            4,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "數",
+          "v5"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b23": {
+      "opcode": "control_if",
+      "next": "b32",
+      "parent": "b13",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b24"
+        ],
+        "SUBSTACK": [
+          2,
+          "b28"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b24": {
+      "opcode": "judgeoperators_andOr",
+      "next": null,
+      "parent": "b23",
+      "inputs": {
+        "OPERAND1": [
+          2,
+          "b25"
+        ],
+        "OPERAND2": [
+          2,
+          "b26"
+        ]
+      },
+      "fields": {
+        "OP": [
+          "and",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b25": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b24",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "總和",
+            "v4"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          3,
+          [
+            12,
+            "目標",
+            "v1"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "=",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b26": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b24",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          "b27",
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          1,
+          [
+            10,
+            "2"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          ">=",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b27": {
+      "opcode": "judgeoperators_arithmetic",
+      "next": null,
+      "parent": "b26",
+      "inputs": {
+        "NUM1": [
+          3,
+          [
+            12,
+            "數",
+            "v5"
+          ],
+          [
+            4,
+            ""
+          ]
+        ],
+        "NUM2": [
+          3,
+          [
+            12,
+            "起點",
+            "v3"
+          ],
+          [
+            4,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "-",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b28": {
+      "opcode": "looks_say",
+      "next": "b31",
+      "parent": "b23",
+      "inputs": {
+        "MESSAGE": [
+          3,
+          "b30",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b29": {
+      "opcode": "operator_join",
+      "next": null,
+      "parent": "b30",
+      "inputs": {
+        "STRING1": [
+          3,
+          [
+            12,
+            "算式",
+            "v6"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "STRING2": [
+          1,
+          [
+            10,
+            "="
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b30": {
+      "opcode": "operator_join",
+      "next": null,
+      "parent": "b28",
+      "inputs": {
+        "STRING1": [
+          3,
+          "b29",
+          [
+            10,
+            ""
+          ]
+        ],
+        "STRING2": [
+          3,
+          [
+            12,
+            "目標",
+            "v1"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b31": {
+      "opcode": "data_changevariableby",
+      "next": null,
+      "parent": "b28",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            4,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "組數",
+          "v2"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b32": {
+      "opcode": "data_changevariableby",
+      "next": null,
+      "parent": "b23",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            4,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "起點",
+          "v3"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b33": {
+      "opcode": "control_if",
+      "next": null,
+      "parent": "b7",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b34"
+        ],
+        "SUBSTACK": [
+          2,
+          "b35"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b34": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b33",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "組數",
+            "v2"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          1,
+          [
+            10,
+            "0"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "=",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b35": {
+      "opcode": "looks_say",
+      "next": null,
+      "parent": "b33",
+      "inputs": {
+        "MESSAGE": [
+          1,
+          [
+            10,
+            "No"
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    }
+  }
+}

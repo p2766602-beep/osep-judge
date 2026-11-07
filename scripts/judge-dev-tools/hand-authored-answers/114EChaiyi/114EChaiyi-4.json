@@ -1,0 +1,582 @@
+{
+  "variables": {
+    "v1": [
+      "最多",
+      0
+    ],
+    "v2": [
+      "天",
+      0
+    ],
+    "v3": [
+      "次數",
+      0
+    ],
+    "v4": [
+      "比對",
+      0
+    ],
+    "v5": [
+      "答案",
+      0
+    ]
+  },
+  "lists": {
+    "L1": [
+      "主菜",
+      []
+    ]
+  },
+  "blocks": {
+    "b1": {
+      "opcode": "event_whenflagclicked",
+      "next": "b2",
+      "parent": null,
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": true,
+      "x": 40,
+      "y": 40
+    },
+    "b2": {
+      "opcode": "data_deletealloflist",
+      "next": "b3",
+      "parent": "b1",
+      "inputs": {},
+      "fields": {
+        "LIST": [
+          "主菜",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b3": {
+      "opcode": "control_repeat",
+      "next": "b7",
+      "parent": "b2",
+      "inputs": {
+        "TIMES": [
+          1,
+          [
+            6,
+            "10"
+          ]
+        ],
+        "SUBSTACK": [
+          2,
+          "b4"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b4": {
+      "opcode": "sensing_askandwait",
+      "next": "b5",
+      "parent": "b3",
+      "inputs": {
+        "QUESTION": [
+          1,
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b5": {
+      "opcode": "data_addtolist",
+      "next": null,
+      "parent": "b4",
+      "inputs": {
+        "ITEM": [
+          3,
+          "b6",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "主菜",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b6": {
+      "opcode": "sensing_answer",
+      "next": null,
+      "parent": "b5",
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b7": {
+      "opcode": "data_setvariableto",
+      "next": "b8",
+      "parent": "b3",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "0"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "最多",
+          "v1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b8": {
+      "opcode": "data_setvariableto",
+      "next": "b9",
+      "parent": "b7",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "天",
+          "v2"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b9": {
+      "opcode": "control_repeat",
+      "next": "b25",
+      "parent": "b8",
+      "inputs": {
+        "TIMES": [
+          1,
+          [
+            6,
+            "10"
+          ]
+        ],
+        "SUBSTACK": [
+          2,
+          "b10"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b10": {
+      "opcode": "data_setvariableto",
+      "next": "b11",
+      "parent": "b9",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "0"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "次數",
+          "v3"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b11": {
+      "opcode": "data_setvariableto",
+      "next": "b12",
+      "parent": "b10",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "比對",
+          "v4"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b12": {
+      "opcode": "control_repeat",
+      "next": "b19",
+      "parent": "b11",
+      "inputs": {
+        "TIMES": [
+          1,
+          [
+            6,
+            "10"
+          ]
+        ],
+        "SUBSTACK": [
+          2,
+          "b13"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b13": {
+      "opcode": "control_if",
+      "next": "b18",
+      "parent": "b12",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b14"
+        ],
+        "SUBSTACK": [
+          2,
+          "b17"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b14": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b13",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          "b15",
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          3,
+          "b16",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "=",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b15": {
+      "opcode": "data_itemoflist",
+      "next": null,
+      "parent": "b14",
+      "inputs": {
+        "INDEX": [
+          3,
+          [
+            12,
+            "比對",
+            "v4"
+          ],
+          [
+            7,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "主菜",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b16": {
+      "opcode": "data_itemoflist",
+      "next": null,
+      "parent": "b14",
+      "inputs": {
+        "INDEX": [
+          3,
+          [
+            12,
+            "天",
+            "v2"
+          ],
+          [
+            7,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "主菜",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b17": {
+      "opcode": "data_changevariableby",
+      "next": null,
+      "parent": "b13",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            4,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "次數",
+          "v3"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b18": {
+      "opcode": "data_changevariableby",
+      "next": null,
+      "parent": "b13",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            4,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "比對",
+          "v4"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b19": {
+      "opcode": "control_if",
+      "next": "b24",
+      "parent": "b12",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b20"
+        ],
+        "SUBSTACK": [
+          2,
+          "b21"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b20": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b19",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "次數",
+            "v3"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          3,
+          [
+            12,
+            "最多",
+            "v1"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          ">",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b21": {
+      "opcode": "data_setvariableto",
+      "next": "b22",
+      "parent": "b19",
+      "inputs": {
+        "VALUE": [
+          3,
+          [
+            12,
+            "次數",
+            "v3"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "最多",
+          "v1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b22": {
+      "opcode": "data_setvariableto",
+      "next": null,
+      "parent": "b21",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b23",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "答案",
+          "v5"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b23": {
+      "opcode": "data_itemoflist",
+      "next": null,
+      "parent": "b22",
+      "inputs": {
+        "INDEX": [
+          3,
+          [
+            12,
+            "天",
+            "v2"
+          ],
+          [
+            7,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "主菜",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b24": {
+      "opcode": "data_changevariableby",
+      "next": null,
+      "parent": "b19",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            4,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "天",
+          "v2"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b25": {
+      "opcode": "looks_say",
+      "next": null,
+      "parent": "b9",
+      "inputs": {
+        "MESSAGE": [
+          3,
+          [
+            12,
+            "答案",
+            "v5"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    }
+  }
+}

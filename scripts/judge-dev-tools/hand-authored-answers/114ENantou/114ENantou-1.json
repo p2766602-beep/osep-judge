@@ -1,0 +1,648 @@
+{
+  "variables": {
+    "v1": [
+      "人數",
+      0
+    ],
+    "v2": [
+      "總價",
+      0
+    ],
+    "v3": [
+      "身高",
+      0
+    ],
+    "v4": [
+      "年齡",
+      0
+    ],
+    "v5": [
+      "縣民卡",
+      0
+    ],
+    "v6": [
+      "票價",
+      0
+    ]
+  },
+  "lists": {},
+  "blocks": {
+    "b1": {
+      "opcode": "event_whenflagclicked",
+      "next": "b2",
+      "parent": null,
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": true,
+      "x": 40,
+      "y": 40
+    },
+    "b2": {
+      "opcode": "sensing_askandwait",
+      "next": "b3",
+      "parent": "b1",
+      "inputs": {
+        "QUESTION": [
+          1,
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b3": {
+      "opcode": "data_setvariableto",
+      "next": "b5",
+      "parent": "b2",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b4",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "人數",
+          "v1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b4": {
+      "opcode": "sensing_answer",
+      "next": null,
+      "parent": "b3",
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b5": {
+      "opcode": "data_setvariableto",
+      "next": "b6",
+      "parent": "b3",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "0"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "總價",
+          "v2"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b6": {
+      "opcode": "control_repeat",
+      "next": "b29",
+      "parent": "b5",
+      "inputs": {
+        "TIMES": [
+          3,
+          [
+            12,
+            "人數",
+            "v1"
+          ],
+          [
+            6,
+            ""
+          ]
+        ],
+        "SUBSTACK": [
+          2,
+          "b7"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b7": {
+      "opcode": "sensing_askandwait",
+      "next": "b8",
+      "parent": "b6",
+      "inputs": {
+        "QUESTION": [
+          1,
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b8": {
+      "opcode": "data_setvariableto",
+      "next": "b10",
+      "parent": "b7",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b9",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "身高",
+          "v3"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b9": {
+      "opcode": "sensing_answer",
+      "next": null,
+      "parent": "b8",
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b10": {
+      "opcode": "sensing_askandwait",
+      "next": "b11",
+      "parent": "b8",
+      "inputs": {
+        "QUESTION": [
+          1,
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b11": {
+      "opcode": "data_setvariableto",
+      "next": "b13",
+      "parent": "b10",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b12",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "年齡",
+          "v4"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b12": {
+      "opcode": "sensing_answer",
+      "next": null,
+      "parent": "b11",
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b13": {
+      "opcode": "sensing_askandwait",
+      "next": "b14",
+      "parent": "b11",
+      "inputs": {
+        "QUESTION": [
+          1,
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b14": {
+      "opcode": "data_setvariableto",
+      "next": "b16",
+      "parent": "b13",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b15",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "縣民卡",
+          "v5"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b15": {
+      "opcode": "sensing_answer",
+      "next": null,
+      "parent": "b14",
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b16": {
+      "opcode": "control_if_else",
+      "next": "b28",
+      "parent": "b14",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b17"
+        ],
+        "SUBSTACK": [
+          2,
+          "b18"
+        ],
+        "SUBSTACK2": [
+          2,
+          "b19"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b17": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b16",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "縣民卡",
+            "v5"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          1,
+          [
+            10,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "=",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b18": {
+      "opcode": "data_setvariableto",
+      "next": null,
+      "parent": "b16",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "0"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "票價",
+          "v6"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b19": {
+      "opcode": "control_if_else",
+      "next": null,
+      "parent": "b16",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b20"
+        ],
+        "SUBSTACK": [
+          2,
+          "b21"
+        ],
+        "SUBSTACK2": [
+          2,
+          "b22"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b20": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b19",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "年齡",
+            "v4"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          1,
+          [
+            10,
+            "65"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          ">=",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b21": {
+      "opcode": "data_setvariableto",
+      "next": null,
+      "parent": "b19",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "150"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "票價",
+          "v6"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b22": {
+      "opcode": "control_if_else",
+      "next": null,
+      "parent": "b19",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b23"
+        ],
+        "SUBSTACK": [
+          2,
+          "b26"
+        ],
+        "SUBSTACK2": [
+          2,
+          "b27"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b23": {
+      "opcode": "judgeoperators_andOr",
+      "next": null,
+      "parent": "b22",
+      "inputs": {
+        "OPERAND1": [
+          2,
+          "b24"
+        ],
+        "OPERAND2": [
+          2,
+          "b25"
+        ]
+      },
+      "fields": {
+        "OP": [
+          "or",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b24": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b23",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "身高",
+            "v3"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          1,
+          [
+            10,
+            "120"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "<",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b25": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b23",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "年齡",
+            "v4"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          1,
+          [
+            10,
+            "6"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "<",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b26": {
+      "opcode": "data_setvariableto",
+      "next": null,
+      "parent": "b22",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "180"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "票價",
+          "v6"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b27": {
+      "opcode": "data_setvariableto",
+      "next": null,
+      "parent": "b22",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "300"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "票價",
+          "v6"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b28": {
+      "opcode": "data_changevariableby",
+      "next": null,
+      "parent": "b16",
+      "inputs": {
+        "VALUE": [
+          3,
+          [
+            12,
+            "票價",
+            "v6"
+          ],
+          [
+            4,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "總價",
+          "v2"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b29": {
+      "opcode": "looks_say",
+      "next": null,
+      "parent": "b6",
+      "inputs": {
+        "MESSAGE": [
+          3,
+          [
+            12,
+            "總價",
+            "v2"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    }
+  }
+}

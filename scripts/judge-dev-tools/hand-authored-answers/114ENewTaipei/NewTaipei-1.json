@@ -1,0 +1,857 @@
+{
+  "variables": {
+    "v1": [
+      "身高",
+      0
+    ],
+    "v2": [
+      "體重",
+      0
+    ],
+    "v3": [
+      "公尺",
+      0
+    ],
+    "v4": [
+      "指數",
+      0
+    ],
+    "v5": [
+      "等級",
+      0
+    ]
+  },
+  "lists": {},
+  "blocks": {
+    "b1": {
+      "opcode": "event_whenflagclicked",
+      "next": "b2",
+      "parent": null,
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": true,
+      "x": 40,
+      "y": 40
+    },
+    "b2": {
+      "opcode": "sensing_askandwait",
+      "next": "b3",
+      "parent": "b1",
+      "inputs": {
+        "QUESTION": [
+          1,
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b3": {
+      "opcode": "data_setvariableto",
+      "next": "b5",
+      "parent": "b2",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b4",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "身高",
+          "v1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b4": {
+      "opcode": "sensing_answer",
+      "next": null,
+      "parent": "b3",
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b5": {
+      "opcode": "sensing_askandwait",
+      "next": "b6",
+      "parent": "b3",
+      "inputs": {
+        "QUESTION": [
+          1,
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b6": {
+      "opcode": "data_setvariableto",
+      "next": "b8",
+      "parent": "b5",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b7",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "體重",
+          "v2"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b7": {
+      "opcode": "sensing_answer",
+      "next": null,
+      "parent": "b6",
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b8": {
+      "opcode": "data_setvariableto",
+      "next": "b10",
+      "parent": "b6",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b9",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "公尺",
+          "v3"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b9": {
+      "opcode": "judgeoperators_arithmetic",
+      "next": null,
+      "parent": "b8",
+      "inputs": {
+        "NUM1": [
+          3,
+          [
+            12,
+            "身高",
+            "v1"
+          ],
+          [
+            4,
+            ""
+          ]
+        ],
+        "NUM2": [
+          1,
+          [
+            4,
+            "100"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "/",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b10": {
+      "opcode": "data_setvariableto",
+      "next": "b16",
+      "parent": "b8",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b11",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "指數",
+          "v4"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b11": {
+      "opcode": "judgeoperators_arithmetic",
+      "next": null,
+      "parent": "b10",
+      "inputs": {
+        "NUM1": [
+          3,
+          "b12",
+          [
+            4,
+            ""
+          ]
+        ],
+        "NUM2": [
+          1,
+          [
+            4,
+            "10"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "/",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b12": {
+      "opcode": "operator_round",
+      "next": null,
+      "parent": "b11",
+      "inputs": {
+        "NUM": [
+          3,
+          "b13",
+          [
+            4,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b13": {
+      "opcode": "judgeoperators_arithmetic",
+      "next": null,
+      "parent": "b12",
+      "inputs": {
+        "NUM1": [
+          3,
+          "b14",
+          [
+            4,
+            ""
+          ]
+        ],
+        "NUM2": [
+          1,
+          [
+            4,
+            "10"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "*",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b14": {
+      "opcode": "judgeoperators_arithmetic",
+      "next": null,
+      "parent": "b13",
+      "inputs": {
+        "NUM1": [
+          3,
+          [
+            12,
+            "體重",
+            "v2"
+          ],
+          [
+            4,
+            ""
+          ]
+        ],
+        "NUM2": [
+          3,
+          "b15",
+          [
+            4,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "/",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b15": {
+      "opcode": "judgeoperators_arithmetic",
+      "next": null,
+      "parent": "b14",
+      "inputs": {
+        "NUM1": [
+          3,
+          [
+            12,
+            "公尺",
+            "v3"
+          ],
+          [
+            4,
+            ""
+          ]
+        ],
+        "NUM2": [
+          3,
+          [
+            12,
+            "公尺",
+            "v3"
+          ],
+          [
+            4,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "*",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b16": {
+      "opcode": "control_if_else",
+      "next": "b32",
+      "parent": "b10",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b17"
+        ],
+        "SUBSTACK": [
+          2,
+          "b18"
+        ],
+        "SUBSTACK2": [
+          2,
+          "b19"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b17": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b16",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "指數",
+            "v4"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          1,
+          [
+            10,
+            "18.5"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "<",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b18": {
+      "opcode": "data_setvariableto",
+      "next": null,
+      "parent": "b16",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "體重過輕"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "等級",
+          "v5"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b19": {
+      "opcode": "control_if_else",
+      "next": null,
+      "parent": "b16",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b20"
+        ],
+        "SUBSTACK": [
+          2,
+          "b21"
+        ],
+        "SUBSTACK2": [
+          2,
+          "b22"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b20": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b19",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "指數",
+            "v4"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          1,
+          [
+            10,
+            "25"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "<",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b21": {
+      "opcode": "data_setvariableto",
+      "next": null,
+      "parent": "b19",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "正常範圍"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "等級",
+          "v5"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b22": {
+      "opcode": "control_if_else",
+      "next": null,
+      "parent": "b19",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b23"
+        ],
+        "SUBSTACK": [
+          2,
+          "b24"
+        ],
+        "SUBSTACK2": [
+          2,
+          "b25"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b23": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b22",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "指數",
+            "v4"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          1,
+          [
+            10,
+            "30"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "<",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b24": {
+      "opcode": "data_setvariableto",
+      "next": null,
+      "parent": "b22",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "體重過重"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "等級",
+          "v5"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b25": {
+      "opcode": "control_if_else",
+      "next": null,
+      "parent": "b22",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b26"
+        ],
+        "SUBSTACK": [
+          2,
+          "b27"
+        ],
+        "SUBSTACK2": [
+          2,
+          "b28"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b26": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b25",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "指數",
+            "v4"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          1,
+          [
+            10,
+            "35"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "<",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b27": {
+      "opcode": "data_setvariableto",
+      "next": null,
+      "parent": "b25",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "輕度肥胖"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "等級",
+          "v5"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b28": {
+      "opcode": "control_if_else",
+      "next": null,
+      "parent": "b25",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b29"
+        ],
+        "SUBSTACK": [
+          2,
+          "b30"
+        ],
+        "SUBSTACK2": [
+          2,
+          "b31"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b29": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b28",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "指數",
+            "v4"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          1,
+          [
+            10,
+            "40"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "<",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b30": {
+      "opcode": "data_setvariableto",
+      "next": null,
+      "parent": "b28",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "中度肥胖"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "等級",
+          "v5"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b31": {
+      "opcode": "data_setvariableto",
+      "next": null,
+      "parent": "b28",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "重度肥胖"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "等級",
+          "v5"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b32": {
+      "opcode": "looks_say",
+      "next": null,
+      "parent": "b16",
+      "inputs": {
+        "MESSAGE": [
+          3,
+          "b34",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b33": {
+      "opcode": "operator_join",
+      "next": null,
+      "parent": "b34",
+      "inputs": {
+        "STRING1": [
+          3,
+          [
+            12,
+            "指數",
+            "v4"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "STRING2": [
+          1,
+          [
+            10,
+            " "
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b34": {
+      "opcode": "operator_join",
+      "next": null,
+      "parent": "b32",
+      "inputs": {
+        "STRING1": [
+          3,
+          "b33",
+          [
+            10,
+            ""
+          ]
+        ],
+        "STRING2": [
+          3,
+          [
+            12,
+            "等級",
+            "v5"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    }
+  }
+}

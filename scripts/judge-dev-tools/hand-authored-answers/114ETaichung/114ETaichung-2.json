@@ -1,0 +1,1905 @@
+{
+  "variables": {
+    "v1": [
+      "發票",
+      0
+    ],
+    "v2": [
+      "數字表",
+      0
+    ],
+    "v3": [
+      "格式對",
+      0
+    ],
+    "v4": [
+      "第幾字",
+      0
+    ],
+    "v5": [
+      "有找到",
+      0
+    ],
+    "v6": [
+      "第幾個",
+      0
+    ],
+    "v7": [
+      "最長",
+      0
+    ],
+    "v8": [
+      "第幾組",
+      0
+    ],
+    "v9": [
+      "號碼",
+      0
+    ],
+    "v10": [
+      "相同",
+      0
+    ],
+    "v11": [
+      "倒數",
+      0
+    ]
+  },
+  "lists": {
+    "L1": [
+      "頭獎",
+      []
+    ]
+  },
+  "blocks": {
+    "b1": {
+      "opcode": "event_whenflagclicked",
+      "next": "b2",
+      "parent": null,
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": true,
+      "x": 40,
+      "y": 40
+    },
+    "b2": {
+      "opcode": "sensing_askandwait",
+      "next": "b3",
+      "parent": "b1",
+      "inputs": {
+        "QUESTION": [
+          1,
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b3": {
+      "opcode": "data_setvariableto",
+      "next": "b5",
+      "parent": "b2",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b4",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "發票",
+          "v1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b4": {
+      "opcode": "sensing_answer",
+      "next": null,
+      "parent": "b3",
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b5": {
+      "opcode": "data_setvariableto",
+      "next": "b7",
+      "parent": "b3",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b6",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "發票",
+          "v1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b6": {
+      "opcode": "operator_join",
+      "next": null,
+      "parent": "b5",
+      "inputs": {
+        "STRING1": [
+          1,
+          [
+            10,
+            ""
+          ]
+        ],
+        "STRING2": [
+          3,
+          [
+            12,
+            "發票",
+            "v1"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b7": {
+      "opcode": "data_setvariableto",
+      "next": "b8",
+      "parent": "b5",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "0123456789"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "數字表",
+          "v2"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b8": {
+      "opcode": "data_setvariableto",
+      "next": "b9",
+      "parent": "b7",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "格式對",
+          "v3"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b9": {
+      "opcode": "control_if_else",
+      "next": "b30",
+      "parent": "b8",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b10"
+        ],
+        "SUBSTACK": [
+          2,
+          "b12"
+        ],
+        "SUBSTACK2": [
+          2,
+          "b13"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b10": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b9",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          "b11",
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          1,
+          [
+            10,
+            "8"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "!=",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b11": {
+      "opcode": "operator_length",
+      "next": null,
+      "parent": "b10",
+      "inputs": {
+        "STRING": [
+          3,
+          [
+            12,
+            "發票",
+            "v1"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b12": {
+      "opcode": "data_setvariableto",
+      "next": null,
+      "parent": "b9",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "0"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "格式對",
+          "v3"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b13": {
+      "opcode": "data_setvariableto",
+      "next": "b14",
+      "parent": "b9",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "第幾字",
+          "v4"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b14": {
+      "opcode": "control_repeat",
+      "next": null,
+      "parent": "b13",
+      "inputs": {
+        "TIMES": [
+          1,
+          [
+            6,
+            "8"
+          ]
+        ],
+        "SUBSTACK": [
+          2,
+          "b15"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b15": {
+      "opcode": "data_setvariableto",
+      "next": "b16",
+      "parent": "b14",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "0"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "有找到",
+          "v5"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b16": {
+      "opcode": "data_setvariableto",
+      "next": "b17",
+      "parent": "b15",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "第幾個",
+          "v6"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b17": {
+      "opcode": "control_repeat",
+      "next": "b25",
+      "parent": "b16",
+      "inputs": {
+        "TIMES": [
+          1,
+          [
+            6,
+            "10"
+          ]
+        ],
+        "SUBSTACK": [
+          2,
+          "b18"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b18": {
+      "opcode": "control_if",
+      "next": "b24",
+      "parent": "b17",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b19"
+        ],
+        "SUBSTACK": [
+          2,
+          "b22"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b19": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b18",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          "b20",
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          3,
+          "b21",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "=",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b20": {
+      "opcode": "operator_letter_of",
+      "next": null,
+      "parent": "b19",
+      "inputs": {
+        "LETTER": [
+          3,
+          [
+            12,
+            "第幾字",
+            "v4"
+          ],
+          [
+            6,
+            ""
+          ]
+        ],
+        "STRING": [
+          3,
+          [
+            12,
+            "發票",
+            "v1"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b21": {
+      "opcode": "operator_letter_of",
+      "next": null,
+      "parent": "b19",
+      "inputs": {
+        "LETTER": [
+          3,
+          [
+            12,
+            "第幾個",
+            "v6"
+          ],
+          [
+            6,
+            ""
+          ]
+        ],
+        "STRING": [
+          3,
+          [
+            12,
+            "數字表",
+            "v2"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b22": {
+      "opcode": "data_setvariableto",
+      "next": "b23",
+      "parent": "b18",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "有找到",
+          "v5"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b23": {
+      "opcode": "judgecontrol_breakLoop",
+      "next": null,
+      "parent": "b22",
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b24": {
+      "opcode": "data_changevariableby",
+      "next": null,
+      "parent": "b18",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            4,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "第幾個",
+          "v6"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b25": {
+      "opcode": "control_if",
+      "next": "b29",
+      "parent": "b17",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b26"
+        ],
+        "SUBSTACK": [
+          2,
+          "b27"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b26": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b25",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "有找到",
+            "v5"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          1,
+          [
+            10,
+            "0"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "=",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b27": {
+      "opcode": "data_setvariableto",
+      "next": "b28",
+      "parent": "b25",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "0"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "格式對",
+          "v3"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b28": {
+      "opcode": "judgecontrol_breakLoop",
+      "next": null,
+      "parent": "b27",
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b29": {
+      "opcode": "data_changevariableby",
+      "next": null,
+      "parent": "b25",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            4,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "第幾字",
+          "v4"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b30": {
+      "opcode": "control_if_else",
+      "next": null,
+      "parent": "b9",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b31"
+        ],
+        "SUBSTACK": [
+          2,
+          "b32"
+        ],
+        "SUBSTACK2": [
+          2,
+          "b33"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b31": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b30",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "格式對",
+            "v3"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          1,
+          [
+            10,
+            "0"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "=",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b32": {
+      "opcode": "looks_say",
+      "next": null,
+      "parent": "b30",
+      "inputs": {
+        "MESSAGE": [
+          1,
+          [
+            10,
+            "非統一編號"
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b33": {
+      "opcode": "control_if_else",
+      "next": null,
+      "parent": "b30",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b34"
+        ],
+        "SUBSTACK": [
+          2,
+          "b35"
+        ],
+        "SUBSTACK2": [
+          2,
+          "b36"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b34": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b33",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "發票",
+            "v1"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          1,
+          [
+            10,
+            "25834483"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "=",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b35": {
+      "opcode": "looks_say",
+      "next": null,
+      "parent": "b33",
+      "inputs": {
+        "MESSAGE": [
+          1,
+          [
+            10,
+            "特別獎"
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b36": {
+      "opcode": "control_if_else",
+      "next": null,
+      "parent": "b33",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b37"
+        ],
+        "SUBSTACK": [
+          2,
+          "b38"
+        ],
+        "SUBSTACK2": [
+          2,
+          "b39"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b37": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b36",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "發票",
+            "v1"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          1,
+          [
+            10,
+            "46587380"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "=",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b38": {
+      "opcode": "looks_say",
+      "next": null,
+      "parent": "b36",
+      "inputs": {
+        "MESSAGE": [
+          1,
+          [
+            10,
+            "特獎"
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b39": {
+      "opcode": "data_deletealloflist",
+      "next": "b40",
+      "parent": "b36",
+      "inputs": {},
+      "fields": {
+        "LIST": [
+          "頭獎",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b40": {
+      "opcode": "data_addtolist",
+      "next": "b41",
+      "parent": "b39",
+      "inputs": {
+        "ITEM": [
+          1,
+          [
+            10,
+            "41016094"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "頭獎",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b41": {
+      "opcode": "data_addtolist",
+      "next": "b42",
+      "parent": "b40",
+      "inputs": {
+        "ITEM": [
+          1,
+          [
+            10,
+            "98081574"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "頭獎",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b42": {
+      "opcode": "data_addtolist",
+      "next": "b43",
+      "parent": "b41",
+      "inputs": {
+        "ITEM": [
+          1,
+          [
+            10,
+            "07309261"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "頭獎",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b43": {
+      "opcode": "data_setvariableto",
+      "next": "b44",
+      "parent": "b42",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "0"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "最長",
+          "v7"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b44": {
+      "opcode": "data_setvariableto",
+      "next": "b45",
+      "parent": "b43",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "第幾組",
+          "v8"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b45": {
+      "opcode": "control_repeat",
+      "next": "b62",
+      "parent": "b44",
+      "inputs": {
+        "TIMES": [
+          1,
+          [
+            6,
+            "3"
+          ]
+        ],
+        "SUBSTACK": [
+          2,
+          "b46"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b46": {
+      "opcode": "data_setvariableto",
+      "next": "b48",
+      "parent": "b45",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b47",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "號碼",
+          "v9"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b47": {
+      "opcode": "data_itemoflist",
+      "next": null,
+      "parent": "b46",
+      "inputs": {
+        "INDEX": [
+          3,
+          [
+            12,
+            "第幾組",
+            "v8"
+          ],
+          [
+            7,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "頭獎",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b48": {
+      "opcode": "data_setvariableto",
+      "next": "b49",
+      "parent": "b46",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "0"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "相同",
+          "v10"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b49": {
+      "opcode": "data_setvariableto",
+      "next": "b50",
+      "parent": "b48",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "8"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "倒數",
+          "v11"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b50": {
+      "opcode": "control_repeat",
+      "next": "b58",
+      "parent": "b49",
+      "inputs": {
+        "TIMES": [
+          1,
+          [
+            6,
+            "8"
+          ]
+        ],
+        "SUBSTACK": [
+          2,
+          "b51"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b51": {
+      "opcode": "control_if_else",
+      "next": "b57",
+      "parent": "b50",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b52"
+        ],
+        "SUBSTACK": [
+          2,
+          "b55"
+        ],
+        "SUBSTACK2": [
+          2,
+          "b56"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b52": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b51",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          "b53",
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          3,
+          "b54",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "=",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b53": {
+      "opcode": "operator_letter_of",
+      "next": null,
+      "parent": "b52",
+      "inputs": {
+        "LETTER": [
+          3,
+          [
+            12,
+            "倒數",
+            "v11"
+          ],
+          [
+            6,
+            ""
+          ]
+        ],
+        "STRING": [
+          3,
+          [
+            12,
+            "發票",
+            "v1"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b54": {
+      "opcode": "operator_letter_of",
+      "next": null,
+      "parent": "b52",
+      "inputs": {
+        "LETTER": [
+          3,
+          [
+            12,
+            "倒數",
+            "v11"
+          ],
+          [
+            6,
+            ""
+          ]
+        ],
+        "STRING": [
+          3,
+          [
+            12,
+            "號碼",
+            "v9"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b55": {
+      "opcode": "data_changevariableby",
+      "next": null,
+      "parent": "b51",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            4,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "相同",
+          "v10"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b56": {
+      "opcode": "judgecontrol_breakLoop",
+      "next": null,
+      "parent": "b51",
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b57": {
+      "opcode": "data_changevariableby",
+      "next": null,
+      "parent": "b51",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            4,
+            "-1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "倒數",
+          "v11"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b58": {
+      "opcode": "control_if",
+      "next": "b61",
+      "parent": "b50",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b59"
+        ],
+        "SUBSTACK": [
+          2,
+          "b60"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b59": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b58",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "相同",
+            "v10"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          3,
+          [
+            12,
+            "最長",
+            "v7"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          ">",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b60": {
+      "opcode": "data_setvariableto",
+      "next": null,
+      "parent": "b58",
+      "inputs": {
+        "VALUE": [
+          3,
+          [
+            12,
+            "相同",
+            "v10"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "最長",
+          "v7"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b61": {
+      "opcode": "data_changevariableby",
+      "next": null,
+      "parent": "b58",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            4,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "第幾組",
+          "v8"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b62": {
+      "opcode": "control_if_else",
+      "next": null,
+      "parent": "b45",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b63"
+        ],
+        "SUBSTACK": [
+          2,
+          "b64"
+        ],
+        "SUBSTACK2": [
+          2,
+          "b65"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b63": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b62",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "最長",
+            "v7"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          1,
+          [
+            10,
+            "8"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "=",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b64": {
+      "opcode": "looks_say",
+      "next": null,
+      "parent": "b62",
+      "inputs": {
+        "MESSAGE": [
+          1,
+          [
+            10,
+            "頭獎"
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b65": {
+      "opcode": "control_if_else",
+      "next": null,
+      "parent": "b62",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b66"
+        ],
+        "SUBSTACK": [
+          2,
+          "b67"
+        ],
+        "SUBSTACK2": [
+          2,
+          "b68"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b66": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b65",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "最長",
+            "v7"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          1,
+          [
+            10,
+            "7"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "=",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b67": {
+      "opcode": "looks_say",
+      "next": null,
+      "parent": "b65",
+      "inputs": {
+        "MESSAGE": [
+          1,
+          [
+            10,
+            "二獎"
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b68": {
+      "opcode": "control_if_else",
+      "next": null,
+      "parent": "b65",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b69"
+        ],
+        "SUBSTACK": [
+          2,
+          "b70"
+        ],
+        "SUBSTACK2": [
+          2,
+          "b71"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b69": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b68",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "最長",
+            "v7"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          1,
+          [
+            10,
+            "6"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "=",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b70": {
+      "opcode": "looks_say",
+      "next": null,
+      "parent": "b68",
+      "inputs": {
+        "MESSAGE": [
+          1,
+          [
+            10,
+            "三獎"
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b71": {
+      "opcode": "control_if_else",
+      "next": null,
+      "parent": "b68",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b72"
+        ],
+        "SUBSTACK": [
+          2,
+          "b73"
+        ],
+        "SUBSTACK2": [
+          2,
+          "b74"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b72": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b71",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "最長",
+            "v7"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          1,
+          [
+            10,
+            "5"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "=",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b73": {
+      "opcode": "looks_say",
+      "next": null,
+      "parent": "b71",
+      "inputs": {
+        "MESSAGE": [
+          1,
+          [
+            10,
+            "四獎"
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b74": {
+      "opcode": "control_if_else",
+      "next": null,
+      "parent": "b71",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b75"
+        ],
+        "SUBSTACK": [
+          2,
+          "b76"
+        ],
+        "SUBSTACK2": [
+          2,
+          "b77"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b75": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b74",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "最長",
+            "v7"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          1,
+          [
+            10,
+            "4"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "=",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b76": {
+      "opcode": "looks_say",
+      "next": null,
+      "parent": "b74",
+      "inputs": {
+        "MESSAGE": [
+          1,
+          [
+            10,
+            "五獎"
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b77": {
+      "opcode": "control_if_else",
+      "next": null,
+      "parent": "b74",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b78"
+        ],
+        "SUBSTACK": [
+          2,
+          "b79"
+        ],
+        "SUBSTACK2": [
+          2,
+          "b80"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b78": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b77",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "最長",
+            "v7"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          1,
+          [
+            10,
+            "3"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "=",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b79": {
+      "opcode": "looks_say",
+      "next": null,
+      "parent": "b77",
+      "inputs": {
+        "MESSAGE": [
+          1,
+          [
+            10,
+            "六獎"
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b80": {
+      "opcode": "looks_say",
+      "next": null,
+      "parent": "b77",
+      "inputs": {
+        "MESSAGE": [
+          1,
+          [
+            10,
+            "無中獎"
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    }
+  }
+}

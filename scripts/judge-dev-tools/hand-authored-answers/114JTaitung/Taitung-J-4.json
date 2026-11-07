@@ -1,0 +1,775 @@
+{
+  "variables": {
+    "v1": [
+      "餘額",
+      0
+    ],
+    "v2": [
+      "總額",
+      0
+    ],
+    "v3": [
+      "編號",
+      0
+    ],
+    "v4": [
+      "差額",
+      0
+    ]
+  },
+  "lists": {
+    "L1": [
+      "價格",
+      []
+    ]
+  },
+  "blocks": {
+    "b1": {
+      "opcode": "event_whenflagclicked",
+      "next": "b2",
+      "parent": null,
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": true,
+      "x": 40,
+      "y": 40
+    },
+    "b2": {
+      "opcode": "data_deletealloflist",
+      "next": "b3",
+      "parent": "b1",
+      "inputs": {},
+      "fields": {
+        "LIST": [
+          "價格",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b3": {
+      "opcode": "data_addtolist",
+      "next": "b4",
+      "parent": "b2",
+      "inputs": {
+        "ITEM": [
+          1,
+          [
+            10,
+            "3490"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "價格",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b4": {
+      "opcode": "data_addtolist",
+      "next": "b5",
+      "parent": "b3",
+      "inputs": {
+        "ITEM": [
+          1,
+          [
+            10,
+            "7990"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "價格",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b5": {
+      "opcode": "data_addtolist",
+      "next": "b6",
+      "parent": "b4",
+      "inputs": {
+        "ITEM": [
+          1,
+          [
+            10,
+            "3990"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "價格",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b6": {
+      "opcode": "data_addtolist",
+      "next": "b7",
+      "parent": "b5",
+      "inputs": {
+        "ITEM": [
+          1,
+          [
+            10,
+            "2590"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "價格",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b7": {
+      "opcode": "data_addtolist",
+      "next": "b8",
+      "parent": "b6",
+      "inputs": {
+        "ITEM": [
+          1,
+          [
+            10,
+            "6890"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "價格",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b8": {
+      "opcode": "data_addtolist",
+      "next": "b9",
+      "parent": "b7",
+      "inputs": {
+        "ITEM": [
+          1,
+          [
+            10,
+            "3490"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "價格",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b9": {
+      "opcode": "data_addtolist",
+      "next": "b10",
+      "parent": "b8",
+      "inputs": {
+        "ITEM": [
+          1,
+          [
+            10,
+            "1490"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "價格",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b10": {
+      "opcode": "sensing_askandwait",
+      "next": "b11",
+      "parent": "b9",
+      "inputs": {
+        "QUESTION": [
+          1,
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b11": {
+      "opcode": "data_setvariableto",
+      "next": "b13",
+      "parent": "b10",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b12",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "餘額",
+          "v1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b12": {
+      "opcode": "sensing_answer",
+      "next": null,
+      "parent": "b11",
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b13": {
+      "opcode": "data_setvariableto",
+      "next": "b14",
+      "parent": "b11",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "0"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "總額",
+          "v2"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b14": {
+      "opcode": "sensing_askandwait",
+      "next": "b15",
+      "parent": "b13",
+      "inputs": {
+        "QUESTION": [
+          1,
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b15": {
+      "opcode": "data_setvariableto",
+      "next": "b17",
+      "parent": "b14",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b16",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "編號",
+          "v3"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b16": {
+      "opcode": "sensing_answer",
+      "next": null,
+      "parent": "b15",
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b17": {
+      "opcode": "control_repeat_until",
+      "next": "b24",
+      "parent": "b15",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b18"
+        ],
+        "SUBSTACK": [
+          2,
+          "b19"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b18": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b17",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "編號",
+            "v3"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          1,
+          [
+            10,
+            "-1"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "=",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b19": {
+      "opcode": "data_changevariableby",
+      "next": "b21",
+      "parent": "b17",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b20",
+          [
+            4,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "總額",
+          "v2"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b20": {
+      "opcode": "data_itemoflist",
+      "next": null,
+      "parent": "b19",
+      "inputs": {
+        "INDEX": [
+          3,
+          [
+            12,
+            "編號",
+            "v3"
+          ],
+          [
+            7,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "價格",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b21": {
+      "opcode": "sensing_askandwait",
+      "next": "b22",
+      "parent": "b19",
+      "inputs": {
+        "QUESTION": [
+          1,
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b22": {
+      "opcode": "data_setvariableto",
+      "next": null,
+      "parent": "b21",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b23",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "編號",
+          "v3"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b23": {
+      "opcode": "sensing_answer",
+      "next": null,
+      "parent": "b22",
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b24": {
+      "opcode": "data_setvariableto",
+      "next": "b26",
+      "parent": "b17",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b25",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "差額",
+          "v4"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b25": {
+      "opcode": "judgeoperators_arithmetic",
+      "next": null,
+      "parent": "b24",
+      "inputs": {
+        "NUM1": [
+          3,
+          [
+            12,
+            "餘額",
+            "v1"
+          ],
+          [
+            4,
+            ""
+          ]
+        ],
+        "NUM2": [
+          3,
+          [
+            12,
+            "總額",
+            "v2"
+          ],
+          [
+            4,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "-",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b26": {
+      "opcode": "control_if_else",
+      "next": null,
+      "parent": "b24",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b27"
+        ],
+        "SUBSTACK": [
+          2,
+          "b28"
+        ],
+        "SUBSTACK2": [
+          2,
+          "b31"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b27": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b26",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "差額",
+            "v4"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          1,
+          [
+            10,
+            "0"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          ">=",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b28": {
+      "opcode": "looks_say",
+      "next": null,
+      "parent": "b26",
+      "inputs": {
+        "MESSAGE": [
+          3,
+          "b30",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b29": {
+      "opcode": "operator_join",
+      "next": null,
+      "parent": "b30",
+      "inputs": {
+        "STRING1": [
+          1,
+          [
+            10,
+            "結帳成功,餘額剩"
+          ]
+        ],
+        "STRING2": [
+          3,
+          [
+            12,
+            "差額",
+            "v4"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b30": {
+      "opcode": "operator_join",
+      "next": null,
+      "parent": "b28",
+      "inputs": {
+        "STRING1": [
+          3,
+          "b29",
+          [
+            10,
+            ""
+          ]
+        ],
+        "STRING2": [
+          1,
+          [
+            10,
+            "元"
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b31": {
+      "opcode": "looks_say",
+      "next": null,
+      "parent": "b26",
+      "inputs": {
+        "MESSAGE": [
+          3,
+          "b34",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b32": {
+      "opcode": "operator_join",
+      "next": null,
+      "parent": "b34",
+      "inputs": {
+        "STRING1": [
+          1,
+          [
+            10,
+            "餘額不足,請另外加值"
+          ]
+        ],
+        "STRING2": [
+          3,
+          "b33",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b33": {
+      "opcode": "judgeoperators_arithmetic",
+      "next": null,
+      "parent": "b32",
+      "inputs": {
+        "NUM1": [
+          3,
+          [
+            12,
+            "總額",
+            "v2"
+          ],
+          [
+            4,
+            ""
+          ]
+        ],
+        "NUM2": [
+          3,
+          [
+            12,
+            "餘額",
+            "v1"
+          ],
+          [
+            4,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "-",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b34": {
+      "opcode": "operator_join",
+      "next": null,
+      "parent": "b31",
+      "inputs": {
+        "STRING1": [
+          3,
+          "b32",
+          [
+            10,
+            ""
+          ]
+        ],
+        "STRING2": [
+          1,
+          [
+            10,
+            "元"
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    }
+  }
+}

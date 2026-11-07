@@ -1,0 +1,967 @@
+{
+  "variables": {
+    "v1": [
+      "猜中",
+      0
+    ],
+    "v2": [
+      "號碼",
+      0
+    ],
+    "v3": [
+      "獎金",
+      0
+    ]
+  },
+  "lists": {
+    "L1": [
+      "幸運號碼",
+      []
+    ]
+  },
+  "blocks": {
+    "b1": {
+      "opcode": "event_whenflagclicked",
+      "next": "b2",
+      "parent": null,
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": true,
+      "x": 40,
+      "y": 40
+    },
+    "b2": {
+      "opcode": "data_deletealloflist",
+      "next": "b3",
+      "parent": "b1",
+      "inputs": {},
+      "fields": {
+        "LIST": [
+          "幸運號碼",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b3": {
+      "opcode": "data_addtolist",
+      "next": "b4",
+      "parent": "b2",
+      "inputs": {
+        "ITEM": [
+          1,
+          [
+            10,
+            "7"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "幸運號碼",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b4": {
+      "opcode": "data_addtolist",
+      "next": "b5",
+      "parent": "b3",
+      "inputs": {
+        "ITEM": [
+          1,
+          [
+            10,
+            "24"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "幸運號碼",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b5": {
+      "opcode": "data_addtolist",
+      "next": "b6",
+      "parent": "b4",
+      "inputs": {
+        "ITEM": [
+          1,
+          [
+            10,
+            "31"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "幸運號碼",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b6": {
+      "opcode": "data_addtolist",
+      "next": "b7",
+      "parent": "b5",
+      "inputs": {
+        "ITEM": [
+          1,
+          [
+            10,
+            "42"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "幸運號碼",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b7": {
+      "opcode": "data_addtolist",
+      "next": "b8",
+      "parent": "b6",
+      "inputs": {
+        "ITEM": [
+          1,
+          [
+            10,
+            "45"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "幸運號碼",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b8": {
+      "opcode": "data_addtolist",
+      "next": "b9",
+      "parent": "b7",
+      "inputs": {
+        "ITEM": [
+          1,
+          [
+            10,
+            "56"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "幸運號碼",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b9": {
+      "opcode": "data_addtolist",
+      "next": "b10",
+      "parent": "b8",
+      "inputs": {
+        "ITEM": [
+          1,
+          [
+            10,
+            "63"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "幸運號碼",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b10": {
+      "opcode": "data_addtolist",
+      "next": "b11",
+      "parent": "b9",
+      "inputs": {
+        "ITEM": [
+          1,
+          [
+            10,
+            "78"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "幸運號碼",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b11": {
+      "opcode": "data_addtolist",
+      "next": "b12",
+      "parent": "b10",
+      "inputs": {
+        "ITEM": [
+          1,
+          [
+            10,
+            "80"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "幸運號碼",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b12": {
+      "opcode": "data_addtolist",
+      "next": "b13",
+      "parent": "b11",
+      "inputs": {
+        "ITEM": [
+          1,
+          [
+            10,
+            "99"
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "幸運號碼",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b13": {
+      "opcode": "data_setvariableto",
+      "next": "b14",
+      "parent": "b12",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "0"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "猜中",
+          "v1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b14": {
+      "opcode": "control_repeat",
+      "next": "b21",
+      "parent": "b13",
+      "inputs": {
+        "TIMES": [
+          1,
+          [
+            6,
+            "5"
+          ]
+        ],
+        "SUBSTACK": [
+          2,
+          "b15"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b15": {
+      "opcode": "sensing_askandwait",
+      "next": "b16",
+      "parent": "b14",
+      "inputs": {
+        "QUESTION": [
+          1,
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b16": {
+      "opcode": "data_setvariableto",
+      "next": "b18",
+      "parent": "b15",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b17",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "號碼",
+          "v2"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b17": {
+      "opcode": "sensing_answer",
+      "next": null,
+      "parent": "b16",
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b18": {
+      "opcode": "control_if",
+      "next": null,
+      "parent": "b16",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b19"
+        ],
+        "SUBSTACK": [
+          2,
+          "b20"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b19": {
+      "opcode": "data_listcontainsitem",
+      "next": null,
+      "parent": "b18",
+      "inputs": {
+        "ITEM": [
+          3,
+          [
+            12,
+            "號碼",
+            "v2"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "幸運號碼",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b20": {
+      "opcode": "data_changevariableby",
+      "next": null,
+      "parent": "b18",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            4,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "猜中",
+          "v1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b21": {
+      "opcode": "control_if_else",
+      "next": "b37",
+      "parent": "b14",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b22"
+        ],
+        "SUBSTACK": [
+          2,
+          "b23"
+        ],
+        "SUBSTACK2": [
+          2,
+          "b24"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b22": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b21",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "猜中",
+            "v1"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          1,
+          [
+            10,
+            "5"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "=",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b23": {
+      "opcode": "data_setvariableto",
+      "next": null,
+      "parent": "b21",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "100000"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "獎金",
+          "v3"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b24": {
+      "opcode": "control_if_else",
+      "next": null,
+      "parent": "b21",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b25"
+        ],
+        "SUBSTACK": [
+          2,
+          "b26"
+        ],
+        "SUBSTACK2": [
+          2,
+          "b27"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b25": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b24",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "猜中",
+            "v1"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          1,
+          [
+            10,
+            "4"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "=",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b26": {
+      "opcode": "data_setvariableto",
+      "next": null,
+      "parent": "b24",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "10000"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "獎金",
+          "v3"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b27": {
+      "opcode": "control_if_else",
+      "next": null,
+      "parent": "b24",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b28"
+        ],
+        "SUBSTACK": [
+          2,
+          "b29"
+        ],
+        "SUBSTACK2": [
+          2,
+          "b30"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b28": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b27",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "猜中",
+            "v1"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          1,
+          [
+            10,
+            "3"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "=",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b29": {
+      "opcode": "data_setvariableto",
+      "next": null,
+      "parent": "b27",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "2000"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "獎金",
+          "v3"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b30": {
+      "opcode": "control_if_else",
+      "next": null,
+      "parent": "b27",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b31"
+        ],
+        "SUBSTACK": [
+          2,
+          "b32"
+        ],
+        "SUBSTACK2": [
+          2,
+          "b33"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b31": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b30",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "猜中",
+            "v1"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          1,
+          [
+            10,
+            "2"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "=",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b32": {
+      "opcode": "data_setvariableto",
+      "next": null,
+      "parent": "b30",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "500"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "獎金",
+          "v3"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b33": {
+      "opcode": "control_if_else",
+      "next": null,
+      "parent": "b30",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b34"
+        ],
+        "SUBSTACK": [
+          2,
+          "b35"
+        ],
+        "SUBSTACK2": [
+          2,
+          "b36"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b34": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b33",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "猜中",
+            "v1"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          1,
+          [
+            10,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "=",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b35": {
+      "opcode": "data_setvariableto",
+      "next": null,
+      "parent": "b33",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "200"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "獎金",
+          "v3"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b36": {
+      "opcode": "data_setvariableto",
+      "next": null,
+      "parent": "b33",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "0"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "獎金",
+          "v3"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b37": {
+      "opcode": "looks_say",
+      "next": null,
+      "parent": "b21",
+      "inputs": {
+        "MESSAGE": [
+          3,
+          "b41",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b38": {
+      "opcode": "operator_join",
+      "next": null,
+      "parent": "b39",
+      "inputs": {
+        "STRING1": [
+          1,
+          [
+            10,
+            "猜中"
+          ]
+        ],
+        "STRING2": [
+          3,
+          [
+            12,
+            "猜中",
+            "v1"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b39": {
+      "opcode": "operator_join",
+      "next": null,
+      "parent": "b40",
+      "inputs": {
+        "STRING1": [
+          3,
+          "b38",
+          [
+            10,
+            ""
+          ]
+        ],
+        "STRING2": [
+          1,
+          [
+            10,
+            "個號碼,獎金"
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b40": {
+      "opcode": "operator_join",
+      "next": null,
+      "parent": "b41",
+      "inputs": {
+        "STRING1": [
+          3,
+          "b39",
+          [
+            10,
+            ""
+          ]
+        ],
+        "STRING2": [
+          3,
+          [
+            12,
+            "獎金",
+            "v3"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b41": {
+      "opcode": "operator_join",
+      "next": null,
+      "parent": "b37",
+      "inputs": {
+        "STRING1": [
+          3,
+          "b40",
+          [
+            10,
+            ""
+          ]
+        ],
+        "STRING2": [
+          1,
+          [
+            10,
+            "元"
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    }
+  }
+}
