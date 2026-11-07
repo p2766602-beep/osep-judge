@@ -1,0 +1,1601 @@
+{
+  "variables": {
+    "v1": [
+      "關係數",
+      0
+    ],
+    "v2": [
+      "甲",
+      0
+    ],
+    "v3": [
+      "乙",
+      0
+    ],
+    "v4": [
+      "目前",
+      0
+    ],
+    "v5": [
+      "步數",
+      0
+    ],
+    "v6": [
+      "有父親",
+      0
+    ],
+    "v7": [
+      "第幾組",
+      0
+    ],
+    "v8": [
+      "答案",
+      0
+    ]
+  },
+  "lists": {
+    "L1": [
+      "父親們",
+      []
+    ],
+    "L2": [
+      "兒子們",
+      []
+    ],
+    "L3": [
+      "祖先",
+      []
+    ],
+    "L4": [
+      "距離",
+      []
+    ]
+  },
+  "blocks": {
+    "b1": {
+      "opcode": "event_whenflagclicked",
+      "next": "b2",
+      "parent": null,
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": true,
+      "x": 40,
+      "y": 40
+    },
+    "b2": {
+      "opcode": "sensing_askandwait",
+      "next": "b3",
+      "parent": "b1",
+      "inputs": {
+        "QUESTION": [
+          1,
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b3": {
+      "opcode": "data_setvariableto",
+      "next": "b5",
+      "parent": "b2",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b4",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "關係數",
+          "v1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b4": {
+      "opcode": "sensing_answer",
+      "next": null,
+      "parent": "b3",
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b5": {
+      "opcode": "data_deletealloflist",
+      "next": "b6",
+      "parent": "b3",
+      "inputs": {},
+      "fields": {
+        "LIST": [
+          "父親們",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b6": {
+      "opcode": "control_repeat",
+      "next": "b10",
+      "parent": "b5",
+      "inputs": {
+        "TIMES": [
+          3,
+          [
+            12,
+            "關係數",
+            "v1"
+          ],
+          [
+            6,
+            ""
+          ]
+        ],
+        "SUBSTACK": [
+          2,
+          "b7"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b7": {
+      "opcode": "sensing_askandwait",
+      "next": "b8",
+      "parent": "b6",
+      "inputs": {
+        "QUESTION": [
+          1,
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b8": {
+      "opcode": "data_addtolist",
+      "next": null,
+      "parent": "b7",
+      "inputs": {
+        "ITEM": [
+          3,
+          "b9",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "父親們",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b9": {
+      "opcode": "sensing_answer",
+      "next": null,
+      "parent": "b8",
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b10": {
+      "opcode": "data_deletealloflist",
+      "next": "b11",
+      "parent": "b6",
+      "inputs": {},
+      "fields": {
+        "LIST": [
+          "兒子們",
+          "L2"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b11": {
+      "opcode": "control_repeat",
+      "next": "b15",
+      "parent": "b10",
+      "inputs": {
+        "TIMES": [
+          3,
+          [
+            12,
+            "關係數",
+            "v1"
+          ],
+          [
+            6,
+            ""
+          ]
+        ],
+        "SUBSTACK": [
+          2,
+          "b12"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b12": {
+      "opcode": "sensing_askandwait",
+      "next": "b13",
+      "parent": "b11",
+      "inputs": {
+        "QUESTION": [
+          1,
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b13": {
+      "opcode": "data_addtolist",
+      "next": null,
+      "parent": "b12",
+      "inputs": {
+        "ITEM": [
+          3,
+          "b14",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "兒子們",
+          "L2"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b14": {
+      "opcode": "sensing_answer",
+      "next": null,
+      "parent": "b13",
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b15": {
+      "opcode": "sensing_askandwait",
+      "next": "b16",
+      "parent": "b11",
+      "inputs": {
+        "QUESTION": [
+          1,
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b16": {
+      "opcode": "data_setvariableto",
+      "next": "b18",
+      "parent": "b15",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b17",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "甲",
+          "v2"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b17": {
+      "opcode": "sensing_answer",
+      "next": null,
+      "parent": "b16",
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b18": {
+      "opcode": "sensing_askandwait",
+      "next": "b19",
+      "parent": "b16",
+      "inputs": {
+        "QUESTION": [
+          1,
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b19": {
+      "opcode": "data_setvariableto",
+      "next": "b21",
+      "parent": "b18",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b20",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "乙",
+          "v3"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b20": {
+      "opcode": "sensing_answer",
+      "next": null,
+      "parent": "b19",
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b21": {
+      "opcode": "data_deletealloflist",
+      "next": "b22",
+      "parent": "b19",
+      "inputs": {},
+      "fields": {
+        "LIST": [
+          "祖先",
+          "L3"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b22": {
+      "opcode": "data_deletealloflist",
+      "next": "b23",
+      "parent": "b21",
+      "inputs": {},
+      "fields": {
+        "LIST": [
+          "距離",
+          "L4"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b23": {
+      "opcode": "data_setvariableto",
+      "next": "b24",
+      "parent": "b22",
+      "inputs": {
+        "VALUE": [
+          3,
+          [
+            12,
+            "甲",
+            "v2"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "目前",
+          "v4"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b24": {
+      "opcode": "data_setvariableto",
+      "next": "b25",
+      "parent": "b23",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "0"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "步數",
+          "v5"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b25": {
+      "opcode": "data_setvariableto",
+      "next": "b26",
+      "parent": "b24",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "有父親",
+          "v6"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b26": {
+      "opcode": "control_repeat_until",
+      "next": "b42",
+      "parent": "b25",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b27"
+        ],
+        "SUBSTACK": [
+          2,
+          "b28"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b27": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b26",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "有父親",
+            "v6"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          1,
+          [
+            10,
+            "0"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "=",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b28": {
+      "opcode": "data_addtolist",
+      "next": "b29",
+      "parent": "b26",
+      "inputs": {
+        "ITEM": [
+          3,
+          [
+            12,
+            "目前",
+            "v4"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "祖先",
+          "L3"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b29": {
+      "opcode": "data_addtolist",
+      "next": "b30",
+      "parent": "b28",
+      "inputs": {
+        "ITEM": [
+          3,
+          [
+            12,
+            "步數",
+            "v5"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "距離",
+          "L4"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b30": {
+      "opcode": "data_setvariableto",
+      "next": "b31",
+      "parent": "b29",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "0"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "有父親",
+          "v6"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b31": {
+      "opcode": "data_setvariableto",
+      "next": "b32",
+      "parent": "b30",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "第幾組",
+          "v7"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b32": {
+      "opcode": "control_repeat",
+      "next": null,
+      "parent": "b31",
+      "inputs": {
+        "TIMES": [
+          3,
+          [
+            12,
+            "關係數",
+            "v1"
+          ],
+          [
+            6,
+            ""
+          ]
+        ],
+        "SUBSTACK": [
+          2,
+          "b33"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b33": {
+      "opcode": "control_if",
+      "next": "b41",
+      "parent": "b32",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b34"
+        ],
+        "SUBSTACK": [
+          2,
+          "b36"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b34": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b33",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          "b35",
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          3,
+          [
+            12,
+            "目前",
+            "v4"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "=",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b35": {
+      "opcode": "data_itemoflist",
+      "next": null,
+      "parent": "b34",
+      "inputs": {
+        "INDEX": [
+          3,
+          [
+            12,
+            "第幾組",
+            "v7"
+          ],
+          [
+            7,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "兒子們",
+          "L2"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b36": {
+      "opcode": "data_setvariableto",
+      "next": "b38",
+      "parent": "b33",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b37",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "目前",
+          "v4"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b37": {
+      "opcode": "data_itemoflist",
+      "next": null,
+      "parent": "b36",
+      "inputs": {
+        "INDEX": [
+          3,
+          [
+            12,
+            "第幾組",
+            "v7"
+          ],
+          [
+            7,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "父親們",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b38": {
+      "opcode": "data_setvariableto",
+      "next": "b39",
+      "parent": "b36",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "有父親",
+          "v6"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b39": {
+      "opcode": "data_changevariableby",
+      "next": "b40",
+      "parent": "b38",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            4,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "步數",
+          "v5"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b40": {
+      "opcode": "judgecontrol_breakLoop",
+      "next": null,
+      "parent": "b39",
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b41": {
+      "opcode": "data_changevariableby",
+      "next": null,
+      "parent": "b33",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            4,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "第幾組",
+          "v7"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b42": {
+      "opcode": "data_setvariableto",
+      "next": "b43",
+      "parent": "b26",
+      "inputs": {
+        "VALUE": [
+          3,
+          [
+            12,
+            "乙",
+            "v3"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "目前",
+          "v4"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b43": {
+      "opcode": "data_setvariableto",
+      "next": "b44",
+      "parent": "b42",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "0"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "步數",
+          "v5"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b44": {
+      "opcode": "data_setvariableto",
+      "next": "b45",
+      "parent": "b43",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "有父親",
+          "v6"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b45": {
+      "opcode": "data_setvariableto",
+      "next": "b46",
+      "parent": "b44",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "-1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "答案",
+          "v8"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b46": {
+      "opcode": "control_repeat_until",
+      "next": "b68",
+      "parent": "b45",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b47"
+        ],
+        "SUBSTACK": [
+          2,
+          "b50"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b47": {
+      "opcode": "judgeoperators_andOr",
+      "next": null,
+      "parent": "b46",
+      "inputs": {
+        "OPERAND1": [
+          2,
+          "b48"
+        ],
+        "OPERAND2": [
+          2,
+          "b49"
+        ]
+      },
+      "fields": {
+        "OP": [
+          "or",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b48": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b47",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "答案",
+            "v8"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          1,
+          [
+            10,
+            "-1"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "!=",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b49": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b47",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "有父親",
+            "v6"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          1,
+          [
+            10,
+            "0"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "=",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b50": {
+      "opcode": "control_if_else",
+      "next": null,
+      "parent": "b46",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b51"
+        ],
+        "SUBSTACK": [
+          2,
+          "b52"
+        ],
+        "SUBSTACK2": [
+          2,
+          "b56"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b51": {
+      "opcode": "data_listcontainsitem",
+      "next": null,
+      "parent": "b50",
+      "inputs": {
+        "ITEM": [
+          3,
+          [
+            12,
+            "目前",
+            "v4"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "祖先",
+          "L3"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b52": {
+      "opcode": "data_setvariableto",
+      "next": null,
+      "parent": "b50",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b53",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "答案",
+          "v8"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b53": {
+      "opcode": "judgeoperators_arithmetic",
+      "next": null,
+      "parent": "b52",
+      "inputs": {
+        "NUM1": [
+          3,
+          "b54",
+          [
+            4,
+            ""
+          ]
+        ],
+        "NUM2": [
+          3,
+          [
+            12,
+            "步數",
+            "v5"
+          ],
+          [
+            4,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "+",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b54": {
+      "opcode": "data_itemoflist",
+      "next": null,
+      "parent": "b53",
+      "inputs": {
+        "INDEX": [
+          3,
+          "b55",
+          [
+            7,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "距離",
+          "L4"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b55": {
+      "opcode": "data_itemnumoflist",
+      "next": null,
+      "parent": "b54",
+      "inputs": {
+        "ITEM": [
+          3,
+          [
+            12,
+            "目前",
+            "v4"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "祖先",
+          "L3"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b56": {
+      "opcode": "data_setvariableto",
+      "next": "b57",
+      "parent": "b50",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "0"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "有父親",
+          "v6"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b57": {
+      "opcode": "data_setvariableto",
+      "next": "b58",
+      "parent": "b56",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "第幾組",
+          "v7"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b58": {
+      "opcode": "control_repeat",
+      "next": null,
+      "parent": "b57",
+      "inputs": {
+        "TIMES": [
+          3,
+          [
+            12,
+            "關係數",
+            "v1"
+          ],
+          [
+            6,
+            ""
+          ]
+        ],
+        "SUBSTACK": [
+          2,
+          "b59"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b59": {
+      "opcode": "control_if",
+      "next": "b67",
+      "parent": "b58",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b60"
+        ],
+        "SUBSTACK": [
+          2,
+          "b62"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b60": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b59",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          "b61",
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          3,
+          [
+            12,
+            "目前",
+            "v4"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "=",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b61": {
+      "opcode": "data_itemoflist",
+      "next": null,
+      "parent": "b60",
+      "inputs": {
+        "INDEX": [
+          3,
+          [
+            12,
+            "第幾組",
+            "v7"
+          ],
+          [
+            7,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "兒子們",
+          "L2"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b62": {
+      "opcode": "data_setvariableto",
+      "next": "b64",
+      "parent": "b59",
+      "inputs": {
+        "VALUE": [
+          3,
+          "b63",
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "目前",
+          "v4"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b63": {
+      "opcode": "data_itemoflist",
+      "next": null,
+      "parent": "b62",
+      "inputs": {
+        "INDEX": [
+          3,
+          [
+            12,
+            "第幾組",
+            "v7"
+          ],
+          [
+            7,
+            ""
+          ]
+        ]
+      },
+      "fields": {
+        "LIST": [
+          "父親們",
+          "L1"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b64": {
+      "opcode": "data_setvariableto",
+      "next": "b65",
+      "parent": "b62",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            10,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "有父親",
+          "v6"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b65": {
+      "opcode": "data_changevariableby",
+      "next": "b66",
+      "parent": "b64",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            4,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "步數",
+          "v5"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b66": {
+      "opcode": "judgecontrol_breakLoop",
+      "next": null,
+      "parent": "b65",
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b67": {
+      "opcode": "data_changevariableby",
+      "next": null,
+      "parent": "b59",
+      "inputs": {
+        "VALUE": [
+          1,
+          [
+            4,
+            "1"
+          ]
+        ]
+      },
+      "fields": {
+        "VARIABLE": [
+          "第幾組",
+          "v7"
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b68": {
+      "opcode": "control_if_else",
+      "next": null,
+      "parent": "b46",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "b69"
+        ],
+        "SUBSTACK": [
+          2,
+          "b70"
+        ],
+        "SUBSTACK2": [
+          2,
+          "b71"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b69": {
+      "opcode": "judgeoperators_compare",
+      "next": null,
+      "parent": "b68",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          [
+            12,
+            "答案",
+            "v8"
+          ],
+          [
+            10,
+            ""
+          ]
+        ],
+        "OPERAND2": [
+          1,
+          [
+            10,
+            "-1"
+          ]
+        ]
+      },
+      "fields": {
+        "OP": [
+          "=",
+          null
+        ]
+      },
+      "shadow": false,
+      "topLevel": false
+    },
+    "b70": {
+      "opcode": "looks_say",
+      "next": null,
+      "parent": "b68",
+      "inputs": {
+        "MESSAGE": [
+          1,
+          [
+            10,
+            "不是親戚"
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "b71": {
+      "opcode": "looks_say",
+      "next": null,
+      "parent": "b68",
+      "inputs": {
+        "MESSAGE": [
+          3,
+          [
+            12,
+            "答案",
+            "v8"
+          ],
+          [
+            10,
+            ""
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    }
+  }
+}
