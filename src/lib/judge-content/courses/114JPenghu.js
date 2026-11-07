@@ -12,44 +12,44 @@ export default {
             "id": "114JPenghu-1",
             "code": "114JPenghu-114JPenghu-1",
             "title": "神秘留言解碼器",
-            "description": "每個人會收到一段被編碼的英文字母訊息，訊息中只有小寫字母與空白。解碼規則：每個英文字母向前移動一個字母（例如 b→a，c→b，…，a→z），空白保持不變。請讀入一段編碼後的字串，輸出正確解碼後的內容。",
-            "inputDescription": "輸入共有一行，為一段包含小寫字母與空白的字串（長度不超過 100）。",
-            "outputDescription": "輸出解碼後的字串。",
+            "description": "每個人會收到一段被編碼的英文字母訊息，訊息中只有小寫字母與空白。解碼規則：每個英文字母向前移動一個字母（例如 b→a，c→b，…，a→z），空白保持不變。請讀入一段編碼後的訊息（先讀入單字數 N，再讀入 N 個單字），輸出正確解碼後的內容，單字之間以一個空白隔開。",
+            "inputDescription": "第一行：單字數 N\n第二行：N 個由小寫字母組成的單字，以空白分隔（總長度不超過 100）。",
+            "outputDescription": "輸出解碼後的內容，單字之間以一個空白隔開。",
             "examples": [
                 {
-                    "input": "bqqmf",
+                    "input": "1\nbqqmf",
                     "output": "apple",
                     "explanation": "b→a, q→p, q→p, m→l, f→e，組合起來是 apple。"
                 },
                 {
-                    "input": "ifmmp xpsme",
+                    "input": "2\nifmmp xpsme",
                     "output": "hello world",
                     "explanation": "ifmmp 解碼為 hello，xpsme 解碼為 world，空白保持不變。"
                 }
             ],
             "testCases": [
                 {
-                    "input": "bqqmf",
+                    "input": "1\nbqqmf",
                     "expectedOutput": "apple",
                     "score": 10
                 },
                 {
-                    "input": "ifmmp xpsme",
+                    "input": "2\nifmmp xpsme",
                     "expectedOutput": "hello world",
                     "score": 10
                 },
                 {
-                    "input": "zoo",
+                    "input": "1\nzoo",
                     "expectedOutput": "ynn",
                     "score": 10
                 },
                 {
-                    "input": "uif dpef jt gvo",
+                    "input": "4\nuif dpef jt gvo",
                     "expectedOutput": "the code is fun",
                     "score": 10
                 },
                 {
-                    "input": "ibwf b ojdf ebz",
+                    "input": "4\nibwf b ojdf ebz",
                     "expectedOutput": "have a nice day",
                     "score": 10
                 }
@@ -213,7 +213,7 @@ export default {
                     "explanation": "先買 3 個 100 元、2 個 200 元、1 個 300 元，共花 1000 元，買到 6 件。"
                 },
                 {
-                    "input": "500\n4\n600 700 800\n3 4 5",
+                    "input": "500\n3\n600 700 800\n3 4 5",
                     "output": "0",
                     "explanation": "剩下的錢不夠買任何一樣商品，最多買 0 件。"
                 }
@@ -225,7 +225,7 @@ export default {
                     "score": 8
                 },
                 {
-                    "input": "500\n4\n600 700 800\n3 4 5",
+                    "input": "500\n3\n600 700 800\n3 4 5",
                     "expectedOutput": "0",
                     "score": 8
                 },

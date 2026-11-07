@@ -382,69 +382,69 @@ export default {
             "id": "114TCPJ14-6",
             "code": "114TCPJ14-114TCPJ14-6",
             "title": "6-過年大考驗————親等計算機(難)",
-            "description": "過年回老家，最難的就是分清楚親戚關係。我們定義「親等」為兩個人之間到「最近共同祖先」的距離總和。\n【規則說明】\n1. 距離計算：你與父母距離為1，與祖父母距離為2。依此類推(自己與自己的距離為0)。\n2. 親等公式：親等=(X往上到共同祖先的步數)+(Y往上到共同祖先的步數)。\n3. 唯一性：若有多位共同祖先，以親等最小(路徑最近)的為準。\n4. 無關係：若兩人在名單中完全沒有共同祖先，輸出不是親戚。\n【輸入格式】\n1. 第一個輸入：一個整數N，代表親戚關係的數量。\n2. 第二個輸入：N個父親代號(大寫字母)。\n3. 第三個輸入：N個兒子代號(與父親代號對應)。\n4. 第四個輸入：兩個欲查詢親等關係的代號X與Y。\n【輸出格式】\n輸出一個整數代表親等值；若無共同祖先則輸出不是親戚。",
+            "description": "過年回老家，最難的就是分清楚親戚關係。我們定義「親等」為兩個人之間到「最近共同祖先」的距離總和。\n【規則說明】\n1. 距離計算：你與父母距離為1，與祖父母距離為2。依此類推(自己與自己的距離為0)。\n2. 親等公式：親等=(X往上到共同祖先的步數)+(Y往上到共同祖先的步數)。\n3. 唯一性：若有多位共同祖先，以親等最小(路徑最近)的為準。\n4. 無關係：若兩人在名單中完全沒有共同祖先，輸出不是親戚。\n【輸入格式】\n1. 第一個輸入：一個整數N，代表親戚關係的數量。\n2. 第二個輸入：N個父親代號(大寫字母，以空白分隔)。\n3. 第三個輸入：N個兒子代號(與父親代號對應，以空白分隔)。\n4. 第四個輸入：兩個欲查詢親等關係的代號X與Y(以空白分隔)。\n【輸出格式】\n輸出一個整數代表親等值；若無共同祖先則輸出不是親戚。",
             "inputDescription": "",
             "outputDescription": "",
             "examples": [
                 {
-                    "input": "3\nAAB\nBCD\nCD",
+                    "input": "3\nA A B\nB C D\nC D",
                     "output": "3",
                     "explanation": "C的父親是A(1步)；\nD的父親是B，B的父親是A(2步)。\n最近共同祖先為A，親等 = 1 + 2 = 3"
                 },
                 {
-                    "input": "2\nEF\nGH\nEF",
+                    "input": "2\nE F\nG H\nE F",
                     "output": "不是親戚",
                     "explanation": "E與F分屬不同家族血緣，完全沒有共同祖先，故輸出不是親戚"
                 }
             ],
             "testCases": [
                 {
-                    "input": "3\nAAB\nBCD\nCD",
+                    "input": "3\nA A B\nB C D\nC D",
                     "expectedOutput": "3",
                     "score": 10
                 },
                 {
-                    "input": "2\nAA\nBC\nBC",
+                    "input": "2\nA A\nB C\nB C",
                     "expectedOutput": "2",
                     "score": 10
                 },
                 {
-                    "input": "3\nABC\nBCD\nAD",
+                    "input": "3\nA B C\nB C D\nA D",
                     "expectedOutput": "3",
                     "score": 10
                 },
                 {
-                    "input": "2\nPP\nAB\nAP",
+                    "input": "2\nP P\nA B\nA P",
                     "expectedOutput": "1",
                     "score": 10
                 },
                 {
-                    "input": "4\nGGAB\nABCD\nCD",
+                    "input": "4\nG G A B\nA B C D\nC D",
                     "expectedOutput": "4",
                     "score": 10
                 },
                 {
-                    "input": "2\nEF\nGH\nEF",
+                    "input": "2\nE F\nG H\nE F",
                     "expectedOutput": "不是親戚",
                     "score": 10
                 },
                 {
-                    "input": "1\nK\nP\nKP",
+                    "input": "1\nK\nP\nK P",
                     "expectedOutput": "1",
                     "score": 10
                 },
                 {
-                    "input": "3\nIJK\nLMN\nLN",
+                    "input": "3\nI J K\nL M N\nL N",
                     "expectedOutput": "不是親戚",
                     "score": 10
                 },
                 {
-                    "input": "8\nRSTTUVWX\nSTUVWXYZ\nYZ",
+                    "input": "8\nR S T T U V W X\nS T U V W X Y Z\nY Z",
                     "expectedOutput": "6",
                     "score": 10
                 },
                 {
-                    "input": "2\nZZ\nXY\nXY",
+                    "input": "2\nZ Z\nX Y\nX Y",
                     "expectedOutput": "2",
                     "score": 10
                 }

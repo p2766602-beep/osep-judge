@@ -351,7 +351,7 @@ export default {
                 },
                 {
                     "input": "6\n1 0 0 0 0 1",
-                    "expectedOutput": "12",
+                    "expectedOutput": "11",
                     "score": 10
                 },
                 {
@@ -371,7 +371,7 @@ export default {
                 },
                 {
                     "input": "8\n0 1 0 0 0 0 1 0",
-                    "expectedOutput": "12",
+                    "expectedOutput": "11",
                     "score": 10
                 }
             ],

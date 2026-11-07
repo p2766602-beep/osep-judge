@@ -87,16 +87,16 @@ export default {
             "code": "114TCPJ02-114TCPJ02-2",
             "title": "5進位解碼",
             "description": "程式設計社的入社考題是一串神秘代碼。代碼由 A, B, C, D, E 五個字母組成，這其實是一個「5進位」數字系統：\nA=0, B=1, C=2, D=3, E=4\n例如密碼 BC 代表 5 進位的 12，換算成 10 進位就是 1 × 5 + 2 = 7。請編寫程式將密碼解碼為 10 進位數字。\n1. 輸入密碼長度 L 與密碼內容（由 A-E 組成）。\n2. 權重計算：最右邊位數是 5 的 0 次方（任何數的 0 次方為 1），左邊一位是 5 的 1 次方，以此類推。\n3. 將每個字母轉換為對應數值後，計算總和。",
-            "inputDescription": "第一行：整數 L。\n第二行：L 個字元（如 BC）。",
+            "inputDescription": "第一行：整數 L。\n第二行：L 個字母，以空白分隔（如 B C）。",
             "outputDescription": "一個整數（10 進位數值）。",
             "examples": [
                 {
-                    "input": "2\nBC",
+                    "input": "2\nB C",
                     "output": "7",
                     "explanation": "B=1, C=2。 1 × 5 + 2 = 7。"
                 },
                 {
-                    "input": "3\nBAE",
+                    "input": "3\nB A E",
                     "output": "29",
                     "explanation": "B=1, A=0, E=4。 1 × 25 + 0 × 5 + 4 × 1 = 29。"
                 }
@@ -108,27 +108,27 @@ export default {
                     "score": 10
                 },
                 {
-                    "input": "2\nEE",
+                    "input": "2\nE E",
                     "expectedOutput": "24",
                     "score": 10
                 },
                 {
-                    "input": "3\nBAA",
+                    "input": "3\nB A A",
                     "expectedOutput": "25",
                     "score": 10
                 },
                 {
-                    "input": "4\nBAAA",
+                    "input": "4\nB A A A",
                     "expectedOutput": "125",
                     "score": 10
                 },
                 {
-                    "input": "5\nCDEAB",
+                    "input": "5\nC D E A B",
                     "expectedOutput": "1726",
                     "score": 10
                 },
                 {
-                    "input": "5\nAAAAA",
+                    "input": "5\nA A A A A",
                     "expectedOutput": "0",
                     "score": 10
                 },
@@ -138,17 +138,17 @@ export default {
                     "score": 10
                 },
                 {
-                    "input": "4\nBCDE",
+                    "input": "4\nB C D E",
                     "expectedOutput": "194",
                     "score": 10
                 },
                 {
-                    "input": "5\nABCDE",
+                    "input": "5\nA B C D E",
                     "expectedOutput": "194",
                     "score": 10
                 },
                 {
-                    "input": "5\nEEEEE",
+                    "input": "5\nE E E E E",
                     "expectedOutput": "3124",
                     "score": 10
                 }
