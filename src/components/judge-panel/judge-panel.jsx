@@ -5,6 +5,7 @@ import {gradeSubmission, prepareVmForGrading} from '../../lib/tw-judge-engine.js
 import {scaffoldUrlForCourse} from '../../lib/scaffold-content.js';
 import judgeManualRun from '../../lib/judge-manual-run.js';
 import {fetchContestLock} from '../../lib/course-contest-lock.js';
+import {attachAnnotator} from '../../lib/annotator.js';
 import TaskList, {CourseTaskList, saveActiveCode} from './task-list.jsx';
 import styles from './judge-panel.css';
 
@@ -100,8 +101,102 @@ ModeSwitch.propTypes = {
     onChange: PropTypes.func.isRequired
 };
 
-const DescriptionTab = ({task, onLoadDemo, demoStatus, demoLoaded, scaffoldUrl, isContestMode}) => (
+const escapeHtml = text => String(text === null || typeof text === 'undefined' ? '' : text)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+
+// 2026-11-09：比照BlocklyYdws「查看完整任務」視窗，完整題目放在較寬的視窗裡，可以直接畫重點
+// （畫記模組../../lib/annotator.js三個平台共用）。內容用HTML字串一次塞進去：畫記模組會改寫
+// 這塊DOM，不能交給React管理；換題時用key重新掛載。
+const renderFullTaskHtml = task => {
+    const section = (heading, text) => (text ? `
+        <h3 class="${styles.sectionHeading}">${heading}</h3>
+        <p class="${styles.description}">${escapeHtml(text)}</p>` : '');
+    const examples = task.examples.map((example, index) => `
+        <div class="${styles.exampleBox}">
+            <div class="${styles.exampleLabel}">範例 ${index + 1}</div>
+            <table class="${styles.exampleTable}"><tbody>
+                <tr><th>輸入</th><td><div class="${styles.exampleValue}">${escapeHtml(example.input)}</div></td></tr>
+                <tr><th>輸出</th><td><div class="${styles.exampleValue}">${escapeHtml(example.output)}</div></td></tr>
+                ${example.explanation ? `<tr><th>說明</th><td class="${styles.exampleExplanation}">${escapeHtml(example.explanation)}</td></tr>` : ''}
+            </tbody></table>
+        </div>`).join('');
+    return `
+        ${section('題目敘述', task.description)}
+        ${section('輸入說明', task.inputDescription)}
+        ${section('輸出說明', task.outputDescription)}
+        <h3 class="${styles.sectionHeading}">範例測資</h3>
+        ${examples}`;
+};
+
+const FullTaskModal = ({task, onClose}) => {
+    const bodyRef = useRef(null);
+    const html = renderFullTaskHtml(task);
+
+    useEffect(() => attachAnnotator(bodyRef.current, `osep:${task.code}`), [task.code]);
+
+    useEffect(() => {
+        const handleKey = event => {
+            if (event.key === 'Escape') onClose();
+        };
+        window.addEventListener('keydown', handleKey);
+        return () => window.removeEventListener('keydown', handleKey);
+    }, [onClose]);
+
+    return (
+        <div
+            className={styles.fullTaskBackdrop}
+            onClick={event => {
+                if (event.target === event.currentTarget) onClose();
+            }}
+        >
+            <div
+                aria-modal="true"
+                className={styles.fullTaskCard}
+                role="dialog"
+            >
+                <div className={styles.fullTaskHeader}>
+                    <span>{task.title}</span>
+                    <button
+                        className={styles.backButton}
+                        onClick={onClose}
+                    >
+                        關閉
+                    </button>
+                </div>
+                <div
+                    className={styles.fullTaskBody}
+                    dangerouslySetInnerHTML={{__html: html}}
+                    key={task.code}
+                    ref={bodyRef}
+                />
+            </div>
+        </div>
+    );
+};
+FullTaskModal.propTypes = {
+    onClose: PropTypes.func.isRequired,
+    task: PropTypes.shape({
+        code: PropTypes.string,
+        title: PropTypes.string,
+        description: PropTypes.string,
+        inputDescription: PropTypes.string,
+        outputDescription: PropTypes.string,
+        examples: PropTypes.arrayOf(PropTypes.object)
+    }).isRequired
+};
+
+const DescriptionTab = ({task, onLoadDemo, demoStatus, demoLoaded, scaffoldUrl, isContestMode, onOpenFullTask}) => (
     <div className={styles.tabContent}>
+        <button
+            className={styles.fullTaskButton}
+            title="打開完整題目，可以在上面畫重點"
+            onClick={onOpenFullTask}
+        >
+            🔍 查看完整題目（可畫重點）
+        </button>
         <h3 className={styles.sectionHeading}>題目敘述</h3>
         <p className={styles.description}>{task.description}</p>
         {scaffoldUrl ? (
@@ -174,6 +269,7 @@ DescriptionTab.propTypes = {
     demoStatus: PropTypes.string,
     isContestMode: PropTypes.bool,
     onLoadDemo: PropTypes.func.isRequired,
+    onOpenFullTask: PropTypes.func.isRequired,
     scaffoldUrl: PropTypes.string,
     task: PropTypes.shape({
         description: PropTypes.string,
@@ -460,6 +556,7 @@ const JudgePanel = ({vm}) => {
     // 而不是每次都砍回最上層的全部課程列表（見下面handleBackFromTask）。
     const [viewingCourseCode, setViewingCourseCode] = useState(null);
     const [activeTab, setActiveTab] = useState('description');
+    const [fullTaskOpen, setFullTaskOpen] = useState(false);
     const [grading, setGrading] = useState({
         isRunning: false,
         totalScore: null,
@@ -609,7 +706,11 @@ const JudgePanel = ({vm}) => {
     const handleBackFromTask = () => {
         setViewingCourseCode(taskDetail?.course?.code || null);
         setSelectedTaskCode(null);
+        setFullTaskOpen(false);
     };
+
+    const handleOpenFullTask = () => setFullTaskOpen(true);
+    const handleCloseFullTask = () => setFullTaskOpen(false);
 
     const handleLoadDemo = async () => {
         if (isContestMode) return;
@@ -767,6 +868,7 @@ const JudgePanel = ({vm}) => {
                     scaffoldUrl={scaffoldUrl}
                     task={task}
                     onLoadDemo={handleLoadDemo}
+                    onOpenFullTask={handleOpenFullTask}
                 />
             )}
             {activeTab === 'selftest' && <SelfTestTab vm={vm} />}
@@ -779,6 +881,12 @@ const JudgePanel = ({vm}) => {
                 />
             )}
             {activeTab === 'history' && <HistoryTab history={history} />}
+            {fullTaskOpen ? (
+                <FullTaskModal
+                    task={task}
+                    onClose={handleCloseFullTask}
+                />
+            ) : null}
         </div>
     );
 };

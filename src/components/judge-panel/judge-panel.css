@@ -629,3 +629,76 @@
     font-size: 0.7rem;
     color: $text-primary-transparent;
 }
+
+/*
+ * 2026-11-09：完整題目視窗（比照BlocklyYdws「查看完整任務」），學生可以在視窗裡畫重點，
+ * 畫記工具列與樣式由../../lib/annotator.js自己注入。
+ */
+.full-task-button {
+    display: block;
+    width: 100%;
+    margin-bottom: $space;
+    padding: calc($space / 2) $space;
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #1e40af;
+    background: #eff6ff;
+    border: 1px solid #93c5fd;
+    border-radius: $form-radius;
+    cursor: pointer;
+}
+
+.full-task-button:hover {
+    background: #dbeafe;
+}
+
+.full-task-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4vh 16px;
+    background: rgba(15, 23, 42, 0.45);
+}
+
+.full-task-card {
+    display: flex;
+    flex-direction: column;
+    width: min(880px, 100%);
+    max-height: 92vh;
+    background: $ui-white;
+    border-radius: 12px;
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.35);
+    overflow: hidden;
+}
+
+.full-task-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $space;
+    padding: $space calc($space * 1.5);
+    font-size: 1.05rem;
+    font-weight: bold;
+    color: $ui-white;
+    background-color: $looks-secondary;
+}
+
+.full-task-body {
+    padding: 0 calc($space * 1.5) calc($space * 1.5);
+    overflow-y: auto;
+    font-size: 1.05rem;
+}
+
+.full-task-body .description {
+    font-size: 0.95rem;
+}
+
+.full-task-body .example-box {
+    font-size: 0.9rem;
+}
