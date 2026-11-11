@@ -8,12 +8,14 @@ import AudioEngine from 'scratch-audio';
 
 import {setProjectUnchanged} from '../reducers/project-changed';
 import {
+    LoadingState,
     LoadingStates,
     getIsLoadingWithId,
     onLoadedProject,
     projectError
 } from '../reducers/project-state';
 import log from './log';
+import {takeInitialDraft, finishInitialLoad} from './ydws-work-draft.js';
 
 /**
  * List of fonts that could be used by security prompts.
@@ -71,8 +73,16 @@ const vmManagerHOC = function (WrappedComponent) {
         loadProject () {
             // tw: stop when loading new project
             this.props.vm.quit();
-            return this.props.vm.loadProject(this.props.projectData)
-                .then(() => {
+            // 2026-11-11：開網頁後第一次載入預設專案時，有自動暫存就改載入暫存（見ydws-work-draft.js）
+            const initial = takeInitialDraft(this.props.loadingState === LoadingState.LOADING_VM_NEW_DEFAULT);
+            const loading = initial ?
+                this.props.vm.loadProject(initial.buffer)
+                    .then(() => initial.draft)
+                    .catch(() => this.props.vm.loadProject(this.props.projectData).then(() => null)) :
+                this.props.vm.loadProject(this.props.projectData).then(() => null);
+            return loading
+                .then(restoredDraft => {
+                    finishInitialLoad(restoredDraft);
                     this.props.onLoadedProject(this.props.loadingState, this.props.canSave);
                     // Wrap in a setTimeout because skin loading in
                     // the renderer can be async.

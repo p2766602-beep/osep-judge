@@ -702,3 +702,55 @@
 .full-task-body .example-box {
     font-size: 0.9rem;
 }
+
+/* 2026-11-11：全頁畫筆按鈕、自動還原／載入檔案提示、手動測試的無窮迴圈提示 */
+.ink-pad-button {
+    background: rgba(255, 255, 255, 0.18);
+    color: $ui-white;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: $form-radius;
+    padding: calc($space / 4) calc($space / 2);
+    font-size: 0.75rem;
+    font-weight: bold;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.ink-pad-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.notice-bar {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: calc($space / 2);
+    margin: calc($space / 2) $space 0;
+    padding: calc($space / 2) $space;
+    background: #e0f2fe;
+    color: #075985;
+    border: 1px solid #7dd3fc;
+    border-radius: $form-radius;
+    font-size: 0.8rem;
+    line-height: 1.4;
+}
+
+.notice-close {
+    flex-shrink: 0;
+    background: transparent;
+    border: none;
+    color: #075985;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.guard-message {
+    margin-top: $space;
+    padding: calc($space / 2) $space;
+    background: #fef2f2;
+    color: #991b1b;
+    border: 1px solid #fca5a5;
+    border-radius: $form-radius;
+    font-size: 0.85rem;
+    line-height: 1.4;
+}

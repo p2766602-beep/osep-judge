@@ -6,6 +6,15 @@ import {scaffoldUrlForCourse} from '../../lib/scaffold-content.js';
 import judgeManualRun from '../../lib/judge-manual-run.js';
 import {fetchContestLock} from '../../lib/course-contest-lock.js';
 import {attachAnnotator} from '../../lib/annotator.js';
+import {toggleInkPad} from '../../lib/inkpad.js';
+import {
+    annotationKeyForTask,
+    installWorkDraft,
+    saveWorkDraftNow,
+    setDraftContext,
+    subscribeNotice,
+    subscribeRestore
+} from '../../lib/ydws-work-draft.js';
 import TaskList, {CourseTaskList, saveActiveCode} from './task-list.jsx';
 import styles from './judge-panel.css';
 
@@ -135,7 +144,7 @@ const FullTaskModal = ({task, onClose}) => {
     const bodyRef = useRef(null);
     const html = renderFullTaskHtml(task);
 
-    useEffect(() => attachAnnotator(bodyRef.current, `osep:${task.code}`), [task.code]);
+    useEffect(() => attachAnnotator(bodyRef.current, annotationKeyForTask(task.code)), [task.code]);
 
     useEffect(() => {
         const handleKey = event => {
@@ -287,10 +296,17 @@ DescriptionTab.propTypes = {
  * 輸入模式（手動測試給學生用、評分給系統自動讀取），對齊國小學生已經熟悉的Scratch
  * 操作習慣（見judge-manual-run.js的說明——舞台平常用CSS隱藏，這裡暫時顯示出來）。
  */
+// 2026-11-11：比照Blockly平台的無窮迴圈保護。Scratch本身不會讓瀏覽器當掉，但「重複無限次」或
+// 停不下來的迴圈會讓手動測試一直跑、舞台不會收起來。不算等待輸入的時間，連續執行超過8秒就自動停止。
+const LOOP_GUARD_LIMIT_MS = 8000;
+const LOOP_GUARD_MESSAGE = '程式已經連續執行超過 8 秒，可能進入了無窮迴圈，已自動停止。' +
+    '請檢查迴圈的結束條件（例如「重複直到」的條件會不會成立、計數變數有沒有改變）。';
+
 const SelfTestTab = ({vm}) => {
     const [running, setRunning] = useState(false);
     const [output, setOutput] = useState(null);
     const [debugOutput, setDebugOutput] = useState(null);
+    const [guardMessage, setGuardMessage] = useState(null);
     // 用ref存這次執行的攔截狀態（onSay handler／目前累積的說出／輸出訊息／輪詢計時器），
     // 讓poll的setInterval跟handleStop都能拿到同一份、不受React重新render影響。
     const runStateRef = useRef(null);
@@ -307,6 +323,7 @@ const SelfTestTab = ({vm}) => {
         if (!state) return;
         clearInterval(state.poll);
         vm.runtime.off('SAY', state.onSay);
+        vm.runtime.off('QUESTION', state.onQuestion);
         restoreVisibility(state);
         runStateRef.current = null;
         setOutput(state.capturedSay.join('\n'));
@@ -322,6 +339,7 @@ const SelfTestTab = ({vm}) => {
         vm.stopAll();
         if (runStateRef.current) {
             vm.runtime.off('SAY', runStateRef.current.onSay);
+            vm.runtime.off('QUESTION', runStateRef.current.onQuestion);
             clearInterval(runStateRef.current.poll);
             restoreVisibility(runStateRef.current);
             runStateRef.current = null;
@@ -330,9 +348,11 @@ const SelfTestTab = ({vm}) => {
     }, []);
 
     const handleStart = () => {
+        saveWorkDraftNow();
         setRunning(true);
         setOutput(null);
         setDebugOutput(null);
+        setGuardMessage(null);
 
         const capturedSay = [];
         const capturedThink = [];
@@ -363,12 +383,26 @@ const SelfTestTab = ({vm}) => {
         judgeManualRun.show();
         vm.greenFlag();
 
+        // 等待「詢問並等待」輸入的時間不算；回答之後重新計時
+        const guard = {waiting: false, busySince: Date.now()};
+        const onQuestion = question => {
+            guard.waiting = question !== null;
+            guard.busySince = Date.now();
+        };
+        vm.runtime.on('QUESTION', onQuestion);
+
         const poll = setInterval(() => {
             if (vm.runtime.threads.length === 0) {
                 finishRun();
+                return;
+            }
+            if (!guard.waiting && Date.now() - guard.busySince > LOOP_GUARD_LIMIT_MS) {
+                vm.stopAll();
+                setGuardMessage(LOOP_GUARD_MESSAGE);
+                finishRun();
             }
         }, 200);
-        runStateRef.current = {onSay, capturedSay, capturedThink, poll, previousVisibility};
+        runStateRef.current = {onSay, onQuestion, capturedSay, capturedThink, poll, previousVisibility};
     };
 
     const handleStop = () => {
@@ -398,6 +432,7 @@ const SelfTestTab = ({vm}) => {
                     開始手動測試
                 </button>
             )}
+            {guardMessage ? <p className={styles.guardMessage}>{guardMessage}</p> : null}
             {output !== null ? (
                 <React.Fragment>
                     <h3 className={styles.sectionHeading}>輸出：（「說出」的內容，系統評分依據）</h3>
@@ -550,6 +585,33 @@ HistoryTab.propTypes = {
     })).isRequired
 };
 
+const InkPadButton = () => (
+    <button
+        className={styles.inkPadButton}
+        title="在整個畫面上畫記（上課講解用，不會存檔；按 Esc 或「關閉」就清除）"
+        onClick={toggleInkPad}
+    >
+        🖊 全頁畫筆
+    </button>
+);
+
+const NoticeBar = ({text, onClose}) => (text ? (
+    <div className={styles.noticeBar}>
+        <span>{text}</span>
+        <button
+            className={styles.noticeClose}
+            title="關閉提示"
+            onClick={onClose}
+        >
+            ✕
+        </button>
+    </div>
+) : null);
+NoticeBar.propTypes = {
+    text: PropTypes.string,
+    onClose: PropTypes.func.isRequired
+};
+
 const JudgePanel = ({vm}) => {
     const [selectedTaskCode, setSelectedTaskCode] = useState(null);
     // 2026-09-05：解完題按「返回」時，記住剛剛那一題屬於哪個課程，回去該課程自己的題目清單，
@@ -573,6 +635,19 @@ const JudgePanel = ({vm}) => {
     const [taskLoading, setTaskLoading] = useState(false);
     // 目前課程的模式狀態；換課程時才重新決定（同一課程切換題目維持學生選的模式）
     const [courseMode, setCourseMode] = useState({courseCode: null, mode: 'contest', lockReason: ''});
+    // 2026-11-11：自動還原／載入檔案時的提示訊息（見ydws-work-draft.js）
+    const [notice, setNotice] = useState(null);
+    const [restoreInfo, setRestoreInfo] = useState(null);
+
+    useEffect(() => {
+        installWorkDraft(vm);
+        const offNotice = subscribeNotice(setNotice);
+        const offRestore = subscribeRestore(setRestoreInfo);
+        return () => {
+            offNotice();
+            offRestore();
+        };
+    }, [vm]);
 
     // judge-content/是課程資料模組（跟平台程式碼本身無關），改成動態載入讓webpack把它切成
     // 獨立chunk：上架新題目只讓對應課程檔案的雜湊變、平台UI改動只讓主程式碼的雜湊變，兩者
@@ -614,6 +689,20 @@ const JudgePanel = ({vm}) => {
         }
     }, [judgeContent]);
 
+    // 2026-11-11：重新整理後還原上次的程式。網址沒有指定課程時，也回到上次做的那一題；
+    // 「載入過範例」的標記跟著暫存一起還原，不能靠重新整理洗掉。
+    useEffect(() => {
+        if (!judgeContent || !restoreInfo) return;
+        if (restoreInfo.demoLoaded) setDemoLoaded(true);
+        const hasDeepLink = Boolean(new URLSearchParams(window.location.search).get('course'));
+        const known = restoreInfo.taskCode && judgeContent.courses.some(course =>
+            course.tasks.some(item => item.code === restoreInfo.taskCode));
+        if (!hasDeepLink && known) setSelectedTaskCode(restoreInfo.taskCode);
+        const time = new Date(restoreInfo.savedAt || Date.now()).toLocaleString('zh-TW', {hour12: false});
+        setNotice(`已自動還原上次的程式（${time} 暫存）。如果要重新開始，請用「檔案 → 新建專案」。`);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [judgeContent, restoreInfo]);
+
     // 使用者選了某個題目後，才動態載入該題目所屬課程的完整資料（description/testCases等）。
     useEffect(() => {
         if (!judgeContent || !selectedTaskCode) {
@@ -653,6 +742,11 @@ const JudgePanel = ({vm}) => {
 
     const task = taskDetail ? taskDetail.task : null;
     const detailCourse = taskDetail ? taskDetail.course : null;
+
+    // 暫存與存檔要知道目前在哪一題（畫重點依題號存）、有沒有載入過範例
+    useEffect(() => {
+        setDraftContext({taskCode: task ? task.code : null, demoLoaded});
+    }, [task, demoLoaded]);
 
     useEffect(() => {
         if (!detailCourse || courseMode.courseCode === detailCourse.code) return;
@@ -724,12 +818,15 @@ const JudgePanel = ({vm}) => {
             await vm.loadProject(buffer);
             setDemoStatus('已載入範例答案，可以在左邊積木畫布查看。');
             setDemoLoaded(true);
+            setDraftContext({demoLoaded: true});
+            saveWorkDraftNow();
         } catch (err) {
             setDemoStatus(`載入失敗：${err && err.message ? err.message : String(err)}`);
         }
     };
 
     const handleRunGrading = async () => {
+        saveWorkDraftNow();
         setGrading({isRunning: true, totalScore: null, maxScore: null, results: null, error: null});
         try {
             const {totalScore, maxScore, results} = await withVisibilityRestore(
@@ -800,10 +897,17 @@ const JudgePanel = ({vm}) => {
                     <div className={styles.headerLeft}>
                         <span className={styles.taskTitle}>osep-judge</span>
                     </div>
-                    {visitCount !== null && (
-                        <span className={styles.visitCounter}>累計造訪次數：{visitCount}</span>
-                    )}
+                    <div className={styles.headerRight}>
+                        {visitCount !== null && (
+                            <span className={styles.visitCounter}>累計造訪次數：{visitCount}</span>
+                        )}
+                        <InkPadButton />
+                    </div>
                 </div>
+                <NoticeBar
+                    text={notice}
+                    onClose={() => setNotice(null)}
+                />
                 {viewingCourse ? (
                     <CourseTaskList
                         course={viewingCourse}
@@ -841,9 +945,14 @@ const JudgePanel = ({vm}) => {
                     {visitCount !== null && (
                         <span className={styles.visitCounter}>累計造訪次數：{visitCount}</span>
                     )}
+                    <InkPadButton />
                     <span className={styles.scoreBadge}>{scoreLabel}</span>
                 </div>
             </div>
+            <NoticeBar
+                text={notice}
+                onClose={() => setNotice(null)}
+            />
             <ModeSwitch
                 lockReason={courseMode.lockReason}
                 mode={courseMode.mode}

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import {intlShape, injectIntl} from 'react-intl';
 import {connect} from 'react-redux';
 import log from '../lib/log';
+import {applyAnnotationsFromSb3} from './ydws-work-draft.js';
 import sharedMessages from './shared-messages';
 import {setFileHandle, setProjectError} from '../reducers/tw';
 
@@ -199,8 +200,11 @@ const SBFileUploaderHOC = function (WrappedComponent) {
                 let loadingSuccess = false;
                 // tw: stop when loading new project
                 this.props.vm.quit();
-                this.props.vm.loadProject(this.fileReader.result)
+                const projectData = this.fileReader.result;
+                this.props.vm.loadProject(projectData)
                     .then(() => {
+                        // 2026-11-11：檔案裡有這一題的畫重點就一起套用，並更新自動暫存
+                        applyAnnotationsFromSb3(projectData);
                         if (filename) {
                             const uploadedProjectTitle = this.getProjectTitleFromFilename(filename);
                             this.props.onSetProjectTitle(uploadedProjectTitle);
